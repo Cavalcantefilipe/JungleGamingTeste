@@ -1,6 +1,7 @@
 import { ShoppingCartIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
+import { FavoriteButton } from '@/features/favorites/components/FavoriteButton';
 import { formatEth } from '@/lib/money';
 
 import { detailMessages } from '../messages';
@@ -47,18 +48,21 @@ export function PurchasePanel({ nft, selection }: PurchasePanelProps) {
       <p className="text-caption text-text-secondary">
         {detailMessages.available(selection.edition.available)}
       </p>
-      <div className="hidden items-center gap-3 md:flex">
-        <Button
-          type="button"
-          className="uppercase"
-          disabled={!canBuy || isPending}
-          onClick={() => {
-            buy().catch(() => undefined);
-          }}
-        >
-          <ShoppingCartIcon aria-hidden className="size-4" />
-          {isPending ? 'Adicionando…' : detailMessages.buy}
-        </Button>
+      <div className="flex items-center gap-3">
+        <div className="hidden md:block">
+          <Button
+            type="button"
+            className="uppercase"
+            disabled={!canBuy || isPending}
+            onClick={() => {
+              buy().catch(() => undefined);
+            }}
+          >
+            <ShoppingCartIcon aria-hidden className="size-4" />
+            {isPending ? 'Adicionando…' : detailMessages.buy}
+          </Button>
+        </div>
+        <FavoriteButton nftId={nft.id} variant="button" />
       </div>
       <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-caption text-text-secondary">
         <dt>{detailMessages.tokenId}:</dt>

@@ -29,7 +29,7 @@ export function MobileTabBar() {
           </Link>
         </li>
         <li className="flex flex-1">
-          <Link to="/" hash="catalogo" className={itemClass}>
+          <Link to="/" search={{ favorites: true }} hash="catalogo" className={itemClass}>
             <HeartIcon aria-hidden className="size-5" />
             Favoritos
           </Link>

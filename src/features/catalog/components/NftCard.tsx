@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router';
 
 import { Badge } from '@/components/ui/badge';
+import { FavoriteButton } from '@/features/favorites/components/FavoriteButton';
 import { formatEth } from '@/lib/money';
 
 import type { Nft } from '@/contracts';
@@ -32,6 +33,7 @@ export function NftCard({ nft, priority = false }: NftCardProps) {
           />
         )}
       </Link>
+      <FavoriteButton nftId={nft.id} className="absolute top-2 right-2" />
       {nft.rarity === 'raro' && (
         <Badge className="absolute top-2 left-2 bg-amber text-tiny font-bold text-ink uppercase">
           Raro

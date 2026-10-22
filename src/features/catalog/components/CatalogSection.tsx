@@ -80,6 +80,25 @@ function CatalogResults({
   );
 }
 
+function FavoritesBanner() {
+  const { clearFilters } = useCatalogNavigation();
+  return (
+    <p className="flex flex-wrap items-center justify-between gap-3 rounded-control border border-border-soft bg-surface-card px-4 py-3 text-body text-foreground">
+      Mostrando seus favoritos
+      <Button
+        type="button"
+        variant="ghost"
+        size="sm"
+        onClick={() => {
+          void clearFilters();
+        }}
+      >
+        Ver todos os NFTs
+      </Button>
+    </p>
+  );
+}
+
 export function CatalogSection() {
   const { search } = useCatalogNavigation();
   const catalog = useQuery(nftListQueryOptions(search));
@@ -106,6 +125,7 @@ export function CatalogSection() {
             <SearchField />
             <FilterDrawer facets={facets} featured={featured} />
           </div>
+          {search.favorites && <FavoritesBanner />}
           <div className="flex flex-wrap items-center justify-between gap-4">
             <CatalogTabs />
             <SortSelect />
