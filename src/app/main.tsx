@@ -8,10 +8,9 @@ import { createRoot } from 'react-dom/client';
 
 import { startMocks } from '@/mocks/browser';
 
-import { AppProviders } from './providers';
-
 async function bootstrap(): Promise<void> {
   await startMocks();
+  const { AppProviders } = await import('./providers');
   const rootElement = document.getElementById('root');
   if (!rootElement) throw new Error('Elemento #root não encontrado');
   createRoot(rootElement).render(

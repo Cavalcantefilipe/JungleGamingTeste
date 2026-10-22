@@ -10,7 +10,8 @@ import { scheduleOrderTransition } from './shared/timing';
 
 import type { MockDb, SeedName } from './db/schema';
 import type { MockStore } from './db/store';
-import type { Order, OrderStatus, RealtimeEvent } from '@/contracts';
+import type { RealtimeServer } from './socket/server';
+import type { Nft, Order, OrderStatus, RealtimeEvent } from '@/contracts';
 
 export interface KurioMockControl {
   reset(seed?: SeedName): Promise<void>;
@@ -19,6 +20,9 @@ export interface KurioMockControl {
   emit(event: RealtimeEvent): void;
   getState(): MockDb;
   advanceOrder(orderId: string, status: OrderStatus): Order | undefined;
+  updateNft(nftId: string, patch: Partial<Nft>): Nft | undefined;
+  realtimeConnections(): number;
+  disconnectRealtime(): void;
   listScenarios(): readonly ScenarioName[];
 }
 
@@ -32,7 +36,7 @@ export interface MockControlDependencies {
   store: MockStore;
   initialSeed: SeedName;
   clock: () => Date;
-  emit: (event: RealtimeEvent) => void;
+  realtime: RealtimeServer;
   publishOrderUpdated: (order: Order) => void;
 }
 
@@ -49,7 +53,7 @@ export function installMockControl(deps: MockControlDependencies): KurioMockCont
       return scenario;
     },
     setNetwork,
-    emit: deps.emit,
+    emit: deps.realtime.broadcast,
     getState: () => deps.store.read(),
     advanceOrder(orderId, status) {
       const now = deps.clock();
@@ -66,6 +70,17 @@ export function installMockControl(deps: MockControlDependencies): KurioMockCont
       applied.forEach(deps.publishOrderUpdated);
       return applied.find((order) => order.id === orderId);
     },
+    updateNft(nftId, patch) {
+      const db = deps.store.write((current) => ({
+        ...current,
+        nfts: current.nfts.map((nft) =>
+          nft.id === nftId ? { ...nft, ...patch, version: nft.version + 1 } : nft,
+        ),
+      }));
+      return db.nfts.find((nft) => nft.id === nftId);
+    },
+    realtimeConnections: deps.realtime.connectedCount,
+    disconnectRealtime: deps.realtime.disconnectAll,
     listScenarios: () => SCENARIO_NAMES,
   };
   window.__kurio = control;

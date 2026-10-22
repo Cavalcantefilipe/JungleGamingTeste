@@ -1,6 +1,6 @@
 import { test as base, expect, type Page } from '@playwright/test';
 
-import type { RealtimeEvent } from '../../src/contracts';
+import type { NftUpdatedEvent, RealtimeEvent } from '../../src/contracts';
 import type { KurioMockControl } from '../../src/mocks/control';
 import type { NetworkConditions, ScenarioName } from '../../src/mocks/scenarios/registry';
 
@@ -18,6 +18,7 @@ export interface KurioHelpers {
   getState(): Promise<ReturnType<KurioMockControl['getState']>>;
   loginAs(user: SeedUser): Promise<void>;
   reload(): Promise<void>;
+  nftEvent(nftId: string, version: number, payload: NftUpdatedEvent['payload']): NftUpdatedEvent;
 }
 
 async function waitForMocks(page: Page): Promise<void> {
@@ -82,6 +83,16 @@ export const test = base.extend<{ kurio: KurioHelpers }>({
         async reload() {
           await page.reload();
           await waitForMocks(page);
+        },
+        nftEvent(nftId, version, payload) {
+          return {
+            id: crypto.randomUUID(),
+            type: 'nft.updated',
+            resource: { kind: 'nft', id: nftId },
+            version,
+            occurredAt: new Date().toISOString(),
+            payload,
+          };
         },
       };
       await use(helpers);
