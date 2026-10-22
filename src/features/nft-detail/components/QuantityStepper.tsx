@@ -58,11 +58,6 @@ export function QuantityStepper({
       >
         <PlusIcon aria-hidden className="size-4" />
       </button>
-      {!compact && (
-        <span className="text-caption text-text-secondary">
-          {detailMessages.available(available)}
-        </span>
-      )}
     </div>
   );
 }

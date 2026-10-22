@@ -44,7 +44,7 @@ export function PurchasePanel({ nft, selection }: PurchasePanelProps) {
           onChange={selection.setQuantity}
         />
       </div>
-      <p className="text-caption text-text-secondary md:hidden">
+      <p className="text-caption text-text-secondary">
         {detailMessages.available(selection.edition.available)}
       </p>
       <div className="hidden items-center gap-3 md:flex">

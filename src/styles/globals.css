@@ -25,6 +25,12 @@
   }
   html {
     color-scheme: dark;
+    scroll-padding-bottom: 12rem;
+  }
+  @media (min-width: 768px) {
+    html {
+      scroll-padding-bottom: 0;
+    }
   }
   body {
     @apply bg-ink font-mono text-foreground antialiased;
