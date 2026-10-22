@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import { Toaster } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import { SessionBootstrap } from '@/features/auth/SessionBootstrap';
 
 import { createQueryClient } from './query-client';
 import { createAppRouter } from './router';
@@ -14,6 +15,7 @@ export function AppProviders() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <SessionBootstrap />
       <TooltipProvider>
         <RouterProvider router={router} />
       </TooltipProvider>

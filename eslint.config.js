@@ -55,7 +55,9 @@ export default defineConfig([
     },
     settings: {
       'import-x/resolver-next': [
-        createTypeScriptImportResolver({ project: ['tsconfig.app.json', 'tsconfig.node.json'] }),
+        createTypeScriptImportResolver({
+          project: ['tsconfig.app.json', 'tsconfig.node.json', 'tsconfig.e2e.json'],
+        }),
       ],
     },
     rules: {
@@ -108,8 +110,18 @@ export default defineConfig([
     },
   },
   {
-    files: ['src/routes/**/*.tsx', 'vite.config.ts', 'playwright.config.ts', 'eslint.config.js'],
-    rules: { 'import-x/no-default-export': 'off', 'react-refresh/only-export-components': 'off' },
+    files: [
+      'src/routes/**/*.tsx',
+      'src/features/**/route-guard.ts',
+      'vite.config.ts',
+      'playwright.config.ts',
+      'eslint.config.js',
+    ],
+    rules: {
+      'import-x/no-default-export': 'off',
+      'react-refresh/only-export-components': 'off',
+      '@typescript-eslint/only-throw-error': 'off',
+    },
   },
   {
     files: ['**/*.mjs', 'eslint.config.js'],
@@ -125,6 +137,7 @@ export default defineConfig([
       'max-lines-per-function': 'off',
       'max-lines': 'off',
       '@typescript-eslint/no-unnecessary-type-parameters': 'off',
+      'react-hooks/rules-of-hooks': 'off',
     },
   },
 ]);

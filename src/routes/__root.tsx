@@ -1,5 +1,6 @@
 import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
 
+import { SessionExpiryWatcher } from '@/features/auth/SessionExpiryWatcher';
 import { NotFoundPage } from '@/features/layout/NotFoundPage';
 
 import type { RouterContext } from '@/app/router';
@@ -12,6 +13,7 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 function RootLayout() {
   return (
     <div className="flex min-h-dvh flex-col bg-ink text-foreground">
+      <SessionExpiryWatcher />
       <main id="main" className="flex-1">
         <Outlet />
       </main>
