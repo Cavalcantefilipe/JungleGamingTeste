@@ -5,19 +5,22 @@ test.describe('conta e sessão', () => {
     await page.goto('/register');
 
     await page.getByLabel('Nome de usuário').fill('ana_nova');
-    await page.getByLabel('E-mail').fill(SEED_USERS.ana.email);
+    await page.getByLabel('E-mail', { exact: true }).fill(SEED_USERS.ana.email);
     await page.getByLabel('Senha', { exact: true }).fill('Senha123');
     await page.getByLabel('Confirmar senha').fill('Senha123');
     await page.getByRole('button', { name: /criar (conta|perfil)/i }).click();
 
     await expect(page.getByText('Este e-mail já está cadastrado')).toBeVisible();
-    await expect(page.getByLabel('E-mail')).toHaveAttribute('aria-invalid', 'true');
+    await expect(page.getByLabel('E-mail', { exact: true })).toHaveAttribute(
+      'aria-invalid',
+      'true',
+    );
   });
 
   test('login inválido mostra erro acessível', async ({ page }) => {
     await page.goto('/login');
 
-    await page.getByLabel('E-mail').fill(SEED_USERS.ana.email);
+    await page.getByLabel('E-mail', { exact: true }).fill(SEED_USERS.ana.email);
     await page.getByLabel('Senha', { exact: true }).fill('senha-errada1');
     await page.getByRole('button', { name: 'Entrar', exact: true }).click();
 
@@ -27,7 +30,7 @@ test.describe('conta e sessão', () => {
   test('login válido volta para returnTo', async ({ page }) => {
     await page.goto('/login?returnTo=%2F%3Ftab%3Dnew');
 
-    await page.getByLabel('E-mail').fill(SEED_USERS.ana.email);
+    await page.getByLabel('E-mail', { exact: true }).fill(SEED_USERS.ana.email);
     await page.getByLabel('Senha', { exact: true }).fill(SEED_USERS.ana.password);
     await page.getByRole('button', { name: 'Entrar', exact: true }).click();
 
@@ -41,7 +44,7 @@ test.describe('conta e sessão', () => {
   test('returnTo externo é ignorado', async ({ page }) => {
     await page.goto('/login?returnTo=https%3A%2F%2Fexemplo.com');
 
-    await page.getByLabel('E-mail').fill(SEED_USERS.bruno.email);
+    await page.getByLabel('E-mail', { exact: true }).fill(SEED_USERS.bruno.email);
     await page.getByLabel('Senha', { exact: true }).fill(SEED_USERS.bruno.password);
     await page.getByRole('button', { name: 'Entrar', exact: true }).click();
 
@@ -52,7 +55,7 @@ test.describe('conta e sessão', () => {
     await page.goto('/register');
 
     await page.getByLabel('Nome de usuário').fill('carla');
-    await page.getByLabel('E-mail').fill('carla@kurio.test');
+    await page.getByLabel('E-mail', { exact: true }).fill('carla@kurio.test');
     await page.getByLabel('Senha', { exact: true }).fill('Senha123');
     await page.getByLabel('Confirmar senha').fill('Senha123');
     await page.getByRole('button', { name: /criar (conta|perfil)/i }).click();

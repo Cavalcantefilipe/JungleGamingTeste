@@ -1,7 +1,6 @@
 import { setNetwork, setScenario } from './scenarios/current';
 import {
   SCENARIO_NAMES,
-  SCENARIOS,
   type NetworkConditions,
   type Scenario,
   type ScenarioName,
@@ -31,19 +30,22 @@ declare global {
 
 export interface MockControlDependencies {
   store: MockStore;
+  initialSeed: SeedName;
   clock: () => Date;
   emit: (event: RealtimeEvent) => void;
   publishOrderUpdated: (order: Order) => void;
 }
 
 export function installMockControl(deps: MockControlDependencies): KurioMockControl {
+  let currentSeed: SeedName = deps.initialSeed;
   const control: KurioMockControl = {
-    async reset(seed) {
+    async reset(seed = currentSeed) {
+      currentSeed = seed;
       await deps.store.reset(seed);
     },
     async setScenario(name) {
       const scenario = setScenario(name);
-      await deps.store.reset(SCENARIOS[name].seed);
+      if (scenario.seed !== currentSeed) await control.reset(scenario.seed);
       return scenario;
     },
     setNetwork,

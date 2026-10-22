@@ -11,8 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root';
 import { Route as IndexRouteImport } from './routes/index';
 import { Route as SplatRouteImport } from './routes/$';
+import { Route as AccountRouteImport } from './routes/_account';
+import { Route as CartRouteImport } from './routes/cart';
 import { Route as LoginRouteImport } from './routes/login';
 import { Route as RegisterRouteImport } from './routes/register';
+import { Route as AccountAccountProfileRouteImport } from './routes/_account.account.profile';
+import { Route as AccountAccountWalletsRouteImport } from './routes/_account.account.wallets';
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,6 +26,15 @@ const IndexRoute = IndexRouteImport.update({
 const SplatRoute = SplatRouteImport.update({
   id: '/$',
   path: '/$',
+  getParentRoute: () => rootRouteImport,
+} as any);
+const AccountRoute = AccountRouteImport.update({
+  id: '/_account',
+  getParentRoute: () => rootRouteImport,
+} as any);
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
   getParentRoute: () => rootRouteImport,
 } as any);
 const LoginRoute = LoginRouteImport.update({
@@ -34,37 +47,82 @@ const RegisterRoute = RegisterRouteImport.update({
   path: '/register',
   getParentRoute: () => rootRouteImport,
 } as any);
+const AccountAccountProfileRoute = AccountAccountProfileRouteImport.update({
+  id: '/account/profile',
+  path: '/account/profile',
+  getParentRoute: () => AccountRoute,
+} as any);
+const AccountAccountWalletsRoute = AccountAccountWalletsRouteImport.update({
+  id: '/account/wallets',
+  path: '/account/wallets',
+  getParentRoute: () => AccountRoute,
+} as any);
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute;
   '/$': typeof SplatRoute;
+  '/cart': typeof CartRoute;
   '/login': typeof LoginRoute;
   '/register': typeof RegisterRoute;
+  '/account/profile': typeof AccountAccountProfileRoute;
+  '/account/wallets': typeof AccountAccountWalletsRoute;
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute;
   '/$': typeof SplatRoute;
+  '/cart': typeof CartRoute;
   '/login': typeof LoginRoute;
   '/register': typeof RegisterRoute;
+  '/account/profile': typeof AccountAccountProfileRoute;
+  '/account/wallets': typeof AccountAccountWalletsRoute;
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport;
   '/': typeof IndexRoute;
   '/$': typeof SplatRoute;
+  '/_account': typeof AccountRouteWithChildren;
+  '/cart': typeof CartRoute;
   '/login': typeof LoginRoute;
   '/register': typeof RegisterRoute;
+  '/_account/account/profile': typeof AccountAccountProfileRoute;
+  '/_account/account/wallets': typeof AccountAccountWalletsRoute;
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: '/' | '/$' | '/login' | '/register';
+  fullPaths:
+    | '/'
+    | '/$'
+    | '/cart'
+    | '/login'
+    | '/register'
+    | '/account/profile'
+    | '/account/wallets';
   fileRoutesByTo: FileRoutesByTo;
-  to: '/' | '/$' | '/login' | '/register';
-  id: '__root__' | '/' | '/$' | '/login' | '/register';
+  to:
+    | '/'
+    | '/$'
+    | '/cart'
+    | '/login'
+    | '/register'
+    | '/account/profile'
+    | '/account/wallets';
+  id:
+    | '__root__'
+    | '/'
+    | '/$'
+    | '/_account'
+    | '/cart'
+    | '/login'
+    | '/register'
+    | '/_account/account/profile'
+    | '/_account/account/wallets';
   fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute;
   SplatRoute: typeof SplatRoute;
+  AccountRoute: typeof AccountRouteWithChildren;
+  CartRoute: typeof CartRoute;
   LoginRoute: typeof LoginRoute;
   RegisterRoute: typeof RegisterRoute;
 }
@@ -85,6 +143,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SplatRouteImport;
       parentRoute: typeof rootRouteImport;
     };
+    '/_account': {
+      id: '/_account';
+      path: '';
+      fullPath: '/';
+      preLoaderRoute: typeof AccountRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    '/cart': {
+      id: '/cart';
+      path: '/cart';
+      fullPath: '/cart';
+      preLoaderRoute: typeof CartRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
     '/login': {
       id: '/login';
       path: '/login';
@@ -99,12 +171,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RegisterRouteImport;
       parentRoute: typeof rootRouteImport;
     };
+    '/_account/account/profile': {
+      id: '/_account/account/profile';
+      path: '/account/profile';
+      fullPath: '/account/profile';
+      preLoaderRoute: typeof AccountAccountProfileRouteImport;
+      parentRoute: typeof AccountRoute;
+    };
+    '/_account/account/wallets': {
+      id: '/_account/account/wallets';
+      path: '/account/wallets';
+      fullPath: '/account/wallets';
+      preLoaderRoute: typeof AccountAccountWalletsRouteImport;
+      parentRoute: typeof AccountRoute;
+    };
   }
 }
+
+interface AccountRouteChildren {
+  AccountAccountProfileRoute: typeof AccountAccountProfileRoute;
+  AccountAccountWalletsRoute: typeof AccountAccountWalletsRoute;
+}
+
+const AccountRouteChildren: AccountRouteChildren = {
+  AccountAccountProfileRoute: AccountAccountProfileRoute,
+  AccountAccountWalletsRoute: AccountAccountWalletsRoute,
+};
+
+const AccountRouteWithChildren =
+  AccountRoute._addFileChildren(AccountRouteChildren);
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SplatRoute: SplatRoute,
+  AccountRoute: AccountRouteWithChildren,
+  CartRoute: CartRoute,
   LoginRoute: LoginRoute,
   RegisterRoute: RegisterRoute,
 };

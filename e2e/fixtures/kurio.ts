@@ -12,7 +12,7 @@ export const SEED_USERS = {
 export type SeedUser = keyof typeof SEED_USERS;
 
 export interface KurioHelpers {
-  setScenario(name: ScenarioName): Promise<void>;
+  setScenario(name: ScenarioName, options?: { reload?: boolean }): Promise<void>;
   setNetwork(override: Partial<NetworkConditions>): Promise<void>;
   emit(event: RealtimeEvent): Promise<void>;
   getState(): Promise<ReturnType<KurioMockControl['getState']>>;
@@ -39,12 +39,14 @@ export const test = base.extend<{ kurio: KurioHelpers }>({
     async ({ page }, use) => {
       await resetBrowserState(page);
       const helpers: KurioHelpers = {
-        async setScenario(name) {
+        async setScenario(name, options = {}) {
           await page.evaluate(async (scenario) => {
             await window.__kurio?.setScenario(scenario);
           }, name);
-          await page.reload();
-          await waitForMocks(page);
+          if (options.reload) {
+            await page.reload();
+            await waitForMocks(page);
+          }
         },
         async setNetwork(override) {
           await page.evaluate((conditions) => {

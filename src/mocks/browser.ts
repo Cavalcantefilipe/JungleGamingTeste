@@ -26,6 +26,7 @@ export async function startMocks(): Promise<void> {
 
   installMockControl({
     store,
+    initialSeed: scenario.seed,
     clock,
     emit: () => {
       console.warn('Eventos de tempo real ainda não estão disponíveis nesta versão');

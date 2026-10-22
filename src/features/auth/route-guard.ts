@@ -27,5 +27,6 @@ export function redirectIfAuthenticated(search: AuthSearch): void {
 declare module '@tanstack/react-router' {
   interface StaticDataRouteOption {
     requiresAuth?: boolean;
+    hideFooter?: boolean;
   }
 }

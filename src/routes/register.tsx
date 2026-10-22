@@ -6,6 +6,7 @@ import { HomePage } from '@/features/catalog/components/HomePage';
 
 export const Route = createFileRoute('/register')({
   validateSearch: authSearchSchema,
+  staticData: { hideFooter: true },
   beforeLoad: ({ search }) => {
     redirectIfAuthenticated(search);
   },

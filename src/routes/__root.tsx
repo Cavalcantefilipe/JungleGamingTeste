@@ -2,6 +2,7 @@ import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
 
 import { SessionExpiryWatcher } from '@/features/auth/SessionExpiryWatcher';
 import { NotFoundPage } from '@/features/layout/NotFoundPage';
+import { PageShell } from '@/features/layout/PageShell';
 
 import type { RouterContext } from '@/app/router';
 
@@ -12,11 +13,9 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 
 function RootLayout() {
   return (
-    <div className="flex min-h-dvh flex-col bg-ink text-foreground">
+    <PageShell>
       <SessionExpiryWatcher />
-      <main id="main" className="flex-1">
-        <Outlet />
-      </main>
-    </div>
+      <Outlet />
+    </PageShell>
   );
 }
