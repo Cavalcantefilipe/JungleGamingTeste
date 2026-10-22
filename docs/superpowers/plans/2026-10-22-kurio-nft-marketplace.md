@@ -410,9 +410,9 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - Playwright: projetos `desktop-chromium` (1440×900) e `mobile-chromium` (390×844, `isMobile`), `webServer: pnpm preview --port 4173` (build prévio), `trace: 'retain-on-failure'`, `reporter: [['html', { outputFolder: 'reports/playwright-report' }]]`, `expect.toHaveScreenshot` com `maxDiffPixelRatio: 0.01`. Fixture `kurio` faz `page.addInitScript` para `localStorage.clear()` + `kurio.scenario` e expõe `mocks.setScenario/reset/emit/getState` via `page.evaluate(window.__kurio…)` e `login(user)`.
 
 - [ ] **Passo 1:** `e2e/03-auth.spec.ts`: `cadastro com e-mail existente mostra conflito no campo`, `login inválido mostra erro acessível (role=alert)`, `login válido volta para returnTo`, `sessão expirada durante navegação redireciona e preserva returnTo` (cenário `session-expired`), `logout limpa dados privados (favoritos somem do header)`, `troca de usuário não mostra carrinho do anterior`. Rodar `pnpm e2e --grep auth` → FAIL.
-- [ ] **Passo 2:** implementar store, hooks, formulários (RHF + zod; mensagens pt-BR), rotas e guarda; botões sociais mostram toast "Login social indisponível nesta demonstração" (sem simular sucesso).
+- [x] **Passo 2:** implementar store, hooks, formulários (RHF + zod; mensagens pt-BR), rotas e guarda; botões sociais mostram toast "Login social indisponível nesta demonstração" (sem simular sucesso).
 - [ ] **Passo 3:** rodar E2E → PASS. `security-reviewer` nesta tarefa.
-- [ ] **Passo 4:** Commit `feat: sessão, login, cadastro e proteção de rotas`.
+- [x] **Passo 4:** Commit `feat: sessão, login, cadastro e proteção de rotas`.
 
 ### Task 6: Layout (header, footer, tab bar mobile, página 404)
 
@@ -426,9 +426,9 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - Consumes: `useSession`, `useCartQuery` (Tarefa 11 — até lá, badge lê `0`).
 - Produces: `PageShell({ children, variant: 'default'|'account'|'auth' })`; `LiveRegion` (`aria-live="polite"`) + `announce(message)`; skeletons `NftCardSkeleton`, `DetailSkeleton`, `SummarySkeleton`, `FormSkeleton` com shimmer (`motion-safe:animate-shimmer`).
 
-- [ ] **Passo 1:** `e2e/00-layout.spec.ts`: `header tem landmarks (banner, navigation, main, contentinfo)`, `links fora do escopo (Criadores, Aprenda, colunas do footer) não navegam e informam indisponibilidade`, `newsletter não simula sucesso`, `rota inexistente mostra 404 com link para Início`, `mobile mostra tab bar e não mostra nav desktop`. → FAIL.
-- [ ] **Passo 2:** implementar conforme 2.3 (medidas exatas), ícones `lucide-react`; nav ativa por `useMatchRoute`; "Entrar" vira menu de avatar quando autenticado (Meu perfil, Carteiras, Sair).
-- [ ] **Passo 3:** E2E → PASS. Verificar visualmente em 390/768/1440 (Playwright MCP) contra o Figma. Commit `feat: header, footer, tab bar mobile e 404`.
+- [x] **Passo 1:** `e2e/00-layout.spec.ts`: `header tem landmarks (banner, navigation, main, contentinfo)`, `links fora do escopo (Criadores, Aprenda, colunas do footer) não navegam e informam indisponibilidade`, `newsletter não simula sucesso`, `rota inexistente mostra 404 com link para Início`, `mobile mostra tab bar e não mostra nav desktop`. → FAIL.
+- [x] **Passo 2:** implementar conforme 2.3 (medidas exatas), ícones `lucide-react`; nav ativa por `useMatchRoute`; "Entrar" vira menu de avatar quando autenticado (Meu perfil, Carteiras, Sair).
+- [x] **Passo 3:** E2E → PASS. Verificar visualmente em 390/768/1440 (Playwright MCP) contra o Figma. Commit `feat: header, footer, tab bar mobile e 404`.
 
 ### Task 7: Catálogo (busca, filtros, ordenação, paginação na URL)
 

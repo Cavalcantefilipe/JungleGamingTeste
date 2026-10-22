@@ -33,3 +33,32 @@
     @apply outline-2 outline-offset-2 outline-primary;
   }
 }
+
+@layer components {
+  .page-container {
+    @apply mx-auto w-full max-w-[1440px] px-6 xl:px-[120px];
+  }
+  .mobile-tab {
+    @apply flex min-h-16 flex-col items-center justify-center gap-1 px-1 text-[10px] text-text-secondary transition-colors hover:text-primary active:text-primary-light;
+  }
+  .footer-links {
+    @apply flex min-w-0 flex-col items-start text-xs text-text-secondary;
+  }
+  .footer-links h2 {
+    @apply mb-3 font-bold text-foreground;
+  }
+  .footer-links a,
+  .footer-links button {
+    @apply min-h-11 cursor-pointer py-2 text-left hover:text-primary active:text-primary-light sm:min-h-8;
+  }
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--color-surface-card) 25%,
+      var(--color-surface-raised) 50%,
+      var(--color-surface-card) 75%
+    );
+    background-size: 200% 100%;
+    @apply motion-safe:animate-shimmer;
+  }
+}
