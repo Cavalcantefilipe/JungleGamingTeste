@@ -25,22 +25,22 @@
 
 ## 1. Decisões de versão (fixar no `package.json`)
 
-| Pacote | Range | Motivo |
-| --- | --- | --- |
-| `msw` | `^2.15.0` | `@mswjs/socket.io-binding@0.2.0` declara peer `msw ^2.10.2`; MSW 3 renomeia eventos (`websocket:connection`) e não tem binding publicado compatível. |
-| `@mswjs/socket.io-binding` | `^0.2.0` | API `toSocketIo(connection)` → `io.client.on/emit`. Suporta apenas namespace default e eventos de texto (sem acks/binário/rooms). |
-| `socket.io-client` | `^4.8.0` | Cliente real exigido pelo enunciado. Conectar com `transports: ['websocket']`. |
-| `vite` / `@vitejs/plugin-react` | `^7.3` / `^5.2` | Vite 8 (rolldown) e plugin-react 6 são recentes demais para um prazo de 2 dias. |
-| `typescript` | `~5.9.3` | TS 7 (tsgo) é novo; 5.9 é o piso do ecossistema atual. |
-| `@tanstack/react-router` + `@tanstack/router-plugin` | `^1.170` / `^1.168` (pares) | File-based routing + `autoCodeSplitting`. |
-| `@tanstack/react-query` | `^5.104` | |
-| `tailwindcss` + `@tailwindcss/vite` | `^4.3` | Config CSS-first, sem `tailwind.config.js`. |
-| `shadcn` CLI | latest | `pnpm dlx shadcn@latest init` com Radix (padrão), estilo new-york, CSS variables. |
-| `zod` | `^4.6` | Usado direto em `validateSearch` (Standard Schema). |
-| `big.js` | `^7` | Aritmética decimal para ETH como string. |
-| `@playwright/test` | `^1.64` | Chromium, projetos desktop 1440×900 e mobile 390×844. |
-| `@lhci/cli` | `^0.15` | 3 execuções por página/perfil, mediana, relatórios HTML/JSON. |
-| `eslint` | `^9` | + `typescript-eslint` strict-type-checked, `eslint-plugin-react-hooks`, `eslint-plugin-jsx-a11y`. |
+| Pacote                                               | Range                       | Motivo                                                                                                                                               |
+| ---------------------------------------------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `msw`                                                | `^2.15.0`                   | `@mswjs/socket.io-binding@0.2.0` declara peer `msw ^2.10.2`; MSW 3 renomeia eventos (`websocket:connection`) e não tem binding publicado compatível. |
+| `@mswjs/socket.io-binding`                           | `^0.2.0`                    | API `toSocketIo(connection)` → `io.client.on/emit`. Suporta apenas namespace default e eventos de texto (sem acks/binário/rooms).                    |
+| `socket.io-client`                                   | `^4.8.0`                    | Cliente real exigido pelo enunciado. Conectar com `transports: ['websocket']`.                                                                       |
+| `vite` / `@vitejs/plugin-react`                      | `^7.3` / `^5.2`             | Vite 8 (rolldown) e plugin-react 6 são recentes demais para um prazo de 2 dias.                                                                      |
+| `typescript`                                         | `~5.9.3`                    | TS 7 (tsgo) é novo; 5.9 é o piso do ecossistema atual.                                                                                               |
+| `@tanstack/react-router` + `@tanstack/router-plugin` | `^1.170` / `^1.168` (pares) | File-based routing + `autoCodeSplitting`.                                                                                                            |
+| `@tanstack/react-query`                              | `^5.104`                    |                                                                                                                                                      |
+| `tailwindcss` + `@tailwindcss/vite`                  | `^4.3`                      | Config CSS-first, sem `tailwind.config.js`.                                                                                                          |
+| `shadcn` CLI                                         | latest                      | `pnpm dlx shadcn@latest init` com Radix (padrão), estilo new-york, CSS variables.                                                                    |
+| `zod`                                                | `^4.6`                      | Usado direto em `validateSearch` (Standard Schema).                                                                                                  |
+| `big.js`                                             | `^7`                        | Aritmética decimal para ETH como string.                                                                                                             |
+| `@playwright/test`                                   | `^1.64`                     | Chromium, projetos desktop 1440×900 e mobile 390×844.                                                                                                |
+| `@lhci/cli`                                          | `^0.15`                     | 3 execuções por página/perfil, mediana, relatórios HTML/JSON.                                                                                        |
+| `eslint`                                             | `^9`                        | + `typescript-eslint` strict-type-checked, `eslint-plugin-react-hooks`, `eslint-plugin-jsx-a11y`.                                                    |
 
 Variáveis de ambiente (`.env.example`, todas públicas):
 
@@ -58,44 +58,44 @@ VITE_MOCK_SCENARIO=default
 - Família única: **Roboto Mono** (variável `font/family` no Figma). Self-host com `@fontsource/roboto-mono` pesos 400, 500, 700, `font-display: swap`, preload só do 400 latin.
 - Estilos Figma → classes utilitárias:
 
-| Grupo | Variantes (size/line-height, peso) |
-| --- | --- |
-| Display | 43/70 Bold (`text-display`), 32/auto Bold |
-| Heading | 28 Bold, 26/32 Bold, 24 Bold |
-| Title | 23/16, 22/16, 22/29 Regular, 21/16, 20/28 Regular, 20/16 Medium, 20/16 Bold |
+| Grupo      | Variantes (size/line-height, peso)                                                                                                           |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Display    | 43/70 Bold (`text-display`), 32/auto Bold                                                                                                    |
+| Heading    | 28 Bold, 26/32 Bold, 24 Bold                                                                                                                 |
+| Title      | 23/16, 22/16, 22/29 Regular, 21/16, 20/28 Regular, 20/16 Medium, 20/16 Bold                                                                  |
 | Body Large | 19/29 Bold; 18 Bold/Regular/Light/Medium (lh 16, 24, 25); 17 Bold, 17 Regular (lh 16/24); 16 Bold lh 16; 16 Regular lh 22; 16 Medium lh 100% |
-| Body | 15 Medium/Regular/Bold (lh 15/16/40/45); 14 Regular/Medium/Bold (lh 15/16/20/22/24/30/auto) |
-| Caption | 13 Regular lh 16/22, 13 Medium, 12 Regular lh 16/18, 12 Bold |
-| Tiny | 11 Medium lh 16, 10 Medium, 9 Bold |
+| Body       | 15 Medium/Regular/Bold (lh 15/16/40/45); 14 Regular/Medium/Bold (lh 15/16/20/22/24/30/auto)                                                  |
+| Caption    | 13 Regular lh 16/22, 13 Medium, 12 Regular lh 16/18, 12 Bold                                                                                 |
+| Tiny       | 11 Medium lh 16, 10 Medium, 9 Bold                                                                                                           |
 
 Medições diretas: H1 do hero = Display 43/70 Bold, cor Foreground; parágrafo do hero = Body 14/24 Regular, cor Text/Secondary; label de botão primário = 16/20 Bold, cor Ink; "Entrar" do header = 16 Medium lh 100%, cor Ink.
 
 ### 2.2 Paleta (tokens CSS em `src/styles/tokens.css`)
 
-| Token Figma | Hex | Variável CSS | Uso |
-| --- | --- | --- | --- |
-| Color/Ink | `#140D0A` | `--color-ink` | fundo de página, texto sobre laranja |
-| Color/Surface Card | `#241612` | `--color-surface-card` | cards, inputs |
-| Color/Surface Raised | `#2F1D15` | `--color-surface-raised` | cards elevados, resumo do carrinho |
-| Color/Surface Dark | `#38220F` | `--color-surface-dark` | faixa da marca no footer |
-| Color/Border | `#3F2319` | `--color-border` | bordas padrão |
-| Color/Border Soft | `#55321F` | `--color-border-soft` | bordas de destaque |
-| Color/Primary | `#D28A4C` | `--color-primary` | botões, links ativos, divisor do header (0.3px) |
-| Color/Primary Light | `#DD9A5F` | `--color-primary-light` | hover |
-| Color/Primary Dark | `#C47B3E` | `--color-primary-dark` | active/pressed |
-| Color/Amber | `#E3A44E` | `--color-amber` | badges (RARO), medalhões do footer |
-| Color/Secondary | `#B39463` | `--color-secondary` | ícones secundários |
-| Color/Foreground | `#F5F1EB` | `--color-foreground` | texto principal |
-| Text/Primary | creme levemente mais quente que Foreground (descrição no Figma; confirmar hex selecionando um texto que o use) | `--color-text-primary` | |
-| Text/Secondary | `#CEB28C` | `--color-text-secondary` | parágrafos, labels |
-| Text/Accent | `#E89B55` | `--color-text-accent` | preços, links |
-| Text/Coral | `#EA6B4F` | `--color-text-coral` | destaque |
-| Color/Success | `#00A66C` | `--color-success` | pedido confirmado |
-| Color/Error | `#ED1B2E` | `--color-error` | erros de formulário, recusa |
-| Color/Gray Light | `#EDEDED` | `--color-gray-light` | |
-| Color/Background Elevated | `#FBFBFB` | `--color-bg-elevated` | |
-| Color/White / Black | `#FFFFFF` / `#000000` | | |
-| Logo/* | azul Facebook, azul/verde/amarelo Google | | ícones dos botões sociais |
+| Token Figma               | Hex                                                                                                            | Variável CSS             | Uso                                             |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------ | ----------------------------------------------- |
+| Color/Ink                 | `#140D0A`                                                                                                      | `--color-ink`            | fundo de página, texto sobre laranja            |
+| Color/Surface Card        | `#241612`                                                                                                      | `--color-surface-card`   | cards, inputs                                   |
+| Color/Surface Raised      | `#2F1D15`                                                                                                      | `--color-surface-raised` | cards elevados, resumo do carrinho              |
+| Color/Surface Dark        | `#38220F`                                                                                                      | `--color-surface-dark`   | faixa da marca no footer                        |
+| Color/Border              | `#3F2319`                                                                                                      | `--color-border`         | bordas padrão                                   |
+| Color/Border Soft         | `#55321F`                                                                                                      | `--color-border-soft`    | bordas de destaque                              |
+| Color/Primary             | `#D28A4C`                                                                                                      | `--color-primary`        | botões, links ativos, divisor do header (0.3px) |
+| Color/Primary Light       | `#DD9A5F`                                                                                                      | `--color-primary-light`  | hover                                           |
+| Color/Primary Dark        | `#C47B3E`                                                                                                      | `--color-primary-dark`   | active/pressed                                  |
+| Color/Amber               | `#E3A44E`                                                                                                      | `--color-amber`          | badges (RARO), medalhões do footer              |
+| Color/Secondary           | `#B39463`                                                                                                      | `--color-secondary`      | ícones secundários                              |
+| Color/Foreground          | `#F5F1EB`                                                                                                      | `--color-foreground`     | texto principal                                 |
+| Text/Primary              | creme levemente mais quente que Foreground (descrição no Figma; confirmar hex selecionando um texto que o use) | `--color-text-primary`   |                                                 |
+| Text/Secondary            | `#CEB28C`                                                                                                      | `--color-text-secondary` | parágrafos, labels                              |
+| Text/Accent               | `#E89B55`                                                                                                      | `--color-text-accent`    | preços, links                                   |
+| Text/Coral                | `#EA6B4F`                                                                                                      | `--color-text-coral`     | destaque                                        |
+| Color/Success             | `#00A66C`                                                                                                      | `--color-success`        | pedido confirmado                               |
+| Color/Error               | `#ED1B2E`                                                                                                      | `--color-error`          | erros de formulário, recusa                     |
+| Color/Gray Light          | `#EDEDED`                                                                                                      | `--color-gray-light`     |                                                 |
+| Color/Background Elevated | `#FBFBFB`                                                                                                      | `--color-bg-elevated`    |                                                 |
+| Color/White / Black       | `#FFFFFF` / `#000000`                                                                                          |                          |                                                 |
+| Logo/*                    | azul Facebook, azul/verde/amarelo Google                                                                       |                          | ícones dos botões sociais                       |
 
 Regras: nenhum hex hardcoded fora de `tokens.css`; Tailwind v4 `@theme` mapeia cada variável (`--color-ink` → `bg-ink`, `text-foreground` etc.). Backdrop de modais: `rgb(0 0 0 / 0.6)`.
 
@@ -113,17 +113,17 @@ Regras: nenhum hex hardcoded fora de `tokens.css`; Tailwind v4 `@theme` mapeia c
 
 ### 2.4 Telas e estados obrigatórios (resumo)
 
-| Rota | Tela Figma | Estados além do padrão |
-| --- | --- | --- |
-| `/` | Desktop/Mobile Início | skeleton, vazio ("Nenhum NFT encontrado" + limpar filtros), erro (+ tentar novamente), atualizando em segundo plano |
-| `/nfts/$nftId` | Detalhes do NFT | skeleton, 404 ("NFT não encontrado"), edição indisponível (chip desabilitado), limite de quantidade (stepper trava no `available`), preço alterado (banner) |
-| `/cart` | Carrinho de NFTs | skeleton do resumo, vazio, cupom inválido/expirado, item com preço/disponibilidade alterado (destaque + "atualizar") |
-| `/checkout` | Pagamento | exige auth; revisão; cotação desatualizada (bloqueia + "Revisar nova cotação"); carteira recusada/desconectada; pedido pendente (spinner + "não feche"); erro transitório |
-| `/orders/$orderId` | Confirmação de Pedido | pendente / confirmado (modal com Etherscan simulado) / recusado (vermelho + "Tentar novamente" volta ao checkout); recuperação pós-refresh |
-| `/login`, `/register` | Login, Cadastro | validação, credenciais inválidas, e-mail em conflito (409), retorno ao fluxo anterior (`returnTo`) |
-| `/account/profile` | Perfil do Colecionador | validação, erros da API, senha atual errada, avatar (tipo/tamanho) |
-| `/account/wallets` | Carteiras | principal/secundária, "Igual à carteira principal", validação de endereço |
-| `*` | — | 404 no mesmo padrão visual |
+| Rota                  | Tela Figma             | Estados além do padrão                                                                                                                                                    |
+| --------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/`                   | Desktop/Mobile Início  | skeleton, vazio ("Nenhum NFT encontrado" + limpar filtros), erro (+ tentar novamente), atualizando em segundo plano                                                       |
+| `/nfts/$nftId`        | Detalhes do NFT        | skeleton, 404 ("NFT não encontrado"), edição indisponível (chip desabilitado), limite de quantidade (stepper trava no `available`), preço alterado (banner)               |
+| `/cart`               | Carrinho de NFTs       | skeleton do resumo, vazio, cupom inválido/expirado, item com preço/disponibilidade alterado (destaque + "atualizar")                                                      |
+| `/checkout`           | Pagamento              | exige auth; revisão; cotação desatualizada (bloqueia + "Revisar nova cotação"); carteira recusada/desconectada; pedido pendente (spinner + "não feche"); erro transitório |
+| `/orders/$orderId`    | Confirmação de Pedido  | pendente / confirmado (modal com Etherscan simulado) / recusado (vermelho + "Tentar novamente" volta ao checkout); recuperação pós-refresh                                |
+| `/login`, `/register` | Login, Cadastro        | validação, credenciais inválidas, e-mail em conflito (409), retorno ao fluxo anterior (`returnTo`)                                                                        |
+| `/account/profile`    | Perfil do Colecionador | validação, erros da API, senha atual errada, avatar (tipo/tamanho)                                                                                                        |
+| `/account/wallets`    | Carteiras              | principal/secundária, "Igual à carteira principal", validação de endereço                                                                                                 |
+| `*`                   | —                      | 404 no mesmo padrão visual                                                                                                                                                |
 
 ## 3. Arquitetura
 
@@ -190,30 +190,30 @@ Regras: nenhum hex hardcoded fora de `tokens.css`; Tailwind v4 `@theme` mapeia c
 
 ### 3.4 Contratos REST (base `/api`, JSON, erros no envelope `{ error: { code, message, fields? } }`)
 
-| Método e rota | Auth | Corpo / query | Resposta | Erros |
-| --- | --- | --- | --- | --- |
-| `POST /auth/register` | – | `{ username, email, password }` | `201 { token, expiresAt, user }` | 422 VALIDATION, 409 EMAIL_TAKEN / USERNAME_TAKEN |
-| `POST /auth/login` | – | `{ email, password }` | `200 { token, expiresAt, user }` | 401 INVALID_CREDENTIALS, 429 TOO_MANY_ATTEMPTS |
-| `GET /auth/session` | sim | – | `200 { user, expiresAt }` | 401 SESSION_EXPIRED / UNAUTHENTICATED |
-| `POST /auth/logout` | sim | – | `204` | |
-| `GET /nfts` | opcional | `q, category[], network[], minPrice, maxPrice, sort, tab, page, pageSize=9, favorites` | `200 { items: Nft[], page, pageSize, total, totalPages, facets: { categories: {key,count}[], networks: {key,count}[] } }` | 422, 401 (se `favorites=true` sem auth) |
-| `GET /nfts/:id` | – | – | `200 Nft` | 404 NOT_FOUND |
-| `GET /favorites` | sim | – | `200 { nftIds: string[] }` | |
-| `PUT /favorites/:nftId` / `DELETE /favorites/:nftId` | sim | – | `204` | 404, 503 TRANSIENT (cenário) |
-| `GET /cart` | sessão **ou** `X-Guest-Id` | – | `200 Cart` | |
-| `POST /cart/items` | idem | `{ nftId, editionId, quantity }` | `200 Cart` | 409 UNAVAILABLE (qtd > disponível), 404 |
-| `PATCH /cart/items/:itemId` | idem | `{ quantity }` | `200 Cart` | 409 UNAVAILABLE |
-| `DELETE /cart/items/:itemId` | idem | – | `200 Cart` | |
-| `POST /cart/merge` | sim | `{ guestId }` | `200 Cart` | |
-| `POST /quote` | opcional | `{ items: {nftId, editionId, quantity}[], couponCode?, network? }` | `200 Quote` | 422 COUPON_INVALID / COUPON_EXPIRED, 409 UNAVAILABLE |
-| `POST /orders` | sim + `Idempotency-Key` | `{ quoteId, items, couponCode?, wallet: { walletId, provider, network }, collector: {...} }` | `201 Order` (status `pending`) ou `200 Order` (chave repetida) | 409 QUOTE_STALE (+ `quote` nova no corpo), 409 IDEMPOTENCY_CONFLICT, 409 UNAVAILABLE, 403 WALLET_REJECTED, 503 TRANSIENT, timeout (cenário) |
-| `GET /orders/:id` | sim | – | `200 Order` | 403, 404 |
-| `GET /profile` / `PATCH /profile` | sim | `{ displayName, username, email, ensName, walletNickname }` | `200 Profile` | 422, 409 USERNAME_TAKEN |
-| `POST /profile/avatar` | sim | `{ dataUrl }` | `200 Profile` | 422 INVALID_IMAGE |
-| `POST /profile/password` | sim | `{ currentPassword, newPassword }` | `204` | 422 WRONG_PASSWORD |
-| `GET /wallets` | sim | – | `200 { primary: Wallet \| null, secondary: Wallet \| null, sameAsPrimary: boolean }` | |
-| `PUT /wallets/:role` (`primary` \| `secondary`) | sim | `WalletInput` ou `{ sameAsPrimary: true }` | `200 Wallets` | 422 |
-| `POST /wallet-session/connect` | sim | `{ walletId, provider }` | `200 { status: 'connected', address }` | 403 WALLET_REJECTED, 409 WALLET_DISCONNECTED |
+| Método e rota                                        | Auth                       | Corpo / query                                                                                | Resposta                                                                                                                  | Erros                                                                                                                                       |
+| ---------------------------------------------------- | -------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `POST /auth/register`                                | –                          | `{ username, email, password }`                                                              | `201 { token, expiresAt, user }`                                                                                          | 422 VALIDATION, 409 EMAIL_TAKEN / USERNAME_TAKEN                                                                                            |
+| `POST /auth/login`                                   | –                          | `{ email, password }`                                                                        | `200 { token, expiresAt, user }`                                                                                          | 401 INVALID_CREDENTIALS, 429 TOO_MANY_ATTEMPTS                                                                                              |
+| `GET /auth/session`                                  | sim                        | –                                                                                            | `200 { user, expiresAt }`                                                                                                 | 401 SESSION_EXPIRED / UNAUTHENTICATED                                                                                                       |
+| `POST /auth/logout`                                  | sim                        | –                                                                                            | `204`                                                                                                                     |                                                                                                                                             |
+| `GET /nfts`                                          | opcional                   | `q, category[], network[], minPrice, maxPrice, sort, tab, page, pageSize=9, favorites`       | `200 { items: Nft[], page, pageSize, total, totalPages, facets: { categories: {key,count}[], networks: {key,count}[] } }` | 422, 401 (se `favorites=true` sem auth)                                                                                                     |
+| `GET /nfts/:id`                                      | –                          | –                                                                                            | `200 Nft`                                                                                                                 | 404 NOT_FOUND                                                                                                                               |
+| `GET /favorites`                                     | sim                        | –                                                                                            | `200 { nftIds: string[] }`                                                                                                |                                                                                                                                             |
+| `PUT /favorites/:nftId` / `DELETE /favorites/:nftId` | sim                        | –                                                                                            | `204`                                                                                                                     | 404, 503 TRANSIENT (cenário)                                                                                                                |
+| `GET /cart`                                          | sessão **ou** `X-Guest-Id` | –                                                                                            | `200 Cart`                                                                                                                |                                                                                                                                             |
+| `POST /cart/items`                                   | idem                       | `{ nftId, editionId, quantity }`                                                             | `200 Cart`                                                                                                                | 409 UNAVAILABLE (qtd > disponível), 404                                                                                                     |
+| `PATCH /cart/items/:itemId`                          | idem                       | `{ quantity }`                                                                               | `200 Cart`                                                                                                                | 409 UNAVAILABLE                                                                                                                             |
+| `DELETE /cart/items/:itemId`                         | idem                       | –                                                                                            | `200 Cart`                                                                                                                |                                                                                                                                             |
+| `POST /cart/merge`                                   | sim                        | `{ guestId }`                                                                                | `200 Cart`                                                                                                                |                                                                                                                                             |
+| `POST /quote`                                        | opcional                   | `{ items: {nftId, editionId, quantity}[], couponCode?, network? }`                           | `200 Quote`                                                                                                               | 422 COUPON_INVALID / COUPON_EXPIRED, 409 UNAVAILABLE                                                                                        |
+| `POST /orders`                                       | sim + `Idempotency-Key`    | `{ quoteId, items, couponCode?, wallet: { walletId, provider, network }, collector: {...} }` | `201 Order` (status `pending`) ou `200 Order` (chave repetida)                                                            | 409 QUOTE_STALE (+ `quote` nova no corpo), 409 IDEMPOTENCY_CONFLICT, 409 UNAVAILABLE, 403 WALLET_REJECTED, 503 TRANSIENT, timeout (cenário) |
+| `GET /orders/:id`                                    | sim                        | –                                                                                            | `200 Order`                                                                                                               | 403, 404                                                                                                                                    |
+| `GET /profile` / `PATCH /profile`                    | sim                        | `{ displayName, username, email, ensName, walletNickname }`                                  | `200 Profile`                                                                                                             | 422, 409 USERNAME_TAKEN                                                                                                                     |
+| `POST /profile/avatar`                               | sim                        | `{ dataUrl }`                                                                                | `200 Profile`                                                                                                             | 422 INVALID_IMAGE                                                                                                                           |
+| `POST /profile/password`                             | sim                        | `{ currentPassword, newPassword }`                                                           | `204`                                                                                                                     | 422 WRONG_PASSWORD                                                                                                                          |
+| `GET /wallets`                                       | sim                        | –                                                                                            | `200 { primary: Wallet \| null, secondary: Wallet \| null, sameAsPrimary: boolean }`                                      |                                                                                                                                             |
+| `PUT /wallets/:role` (`primary` \| `secondary`)      | sim                        | `WalletInput` ou `{ sameAsPrimary: true }`                                                   | `200 Wallets`                                                                                                             | 422                                                                                                                                         |
+| `POST /wallet-session/connect`                       | sim                        | `{ walletId, provider }`                                                                     | `200 { status: 'connected', address }`                                                                                    | 403 WALLET_REJECTED, 409 WALLET_DISCONNECTED                                                                                                |
 
 Tipos centrais (zod em `src/contracts`):
 
@@ -267,56 +267,41 @@ RealtimeEvent = { id: uuid, type: 'nft.updated'|'order.updated', resource: { kin
 Instale como `.claude/rules/kurio.md` no repo e cite no `README.md`.
 
 **Legibilidade**
-1. Código autoexplicativo: nomes completos e específicos (`pendingOrderId`, não `poId`; `applyRealtimeEvent`, não `handle`). Se precisou de comentário para explicar *o que* faz, renomeie ou extraia função.
-2. Comentários só para *por quê* não óbvio (ex.: "MSW exige URL sem /socket.io"). Zero código comentado, zero `TODO` sem link.
+
+1. Código autoexplicativo: nomes completos e específicos (`pendingOrderId`, não `poId`; `applyRealtimeEvent`, não `handle`). Se precisou de comentário para explicar _o que_ faz, renomeie ou extraia função.
+2. Comentários só para _por quê_ não óbvio (ex.: "MSW exige URL sem /socket.io"). Zero código comentado, zero `TODO` sem link.
 3. Funções ≤ 40 linhas, arquivos ≤ 300 linhas, aninhamento ≤ 3 níveis, early return.
 4. Um componente exportado por arquivo, nome do arquivo = nome do componente. Hooks em `useX.ts`. Utilitários com verbo (`formatEth`, `createEventGate`).
 5. Identificadores em inglês; textos de UI em pt-BR, sem misturar. Strings de UI repetidas 2+ vezes vão para `messages.ts` da feature.
 
-**TypeScript**
-6. `strict`, `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, `noImplicitOverride`, `verbatimModuleSyntax`. Proibidos `any`, `as unknown as`, `!`. Tipos derivados dos schemas zod (`z.infer`) — nunca duplicar tipo e schema.
-7. `export default` apenas onde o framework exige (rotas usam `export const Route`). Imports absolutos `@/…`, ordenados (eslint `import/order`).
+**TypeScript** 6. `strict`, `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, `noImplicitOverride`, `verbatimModuleSyntax`. Proibidos `any`, `as unknown as`, `!`. Tipos derivados dos schemas zod (`z.infer`) — nunca duplicar tipo e schema. 7. `export default` apenas onde o framework exige (rotas usam `export const Route`). Imports absolutos `@/…`, ordenados (eslint `import/order`).
 
-**React e estado**
-8. Componentes de apresentação puros; busca de dados só em hooks de feature; efeitos colaterais só em hooks/mutations. Nenhum `useEffect` para sincronizar estado derivado — derive no render.
-9. Estado compartilhável fica na URL (filtros, página, ordenação, tab, `returnTo`). Estado de servidor só no Query. Estado local em `useState`. Sem Redux/Zustand.
-10. Formulários: react-hook-form + `zodResolver` com o mesmo schema do contrato; erros associados ao campo via `aria-describedby` (shadcn `Form`).
-11. Imutabilidade: nunca mutar props/estado/objetos do store; spread/`structuredClone`/`toSorted`.
+**React e estado** 8. Componentes de apresentação puros; busca de dados só em hooks de feature; efeitos colaterais só em hooks/mutations. Nenhum `useEffect` para sincronizar estado derivado — derive no render. 9. Estado compartilhável fica na URL (filtros, página, ordenação, tab, `returnTo`). Estado de servidor só no Query. Estado local em `useState`. Sem Redux/Zustand. 10. Formulários: react-hook-form + `zodResolver` com o mesmo schema do contrato; erros associados ao campo via `aria-describedby` (shadcn `Form`). 11. Imutabilidade: nunca mutar props/estado/objetos do store; spread/`structuredClone`/`toSorted`.
 
-**Erros e validação**
-12. Toda chamada passa por `api.ts` que faz `schema.parse(response.data)`; erros convertidos para `ApiError { code, message, fields?, status }` em `lib/errors.ts`; a UI mapeia `code → mensagem pt-BR` em um único lugar. Nunca engolir erro; nunca mostrar stack ao usuário.
-13. Handlers MSW validam o corpo com o mesmo schema e devolvem `422` com `fields`.
+**Erros e validação** 12. Toda chamada passa por `api.ts` que faz `schema.parse(response.data)`; erros convertidos para `ApiError { code, message, fields?, status }` em `lib/errors.ts`; a UI mapeia `code → mensagem pt-BR` em um único lugar. Nunca engolir erro; nunca mostrar stack ao usuário. 13. Handlers MSW validam o corpo com o mesmo schema e devolvem `422` com `fields`.
 
-**Estilo e UI**
-14. Tailwind com tokens; sem hex, sem `style={{}}` exceto valores dinâmicos (ex.: largura do slider). `cn()` para condicionais. Componentes shadcn ficam em `components/ui` e são adaptados uma vez (variantes `primary/secondary/ghost/danger`), nunca sobrescritos ad hoc.
-15. Todo elemento interativo: foco visível (`focus-visible:ring-2 ring-primary`), estado hover/active/disabled definido, `aria-label` quando só ícone, tamanho mínimo de toque 44px no mobile.
-16. Skeleton com as mesmas dimensões do conteúdo (`aspect-square`, alturas fixas); shimmer desativado em `prefers-reduced-motion`.
-17. Mobile first nas classes (`base → md → xl`); nunca `overflow-x` indevido (verificado em E2E).
+**Estilo e UI** 14. Tailwind com tokens; sem hex, sem `style={{}}` exceto valores dinâmicos (ex.: largura do slider). `cn()` para condicionais. Componentes shadcn ficam em `components/ui` e são adaptados uma vez (variantes `primary/secondary/ghost/danger`), nunca sobrescritos ad hoc. 15. Todo elemento interativo: foco visível (`focus-visible:ring-2 ring-primary`), estado hover/active/disabled definido, `aria-label` quando só ícone, tamanho mínimo de toque 44px no mobile. 16. Skeleton com as mesmas dimensões do conteúdo (`aspect-square`, alturas fixas); shimmer desativado em `prefers-reduced-motion`. 17. Mobile first nas classes (`base → md → xl`); nunca `overflow-x` indevido (verificado em E2E).
 
-**Mocks**
-18. Handlers são finos: parse → auth → chamada a função de domínio em `db/` ou `shared/` → resposta. Regras de negócio (preço, disponibilidade, cupom, idempotência) ficam em funções puras testáveis com Vitest.
-19. Nenhum dado fictício fora de `src/mocks`. Nenhum `import` de `src/mocks` fora de `src/app/main.tsx` e dos testes.
+**Mocks** 18. Handlers são finos: parse → auth → chamada a função de domínio em `db/` ou `shared/` → resposta. Regras de negócio (preço, disponibilidade, cupom, idempotência) ficam em funções puras testáveis com Vitest. 19. Nenhum dado fictício fora de `src/mocks`. Nenhum `import` de `src/mocks` fora de `src/app/main.tsx` e dos testes.
 
-**Processo**
-20. TDD por tarefa: escrever o teste (Vitest para funções puras, Playwright para fluxo), ver falhar, implementar, ver passar, refatorar, commit. Commits convencionais pequenos (`feat:`, `fix:`, `test:`, `chore:`, `docs:`), sem linhas de co-autoria (configuração global do usuário).
-21. `pnpm check` (typecheck + lint + format:check + unit) verde antes de cada commit; `pnpm e2e` verde antes de cada fim de fase.
-22. Revisão com o agente `code-reviewer` ao fim de cada fase; `security-reviewer` nas Tarefas 5, 12 e 13.
+**Processo** 20. TDD por tarefa: escrever o teste (Vitest para funções puras, Playwright para fluxo), ver falhar, implementar, ver passar, refatorar, commit. Commits convencionais pequenos (`feat:`, `fix:`, `test:`, `chore:`, `docs:`), sem linhas de co-autoria (configuração global do usuário). 21. `pnpm check` (typecheck + lint + format:check + unit) verde antes de cada commit; `pnpm e2e` verde antes de cada fim de fase. 22. Revisão com o agente `code-reviewer` ao fim de cada fase; `security-reviewer` nas Tarefas 5, 12 e 13.
 
 **Ferramentas do executor**
+
 - Figma: abrir o link no Chrome (view-only funciona sem login; a aba `Properties` mostra layout/cores/tipografia do nó selecionado; `cmd+click` seleciona o nó profundo; `shift+2` dá zoom na seleção; com nada selecionado, a aba lista todos os Text/Color styles e o popover "View color style" mostra o hex). Alternativas: `claude mcp add --transport http figma https://mcp.figma.com/mcp` + autenticação; ou token pessoal com `GET https://api.figma.com/v1/files/Ff0SksUi7UFtPWUO8kyNtw` (header `X-Figma-Token`).
 - Assets: exportar as imagens dos macacos e do hero do Figma (painel Export, PNG 2x) **com aprovação explícita do usuário para o download**; converter para AVIF/WebP com `sharp` em `scripts/optimize-images.mjs`. Fallback: arte SVG gerada proceduralmente em `fixtures/images.ts`, com a substituição registrada em `ARCHITECTURE.md`.
 - Playwright MCP / chrome-devtools MCP para inspeção visual e Lighthouse ad hoc; `@lhci/cli` para a auditoria oficial.
 
 ## 6. Cronograma (2 dias) e linha de corte
 
-| Bloco | Tarefas | Entrega verificável |
-| --- | --- | --- |
-| D1 manhã | 1–4 | app sobe com mocks, tokens aplicados, contratos e store testados |
-| D1 tarde | 5–8 | auth + header/footer + catálogo + detalhe navegáveis, Lighthouse preliminar do Início |
-| D1 noite | 9–10 | socket funcionando (evento altera preço no detalhe), favoritos otimistas |
-| D2 manhã | 11–14 | carrinho, cotação, checkout, pedido com idempotência e tempo real |
-| D2 tarde | 15–16 | perfil e carteiras, suíte E2E completa com baselines |
-| D2 noite | 17–19 | Lighthouse oficial, deploy Vercel, documentação, revisão final |
+| Bloco    | Tarefas | Entrega verificável                                                                   |
+| -------- | ------- | ------------------------------------------------------------------------------------- |
+| D1 manhã | 1–4     | app sobe com mocks, tokens aplicados, contratos e store testados                      |
+| D1 tarde | 5–8     | auth + header/footer + catálogo + detalhe navegáveis, Lighthouse preliminar do Início |
+| D1 noite | 9–10    | socket funcionando (evento altera preço no detalhe), favoritos otimistas              |
+| D2 manhã | 11–14   | carrinho, cotação, checkout, pedido com idempotência e tempo real                     |
+| D2 tarde | 15–16   | perfil e carteiras, suíte E2E completa com baselines                                  |
+| D2 noite | 17–19   | Lighthouse oficial, deploy Vercel, documentação, revisão final                        |
 
 Ordem real de execução das dependências cruzadas: 15 (carteiras) pode ser puxada para antes de 12 (checkout) se o executor preferir; `useAddToCart` (Tarefa 11) é necessário para fechar o botão COMPRAR da Tarefa 8 — implementar o hook ao fim da 8 ou deixar o botão navegando para `/cart` sem adicionar até a 11 (nunca simular sucesso).
 
@@ -348,9 +333,11 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 1: Scaffold, qualidade e tokens
 
 **Files:**
+
 - Create: `package.json`, `vite.config.ts`, `tsconfig.json`, `tsconfig.node.json`, `eslint.config.js`, `.prettierrc`, `.nvmrc`, `.gitignore`, `.env.example`, `index.html`, `src/app/main.tsx`, `src/styles/tokens.css`, `src/styles/globals.css`, `src/lib/cn.ts`, `src/lib/env.ts`, `src/lib/env.test.ts`, `components.json`, `.claude/rules/kurio.md`, `docs/CHALLENGE.md` (mover README), `docs/superpowers/plans/2026-10-22-kurio-nft-marketplace.md` (cópia deste plano)
 
 **Interfaces:**
+
 - Produces: `env` (`lib/env.ts`): `{ apiBaseUrl: string, socketUrl: string, enableMocks: boolean, mockScenario: string }` validado por zod em import-time; `cn(...inputs)`; tokens CSS da seção 2.2 expostos via `@theme` do Tailwind; scripts `dev`, `build`, `preview`, `typecheck`, `lint`, `format`, `format:check`, `test` (vitest), `e2e`, `e2e:ui`, `lighthouse`, `check`.
 
 - [ ] **Passo 1:** `git init` na pasta; `git mv README.md docs/CHALLENGE.md`; copiar este plano para `docs/superpowers/plans/`.
@@ -367,9 +354,11 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 2: Contratos e utilitários de dinheiro
 
 **Files:**
+
 - Create: `src/contracts/{common,money,nft,auth,cart,quote,order,profile,wallet,realtime,index}.ts`, `src/lib/money.ts`, `src/lib/money.test.ts`, `src/contracts/contracts.test.ts`, `src/lib/idempotency.ts`, `src/lib/idempotency.test.ts`, `src/lib/storage.ts`, `src/lib/storage.test.ts`
 
 **Interfaces:**
+
 - Produces: schemas e tipos da seção 3.4; `addEth(a: EthAmount, b: EthAmount): EthAmount`, `mulEth(a: EthAmount, quantity: number): EthAmount`, `subEth`, `percentOf(a, percent: number): EthAmount`, `compareEth(a, b): -1|0|1`, `formatEth(a): string` (regra: até 3 casas, remove zeros à direita mas mantém ao menos 2: "1.19 ETH", "26.846 ETH", "0.016 ETH"); `createIdempotencyKey(): string`; `hashPayload(value: unknown): Promise<string>` (SHA-256 hex de JSON canônico com chaves ordenadas); `createStorage<T>(key, schema): { read(): T | null, write(value: T), clear() }` com try/catch e parse zod.
 
 - [ ] **Passo 1:** testes Vitest: `money.test.ts` (`soma 26.83 + 0.016 = 26.846`, `multiplica 1.19 × 2 = 2.38 sem erro binário`, `percentOf 10% de 26.83 = 2.683`, `formatEth mantém precisão`, `rejeita número com mais de 6 casas`), `idempotency.test.ts` (`mesmo objeto com chaves em ordens diferentes gera o mesmo hash`), `storage.test.ts` (`retorna null para JSON corrompido`), `contracts.test.ts` (`nftSchema aceita fixture válida`, `orderSchema rejeita status desconhecido`, `realtimeEventSchema discrimina por type`). Rodar → FAIL.
@@ -380,9 +369,11 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 3: Mock store, fixtures e cenários
 
 **Files:**
+
 - Create: `src/mocks/db/{schema,seed,store}.ts`, `src/mocks/db/fixtures/{nfts,users,coupons,images}.ts`, `src/mocks/scenarios/{registry,network,current}.ts`, `src/mocks/shared/{respond,session,pricing,hash,timing,password}.ts`, `src/mocks/db/store.test.ts`, `src/mocks/shared/pricing.test.ts`, `src/mocks/shared/password.test.ts`, `src/mocks/db/fixtures/nfts.test.ts`
 
 **Interfaces:**
+
 - Produces: `MockDb = { users, sessions, nfts, favorites, carts, quotes, orders, idempotency, wallets, loginAttempts, scheduledTransitions }`; `createMockStore(options)` (seção 4); `getScenario(): Scenario`, `setScenario(name)`; `withNetwork(resolver)`; `respondError(status, code, message, fields?)`; `requireSession(request): { user, session } | ErrorResponse`; `computeQuote(db, input): Quote` (regras: subtotal = Σ unitPrice×qty; cupom `LANCAMENTO10` = 10% do subtotal; `networkFee` por rede: ethereum `0.016`, polygon `0.002`, solana `0.0005`; `total = subtotal − discount + fee`); `hashPassword(password): Promise<{salt,hash}>`, `verifyPassword`; `scheduleOrderTransition(orderId, status, delayMs)` + `applyDueTransitions(db, now)`.
 
 - [ ] **Passo 1:** testes: `store.test.ts` (`write aplica mutator imutável e persiste`, `reset('empty') zera nfts`, `ignora localStorage corrompido`), `pricing.test.ts` (`cotação do Figma: 3 itens 2.38+8.34+16.11 = 26.83, fee 0.016, total 26.846`, `cupom LANCAMENTO10 desconta 10%`, `cupom EXPIRADO10 → status expired`, `quantidade > available → erro UNAVAILABLE`), `password.test.ts` (`hash nunca contém a senha`, `verify falha com senha errada`), `nfts.test.ts` (`48 NFTs, todas as 9 categorias e 3 redes presentes`, `pelo menos 3 edições esgotadas`, `ids únicos`). Rodar → FAIL.
@@ -392,9 +383,11 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 4: Handlers REST, worker e app shell
 
 **Files:**
+
 - Create: `src/mocks/handlers/{index,auth,nfts,favorites,cart,quote,orders,profile,wallets,wallet-session}.ts`, `src/mocks/browser.ts`, `src/mocks/control.ts`, `public/mockServiceWorker.js` (via `pnpm msw init public --save`), `src/lib/http.ts`, `src/lib/errors.ts`, `src/lib/query-keys.ts`, `src/app/{providers,query-client,router}.tsx`, `src/routes/__root.tsx`, `src/routes/index.tsx` (placeholder), `src/routes/$.tsx`, `src/mocks/handlers/handlers.test.ts` (Vitest + `msw/node`)
 
 **Interfaces:**
+
 - Produces: `startMocks(): Promise<void>` (só quando `env.enableMocks`; `onUnhandledRequest: 'bypass'` para assets); `http: AxiosInstance` (baseURL `env.apiBaseUrl`, timeout 6000 ms, interceptor que injeta `Authorization`, interceptor de resposta que converte para `ApiError` e dispara `onUnauthorized` em 401 `SESSION_EXPIRED`); `parseWith(schema)(response)`; `queryKeys = { nfts: { all: ['nfts'], lists: () => ['nfts','list'], list: (search) => ['nfts','list', search], detail: (id) => ['nfts','detail', id] }, favorites: (userId) => ['favorites', userId], cart: (scope) => ['cart', scope.kind, scope.id], quote: (hash) => ['quote', hash], orders: { detail: (userId, id) => ['orders', userId, id] }, profile: (userId) => ['profile', userId], wallets: (userId) => ['wallets', userId] }`; `window.__kurio` (seção 4).
 
 - [ ] **Passo 1:** `handlers.test.ts` com `setupServer`: `GET /api/nfts?page=2 devolve 9 itens e total 48`, `GET /api/nfts?category=musica&network=polygon combina filtros`, `GET /api/nfts/inexistente → 404 NOT_FOUND`, `POST /api/auth/register duplicado → 409 EMAIL_TAKEN`, `POST /api/auth/login 6ª tentativa → 429`, `GET /api/favorites sem token → 401`, `GET /api/orders/:id de outro usuário → 403`, `POST /api/orders mesma chave mesmo corpo → mesmo id`, `mesma chave corpo diferente → 409 IDEMPOTENCY_CONFLICT`, `POST /api/quote com cupom expirado → 422 COUPON_EXPIRED`. Rodar → FAIL.
@@ -407,9 +400,11 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 5: Sessão, login, cadastro e guarda de rotas
 
 **Files:**
+
 - Create: `src/features/auth/{session-store,api,mutations,route-guard,messages}.ts`, `src/features/auth/components/{AuthDialog,LoginForm,RegisterForm,SocialButtons}.tsx`, `src/routes/login.tsx`, `src/routes/register.tsx`, `e2e/03-auth.spec.ts`, `e2e/fixtures/kurio.ts`, `playwright.config.ts`
 
 **Interfaces:**
+
 - Consumes: `http`, `queryKeys`, contratos `auth`.
 - Produces: `useSession(): { user: User | null, status: 'anonymous'|'authenticated'|'expired', token }`, `sessionStore` (`useSyncExternalStore`, persistido em `kurio.session`), `useLogin()`, `useRegister()`, `useLogout()` (limpa cache/socket/storages conforme 3.3), `requireAuth({ location })` para `beforeLoad` (redirect `/login?returnTo=`), `returnToSchema` (aceita apenas caminhos internos começando com `/`); `AuthDialog` (desktop: `Dialog` sobre a Home com backdrop 60%, tabs "Entrar | Criar conta"; mobile: página cheia conforme Figma).
 - Playwright: projetos `desktop-chromium` (1440×900) e `mobile-chromium` (390×844, `isMobile`), `webServer: pnpm preview --port 4173` (build prévio), `trace: 'retain-on-failure'`, `reporter: [['html', { outputFolder: 'reports/playwright-report' }]]`, `expect.toHaveScreenshot` com `maxDiffPixelRatio: 0.01`. Fixture `kurio` faz `page.addInitScript` para `localStorage.clear()` + `kurio.scenario` e expõe `mocks.setScenario/reset/emit/getState` via `page.evaluate(window.__kurio…)` e `login(user)`.
@@ -422,10 +417,12 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 6: Layout (header, footer, tab bar mobile, página 404)
 
 **Files:**
+
 - Create: `src/features/layout/{Header,MobileTabBar,Footer,PageShell,AccountSidebar}.tsx`, `src/components/feedback/{EmptyState,ErrorState,LiveRegion}.tsx`, `src/components/feedback/skeletons.tsx`, `e2e/00-layout.spec.ts`
 - Modify: `src/routes/__root.tsx`, `src/routes/$.tsx`
 
 **Interfaces:**
+
 - Consumes: `useSession`, `useCartQuery` (Tarefa 11 — até lá, badge lê `0`).
 - Produces: `PageShell({ children, variant: 'default'|'account'|'auth' })`; `LiveRegion` (`aria-live="polite"`) + `announce(message)`; skeletons `NftCardSkeleton`, `DetailSkeleton`, `SummarySkeleton`, `FormSkeleton` com shimmer (`motion-safe:animate-shimmer`).
 
@@ -436,10 +433,12 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 7: Catálogo (busca, filtros, ordenação, paginação na URL)
 
 **Files:**
+
 - Create: `src/features/catalog/{search-params,api,queries,messages}.ts`, `src/features/catalog/search-params.test.ts`, `src/features/catalog/components/{FilterSidebar,FilterDrawer,PriceRangeFilter,NftGrid,NftCard,Pagination,SortSelect,CatalogTabs,FeaturedCard,HeroSection,PromoBanners,BlogSection}.tsx`, `e2e/01-catalog.spec.ts`
 - Modify: `src/routes/index.tsx`
 
 **Interfaces:**
+
 - Produces: `catalogSearchSchema` (zod): `{ q: string = '', category: string[] = [], network: ('ethereum'|'polygon'|'solana')[] = [], minPrice?: EthAmount, maxPrice?: EthAmount, sort: 'recent'|'price_asc'|'price_desc'|'rating' = 'recent', tab: 'all'|'new'|'trending' = 'all', page: number ≥ 1 = 1, favorites: boolean = false }` com `.catch` em cada campo; `nftListQueryOptions(search)` (`queryKeys.nfts.list(search)`, `placeholderData: keepPreviousData`, `staleTime 30s`); `useCatalogNavigation()` → `setFilter(partial)` sempre com `page: 1`, `setPage(n)`; `NftCard({ nft })` com dimensões fixas e `loading="lazy"` exceto na primeira linha.
 
 - [ ] **Passo 1:** `search-params.test.ts`: `?page=abc → page 1`, `?minPrice=-1 → undefined`, `?category=a&category=b → array`, `sort desconhecido → recent`. `e2e/01-catalog.spec.ts`: `busca + 2 filtros combinados refletem na query da API e na URL`, `mudar filtro reinicia página para 1`, `refresh preserva filtros e página`, `voltar no histórico restaura estado anterior`, `resultado vazio mostra estado vazio com limpar filtros`, `erro 500 mostra erro e botão tentar novamente recupera` (cenário `server-error-reads` → `default`), `respostas fora de ordem não sobrescrevem resultado mais recente` (cenário `out-of-order`: digitar "ape" depois "apex" e asserir que o resultado final corresponde a "apex"), `skeleton aparece em rede lenta com dimensões estáveis`. → FAIL.
@@ -449,9 +448,11 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 8: Detalhe do NFT
 
 **Files:**
+
 - Create: `src/features/nft-detail/{api,queries,messages}.ts`, `src/features/nft-detail/components/{Gallery,EditionPicker,QuantityStepper,PurchasePanel,DetailTabs,RelatedCarousel,ShareLinks}.tsx`, `src/routes/nfts.$nftId.tsx`, `e2e/02-nft-detail.spec.ts`
 
 **Interfaces:**
+
 - Consumes: `nftDetailQueryOptions(id)` (`queryKeys.nfts.detail(id)`, `staleTime 60s`), `useAddToCart` (Tarefa 11).
 - Produces: `EditionPicker({ editions, value, onChange })` (chip desabilitado + `aria-disabled` + texto "Esgotada" quando `available === 0`), `QuantityStepper({ value, min 1, max: available, onChange })` (botões desabilitados nos limites, input numérico com `inputMode="numeric"`), `PurchasePanel` (preço, edição, qtd, "COMPRAR" → adiciona ao carrinho e navega para `/cart`; "Favoritar").
 
@@ -462,10 +463,12 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 9: Infra de tempo real (socket mock + cliente + gate)
 
 **Files:**
+
 - Create: `src/mocks/socket/{server,events}.ts`, `src/features/realtime/{socket,event-gate,apply-event,RealtimeProvider,useRealtimeReconciliation}.ts(x)`, `src/features/realtime/event-gate.test.ts`, `src/features/realtime/apply-event.test.ts`, `e2e/09-realtime-checkout.spec.ts` (parcial), `docs/MOCKS.md` (seção transporte)
 - Modify: `src/mocks/handlers/index.ts` (adicionar `realtimeHandlers`), `src/mocks/handlers/{nfts,orders}.ts` (publicar eventos), `src/app/providers.tsx`
 
 **Interfaces:**
+
 - Produces: `createRealtimeServer(link: WebSocketLink)` → `{ broadcast(event), emitToUser(userId, event), connectedUsers() }`; `publishNftUpdated(nft)`, `publishOrderUpdated(order)` (aplicam cenários `duplicate-events`/`stale-events`); `createEventGate()` → `shouldApply(event): boolean`, `syncVersion(resource, version)`; `applyRealtimeEvent(queryClient, event, { currentUserId })`; `RealtimeProvider` (contexto `{ status: 'connected'|'disconnected'|'reconnecting' }`; registra `socket.on('nft.updated'|'order.updated'|'connect'|'disconnect')` em `useEffect` e **sempre** faz `socket.off(...)` + `socket.disconnect()` no cleanup e ao trocar de usuário — nenhum listener sobrevive ao ciclo de vida); `useRealtimeStatus()`.
 
 - [ ] **Passo 1:** `event-gate.test.ts`: `ignora id duplicado`, `ignora versão menor ou igual`, `aceita versão maior e atualiza`. `apply-event.test.ts` (QueryClient em memória): `nft.updated atualiza detalhe e item da lista`, `order.updated de outro userId é ignorado`. → FAIL.
@@ -477,10 +480,12 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 10: Favoritos (otimista com rollback)
 
 **Files:**
+
 - Create: `src/features/favorites/{api,queries,useToggleFavorite}.ts`, `src/features/favorites/components/FavoriteButton.tsx`, `e2e/04-favorites.spec.ts`
 - Modify: `NftCard.tsx`, `PurchasePanel.tsx`, `MobileTabBar.tsx` (aba Favoritos → `/?favorites=true`)
 
 **Interfaces:**
+
 - Produces: `favoritesQueryOptions(userId)`; `useToggleFavorite()` → `mutate(nftId)` com `onMutate` (cancel + snapshot + set), `onError` (rollback + toast "Não foi possível atualizar favoritos"), `onSettled` (invalidate); `FavoriteButton({ nftId })` (`aria-pressed`; anônimo → redireciona para login com `returnTo`).
 
 - [ ] **Passo 1:** `e2e/04-favorites.spec.ts`: `favoritar persiste após refresh`, `falha de mutation reverte visual e avisa` (cenário `favorite-mutation-fails`), `favorito de Ana não aparece para Bruno`, `aba Favoritos lista apenas favoritos`. → FAIL.
@@ -489,10 +494,12 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 11: Carrinho (guest + usuário, merge, cupom, resumo)
 
 **Files:**
+
 - Create: `src/features/cart/{api,queries,cart-scope,useAddToCart,useUpdateCartItem,useRemoveCartItem,messages}.ts`, `src/features/cart/components/{CartTable,CartItemRow,CartSummary,CouponField,PriceChangedNotice}.tsx`, `src/features/checkout/quote.ts`, `src/routes/cart.tsx`, `e2e/05-cart.spec.ts`
 - Modify: `src/features/auth/mutations.ts` (login → `POST /cart/merge`), `Header.tsx`/`MobileTabBar.tsx` (badge)
 
 **Interfaces:**
+
 - Produces: `getCartScope(session): { kind, id, headers }` (guest id em `kurio.guestId`); `cartQueryOptions(scope)`; `useCartQuery()` (resolve o escopo pela sessão atual e devolve `useQuery(cartQueryOptions(scope))` — usado pelo badge do header/tab bar); `useAddToCart()` (409 UNAVAILABLE → mensagem com disponível atual); `useUpdateCartItem()` otimista com rollback; `quoteQueryOptions({ items, couponCode, network })` (`queryKeys.quote(hash)`; `staleTime 0`); `CartSummary` renderiza **somente** valores vindos da cotação (subtotal, desconto, taxa de rede com "Taxa estimada", total) e `SummarySkeleton` enquanto carrega; cupom aplicado/removido altera a chave da cotação; `PriceChangedNotice` aparece quando `item.unitPrice !== nft.price` atual ou `available < quantity` (dados do evento ou refetch) com botão "Atualizar carrinho".
 
 - [ ] **Passo 1:** `e2e/05-cart.spec.ts`: `adicionar, alterar quantidade e remover refletem no resumo da API`, `quantidade acima do disponível é bloqueada`, `carrinho persiste após refresh`, `itens de visitante são preservados ao autenticar`, `cupom LANCAMENTO10 aplica e remover volta ao valor`, `cupom inválido e expirado mostram erro no campo`, `alteração de preço via socket com carrinho aberto destaca o item e atualiza o resumo`, `resumo mostra skeleton com shimmer em rede lenta`. → FAIL.
@@ -501,9 +508,11 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 12: Checkout (dados, carteira/rede, revisão, cotação fresca)
 
 **Files:**
+
 - Create: `src/features/checkout/{api,queries,checkout-draft,wallet-connection,useCreateOrder,messages}.ts`, `src/features/checkout/components/{CollectorForm,OrderReview,WalletNetworkPicker,StaleQuoteBanner,SubmitOrderButton}.tsx`, `src/routes/checkout.tsx`, `e2e/06-purchase-happy-path.spec.ts`
 
 **Interfaces:**
+
 - Consumes: `walletsQueryOptions(userId)` (Tarefa 15), `quoteQueryOptions`, `cartQueryOptions`.
 - Produces: `collectorFormSchema` (campos do Figma: displayName, username, network, profileName, walletAddress, secondaryWallet?, walletType, referralCode?, email, ensName, useOtherWallet, note?); `checkoutDraft` (`sessionStorage['kurio.checkoutDraft.<userId>']`, restaurado após expiração/refresh); `useWalletConnection()` → `connect(walletId, provider)` (`POST /wallet-session/connect`), estados `idle|connecting|connected|rejected|disconnected`; `useCreateOrder()` (Tarefa 13 detalha); `StaleQuoteBanner` bloqueia envio quando `quote.version` ≠ versão exibida ou evento `nft.updated` tocou item do carrinho → "Revisar nova cotação" refaz `POST /quote` e exige novo clique em "Confirmar compra".
 - Rota `/checkout`: `beforeLoad: requireAuth`; sem carteira cadastrada → `EmptyState` com link "Cadastrar carteira" (`/account/wallets?returnTo=/checkout`).
@@ -514,10 +523,12 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 13: Pedido idempotente, estados e recuperação
 
 **Files:**
+
 - Create: `src/features/orders/{api,queries,pending-order,messages}.ts`, `src/features/orders/components/{OrderStatusCard,OrderReceiptModal,OrderItemsTable}.tsx`, `src/routes/orders.$orderId.tsx`, `e2e/07-payment-failures.spec.ts`, `e2e/10-realtime-resilience.spec.ts`
 - Modify: `src/features/checkout/useCreateOrder.ts`, `src/mocks/handlers/orders.ts`, `src/mocks/shared/timing.ts`
 
 **Interfaces:**
+
 - Produces: `useCreateOrder()` → `mutate(input)`: gera `Idempotency-Key` **uma vez por tentativa de compra** (guardada em `kurio.pendingOrder = { key, payloadHash, orderId? }` antes do request), desabilita botão durante `isPending`, em timeout/erro de rede reenvia com a **mesma** chave; sucesso → grava `orderId`, `navigate('/orders/$orderId')`, invalida `cart`; `pending-order.ts` → `readPendingOrder()`, `clearPendingOrder()`; rota `/checkout` ao montar com `pendingOrder.orderId` redireciona para o pedido; `orderQueryOptions(userId, id)` com `refetchInterval: status === 'pending' ? 3000 : false`; `OrderReceiptModal` (Figma: "Seus NFTs agora estão na sua carteira", ID da transação, data, total, carteira, tabela, "Ver no Etherscan" — link simulado `https://etherscan.io/tx/<ref>` com `rel="noopener noreferrer"` e aviso "simulado"); estado `declined` (vermelho, motivo, "Tentar novamente" → `/checkout` mantendo o carrinho); estado `pending` (spinner, "Aguardando confirmação da rede", status do socket).
 
 - [ ] **Passo 1:** `e2e/07-payment-failures.spec.ts`: `pagamento recusado mostra recusa e mantém itens no carrinho` (`payment-declined`), `clique repetido não cria pedido duplicado` (clicar 3× rápido; `getState` mostra 1 pedido), `timeout recupera o mesmo pedido pela chave` (`order-timeout` + `page.clock`), `confirmação só aparece após order.updated confirmado` (sem evento, continua pendente), `recibo mantém o snapshot após alteração de preço no catálogo` (emitir `nft.updated` com preço novo e asserir que `/orders/:id` não muda). `e2e/10-realtime-resilience.spec.ts`: `eventos duplicados e antigos não regridem o estado` (`duplicate-events`, `stale-events`), `desconexão com pedido pendente e reload recupera sem novo pedido`, `reconexão reconcilia com REST` (desconectar socket via `mocks`, mudar preço só no store, reconectar → UI atualiza), `evento de sessão anterior não atualiza outro usuário`. → FAIL.
@@ -526,6 +537,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 14: Recibo em mobile + skeleton/feedback transversal
 
 **Files:**
+
 - Modify: `OrderReceiptModal.tsx` (mobile: página cheia), `src/components/feedback/*`, todas as rotas (garantir `pendingComponent` com skeleton e `errorComponent` com `ErrorState`)
 - Create: `e2e/12-loading-and-recovery.spec.ts`
 
@@ -535,9 +547,11 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 15: Perfil e carteiras
 
 **Files:**
+
 - Create: `src/features/profile/{api,queries,mutations,messages}.ts`, `src/features/profile/components/{ProfileForm,AvatarField,PasswordForm}.tsx`, `src/features/wallets/{api,queries,mutations,messages}.ts`, `src/features/wallets/components/{WalletForm,WalletCard,SecondaryWalletSection}.tsx`, `src/routes/_account.tsx`, `src/routes/_account.account.profile.tsx`, `src/routes/_account.account.wallets.tsx`, `e2e/08-account.spec.ts`
 
 **Interfaces:**
+
 - Produces: `profileQueryOptions(userId)`, `useUpdateProfile()`, `useUpdateAvatar()` (valida tipo/tamanho/magic bytes no cliente, envia data URL), `useChangePassword()`; `walletsQueryOptions(userId)`, `useSaveWallet(role)`; `walletInputSchema` (campos do Figma: displayName, walletNickname, network, profileName, address, secondaryAddress?, walletType, referralCode?, email, ensName); `_account.tsx` layout com `AccountSidebar` (Dados do perfil, Carteiras ativos; demais itens informam indisponibilidade) e versão mobile (lista no topo / Sheet).
 
 - [ ] **Passo 1:** `e2e/08-account.spec.ts`: `editar nome e e-mail persiste após refresh`, `username em conflito mostra erro da API no campo`, `avatar inválido (pdf, >2MB) é rejeitado; válido aparece no header`, `senha atual errada mostra erro; troca válida permite novo login`, `carteira principal com endereço inválido mostra erro; válida persiste`, `secundária "igual à principal" espelha dados`, `perfil e carteiras funcionam em 390px`. → FAIL.
@@ -546,6 +560,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 16: Acessibilidade, teclado e regressão visual
 
 **Files:**
+
 - Create: `e2e/11-a11y-keyboard.spec.ts`, `e2e/13-visual.spec.ts`, `e2e/__screenshots__/**` (baselines), `docs/TESTING.md`
 
 - [ ] **Passo 1:** `e2e/11`: `navegação por teclado completa no catálogo (Tab até paginação, Enter abre detalhe)`, `diálogo de login prende foco e devolve ao fechar (Esc)`, `drawer de filtros mobile idem`, `erros de formulário são anunciados e focam o primeiro campo inválido`, `axe sem violações críticas/sérias em /, /nfts/:id, /cart, /checkout, /login, /account/profile`, `sem overflow horizontal em 390px` (todas as rotas), `zoom 200% (viewport 720 de largura) mantém conteúdo`. `e2e/13`: `toHaveScreenshot` de Início, Detalhe, Carrinho, Pagamento em desktop e mobile com `mocks.reset('default')`, `page.clock.setFixedTime('2026-07-29T12:00:00Z')`, animações desativadas, fontes carregadas (`document.fonts.ready`). → FAIL/gerar baselines.
@@ -555,6 +570,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 17: Performance e Lighthouse
 
 **Files:**
+
 - Create: `lighthouse/lighthouserc.desktop.json`, `lighthouse/lighthouserc.mobile.json`, `lighthouse/run.mjs` (executa LHCI nos 2 perfis contra `pnpm preview`, salva em `reports/lighthouse/<perfil>/<pagina>/`, imprime tabela de medianas), `docs/LIGHTHOUSE.md`, `scripts/optimize-images.mjs`
 - Modify: `index.html` (meta description, `lang="pt-BR"`, preload da fonte 400 e da imagem do hero com `fetchpriority="high"`), `vite.config.ts` (`autoCodeSplitting`, `build.target 'es2022'`), imagens (AVIF/WebP + width/height + `sizes`)
 
@@ -565,6 +581,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 18: Deploy (Vercel) e verificação publicada
 
 **Files:**
+
 - Create: `vercel.json` (rewrites SPA + headers da seção 3.3), `.vercelignore`
 - Modify: `README.md` (URL pública)
 
@@ -575,6 +592,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 ### Task 19: Documentação e revisão final
 
 **Files:**
+
 - Create/Modify: `README.md`, `ARCHITECTURE.md`, `docs/CONTRACTS.md`, `docs/MOCKS.md`, `docs/TESTING.md`
 
 - [ ] **Passo 1:** `README.md`: visão geral, stack, requisitos (Node 24, pnpm 11), setup (`pnpm i`; `mockServiceWorker.js` já versionado), variáveis, credenciais (`ana@kurio.test`/`bruno@kurio.test`, senha `Kurio!2026`), cupons, seleção de cenário (`?scenario=`, painel `?devtools=1`, `window.__kurio`), reset, comandos (`dev`, `build`, `preview`, `typecheck`, `lint`, `test`, `e2e`, `e2e:ui`, `lighthouse`, `check`), como reproduzir cada fluxo de falha (tabela cenário → passos → comportamento esperado), URL pública, estrutura de pastas.

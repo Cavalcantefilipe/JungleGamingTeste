@@ -1,0 +1,74 @@
+@theme {
+  --color-*: initial;
+  --color-ink: #140d0a;
+  --color-surface-card: #241612;
+  --color-surface-raised: #2f1d15;
+  --color-surface-dark: #38220f;
+  --color-border: #3f2319;
+  --color-border-soft: #55321f;
+  --color-primary: #d28a4c;
+  --color-primary-light: #dd9a5f;
+  --color-primary-dark: #c47b3e;
+  --color-amber: #e3a44e;
+  --color-secondary: #b39463;
+  --color-foreground: #f5f1eb;
+  --color-text-primary: #f5f1eb;
+  --color-text-secondary: #ceb28c;
+  --color-text-accent: #e89b55;
+  --color-text-coral: #ea6b4f;
+  --color-success: #00a66c;
+  --color-error: #ed1b2e;
+  --color-gray-light: #ededed;
+  --color-bg-elevated: #fbfbfb;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-backdrop: rgb(0 0 0 / 0.6);
+  --color-transparent: transparent;
+
+  --font-mono: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --text-display: 43px;
+  --text-display--line-height: 70px;
+  --text-display--font-weight: 700;
+  --text-display-sm: 32px;
+  --text-display-sm--line-height: 1.2;
+  --text-display-sm--font-weight: 700;
+  --text-heading: 28px;
+  --text-heading--line-height: 1.2;
+  --text-heading--font-weight: 700;
+  --text-heading-sm: 24px;
+  --text-heading-sm--line-height: 1.2;
+  --text-heading-sm--font-weight: 700;
+  --text-title: 20px;
+  --text-title--line-height: 28px;
+  --text-body-lg: 16px;
+  --text-body-lg--line-height: 22px;
+  --text-body: 14px;
+  --text-body--line-height: 24px;
+  --text-body-sm: 15px;
+  --text-body-sm--line-height: 16px;
+  --text-caption: 13px;
+  --text-caption--line-height: 16px;
+  --text-caption-sm: 12px;
+  --text-caption-sm--line-height: 16px;
+  --text-tiny: 11px;
+  --text-tiny--line-height: 16px;
+
+  --radius-control: 6px;
+  --radius-card: 12px;
+  --radius-media: 24px;
+
+  --spacing-page: 120px;
+  --spacing-section: 96px;
+
+  --animate-shimmer: shimmer 1.6s linear infinite;
+  @keyframes shimmer {
+    from {
+      background-position: -200% 0;
+    }
+    to {
+      background-position: 200% 0;
+    }
+  }
+}
