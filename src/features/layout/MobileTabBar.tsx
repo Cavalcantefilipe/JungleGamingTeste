@@ -1,7 +1,9 @@
-import { Link } from '@tanstack/react-router';
+import { Link, useRouterState } from '@tanstack/react-router';
 import { Heart, House, ShoppingCart, UserRound } from 'lucide-react';
 
 export function MobileTabBar() {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  if (pathname.startsWith('/nfts/')) return null;
   return (
     <nav
       aria-label="Navegação mobile"

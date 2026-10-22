@@ -1,6 +1,6 @@
 import type { CartScope } from '@/contracts/cart';
 import { mockStore } from '@/mocks/db/store';
-import { getScenario } from '@/mocks/scenarios/current';
+import { getScenario, setScenario } from '@/mocks/scenarios/current';
 
 import { MockError } from './respond';
 
@@ -11,6 +11,7 @@ export function requireSession(request: Request) {
   const session = db.sessions.find((entry) => entry.token === token);
   if (!session) throw new MockError(401, 'UNAUTHENTICATED');
   if (Date.parse(session.expiresAt) <= Date.now() || getScenario().name === 'session-expired') {
+    if (getScenario().name === 'session-expired') setScenario('default');
     mockStore.write((state) => ({
       ...state,
       sessions: state.sessions.filter((entry) => entry.token !== token),

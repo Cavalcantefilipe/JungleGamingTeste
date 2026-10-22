@@ -33,6 +33,10 @@ test.describe('auth', () => {
     await page.goto('/account/profile');
     await expect(page).toHaveURL(/\/login\?returnTo=/);
     await expect(page.getByLabel('E-mail', { exact: true })).toBeVisible();
+    await page.getByLabel('E-mail', { exact: true }).fill('ana@kurio.test');
+    await page.getByLabel('Senha', { exact: true }).fill('Kurio!2026');
+    await page.getByRole('button', { name: 'Entrar', exact: true }).click();
+    await expect(page).toHaveURL(/\/account\/profile/);
   });
   test('logout limpa dados privados e permite entrar como outro usuário', async ({ page }) => {
     await login(page);
@@ -51,4 +55,22 @@ test.describe('auth', () => {
     await page.getByRole('button', { name: 'Entrar', exact: true }).click();
     await expect(page).toHaveURL('http://127.0.0.1:4175/');
   });
+});
+
+test('carrinho de visitante é preservado ao entrar e não vaza para outro usuário', async ({
+  page,
+  isMobile,
+}) => {
+  await page.goto('/nfts/nft-001');
+  await page
+    .getByRole('button', { name: isMobile ? 'Comprar NFT' : 'COMPRAR', exact: true })
+    .click();
+  await expect(page.getByRole('link', { name: 'Carrinho, 1 item', exact: true })).toBeVisible();
+  await login(page);
+  await expect(page.getByRole('link', { name: 'Carrinho, 1 item', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Abrir menu da conta' }).click();
+  await page.getByRole('menuitem', { name: 'Sair', exact: true }).click();
+  await expect(page.getByRole('link', { name: 'Entrar', exact: true })).toBeVisible();
+  await login(page, 'bruno');
+  await expect(page.getByRole('link', { name: 'Carrinho, 0 itens', exact: true })).toBeVisible();
 });

@@ -2,6 +2,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from '@tanstack/react-router';
 import { toast } from 'sonner';
 
+import { queryClient } from '@/app/query-client';
 import type { Session } from '@/contracts/auth';
 import { errorMessage } from '@/lib/errors';
 
@@ -14,6 +15,7 @@ async function acceptSession(session: Session): Promise<void> {
   if (guestId) {
     try {
       await api.mergeGuestCart(guestId);
+      await queryClient.invalidateQueries({ queryKey: ['cart'] });
     } catch (error) {
       toast.error(errorMessage(error));
     }

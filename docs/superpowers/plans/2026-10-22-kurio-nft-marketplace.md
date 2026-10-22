@@ -443,7 +443,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 
 - [x] **Passo 1:** `search-params.test.ts`: `?page=abc → page 1`, `?minPrice=-1 → undefined`, `?category=a&category=b → array`, `sort desconhecido → recent`. `e2e/01-catalog.spec.ts`: `busca + 2 filtros combinados refletem na query da API e na URL`, `mudar filtro reinicia página para 1`, `refresh preserva filtros e página`, `voltar no histórico restaura estado anterior`, `resultado vazio mostra estado vazio com limpar filtros`, `erro 500 mostra erro e botão tentar novamente recupera` (cenário `server-error-reads` → `default`), `respostas fora de ordem não sobrescrevem resultado mais recente` (cenário `out-of-order`: digitar "ape" depois "apex" e asserir que o resultado final corresponde a "apex"), `skeleton aparece em rede lenta com dimensões estáveis`. → FAIL.
 - [x] **Passo 2:** implementar rota `index.tsx` (`validateSearch: catalogSearchSchema`, `loaderDeps`, `loader` com `ensureQueryData`), componentes conforme 2.3; slider de preço (shadcn `Slider` duplo) aplica só no botão "Aplicar"; mobile usa `FilterDrawer` (Sheet lateral) com foco preso; facets vindas da API; indicador discreto "Atualizando…" (`aria-live`) quando `isFetching && !isPending` para o estado de atualização em segundo plano.
-- [x] **Passo 3:** testes → PASS. Comparar com Figma em 1440 e 390 (screenshots) e ajustar até bater tipografia/espaçamento. Commit `feat: catálogo com estado na URL, filtros, ordenação e paginação`.
+- [ ] **Passo 3:** testes → PASS. Comparar com Figma em 1440 e 390 (screenshots) e ajustar até bater tipografia/espaçamento. Commit `feat: catálogo com estado na URL, filtros, ordenação e paginação`.
 
 ### Task 8: Detalhe do NFT
 
@@ -456,9 +456,9 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - Consumes: `nftDetailQueryOptions(id)` (`queryKeys.nfts.detail(id)`, `staleTime 60s`), `useAddToCart` (Tarefa 11).
 - Produces: `EditionPicker({ editions, value, onChange })` (chip desabilitado + `aria-disabled` + texto "Esgotada" quando `available === 0`), `QuantityStepper({ value, min 1, max: available, onChange })` (botões desabilitados nos limites, input numérico com `inputMode="numeric"`), `PurchasePanel` (preço, edição, qtd, "COMPRAR" → adiciona ao carrinho e navega para `/cart`; "Favoritar").
 
-- [ ] **Passo 1:** `e2e/02-nft-detail.spec.ts`: `acesso direto por URL renderiza detalhe com skeleton antes`, `NFT inexistente mostra 404 do detalhe`, `edição esgotada não é selecionável`, `stepper não passa do disponível`, `mobile mostra barra inferior fixa com Comprar NFT`. → FAIL.
-- [ ] **Passo 2:** implementar rota com `loader` (`ensureQueryData`) + `errorComponent`/`notFoundComponent`; galeria com miniaturas (desktop) e imagem única (mobile); abas "Detalhes do NFT | Avaliações (n)"; carrossel "Mais desta coleção" (5 cards, dots, scroll-snap, teclado).
-- [ ] **Passo 3:** → PASS. Commit `feat: detalhe do NFT com galeria, edições e quantidade`.
+- [x] **Passo 1:** `e2e/02-nft-detail.spec.ts`: `acesso direto por URL renderiza detalhe com skeleton antes`, `NFT inexistente mostra 404 do detalhe`, `edição esgotada não é selecionável`, `stepper não passa do disponível`, `mobile mostra barra inferior fixa com Comprar NFT`. → FAIL.
+- [x] **Passo 2:** implementar rota com `loader` (`ensureQueryData`) + `errorComponent`/`notFoundComponent`; galeria com miniaturas (desktop) e imagem única (mobile); abas "Detalhes do NFT | Avaliações (n)"; carrossel "Mais desta coleção" (5 cards, dots, scroll-snap, teclado).
+- [x] **Passo 3:** → PASS. Commit `feat: detalhe do NFT com galeria, edições e quantidade`.
 
 ### Task 9: Infra de tempo real (socket mock + cliente + gate)
 

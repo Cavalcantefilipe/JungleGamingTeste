@@ -11,8 +11,11 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { useLogout } from '@/features/auth/mutations';
 import { useSession } from '@/features/auth/session-store';
+import { useCartQuery } from '@/features/cart/queries';
 
 export function Header() {
+  const cart = useCartQuery();
+  const cartQuantity = cart.data?.items.reduce((sum, item) => sum + item.quantity, 0) ?? 0;
   const session = useSession();
   const logout = useLogout();
   return (
@@ -52,8 +55,20 @@ export function Header() {
             </a>
           </Button>
           <Button asChild variant="ghost" size="icon">
-            <Link to="/cart" aria-label="Carrinho, 0 itens">
+            <Link
+              to="/cart"
+              className="relative"
+              aria-label={`Carrinho, ${cartQuantity} ${cartQuantity === 1 ? 'item' : 'itens'}`}
+            >
               <ShoppingCart aria-hidden="true" />
+              {cartQuantity > 0 && (
+                <span
+                  className="absolute top-0 right-0 flex size-4 items-center justify-center rounded-full bg-primary text-[10px] text-ink"
+                  aria-hidden="true"
+                >
+                  {cartQuantity}
+                </span>
+              )}
             </Link>
           </Button>
           {session ? (

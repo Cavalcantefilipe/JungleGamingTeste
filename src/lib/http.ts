@@ -34,7 +34,15 @@ http.interceptors.response.use(
       error.response?.status ?? 0,
       parsed.success ? parsed.data.error.fields : undefined,
     );
-    if (normalized.status === 401 && code !== 'INVALID_CREDENTIALS') unauthorized?.();
+    const activeToken = sessionStorage.read()?.token;
+    const requestAuthorization = error.config?.headers.get('Authorization');
+    if (
+      normalized.status === 401 &&
+      code !== 'INVALID_CREDENTIALS' &&
+      activeToken &&
+      requestAuthorization === `Bearer ${activeToken}`
+    )
+      unauthorized?.();
     return Promise.reject(normalized);
   },
 );
