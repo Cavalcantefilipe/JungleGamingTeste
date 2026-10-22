@@ -345,7 +345,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 
 ## Tarefas
 
-### Tarefa 1: Scaffold, qualidade e tokens
+### Task 1: Scaffold, qualidade e tokens
 
 **Files:**
 - Create: `package.json`, `vite.config.ts`, `tsconfig.json`, `tsconfig.node.json`, `eslint.config.js`, `.prettierrc`, `.nvmrc`, `.gitignore`, `.env.example`, `index.html`, `src/app/main.tsx`, `src/styles/tokens.css`, `src/styles/globals.css`, `src/lib/cn.ts`, `src/lib/env.ts`, `src/lib/env.test.ts`, `components.json`, `.claude/rules/kurio.md`, `docs/CHALLENGE.md` (mover README), `docs/superpowers/plans/2026-10-22-kurio-nft-marketplace.md` (cópia deste plano)
@@ -364,7 +364,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [ ] **Passo 9:** `pnpm check` verde; `pnpm build` gera `dist/`.
 - [ ] **Passo 10:** Commit `chore: scaffold vite react ts, tailwind tokens, shadcn, lint`.
 
-### Tarefa 2: Contratos e utilitários de dinheiro
+### Task 2: Contratos e utilitários de dinheiro
 
 **Files:**
 - Create: `src/contracts/{common,money,nft,auth,cart,quote,order,profile,wallet,realtime,index}.ts`, `src/lib/money.ts`, `src/lib/money.test.ts`, `src/contracts/contracts.test.ts`, `src/lib/idempotency.ts`, `src/lib/idempotency.test.ts`, `src/lib/storage.ts`, `src/lib/storage.test.ts`
@@ -377,7 +377,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [ ] **Passo 3:** `pnpm test` → PASS; `pnpm check` verde.
 - [ ] **Passo 4:** Commit `feat: contratos zod e utilitários de dinheiro decimal`.
 
-### Tarefa 3: Mock store, fixtures e cenários
+### Task 3: Mock store, fixtures e cenários
 
 **Files:**
 - Create: `src/mocks/db/{schema,seed,store}.ts`, `src/mocks/db/fixtures/{nfts,users,coupons,images}.ts`, `src/mocks/scenarios/{registry,network,current}.ts`, `src/mocks/shared/{respond,session,pricing,hash,timing,password}.ts`, `src/mocks/db/store.test.ts`, `src/mocks/shared/pricing.test.ts`, `src/mocks/shared/password.test.ts`, `src/mocks/db/fixtures/nfts.test.ts`
@@ -389,7 +389,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [ ] **Passo 2:** implementar fixtures (determinísticas, sem `Math.random` — usar índice), store, cenários (registry completo da seção 4), network wrapper com delay/jitter/falha/offline usando `delay()` do MSW e `HttpResponse.error()`.
 - [ ] **Passo 3:** `pnpm test` → PASS. Commit `feat: mock store persistido, fixtures e registro de cenários`.
 
-### Tarefa 4: Handlers REST, worker e app shell
+### Task 4: Handlers REST, worker e app shell
 
 **Files:**
 - Create: `src/mocks/handlers/{index,auth,nfts,favorites,cart,quote,orders,profile,wallets,wallet-session}.ts`, `src/mocks/browser.ts`, `src/mocks/control.ts`, `public/mockServiceWorker.js` (via `pnpm msw init public --save`), `src/lib/http.ts`, `src/lib/errors.ts`, `src/lib/query-keys.ts`, `src/app/{providers,query-client,router}.tsx`, `src/routes/__root.tsx`, `src/routes/index.tsx` (placeholder), `src/routes/$.tsx`, `src/mocks/handlers/handlers.test.ts` (Vitest + `msw/node`)
@@ -404,7 +404,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [ ] **Passo 5:** `pnpm dev` → abrir `/` e confirmar no DevTools que `GET /api/nfts` responde via MSW (`[MSW] Mocking enabled`). `pnpm build && pnpm preview` idem.
 - [ ] **Passo 6:** Commit `feat: handlers REST MSW, cliente http e shell da aplicação`.
 
-### Tarefa 5: Sessão, login, cadastro e guarda de rotas
+### Task 5: Sessão, login, cadastro e guarda de rotas
 
 **Files:**
 - Create: `src/features/auth/{session-store,api,mutations,route-guard,messages}.ts`, `src/features/auth/components/{AuthDialog,LoginForm,RegisterForm,SocialButtons}.tsx`, `src/routes/login.tsx`, `src/routes/register.tsx`, `e2e/03-auth.spec.ts`, `e2e/fixtures/kurio.ts`, `playwright.config.ts`
@@ -419,7 +419,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [ ] **Passo 3:** rodar E2E → PASS. `security-reviewer` nesta tarefa.
 - [ ] **Passo 4:** Commit `feat: sessão, login, cadastro e proteção de rotas`.
 
-### Tarefa 6: Layout (header, footer, tab bar mobile, página 404)
+### Task 6: Layout (header, footer, tab bar mobile, página 404)
 
 **Files:**
 - Create: `src/features/layout/{Header,MobileTabBar,Footer,PageShell,AccountSidebar}.tsx`, `src/components/feedback/{EmptyState,ErrorState,LiveRegion}.tsx`, `src/components/feedback/skeletons.tsx`, `e2e/00-layout.spec.ts`
@@ -433,7 +433,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [ ] **Passo 2:** implementar conforme 2.3 (medidas exatas), ícones `lucide-react`; nav ativa por `useMatchRoute`; "Entrar" vira menu de avatar quando autenticado (Meu perfil, Carteiras, Sair).
 - [ ] **Passo 3:** E2E → PASS. Verificar visualmente em 390/768/1440 (Playwright MCP) contra o Figma. Commit `feat: header, footer, tab bar mobile e 404`.
 
-### Tarefa 7: Catálogo (busca, filtros, ordenação, paginação na URL)
+### Task 7: Catálogo (busca, filtros, ordenação, paginação na URL)
 
 **Files:**
 - Create: `src/features/catalog/{search-params,api,queries,messages}.ts`, `src/features/catalog/search-params.test.ts`, `src/features/catalog/components/{FilterSidebar,FilterDrawer,PriceRangeFilter,NftGrid,NftCard,Pagination,SortSelect,CatalogTabs,FeaturedCard,HeroSection,PromoBanners,BlogSection}.tsx`, `e2e/01-catalog.spec.ts`
@@ -446,7 +446,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [ ] **Passo 2:** implementar rota `index.tsx` (`validateSearch: catalogSearchSchema`, `loaderDeps`, `loader` com `ensureQueryData`), componentes conforme 2.3; slider de preço (shadcn `Slider` duplo) aplica só no botão "Aplicar"; mobile usa `FilterDrawer` (Sheet lateral) com foco preso; facets vindas da API; indicador discreto "Atualizando…" (`aria-live`) quando `isFetching && !isPending` para o estado de atualização em segundo plano.
 - [ ] **Passo 3:** testes → PASS. Comparar com Figma em 1440 e 390 (screenshots) e ajustar até bater tipografia/espaçamento. Commit `feat: catálogo com estado na URL, filtros, ordenação e paginação`.
 
-### Tarefa 8: Detalhe do NFT
+### Task 8: Detalhe do NFT
 
 **Files:**
 - Create: `src/features/nft-detail/{api,queries,messages}.ts`, `src/features/nft-detail/components/{Gallery,EditionPicker,QuantityStepper,PurchasePanel,DetailTabs,RelatedCarousel,ShareLinks}.tsx`, `src/routes/nfts.$nftId.tsx`, `e2e/02-nft-detail.spec.ts`
@@ -459,7 +459,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [ ] **Passo 2:** implementar rota com `loader` (`ensureQueryData`) + `errorComponent`/`notFoundComponent`; galeria com miniaturas (desktop) e imagem única (mobile); abas "Detalhes do NFT | Avaliações (n)"; carrossel "Mais desta coleção" (5 cards, dots, scroll-snap, teclado).
 - [ ] **Passo 3:** → PASS. Commit `feat: detalhe do NFT com galeria, edições e quantidade`.
 
-### Tarefa 9: Infra de tempo real (socket mock + cliente + gate)
+### Task 9: Infra de tempo real (socket mock + cliente + gate)
 
 **Files:**
 - Create: `src/mocks/socket/{server,events}.ts`, `src/features/realtime/{socket,event-gate,apply-event,RealtimeProvider,useRealtimeReconciliation}.ts(x)`, `src/features/realtime/event-gate.test.ts`, `src/features/realtime/apply-event.test.ts`, `e2e/09-realtime-checkout.spec.ts` (parcial), `docs/MOCKS.md` (seção transporte)
@@ -474,7 +474,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [ ] **Passo 4:** E2E `09 › "preço muda via socket no detalhe e atualiza sem recarregar"` (usa `mocks.emit`, assert no DOM e ausência de nova chamada REST). → PASS.
 - [ ] **Passo 5:** Documentar transporte e limitações em `docs/MOCKS.md`. Commit `feat: socket.io simulado com MSW, gate de eventos e aplicação no cache`.
 
-### Tarefa 10: Favoritos (otimista com rollback)
+### Task 10: Favoritos (otimista com rollback)
 
 **Files:**
 - Create: `src/features/favorites/{api,queries,useToggleFavorite}.ts`, `src/features/favorites/components/FavoriteButton.tsx`, `e2e/04-favorites.spec.ts`
@@ -486,7 +486,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [ ] **Passo 1:** `e2e/04-favorites.spec.ts`: `favoritar persiste após refresh`, `falha de mutation reverte visual e avisa` (cenário `favorite-mutation-fails`), `favorito de Ana não aparece para Bruno`, `aba Favoritos lista apenas favoritos`. → FAIL.
 - [ ] **Passo 2:** implementar. → PASS. Commit `feat: favoritos com atualização otimista e rollback`.
 
-### Tarefa 11: Carrinho (guest + usuário, merge, cupom, resumo)
+### Task 11: Carrinho (guest + usuário, merge, cupom, resumo)
 
 **Files:**
 - Create: `src/features/cart/{api,queries,cart-scope,useAddToCart,useUpdateCartItem,useRemoveCartItem,messages}.ts`, `src/features/cart/components/{CartTable,CartItemRow,CartSummary,CouponField,PriceChangedNotice}.tsx`, `src/features/checkout/quote.ts`, `src/routes/cart.tsx`, `e2e/05-cart.spec.ts`
@@ -498,7 +498,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [ ] **Passo 1:** `e2e/05-cart.spec.ts`: `adicionar, alterar quantidade e remover refletem no resumo da API`, `quantidade acima do disponível é bloqueada`, `carrinho persiste após refresh`, `itens de visitante são preservados ao autenticar`, `cupom LANCAMENTO10 aplica e remover volta ao valor`, `cupom inválido e expirado mostram erro no campo`, `alteração de preço via socket com carrinho aberto destaca o item e atualiza o resumo`, `resumo mostra skeleton com shimmer em rede lenta`. → FAIL.
 - [ ] **Passo 2:** implementar. → PASS. Commit `feat: carrinho com cotação da API, cupom e merge de visitante`.
 
-### Tarefa 12: Checkout (dados, carteira/rede, revisão, cotação fresca)
+### Task 12: Checkout (dados, carteira/rede, revisão, cotação fresca)
 
 **Files:**
 - Create: `src/features/checkout/{api,queries,checkout-draft,wallet-connection,useCreateOrder,messages}.ts`, `src/features/checkout/components/{CollectorForm,OrderReview,WalletNetworkPicker,StaleQuoteBanner,SubmitOrderButton}.tsx`, `src/routes/checkout.tsx`, `e2e/06-purchase-happy-path.spec.ts`
@@ -511,7 +511,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [ ] **Passo 1:** `e2e/06-purchase-happy-path.spec.ts`: `do catálogo ao recibo confirmado` (adiciona 2 itens, cupom, checkout, preenche, conecta MetaMask, revisa, confirma, aguarda `order.updated` → `/orders/:id` confirmado com transactionRef e itens; carrinho remove apenas o comprado), `validação de campos obrigatórios com mensagens associadas`, `carteira recusada mostra erro e permite tentar de novo` (`wallet-rejected`), `carteira desconectada antes de confirmar exige reconectar e não envia pedido` (`wallet-disconnected`), `cotação desatualizada bloqueia confirmação até revisar` (`price-changed-during-checkout`), `edição esgotada durante a compra impede envio` (`edition-sold-out-during-checkout`), `sessão expira no checkout e o formulário é restaurado após login`. → FAIL.
 - [ ] **Passo 2:** implementar. → PASS. `security-reviewer`. Commit `feat: checkout com revisão, carteira/rede e revalidação de cotação`.
 
-### Tarefa 13: Pedido idempotente, estados e recuperação
+### Task 13: Pedido idempotente, estados e recuperação
 
 **Files:**
 - Create: `src/features/orders/{api,queries,pending-order,messages}.ts`, `src/features/orders/components/{OrderStatusCard,OrderReceiptModal,OrderItemsTable}.tsx`, `src/routes/orders.$orderId.tsx`, `e2e/07-payment-failures.spec.ts`, `e2e/10-realtime-resilience.spec.ts`
@@ -523,7 +523,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [ ] **Passo 1:** `e2e/07-payment-failures.spec.ts`: `pagamento recusado mostra recusa e mantém itens no carrinho` (`payment-declined`), `clique repetido não cria pedido duplicado` (clicar 3× rápido; `getState` mostra 1 pedido), `timeout recupera o mesmo pedido pela chave` (`order-timeout` + `page.clock`), `confirmação só aparece após order.updated confirmado` (sem evento, continua pendente), `recibo mantém o snapshot após alteração de preço no catálogo` (emitir `nft.updated` com preço novo e asserir que `/orders/:id` não muda). `e2e/10-realtime-resilience.spec.ts`: `eventos duplicados e antigos não regridem o estado` (`duplicate-events`, `stale-events`), `desconexão com pedido pendente e reload recupera sem novo pedido`, `reconexão reconcilia com REST` (desconectar socket via `mocks`, mudar preço só no store, reconectar → UI atualiza), `evento de sessão anterior não atualiza outro usuário`. → FAIL.
 - [ ] **Passo 2:** implementar. → PASS. `security-reviewer` (idempotência, isolamento). Commit `feat: pedido idempotente com estados pendente/confirmado/recusado e recuperação`.
 
-### Tarefa 14: Recibo em mobile + skeleton/feedback transversal
+### Task 14: Recibo em mobile + skeleton/feedback transversal
 
 **Files:**
 - Modify: `OrderReceiptModal.tsx` (mobile: página cheia), `src/components/feedback/*`, todas as rotas (garantir `pendingComponent` com skeleton e `errorComponent` com `ErrorState`)
@@ -532,7 +532,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [ ] **Passo 1:** `e2e/12`: `catálogo, detalhe e resumo mostram skeleton em rede lenta e o layout não desloca (bounding box antes/depois)`, `falha transitória mostra erro e nova tentativa recupera`, `reduced-motion desativa shimmer`. → FAIL.
 - [ ] **Passo 2:** implementar/ajustar. → PASS. Commit `feat: estados de carregamento, erro e recuperação consistentes`.
 
-### Tarefa 15: Perfil e carteiras
+### Task 15: Perfil e carteiras
 
 **Files:**
 - Create: `src/features/profile/{api,queries,mutations,messages}.ts`, `src/features/profile/components/{ProfileForm,AvatarField,PasswordForm}.tsx`, `src/features/wallets/{api,queries,mutations,messages}.ts`, `src/features/wallets/components/{WalletForm,WalletCard,SecondaryWalletSection}.tsx`, `src/routes/_account.tsx`, `src/routes/_account.account.profile.tsx`, `src/routes/_account.account.wallets.tsx`, `e2e/08-account.spec.ts`
@@ -543,7 +543,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [ ] **Passo 1:** `e2e/08-account.spec.ts`: `editar nome e e-mail persiste após refresh`, `username em conflito mostra erro da API no campo`, `avatar inválido (pdf, >2MB) é rejeitado; válido aparece no header`, `senha atual errada mostra erro; troca válida permite novo login`, `carteira principal com endereço inválido mostra erro; válida persiste`, `secundária "igual à principal" espelha dados`, `perfil e carteiras funcionam em 390px`. → FAIL.
 - [ ] **Passo 2:** implementar. → PASS. Commit `feat: perfil do colecionador, avatar, senha e carteiras`.
 
-### Tarefa 16: Acessibilidade, teclado e regressão visual
+### Task 16: Acessibilidade, teclado e regressão visual
 
 **Files:**
 - Create: `e2e/11-a11y-keyboard.spec.ts`, `e2e/13-visual.spec.ts`, `e2e/__screenshots__/**` (baselines), `docs/TESTING.md`
@@ -552,7 +552,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [ ] **Passo 2:** corrigir violações; gerar baselines (`pnpm e2e --update-snapshots`) só após conferência visual contra o Figma; versionar.
 - [ ] **Passo 3:** suíte completa `pnpm e2e` verde em ambos os projetos; relatório HTML em `reports/playwright-report`. Commit `test: suíte E2E completa, a11y e baselines visuais`.
 
-### Tarefa 17: Performance e Lighthouse
+### Task 17: Performance e Lighthouse
 
 **Files:**
 - Create: `lighthouse/lighthouserc.desktop.json`, `lighthouse/lighthouserc.mobile.json`, `lighthouse/run.mjs` (executa LHCI nos 2 perfis contra `pnpm preview`, salva em `reports/lighthouse/<perfil>/<pagina>/`, imprime tabela de medianas), `docs/LIGHTHOUSE.md`, `scripts/optimize-images.mjs`
@@ -562,7 +562,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [ ] **Passo 2:** `pnpm lighthouse` → se abaixo da meta, atacar: LCP (hero AVIF ≤ 60 KB, preload), TBT (code split, excluir devtools do Query do build), CLS (dimensões), SEO (title/description/`robots.txt`/links com texto), Best Practices (sem erros de console; imagens em proporção).
 - [ ] **Passo 3:** `docs/LIGHTHOUSE.md` com tabela de medianas por página/perfil, LCP/CLS/TBT, versões (`lighthouse`, `@lhci/cli`, Chrome, Node), ambiente e condições; justificar qualquer resultado abaixo da meta. Versionar HTML/JSON em `reports/lighthouse/`. Commit `perf: otimizações e auditoria lighthouse versionada`.
 
-### Tarefa 18: Deploy (Vercel) e verificação publicada
+### Task 18: Deploy (Vercel) e verificação publicada
 
 **Files:**
 - Create: `vercel.json` (rewrites SPA + headers da seção 3.3), `.vercelignore`
@@ -572,7 +572,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [ ] **Passo 2:** após deploy, verificar na URL pública: `/`, `/nfts/<id>` por acesso direto, refresh em `/checkout` (redirect para login), `?scenario=slow-network`, console sem erros, worker registrado, socket conectando (evento via painel dev altera preço), headers de segurança presentes (`curl -I`).
 - [ ] **Passo 3:** rodar Lighthouse também contra a URL pública (informativo) e anotar em `docs/LIGHTHOUSE.md`. Commit `chore: configuração de deploy vercel`.
 
-### Tarefa 19: Documentação e revisão final
+### Task 19: Documentação e revisão final
 
 **Files:**
 - Create/Modify: `README.md`, `ARCHITECTURE.md`, `docs/CONTRACTS.md`, `docs/MOCKS.md`, `docs/TESTING.md`
