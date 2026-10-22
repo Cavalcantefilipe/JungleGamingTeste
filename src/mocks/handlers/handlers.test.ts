@@ -164,3 +164,28 @@ describe('REST MSW', () => {
     expect(mockStore.read().carts['user:user-ana']?.items).toHaveLength(1);
   });
 });
+
+it('trocas concorrentes de senha antiga só confirmam uma alteração', async () => {
+  const ana = await login();
+  const passwords = ['NovaSenha!2026A', 'NovaSenha!2026B'];
+  const responses = await Promise.all(
+    passwords.map((newPassword) =>
+      request(
+        '/profile/password',
+        'POST',
+        { currentPassword: 'Kurio!2026', newPassword },
+        ana.token,
+      ),
+    ),
+  );
+  expect(responses.map((response) => response.status).sort()).toEqual([204, 422]);
+  const winningPassword = passwords[responses.findIndex((response) => response.status === 204)];
+  expect(
+    (await request('/auth/login', 'POST', { email: 'ana@kurio.test', password: 'Kurio!2026' }))
+      .status,
+  ).toBe(401);
+  expect(
+    (await request('/auth/login', 'POST', { email: 'ana@kurio.test', password: winningPassword }))
+      .status,
+  ).toBe(200);
+});

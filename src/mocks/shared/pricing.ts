@@ -1,4 +1,4 @@
-import type { Quote, QuoteInput, QuoteItem } from '@/contracts/quote';
+import { quoteInputSchema, type Quote, type QuoteInput, type QuoteItem } from '@/contracts/quote';
 import { addEth, mulEth, percentOf, subEth } from '@/lib/money';
 import { coupons } from '@/mocks/db/fixtures/coupons';
 import type { MockDb } from '@/mocks/db/schema';
@@ -24,6 +24,7 @@ export function priceItem(db: MockDb, item: QuoteInput['items'][number]): QuoteI
 }
 
 export function computeQuote(db: MockDb, input: QuoteInput): Quote {
+  input = quoteInputSchema.parse(input);
   const items = input.items.map((item) => priceItem(db, item));
   const subtotal = items.reduce((sum, item) => addEth(sum, item.lineTotal), '0');
   const coupon = coupons.find((entry) => entry.code === input.couponCode);

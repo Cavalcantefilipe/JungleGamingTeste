@@ -7,7 +7,13 @@ import {
 } from '@/contracts/cart';
 import { mockStore } from '@/mocks/db/store';
 import { withNetwork } from '@/mocks/scenarios/network';
-import { addCartItem, mergeCart, readCart, updateCartItem, writeCart } from '@/mocks/shared/cart';
+import {
+  addCartItem,
+  mergeCart,
+  readCart,
+  updateCartItem,
+  removeCartItem,
+} from '@/mocks/shared/cart';
 import { getCartScope, requireSession } from '@/mocks/shared/session';
 
 export const cartHandlers = [
@@ -19,40 +25,32 @@ export const cartHandlers = [
   ),
   http.post(
     '*/api/cart/items',
-    withNetwork(async ({ request }) =>
-      HttpResponse.json(
-        addCartItem(getCartScope(request), addCartItemInputSchema.parse(await request.json())),
-      ),
-    ),
+    withNetwork(async ({ request }) => {
+      const input = addCartItemInputSchema.parse(await request.json());
+      return HttpResponse.json(addCartItem(getCartScope(request), input));
+    }),
   ),
   http.patch(
     '*/api/cart/items/:id',
-    withNetwork(async ({ request, params }) =>
-      HttpResponse.json(
-        updateCartItem(
-          getCartScope(request),
-          String(params.id),
-          updateCartItemInputSchema.parse(await request.json()).quantity,
-        ),
-      ),
-    ),
+    withNetwork(async ({ request, params }) => {
+      const input = updateCartItemInputSchema.parse(await request.json());
+      return HttpResponse.json(
+        updateCartItem(getCartScope(request), String(params.id), input.quantity),
+      );
+    }),
   ),
   http.delete(
     '*/api/cart/items/:id',
-    withNetwork(({ request, params }) => {
-      const cart = readCart(mockStore.read(), getCartScope(request));
-      return HttpResponse.json(
-        writeCart({ ...cart, items: cart.items.filter((item) => item.id !== params.id) }),
-      );
-    }),
+    withNetwork(({ request, params }) =>
+      HttpResponse.json(removeCartItem(getCartScope(request), String(params.id))),
+    ),
   ),
   http.post(
     '*/api/cart/merge',
     withNetwork(async ({ request }) => {
+      const input = mergeCartInputSchema.parse(await request.json());
       const { user } = requireSession(request);
-      return HttpResponse.json(
-        mergeCart(user.id, mergeCartInputSchema.parse(await request.json()).guestId),
-      );
+      return HttpResponse.json(mergeCart(user.id, input.guestId));
     }),
   ),
 ];

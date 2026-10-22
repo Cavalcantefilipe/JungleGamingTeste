@@ -11,8 +11,8 @@ export const walletSessionHandlers = [
   http.post(
     '*/api/wallet-session/connect',
     withNetwork(async ({ request }) => {
-      const { user, session } = requireSession(request);
       const input = walletConnectInputSchema.parse(await request.json());
+      const { user, session } = requireSession(request);
       const wallets = mockStore.read().wallets[user.id];
       const wallet = [wallets?.primary, wallets?.secondary].find(
         (entry) => entry?.id === input.walletId,

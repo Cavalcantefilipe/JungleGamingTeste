@@ -36,13 +36,11 @@ function confirmPurchase(db: MockDb, order: Order): MockDb {
         version: nft.version + 1,
         editions: nft.editions.map((edition) => ({
           ...edition,
-          available: Math.max(
-            0,
+          available:
             edition.available -
-              purchased
-                .filter((item) => item.editionId === edition.id)
-                .reduce((sum, item) => sum + item.quantity, 0),
-          ),
+            purchased
+              .filter((item) => item.editionId === edition.id)
+              .reduce((sum, item) => sum + item.quantity, 0),
         })),
       };
     }),
@@ -50,6 +48,17 @@ function confirmPurchase(db: MockDb, order: Order): MockDb {
   };
 }
 
+function hasStock(db: MockDb, order: Order): boolean {
+  return order.items.every((item) => {
+    const edition = db.nfts
+      .find((nft) => nft.id === item.nftId)
+      ?.editions.find((entry) => entry.id === item.editionId);
+    const total = order.items
+      .filter((entry) => entry.nftId === item.nftId && entry.editionId === item.editionId)
+      .reduce((sum, entry) => sum + entry.quantity, 0);
+    return Boolean(edition && edition.available >= total);
+  });
+}
 export function applyDueTransitions(db: MockDb, now = Date.now()): MockDb {
   return db.scheduledTransitions
     .filter((entry) => entry.dueAt <= now)
@@ -62,7 +71,9 @@ export function applyDueTransitions(db: MockDb, now = Date.now()): MockDb {
             (entry) => entry.orderId !== transition.orderId,
           ),
         };
-      const next = transition.status === 'confirmed' ? confirmPurchase(state, order) : state;
+      const unavailable = transition.status === 'confirmed' && !hasStock(state, order);
+      const status = unavailable ? 'declined' : transition.status;
+      const next = status === 'confirmed' ? confirmPurchase(state, order) : state;
       const transactionRef = `0x${order.id.replaceAll('-', '').padEnd(64, '0')}`;
       return {
         ...next,
@@ -71,13 +82,17 @@ export function applyDueTransitions(db: MockDb, now = Date.now()): MockDb {
             ? entry
             : {
                 ...entry,
-                status: transition.status,
+                status,
                 version: entry.version + 1,
                 updatedAt: new Date(now).toISOString(),
                 transactionRef,
                 explorerUrl: `https://etherscan.io/tx/${transactionRef}`,
-                ...(transition.status === 'declined'
-                  ? { declineReason: 'A transação foi recusada pela rede simulada.' }
+                ...(status === 'declined'
+                  ? {
+                      declineReason: unavailable
+                        ? 'A edição não está mais disponível. Nenhum item foi comprado.'
+                        : 'A transação foi recusada pela rede simulada.',
+                    }
                   : {}),
               },
         ),

@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { createSeed } from './seed';
 import { createMockStore } from './store';
@@ -29,4 +29,16 @@ describe('mock store', () => {
       48,
     );
   });
+});
+
+it('falha ao persistir não confirma alteração apenas na memória', () => {
+  const store = createMockStore({ seed: createSeed(), persistKey: 'atomic.db' });
+  const storageWrite = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+    throw new Error('Quota excedida');
+  });
+  expect(() => {
+    store.write((db) => ({ ...db, nfts: [] }));
+  }).toThrow();
+  expect(store.read().nfts).toHaveLength(48);
+  storageWrite.mockRestore();
 });

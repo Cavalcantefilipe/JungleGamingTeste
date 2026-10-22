@@ -1,4 +1,5 @@
 import type { CartScope } from '@/contracts/cart';
+import type { MockDb } from '@/mocks/db/schema';
 import { mockStore } from '@/mocks/db/store';
 import { getScenario, setScenario } from '@/mocks/scenarios/current';
 
@@ -29,4 +30,15 @@ export function getCartScope(request: Request): CartScope {
   const id = request.headers.get('X-Guest-Id');
   if (!id || !/^[a-zA-Z0-9-]{1,80}$/.test(id)) throw new MockError(401, 'UNAUTHENTICATED');
   return { kind: 'guest', id };
+}
+
+export function assertActiveSession(
+  db: MockDb,
+  userId: string,
+  token: string,
+  now = Date.now(),
+): void {
+  const session = db.sessions.find((entry) => entry.token === token && entry.userId === userId);
+  if (!session) throw new MockError(401, 'UNAUTHENTICATED');
+  if (Date.parse(session.expiresAt) <= now) throw new MockError(401, 'SESSION_EXPIRED');
 }

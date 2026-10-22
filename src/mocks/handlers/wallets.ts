@@ -22,9 +22,9 @@ export const walletHandlers = [
   http.put(
     '*/api/wallets/:role',
     withNetwork(async ({ request, params }) => {
-      const { user } = requireSession(request);
       const role = walletRoleSchema.parse(params.role);
       const input = saveWalletInputSchema.parse(await request.json());
+      const { user } = requireSession(request);
       const wallets = mockStore.read().wallets[user.id] ?? {
         primary: null,
         secondary: null,

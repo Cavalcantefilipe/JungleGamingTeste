@@ -14,7 +14,11 @@ function resolveStorage(): Storage | null {
   }
 }
 
-export function createStorage<T>(key: string, schema: z.ZodType<T>): TypedStorage<T> {
+export function createStorage<T>(
+  key: string,
+  schema: z.ZodType<T>,
+  options: { required?: boolean } = {},
+): TypedStorage<T> {
   return {
     read() {
       const raw = resolveStorage()?.getItem(key);
@@ -30,8 +34,11 @@ export function createStorage<T>(key: string, schema: z.ZodType<T>): TypedStorag
     },
     write(value) {
       try {
-        resolveStorage()?.setItem(key, JSON.stringify(value));
+        const target = resolveStorage();
+        if (!target && options.required) throw new Error('Armazenamento indisponível');
+        target?.setItem(key, JSON.stringify(value));
       } catch (error) {
+        if (options.required) throw error;
         console.warn(`Não foi possível gravar "${key}" no armazenamento local`, error);
       }
     },

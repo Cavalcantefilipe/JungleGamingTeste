@@ -19,8 +19,24 @@ export const couponCodeSchema = z
   .max(32, 'Código muito longo')
   .transform((value) => value.toUpperCase());
 
+export const quoteItemsInputSchema = z
+  .array(quoteItemInputSchema)
+  .min(1)
+  .superRefine((items, context) => {
+    const seen = new Set<string>();
+    items.forEach((item, index) => {
+      const key = JSON.stringify([item.nftId, item.editionId]);
+      if (seen.has(key))
+        context.addIssue({
+          code: 'custom',
+          path: [index, 'editionId'],
+          message: 'A mesma edição só pode aparecer uma vez.',
+        });
+      seen.add(key);
+    });
+  });
 export const quoteInputSchema = z.object({
-  items: z.array(quoteItemInputSchema).min(1),
+  items: quoteItemsInputSchema,
   couponCode: couponCodeSchema.optional(),
   network: nftNetworkSchema.default('ethereum'),
 });

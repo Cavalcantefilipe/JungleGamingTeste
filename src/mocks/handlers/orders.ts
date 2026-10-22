@@ -12,8 +12,8 @@ export const orderHandlers = [
   http.post(
     '*/api/orders',
     withNetwork(async ({ request }) => {
-      const { user, session } = requireSession(request);
       const input = createOrderInputSchema.parse(await request.json());
+      const { user, session } = requireSession(request);
       const result = await createOrder(
         input,
         user.id,

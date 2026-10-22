@@ -6,9 +6,8 @@ import {
   updateProfileInputSchema,
 } from '@/contracts/profile';
 import { isValidImage } from '@/lib/avatar';
-import { mockStore } from '@/mocks/db/store';
 import { withNetwork } from '@/mocks/scenarios/network';
-import { hashPassword, verifyPassword } from '@/mocks/shared/password';
+import { changePassword } from '@/mocks/shared/change-password';
 import { updateProfile } from '@/mocks/shared/profile';
 import { MockError } from '@/mocks/shared/respond';
 import { requireSession } from '@/mocks/shared/session';
@@ -20,20 +19,16 @@ export const profileHandlers = [
   ),
   http.patch(
     '*/api/profile',
-    withNetwork(async ({ request }) =>
-      HttpResponse.json(
-        updateProfile(
-          requireSession(request).user.id,
-          updateProfileInputSchema.parse(await request.json()),
-        ),
-      ),
-    ),
+    withNetwork(async ({ request }) => {
+      const input = updateProfileInputSchema.parse(await request.json());
+      return HttpResponse.json(updateProfile(requireSession(request).user.id, input));
+    }),
   ),
   http.post(
     '*/api/profile/avatar',
     withNetwork(async ({ request }) => {
-      const { user } = requireSession(request);
       const { dataUrl } = avatarInputSchema.parse(await request.json());
+      const { user } = requireSession(request);
       const [prefix, base64 = ''] = dataUrl.split(',');
       const mime = prefix?.split(':')[1]?.split(';')[0] ?? '';
       if (
@@ -49,17 +44,9 @@ export const profileHandlers = [
   http.post(
     '*/api/profile/password',
     withNetwork(async ({ request }) => {
-      const { user, account } = requireSession(request);
       const input = changePasswordInputSchema.parse(await request.json());
-      if (!(await verifyPassword(input.currentPassword, account.password)))
-        throw new MockError(422, 'WRONG_PASSWORD', { currentPassword: 'Senha atual incorreta' });
-      const password = await hashPassword(input.newPassword);
-      mockStore.write((db) => ({
-        ...db,
-        users: db.users.map((entry) =>
-          entry.user.id === user.id ? { ...entry, password } : entry,
-        ),
-      }));
+      const { user, session } = requireSession(request);
+      await changePassword(user.id, session.token, input);
       return new HttpResponse(null, { status: 204 });
     }),
   ),

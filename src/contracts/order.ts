@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { idSchema, isoDateSchema } from './common';
 import { ethAmountSchema } from './money';
 import { nftNetworkSchema } from './nft';
-import { quoteCouponSchema, quoteItemInputSchema, quoteItemSchema } from './quote';
+import { quoteCouponSchema, quoteItemsInputSchema, quoteItemSchema } from './quote';
 
 export const ORDER_STATUSES = ['pending', 'confirmed', 'declined'] as const;
 export const orderStatusSchema = z.enum(ORDER_STATUSES);
@@ -36,7 +36,7 @@ export type OrderCollector = z.infer<typeof orderCollectorSchema>;
 
 export const createOrderInputSchema = z.object({
   quoteId: idSchema,
-  items: z.array(quoteItemInputSchema).min(1),
+  items: quoteItemsInputSchema,
   couponCode: z.string().trim().max(32).optional(),
   wallet: z.object({
     walletId: idSchema,
