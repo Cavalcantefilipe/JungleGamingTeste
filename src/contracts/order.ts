@@ -1,9 +1,9 @@
 import { z } from 'zod';
 
-import { idSchema, isoDateSchema } from './common';
+import { apiErrorBodySchema, idSchema, isoDateSchema } from './common';
 import { ethAmountSchema } from './money';
 import { nftNetworkSchema } from './nft';
-import { quoteCouponSchema, quoteItemInputSchema, quoteItemSchema } from './quote';
+import { quoteCouponSchema, quoteItemInputSchema, quoteItemSchema, quoteSchema } from './quote';
 
 export const ORDER_STATUSES = ['pending', 'confirmed', 'declined'] as const;
 export const orderStatusSchema = z.enum(ORDER_STATUSES);
@@ -66,3 +66,6 @@ export const orderSchema = z.object({
   declineReason: z.string().optional(),
 });
 export type Order = z.infer<typeof orderSchema>;
+
+export const quoteStaleErrorBodySchema = apiErrorBodySchema.extend({ quote: quoteSchema });
+export type QuoteStaleErrorBody = z.infer<typeof quoteStaleErrorBodySchema>;

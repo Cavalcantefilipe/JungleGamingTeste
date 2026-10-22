@@ -1,0 +1,71 @@
+import { setNetwork, setScenario } from './scenarios/current';
+import {
+  SCENARIO_NAMES,
+  SCENARIOS,
+  type NetworkConditions,
+  type Scenario,
+  type ScenarioName,
+} from './scenarios/registry';
+import { settleOrders } from './shared/orders';
+import { scheduleOrderTransition } from './shared/timing';
+
+import type { MockDb, SeedName } from './db/schema';
+import type { MockStore } from './db/store';
+import type { Order, OrderStatus, RealtimeEvent } from '@/contracts';
+
+export interface KurioMockControl {
+  reset(seed?: SeedName): Promise<void>;
+  setScenario(name: ScenarioName): Promise<Scenario>;
+  setNetwork(override: Partial<NetworkConditions>): NetworkConditions;
+  emit(event: RealtimeEvent): void;
+  getState(): MockDb;
+  advanceOrder(orderId: string, status: OrderStatus): Order | undefined;
+  listScenarios(): readonly ScenarioName[];
+}
+
+declare global {
+  interface Window {
+    __kurio?: KurioMockControl;
+  }
+}
+
+export interface MockControlDependencies {
+  store: MockStore;
+  clock: () => Date;
+  emit: (event: RealtimeEvent) => void;
+  publishOrderUpdated: (order: Order) => void;
+}
+
+export function installMockControl(deps: MockControlDependencies): KurioMockControl {
+  const control: KurioMockControl = {
+    async reset(seed) {
+      await deps.store.reset(seed);
+    },
+    async setScenario(name) {
+      const scenario = setScenario(name);
+      await deps.store.reset(SCENARIOS[name].seed);
+      return scenario;
+    },
+    setNetwork,
+    emit: deps.emit,
+    getState: () => deps.store.read(),
+    advanceOrder(orderId, status) {
+      const now = deps.clock();
+      const scheduled = scheduleOrderTransition(deps.store.read(), {
+        orderId,
+        status,
+        dueAt: now.toISOString(),
+        ...(status === 'declined'
+          ? { declineReason: 'Recusado manualmente pelo painel de mocks' }
+          : {}),
+      });
+      const { db, applied } = settleOrders(scheduled, now);
+      deps.store.write(() => db);
+      applied.forEach(deps.publishOrderUpdated);
+      return applied.find((order) => order.id === orderId);
+    },
+    listScenarios: () => SCENARIO_NAMES,
+  };
+  window.__kurio = control;
+  return control;
+}

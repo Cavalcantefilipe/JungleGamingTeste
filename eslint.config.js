@@ -68,6 +68,10 @@ export default defineConfig([
       'max-depth': ['error', MAX_NESTING_DEPTH],
       'no-warning-comments': ['error', { terms: ['todo', 'fixme'], location: 'anywhere' }],
       '@typescript-eslint/no-non-null-assertion': 'error',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_', ignoreRestSiblings: true },
+      ],
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/consistent-type-imports': ['error', { fixStyle: 'inline-type-imports' }],
       '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
@@ -87,7 +91,7 @@ export default defineConfig([
   },
   {
     files: ['src/**/*.{ts,tsx}'],
-    ignores: ['src/lib/http.ts', ...mockImportsAllowedIn],
+    ignores: ['src/lib/http.ts', 'src/lib/errors.ts', ...mockImportsAllowedIn],
     rules: {
       'no-restricted-imports': [
         'error',
@@ -105,7 +109,7 @@ export default defineConfig([
   },
   {
     files: ['src/routes/**/*.tsx', 'vite.config.ts', 'playwright.config.ts', 'eslint.config.js'],
-    rules: { 'import-x/no-default-export': 'off' },
+    rules: { 'import-x/no-default-export': 'off', 'react-refresh/only-export-components': 'off' },
   },
   {
     files: ['**/*.mjs', 'eslint.config.js'],
@@ -117,6 +121,10 @@ export default defineConfig([
   },
   {
     files: ['src/**/*.test.{ts,tsx}', 'e2e/**/*.ts'],
-    rules: { 'max-lines-per-function': 'off', 'max-lines': 'off' },
+    rules: {
+      'max-lines-per-function': 'off',
+      'max-lines': 'off',
+      '@typescript-eslint/no-unnecessary-type-parameters': 'off',
+    },
   },
 ]);

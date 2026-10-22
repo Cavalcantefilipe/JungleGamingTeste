@@ -3,6 +3,7 @@ import {
   SCENARIOS,
   type NetworkConditions,
   type Scenario,
+  type ScenarioFlags,
   type ScenarioName,
 } from './registry';
 
@@ -11,6 +12,7 @@ export const SCENARIO_QUERY_PARAM = 'scenario';
 
 let currentName: ScenarioName = 'default';
 let networkOverride: Partial<NetworkConditions> = {};
+let flagOverrides: Partial<ScenarioFlags> = {};
 
 function readStorage(): string | null {
   try {
@@ -37,6 +39,7 @@ export function resolveInitialScenario(search: string, fallback: string): Scenar
 export function setScenario(name: ScenarioName): Scenario {
   currentName = name;
   networkOverride = {};
+  flagOverrides = {};
   writeStorage(name);
   return getScenario();
 }
@@ -46,7 +49,17 @@ export function setNetwork(override: Partial<NetworkConditions>): NetworkConditi
   return getScenario().network;
 }
 
+export function consumeFlag(name: keyof ScenarioFlags): boolean {
+  const active = Boolean(getScenario().flags[name]);
+  if (active) flagOverrides = { ...flagOverrides, [name]: false };
+  return active;
+}
+
 export function getScenario(): Scenario {
   const base = SCENARIOS[currentName];
-  return { ...base, network: { ...base.network, ...networkOverride } };
+  return {
+    ...base,
+    network: { ...base.network, ...networkOverride },
+    flags: { ...base.flags, ...flagOverrides },
+  };
 }

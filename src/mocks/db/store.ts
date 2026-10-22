@@ -5,6 +5,7 @@ import type { MockDb, SeedName } from './schema';
 export interface MockStoreOptions {
   seedName?: SeedName;
   persistKey?: string;
+  persistence?: 'local' | 'none';
   clock?: () => Date;
 }
 
@@ -17,6 +18,16 @@ export interface MockStore {
 
 export const DEFAULT_PERSIST_KEY = 'kurio.mockdb.v1';
 
+function isMockDb(value: unknown): value is MockDb {
+  if (typeof value !== 'object' || value === null) return false;
+  const candidate = value as Partial<MockDb>;
+  return (
+    Array.isArray(candidate.nfts) &&
+    Array.isArray(candidate.users) &&
+    Array.isArray(candidate.orders)
+  );
+}
+
 function readPersisted(persistKey: string): MockDb | null {
   try {
     const raw = localStorage.getItem(persistKey);
@@ -26,16 +37,6 @@ function readPersisted(persistKey: string): MockDb | null {
   } catch {
     return null;
   }
-}
-
-function isMockDb(value: unknown): value is MockDb {
-  if (typeof value !== 'object' || value === null) return false;
-  const candidate = value as Partial<MockDb>;
-  return (
-    Array.isArray(candidate.nfts) &&
-    Array.isArray(candidate.users) &&
-    Array.isArray(candidate.orders)
-  );
 }
 
 function persist(persistKey: string, db: MockDb): void {
@@ -50,28 +51,36 @@ export function createMockStore(options: MockStoreOptions = {}): MockStore {
   const {
     seedName = 'default',
     persistKey = DEFAULT_PERSIST_KEY,
+    persistence = 'local',
     clock = () => new Date(),
   } = options;
   let current: MockDb | null = null;
 
+  const save = (db: MockDb): void => {
+    if (persistence === 'local') persist(persistKey, db);
+  };
+
   const load = async (name: SeedName): Promise<MockDb> => {
     const seeded = await buildSeed(name, clock());
-    persist(persistKey, seeded);
+    save(seeded);
     return seeded;
+  };
+
+  const read = (): MockDb => {
+    if (!current) throw new Error('Banco simulado não inicializado: chame init() antes');
+    return current;
   };
 
   return {
     async init() {
-      current = readPersisted(persistKey) ?? (await load(seedName));
+      const persisted = persistence === 'local' ? readPersisted(persistKey) : null;
+      current = persisted ?? (await load(seedName));
       return current;
     },
-    read() {
-      if (!current) throw new Error('Banco simulado não inicializado: chame init() antes');
-      return current;
-    },
+    read,
     write(mutator) {
-      current = mutator(this.read());
-      persist(persistKey, current);
+      current = mutator(read());
+      save(current);
       return current;
     },
     async reset(name = seedName) {
