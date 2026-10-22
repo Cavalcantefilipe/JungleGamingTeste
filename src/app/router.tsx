@@ -4,10 +4,13 @@ import { queryClient } from '@/app/query-client';
 import { returnToSchema } from '@/features/auth/route-guard';
 import { sessionStore } from '@/features/auth/session-store';
 import { onUnauthorized } from '@/lib/http';
+import { parseSearch, stringifySearch } from '@/lib/search';
 import { routeTree } from '@/routeTree.gen';
 
 export const router = createRouter({
   routeTree,
+  parseSearch,
+  stringifySearch,
   context: { queryClient },
   defaultPreload: 'intent',
   scrollRestoration: true,

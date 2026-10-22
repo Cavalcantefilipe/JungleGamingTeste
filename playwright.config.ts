@@ -8,6 +8,7 @@ export default defineConfig({
   expect: { timeout: 8000, toHaveScreenshot: { maxDiffPixelRatio: 0.01 } },
   use: {
     baseURL: 'http://127.0.0.1:4175',
+    actionTimeout: 10_000,
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },

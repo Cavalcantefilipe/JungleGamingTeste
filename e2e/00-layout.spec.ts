@@ -40,3 +40,18 @@ test('tab bar aparece somente no mobile', async ({ page, isMobile }) => {
     await expect(page.getByRole('navigation', { name: 'Navegação mobile' })).toBeHidden();
   }
 });
+
+test('catálogo não transborda em 390, 768 e 1440 pixels', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop-chromium');
+  for (const width of [390, 768, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/');
+    await expect(page.getByTestId('nft-grid').getByRole('link')).toHaveCount(9);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= document.documentElement.clientWidth,
+      ),
+    ).toBe(true);
+    await page.screenshot({ path: `.superpowers/catalog-${width}.png`, fullPage: true });
+  }
+});
