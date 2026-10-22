@@ -12,7 +12,7 @@ export const Route = createFileRoute('/_account')({
 
 function AccountLayout() {
   return (
-    <section className="mx-auto max-w-[1200px] px-6 py-10 xl:px-0">
+    <section className="mx-auto w-full max-w-[1200px] px-6 py-10 xl:px-0">
       <Outlet />
     </section>
   );

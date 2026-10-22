@@ -66,7 +66,7 @@ export function Header() {
           <AccountMenu />
         </div>
       </div>
-      <div className="mx-auto max-w-[1200px] border-b-[0.3px] border-primary" />
+      <div className="mx-auto w-full max-w-[1200px] border-b-[0.3px] border-primary" />
     </header>
   );
 }

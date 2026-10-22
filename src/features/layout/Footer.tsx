@@ -95,7 +95,7 @@ function Newsletter() {
 export function Footer() {
   return (
     <footer className="mt-24 bg-ink pb-20 md:pb-0">
-      <div className="mx-auto max-w-[1200px] px-6 xl:px-0">
+      <div className="mx-auto w-full max-w-[1200px] px-6 xl:px-0">
         <div className="grid gap-8 border-t border-border py-10 md:grid-cols-4 md:divide-x md:divide-border">
           {FEATURES.map((feature) => (
             <div key={feature.title} className="flex flex-col gap-3 md:pr-6">

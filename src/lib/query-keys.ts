@@ -1,10 +1,10 @@
-import type { CartScope, NftListQueryInput } from '@/contracts';
+import type { CartScope } from '@/contracts';
 
 export const queryKeys = {
   nfts: {
     all: ['nfts'] as const,
     lists: () => ['nfts', 'list'] as const,
-    list: (search: NftListQueryInput) => ['nfts', 'list', search] as const,
+    list: (search: object) => ['nfts', 'list', search] as const,
     detail: (id: string) => ['nfts', 'detail', id] as const,
   },
   favorites: (userId: string) => ['favorites', userId] as const,

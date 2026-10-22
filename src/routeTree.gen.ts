@@ -15,6 +15,7 @@ import { Route as AccountRouteImport } from './routes/_account';
 import { Route as CartRouteImport } from './routes/cart';
 import { Route as LoginRouteImport } from './routes/login';
 import { Route as RegisterRouteImport } from './routes/register';
+import { Route as NftsNftIdRouteImport } from './routes/nfts.$nftId';
 import { Route as AccountAccountProfileRouteImport } from './routes/_account.account.profile';
 import { Route as AccountAccountWalletsRouteImport } from './routes/_account.account.wallets';
 
@@ -47,6 +48,11 @@ const RegisterRoute = RegisterRouteImport.update({
   path: '/register',
   getParentRoute: () => rootRouteImport,
 } as any);
+const NftsNftIdRoute = NftsNftIdRouteImport.update({
+  id: '/nfts/$nftId',
+  path: '/nfts/$nftId',
+  getParentRoute: () => rootRouteImport,
+} as any);
 const AccountAccountProfileRoute = AccountAccountProfileRouteImport.update({
   id: '/account/profile',
   path: '/account/profile',
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/cart': typeof CartRoute;
   '/login': typeof LoginRoute;
   '/register': typeof RegisterRoute;
+  '/nfts/$nftId': typeof NftsNftIdRoute;
   '/account/profile': typeof AccountAccountProfileRoute;
   '/account/wallets': typeof AccountAccountWalletsRoute;
 }
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/cart': typeof CartRoute;
   '/login': typeof LoginRoute;
   '/register': typeof RegisterRoute;
+  '/nfts/$nftId': typeof NftsNftIdRoute;
   '/account/profile': typeof AccountAccountProfileRoute;
   '/account/wallets': typeof AccountAccountWalletsRoute;
 }
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/cart': typeof CartRoute;
   '/login': typeof LoginRoute;
   '/register': typeof RegisterRoute;
+  '/nfts/$nftId': typeof NftsNftIdRoute;
   '/_account/account/profile': typeof AccountAccountProfileRoute;
   '/_account/account/wallets': typeof AccountAccountWalletsRoute;
 }
@@ -95,6 +104,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/login'
     | '/register'
+    | '/nfts/$nftId'
     | '/account/profile'
     | '/account/wallets';
   fileRoutesByTo: FileRoutesByTo;
@@ -104,6 +114,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/login'
     | '/register'
+    | '/nfts/$nftId'
     | '/account/profile'
     | '/account/wallets';
   id:
@@ -114,6 +125,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/login'
     | '/register'
+    | '/nfts/$nftId'
     | '/_account/account/profile'
     | '/_account/account/wallets';
   fileRoutesById: FileRoutesById;
@@ -125,6 +137,7 @@ export interface RootRouteChildren {
   CartRoute: typeof CartRoute;
   LoginRoute: typeof LoginRoute;
   RegisterRoute: typeof RegisterRoute;
+  NftsNftIdRoute: typeof NftsNftIdRoute;
 }
 
 declare module '@tanstack/react-router' {
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RegisterRouteImport;
       parentRoute: typeof rootRouteImport;
     };
+    '/nfts/$nftId': {
+      id: '/nfts/$nftId';
+      path: '/nfts/$nftId';
+      fullPath: '/nfts/$nftId';
+      preLoaderRoute: typeof NftsNftIdRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
     '/_account/account/profile': {
       id: '/_account/account/profile';
       path: '/account/profile';
@@ -208,6 +228,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartRoute: CartRoute,
   LoginRoute: LoginRoute,
   RegisterRoute: RegisterRoute,
+  NftsNftIdRoute: NftsNftIdRoute,
 };
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
