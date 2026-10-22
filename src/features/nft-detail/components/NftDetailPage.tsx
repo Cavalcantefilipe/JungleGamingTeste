@@ -1,8 +1,9 @@
 import { Link } from '@tanstack/react-router';
-import { ArrowLeft, Heart, Share2 } from 'lucide-react';
+import { ArrowLeft, Share2 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { NFT_NETWORK_LABELS, type Nft } from '@/contracts/nft';
+import { FavoriteButton } from '@/features/favorites/components/FavoriteButton';
 import { useShareLink } from '@/features/nft-detail/useShareLink';
 import { formatEth } from '@/lib/money';
 
@@ -21,15 +22,11 @@ export function NftDetailPage({ nft }: { nft: Nft }) {
             <ArrowLeft aria-hidden="true" />
           </Link>
         </Button>
-        <Button asChild variant="secondary" size="icon" className="rounded-full">
-          <Link
-            to="/login"
-            search={{ returnTo: `/nfts/${nft.id}` }}
-            aria-label={`Favoritar ${nft.name}`}
-          >
-            <Heart aria-hidden="true" />
-          </Link>
-        </Button>
+        <FavoriteButton
+          nftId={nft.id}
+          name={nft.name}
+          className="border border-border-soft bg-transparent"
+        />
       </div>
       <p className="mb-8 hidden text-xs text-text-secondary md:block">
         Início / {nft.collection} / {nft.name}
@@ -52,6 +49,9 @@ export function NftDetailPage({ nft }: { nft: Nft }) {
                   · {nft.rating.count} avaliações de colecionadores
                 </span>
               </p>
+            </div>
+            <div className="hidden md:block">
+              <FavoriteButton nftId={nft.id} name={nft.name} />
             </div>
             <Button
               variant="ghost"

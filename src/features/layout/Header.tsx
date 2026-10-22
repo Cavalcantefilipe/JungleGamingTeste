@@ -99,6 +99,11 @@ export function Header() {
                     <Link to="/account/profile">Meu perfil</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
+                    <Link to="/" search={{ favorites: true }}>
+                      Favoritos
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
                     <Link to="/account/wallets">Carteiras</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem

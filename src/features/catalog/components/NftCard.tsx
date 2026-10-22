@@ -1,12 +1,12 @@
-import { Link, useNavigate } from '@tanstack/react-router';
-import { ArrowUpRight, Heart } from 'lucide-react';
+import { Link } from '@tanstack/react-router';
+import { ArrowUpRight } from 'lucide-react';
 
 import type { Nft } from '@/contracts/nft';
+import { FavoriteButton } from '@/features/favorites/components/FavoriteButton';
 import { formatEth } from '@/lib/money';
 
 export function NftCard({ nft, priority = false }: { nft: Nft; priority?: boolean }) {
   const image = nft.images[0];
-  const navigate = useNavigate();
   return (
     <article className="group relative min-w-0">
       <Link to="/nfts/$nftId" params={{ nftId: nft.id }} className="block space-y-3 rounded-xl">
@@ -30,7 +30,7 @@ export function NftCard({ nft, priority = false }: { nft: Nft; priority?: boolea
           />
         </div>
         <div className="space-y-1">
-          <h3 className="truncate pr-6 text-sm font-bold">{nft.name}</h3>
+          <h3 className="truncate pr-6 text-sm font-normal">{nft.name}</h3>
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-sm font-bold text-text-accent">{formatEth(nft.price)}</span>
             {nft.compareAtPrice && (
@@ -39,15 +39,9 @@ export function NftCard({ nft, priority = false }: { nft: Nft; priority?: boolea
           </div>
         </div>
       </Link>
-      <button
-        onClick={() => {
-          void navigate({ to: '/login', search: { returnTo: `/?favorites=true` } });
-        }}
-        aria-label={`Favoritar ${nft.name}`}
-        className="absolute top-2 right-2 flex size-11 items-center justify-center rounded-full bg-ink/70 text-foreground transition-colors hover:text-primary"
-      >
-        <Heart aria-hidden="true" size={18} />
-      </button>
+      <div className="absolute top-2 right-2">
+        <FavoriteButton nftId={nft.id} name={nft.name} />
+      </div>
     </article>
   );
 }

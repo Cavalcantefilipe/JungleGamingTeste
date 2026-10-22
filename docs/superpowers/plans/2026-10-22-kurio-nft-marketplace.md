@@ -488,8 +488,8 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 
 - Produces: `favoritesQueryOptions(userId)`; `useToggleFavorite()` → `mutate(nftId)` com `onMutate` (cancel + snapshot + set), `onError` (rollback + toast "Não foi possível atualizar favoritos"), `onSettled` (invalidate); `FavoriteButton({ nftId })` (`aria-pressed`; anônimo → redireciona para login com `returnTo`).
 
-- [ ] **Passo 1:** `e2e/04-favorites.spec.ts`: `favoritar persiste após refresh`, `falha de mutation reverte visual e avisa` (cenário `favorite-mutation-fails`), `favorito de Ana não aparece para Bruno`, `aba Favoritos lista apenas favoritos`. → FAIL.
-- [ ] **Passo 2:** implementar. → PASS. Commit `feat: favoritos com atualização otimista e rollback`.
+- [x] **Passo 1:** `e2e/04-favorites.spec.ts`: `favoritar persiste após refresh`, `falha de mutation reverte visual e avisa` (cenário `favorite-mutation-fails`), `favorito de Ana não aparece para Bruno`, `aba Favoritos lista apenas favoritos`. → FAIL.
+- [x] **Passo 2:** implementar. → PASS. Commit `feat: favoritos com atualização otimista e rollback`.
 
 ### Task 11: Carrinho (guest + usuário, merge, cupom, resumo)
 
