@@ -47,7 +47,9 @@ export default defineConfig([
       ecmaVersion: 2022,
       globals: { ...globals.browser, ...globals.node },
       parserOptions: {
-        projectService: { allowDefaultProject: ['*.mjs', 'eslint.config.js'] },
+        projectService: {
+          allowDefaultProject: ['*.mjs', 'eslint.config.js', 'scripts/*.mjs', 'lighthouse/*.mjs'],
+        },
         tsconfigRootDir: import.meta.dirname,
       },
     },
@@ -74,12 +76,13 @@ export default defineConfig([
         {
           groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index'], 'type'],
           pathGroups: [{ pattern: '@/**', group: 'internal' }],
-          pathGroupsExcludedImportTypes: ['builtin'],
+          pathGroupsExcludedImportTypes: ['builtin', 'type'],
           'newlines-between': 'always',
           alphabetize: { order: 'asc', caseInsensitive: true },
         },
       ],
       'import-x/no-default-export': 'error',
+      'import-x/no-duplicates': ['error', { 'prefer-inline': true }],
     },
   },
   {
@@ -103,6 +106,10 @@ export default defineConfig([
   {
     files: ['src/routes/**/*.tsx', 'vite.config.ts', 'playwright.config.ts', 'eslint.config.js'],
     rules: { 'import-x/no-default-export': 'off' },
+  },
+  {
+    files: ['**/*.mjs', 'eslint.config.js'],
+    extends: [tseslint.configs.disableTypeChecked],
   },
   {
     files: ['src/components/ui/**/*.tsx'],
