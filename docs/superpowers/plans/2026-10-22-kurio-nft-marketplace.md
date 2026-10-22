@@ -443,7 +443,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 
 - [x] **Passo 1:** `search-params.test.ts`: `?page=abc → page 1`, `?minPrice=-1 → undefined`, `?category=a&category=b → array`, `sort desconhecido → recent`. `e2e/01-catalog.spec.ts`: `busca + 2 filtros combinados refletem na query da API e na URL`, `mudar filtro reinicia página para 1`, `refresh preserva filtros e página`, `voltar no histórico restaura estado anterior`, `resultado vazio mostra estado vazio com limpar filtros`, `erro 500 mostra erro e botão tentar novamente recupera` (cenário `server-error-reads` → `default`), `respostas fora de ordem não sobrescrevem resultado mais recente` (cenário `out-of-order`: digitar "ape" depois "apex" e asserir que o resultado final corresponde a "apex"), `skeleton aparece em rede lenta com dimensões estáveis`. → FAIL.
 - [x] **Passo 2:** implementar rota `index.tsx` (`validateSearch: catalogSearchSchema`, `loaderDeps`, `loader` com `ensureQueryData`), componentes conforme 2.3; slider de preço (shadcn `Slider` duplo) aplica só no botão "Aplicar"; mobile usa `FilterDrawer` (Sheet lateral) com foco preso; facets vindas da API; indicador discreto "Atualizando…" (`aria-live`) quando `isFetching && !isPending` para o estado de atualização em segundo plano.
-- [ ] **Passo 3:** testes → PASS. Comparar com Figma em 1440 e 390 (screenshots) e ajustar até bater tipografia/espaçamento. Commit `feat: catálogo com estado na URL, filtros, ordenação e paginação`.
+- [x] **Passo 3:** testes → PASS. Comparar com Figma em 1440 e 390 (screenshots) e ajustar até bater tipografia/espaçamento. Commit `feat: catálogo com estado na URL, filtros, ordenação e paginação`.
 
 ### Task 8: Detalhe do NFT
 
@@ -471,11 +471,11 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 
 - Produces: `createRealtimeServer(link: WebSocketLink)` → `{ broadcast(event), emitToUser(userId, event), connectedUsers() }`; `publishNftUpdated(nft)`, `publishOrderUpdated(order)` (aplicam cenários `duplicate-events`/`stale-events`); `createEventGate()` → `shouldApply(event): boolean`, `syncVersion(resource, version)`; `applyRealtimeEvent(queryClient, event, { currentUserId })`; `RealtimeProvider` (contexto `{ status: 'connected'|'disconnected'|'reconnecting' }`; registra `socket.on('nft.updated'|'order.updated'|'connect'|'disconnect')` em `useEffect` e **sempre** faz `socket.off(...)` + `socket.disconnect()` no cleanup e ao trocar de usuário — nenhum listener sobrevive ao ciclo de vida); `useRealtimeStatus()`.
 
-- [ ] **Passo 1:** `event-gate.test.ts`: `ignora id duplicado`, `ignora versão menor ou igual`, `aceita versão maior e atualiza`. `apply-event.test.ts` (QueryClient em memória): `nft.updated atualiza detalhe e item da lista`, `order.updated de outro userId é ignorado`. → FAIL.
-- [ ] **Passo 2:** implementar gate e apply. → PASS.
-- [ ] **Passo 3:** servidor mock com `ws.link(env.socketUrl)` + `toSocketIo`; cliente `socket.io-client` com `transports: ['websocket']`; validar manualmente no browser (`pnpm dev`): `window.__kurio.emit({ type: 'nft.updated', … })` altera o preço no detalhe aberto **sem** refetch. Se o handshake falhar: URL do link sem `/socket.io`; versão `msw ^2.15`; o `ws` handler registrado no mesmo `setupWorker`.
-- [ ] **Passo 4:** E2E `09 › "preço muda via socket no detalhe e atualiza sem recarregar"` (usa `mocks.emit`, assert no DOM e ausência de nova chamada REST). → PASS.
-- [ ] **Passo 5:** Documentar transporte e limitações em `docs/MOCKS.md`. Commit `feat: socket.io simulado com MSW, gate de eventos e aplicação no cache`.
+- [x] **Passo 1:** `event-gate.test.ts`: `ignora id duplicado`, `ignora versão menor ou igual`, `aceita versão maior e atualiza`. `apply-event.test.ts` (QueryClient em memória): `nft.updated atualiza detalhe e item da lista`, `order.updated de outro userId é ignorado`. → FAIL.
+- [x] **Passo 2:** implementar gate e apply. → PASS.
+- [x] **Passo 3:** servidor mock com `ws.link(env.socketUrl)` + `toSocketIo`; cliente `socket.io-client` com `transports: ['websocket']`; validar manualmente no browser (`pnpm dev`): `window.__kurio.emit({ type: 'nft.updated', … })` altera o preço no detalhe aberto **sem** refetch. Se o handshake falhar: URL do link sem `/socket.io`; versão `msw ^2.15`; o `ws` handler registrado no mesmo `setupWorker`.
+- [x] **Passo 4:** E2E `09 › "preço muda via socket no detalhe e atualiza sem recarregar"` (usa `mocks.emit`, assert no DOM e ausência de nova chamada REST). → PASS.
+- [x] **Passo 5:** Documentar transporte e limitações em `docs/MOCKS.md`. Commit `feat: socket.io simulado com MSW, gate de eventos e aplicação no cache`.
 
 ### Task 10: Favoritos (otimista com rollback)
 

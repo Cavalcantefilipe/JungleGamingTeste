@@ -1,3 +1,5 @@
+import { realtimeHandlers } from '@/mocks/socket/server';
+
 import { authHandlers } from './auth';
 import { cartHandlers } from './cart';
 import { contentHandlers } from './content';
@@ -10,6 +12,7 @@ import { walletSessionHandlers } from './wallet-session';
 import { walletHandlers } from './wallets';
 
 export const handlers = [
+  ...realtimeHandlers,
   ...authHandlers,
   ...contentHandlers,
   ...nftHandlers,

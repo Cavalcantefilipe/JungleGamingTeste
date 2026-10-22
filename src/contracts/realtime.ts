@@ -27,7 +27,13 @@ export const nftUpdatedEventSchema = baseEventSchema.extend({
 export type NftUpdatedEvent = z.infer<typeof nftUpdatedEventSchema>;
 
 export const orderUpdatedPayloadSchema = orderSchema
-  .pick({ transactionRef: true, declineReason: true, updatedAt: true, version: true })
+  .pick({
+    transactionRef: true,
+    explorerUrl: true,
+    declineReason: true,
+    updatedAt: true,
+    version: true,
+  })
   .partial()
   .extend({ status: orderSchema.shape.status });
 

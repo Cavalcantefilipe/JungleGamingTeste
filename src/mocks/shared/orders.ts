@@ -2,13 +2,23 @@ import type { CreateOrderInput, Order } from '@/contracts/order';
 import { hashPayload } from '@/lib/idempotency';
 import { mockStore } from '@/mocks/db/store';
 import { getScenario } from '@/mocks/scenarios/current';
+import { publishNftUpdated, publishOrderUpdated } from '@/mocks/socket/events';
 
 import { computeQuote } from './pricing';
 import { MockError } from './respond';
 import { applyDueTransitions, scheduleOrderTransition } from './timing';
 
 export function reconcileOrders(): void {
-  mockStore.write((db) => applyDueTransitions(db));
+  const previous = mockStore.read();
+  const next = applyDueTransitions(previous);
+  if (next === previous) return;
+  mockStore.write(() => next);
+  for (const order of next.orders)
+    if (previous.orders.find((entry) => entry.id === order.id)?.version !== order.version)
+      publishOrderUpdated(order);
+  for (const nft of next.nfts)
+    if (previous.nfts.find((entry) => entry.id === nft.id)?.version !== nft.version)
+      publishNftUpdated(nft);
 }
 
 function validateQuote(input: CreateOrderInput) {

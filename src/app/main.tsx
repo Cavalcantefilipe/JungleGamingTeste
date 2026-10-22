@@ -6,7 +6,6 @@ import '@/styles/globals.css';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { Providers } from '@/app/Providers';
 import { env } from '@/lib/env';
 
 async function bootstrap(): Promise<void> {
@@ -14,6 +13,7 @@ async function bootstrap(): Promise<void> {
     const { startMocks } = await import('@/mocks/browser');
     await startMocks();
   }
+  const { Providers } = await import('@/app/Providers');
   const rootElement = document.getElementById('root');
   if (!rootElement) throw new Error('Elemento #root não encontrado');
   createRoot(rootElement).render(
