@@ -340,16 +340,16 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 
 - Produces: `env` (`lib/env.ts`): `{ apiBaseUrl: string, socketUrl: string, enableMocks: boolean, mockScenario: string }` validado por zod em import-time; `cn(...inputs)`; tokens CSS da seção 2.2 expostos via `@theme` do Tailwind; scripts `dev`, `build`, `preview`, `typecheck`, `lint`, `format`, `format:check`, `test` (vitest), `e2e`, `e2e:ui`, `lighthouse`, `check`.
 
-- [ ] **Passo 1:** `git init` na pasta; `git mv README.md docs/CHALLENGE.md`; copiar este plano para `docs/superpowers/plans/`.
-- [ ] **Passo 2:** `pnpm create vite@latest . --template react-ts` (Vite 7) e ajustar versões da seção 1; `pnpm add` deps de runtime e `pnpm add -D` deps de dev; `.nvmrc` = `24`.
-- [ ] **Passo 3:** Tailwind v4 via `@tailwindcss/vite`; `globals.css` com `@import "tailwindcss"; @import "./tokens.css";`; `tokens.css` define as variáveis da seção 2.2 dentro de `@theme` (`--color-ink: #140D0A;` …) e `--font-mono: 'Roboto Mono', ui-monospace`; `@fontsource/roboto-mono` importado em `main.tsx`.
-- [ ] **Passo 4:** `pnpm dlx shadcn@latest init` (new-york, base color neutral, CSS variables) e adicionar: button, input, label, select, dialog, drawer, sheet, tabs, checkbox, radio-group, slider, badge, skeleton, sonner, form, dropdown-menu, tooltip, separator. Ajustar `components/ui/button.tsx` para variantes `primary` (Primary/Ink, hover Primary Light, active Primary Dark), `secondary` (borda Border Soft), `ghost`, `danger`; altura 40, radius 6, fonte 16 Bold.
-- [ ] **Passo 5:** tsconfig estrito (regra 6), paths `@/*`; ESLint flat config com `typescript-eslint` strict-type-checked + `react-hooks` + `jsx-a11y` + `import/order`; Prettier: `semi: true`, `singleQuote: true`, `printWidth: 100`, `trailingComma: 'all'`, plugin tailwind.
-- [ ] **Passo 6:** escrever `src/lib/env.test.ts` (Vitest): `lança erro legível quando VITE_API_BASE_URL está vazio` e `parseia enableMocks "true"/"false"`; rodar `pnpm test` → FAIL.
-- [ ] **Passo 7:** implementar `lib/env.ts` com `envSchema = z.object({...})` e `export const env = envSchema.parse(import.meta.env)`; `pnpm test` → PASS.
-- [ ] **Passo 8:** `.claude/rules/kurio.md` com a seção 5 deste plano; `README.md` provisório com comandos.
-- [ ] **Passo 9:** `pnpm check` verde; `pnpm build` gera `dist/`.
-- [ ] **Passo 10:** Commit `chore: scaffold vite react ts, tailwind tokens, shadcn, lint`.
+- [x] **Passo 1:** `git init` na pasta; `git mv README.md docs/CHALLENGE.md`; copiar este plano para `docs/superpowers/plans/`.
+- [x] **Passo 2:** `pnpm create vite@latest . --template react-ts` (Vite 7) e ajustar versões da seção 1; `pnpm add` deps de runtime e `pnpm add -D` deps de dev; `.nvmrc` = `24`.
+- [x] **Passo 3:** Tailwind v4 via `@tailwindcss/vite`; `globals.css` com `@import "tailwindcss"; @import "./tokens.css";`; `tokens.css` define as variáveis da seção 2.2 dentro de `@theme` (`--color-ink: #140D0A;` …) e `--font-mono: 'Roboto Mono', ui-monospace`; `@fontsource/roboto-mono` importado em `main.tsx`.
+- [x] **Passo 4:** `pnpm dlx shadcn@latest init` (new-york, base color neutral, CSS variables) e adicionar: button, input, label, select, dialog, drawer, sheet, tabs, checkbox, radio-group, slider, badge, skeleton, sonner, form, dropdown-menu, tooltip, separator. Ajustar `components/ui/button.tsx` para variantes `primary` (Primary/Ink, hover Primary Light, active Primary Dark), `secondary` (borda Border Soft), `ghost`, `danger`; altura 40, radius 6, fonte 16 Bold.
+- [x] **Passo 5:** tsconfig estrito (regra 6), paths `@/*`; ESLint flat config com `typescript-eslint` strict-type-checked + `react-hooks` + `jsx-a11y` + `import/order`; Prettier: `semi: true`, `singleQuote: true`, `printWidth: 100`, `trailingComma: 'all'`, plugin tailwind.
+- [x] **Passo 6:** escrever `src/lib/env.test.ts` (Vitest): `lança erro legível quando VITE_API_BASE_URL está vazio` e `parseia enableMocks "true"/"false"`; rodar `pnpm test` → FAIL.
+- [x] **Passo 7:** implementar `lib/env.ts` com `envSchema = z.object({...})` e `export const env = envSchema.parse(import.meta.env)`; `pnpm test` → PASS.
+- [x] **Passo 8:** `.claude/rules/kurio.md` com a seção 5 deste plano; `README.md` provisório com comandos.
+- [x] **Passo 9:** `pnpm check` verde; `pnpm build` gera `dist/`.
+- [x] **Passo 10:** Commit `chore: scaffold vite react ts, tailwind tokens, shadcn, lint`.
 
 ### Task 2: Contratos e utilitários de dinheiro
 
@@ -361,10 +361,10 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 
 - Produces: schemas e tipos da seção 3.4; `addEth(a: EthAmount, b: EthAmount): EthAmount`, `mulEth(a: EthAmount, quantity: number): EthAmount`, `subEth`, `percentOf(a, percent: number): EthAmount`, `compareEth(a, b): -1|0|1`, `formatEth(a): string` (regra: até 3 casas, remove zeros à direita mas mantém ao menos 2: "1.19 ETH", "26.846 ETH", "0.016 ETH"); `createIdempotencyKey(): string`; `hashPayload(value: unknown): Promise<string>` (SHA-256 hex de JSON canônico com chaves ordenadas); `createStorage<T>(key, schema): { read(): T | null, write(value: T), clear() }` com try/catch e parse zod.
 
-- [ ] **Passo 1:** testes Vitest: `money.test.ts` (`soma 26.83 + 0.016 = 26.846`, `multiplica 1.19 × 2 = 2.38 sem erro binário`, `percentOf 10% de 26.83 = 2.683`, `formatEth mantém precisão`, `rejeita número com mais de 6 casas`), `idempotency.test.ts` (`mesmo objeto com chaves em ordens diferentes gera o mesmo hash`), `storage.test.ts` (`retorna null para JSON corrompido`), `contracts.test.ts` (`nftSchema aceita fixture válida`, `orderSchema rejeita status desconhecido`, `realtimeEventSchema discrimina por type`). Rodar → FAIL.
-- [ ] **Passo 2:** implementar contratos (zod 4) e utilitários com `big.js` (`Big.DP = 6`, `RM = Big.roundDown`).
-- [ ] **Passo 3:** `pnpm test` → PASS; `pnpm check` verde.
-- [ ] **Passo 4:** Commit `feat: contratos zod e utilitários de dinheiro decimal`.
+- [x] **Passo 1:** testes Vitest: `money.test.ts` (`soma 26.83 + 0.016 = 26.846`, `multiplica 1.19 × 2 = 2.38 sem erro binário`, `percentOf 10% de 26.83 = 2.683`, `formatEth mantém precisão`, `rejeita número com mais de 6 casas`), `idempotency.test.ts` (`mesmo objeto com chaves em ordens diferentes gera o mesmo hash`), `storage.test.ts` (`retorna null para JSON corrompido`), `contracts.test.ts` (`nftSchema aceita fixture válida`, `orderSchema rejeita status desconhecido`, `realtimeEventSchema discrimina por type`). Rodar → FAIL.
+- [x] **Passo 2:** implementar contratos (zod 4) e utilitários com `big.js` (`Big.DP = 6`, `RM = Big.roundDown`).
+- [x] **Passo 3:** `pnpm test` → PASS; `pnpm check` verde.
+- [x] **Passo 4:** Commit `feat: contratos zod e utilitários de dinheiro decimal`.
 
 ### Task 3: Mock store, fixtures e cenários
 
@@ -376,9 +376,9 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 
 - Produces: `MockDb = { users, sessions, nfts, favorites, carts, quotes, orders, idempotency, wallets, loginAttempts, scheduledTransitions }`; `createMockStore(options)` (seção 4); `getScenario(): Scenario`, `setScenario(name)`; `withNetwork(resolver)`; `respondError(status, code, message, fields?)`; `requireSession(request): { user, session } | ErrorResponse`; `computeQuote(db, input): Quote` (regras: subtotal = Σ unitPrice×qty; cupom `LANCAMENTO10` = 10% do subtotal; `networkFee` por rede: ethereum `0.016`, polygon `0.002`, solana `0.0005`; `total = subtotal − discount + fee`); `hashPassword(password): Promise<{salt,hash}>`, `verifyPassword`; `scheduleOrderTransition(orderId, status, delayMs)` + `applyDueTransitions(db, now)`.
 
-- [ ] **Passo 1:** testes: `store.test.ts` (`write aplica mutator imutável e persiste`, `reset('empty') zera nfts`, `ignora localStorage corrompido`), `pricing.test.ts` (`cotação do Figma: 3 itens 2.38+8.34+16.11 = 26.83, fee 0.016, total 26.846`, `cupom LANCAMENTO10 desconta 10%`, `cupom EXPIRADO10 → status expired`, `quantidade > available → erro UNAVAILABLE`), `password.test.ts` (`hash nunca contém a senha`, `verify falha com senha errada`), `nfts.test.ts` (`48 NFTs, todas as 9 categorias e 3 redes presentes`, `pelo menos 3 edições esgotadas`, `ids únicos`). Rodar → FAIL.
-- [ ] **Passo 2:** implementar fixtures (determinísticas, sem `Math.random` — usar índice), store, cenários (registry completo da seção 4), network wrapper com delay/jitter/falha/offline usando `delay()` do MSW e `HttpResponse.error()`.
-- [ ] **Passo 3:** `pnpm test` → PASS. Commit `feat: mock store persistido, fixtures e registro de cenários`.
+- [x] **Passo 1:** testes: `store.test.ts` (`write aplica mutator imutável e persiste`, `reset('empty') zera nfts`, `ignora localStorage corrompido`), `pricing.test.ts` (`cotação do Figma: 3 itens 2.38+8.34+16.11 = 26.83, fee 0.016, total 26.846`, `cupom LANCAMENTO10 desconta 10%`, `cupom EXPIRADO10 → status expired`, `quantidade > available → erro UNAVAILABLE`), `password.test.ts` (`hash nunca contém a senha`, `verify falha com senha errada`), `nfts.test.ts` (`48 NFTs, todas as 9 categorias e 3 redes presentes`, `pelo menos 3 edições esgotadas`, `ids únicos`). Rodar → FAIL.
+- [x] **Passo 2:** implementar fixtures (determinísticas, sem `Math.random` — usar índice), store, cenários (registry completo da seção 4), network wrapper com delay/jitter/falha/offline usando `delay()` do MSW e `HttpResponse.error()`.
+- [x] **Passo 3:** `pnpm test` → PASS. Commit `feat: mock store persistido, fixtures e registro de cenários`.
 
 ### Task 4: Handlers REST, worker e app shell
 
