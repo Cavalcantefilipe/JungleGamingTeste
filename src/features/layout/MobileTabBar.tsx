@@ -2,11 +2,16 @@ import { Link, useRouterState } from '@tanstack/react-router';
 import { Heart, House, ShoppingBag, ShoppingCart, UserRound } from 'lucide-react';
 
 import { useSession } from '@/features/auth/session-store';
+import { useCartQuery } from '@/features/cart/queries';
+
+import { CartBadge } from './CartBadge';
 
 export function MobileTabBar() {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   const session = useSession();
-  if (pathname.startsWith('/nfts/')) return null;
+  const cart = useCartQuery();
+  const quantity = cart.data?.items.reduce((total, item) => total + item.quantity, 0) ?? 0;
+  if (pathname.startsWith('/nfts/') || ['/cart', '/checkout'].includes(pathname)) return null;
   return (
     <nav
       aria-label="Navegação mobile"
@@ -36,8 +41,13 @@ export function MobileTabBar() {
       >
         <ShoppingBag size={24} aria-hidden="true" />
       </a>
-      <Link className="mobile-tab" to="/cart" aria-label="Carrinho">
+      <Link
+        className="mobile-tab relative"
+        to="/cart"
+        aria-label={`Abrir carrinho, ${quantity} itens`}
+      >
         <ShoppingCart size={20} aria-hidden="true" />
+        <CartBadge quantity={quantity} />
       </Link>
       <Link className="mobile-tab" to="/account/profile" aria-label="Perfil">
         <UserRound size={20} aria-hidden="true" />

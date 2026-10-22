@@ -16,8 +16,8 @@ function clearPrivateStorage(preserveDraft: boolean): void {
   );
   if (!preserveDraft) for (const key of keys) localStorage.removeItem(key);
   if (!preserveDraft)
-    for (const key of Object.keys(sessionStorage).filter((key) =>
-      key.startsWith('kurio.checkoutDraft.'),
+    for (const key of Object.keys(sessionStorage).filter(
+      (key) => key.startsWith('kurio.checkoutDraft.') || key.startsWith('kurio.cartCoupon.user.'),
     ))
       sessionStorage.removeItem(key);
 }

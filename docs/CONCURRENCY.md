@@ -34,3 +34,13 @@ A troca de senha compara novamente o hash observado antes da gravação. Duas al
 ## Alcance
 
 Esta implementação não coordena processos, máquinas ou abas diferentes. Isso acompanha o escopo de simulação do desafio. Um backend externo precisaria transferir essas invariantes para transações do banco, restrições únicas e bloqueios/controle de versão no armazenamento compartilhado; um mutex isolado por processo não ofereceria essa garantia.
+
+## Latência e estimativa no carrinho
+
+A quantidade muda de forma otimista. O front calcula uma estimativa decimal usando preço, percentual de desconto e taxa da última cotação recebida. Não contém tabela própria de promoções ou taxas. Durante a atualização, identifica o valor como estimativa e aguarda a API para liberar o avanço. Trocar usuário, rede ou cupom descarta a cotação anterior; uma edição sem preço conhecido aguarda a API.
+
+A alteração do carrinho e a nova cotação rodam em paralelo. A chave da consulta acompanha os itens, sem uma segunda consulta redundante ao terminar a alteração. A estimativa não tem ID de cotação e não constitui autorização de compra. O backend recalcula os itens na criação do pedido, compara a cotação persistida e revalida estoque e reservas no commit. Totais ou preços adicionais enviados pelo cliente não são usados.
+
+Medição local em 22/10/2026, Node 24, com o catálogo de 48 NFTs: 100 cálculos de cotação com validação e persistência tiveram média de **1,81 ms**, percentil 95 de **2,19 ms** e máximo de **9,88 ms**. Vinte chamadas simultâneas com a mesma chave demoraram **21,88 ms** no total e produziram um pedido. Esses números medem a simulação local, sem rede, e não são estimativa de capacidade de um servidor externo.
+
+No E2E com **1.500 ms de latência simulada**, a estimativa apareceu em **17 ms** tanto no desktop quanto no mobile; a cotação foi confirmada em **1.816/1.819 ms**, com **uma** consulta. O teste `quantidade atualiza estimativa antes da rede e consulta a cotação uma vez` registra as medições como artefato do Playwright. O teste de concorrência `valores enviados pelo cliente não substituem o cálculo do backend` verifica a autoridade do cálculo do pedido.

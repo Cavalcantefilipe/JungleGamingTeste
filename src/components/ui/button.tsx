@@ -22,6 +22,7 @@ const buttonVariants = cva(
         link: 'text-primary underline-offset-4 hover:underline',
       },
       size: {
+        coupon: 'h-12 rounded-full px-5 font-bold md:h-10 md:rounded-control',
         purchase: 'h-14 rounded-full px-6 font-bold lg:h-10 lg:rounded-md',
         'purchase-icon': 'size-14 rounded-full lg:size-10 lg:rounded-md',
         default: 'min-h-11 px-6 py-2 text-base font-bold sm:min-h-10 has-[>svg]:px-4',

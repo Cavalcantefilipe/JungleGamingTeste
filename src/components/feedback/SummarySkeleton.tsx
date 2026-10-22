@@ -2,11 +2,13 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 export function SummarySkeleton() {
   return (
-    <div aria-label="Carregando resumo" className="space-y-5 rounded-xl bg-surface-raised p-6">
+    <div aria-label="Carregando resumo" className="h-[164px] space-y-4">
       {[0, 1, 2, 3].map((row) => (
-        <Skeleton key={row} className="h-6 w-full" />
+        <div key={row} className="flex items-center justify-between gap-6">
+          <Skeleton className="h-6 w-1/2" />
+          <Skeleton className="h-6 w-1/3" />
+        </div>
       ))}
-      <Skeleton className="h-11 w-full" />
     </div>
   );
 }

@@ -4,17 +4,21 @@ import { toast } from 'sonner';
 
 import { queryClient } from '@/app/query-client';
 import type { Session } from '@/contracts/auth';
+import { transferGuestCoupon } from '@/features/cart/coupon-store';
+import { waitForCartMutations } from '@/features/cart/mutation-state';
 import { errorMessage } from '@/lib/errors';
 
 import * as api from './api';
 import { sessionStore } from './session-store';
 
 async function acceptSession(session: Session): Promise<void> {
-  sessionStore.set(session);
   const guestId = localStorage.getItem('kurio.guestId');
+  if (guestId) await waitForCartMutations(queryClient, { kind: 'guest', id: guestId });
+  sessionStore.set(session);
   if (guestId) {
     try {
       await api.mergeGuestCart(guestId);
+      transferGuestCoupon(guestId, session.user.id);
       await queryClient.invalidateQueries({ queryKey: ['cart'] });
     } catch (error) {
       toast.error(errorMessage(error));

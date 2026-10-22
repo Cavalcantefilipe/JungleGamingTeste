@@ -66,7 +66,9 @@ test('carrinho de visitante é preservado ao entrar e não vaza para outro usuá
   await page
     .getByRole('button', { name: isMobile ? 'Comprar NFT' : 'COMPRAR', exact: true })
     .click();
-  await expect(page.getByRole('link', { name: 'Carrinho, 1 item', exact: true })).toBeVisible();
+  if (isMobile) await expect(page.getByTestId('cart-item')).toHaveCount(1);
+  else
+    await expect(page.getByRole('link', { name: 'Carrinho, 1 item', exact: true })).toBeVisible();
   await login(page);
   await expect(page.getByRole('link', { name: 'Carrinho, 1 item', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Abrir menu da conta' }).click();

@@ -7,9 +7,11 @@ export function QuantityStepper({
   value,
   max,
   onChange,
+  disabled = false,
 }: {
   value: number;
   max: number;
+  disabled?: boolean;
   onChange: (quantity: number) => void;
 }) {
   return (
@@ -18,7 +20,7 @@ export function QuantityStepper({
         variant="ghost"
         size="icon"
         aria-label="Diminuir quantidade"
-        disabled={value <= 1}
+        disabled={disabled || value <= 1}
         onClick={() => {
           onChange(value - 1);
         }}
@@ -26,6 +28,7 @@ export function QuantityStepper({
         <Minus aria-hidden="true" size={16} />
       </Button>
       <Input
+        disabled={disabled || max === 0}
         type="number"
         aria-label="Quantidade"
         inputMode="numeric"
@@ -41,7 +44,7 @@ export function QuantityStepper({
         variant="ghost"
         size="icon"
         aria-label="Aumentar quantidade"
-        disabled={value >= max}
+        disabled={disabled || value >= max}
         onClick={() => {
           onChange(value + 1);
         }}

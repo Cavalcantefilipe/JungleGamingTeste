@@ -14,9 +14,12 @@ import { useSession } from '@/features/auth/session-store';
 import { useCartQuery } from '@/features/cart/queries';
 import { cn } from '@/lib/cn';
 
+import { CartBadge } from './CartBadge';
+
 export function Header() {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
-  const hideOnMobile = pathname === '/' || pathname.startsWith('/nfts/');
+  const hideOnMobile =
+    ['/', '/cart', '/checkout'].includes(pathname) || pathname.startsWith('/nfts/');
   const cart = useCartQuery();
   const cartQuantity = cart.data?.items.reduce((sum, item) => sum + item.quantity, 0) ?? 0;
   const session = useSession();
@@ -68,14 +71,7 @@ export function Header() {
                 aria-label={`Carrinho, ${cartQuantity} ${cartQuantity === 1 ? 'item' : 'itens'}`}
               >
                 <ShoppingCart aria-hidden="true" />
-                {cartQuantity > 0 && (
-                  <span
-                    className="absolute top-0 right-0 flex size-4 items-center justify-center rounded-full bg-primary text-[10px] text-ink"
-                    aria-hidden="true"
-                  >
-                    {cartQuantity}
-                  </span>
-                )}
+                <CartBadge quantity={cartQuantity} />
               </Link>
             </Button>
             {session ? (

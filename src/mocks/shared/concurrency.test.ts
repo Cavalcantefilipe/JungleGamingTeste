@@ -94,6 +94,25 @@ describe('concorrência do backend simulado', () => {
     ).toThrow();
     expect(mockStore.read().orders).toHaveLength(0);
   });
+  it('valores enviados pelo cliente não substituem o cálculo do backend', async () => {
+    const input = setupOrder();
+    const manipulated = {
+      ...input,
+      subtotal: '0',
+      discount: '999',
+      networkFee: '0',
+      total: '0',
+      items: input.items.map((entry) => ({ ...entry, unitPrice: '0', lineTotal: '0' })),
+    };
+    const { order } = await createOrder(manipulated, 'user-ana', token, crypto.randomUUID());
+    expect(order).toMatchObject({
+      subtotal: '7.14',
+      discount: '0',
+      networkFee: '0.016',
+      total: '7.156',
+    });
+    expect(order.items[0]?.unitPrice).toBe('1.19');
+  });
   it('revalida a sessão na hora do commit', async () => {
     const input = setupOrder();
     mockStore.write((db) => ({

@@ -26,7 +26,9 @@ test('compra adiciona ao carrinho e navega após resposta da API', async ({ page
     .getByRole('button', { name: isMobile ? 'Comprar NFT' : 'COMPRAR', exact: true })
     .click();
   await expect(page).toHaveURL(/\/cart/);
-  await expect(page.getByRole('link', { name: 'Carrinho, 1 item', exact: true })).toBeVisible();
+  if (isMobile) await expect(page.getByTestId('cart-item')).toHaveCount(1);
+  else
+    await expect(page.getByRole('link', { name: 'Carrinho, 1 item', exact: true })).toBeVisible();
 });
 test('mobile mostra barra fixa de compra', async ({ page, isMobile }) => {
   test.skip(!isMobile);

@@ -1,5 +1,6 @@
 import type { CartScope } from '@/contracts/cart';
 import type { NftListQuery } from '@/contracts/nft';
+import type { QuoteItemInput } from '@/contracts/quote';
 
 export const queryKeys = {
   nfts: {
@@ -11,7 +12,7 @@ export const queryKeys = {
   },
   favorites: (userId: string) => ['favorites', userId] as const,
   cart: (scope: CartScope) => ['cart', scope.kind, scope.id] as const,
-  quote: (hash: string) => ['quote', hash] as const,
+  quote: (context: string, items: QuoteItemInput[]) => ['quote', context, items] as const,
   orders: { detail: (userId: string, id: string) => ['orders', userId, id] as const },
   profile: (userId: string) => ['profile', userId] as const,
   wallets: (userId: string) => ['wallets', userId] as const,
