@@ -59,7 +59,7 @@ export function PurchasePanel({ nft }: { nft: Nft }) {
       </div>
       <div
         data-testid="mobile-purchase-bar"
-        className="fixed inset-x-0 bottom-0 z-40 space-y-3 border-t border-border-soft bg-ink p-4 pb-[max(16px,env(safe-area-inset-bottom))] lg:hidden"
+        className="fixed inset-x-0 bottom-0 z-40 space-y-4 rounded-t-[32px] bg-surface-card p-6 pb-[max(24px,env(safe-area-inset-bottom))] lg:hidden"
       >
         <div className="flex items-center justify-between gap-4">
           <QuantityStepper value={quantity} max={available} onChange={setQuantity} />

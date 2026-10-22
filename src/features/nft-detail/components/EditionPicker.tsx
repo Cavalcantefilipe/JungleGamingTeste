@@ -12,7 +12,7 @@ export function EditionPicker({
 }) {
   return (
     <fieldset className="space-y-3">
-      <legend className="mb-3 text-sm font-bold">Escolha a edição</legend>
+      <legend className="mb-3 text-sm font-bold">Edição:</legend>
       <div className="flex flex-wrap gap-2">
         {editions.map((edition) => (
           <Button
@@ -24,7 +24,7 @@ export function EditionPicker({
             onClick={() => {
               onChange(edition.id);
             }}
-            className="px-4 text-xs"
+            className="rounded-full px-3 text-xs"
           >
             {edition.label.toUpperCase()}
             {edition.available === 0 ? ' · Esgotada' : ''}

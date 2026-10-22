@@ -42,7 +42,8 @@ test.describe('auth', () => {
     await login(page);
     await page.getByRole('button', { name: 'Abrir menu da conta' }).click();
     await page.getByRole('menuitem', { name: 'Sair', exact: true }).click();
-    await expect(page.getByRole('link', { name: 'Entrar', exact: true })).toBeVisible();
+    await expect(page).toHaveURL('http://127.0.0.1:4175/');
+    await expect(page.getByRole('button', { name: 'Abrir menu da conta' })).toHaveCount(0);
     expect(await page.evaluate(() => localStorage.getItem('kurio.session'))).toBeNull();
     await login(page, 'bruno');
     await expect(page.getByRole('main').getByText('Bruno Santos', { exact: true })).toBeVisible();
@@ -70,7 +71,8 @@ test('carrinho de visitante é preservado ao entrar e não vaza para outro usuá
   await expect(page.getByRole('link', { name: 'Carrinho, 1 item', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Abrir menu da conta' }).click();
   await page.getByRole('menuitem', { name: 'Sair', exact: true }).click();
-  await expect(page.getByRole('link', { name: 'Entrar', exact: true })).toBeVisible();
+  await expect(page).toHaveURL('http://127.0.0.1:4175/');
+  await expect(page.getByRole('button', { name: 'Abrir menu da conta' })).toHaveCount(0);
   await login(page, 'bruno');
   await expect(page.getByRole('link', { name: 'Carrinho, 0 itens', exact: true })).toBeVisible();
 });

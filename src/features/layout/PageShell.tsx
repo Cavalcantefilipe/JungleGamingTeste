@@ -1,3 +1,7 @@
+import { useRouterState } from '@tanstack/react-router';
+
+import { cn } from '@/lib/cn';
+
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { MobileTabBar } from './MobileTabBar';
@@ -5,6 +9,9 @@ import { MobileTabBar } from './MobileTabBar';
 import type { ReactNode } from 'react';
 
 export function PageShell({ children }: { children: ReactNode }) {
+  const isDetail = useRouterState({
+    select: (state) => state.location.pathname.startsWith('/nfts/'),
+  });
   return (
     <>
       <a
@@ -14,7 +21,13 @@ export function PageShell({ children }: { children: ReactNode }) {
         Pular para o conteúdo
       </a>
       <Header />
-      <main id="main-content" className="page-container min-h-[50vh] py-8 sm:py-12">
+      <main
+        id="main-content"
+        className={cn(
+          'page-container min-h-[50vh] pt-10 pb-8 md:pt-8 md:pb-12',
+          isDetail && 'pt-6',
+        )}
+      >
         {children}
       </main>
       <Footer />

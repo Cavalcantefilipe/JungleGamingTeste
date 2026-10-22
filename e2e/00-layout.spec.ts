@@ -1,8 +1,9 @@
 import { test, expect } from './fixtures/kurio';
 
-test('header, navegação, main e footer têm landmarks', async ({ page }) => {
+test('header, navegação, main e footer têm landmarks', async ({ page, isMobile }) => {
   await page.goto('/');
-  await expect(page.getByRole('banner')).toBeVisible();
+  if (isMobile) await expect(page.getByRole('banner')).toBeHidden();
+  else await expect(page.getByRole('banner')).toBeVisible();
   await expect(page.getByRole('main')).toBeVisible();
   await expect(page.getByRole('contentinfo')).toBeVisible();
   await expect(page.getByRole('navigation').filter({ visible: true }).first()).toBeVisible();
@@ -52,6 +53,7 @@ test('catálogo não transborda em 390, 768 e 1440 pixels', async ({ page }, tes
         () => document.documentElement.scrollWidth <= document.documentElement.clientWidth,
       ),
     ).toBe(true);
+    await page.screenshot({ path: `.superpowers/catalog-${width}-viewport.png` });
     await page.screenshot({ path: `.superpowers/catalog-${width}.png`, fullPage: true });
   }
 });

@@ -11,6 +11,7 @@ import { FeaturedCard } from './FeaturedCard';
 import { FilterDrawer } from './FilterDrawer';
 import { FilterSidebar } from './FilterSidebar';
 import { HeroSection } from './HeroSection';
+import { MobileCatalogSearch } from './MobileCatalogSearch';
 import { NftGrid } from './NftGrid';
 import { Pagination } from './Pagination';
 
@@ -20,9 +21,15 @@ export function CatalogPage({ search }: { search: CatalogSearch }) {
   const navigation = useCatalogNavigation(search);
   return (
     <>
+      <MobileCatalogSearch
+        search={search}
+        {...(query.data ? { facets: query.data.facets } : {})}
+        apply={navigation.setFilter}
+        clear={navigation.clear}
+      />
       <HeroSection items={hero.data?.items ?? []} loading={hero.isPending} />
       <section id="catalogo" className="scroll-mt-6">
-        <div className="mb-6 flex items-center justify-between gap-4 lg:hidden">
+        <div className="mb-6 hidden items-center justify-between gap-4 md:flex lg:hidden">
           <h2 className="text-title font-bold">Explorar coleções</h2>
           <FilterDrawer
             search={search}
@@ -31,7 +38,7 @@ export function CatalogPage({ search }: { search: CatalogSearch }) {
             clear={navigation.clear}
           />
         </div>
-        <div className="grid gap-12 lg:grid-cols-[240px_minmax(0,1fr)]">
+        <div className="grid gap-12 lg:grid-cols-[280px_minmax(0,1fr)]">
           <aside className="hidden lg:block">
             <FilterSidebar
               search={search}
@@ -43,7 +50,7 @@ export function CatalogPage({ search }: { search: CatalogSearch }) {
           </aside>
           <div className="min-w-0">
             <CatalogToolbar search={search} change={navigation.setFilter} />
-            <div aria-live="polite" className="flex h-9 items-center text-xs text-text-secondary">
+            <div aria-live="polite" className="sr-only">
               {query.isFetching && !query.isPending
                 ? 'Atualizando…'
                 : `${query.data?.total ?? 0} NFTs encontrados`}

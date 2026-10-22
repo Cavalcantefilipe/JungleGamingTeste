@@ -10,14 +10,14 @@ export function NftCard({ nft, priority = false }: { nft: Nft; priority?: boolea
   return (
     <article className="group relative min-w-0">
       <Link to="/nfts/$nftId" params={{ nftId: nft.id }} className="block space-y-3 rounded-xl">
-        <div className="relative overflow-hidden rounded-xl bg-surface-card">
+        <div className="relative overflow-hidden rounded-xl bg-surface-card p-2 sm:p-3">
           <img
             src={image?.src}
             alt={image?.alt ?? nft.name}
             width={600}
             height={600}
             loading={priority ? 'eager' : 'lazy'}
-            className="aspect-square w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-105"
+            className="aspect-square w-full rounded-lg object-cover transition-transform duration-300 motion-safe:group-hover:scale-105"
           />
           {nft.rarity && (
             <span className="absolute top-3 left-3 rounded bg-amber px-2 py-1 text-[10px] font-bold text-ink">
@@ -30,11 +30,9 @@ export function NftCard({ nft, priority = false }: { nft: Nft; priority?: boolea
           />
         </div>
         <div className="space-y-1">
-          <h3 className="truncate pr-6 text-xs font-bold sm:text-sm">{nft.name}</h3>
+          <h3 className="truncate pr-6 text-sm font-bold">{nft.name}</h3>
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-bold text-text-accent sm:text-sm">
-              {formatEth(nft.price)}
-            </span>
+            <span className="text-sm font-bold text-text-accent">{formatEth(nft.price)}</span>
             {nft.compareAtPrice && (
               <s className="text-[10px] text-text-secondary">{formatEth(nft.compareAtPrice)}</s>
             )}

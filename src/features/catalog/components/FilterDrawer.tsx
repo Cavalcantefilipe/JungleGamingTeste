@@ -13,15 +13,18 @@ import {
 import type { NftFacets } from '@/contracts/nft';
 import type { CatalogSearch } from '@/features/catalog/search-params';
 
+import { CatalogSortSelect } from './CatalogSortSelect';
 import { FilterSidebar } from './FilterSidebar';
 
 export function FilterDrawer({
   search,
+  compact = false,
   facets,
   apply,
   clear,
 }: {
   search: CatalogSearch;
+  compact?: boolean;
   facets?: NftFacets;
   apply: (value: Partial<CatalogSearch>) => void;
   clear: () => void;
@@ -30,9 +33,14 @@ export function FilterDrawer({
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant="secondary" className="lg:hidden">
+        <Button
+          variant={compact ? 'primary' : 'secondary'}
+          size={compact ? 'icon' : 'default'}
+          aria-label="Filtros"
+          className="rounded-xl lg:hidden"
+        >
           <SlidersHorizontal aria-hidden="true" size={18} />
-          Filtros
+          <span className={compact ? 'sr-only' : ''}>Filtros</span>
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="w-[min(360px,100vw)] overflow-y-auto bg-ink p-6">
@@ -46,6 +54,14 @@ export function FilterDrawer({
           apply={apply}
           clear={clear}
         />
+        <div className="my-5">
+          <CatalogSortSelect
+            value={search.sort}
+            change={(sort) => {
+              apply({ sort });
+            }}
+          />
+        </div>
         <Button
           className="w-full"
           onClick={() => {

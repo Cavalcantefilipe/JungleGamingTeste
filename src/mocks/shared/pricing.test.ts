@@ -6,8 +6,8 @@ import { computeQuote } from './pricing';
 
 const items = [
   { nftId: 'nft-001', editionId: 'nft-001-10', quantity: 2 },
-  { nftId: 'nft-002', editionId: 'nft-002-10', quantity: 1 },
-  { nftId: 'nft-003', editionId: 'nft-003-10', quantity: 3 },
+  { nftId: 'nft-005', editionId: 'nft-005-10', quantity: 6 },
+  { nftId: 'nft-006', editionId: 'nft-006-10', quantity: 9 },
 ];
 
 describe('cotação', () => {

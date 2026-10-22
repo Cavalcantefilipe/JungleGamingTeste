@@ -17,7 +17,7 @@ export function FilterSidebar({
   clear: () => void;
 }) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 rounded-xl bg-surface-card p-5">
       <section>
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-title font-bold">Coleções</h2>

@@ -11,21 +11,23 @@ const image = (index: number) => ({
 export const content: Content = {
   promotions: [
     {
-      title: 'Lançamentos únicos de edição limitada',
-      description: 'Descubra novas peças e encontre sua próxima coleção.',
+      title: 'Lançamentos gênesis de edição limitada',
+      description:
+        'Colecione edições escassas diretamente dos criadores antes da revelação pública.',
       image: image(0),
     },
     {
-      title: 'Arte digital, possibilidades infinitas',
-      description: 'Obras originais para uma nova geração de colecionadores.',
-      image: image(3),
+      title: 'Arte digital selecionada e muito mais',
+      description:
+        'Explore novos artistas, coleções verificadas e obras digitais que definem a cena.',
+      image: image(2),
     },
   ],
   articles: [
     {
       title: 'Como funciona a propriedade de NFTs?',
       description: 'Entenda a tecnologia por trás da sua coleção digital.',
-      image: image(3),
+      image: image(2),
       dateLabel: '12 de setembro',
       readingLabel: 'Leitura de 6 min',
     },
@@ -46,7 +48,7 @@ export const content: Content = {
     {
       title: 'Como proteger sua carteira',
       description: 'Uma introdução aos cuidados com sua coleção.',
-      image: image(5),
+      image: image(6),
       dateLabel: '12 de setembro',
       readingLabel: 'Leitura de 6 min',
     },

@@ -15,13 +15,13 @@ const names = [
 ];
 const prices = [
   '1.19',
-  '8.34',
-  '5.37',
-  '2.48',
-  '3.15',
-  '0.89',
-  '6.72',
-  '4.2',
+  '1.69',
+  '1.99',
+  '1.29',
+  '1.39',
+  '1.79',
+  '0.99',
+  '0.39',
   '1.65',
   '0.02',
   '12.3',
@@ -39,10 +39,10 @@ function createNft(index: number): Nft {
     category: NFT_CATEGORIES[index % 9] ?? 'arte-digital',
     network: NFT_NETWORKS[Math.floor(index / 3) % 3] ?? 'ethereum',
     price: prices[index % prices.length] ?? '1.19',
-    ...(index % 4 === 0 ? { compareAtPrice: '12.3', rarity: 'raro' as const } : {}),
+    ...(index % 9 === 2 ? { compareAtPrice: '2.29', rarity: 'raro' as const } : {}),
     rating: { average: 4.8, count: 19 + index },
     description:
-      'Uma expressão única de identidade e cultura digital. Arte original da coleção Kurio, criada para quem enxerga além do agora. Cada edição conecta você a uma comunidade de colecionadores.',
+      'Um colecionável digital 1/50 finalizado à mão da coleção Kurio Editions, verificado na Ethereum.',
     attributes: [
       { label: 'Coleção', value: 'Kurio Apes' },
       { label: 'Estilo', value: index % 2 === 0 ? 'Óculos vintage' : 'Explorador' },

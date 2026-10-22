@@ -2,19 +2,20 @@ import { test, expect } from './fixtures/kurio';
 
 test('busca, filtros e ordenação refletem API e URL', async ({ page, isMobile }) => {
   await page.goto('/');
+  if (!isMobile) await page.getByRole('link', { name: 'Buscar NFTs', exact: true }).click();
   await page.getByRole('searchbox', { name: 'Buscar NFTs', exact: true }).fill('Emerald');
   if (isMobile) await page.getByRole('button', { name: 'Filtros', exact: true }).click();
   await page.getByRole('checkbox', { name: 'Arte digital', exact: true }).check();
   await page.getByRole('checkbox', { name: 'Ethereum', exact: true }).check();
-  if (isMobile) await page.getByRole('button', { name: 'Aplicar filtros', exact: true }).click();
   await page.getByRole('combobox', { name: 'Ordenar por', exact: true }).selectOption('price_asc');
+  if (isMobile) await page.getByRole('button', { name: 'Aplicar filtros', exact: true }).click();
   await expect(page).toHaveURL(/q=Emerald/);
   await expect(page).toHaveURL(/category=arte-digital/);
   await expect(page).toHaveURL(/network=ethereum/);
   await expect(page).toHaveURL(/sort=price_asc/);
   await expect(page.getByTestId('nft-grid').getByRole('link').first()).toContainText('Emerald');
 });
-test('paginação, refresh e histórico preservam parâmetros', async ({ page }) => {
+test('paginação, refresh e histórico preservam parâmetros', async ({ page, isMobile }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Página 2', exact: true }).click();
   await expect(page).toHaveURL(/page=2/);
@@ -23,14 +24,19 @@ test('paginação, refresh e histórico preservam parâmetros', async ({ page })
     'aria-current',
     'page',
   );
+  if (!isMobile) await page.getByRole('link', { name: 'Buscar NFTs', exact: true }).click();
   await page.getByRole('searchbox', { name: 'Buscar NFTs', exact: true }).fill('Golden');
   await expect(page).not.toHaveURL(/page=2/);
   await page.goBack();
   await expect(page).toHaveURL(/page=2/);
 });
-test('vazio oferece limpar filtros e URL inválida não quebra página', async ({ page }) => {
+test('vazio oferece limpar filtros e URL inválida não quebra página', async ({
+  page,
+  isMobile,
+}) => {
   await page.goto('/?page=abc&minPrice=-1');
   await expect(page.getByTestId('nft-grid')).toBeVisible();
+  if (!isMobile) await page.getByRole('link', { name: 'Buscar NFTs', exact: true }).click();
   await page
     .getByRole('searchbox', { name: 'Buscar NFTs', exact: true })
     .fill('colecao-inexistente');
@@ -52,8 +58,9 @@ test('rede lenta mostra skeletons com dimensões e reduced motion', async ({ pag
   await expect(page.getByLabel('Carregando NFT').first()).toBeVisible();
   await expect(page.getByTestId('nft-grid').getByRole('link')).toHaveCount(9);
 });
-test('respostas fora de ordem mantêm a busca mais recente', async ({ page }) => {
+test('respostas fora de ordem mantêm a busca mais recente', async ({ page, isMobile }) => {
   await page.goto('/?scenario=out-of-order');
+  if (!isMobile) await page.getByRole('link', { name: 'Buscar NFTs', exact: true }).click();
   const search = page.getByRole('searchbox', { name: 'Buscar NFTs', exact: true });
   await search.fill('Emerald');
   await search.fill('Golden');

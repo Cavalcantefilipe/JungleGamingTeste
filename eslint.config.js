@@ -47,7 +47,7 @@ export default defineConfig([
       ecmaVersion: 2022,
       globals: { ...globals.browser, ...globals.node },
       parserOptions: {
-        projectService: { allowDefaultProject: ['*.mjs', 'eslint.config.js'] },
+        projectService: { allowDefaultProject: ['*.mjs', 'scripts/*.mjs', 'eslint.config.js'] },
         tsconfigRootDir: import.meta.dirname,
       },
     },
@@ -82,6 +82,10 @@ export default defineConfig([
       ],
       'import-x/no-default-export': 'error',
     },
+  },
+  {
+    files: ['scripts/*.mjs'],
+    extends: [tseslint.configs.disableTypeChecked],
   },
   {
     files: ['src/**/*.{ts,tsx}'],

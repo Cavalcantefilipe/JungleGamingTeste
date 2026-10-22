@@ -1,0 +1,48 @@
+import { Search } from 'lucide-react';
+
+import { Input } from '@/components/ui/input';
+import type { NftFacets } from '@/contracts/nft';
+import type { CatalogSearch } from '@/features/catalog/search-params';
+
+import { FilterDrawer } from './FilterDrawer';
+
+export function MobileCatalogSearch({
+  search,
+  facets,
+  apply,
+  clear,
+}: {
+  search: CatalogSearch;
+  facets?: NftFacets;
+  apply: (value: Partial<CatalogSearch>) => void;
+  clear: () => void;
+}) {
+  return (
+    <div className="mb-4 flex items-center gap-2 md:hidden">
+      <div className="relative min-w-0 flex-1">
+        <Search
+          aria-hidden="true"
+          size={18}
+          className="pointer-events-none absolute top-3 left-3 text-text-secondary"
+        />
+        <Input
+          type="search"
+          aria-label="Buscar NFTs"
+          placeholder="Explorar coleções"
+          value={search.q}
+          onChange={(event) => {
+            apply({ q: event.target.value });
+          }}
+          className="h-11 rounded-xl border-transparent bg-surface-card pl-10 text-xs"
+        />
+      </div>
+      <FilterDrawer
+        compact
+        search={search}
+        {...(facets ? { facets } : {})}
+        apply={apply}
+        clear={clear}
+      />
+    </div>
+  );
+}

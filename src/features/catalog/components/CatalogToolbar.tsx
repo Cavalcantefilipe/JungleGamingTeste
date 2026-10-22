@@ -1,5 +1,10 @@
+import { useRouterState } from '@tanstack/react-router';
+
 import { Input } from '@/components/ui/input';
 import type { CatalogSearch } from '@/features/catalog/search-params';
+import { cn } from '@/lib/cn';
+
+import { CatalogSortSelect } from './CatalogSortSelect';
 
 export function CatalogToolbar({
   search,
@@ -8,8 +13,9 @@ export function CatalogToolbar({
   search: CatalogSearch;
   change: (value: Partial<CatalogSearch>) => void;
 }) {
+  const hash = useRouterState({ select: (state) => state.location.hash });
   return (
-    <div className="space-y-6">
+    <div className="mb-4 space-y-4">
       <Input
         id="busca"
         type="search"
@@ -19,13 +25,13 @@ export function CatalogToolbar({
         onChange={(event) => {
           change({ q: event.target.value });
         }}
-        className="h-11"
+        className={cn('hidden h-11', (search.q || hash === 'busca') && 'md:block')}
       />
-      <div className="flex flex-wrap items-center justify-between gap-5 border-b pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-4">
         <div
           role="tablist"
           aria-label="Catálogo"
-          className="flex flex-wrap gap-4 text-xs sm:text-sm"
+          className="flex gap-2 text-[11px] min-[414px]:text-xs xl:gap-4 xl:text-sm"
         >
           {(
             [
@@ -38,7 +44,7 @@ export function CatalogToolbar({
               key={key}
               role="tab"
               aria-selected={search.tab === key}
-              className="min-h-11 cursor-pointer border-b-2 border-transparent py-2 text-text-secondary hover:text-primary aria-selected:border-primary aria-selected:text-primary"
+              className="min-h-11 cursor-pointer border-b-2 border-transparent py-2 whitespace-nowrap text-text-secondary hover:text-primary aria-selected:border-primary aria-selected:text-primary"
               onClick={() => {
                 change({ tab: key });
               }}
@@ -47,29 +53,14 @@ export function CatalogToolbar({
             </button>
           ))}
         </div>
-        <label className="flex min-h-11 items-center gap-2 text-xs text-text-secondary">
-          Ordenar por
-          <select
-            aria-label="Ordenar por"
+        <div className="hidden md:block">
+          <CatalogSortSelect
             value={search.sort}
-            onChange={(event) => {
-              const sort = event.target.value;
-              if (
-                sort === 'recent' ||
-                sort === 'price_asc' ||
-                sort === 'price_desc' ||
-                sort === 'rating'
-              )
-                change({ sort });
+            change={(sort) => {
+              change({ sort });
             }}
-            className="max-w-48 rounded-md border bg-surface-card p-2 text-foreground"
-          >
-            <option value="recent">Listados recentemente</option>
-            <option value="price_asc">Menor preço</option>
-            <option value="price_desc">Maior preço</option>
-            <option value="rating">Melhor avaliação</option>
-          </select>
-        </label>
+          />
+        </div>
       </div>
     </div>
   );
