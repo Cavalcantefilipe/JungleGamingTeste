@@ -109,6 +109,7 @@ export const nftListQuerySchema = z.object({
   page: z.coerce.number().int().min(1).default(1),
   pageSize: z.coerce.number().int().min(1).max(48).default(NFT_PAGE_SIZE),
   favorites: booleanLike.default(false),
+  collection: z.string().trim().max(80).optional(),
 });
 export type NftListQuery = z.infer<typeof nftListQuerySchema>;
 export type NftListQueryInput = z.input<typeof nftListQuerySchema>;

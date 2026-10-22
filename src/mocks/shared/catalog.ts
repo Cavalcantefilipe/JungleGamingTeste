@@ -23,6 +23,7 @@ export function readListQueryInput(url: URL): Record<string, unknown> {
     page: single('page'),
     pageSize: single('pageSize'),
     favorites: single('favorites'),
+    collection: single('collection'),
   };
 }
 
@@ -36,6 +37,10 @@ function matchesText(nft: Nft, query: string): boolean {
   return [nft.name, nft.collection, nft.tokenId].some((field) =>
     normalizeText(field).includes(needle),
   );
+}
+
+function matchesCollection(nft: Nft, collection: string | undefined): boolean {
+  return !collection || nft.collection === collection;
 }
 
 function matchesTab(nft: Nft, tab: NftListQuery['tab']): boolean {
@@ -78,6 +83,7 @@ export function listNfts(
   const base = db.nfts.filter(
     (nft) =>
       matchesText(nft, query.q) &&
+      matchesCollection(nft, query.collection) &&
       matchesTab(nft, query.tab) &&
       matchesPrice(nft, query) &&
       (favoriteIds === null || favoriteIds.has(nft.id)),
