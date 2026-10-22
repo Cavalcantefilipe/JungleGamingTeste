@@ -390,12 +390,12 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 
 - Produces: `startMocks(): Promise<void>` (só quando `env.enableMocks`; `onUnhandledRequest: 'bypass'` para assets); `http: AxiosInstance` (baseURL `env.apiBaseUrl`, timeout 6000 ms, interceptor que injeta `Authorization`, interceptor de resposta que converte para `ApiError` e dispara `onUnauthorized` em 401 `SESSION_EXPIRED`); `parseWith(schema)(response)`; `queryKeys = { nfts: { all: ['nfts'], lists: () => ['nfts','list'], list: (search) => ['nfts','list', search], detail: (id) => ['nfts','detail', id] }, favorites: (userId) => ['favorites', userId], cart: (scope) => ['cart', scope.kind, scope.id], quote: (hash) => ['quote', hash], orders: { detail: (userId, id) => ['orders', userId, id] }, profile: (userId) => ['profile', userId], wallets: (userId) => ['wallets', userId] }`; `window.__kurio` (seção 4).
 
-- [ ] **Passo 1:** `handlers.test.ts` com `setupServer`: `GET /api/nfts?page=2 devolve 9 itens e total 48`, `GET /api/nfts?category=musica&network=polygon combina filtros`, `GET /api/nfts/inexistente → 404 NOT_FOUND`, `POST /api/auth/register duplicado → 409 EMAIL_TAKEN`, `POST /api/auth/login 6ª tentativa → 429`, `GET /api/favorites sem token → 401`, `GET /api/orders/:id de outro usuário → 403`, `POST /api/orders mesma chave mesmo corpo → mesmo id`, `mesma chave corpo diferente → 409 IDEMPOTENCY_CONFLICT`, `POST /api/quote com cupom expirado → 422 COUPON_EXPIRED`. Rodar → FAIL.
-- [ ] **Passo 2:** implementar handlers finos (regra 18), todos envolvidos por `withNetwork`; erros via `respondError`; `cart` resolve escopo por sessão ou `X-Guest-Id`.
-- [ ] **Passo 3:** `pnpm test` → PASS.
-- [ ] **Passo 4:** `main.tsx`: `await startMocks()` antes de `createRoot`; `providers.tsx` com `QueryClientProvider` + `RouterProvider` + `Toaster`; `__root.tsx` com `PageShell` (header/footer placeholders) e `Outlet`; rota `$` 404.
-- [ ] **Passo 5:** `pnpm dev` → abrir `/` e confirmar no DevTools que `GET /api/nfts` responde via MSW (`[MSW] Mocking enabled`). `pnpm build && pnpm preview` idem.
-- [ ] **Passo 6:** Commit `feat: handlers REST MSW, cliente http e shell da aplicação`.
+- [x] **Passo 1:** `handlers.test.ts` com `setupServer`: `GET /api/nfts?page=2 devolve 9 itens e total 48`, `GET /api/nfts?category=musica&network=polygon combina filtros`, `GET /api/nfts/inexistente → 404 NOT_FOUND`, `POST /api/auth/register duplicado → 409 EMAIL_TAKEN`, `POST /api/auth/login 6ª tentativa → 429`, `GET /api/favorites sem token → 401`, `GET /api/orders/:id de outro usuário → 403`, `POST /api/orders mesma chave mesmo corpo → mesmo id`, `mesma chave corpo diferente → 409 IDEMPOTENCY_CONFLICT`, `POST /api/quote com cupom expirado → 422 COUPON_EXPIRED`. Rodar → FAIL.
+- [x] **Passo 2:** implementar handlers finos (regra 18), todos envolvidos por `withNetwork`; erros via `respondError`; `cart` resolve escopo por sessão ou `X-Guest-Id`.
+- [x] **Passo 3:** `pnpm test` → PASS.
+- [x] **Passo 4:** `main.tsx`: `await startMocks()` antes de `createRoot`; `providers.tsx` com `QueryClientProvider` + `RouterProvider` + `Toaster`; `__root.tsx` com `PageShell` (header/footer placeholders) e `Outlet`; rota `$` 404.
+- [x] **Passo 5:** `pnpm dev` → abrir `/` e confirmar no DevTools que `GET /api/nfts` responde via MSW (`[MSW] Mocking enabled`). `pnpm build && pnpm preview` idem.
+- [x] **Passo 6:** Commit `feat: handlers REST MSW, cliente http e shell da aplicação`.
 
 ### Task 5: Sessão, login, cadastro e guarda de rotas
 

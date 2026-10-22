@@ -57,6 +57,7 @@ export default defineConfig([
       ],
     },
     rules: {
+      'react-refresh/only-export-components': ['error', { allowExportNames: ['Route'] }],
       'no-console': ['error', { allow: ['warn', 'error'] }],
       'max-lines': ['error', { max: MAX_FILE_LINES, skipBlankLines: true, skipComments: true }],
       'max-lines-per-function': [
@@ -102,7 +103,13 @@ export default defineConfig([
   },
   {
     files: ['src/routes/**/*.tsx', 'vite.config.ts', 'playwright.config.ts', 'eslint.config.js'],
-    rules: { 'import-x/no-default-export': 'off' },
+    rules: {
+      'import-x/no-default-export': 'off',
+    },
+  },
+  {
+    files: ['src/routes/**/*.tsx'],
+    rules: { 'react-refresh/only-export-components': 'off' },
   },
   {
     files: ['src/components/ui/**/*.tsx'],

@@ -6,16 +6,22 @@ import '@/styles/globals.css';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-const rootElement = document.getElementById('root');
-if (!rootElement) {
-  throw new Error('Elemento #root não encontrado');
-}
+import { Providers } from '@/app/Providers';
+import { env } from '@/lib/env';
 
-createRoot(rootElement).render(
-  <StrictMode>
-    <main className="px-page py-6">
-      <h1 className="text-display text-foreground">Kurio</h1>
-      <p className="text-body text-text-secondary">Marketplace de NFTs</p>
-    </main>
-  </StrictMode>,
-);
+async function bootstrap(): Promise<void> {
+  if (env.enableMocks) {
+    const { startMocks } = await import('@/mocks/browser');
+    await startMocks();
+  }
+  const rootElement = document.getElementById('root');
+  if (!rootElement) throw new Error('Elemento #root não encontrado');
+  createRoot(rootElement).render(
+    <StrictMode>
+      <Providers />
+    </StrictMode>,
+  );
+}
+void bootstrap().catch((error: unknown) => {
+  console.error('Falha ao iniciar aplicação', error);
+});
