@@ -2,6 +2,8 @@
 
 Implementação do desafio frontend da Jungle Gaming: catálogo, filtros e favoritos, detalhe com edições, carrinho, checkout, recuperação de pagamento, perfil e carteiras. Layout conferido com os assets originais do [Figma](https://www.figma.com/design/Ff0SksUi7UFtPWUO8kyNtw/Frontend-Challenge).
 
+**Repositório público:** [Cavalcantefilipe/JungleGamingTeste](https://github.com/Cavalcantefilipe/JungleGamingTeste), branch `main`. O histórico preserva os commits por funcionalidade, correção e documentação.
+
 **Demonstração com backend MSW no navegador.** Não realiza pagamentos nem comprova posse de carteira. Contas, tokens e pedidos são fictícios e persistidos localmente. Não use dados ou valores reais. [Revisão de segurança](docs/SECURITY-REVIEW.md).
 
 ## Executar
@@ -104,4 +106,4 @@ reports          relatórios versionados de segurança/performance
 
 A revisão atual passou as metas do Lighthouse: **Performance desktop 99/99 e mobile 91/92**, com Acessibilidade/Boas práticas/SEO em 100. Os dois advisories altos foram resolvidos pela troca da ferramenta Lighthouse; **audits completo e de produção com zero alertas**. Gates locais: **109 unitários + 6 testes Node e 210 E2E aprovados/10 skips explícitos por viewport**. Os [15 frames originais e 18 capturas](reports/design/README.md) documentam a conferência visual e as adaptações, sem alegar igualdade absoluta de pixels. Não há banco real para certificar otimização SQL.
 
-**URL pública: pendente.** `vercel.json` e `.vercelignore` estão preparados. A criação/push do repositório depende da autorização prevista em `CLAUDE.md`, e o login/importação no Vercel depende do usuário. Ainda não foram verificados headers, refresh nem Lighthouse em URL publicada.
+**URL da aplicação: pendente.** O repositório foi publicado no GitHub em 23/10/2026 com autorização do usuário. `vercel.json` e `.vercelignore` estão preparados; login/importação no Vercel ainda depende do usuário conforme `CLAUDE.md`. Ainda não foram verificados headers, refresh nem Lighthouse em URL publicada.

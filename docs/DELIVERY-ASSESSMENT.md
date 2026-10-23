@@ -4,7 +4,7 @@
 
 ## Estimativa técnica: 90/100
 
-Faixa plausível: **86–94**, dependendo do rigor da comparação visual e da avaliação manual. Esta é uma estimativa do código e das evidências locais. A entrega obrigatória está incompleta sem repositório acessível e URL pública; não se deve apresentar 90 como nota de uma entrega já aceita.
+Faixa plausível: **86–94**, dependendo do rigor da comparação visual e da avaliação manual. Esta é uma estimativa do código e das evidências locais. O [repositório público](https://github.com/Cavalcantefilipe/JungleGamingTeste) já está acessível; a entrega obrigatória permanece incompleta sem URL da aplicação e verificação do deploy. Não se deve apresentar 90 como nota de uma entrega já aceita.
 
 | Critério                           |  Máximo | Estimativa | Fundamentação                                                                                                                                                   |
 | ---------------------------------- | ------: | ---------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -21,12 +21,13 @@ Faixa plausível: **86–94**, dependendo do rigor da comparação visual e da a
 
 ## O que falta
 
-1. **Publicação obrigatória:** autorização para criar/push do GitHub e login/importação no Vercel conforme `CLAUDE.md`. Registrar links no README e confirmar que o commit publicado corresponde ao entregue.
+1. **Deploy obrigatório:** login/importação no Vercel conforme `CLAUDE.md`. GitHub público e push na branch `main` concluídos em 23/10/2026. Registrar a URL da aplicação no README e confirmar que o commit do deploy corresponde ao entregue.
 2. **Verificação pública:** acesso direto/refresh de rotas, redirect de checkout, cenários, service worker, Socket.IO, console e headers. Lighthouse público é informativo e ainda está pendente.
 3. **Diferenças do desenho:** estão identificadas em [DESIGN-REVIEW.md](DESIGN-REVIEW.md): áreas de toque, catálogo/dados canônicos, controles funcionais de compra e textos/ícones. A conferência de todas as telas está documentada; aprovação estética final continua dependendo do avaliador.
 
 ## Itens encerrados nesta rodada
 
+- Repositório público criado com autorização do usuário e histórico de commits preservado na branch `main`; link registrado no README.
 - Meta de performance local alcançada: 99/99 desktop e 91/92 mobile, com as outras categorias em 100. [Coleta e limites](LIGHTHOUSE.md).
 - Dois advisories altos de desenvolvimento resolvidos, sem ignores: Lighthouse 13.5.0 nativo removeu a cadeia de `extract-zip`. Audits completo/de produção: zero.
 - Suíte atual: 109 unitários + 6 testes Node, 210 E2E/10 skips explícitos e build válido. [Gates](TESTING.md).

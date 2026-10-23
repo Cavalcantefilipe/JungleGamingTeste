@@ -587,7 +587,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - Create: `vercel.json` (rewrites SPA + headers da seção 3.3), `.vercelignore`
 - Modify: `README.md` (URL pública)
 
-- [ ] **Passo 1:** pedir ao usuário: (a) criar o repositório GitHub (ou autorizar `gh repo create <nome> --private --source . --push`), (b) importar no Vercel (framework Vite, build `pnpm build`, output `dist`, env `VITE_ENABLE_MOCKS=true`, `VITE_MOCK_SCENARIO=default`, `VITE_SOCKET_URL=wss://realtime.kurio.app`, `VITE_API_BASE_URL=/api`). **Ação do usuário obrigatória** (login no Vercel).
+- [ ] **Passo 1:** GitHub público criado e push concluído com autorização explícita do usuário em 23/10/2026: [Cavalcantefilipe/JungleGamingTeste](https://github.com/Cavalcantefilipe/JungleGamingTeste), branch `main`, histórico preservado. Falta importar no Vercel (framework Vite, build `pnpm build`, output `dist`, env `VITE_ENABLE_MOCKS=true`, `VITE_MOCK_SCENARIO=default`, `VITE_SOCKET_URL=wss://realtime.kurio.app`, `VITE_API_BASE_URL=/api`). **Ação do usuário obrigatória** (login no Vercel).
 - [ ] **Passo 2:** após deploy, verificar na URL pública: `/`, `/nfts/<id>` por acesso direto, refresh em `/checkout` (redirect para login), `?scenario=slow-network`, console sem erros, worker registrado, socket conectando (evento via painel dev altera preço), headers de segurança presentes (`curl -I`).
 - [ ] **Passo 3:** rodar Lighthouse também contra a URL pública (informativo) e anotar em `docs/LIGHTHOUSE.md`. Commit `chore: configuração de deploy vercel`.
 
@@ -600,7 +600,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [x] **Passo 1:** `README.md`: visão geral, stack, requisitos (Node 24, pnpm 11), setup (`pnpm i`; `mockServiceWorker.js` já versionado), variáveis, credenciais (`ana@kurio.test`/`bruno@kurio.test`, senha `Kurio!2026`), cupons, seleção de cenário (`?scenario=`, painel `?devtools=1`, `window.__kurio`), reset, comandos (`dev`, `build`, `preview`, `typecheck`, `lint`, `test`, `e2e`, `e2e:ui`, `lighthouse`, `check`), como reproduzir cada fluxo de falha (tabela cenário → passos → comportamento esperado), URL pública, estrutura de pastas.
 - [x] **Passo 2:** `ARCHITECTURE.md`: decisões (versões, MSW 2 vs 3, token em localStorage), contratos (link para `docs/CONTRACTS.md` com tabelas da seção 3.4 e exemplos JSON), política de sessão, estado do carrinho (guest/user/merge), cache/retries/invalidação (3.6), reconciliação REST × Socket (3.5), idempotência, limitações (transporte websocket-only, sem multi-aba, login social indisponível), decisões de UX e desvios do Figma (grid normalizado, backdrop, estados não desenhados, substituição de assets se houver), ajustes de acessibilidade (contraste de Text/Secondary sobre Surface Card — verificar ≥ 4.5:1; se não atingir, escurecer o fundo do card e registrar).
 - [x] **Passo 3:** `code-reviewer` em todo o repositório; corrigir CRITICAL/HIGH. `pnpm check && pnpm e2e && pnpm lighthouse` verdes a partir de **checkout limpo** (`git clone` em pasta temporária → `pnpm i --frozen-lockfile` → tudo roda). Checkpoint local final: `87e20f0`, check109+6, E2E210/10skips e Lighthouse12runs/exit0; histórico da revisão em `docs/FINAL-REVIEW.md`.
-- [ ] **Passo 4:** Commit `docs: README, ARCHITECTURE e documentação de contratos, mocks e testes`; push; confirmar que o deploy corresponde ao `HEAD`.
+- [ ] **Passo 4:** Commits de documentação e push público concluídos; falta confirmar que o deploy corresponde ao `HEAD`.
 
 ---
 
@@ -615,4 +615,4 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 
 ### Checkpoint local de 23/10/2026
 
-Código de aplicação `8b314b1`; ferramenta de auditoria/limpeza final `87e20f0`. Clone com frozen install, check109+6, build, E2E210/10 skips e Lighthouse12runs/exit0. Medianas desktop99/99, mobile91/92; demais categorias100. Audits completo/de produção0. Conferência visual:15frames originais e18capturas, ajustes e diferenças documentados em `docs/DESIGN-REVIEW.md`. Task18 e push/validação de URL da Task19 continuam pendentes das ações autorizadas pelo usuário; o plano inteiro não está marcado como publicado.
+Código de aplicação `8b314b1`; ferramenta de auditoria/limpeza final `87e20f0`. Clone com frozen install, check109+6, build, E2E210/10 skips e Lighthouse12runs/exit0. Medianas desktop99/99, mobile91/92; demais categorias100. Audits completo/de produção0. Conferência visual:15frames originais e18capturas, ajustes e diferenças documentados em `docs/DESIGN-REVIEW.md`. GitHub público e push concluídos após autorização do usuário; deploy e validação de URL das Tasks18/19 continuam pendentes. O plano inteiro não está marcado como publicado.

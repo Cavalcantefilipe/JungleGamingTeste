@@ -43,4 +43,8 @@ Gates locais desta rodada: `pnpm check` com **109 unitários + 6 testes Node**, 
 
 Clone novo de `8b314b1`: instalação frozen, check 109 + 5, build e 210 E2E/10 skips passaram. O teste iniciou seu próprio preview com CI e o diretório do processo foi verificado. O HTML produzido tem o mesmo SHA-256 do worktree auditado. A coleta Lighthouse desse clone é registrada em LIGHTHOUSE.md; relatórios atuais sempre identificam o checkpoint efetivamente medido.
 
-Checkpoint final `87e20f0`: clone com lockfile congelado, check 109 + 6, build, **210 E2E/10 skips (4,7 minutos)** e **12 auditorias Lighthouse, saída 0**. Medianas: 99/99 desktop e 91/92 mobile; demais categorias 100. Os dois advisories altos estão resolvidos, com audits completo/de produção em zero. Relatórios e documentação posteriores são metadados da aplicação auditada; não houve publicação.
+Checkpoint final `87e20f0`: clone com lockfile congelado, check 109 + 6, build, **210 E2E/10 skips (4,7 minutos)** e **12 auditorias Lighthouse, saída 0**. Medianas: 99/99 desktop e 91/92 mobile; demais categorias 100. Os dois advisories altos estão resolvidos, com audits completo/de produção em zero. Relatórios e documentação posteriores são metadados da aplicação auditada; naquele checkpoint não havia publicação.
+
+## Publicação do código
+
+Em 23/10/2026, após autorização explícita para visibilidade pública, o histórico de 32 commits até `74b1151` foi enviado à branch `main` de [Cavalcantefilipe/JungleGamingTeste](https://github.com/Cavalcantefilipe/JungleGamingTeste). A visibilidade `PUBLIC` e o SHA remoto foram confirmados. Gitleaks examinou os 32 commits antes do envio e não encontrou segredos; isso não equivale a garantia de ausência de qualquer dado sensível. A publicação usou um clone isolado. O deploy no Vercel, seu commit e os testes da URL da aplicação permanecem pendentes.
