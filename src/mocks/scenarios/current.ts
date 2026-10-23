@@ -1,6 +1,8 @@
 import { registry } from './registry';
 
 let currentName = 'default';
+let revision = 0;
+const effects = new Set<string>();
 let networkOverrides: Partial<{
   latencyMs: number;
   jitterMs: number;
@@ -11,6 +13,8 @@ let networkOverrides: Partial<{
 export function setScenario(name: string): void {
   if (!registry[name]) throw new Error(`Cenário desconhecido: ${name}`);
   currentName = name;
+  revision++;
+  effects.clear();
   networkOverrides = {};
   globalThis.localStorage.setItem('kurio.scenario', name);
 }
@@ -23,4 +27,13 @@ export function getScenario() {
 
 export function setNetwork(partial: typeof networkOverrides): void {
   networkOverrides = { ...networkOverrides, ...partial };
+}
+
+export function getScenarioRevision(): number {
+  return revision;
+}
+export function claimScenarioEffect(key: string): boolean {
+  if (effects.has(key)) return false;
+  effects.add(key);
+  return true;
 }

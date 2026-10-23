@@ -9,6 +9,9 @@ import { MobileTabBar } from './MobileTabBar';
 import type { ReactNode } from 'react';
 
 export function PageShell({ children }: { children: ReactNode }) {
+  const isOrder = useRouterState({
+    select: (state) => state.location.pathname.startsWith('/orders/'),
+  });
   const isDetail = useRouterState({
     select: (state) => state.location.pathname.startsWith('/nfts/'),
   });
@@ -26,7 +29,7 @@ export function PageShell({ children }: { children: ReactNode }) {
       >
         Pular para o conteúdo
       </a>
-      <Header />
+      {!isOrder && <Header />}
       <main
         id="main-content"
         className={cn(
@@ -34,14 +37,15 @@ export function PageShell({ children }: { children: ReactNode }) {
           isDetail && 'pt-6',
           isPurchase && 'pt-8',
           isAccount && 'pb-28 md:pb-12',
+          isOrder && 'px-0 pt-0 md:px-0 md:pt-0',
         )}
       >
         {children}
       </main>
-      <div className={cn(isPurchase && 'hidden md:block', isAccount && 'hidden')}>
+      <div className={cn(isPurchase && 'hidden md:block', (isAccount || isOrder) && 'hidden')}>
         <Footer />
       </div>
-      <MobileTabBar />
+      {!isOrder && <MobileTabBar />}
     </>
   );
 }

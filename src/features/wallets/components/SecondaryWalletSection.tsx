@@ -69,7 +69,7 @@ export function SecondaryWalletSection({
       )}
       {editing ? (
         <WalletForm
-          key={secondary?.updatedAt ?? 'new-secondary'}
+          key={`${profile.id}:secondary`}
           profile={profile}
           wallet={secondary}
           walletRole="secondary"

@@ -75,6 +75,14 @@ O rodapé compartilhado (`70493:1151`) foi comparado: faixas desktop de 250/88/2
 
 Alguns fundos de login/cadastro do Figma usam outras imagens e nomes na grade em relação ao frame principal da Home. O catálogo mantém uma associação única, usando as imagens da Home, para o mesmo NFT conservar sua identidade ao navegar. Os textos visíveis da última linha identificam Golden Beat (0,99), Golden Frequency (0,59) e Golden Signal (0,39 ETH). A revisão do catálogo salvo preserva contas, carteiras, carrinhos e pedidos; cotações antigas são invalidadas para nova confirmação do servidor.
 
-Pagamento e recibo tiveram suas referências inspecionadas e os assets necessários exportados; a conferência da implementação acompanha as tarefas 12–14. Não são declarados concluídos nesta revisão das rotas já disponíveis.
+Pagamento e recibo foram implementados após a revisão das demais rotas e comparados novamente com as referências. Os testes de recuperação e os estados transversais das tarefas 13–14 continuam como etapas separadas.
 
 A medição final da Home confirmou sidebar de 310 px (`70410:3725`), grade de 842 px e três cards de 258 px distribuídos com 34 px entre eles. O suporte do card mede 258 × 300, a imagem 250 × 250 com raio de 15 px, e o card completo 356 px (`70342:2678`, `3:133`, `4:137`). As linhas têm intervalo de 72 px (`70342:2828`). As imagens são centralizadas nos suportes para manter a grade alinhada. O resumo desktop do detalhe acompanha os 448 px da galeria; a rede continua disponível na aba de detalhes.
+
+## Pagamento e confirmação
+
+Desktop pagamento (`11:2862`): formulário “Perfil do colecionador” em duas colunas e resumo lateral de 408 px. Rede/endereço/provedor exibem a carteira salva na API. O seletor de outra carteira usa os registros reais da conta; em mobile aparecem os cards e o formulário de dados fica expansível abaixo do resumo. O título cabe em uma linha em 390 px. Conectar e revisar cotação são controles explícitos adicionados para os estados funcionais previstos no desafio.
+
+O modal de confirmação (`70376:239`) mede 578 px de largura e 821 px de altura para os três itens do desenho. A implementação mantém largura, selo de 80 px, título de 16 px, metadados em quatro colunas, tabela com imagens de 70 px, taxa/total à direita e borda inferior Primary. A altura acompanha os itens e respeita a viewport. Em mobile a confirmação ocupa a página, com metadados em duas colunas e imagens de 48 px. O link é identificado como simulado. Todos os valores e imagens vêm do snapshot imutável do pedido confirmado.
+
+`e2e/06-purchase-happy-path.spec.ts` captura pagamento e recibo em desktop/mobile, além de validar o fluxo completo, campos, revisão após preço/estoque/expiração, conexão recusada/desconectada, cadastro de carteira com retorno e recuperação do rascunho após expiração da sessão.

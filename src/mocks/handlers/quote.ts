@@ -6,6 +6,7 @@ import { getScenario } from '@/mocks/scenarios/current';
 import { withNetwork } from '@/mocks/scenarios/network';
 import { computeQuote } from '@/mocks/shared/pricing';
 import { MockError } from '@/mocks/shared/respond';
+import { scheduleCheckoutChange } from '@/mocks/shared/scheduleCheckoutChange';
 
 export const quoteHandlers = [
   http.post(
@@ -16,6 +17,7 @@ export const quoteHandlers = [
         throw new MockError(422, 'COUPON_EXPIRED');
       const quote = computeQuote(mockStore.read(), input);
       mockStore.write((db) => ({ ...db, quotes: { ...db.quotes, [quote.id]: quote } }));
+      if (request.headers.get('X-Quote-Context') === 'checkout') scheduleCheckoutChange(input);
       return HttpResponse.json(quote);
     }),
   ),

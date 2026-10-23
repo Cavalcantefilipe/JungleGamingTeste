@@ -5,12 +5,23 @@ import { quoteSchema, type QuoteInput } from '@/contracts/quote';
 import { apiRequest } from '@/lib/http';
 import { queryKeys } from '@/lib/query-keys';
 
-export function quoteQueryOptions(input: QuoteInput, scope?: CartScope) {
-  const context = JSON.stringify({ scope, network: input.network, couponCode: input.couponCode });
+export function quoteQueryOptions(input: QuoteInput, scope?: CartScope, source?: 'checkout') {
+  const context = JSON.stringify({
+    scope,
+    source,
+    network: input.network,
+    couponCode: input.couponCode,
+  });
   return queryOptions({
     queryKey: queryKeys.quote(context, input.items),
     queryFn: ({ signal }) =>
-      apiRequest(quoteSchema, { method: 'POST', url: '/quote', data: input, signal }),
+      apiRequest(quoteSchema, {
+        method: 'POST',
+        url: '/quote',
+        data: input,
+        signal,
+        ...(source ? { headers: { 'X-Quote-Context': source } } : {}),
+      }),
     staleTime: 0,
     placeholderData: (previous, query) => (query?.queryKey[1] === context ? previous : undefined),
     enabled: input.items.length > 0,

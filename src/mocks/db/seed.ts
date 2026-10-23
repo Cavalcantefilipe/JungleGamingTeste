@@ -4,6 +4,7 @@ import { createUsers, createWallets } from './fixtures/users';
 import type { MockDb } from './schema';
 
 export function createSeed(name = 'default'): MockDb {
+  const wallets = createWallets();
   return {
     catalogRevision: 2,
     users: createUsers(),
@@ -14,7 +15,15 @@ export function createSeed(name = 'default'): MockDb {
     quotes: {},
     orders: [],
     idempotency: {},
-    wallets: createWallets(),
+    wallets:
+      name === 'no-wallets'
+        ? Object.fromEntries(
+            Object.keys(wallets).map((userId) => [
+              userId,
+              { primary: null, secondary: null, sameAsPrimary: false },
+            ]),
+          )
+        : wallets,
     walletConnections: {},
     loginAttempts: {},
     scheduledTransitions: [],

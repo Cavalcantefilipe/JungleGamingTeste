@@ -1,4 +1,7 @@
+import { Link, useSearch } from '@tanstack/react-router';
+
 import { ErrorState } from '@/components/feedback/ErrorState';
+import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { AccountLayout } from '@/features/account/components/AccountLayout';
 import { useProfileQuery } from '@/features/profile/queries';
@@ -9,11 +12,17 @@ import { SecondaryWalletSection } from './SecondaryWalletSection';
 import { WalletForm } from './WalletForm';
 
 export function WalletsPage() {
+  const { returnTo } = useSearch({ from: '/account/wallets' });
   const profile = useProfileQuery();
   const wallets = useWalletsQuery();
   const error = profile.error ?? wallets.error;
   return (
     <AccountLayout>
+      {returnTo && wallets.data?.primary && (
+        <Button asChild variant="secondary" size="form" className="mb-6">
+          <Link to={returnTo}>Voltar ao pagamento</Link>
+        </Button>
+      )}
       {error ? (
         <ErrorState
           error={error}
@@ -34,7 +43,7 @@ export function WalletsPage() {
               <p className="mt-1 text-xs text-text-secondary">{walletMessages.help}</p>
             </div>
             <WalletForm
-              key={wallets.data.primary?.id ?? 'new-primary'}
+              key={`${profile.data.id}:primary`}
               profile={profile.data}
               wallet={wallets.data.primary}
               walletRole="primary"
