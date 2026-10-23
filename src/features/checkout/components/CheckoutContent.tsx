@@ -133,7 +133,7 @@ export function CheckoutContent({
                   {checkoutMessages.draftError}
                 </p>
               )}
-              <RootFormError />
+              {!create.error && <RootFormError />}
               {pendingMessage && (
                 <p role="alert" className="text-xs text-text-coral">
                   {pendingMessage}

@@ -1,4 +1,6 @@
+import { useIsMutating } from '@tanstack/react-query';
 import { Link } from '@tanstack/react-router';
+import { useState } from 'react';
 
 import { EmptyState } from '@/components/feedback/EmptyState';
 import { ErrorState } from '@/components/feedback/ErrorState';
@@ -7,13 +9,18 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { useSession } from '@/features/auth/session-store';
 import { useCartQuery } from '@/features/cart/queries';
 import { MobilePageHeader } from '@/features/layout/MobilePageHeader';
+import { usePendingOrder } from '@/features/orders/usePendingOrder';
 import { useProfileQuery } from '@/features/profile/queries';
 import { useWalletsQuery } from '@/features/wallets/queries';
 
 import { CheckoutContent } from './CheckoutContent';
+import { PendingOrderRecovery } from './PendingOrderRecovery';
 
 export function CheckoutPage() {
   const session = useSession();
+  const pending = usePendingOrder(session?.user.id ?? '');
+  const creating = useIsMutating({ mutationKey: ['orders', 'create', session?.user.id ?? ''] });
+  const [recoveringKey, setRecoveringKey] = useState<string | null>(null);
   const cart = useCartQuery();
   const profile = useProfileQuery();
   const wallets = useWalletsQuery();
@@ -26,7 +33,17 @@ export function CheckoutPage() {
       <h1 className="mt-2 mb-8 hidden text-xs leading-4 text-text-secondary md:block">
         Início / Mercado / Pagamento
       </h1>
-      {error ? (
+      {pending &&
+      !pending.orderId &&
+      (creating === 0 || !cart.data?.items.length || recoveringKey === pending.key) ? (
+        <PendingOrderRecovery
+          session={session}
+          attempt={pending}
+          onRecoverStart={() => {
+            setRecoveringKey(pending.key);
+          }}
+        />
+      ) : error ? (
         <ErrorState
           error={error}
           retry={() => {

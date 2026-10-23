@@ -50,3 +50,13 @@ No E2E com **1.500 ms de latência simulada**, a estimativa apareceu em **17 ms*
 Salvar a carteira e atualizar a cópia secundária usa uma transação, com sessão revalidada. Mudar endereço, rede ou provedor remove as conexões dos IDs alterados; a compra exige uma nova conexão. Alterar apenas o apelido preserva a conexão.
 
 O front serializa alterações de carteira por usuário e verifica o token capturado antes de executar uma alteração que estava na fila. Respostas antigas também verificam a sessão antes de atualizar o cache. O E2E troca de Ana para Bruno sem recarregar a página, mantém a primeira resposta pendente e verifica que a alteração seguinte não é enviada com a conta nova.
+
+## Tentativas e respostas atrasadas no navegador
+
+A tentativa é salva em `kurio.pendingOrder.<userId>` com chave, hash e payload original antes do POST. O contrato é aplicado antes do hash, para que normalizações de texto não criem divergência no retry. A sessão é conferida depois do SHA-256 e novamente antes de publicar o resultado no cache privado.
+
+A recuperação aparece mesmo se a confirmação do servidor já tiver esvaziado o carrinho enquanto a resposta original ainda está atrasada. Recarregar conserva a chave e o payload. Respostas de criação não substituem estados terminais/versões mais recentes nem sobrescrevem uma tentativa posterior. Timeout, rede e 5xx conservam a chave; uma rejeição 4xx definitiva da simulação libera somente a tentativa correspondente ainda sem `orderId`.
+
+Dados locais inválidos bloqueiam uma nova compra com mensagem e ação de recarregar. A aplicação não descarta automaticamente uma chave que pode corresponder a uma compra aceita. Se o registro estiver corrompido permanentemente, ele precisa ser recuperado/reparado antes de continuar; esta simulação não oferece histórico pesquisável de pedidos para reconstruir uma chave perdida.
+
+Os testes cobrem três cliques rápidos, timeout e reload com a mesma chave, recusa e nova tentativa, alteração de preço durante o envio, confirmação autoritativa, snapshot imutável, eventos duplicados/antigos, reconciliação REST e troca de usuário sem recarregar o runtime entre logout/login.
