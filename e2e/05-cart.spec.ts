@@ -159,7 +159,8 @@ test('quantidade atualiza estimativa antes da rede e consulta a cotação uma ve
   await row.getByRole('spinbutton').fill('2');
   await expect(page.getByTestId('quote-total')).toHaveText('2.396 ETH', { timeout: 500 });
   const feedbackMs = Date.now() - startedAt;
-  await expect(page.getByRole('status', { name: 'Atualizando cotação' })).toBeVisible();
+  await expect(page.getByText('Total estimado', { exact: true })).toBeVisible();
+  await expect(page.getByRole('status', { name: 'Atualizando cotação' })).toHaveCount(1);
   await expect(page.getByRole('button', { name: 'Conectar e finalizar' })).toBeDisabled();
   await expect(page.getByRole('status', { name: 'Atualizando cotação' })).toHaveCount(0);
   await expect(page.getByRole('link', { name: 'Conectar e finalizar' })).toBeVisible();

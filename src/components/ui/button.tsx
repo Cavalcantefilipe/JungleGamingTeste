@@ -11,6 +11,12 @@ const buttonVariants = cva(
       variant: {
         default: 'bg-primary text-ink hover:bg-primary-light active:bg-primary-dark',
         primary: 'bg-primary text-ink hover:bg-primary-light active:bg-primary-dark',
+        quantity:
+          'relative rounded-full text-ink before:pointer-events-none before:absolute before:size-6 before:rounded-full before:bg-primary hover:before:bg-primary-light active:before:bg-primary-dark',
+        'quantity-cart':
+          'relative rounded-full text-foreground before:pointer-events-none before:absolute before:size-6 before:rounded-full before:border before:border-border before:bg-surface-raised hover:before:bg-border-soft active:before:bg-border',
+        remove:
+          'rounded-full text-primary hover:bg-surface-raised hover:text-primary-light active:bg-border active:text-primary-dark',
         danger: 'bg-error text-white hover:bg-error/80 active:bg-error/70',
         destructive:
           'bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:bg-destructive/60 dark:focus-visible:ring-destructive/40',
@@ -22,6 +28,8 @@ const buttonVariants = cva(
         link: 'text-primary underline-offset-4 hover:underline',
       },
       size: {
+        quantity: 'size-11 p-0',
+        checkout: 'h-[60px] rounded-[40px] px-6 font-bold md:h-10 md:rounded-control',
         coupon: 'h-12 rounded-full px-5 font-bold md:h-10 md:rounded-control',
         purchase: 'h-14 rounded-full px-6 font-bold lg:h-10 lg:rounded-md',
         'purchase-icon': 'size-14 rounded-full lg:size-10 lg:rounded-md',
@@ -35,6 +43,14 @@ const buttonVariants = cva(
         'icon-lg': 'size-10',
       },
     },
+    compoundVariants: [
+      {
+        variant: ['default', 'primary'],
+        size: ['purchase', 'purchase-icon', 'coupon', 'checkout'],
+        className:
+          'bg-transparent [background-image:var(--background-image-primary-gradient)] bg-[length:100%_100%] hover:bg-transparent hover:brightness-105 active:bg-transparent active:brightness-95',
+      },
+    ],
     defaultVariants: {
       variant: 'default',
       size: 'default',

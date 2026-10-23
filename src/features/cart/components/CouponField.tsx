@@ -35,7 +35,7 @@ export function CouponField({
       <label htmlFor="coupon-code" className="hidden text-xs font-bold md:block">
         Código promocional
       </label>
-      <div className="flex items-center overflow-hidden rounded-full border border-border-soft bg-ink md:rounded-control">
+      <div className="flex items-center overflow-hidden rounded-full border border-border bg-surface-card shadow-coupon md:rounded-control">
         <Input
           {...form.register('couponCode')}
           id="coupon-code"
@@ -43,7 +43,7 @@ export function CouponField({
           aria-invalid={Boolean(message)}
           aria-describedby={message ? 'coupon-error' : undefined}
           placeholder="Digite o código promocional..."
-          className="h-12 min-w-0 border-0 bg-transparent text-xs shadow-none md:h-10"
+          className="h-[50px] min-w-0 border-0 bg-transparent text-xs shadow-none md:h-10"
         />
         <Button type="submit" size="coupon" disabled={disabled}>
           Aplicar

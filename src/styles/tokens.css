@@ -13,7 +13,7 @@
   --color-secondary: #b39463;
   --color-foreground: #f5f1eb;
   --color-text-primary: #f5f1eb;
-  --color-text-secondary: #ceb28c;
+  --color-text-secondary: #cfb28c;
   --color-text-accent: #e89b55;
   --color-text-coral: #ea6b4f;
   --color-success: #00a66c;
@@ -24,6 +24,9 @@
   --color-black: #000000;
   --color-backdrop: rgb(0 0 0 / 0.6);
   --color-transparent: transparent;
+
+  --shadow-coupon: 0 6px 20px rgb(10 6 4 / 0.45);
+  --background-image-primary-gradient: url('/images/ui/primary-button-gradient.svg');
 
   --font-mono: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-sans: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
