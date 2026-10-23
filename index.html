@@ -9,10 +9,44 @@
     />
     <meta name="theme-color" content="#140D0A" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="preload"
+      as="font"
+      href="/node_modules/@fontsource/roboto-mono/files/roboto-mono-latin-400-normal.woff2"
+      media="(min-width: 768px)"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/images/nfts/emerald-800.avif"
+      type="image/avif"
+      media="(min-width: 768px)"
+      imagesrcset="/images/nfts/emerald-400.avif 400w, /images/nfts/emerald-800.avif 800w"
+      imagesizes="(min-width: 1280px) 450px, (min-width: 768px) 40vw, 138px"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/images/ui/mobile-hero-background.svg"
+      media="(max-width: 767px)"
+      fetchpriority="high"
+    />
     <title>Kurio — Marketplace de NFTs</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div
+        role="status"
+        aria-label="Carregando Kurio"
+        aria-busy="true"
+        class="bootstrap-pending grid min-h-screen place-items-center p-6 text-center text-sm text-text-secondary"
+      >
+        Carregando Kurio…
+      </div>
+    </div>
     <script type="module" src="/src/app/main.tsx"></script>
   </body>
 </html>

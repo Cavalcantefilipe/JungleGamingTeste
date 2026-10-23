@@ -21,7 +21,7 @@ async function expectContainedFocus(page: Page, dialog: Locator) {
 async function expectAccessible(page: Page, path: string) {
   await page.evaluate(() => document.fonts.ready);
   const result = await new AxeBuilder({ page })
-    .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
     .analyze();
   expect(
     result.violations.filter((entry) => ['critical', 'serious'].includes(entry.impact ?? '')),

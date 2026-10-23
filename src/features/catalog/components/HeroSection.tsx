@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { ArtworkImage } from '@/components/media/ArtworkImage';
 import { Skeleton } from '@/components/ui/skeleton';
 import type { Nft } from '@/contracts/nft';
 
@@ -16,6 +17,9 @@ export function HeroSection({ items, loading = false }: { items: Nft[]; loading?
     >
       <img
         src="/images/ui/mobile-hero-background.svg"
+        width={366}
+        height={190}
+        fetchPriority="high"
         alt=""
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 h-full w-full md:hidden"
@@ -25,7 +29,9 @@ export function HeroSection({ items, loading = false }: { items: Nft[]; loading?
         {loading ? (
           <Skeleton className="aspect-square w-full rounded-xl md:rounded-3xl" />
         ) : nft ? (
-          <img
+          <ArtworkImage
+            sizes="(min-width: 1280px) 450px, (min-width: 768px) 40vw, 138px"
+            loading="eager"
             src={nft.images[0]?.src}
             alt={nft.images[0]?.alt ?? nft.name}
             width={450}
@@ -37,7 +43,8 @@ export function HeroSection({ items, loading = false }: { items: Nft[]; loading?
           <div className="aspect-square rounded-xl bg-surface-raised md:rounded-3xl" />
         )}
         {featured[1] && (
-          <img
+          <ArtworkImage
+            sizes="60px"
             src={featured[1].images[0]?.src}
             alt=""
             width={60}

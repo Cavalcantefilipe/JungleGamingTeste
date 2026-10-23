@@ -84,7 +84,7 @@ export default defineConfig([
     },
   },
   {
-    files: ['scripts/*.mjs'],
+    files: ['scripts/*.mjs', 'lighthouse/*.mjs'],
     extends: [tseslint.configs.disableTypeChecked],
   },
   {

@@ -235,3 +235,23 @@ test('links do rodapé ficam inteiros dentro da faixa de fundo', async ({ page, 
   if (!container || !link) throw new Error('Rodapé ausente');
   expect(link.y + link.height).toBeLessThanOrEqual(container.y + container.height - 12);
 });
+
+test('valor alto no carrinho mobile não encosta no controle de quantidade', async ({
+  page,
+  isMobile,
+}) => {
+  test.skip(!isMobile, 'Preço e controles compartilham linha no frame mobile');
+  await page.goto('/nfts/nft-006');
+  await page.getByRole('button', { name: 'ABERTA', exact: true }).click();
+  const input = page.getByRole('spinbutton', { name: 'Quantidade', exact: true });
+  await expect(input).toHaveAttribute('max', '99');
+  await input.fill('99');
+  await page.getByRole('button', { name: 'Comprar NFT', exact: true }).click();
+  const row = page.getByTestId('cart-item');
+  const price = row.getByText('177.21 ETH', { exact: true });
+  await expect(price).toBeVisible();
+  const amount = await price.boundingBox();
+  const control = await row.getByRole('button', { name: 'Diminuir quantidade' }).boundingBox();
+  if (!amount || !control) throw new Error('Valor ou controle ausente');
+  expect(amount.x + amount.width).toBeLessThanOrEqual(control.x - 2);
+});

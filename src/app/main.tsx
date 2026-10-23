@@ -4,16 +4,19 @@ import '@fontsource/roboto-mono/700.css';
 import '@/styles/globals.css';
 
 import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
 
-import { env } from '@/lib/env';
-
+async function prepareMocks(): Promise<void> {
+  const { env } = await import('@/lib/env');
+  if (!env.enableMocks) return;
+  const { startMocks } = await import('@/mocks/browser');
+  await startMocks();
+}
 async function bootstrap(): Promise<void> {
-  if (env.enableMocks) {
-    const { startMocks } = await import('@/mocks/browser');
-    await startMocks();
-  }
-  const { Providers } = await import('@/app/Providers');
+  const [{ createRoot }, { Providers }] = await Promise.all([
+    import('react-dom/client'),
+    import('@/app/Providers'),
+    prepareMocks(),
+  ]);
   const rootElement = document.getElementById('root');
   if (!rootElement) throw new Error('Elemento #root não encontrado');
   createRoot(rootElement).render(
@@ -22,6 +25,8 @@ async function bootstrap(): Promise<void> {
     </StrictMode>,
   );
 }
-void bootstrap().catch((error: unknown) => {
-  console.error('Falha ao iniciar aplicação', error);
+requestAnimationFrame(() => {
+  void bootstrap().catch((error: unknown) => {
+    console.error('Falha ao iniciar aplicação', error);
+  });
 });

@@ -1,20 +1,18 @@
 import { Link, useRouterState } from '@tanstack/react-router';
 import { LogIn, Search, ShoppingCart, UserRound } from 'lucide-react';
+import { lazy, Suspense } from 'react';
 import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { useLogout } from '@/features/auth/mutations';
 import { useSession } from '@/features/auth/session-store';
 import { useCartQuery } from '@/features/cart/queries';
 import { cn } from '@/lib/cn';
 
 import { CartBadge } from './CartBadge';
+
+const AccountMenu = lazy(() =>
+  import('./AccountMenu').then((module) => ({ default: module.AccountMenu })),
+);
 
 export function Header() {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
@@ -24,7 +22,6 @@ export function Header() {
   const cart = useCartQuery();
   const cartQuantity = cart.data?.items.reduce((sum, item) => sum + item.quantity, 0) ?? 0;
   const session = useSession();
-  const logout = useLogout();
   return (
     <header className={cn('pt-6', hideOnMobile && 'hidden md:block')}>
       <div className="page-container">
@@ -84,43 +81,20 @@ export function Header() {
               </Link>
             </Button>
             {session ? (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="secondary" size="icon" aria-label="Abrir menu da conta">
-                    {session.user.avatarUrl ? (
-                      <img
-                        src={session.user.avatarUrl}
-                        alt=""
-                        className="size-8 rounded-full object-cover"
-                      />
-                    ) : (
-                      <UserRound aria-hidden="true" />
-                    )}
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="min-w-52">
-                  <p className="px-2 py-3 text-sm font-bold">{session.user.displayName}</p>
-                  <DropdownMenuItem asChild>
-                    <Link to="/account/profile">Meu perfil</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/" search={{ favorites: true }}>
-                      Favoritos
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/account/wallets">Carteiras</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                    onSelect={() => {
-                      logout.mutate();
-                    }}
-                    disabled={logout.isPending}
+              <Suspense
+                fallback={
+                  <Button
+                    disabled
+                    variant="secondary"
+                    size="icon"
+                    aria-label="Carregando menu da conta"
                   >
-                    Sair
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+                    <UserRound aria-hidden="true" />
+                  </Button>
+                }
+              >
+                <AccountMenu session={session} />
+              </Suspense>
             ) : (
               <Button asChild>
                 <Link to="/login" search={{ returnTo: '/' }}>

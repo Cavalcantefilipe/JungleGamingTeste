@@ -1,12 +1,14 @@
 import { Link } from '@tanstack/react-router';
 import { Trash2 } from 'lucide-react';
 
+import { ArtworkImage } from '@/components/media/ArtworkImage';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import type { CartItem } from '@/contracts/cart';
 import type { Nft } from '@/contracts/nft';
 import type { QuoteItem } from '@/contracts/quote';
 import { QuantityStepper } from '@/features/nft-detail/components/QuantityStepper';
+import { cn } from '@/lib/cn';
 import { formatEth } from '@/lib/money';
 
 export function CartItemRow({
@@ -26,6 +28,7 @@ export function CartItemRow({
 }) {
   const available =
     nft?.editions.find((edition) => edition.id === item.editionId)?.available ?? item.quantity;
+  const lineTotal = quote ? formatEth(quote.lineTotal) : undefined;
   return (
     <tr
       data-testid="cart-item"
@@ -37,7 +40,8 @@ export function CartItemRow({
           params={{ nftId: item.nftId }}
           className="flex items-start gap-[9px] md:items-center md:gap-3"
         >
-          <img
+          <ArtworkImage
+            sizes="(min-width: 768px) 72px, 100px"
             src={item.snapshot.image.src}
             alt={item.snapshot.image.alt}
             width={100}
@@ -70,8 +74,13 @@ export function CartItemRow({
         />
       </td>
       <td className="absolute top-[69px] left-[109px] whitespace-nowrap md:static md:table-cell md:px-2">
-        <div className="text-[18px] leading-4 font-bold text-text-accent md:text-xs">
-          {quote ? formatEth(quote.lineTotal) : <Skeleton className="h-5 w-20" />}
+        <div
+          className={cn(
+            'text-[18px] leading-4 font-bold text-text-accent md:text-xs',
+            (lineTotal?.length ?? 0) > 9 && 'text-[15px]',
+          )}
+        >
+          {lineTotal ?? <Skeleton className="h-5 w-20" />}
         </div>
       </td>
       <td className="absolute top-0 right-0 md:static md:table-cell md:pr-1">

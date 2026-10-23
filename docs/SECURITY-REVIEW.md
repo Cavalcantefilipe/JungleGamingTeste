@@ -26,6 +26,10 @@ Todos os casos funcionais abaixo tiveram falha reproduzida antes da correção. 
 
 Também foram acrescentados guards antes das mutações de perfil, senha, favoritos e carrinho. Eles conferem o token capturado pelo hook, inclusive após uma operação aguardar na fila. Logout atrasado não limpa uma sessão nova. A repetição de pedido confere o dono do pedido recuperado por idempotência.
 
+### S09 — compatibilidade com a CSP de produção
+
+O teste de navegação com os headers reais de `vercel.json` encontrou duas violações de `script-src` causadas pela detecção de suporte a avaliação dinâmica do Zod. A configuração `jitless: true` agora precede a validação de ambiente e os contratos, inclusive após divisão de chunks. Não foi adicionado `unsafe-eval`. O E2E percorre catálogo, Socket.IO, carteira e compra até o recibo sem violações, em desktop e mobile. Era uma incompatibilidade detectada pela política; não foi demonstrada exploração de XSS.
+
 ## BOLA/IDOR e vínculo token → usuário
 
 - O mock resolve `Authorization → sessão ativa → conta`. IDs enviados no corpo, query string ou URL não determinam o usuário autenticado.
@@ -81,7 +85,7 @@ Redes/carteiras são simulações: não existe assinatura de posse, liquidação
 
 `pnpm audit --prod --json`: **zero alertas** na consulta desta revisão.
 
-A auditoria completa começou com seis advisories (quatro altos, um moderado e um baixo). Atualizações transitivas verificadas no lockfile corrigiram quatro advisories: `tmp` 0.2.7, `uuid` 11.1.1 e `basic-ftp` 6.2.3. `lhci --version`, build e testes verificam compatibilidade inicial; a execução completa do Lighthouse permanece na etapa de performance do plano.
+A auditoria completa começou com seis advisories (quatro altos, um moderado e um baixo). Atualizações transitivas verificadas no lockfile corrigiram quatro advisories: `tmp` 0.2.7, `uuid` 11.1.1 e `basic-ftp` 6.2.3. `lhci --version`, build e testes verificam compatibilidade inicial; a auditoria completa do Lighthouse foi executada e está em [LIGHTHOUSE.md](LIGHTHOUSE.md), com a falha de performance do detalhe mobile preservada.
 
 Restam **dois advisories altos** em `extract-zip` 2.0.1, trazido pelo downloader de navegador do Lighthouse/Puppeteer. O npm consultado ainda publica 2.0.1 como última versão, embora os advisories indiquem correção em 2.0.2. A tentativa de instalar essa versão retornou `NO_MATCHING_VERSION`; nenhum alerta foi ocultado e nenhuma versão foi falsificada. Essa biblioteca não integra o bundle do aplicativo nem recebe uploads da aplicação. Os testes usam Chrome já instalado; não forneça ZIPs não confiáveis ao downloader. A auditoria completa continua com saída não zero até resolução dessa dependência.
 
@@ -92,7 +96,7 @@ Referências e resumo verificável: [dependencies.json](../reports/security/depe
 - `pnpm check`: **103 testes unitários passaram**, TypeScript, lint sem erros e formatação válidos. Warnings de tamanho de função herdados continuam registrados no ledger.
 - `pnpm build`: passou.
 - Testes novos de segurança no navegador: **4/4**, desktop e mobile.
-- Suíte completa: **164 passaram, 4 skips deliberados por viewport**, desktop e mobile.
+- Suíte completa: **197 passaram, 9 skips deliberados por viewport**, desktop e mobile.
 - Testes relevantes: `src/lib/{http,request-identity}.test.ts`, `src/features/auth/route-guard.test.ts`, `src/mocks/handlers/{handlers,security}.test.ts`, `src/contracts/security.test.ts`, `src/mocks/shared/{concurrency,auth-concurrency,timing,storeQuote}.test.ts`, `e2e/{07-payment-failures,08-account,10-realtime-resilience,16-security}.spec.ts`.
 
 ## Erros anteriores já corrigidos durante a execução

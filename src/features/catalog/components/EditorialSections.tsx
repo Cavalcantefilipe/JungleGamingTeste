@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import { toast } from 'sonner';
 
+import { ArtworkImage } from '@/components/media/ArtworkImage';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useContentQuery } from '@/features/catalog/useContentQuery';
@@ -22,7 +23,8 @@ export function EditorialSections() {
             key={promotion.title}
             className="grid min-h-56 grid-cols-2 items-center overflow-hidden rounded-xl bg-surface-raised"
           >
-            <img
+            <ArtworkImage
+              sizes="(min-width: 768px) 25vw, 50vw"
               src={promotion.image.src}
               alt={promotion.image.alt}
               width={260}
@@ -52,7 +54,8 @@ export function EditorialSections() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {query.data.articles.map((article) => (
             <article key={article.title} className="overflow-hidden rounded-xl bg-surface-card">
-              <img
+              <ArtworkImage
+                sizes="(min-width: 1280px) 280px, (min-width: 640px) 50vw, calc(100vw - 48px)"
                 src={article.image.src}
                 alt={article.image.alt}
                 width={280}

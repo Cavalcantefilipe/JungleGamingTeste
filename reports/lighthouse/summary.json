@@ -1,0 +1,72 @@
+{
+  "measuredAt": "2026-10-23T05:20:23.806Z",
+  "environment": {
+    "node": "v24.12.0",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "lighthouse": "12.6.1",
+    "lhci": "0.15.1",
+    "buildHtmlSha256": "d854302430f45f97da816d77d693a1b34d24ae8c1466e34c48a077eacf9e395a",
+    "baseUrl": "http://localhost:4173"
+  },
+  "thresholds": {
+    "performance": 90,
+    "accessibility": 95,
+    "bestPractices": 95,
+    "seo": 90
+  },
+  "rows": [
+    {
+      "profile": "desktop",
+      "page": "home",
+      "runs": 3,
+      "performance": 99,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 919.3011999999999,
+      "cls": 0.01222547837197288,
+      "tbtMs": 0,
+      "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+    },
+    {
+      "profile": "desktop",
+      "page": "detail",
+      "runs": 3,
+      "performance": 99,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 839.27435,
+      "cls": 0.06232130050203203,
+      "tbtMs": 0,
+      "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+    },
+    {
+      "profile": "mobile",
+      "page": "home",
+      "runs": 3,
+      "performance": 91,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 3517.5638,
+      "cls": 0,
+      "tbtMs": 0,
+      "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+    },
+    {
+      "profile": "mobile",
+      "page": "detail",
+      "runs": 3,
+      "performance": 88,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 3802.8275749999993,
+      "cls": 0,
+      "tbtMs": 4,
+      "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+    }
+  ]
+}

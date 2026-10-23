@@ -1,3 +1,5 @@
+import '@/lib/configureValidation';
+
 import { z } from 'zod';
 
 const booleanFromString = z

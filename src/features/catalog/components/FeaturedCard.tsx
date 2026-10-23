@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router';
 
+import { ArtworkImage } from '@/components/media/ArtworkImage';
 import type { Nft } from '@/contracts/nft';
 
 export function FeaturedCard({ nft }: { nft?: Nft }) {
@@ -12,7 +13,8 @@ export function FeaturedCard({ nft }: { nft?: Nft }) {
     >
       <p className="mb-1 text-sm font-bold text-amber">NFT EM DESTAQUE</p>
       <p className="mb-4 text-xs font-bold">OFERTA LIMITADA</p>
-      <img
+      <ArtworkImage
+        sizes="278px"
         src={nft.images[0]?.src}
         alt={nft.images[0]?.alt ?? nft.name}
         width={240}

@@ -6,3 +6,5 @@ public/mockServiceWorker.js
 reports
 .superpowers
 e2e/__screenshots__
+
+.lighthouseci

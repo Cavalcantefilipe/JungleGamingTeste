@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router';
 import { ArrowUpRight } from 'lucide-react';
 
+import { ArtworkImage } from '@/components/media/ArtworkImage';
 import type { Nft } from '@/contracts/nft';
 import { FavoriteButton } from '@/features/favorites/components/FavoriteButton';
 import { formatEth } from '@/lib/money';
@@ -11,7 +12,8 @@ export function NftCard({ nft, priority = false }: { nft: Nft; priority?: boolea
     <article className="group relative min-w-0">
       <Link to="/nfts/$nftId" params={{ nftId: nft.id }} className="block space-y-3 rounded-xl">
         <div className="relative flex aspect-[174/200] items-center justify-center overflow-hidden rounded-xl bg-surface-card px-1 lg:aspect-[258/300] lg:rounded-none">
-          <img
+          <ArtworkImage
+            sizes="(min-width: 1440px) 250px, (min-width: 1024px) 25vw, 50vw"
             src={image?.src}
             alt={image?.alt ?? nft.name}
             width={600}

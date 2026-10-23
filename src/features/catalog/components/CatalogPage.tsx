@@ -29,6 +29,7 @@ export function CatalogPage({ search }: { search: CatalogSearch }) {
       />
       <HeroSection items={hero.data?.items ?? []} loading={hero.isPending} />
       <section id="catalogo" className="scroll-mt-6">
+        <h2 className="sr-only">Catálogo de NFTs</h2>
         <div className="mb-6 hidden items-center justify-between gap-4 md:flex lg:hidden">
           <h2 className="text-title font-bold">Explorar coleções</h2>
           <FilterDrawer

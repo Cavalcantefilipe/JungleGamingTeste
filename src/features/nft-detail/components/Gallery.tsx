@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { ArtworkImage } from '@/components/media/ArtworkImage';
 import type { NftImage } from '@/contracts/nft';
 import { cn } from '@/lib/cn';
 
@@ -22,7 +23,8 @@ export function Gallery({ images }: { images: NftImage[] }) {
               index === selected && 'outline-primary',
             )}
           >
-            <img
+            <ArtworkImage
+              sizes="100px"
               src={thumbnail.src}
               alt=""
               width={100}
@@ -32,8 +34,13 @@ export function Gallery({ images }: { images: NftImage[] }) {
           </button>
         ))}
       </div>
-      <div className="w-full min-w-0 lg:flex lg:size-[444px] lg:shrink-0 lg:items-center lg:justify-center lg:rounded-control lg:bg-surface-card lg:p-4">
-        <img
+      <div
+        data-testid="gallery-frame"
+        className="w-full min-w-0 lg:flex lg:size-[444px] lg:shrink-0 lg:items-center lg:justify-center lg:rounded-control lg:bg-surface-card lg:p-4"
+      >
+        <ArtworkImage
+          sizes="(min-width: 1024px) 404px, (min-width: 768px) calc(100vw - 48px), calc(100vw - 48px)"
+          loading="eager"
           data-testid="gallery-image"
           src={image?.src}
           alt={image?.alt ?? ''}

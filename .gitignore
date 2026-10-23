@@ -16,3 +16,5 @@ e2e/.auth/
 !.vscode/extensions.json
 .idea/
 *.log
+
+.lighthouseci/

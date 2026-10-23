@@ -40,7 +40,7 @@ export function QuantityStepper({
         onChange={(event) => {
           onChange(Math.max(1, Math.min(max, Number(event.target.value) || 1)));
         }}
-        className="h-11 w-5 [appearance:textfield] rounded-none border-0 px-0 text-center text-sm shadow-none md:h-11 md:text-sm [&::-webkit-inner-spin-button]:appearance-none"
+        className="h-11 w-11 [appearance:textfield] rounded-none border-0 px-0 text-center text-sm shadow-none md:h-11 md:w-6 md:text-sm [&::-webkit-inner-spin-button]:appearance-none"
       />
       <Button
         variant={tone === 'cart' ? 'quantity-cart' : 'quantity'}

@@ -1,3 +1,4 @@
+import { ArtworkImage } from '@/components/media/ArtworkImage';
 import type { Order } from '@/contracts/order';
 import { formatEth } from '@/lib/money';
 
@@ -26,7 +27,8 @@ export function OrderItemsTable({ order }: { order: Order }) {
           <tr key={`${item.nftId}:${item.editionId}`} className="">
             <td className="py-2">
               <div className="flex items-center gap-2">
-                <img
+                <ArtworkImage
+                  sizes="(min-width: 768px) 70px, 48px"
                   src={item.image.src}
                   alt=""
                   width={70}

@@ -23,8 +23,8 @@ test('catálogo reserva exatamente o espaço dos cards em rede lenta', async ({ 
 test('detalhe reserva posição e tamanho da galeria em rede lenta', async ({ page }) => {
   await page.goto('/nfts/nft-001?scenario=slow-network');
   const before = await bounds(page.getByTestId('gallery-skeleton'));
-  const image = page.getByTestId('gallery-image');
-  const after = await bounds(image.locator('..'));
+  await expect(page.getByTestId('gallery-image')).toBeVisible();
+  const after = await bounds(page.getByTestId('gallery-frame'));
   for (const dimension of ['x', 'y', 'width', 'height'] as const)
     expect(Math.abs(after[dimension] - before[dimension]), dimension).toBeLessThanOrEqual(2);
 });

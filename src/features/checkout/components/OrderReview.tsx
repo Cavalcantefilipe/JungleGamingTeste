@@ -1,4 +1,5 @@
 import { SummarySkeleton } from '@/components/feedback/SummarySkeleton';
+import { ArtworkImage } from '@/components/media/ArtworkImage';
 import type { Quote } from '@/contracts/quote';
 import { QuoteSummary } from '@/features/cart/components/QuoteSummary';
 import { formatEth } from '@/lib/money';
@@ -11,7 +12,8 @@ export function OrderReview({ quote, loading }: { quote: Quote | undefined; load
         <ul className="hidden space-y-3 lg:block">
           {quote.items.map((item) => (
             <li key={`${item.nftId}:${item.editionId}`} className="flex items-center gap-3">
-              <img
+              <ArtworkImage
+                sizes="70px"
                 src={item.image.src}
                 alt=""
                 width={70}
