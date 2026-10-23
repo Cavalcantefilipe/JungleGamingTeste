@@ -580,16 +580,16 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [x] **Passo 2:** `pnpm lighthouse` → se abaixo da meta, atacar: LCP (hero AVIF ≤ 60 KB, preload), TBT (code split, excluir devtools do Query do build), CLS (dimensões), SEO (title/description/`robots.txt`/links com texto), Best Practices (sem erros de console; imagens em proporção).
 - [x] **Passo 3:** `docs/LIGHTHOUSE.md` com tabela de medianas por página/perfil, LCP/CLS/TBT, versões (`lighthouse`, runner nativo, Chrome, Node), ambiente e condições; justificar qualquer resultado abaixo da meta. Versionar HTML/JSON em `reports/lighthouse/`. Commit `perf: otimizações e auditoria lighthouse versionada`.
 
-### Task 18: Deploy (Vercel) e verificação publicada
+### Task 18: Deploy (Railway, escolhida pelo usuário) e verificação publicada
 
 **Files:**
 
-- Create: `vercel.json` (rewrites SPA + headers da seção 3.3), `.vercelignore`
+- Create: `Caddyfile` (SPA, compressão, cache e headers da seção 3.3), `railpack.json`, `.railwayignore`, `docs/DEPLOYMENT.md`; configuração Vercel preservada como alternativa
 - Modify: `README.md` (URL pública)
 
-- [ ] **Passo 1:** GitHub público criado e push concluído com autorização explícita do usuário em 23/10/2026: [Cavalcantefilipe/JungleGamingTeste](https://github.com/Cavalcantefilipe/JungleGamingTeste), branch `main`, histórico preservado. Falta importar no Vercel (framework Vite, build `pnpm build`, output `dist`, env `VITE_ENABLE_MOCKS=true`, `VITE_MOCK_SCENARIO=default`, `VITE_SOCKET_URL=wss://realtime.kurio.app`, `VITE_API_BASE_URL=/api`). **Ação do usuário obrigatória** (login no Vercel).
-- [ ] **Passo 2:** após deploy, verificar na URL pública: `/`, `/nfts/<id>` por acesso direto, refresh em `/checkout` (redirect para login), `?scenario=slow-network`, console sem erros, worker registrado, socket conectando (evento via painel dev altera preço), headers de segurança presentes (`curl -I`).
-- [ ] **Passo 3:** rodar Lighthouse também contra a URL pública (informativo) e anotar em `docs/LIGHTHOUSE.md`. Commit `chore: configuração de deploy vercel`.
+- [x] **Passo 1:** GitHub público criado e push concluído com autorização explícita do usuário em 23/10/2026: [Cavalcantefilipe/JungleGamingTeste](https://github.com/Cavalcantefilipe/JungleGamingTeste), branch `main`, histórico preservado. O usuário escolheu Railway e realizou login na conta original. Publicar um serviço estático via Railpack/Caddy (Vite, build `pnpm build`, output `dist`, healthcheck `/healthz`; defaults públicos em `src/lib/env.ts`). Confirmar domínio HTTPS e commit do deploy.
+- [x] **Passo 2:** após deploy, verificar na URL pública: `/`, `/nfts/<id>` por acesso direto, refresh em `/checkout` (redirect para login), `?scenario=slow-network`, console sem erros, worker registrado, socket conectando (evento via painel dev altera preço), headers de segurança presentes (`curl -I`).
+- [x] **Passo 3:** rodar Lighthouse também contra a URL pública (informativo) e anotar em `docs/LIGHTHOUSE.md`. Commits pequenos de configuração e evidências da Railway.
 
 ### Task 19: Documentação e revisão final
 
@@ -600,7 +600,7 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [x] **Passo 1:** `README.md`: visão geral, stack, requisitos (Node 24, pnpm 11), setup (`pnpm i`; `mockServiceWorker.js` já versionado), variáveis, credenciais (`ana@kurio.test`/`bruno@kurio.test`, senha `Kurio!2026`), cupons, seleção de cenário (`?scenario=`, painel `?devtools=1`, `window.__kurio`), reset, comandos (`dev`, `build`, `preview`, `typecheck`, `lint`, `test`, `e2e`, `e2e:ui`, `lighthouse`, `check`), como reproduzir cada fluxo de falha (tabela cenário → passos → comportamento esperado), URL pública, estrutura de pastas.
 - [x] **Passo 2:** `ARCHITECTURE.md`: decisões (versões, MSW 2 vs 3, token em localStorage), contratos (link para `docs/CONTRACTS.md` com tabelas da seção 3.4 e exemplos JSON), política de sessão, estado do carrinho (guest/user/merge), cache/retries/invalidação (3.6), reconciliação REST × Socket (3.5), idempotência, limitações (transporte websocket-only, sem multi-aba, login social indisponível), decisões de UX e desvios do Figma (grid normalizado, backdrop, estados não desenhados, substituição de assets se houver), ajustes de acessibilidade (contraste de Text/Secondary sobre Surface Card — verificar ≥ 4.5:1; se não atingir, escurecer o fundo do card e registrar).
 - [x] **Passo 3:** `code-reviewer` em todo o repositório; corrigir CRITICAL/HIGH. `pnpm check && pnpm e2e && pnpm lighthouse` verdes a partir de **checkout limpo** (`git clone` em pasta temporária → `pnpm i --frozen-lockfile` → tudo roda). Checkpoint local final: `87e20f0`, check109+6, E2E210/10skips e Lighthouse12runs/exit0; histórico da revisão em `docs/FINAL-REVIEW.md`.
-- [ ] **Passo 4:** Commits de documentação e push público concluídos; falta confirmar que o deploy corresponde ao `HEAD`.
+- [x] **Passo 4:** Commits de configuração/documentação e push público concluídos; deploy automático da branch `main` confirmado. O commit auditado, o domínio e as evidências estão em `docs/DEPLOYMENT.md`; a entrega final exige conferência do novo `HEAD` após o último push de metadados.
 
 ---
 
@@ -610,9 +610,13 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - [x] 12 cenários de E2E do enunciado cobertos (specs 01–12) + visual (13) + layout (00), em desktop e mobile.
 - [x] Figma: comparar lado a lado cada tela em 1440 e 390 (screenshots do Playwright vs. frames); tipografia Roboto Mono, cores exatas, espaçamentos 120/96/48/32/24.
 - [x] Lighthouse medianas ≥ metas em `docs/LIGHTHOUSE.md`, relatórios versionados.
-- [ ] Segurança: headers em produção, sem segredos, senhas com hash, 401/403 corretos, idempotência, validação dupla, `pnpm audit` sem vulnerabilidades altas.
-- [ ] Documentação completa e URL pública funcionando com refresh e acesso direto.
+- [x] Segurança: headers em produção, sem segredos, senhas com hash, 401/403 corretos, idempotência, validação dupla, `pnpm audit` sem vulnerabilidades altas.
+- [x] Documentação completa e URL pública funcionando com refresh e acesso direto.
 
 ### Checkpoint local de 23/10/2026
 
-Código de aplicação `8b314b1`; ferramenta de auditoria/limpeza final `87e20f0`. Clone com frozen install, check109+6, build, E2E210/10 skips e Lighthouse12runs/exit0. Medianas desktop99/99, mobile91/92; demais categorias100. Audits completo/de produção0. Conferência visual:15frames originais e18capturas, ajustes e diferenças documentados em `docs/DESIGN-REVIEW.md`. GitHub público e push concluídos após autorização do usuário; deploy e validação de URL das Tasks18/19 continuam pendentes. O plano inteiro não está marcado como publicado.
+Código de aplicação `8b314b1`; ferramenta de auditoria/limpeza final `87e20f0`. Clone com frozen install, check109+6, build, E2E210/10 skips e Lighthouse12runs/exit0. Medianas desktop99/99, mobile91/92; demais categorias100. Audits completo/de produção0. Conferência visual:15frames originais e18capturas, ajustes e diferenças documentados em `docs/DESIGN-REVIEW.md`. GitHub público e push concluídos após autorização do usuário. Este é o registro local anterior à publicação; a verificação pública está abaixo.
+
+### Checkpoint público de 23/10/2026
+
+Railway escolhida pelo usuário; publicação de `45cd7e1` com domínio HTTPS e deploy automático do GitHub `main`. Caddy local: 210 E2E/10 skips. URL pública: HTTP/headers/cache/rotas/worker aprovados, 16 E2E de fluxos aprovados e smoke desktop/mobile sem erros de console. Lighthouse público informativo completou 12 runs: desktop 97/99, mobile 94/88 e demais categorias 100. Saída 1 e detalhe mobile abaixo de 90 preservados em `docs/LIGHTHOUSE.md`; não se declara performance pública integralmente aprovada. Evidências em `reports/deployment/` e `reports/lighthouse-railway/`.

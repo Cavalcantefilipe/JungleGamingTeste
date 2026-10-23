@@ -1,0 +1,34 @@
+✓ Lockfile passes supply-chain policies (verified 1h ago)
+Lockfile is up to date, resolution step is skipped
+Already up to date
+
+Done in 783ms using pnpm v11.18.0
+
+Running 16 tests using 2 workers
+
+(node:95882) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:95881) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop-chromium] › e2e/03-auth.spec.ts:54:3 › auth › login válido volta para returnTo e persiste após refresh (4.2s)
+  ✓   2 [desktop-chromium] › e2e/03-auth.spec.ts:4:3 › auth › cadastro válido preserva carrinho e permite login da conta criada (9.6s)
+  ✓   4 [desktop-chromium] › e2e/09-realtime-checkout.spec.ts:3:1 › preço muda via socket no detalhe sem nova chamada REST (3.2s)
+  ✓   5 [desktop-chromium] › e2e/12-loading-and-recovery.spec.ts:13:1 › catálogo reserva exatamente o espaço dos cards em rede lenta (3.2s)
+  ✓   6 [desktop-chromium] › e2e/12-loading-and-recovery.spec.ts:23:1 › detalhe reserva posição e tamanho da galeria em rede lenta (3.3s)
+  ✓   3 [desktop-chromium] › e2e/06-purchase-happy-path.spec.ts:4:1 › do catálogo ao recibo confirmado preserva itens adicionados após o pedido (15.8s)
+  ✓   7 [desktop-chromium] › e2e/18-security-policy.spec.ts:24:1 › política CSP de produção permite catálogo socket e compra sem violações (12.8s)
+(node:95925) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   8 [desktop-chromium] › e2e/19-final-regressions.spec.ts:35:1 › logout preserva recuperação por usuário sem mostrar compra de Ana para Bruno (13.8s)
+(node:95930) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [mobile-chromium] › e2e/03-auth.spec.ts:54:3 › auth › login válido volta para returnTo e persiste após refresh (4.1s)
+  ✓   9 [mobile-chromium] › e2e/03-auth.spec.ts:4:3 › auth › cadastro válido preserva carrinho e permite login da conta criada (10.0s)
+  ✓  12 [mobile-chromium] › e2e/09-realtime-checkout.spec.ts:3:1 › preço muda via socket no detalhe sem nova chamada REST (3.2s)
+  ✓  13 [mobile-chromium] › e2e/12-loading-and-recovery.spec.ts:13:1 › catálogo reserva exatamente o espaço dos cards em rede lenta (3.2s)
+  ✓  14 [mobile-chromium] › e2e/12-loading-and-recovery.spec.ts:23:1 › detalhe reserva posição e tamanho da galeria em rede lenta (3.2s)
+  ✓  11 [mobile-chromium] › e2e/06-purchase-happy-path.spec.ts:4:1 › do catálogo ao recibo confirmado preserva itens adicionados após o pedido (15.8s)
+  ✓  15 [mobile-chromium] › e2e/18-security-policy.spec.ts:24:1 › política CSP de produção permite catálogo socket e compra sem violações (12.9s)
+  ✓  16 [mobile-chromium] › e2e/19-final-regressions.spec.ts:35:1 › logout preserva recuperação por usuário sem mostrar compra de Ana para Bruno (14.0s)
+
+  16 passed (1.2m)

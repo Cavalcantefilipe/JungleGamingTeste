@@ -5,4 +5,4 @@
 - Regras de código obrigatórias: `.claude/rules/kurio.md` (carregadas automaticamente). Código autoexplicativo, poucos comentários, padrão único no front e na camada MSW.
 - Prazo: 24/10/2026. Prioridade: eliminatórios do enunciado → fidelidade ao Figma → fluxos → integração/estado → tempo real → mocks → testes → a11y → performance → docs.
 - Nunca: dados fictícios fora de `src/mocks`; eventos de tempo real sem passar pelo `socket.io-client`; confirmação de compra sem resposta da simulação; vazamento de dados entre usuários; `msw` 3.x (o binding Socket.IO exige 2.x).
-- Ações que dependem do usuário: download de assets do Figma, criação do repositório GitHub e login no Vercel. Pergunte antes.
+- Ações que dependem do usuário: download de assets do Figma, criação do repositório GitHub e login no provedor de deploy. O usuário já autorizou os assets e a criação/push do GitHub público; escolheu Railway em 23/10/2026 e realizou o login pessoal. Preserve essas autorizações ao continuar o plano.

@@ -1,0 +1,33 @@
+{
+  "measuredAt": "2026-10-23T16:22:50.398Z",
+  "baseURL": "https://kurio-production-8274.up.railway.app",
+  "sourceCommit": "45cd7e178912f0f28a63941913340a2b161ac465",
+  "results": [
+    {
+      "profile": "desktop",
+      "checkoutRedirectWithReturnTo": true,
+      "refresh": true,
+      "slowNetwork": true,
+      "worker": {
+        "state": "activated",
+        "scriptURL": "https://kurio-production-8274.up.railway.app/mockServiceWorker.js",
+        "controlled": true
+      },
+      "socketConnected": true,
+      "consoleErrors": []
+    },
+    {
+      "profile": "mobile",
+      "checkoutRedirectWithReturnTo": true,
+      "refresh": true,
+      "slowNetwork": true,
+      "worker": {
+        "state": "activated",
+        "scriptURL": "https://kurio-production-8274.up.railway.app/mockServiceWorker.js",
+        "controlled": true
+      },
+      "socketConnected": true,
+      "consoleErrors": []
+    }
+  ]
+}

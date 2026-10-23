@@ -2,6 +2,8 @@
 
 Implementação do desafio frontend da Jungle Gaming: catálogo, filtros e favoritos, detalhe com edições, carrinho, checkout, recuperação de pagamento, perfil e carteiras. Layout conferido com os assets originais do [Figma](https://www.figma.com/design/Ff0SksUi7UFtPWUO8kyNtw/Frontend-Challenge).
 
+**Aplicação publicada:** [Kurio na Railway](https://kurio-production-8274.up.railway.app).
+
 **Repositório público:** [Cavalcantefilipe/JungleGamingTeste](https://github.com/Cavalcantefilipe/JungleGamingTeste), branch `main`. O histórico preserva os commits por funcionalidade, correção e documentação.
 
 **Demonstração com backend MSW no navegador.** Não realiza pagamentos nem comprova posse de carteira. Contas, tokens e pedidos são fictícios e persistidos localmente. Não use dados ou valores reais. [Revisão de segurança](docs/SECURITY-REVIEW.md).
@@ -74,6 +76,7 @@ Para reinício completamente limpo da demonstração neste origin, use DevTools 
 | `pnpm lighthouse`                   | 3 execuções por página/perfil; mantém falha se abaixo da meta |
 | `pnpm test:tooling`                 | mediana/assertions Lighthouse e negociação/integridade Brotli |
 | `pnpm check`                        | tipos, lint, formato, unitários e testes de ferramentas       |
+| `pnpm verify:deployment <URL>`      | headers, rotas, compressão, cache e healthcheck da publicação |
 
 Para E2E: `pnpm exec playwright install chromium`, `pnpm build`, `pnpm e2e`. Veja [TESTING.md](docs/TESTING.md) para projetos, artefatos e regressão visual. Lighthouse usa Chromium já instalado ou `CHROME_PATH`.
 
@@ -103,7 +106,8 @@ reports          relatórios versionados de segurança/performance
 - [Figma e adaptações](docs/DESIGN-REVIEW.md), [testes](docs/TESTING.md), [Lighthouse](docs/LIGHTHOUSE.md).
 - [Falhas encontradas e corrigidas, BOLA/IDOR, XSS e OWASP](docs/SECURITY-REVIEW.md) e [revisão final](docs/FINAL-REVIEW.md).
 - [Validação dos comportamentos](docs/BEHAVIOR-REVIEW.md) e [pendências de entrega/estimativa de avaliação](docs/DELIVERY-ASSESSMENT.md).
+- [Configuração e verificação da Railway](docs/DEPLOYMENT.md).
 
-A revisão atual passou as metas do Lighthouse: **Performance desktop 99/99 e mobile 91/92**, com Acessibilidade/Boas práticas/SEO em 100. Os dois advisories altos foram resolvidos pela troca da ferramenta Lighthouse; **audits completo e de produção com zero alertas**. Gates locais: **109 unitários + 6 testes Node e 210 E2E aprovados/10 skips explícitos por viewport**. Os [15 frames originais e 18 capturas](reports/design/README.md) documentam a conferência visual e as adaptações, sem alegar igualdade absoluta de pixels. Não há banco real para certificar otimização SQL.
+A revisão local passou as metas do Lighthouse: **Performance desktop 99/99 e mobile 91/92**, com Acessibilidade/Boas práticas/SEO em 100. Os dois advisories altos foram resolvidos pela troca da ferramenta Lighthouse; **audits completo e de produção com zero alertas**. Gates locais: **109 unitários + 6 testes Node e 210 E2E aprovados/10 skips explícitos por viewport**. Os [15 frames originais e 18 capturas](reports/design/README.md) documentam a conferência visual e as adaptações, sem alegar igualdade absoluta de pixels. Não há banco real para certificar otimização SQL.
 
-**URL da aplicação: pendente.** O repositório foi publicado no GitHub em 23/10/2026 com autorização do usuário. `vercel.json` e `.vercelignore` estão preparados; login/importação no Vercel ainda depende do usuário conforme `CLAUDE.md`. Ainda não foram verificados headers, refresh nem Lighthouse em URL publicada.
+**Publicação concluída na Railway em 23/10/2026.** Deploy automático da branch `main`, com Railpack e Caddy. Headers, rotas, Brotli, cache, worker e healthcheck passaram na URL pública; **16 E2E em desktop/mobile** validaram cadastro, login, compra, preço via Socket.IO, rede lenta e recuperação por usuário. Lighthouse público: **97/99 desktop e 94/88 mobile**; o detalhe mobile ficou abaixo de 90, com as outras categorias em 100. A [documentação do deploy](docs/DEPLOYMENT.md) registra o commit e as evidências. `vercel.json` permanece disponível como alternativa.

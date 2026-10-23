@@ -1,0 +1,53 @@
+{
+  "verifiedAt": "2026-10-23T16:22:50.398Z",
+  "url": "https://kurio-production-8274.up.railway.app",
+  "repository": "https://github.com/Cavalcantefilipe/JungleGamingTeste",
+  "branch": "main",
+  "sourceCommit": "45cd7e178912f0f28a63941913340a2b161ac465",
+  "deployment": {
+    "id": "f1112c9a-74d6-46c7-b84b-393f6cd50c51",
+    "status": "SUCCESS",
+    "statusUpdatedAt": "2026-10-23T16:14:00.911Z",
+    "project": "JungleGamingTeste",
+    "service": "kurio",
+    "environment": "production"
+  },
+  "build": {
+    "node": "24.21.0",
+    "pnpm": "11.18.0",
+    "railpack": "0.43.0",
+    "caddy": "2.11.7",
+    "platform": "linux/amd64",
+    "imageDigest": "sha256:58efe398beefd0794a42921c4a51d9f95632d91a26be0ae5bd4ef1a3038b386d",
+    "publicHtmlSha256": "796971dcd3da4adad8f24023e926d39069a799aae993b34143ea3a2e6e2b5717"
+  },
+  "verification": {
+    "localCaddy": {
+      "passed": 210,
+      "skipped": 10
+    },
+    "publicE2e": {
+      "passed": 16,
+      "failed": 0,
+      "report": "railway-e2e.txt"
+    },
+    "publicHttp": {
+      "exitCode": 0,
+      "report": "railway-http.txt"
+    },
+    "publicBrowser": {
+      "profiles": [
+        "desktop",
+        "mobile"
+      ],
+      "consoleErrors": 0,
+      "report": "railway-browser.json"
+    },
+    "publicLighthouse": {
+      "exitCode": 1,
+      "runs": 12,
+      "summary": "../lighthouse-railway/summary.json",
+      "unmetThreshold": "mobile/detail: performance 88 < 90"
+    }
+  }
+}

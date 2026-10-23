@@ -42,7 +42,7 @@ O campo de endereço é opcional no parser do pedido para ler tentativas antigas
 
 ## Limites restantes
 
-Não há backend/banco compartilhado nem pagamento real. Publicação e validação da URL pública estão pendentes. A medição histórica do commit `52bdb86` (mobile 89/88) foi substituída pela revisão posterior de performance; consulte [Lighthouse](LIGHTHOUSE.md) para o resultado vigente. Comparações visuais usam medidas do Figma e baselines da implementação com tolerância de 1%, sem garantia de igualdade absoluta. [Estimativa de avaliação](DELIVERY-ASSESSMENT.md).
+Não há backend/banco compartilhado nem pagamento real. A publicação na Railway passou pelos checks HTTP e por 16 E2E de fluxos selecionados em desktop/mobile; [registro do deploy](DEPLOYMENT.md). A medição histórica do commit `52bdb86` (mobile 89/88) foi substituída pela revisão posterior de performance; consulte [Lighthouse](LIGHTHOUSE.md) para o resultado vigente. Comparações visuais usam medidas do Figma e baselines da implementação com tolerância de 1%, sem garantia de igualdade absoluta. [Estimativa de avaliação](DELIVERY-ASSESSMENT.md).
 
 ## Revalidação após os ajustes de performance/Figma
 

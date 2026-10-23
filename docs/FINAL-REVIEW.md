@@ -25,7 +25,7 @@ Evidências novas: `src/features/realtime/catalog-reconciliation.test.ts` (três
 
 No clone `52bdb86`, Home mobile ficou em 89 e detalhe em 88, abaixo de 90. Naquele checkpoint também havia dois advisories altos de desenvolvimento. O resultado vigente da revisão posterior de performance/dependências está nos documentos vinculados; backend simulado e validação pública pendente continuam sendo limitações. [Lighthouse](LIGHTHOUSE.md), [persistência/consultas](DATA-PERFORMANCE.md) e [segurança](SECURITY-REVIEW.md).
 
-A revisão recomendou corrigir os importantes antes da integração. A publicação só pode ser declarada concluída depois da autorização do repositório/push, login Vercel e verificações da URL pública exigidas por `CLAUDE.md`.
+A revisão recomendou corrigir os importantes antes da integração. Naquele momento, a publicação dependia da autorização do repositório/push, login no provedor e verificações da URL pública exigidas por `CLAUDE.md`. O usuário escolheu Railway posteriormente; o resultado está na atualização abaixo.
 
 ## Verificação do executor após a correção
 
@@ -47,4 +47,10 @@ Checkpoint final `87e20f0`: clone com lockfile congelado, check 109 + 6, build, 
 
 ## Publicação do código
 
-Em 23/10/2026, após autorização explícita para visibilidade pública, o histórico de 32 commits até `74b1151` foi enviado à branch `main` de [Cavalcantefilipe/JungleGamingTeste](https://github.com/Cavalcantefilipe/JungleGamingTeste). A visibilidade `PUBLIC` e o SHA remoto foram confirmados. Gitleaks examinou os 32 commits antes do envio e não encontrou segredos; isso não equivale a garantia de ausência de qualquer dado sensível. A publicação usou um clone isolado. O deploy no Vercel, seu commit e os testes da URL da aplicação permanecem pendentes.
+Em 23/10/2026, após autorização explícita para visibilidade pública, o histórico de 32 commits até `74b1151` foi enviado à branch `main` de [Cavalcantefilipe/JungleGamingTeste](https://github.com/Cavalcantefilipe/JungleGamingTeste). A visibilidade `PUBLIC` e o SHA remoto foram confirmados. Gitleaks examinou os 32 commits antes do envio e não encontrou segredos; isso não equivale a garantia de ausência de qualquer dado sensível. A publicação usou um clone isolado. Naquele checkpoint, o deploy e os testes da URL ainda estavam pendentes.
+
+## Publicação na Railway
+
+Em 23/10/2026, após login na conta original do usuário, o projeto foi publicado em [kurio-production-8274.up.railway.app](https://kurio-production-8274.up.railway.app), com deploy automático do GitHub `main`. A primeira tentativa falhou porque um override de instalação removia a preparação automática do Railpack; o commit `45cd7e1` removeu o override e o deploy seguinte passou build e healthcheck.
+
+O executor verificou 210 E2E/10 skips no Caddy local e 16 E2E de fluxos selecionados na URL pública. Checks HTTP reais confirmaram headers, rotas, worker, compressão, cache e respostas de erro. Isso encerra a pendência de publicação daquele checkpoint; não representa uma nova revisão independente do código. [Evidências da Railway](DEPLOYMENT.md) e [medição pública](LIGHTHOUSE.md).

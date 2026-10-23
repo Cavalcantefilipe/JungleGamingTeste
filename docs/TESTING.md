@@ -82,3 +82,11 @@ Verificação desta atualização: `pnpm check` com **109 unitários em 28 arqui
 Depois da fixação do driver e do teste de retenção de relatórios, o clone atualizado passou instalação frozen, `pnpm check` (**109 unitários + 6 testes Node**), build, `CI=true pnpm e2e` (**210 aprovados/10 skips, 4,7 minutos**) e Lighthouse (**12 execuções válidas, saída 0**). Aplicação e HTML mantêm o mesmo hash do checkpoint de UI `8b314b1`. Somente arquivos de relatório foram alterados pelos comandos; nenhuma mudança de código ocorreu no clone. O runtime do servidor de E2E foi verificado nesse diretório e o preview do worktree foi restaurado ao concluir.
 
 A primeira coleta do clone com Puppeteer 25.16.0 falhou no cleanup da 12ª execução, após 11 runs completos. A coleta inteira foi refeita com 25.9.0, base declarada do Lighthouse; [histórico](../reports/lighthouse/checkpoints/history.json). Não houve retry automático ou seleção de runs por nota. O ajuste da ferramenta não alterou os limites.
+
+## Publicação Railway — 23/10/2026
+
+O mesmo `Caddyfile` usado pelo Railpack foi validado com Caddy 2.11.7 local: **210 E2E aprovados/10 skips explícitos, em 4,6 minutos**. `E2E_BASE_URL` permite executar a suíte contra outro origin sem iniciar o preview; as asserções de retorno à Home agora respeitam essa base.
+
+No domínio [kurio-production-8274.up.railway.app](https://kurio-production-8274.up.railway.app), o build do commit `45cd7e1` passou **16 testes em 1,2 minuto**, oito em cada viewport: cadastro com carrinho, login com refresh, compra até o recibo, preço pelo socket sem novo REST, skeletons de catálogo/detalhe em rede lenta, CSP e recuperação isolada após logout. São contextos independentes com dados simulados. O caso CSP reaplica a política versionada; o script HTTP confere separadamente que a resposta pública já contém esses mesmos headers.
+
+`pnpm verify:deployment https://kurio-production-8274.up.railway.app` passou: navegação direta nas rotas SPA, HTML, headers reais, cache, integridade Brotli versus identity, worker, healthcheck e 404 sem HTML indevido. O build remoto usou Node 24.21.0, pnpm 11.18.0, Railpack 0.43.0 e Caddy 2.11.7 em Linux/amd64; as auditorias de navegador foram executadas no Mac local. [Publicação](DEPLOYMENT.md) e [Lighthouse público](LIGHTHOUSE.md).

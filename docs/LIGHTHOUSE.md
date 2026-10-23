@@ -2,7 +2,7 @@
 
 Coleta de **2026-10-23T14:26:29.502Z**, build de produção em clone limpo de `87e20f0` (aplicação de `8b314b1`). Cenário default, perfil limpo por execução, três execuções por página/perfil e mediana independente por categoria/métrica. Sem testes, builds ou uso de navegador simultâneos. Não representa medição em celular físico nem produção publicada.
 
-## Resultados atuais
+## Resultados locais
 
 | Perfil  | Página | Performance | Acessibilidade | Boas práticas | SEO |     LCP |    CLS |   TBT |
 | ------- | ------ | ----------: | -------------: | ------------: | --: | ------: | -----: | ----: |
@@ -38,16 +38,40 @@ pnpm build
 pnpm lighthouse
 ```
 
-A porta 4173 deve estar livre; o script inicia e encerra seu próprio preview. Usa `CHROME_PATH` ou o Chromium instalado pelo Playwright, sem downloader do Puppeteer. `KURIO_LH_BASE_URL` permite medir a futura URL pública; `KURIO_LH_REPORT_DIR` escolhe um diretório dedicado de relatórios. Somente `run-1` a `run-3` (HTML/JSON e temporários da CLI) e `summary.json` são regenerados a cada coleta.
+A porta 4173 deve estar livre; o script inicia e encerra seu próprio preview. Usa `CHROME_PATH` ou o Chromium instalado pelo Playwright, sem downloader do Puppeteer. `KURIO_LH_BASE_URL` permite medir a URL pública; `KURIO_LH_REPORT_DIR` escolhe um diretório dedicado de relatórios. Somente `run-1` a `run-3` (HTML/JSON e temporários da CLI) e `summary.json` são regenerados a cada coleta.
 
 [Resumo JSON](../reports/lighthouse/summary.json): ambiente, metas, URL, versões e hash do HTML. Doze pares HTML/JSON: [desktop/Home](../reports/lighthouse/desktop/home/), [desktop/detalhe](../reports/lighthouse/desktop/detail/), [mobile/Home](../reports/lighthouse/mobile/home/) e [mobile/detalhe](../reports/lighthouse/mobile/detail/), `run-1` a `run-3`.
 
 Ambiente: Node v24.12.0, Lighthouse 13.5.0, Puppeteer Core 25.9.0, Chrome 156, darwin/arm64. Node mínimo da ferramenta: 22.19; projeto usa Node 24. Mobile usa o perfil simulado padrão; desktop usa preset desktop. As medianas de métricas diferentes podem pertencer a runs diferentes.
 
-A publicação Vercel utiliza a compressão da própria CDN. Encoding, cache, headers, rotas, Socket.IO e Lighthouse públicos precisam ser verificados depois do deploy; nenhuma URL pública foi validada.
+A publicação escolhida pelo usuário usa Railway/Caddy. Encoding, cache, headers, rotas e Socket.IO públicos foram verificados; [registro do deploy](DEPLOYMENT.md). A coleta pública abaixo é independente da coleta local.
 
 ## Checkout limpo
 
 Clone novo com `--no-local`, atualizado para `87e20f0`: instalação `--frozen-lockfile`, `pnpm check` (109 unitários + 6 testes Node), build e Lighthouse de 12 runs passaram. O hash do HTML é idêntico ao worktree: `dfaef3ebb60919711b779375d266655e8f08e720e62178f947735190f7d11d85`. Nenhum arquivo de código mudou pelos comandos; somente relatórios gerados. A rodada `CI=true pnpm e2e` no próprio clone final passou com **210 aprovados/10 skips explícitos em 4,7 minutos**. O preview foi iniciado pelo teste nesse diretório, sem reutilizar o servidor do worktree. O preview do usuário na porta 4175 foi restaurado ao terminar.
 
 [Consultas/persistência](DATA-PERFORMANCE.md), [segurança](SECURITY-REVIEW.md), [testes](TESTING.md) e [Figma](DESIGN-REVIEW.md) têm evidências separadas.
+
+## Railway — coleta pública
+
+Coleta de **2026-10-23T16:22:14.424Z** em [kurio-production-8274.up.railway.app](https://kurio-production-8274.up.railway.app), commit `45cd7e1`, deployment `f1112c9a-74d6-46c7-b84b-393f6cd50c51`. Mesmas versões locais do auditor, três runs por página/perfil, perfis limpos, throttling e limites; sem testes/builds/navegação simultâneos. O runtime remoto está em [DEPLOYMENT.md](DEPLOYMENT.md).
+
+| Perfil  | Página | Performance | Acessibilidade | Boas práticas | SEO |     LCP |    CLS |    TBT |
+| ------- | ------ | ----------: | -------------: | ------------: | --: | ------: | -----: | -----: |
+| desktop | home   |          97 |            100 |           100 | 100 |  742 ms | 0.0840 |   0 ms |
+| desktop | detail |          99 |            100 |           100 | 100 |  727 ms | 0.0623 |   0 ms |
+| mobile  | home   |          94 |            100 |           100 | 100 | 2663 ms | 0.0000 | 105 ms |
+| mobile  | detail |          88 |            100 |           100 | 100 | 2717 ms | 0.0000 | 150 ms |
+
+**Saída 1: detalhe mobile 88 < 90.** As outras três combinações passaram. Runs de performance: desktop Home 91/97/97, desktop detalhe 99/99/93, mobile Home 94/94/94 e mobile detalhe 92/88/86. Nenhum run foi descartado, repetido por pontuação ou substituído pela coleta local aprovada.
+
+No detalhe mobile, FCP ficou próximo de 1,10 s, LCP entre 2,71 e 2,72 s, resposta do servidor entre 198 e 202 ms e TBT entre 130 e 152 ms. O Speed Index variou de 4,32 s para 6,32 s e 9,81 s; sua queda de score explica a maior parte da variação da nota. Isso identifica a métrica a investigar, sem estabelecer uma causa de implementação ou atribuir toda a diferença à rede. As auditorias de console passaram. A mediana pública do detalhe ainda não atingiu a meta; a publicação funcional não equivale a aprovação desse indicador.
+
+[Resumo público](../reports/lighthouse-railway/summary.json) e 12 pares HTML/JSON em [reports/lighthouse-railway](../reports/lighthouse-railway/). O hash do HTML é registrado no [manifesto do deploy](../reports/deployment/railway.json), pois o runner mantém `buildHtmlSha256: null` em medições remotas.
+
+```sh
+KURIO_LH_BASE_URL=https://kurio-production-8274.up.railway.app \
+KURIO_LH_REPORT_DIR=reports/lighthouse-railway pnpm lighthouse
+```
+
+Essa auditoria pública é informativa no plano de entrega e preserva a falha quantitativa. O resultado local 99/99 e 91/92 continua sendo a medição aprovada do checkpoint identificado acima. Nenhuma coleta garante a mesma nota em toda rede, momento ou dispositivo.
