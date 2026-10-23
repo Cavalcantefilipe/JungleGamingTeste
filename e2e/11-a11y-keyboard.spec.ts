@@ -124,7 +124,13 @@ test('carrinho cheio pagamento perfil carteiras e favoritos passam axe e não tr
   await expectNoOverflow(page);
   for (const path of ['/cart', '/account/profile', '/account/wallets', '/?favorites=true']) {
     await page.goto(path);
-    if (path === '/cart') await expect(page.getByTestId('quote-total')).toBeVisible();
+    if (path === '/cart') {
+      await expect(page.getByTestId('quote-total')).toBeVisible();
+      await expect(page.getByRole('button', { name: 'Aplicar', exact: true })).toHaveCSS(
+        'opacity',
+        '1',
+      );
+    }
     if (path === '/account/profile')
       await expect(page.getByLabel('Nome de exibição', { exact: true })).toBeVisible();
     if (path === '/account/wallets')
