@@ -4,7 +4,7 @@
 
 As páginas desktop são capturas completas; modais da aplicação se centralizam na viewport de 900 px, enquanto o Figma os posiciona em artboards maiores. As capturas mobile mostram o viewport do frame original. Não inferir igualdade de altura entre artboard e página dinâmica. Foco transitório e rolagem foram neutralizados, fontes/imagens carregadas. Usuário, carteiras, edições e pedidos vêm da API MSW; nomes e quantidades da amostra estão no manifesto.
 
-São 15 referências originais e 27 estados da aplicação. Não há referência mobile de perfil, carteiras ou recibo no arquivo. O carrinho desktop soma 26,846 ETH com taxa; o mobile soma 8,156 ETH, corrigindo a soma inconsistente do Figma. [Ajustes e diferenças documentadas](../../docs/DESIGN-REVIEW.md).
+São 15 referências originais e 30 estados da aplicação. Não há referência mobile de perfil, carteiras ou recibo no arquivo. O carrinho desktop soma 26,846 ETH com taxa; o mobile soma 8,156 ETH, corrigindo a soma inconsistente do Figma. [Ajustes e diferenças documentadas](../../docs/DESIGN-REVIEW.md).
 
 | Perfil | Tela | Referência | Implementação |
 | --- | --- | --- | --- |
@@ -30,7 +30,7 @@ São 15 referências originais e 27 estados da aplicação. Não há referência
 
 ## Telas estreitas — 320 × 844
 
-Capturas atualizadas para o código `1b4551c`, incluindo os tokens de gradiente, posição do favorito e refatoração dos componentes. A matriz automatizada também percorreu 360, 375 e 390 px. O Figma fornece o frame mobile de 414 px; as adaptações menores preservam o conteúdo com quebra de linha e crescimento vertical.
+Capturas atualizadas para o código `544acda`, incluindo a revisão de estrelas/favorito, galeria, abas e componentes compartilhados. A matriz automatizada também percorreu 360, 375 e 390 px. O Figma fornece o frame mobile de 414 px; as adaptações menores preservam o conteúdo com quebra de linha e crescimento vertical.
 
 | Tela | Implementação em 320 px |
 | --- | --- |
@@ -45,3 +45,19 @@ Capturas atualizadas para o código `1b4551c`, incluindo os tokens de gradiente,
 | Recibo | [Captura](mobile-320/actual/receipt.png) |
 
 [Camadas e hashes dos ícones originais](icons.json). O manifesto registra os resultados da suíte completa sobre o código atual e da verificação pública. As medições Lighthouse anteriores não foram atribuídas a este build.
+
+
+## Rota apontada na revisão — `/nfts/nft-002`
+
+- [Desktop](desktop/actual/detail-002.png)
+- [Mobile 414 px](mobile/actual/detail-002.png)
+- [Mobile 320 px](mobile-320/actual/detail-002.png)
+
+[Erros corrigidos e diferenças explícitas](../../docs/DETAIL-REVIEW.md). Os dados de Sage Nomad permanecem próprios desse NFT; a referência do componente usa Emerald Ape.
+
+## Verificação da publicação
+
+As capturas abaixo vêm diretamente da Railway, no deployment `ee30fb40-a143-4eaf-9512-620933fb7d35`, com o código `544acda`. Foram confirmados o carregamento dos SVGs, a ausência de overflow e a correspondência do HTML com o build local. São duas capturas adicionais aos 30 estados locais.
+
+- [Detalhe desktop publicado](public/detail-002-desktop.png)
+- [Detalhe mobile publicado](public/detail-002-mobile.png)

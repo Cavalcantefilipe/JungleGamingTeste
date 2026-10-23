@@ -172,7 +172,7 @@ test('Mercado fica ativo no menu desktop do detalhe carrinho e pagamento', async
       .getByRole('navigation', { name: 'Menu principal' })
       .getByRole('link', { name: 'Mercado', exact: true });
     await expect(market).toHaveAttribute('aria-current', 'page');
-    await expect(market).toHaveCSS('color', 'rgb(210, 138, 76)');
+    await expect(market).toHaveCSS('color', 'rgb(232, 155, 85)');
   }
 });
 
