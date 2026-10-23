@@ -18,6 +18,10 @@ React 19, Vite 7/ES2022, Router com divisão automática de rotas e Query 5. MSW
 
 Zod é configurado com `jitless: true` antes da validação de ambiente e contratos. Isso evita o probe de avaliação dinâmica bloqueado pela CSP; não exige `unsafe-eval`. Fontes e assets ficam no mesmo origin, com AVIF/WebP responsivo e dimensões explícitas. Devtools não integram os providers de produção; os controles de demonstração estão em `window.__kurio` quando mocks estão habilitados.
 
+O build produz variantes Brotli de HTML/JS/CSS/SVG. O preview Vite negocia `Accept-Encoding` por `sirv`, preserva o conteúdo sem compressão para clientes sem suporte e reconhece arquivos de um novo build. O worker e HTML usam revalidação. Isso reduz bytes transferidos sem remover schemas, mocks, autenticação ou Socket.IO. A hospedagem Vercel usa sua própria compressão e exige verificação após publicação.
+
+A auditoria usa a CLI nativa do Lighthouse 13.5.0, substituindo LHCI e sua cadeia de downloader vulnerável. Reutiliza Chromium instalado e conserva três execuções e as mesmas metas/medianas. Testes Node verificam que falhas ou categorias inválidas não viram aprovação.
+
 ## Estado, sessão e cache
 
 - URL: busca, filtros, página, ordenação, tab e `returnTo`; search inválido do catálogo cai em defaults.
@@ -39,7 +43,7 @@ O transporte real de `socket.io-client` usa WebSocket, interceptado por `@mswjs/
 
 ## UI, acessibilidade e Figma
 
-Os assets foram exportados do Figma com autorização e convertidos para AVIF/WebP; não há substituição procedural das artes. Tokens, ícones, gradiente do CTA, dimensões e todos os fluxos foram comparados. [DESIGN-REVIEW.md](docs/DESIGN-REVIEW.md) detalha adaptações de fixtures, grid, autenticação, backdrop, checkout e recibo.
+Os assets foram exportados do Figma com autorização e convertidos para AVIF/WebP; não há substituição procedural das artes. Tokens, gradiente do CTA, dimensões e todos os fluxos foram comparados contra os 15 frames originais exportados. Os ícones funcionais usam Lucide e os vetores exportados documentados. A coluna mobile preserva o deslocamento de 32 px; as áreas de toque continuam com 44 px. [DESIGN-REVIEW.md](docs/DESIGN-REVIEW.md) detalha adaptações de fixtures, grid, autenticação, backdrop, checkout e recibo.
 
 Estados ausentes do desenho usam o mesmo sistema visual: skeleton com espaço reservado, retry, validação, cotação desatualizada, conexão de carteira e recuperação. Perfil e senha têm salvamentos independentes para não exigir senha ao editar nome. Quantidade mantém círculo visível de 24px e alvo de botão 44px; campo mobile 44px amplia o espaçamento. Preço de linha longo reduz fonte para caber sem truncar o valor.
 
@@ -47,4 +51,4 @@ Texto secundário `#CFB28C` sobre card `#241612` tem contraste aproximado de 8,6
 
 ## Entrega e pendências
 
-Headers e rewrite SPA estão em `vercel.json`; o worker não deve ser cacheado. O teste local injeta a CSP e percorre compra/socket sem violações. Headers publicados dependem da implantação. `docs/LIGHTHOUSE.md` conserva as medianas e a falha de performance mobile; dois advisories dev permanecem explícitos na revisão de segurança. GitHub/push e login Vercel ainda dependem do usuário. Não há URL pública validada.
+Headers e rewrite SPA estão em `vercel.json`; o worker não deve ser cacheado. O teste local injeta a CSP e percorre compra/socket sem violações. Headers publicados dependem da implantação. `docs/LIGHTHOUSE.md` conserva as medianas atuais e o histórico de medições; a troca de ferramenta removeu os dois advisories altos, e os audits completo/de produção retornaram zero. GitHub/push e login Vercel ainda dependem do usuário. Não há URL pública validada.

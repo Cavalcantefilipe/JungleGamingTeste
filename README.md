@@ -70,7 +70,8 @@ Para reinício completamente limpo da demonstração neste origin, use DevTools 
 | `pnpm test` / `pnpm test:watch`     | Vitest                                                        |
 | `pnpm e2e` / `pnpm e2e:ui`          | Playwright; exige build prévio e Chromium                     |
 | `pnpm lighthouse`                   | 3 execuções por página/perfil; mantém falha se abaixo da meta |
-| `pnpm check`                        | tipos, lint, formato e unitários                              |
+| `pnpm test:tooling`                 | mediana/assertions Lighthouse e negociação/integridade Brotli |
+| `pnpm check`                        | tipos, lint, formato, unitários e testes de ferramentas       |
 
 Para E2E: `pnpm exec playwright install chromium`, `pnpm build`, `pnpm e2e`. Veja [TESTING.md](docs/TESTING.md) para projetos, artefatos e regressão visual. Lighthouse usa Chromium já instalado ou `CHROME_PATH`.
 
@@ -101,6 +102,6 @@ reports          relatórios versionados de segurança/performance
 - [Falhas encontradas e corrigidas, BOLA/IDOR, XSS e OWASP](docs/SECURITY-REVIEW.md) e [revisão final](docs/FINAL-REVIEW.md).
 - [Validação dos comportamentos](docs/BEHAVIOR-REVIEW.md) e [pendências de entrega/estimativa de avaliação](docs/DELIVERY-ASSESSMENT.md).
 
-Performance mobile ainda está abaixo de 90 no Lighthouse (Home 89; detalhe 88 no clone final); o comando retorna falha e os relatórios preservam os resultados. Existem dois advisories altos de desenvolvimento em `extract-zip`, sem correção publicada no registro consultado; produção teve zero advisories na revisão. Não há banco real para certificar otimização SQL.
+A revisão atual passou as metas do Lighthouse: **Performance desktop 99/99 e mobile 91/92**, com Acessibilidade/Boas práticas/SEO em 100. Os dois advisories altos foram resolvidos pela troca da ferramenta Lighthouse; **audits completo e de produção com zero alertas**. Gates locais: **109 unitários + 6 testes Node e 210 E2E aprovados/10 skips explícitos por viewport**. Os [15 frames originais e 18 capturas](reports/design/README.md) documentam a conferência visual e as adaptações, sem alegar igualdade absoluta de pixels. Não há banco real para certificar otimização SQL.
 
 **URL pública: pendente.** `vercel.json` e `.vercelignore` estão preparados. A criação/push do repositório depende da autorização prevista em `CLAUDE.md`, e o login/importação no Vercel depende do usuário. Ainda não foram verificados headers, refresh nem Lighthouse em URL publicada.

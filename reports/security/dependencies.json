@@ -1,6 +1,7 @@
 {
-  "date": "2026-10-23",
+  "date": "2026-10-23T14:24:12.521927+00:00",
   "scope": "Dependências locais; sem teste de ativos externos",
+  "lockfileSha256": "2b9b2dff425bf4c9b0e45c6a06ab6fe1b5c13ddd07f07ed4e05f0e3421b8de81",
   "production": {
     "info": 0,
     "low": 0,
@@ -12,10 +13,25 @@
     "info": 0,
     "low": 0,
     "moderate": 0,
-    "high": 2,
+    "high": 0,
     "critical": 0
   },
-  "remaining": [
+  "remaining": [],
+  "resolution": {
+    "removed": "@lhci/cli 0.15.1 → Lighthouse 12.6.1 → Puppeteer/downloader → extract-zip 2.0.1",
+    "replacement": "Lighthouse 13.5.0 CLI nativa; Chromium já instalado pelo Playwright ou CHROME_PATH",
+    "puppeteerCore": "25.9.0 (pin na versão base da faixa ^25.9.0 declarada pelo Lighthouse)",
+    "extractZipInInstalledTree": false,
+    "ignoredAdvisories": [],
+    "peerCheck": "No peer dependency issues found",
+    "removedOrphanOverrides": [
+      "tmp",
+      "uuid",
+      "basic-ftp"
+    ],
+    "compatibility": "Após erros intermitentes de cleanup com 25.16.0, a coleta final no clone com 25.9.0 completou 12 runs, código 0. Erros não são ignorados e não há retry automático."
+  },
+  "resolvedAdvisories": [
     {
       "package": "extract-zip",
       "severity": "high",
@@ -25,7 +41,7 @@
         "2.0.1"
       ],
       "scope": "somente ferramenta de desenvolvimento Lighthouse / download de navegador",
-      "status": "Pendente: versão corrigida indicada pelo advisory ainda não publicada no npm consultado"
+      "status": "Resolvido por remoção da cadeia de dependência; sem override para versão inexistente"
     },
     {
       "package": "extract-zip",
@@ -36,25 +52,7 @@
         "2.0.1"
       ],
       "scope": "somente ferramenta de desenvolvimento Lighthouse / download de navegador",
-      "status": "Pendente: versão corrigida indicada pelo advisory ainda não publicada no npm consultado"
+      "status": "Resolvido por remoção da cadeia de dependência; sem override para versão inexistente"
     }
-  ],
-  "finalRecheck": {
-    "date": "2026-10-23",
-    "production": {
-      "info": 0,
-      "low": 0,
-      "moderate": 0,
-      "high": 0,
-      "critical": 0
-    },
-    "allDependencies": {
-      "info": 0,
-      "low": 0,
-      "moderate": 0,
-      "high": 2,
-      "critical": 0
-    },
-    "registryLastPublishedExtractZip": "2.0.1"
-  }
+  ]
 }

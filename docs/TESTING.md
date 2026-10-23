@@ -1,5 +1,13 @@
 # Testes e verificações
 
+## Resultado atual — revisão de performance e Figma
+
+23/10/2026: `pnpm check` passou com **109 unitários em 28 arquivos e 6 testes Node de ferramentas**, além de tipos, lint sem erros e formatação. Build válido. Suíte Playwright completa: **210 aprovados/10 skips explícitos por viewport**, em 4,6 minutos, sem retries. Capturas de conferência separadas: **2/2**, cobrindo 18 estados em 1440 e 414 px; [15 referências originais e capturas](../reports/design/README.md).
+
+`pnpm test:tooling` valida mediana/assertions (resultado abaixo da meta falha, coleta incompleta/runtime error não gera aprovação), integridade Brotli, negociação HTTP, fallback sem compressão, cache do worker, arquivos de um build novo e limpeza apenas dos relatórios gerados. O teste de geometria mobile também usa o tamanho original 414 px, verifica desnível de 32 px e conserva alvos de 44 px. O teste do rodapé mede contêiner/link no mesmo frame para evitar que uma mudança de altura da página entre duas leituras produza um diagnóstico falso.
+
+O clone do código de aplicação `8b314b1` também passou instalação frozen, check (109 + 5 naquele checkpoint), build e 210 E2E/10 skips em 4,8 minutos. A revisão `87e20f0` modifica apenas o driver da auditoria e a retenção dos arquivos de relatório; tem seis testes Node e conserva a mesma aplicação. O hash do HTML foi idêntico ao worktree. As seções de checkpoints anteriores identificam os commits históricos; estes números não são uma alegação de nova certificação de segurança. [Resultado Lighthouse](LIGHTHOUSE.md).
+
 ## Executar
 
 ```sh
@@ -21,7 +29,7 @@ O worker MSW está versionado em `public/mockServiceWorker.js`. Os testes usam a
 - `11`: teclado, foco de login/drawer, anúncio de erro, axe, overflow e largura de 720px como aproximação de reflow a zoom 200% em desktop.
 - `12`: skeletons medidos antes/depois, erro/retry, reduced motion e sessão lenta.
 - `13`: referências visuais versionadas de Início, Detalhe, Carrinho e Pagamento em desktop/mobile.
-- `15`: cores, dimensões e alinhamentos medidos no Figma; controles circulares e taxa do carrinho.
+- `15`: cores, dimensões, tipografia e alinhamentos medidos no Figma; controles circulares, taxa do carrinho, desnível mobile e raio de autenticação.
 - `16`: texto de perfil não executa código e identidade adulterada não libera rota privada.
 - `17`: AVIF responsivo, preload local, alvos de quantidade e feedback HTML antes do JavaScript/fonte.
 - `18`: headers CSP de produção aplicados à navegação; catálogo, Socket.IO, carteira e compra sem violações.
@@ -68,3 +76,9 @@ Em 23/10/2026, um novo clone de `52bdb86cd91562a26530e69a1cbd66db67256ce3` passo
 A revisão solicitada pelo usuário acrescentou o cadastro válido com merge/refresh/logout/login e a vinculação da compra ao endereço revisado. O teste `20` aguarda a latência registrada pelo MSW antes de editar a carteira por API autenticada; não depende apenas do evento de início de request nem usa sleep. A validação de domínio anterior criou um pedido para endereço diferente mesmo após reconectar: duas regressões falharam antes e passaram depois da correção. O terceiro unitário preserva replay de pedido antigo sem endereço no payload. Resultados atuais e limites em [BEHAVIOR-REVIEW.md](BEHAVIOR-REVIEW.md); os registros acima continuam identificando o commit histórico realmente auditado.
 
 Verificação desta atualização: `pnpm check` com **109 unitários em 28 arquivos**, build válido e suíte completa Playwright com **209 aprovados/9 skips explícitos**. O novo cadastro mobile navega ao perfil para acessar logout, pois o carrinho mobile não apresenta o header. A primeira rodada registrou essa falha de seletor; após correção do teste, o caso focado e a suíte completa passaram.
+
+## Checkpoint final em clone limpo — 87e20f0
+
+Depois da fixação do driver e do teste de retenção de relatórios, o clone atualizado passou instalação frozen, `pnpm check` (**109 unitários + 6 testes Node**), build, `CI=true pnpm e2e` (**210 aprovados/10 skips, 4,7 minutos**) e Lighthouse (**12 execuções válidas, saída 0**). Aplicação e HTML mantêm o mesmo hash do checkpoint de UI `8b314b1`. Somente arquivos de relatório foram alterados pelos comandos; nenhuma mudança de código ocorreu no clone. O runtime do servidor de E2E foi verificado nesse diretório e o preview do worktree foi restaurado ao concluir.
+
+A primeira coleta do clone com Puppeteer 25.16.0 falhou no cleanup da 12ª execução, após 11 runs completos. A coleta inteira foi refeita com 25.9.0, base declarada do Lighthouse; [histórico](../reports/lighthouse/checkpoints/history.json). Não houve retry automático ou seleção de runs por nota. O ajuste da ferramenta não alterou os limites.

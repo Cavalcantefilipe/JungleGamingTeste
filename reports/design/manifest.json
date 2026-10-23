@@ -1,0 +1,393 @@
+{
+  "figma": "https://www.figma.com/design/Ff0SksUi7UFtPWUO8kyNtw/Frontend-Challenge",
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "capture": "fullPage"
+    },
+    "mobile": {
+      "width": 414,
+      "height": 896,
+      "capture": "viewport"
+    }
+  },
+  "fixtureDate": "2026-07-29T12:00:00Z (relógio avança normalmente)",
+  "state": "Visitante → carrinho → login/cadastro → Ana autenticada → pagamento revisado/conectado → pedido confirmado",
+  "cartItems": {
+    "desktop": [
+      [
+        "nft-001",
+        2
+      ],
+      [
+        "nft-005",
+        6
+      ],
+      [
+        "nft-006",
+        9
+      ]
+    ],
+    "mobile": [
+      [
+        "nft-001",
+        1
+      ],
+      [
+        "nft-005",
+        1
+      ],
+      [
+        "nft-006",
+        2
+      ],
+      [
+        "nft-007",
+        2
+      ]
+    ]
+  },
+  "images": [
+    {
+      "profile": "desktop",
+      "page": "home",
+      "reference": {
+        "path": "desktop/reference/home.png",
+        "sha256": "dc7eadc05376fee1d55e0e89442cbd07e89d7a673ca4b46b0b5ebb92911330c5",
+        "dimensions": {
+          "width": 1440,
+          "height": 3668
+        }
+      },
+      "actual": {
+        "path": "desktop/actual/home.png",
+        "sha256": "b8f2f3b18aea2a49f18b7fa93ffa7bce074843f6df2a1d010fc7c4c12c39530a",
+        "dimensions": {
+          "width": 1440,
+          "height": 3749
+        }
+      }
+    },
+    {
+      "profile": "desktop",
+      "page": "detail",
+      "reference": {
+        "path": "desktop/reference/detail.png",
+        "sha256": "c9aac4eb4b2ea7ff8714d9111cd22912fba8c74b99dca07a5272421f83b34b6c",
+        "dimensions": {
+          "width": 1440,
+          "height": 2246
+        }
+      },
+      "actual": {
+        "path": "desktop/actual/detail.png",
+        "sha256": "b80b931c0f95762bab376241244f254588a436da2744e2a6742c9056b1805cc5",
+        "dimensions": {
+          "width": 1440,
+          "height": 1768
+        }
+      }
+    },
+    {
+      "profile": "desktop",
+      "page": "cart",
+      "reference": {
+        "path": "desktop/reference/cart.png",
+        "sha256": "a4bff2b8d2fd27f158476ac7240b1a092fec38dbb954a54382baa85e34195752",
+        "dimensions": {
+          "width": 1440,
+          "height": 1754
+        }
+      },
+      "actual": {
+        "path": "desktop/actual/cart.png",
+        "sha256": "91807442a8dc9e772c0f41cb1efecee14c0efdc69dadce126d5e223a159587fc",
+        "dimensions": {
+          "width": 1440,
+          "height": 1784
+        }
+      }
+    },
+    {
+      "profile": "desktop",
+      "page": "payment",
+      "reference": {
+        "path": "desktop/reference/payment.png",
+        "sha256": "a472564b63981e41630791964700dfd1a18fc5e308fb1cce2f722e21654afe6b",
+        "dimensions": {
+          "width": 1440,
+          "height": 1657
+        }
+      },
+      "actual": {
+        "path": "desktop/actual/payment.png",
+        "sha256": "875eddb51160ad2d4d063502a47711e17c23555f02b8afe204ee7981b6738c3f",
+        "dimensions": {
+          "width": 1440,
+          "height": 1880
+        }
+      }
+    },
+    {
+      "profile": "desktop",
+      "page": "login",
+      "reference": {
+        "path": "desktop/reference/login.png",
+        "sha256": "c5d23ae3a7eb4e98be77607c4a2feb59400be543c5641dbcd112fd105ab02f10",
+        "dimensions": {
+          "width": 1440,
+          "height": 1981
+        }
+      },
+      "actual": {
+        "path": "desktop/actual/login.png",
+        "sha256": "ec5f7f33b5013d6f750e0b70d5af6d7e8eae3bbdbd392b93063171aae4376d22",
+        "dimensions": {
+          "width": 1440,
+          "height": 3749
+        }
+      }
+    },
+    {
+      "profile": "desktop",
+      "page": "register",
+      "reference": {
+        "path": "desktop/reference/register.png",
+        "sha256": "29dad5abed9054459b1de8ce7b53029719625c41ac141fcdb0b4dbb8ddfa3c16",
+        "dimensions": {
+          "width": 1440,
+          "height": 1981
+        }
+      },
+      "actual": {
+        "path": "desktop/actual/register.png",
+        "sha256": "9cf5cfdb90fa01d1eff5ea85a9998ceeda100fec4c308ac3a42027bae44eb7b2",
+        "dimensions": {
+          "width": 1440,
+          "height": 3749
+        }
+      }
+    },
+    {
+      "profile": "desktop",
+      "page": "profile",
+      "reference": {
+        "path": "desktop/reference/profile.png",
+        "sha256": "96350da04dbcf5f9004bad29ef84d991aff72006cc64259b477421058e022c85",
+        "dimensions": {
+          "width": 1440,
+          "height": 1080
+        }
+      },
+      "actual": {
+        "path": "desktop/actual/profile.png",
+        "sha256": "9f14eb9b486e9ae11d1e5ef74b94d6a97dfd9756167af7ff1e5582fd30f375f7",
+        "dimensions": {
+          "width": 1440,
+          "height": 930
+        }
+      }
+    },
+    {
+      "profile": "desktop",
+      "page": "wallets",
+      "reference": {
+        "path": "desktop/reference/wallets.png",
+        "sha256": "20a2148c1d9adf8bd7e91f3db28d73275b147a9d2938223a99a855317e37ffb5",
+        "dimensions": {
+          "width": 1440,
+          "height": 1080
+        }
+      },
+      "actual": {
+        "path": "desktop/actual/wallets.png",
+        "sha256": "5e342b72125656ed32d921c3360052fcf1604256778cda98776fac6c10dfdbee",
+        "dimensions": {
+          "width": 1440,
+          "height": 923
+        }
+      }
+    },
+    {
+      "profile": "desktop",
+      "page": "receipt",
+      "reference": {
+        "path": "desktop/reference/receipt.png",
+        "sha256": "8e8b3ec99360e913c337f908b2a4417281a769388d5d9dadc7c6204ecef1e23f",
+        "dimensions": {
+          "width": 1440,
+          "height": 1657
+        }
+      },
+      "actual": {
+        "path": "desktop/actual/receipt.png",
+        "sha256": "b11d10ddfe06330322827067f0526b503c84b7402d9956bbadc12d78da743959",
+        "dimensions": {
+          "width": 1440,
+          "height": 900
+        }
+      }
+    },
+    {
+      "profile": "mobile",
+      "page": "home",
+      "reference": {
+        "path": "mobile/reference/home.png",
+        "sha256": "448add49455d9f2c6dc1018dd494c704a25a2b05d7b1c109f4cf90796105ab3d",
+        "dimensions": {
+          "width": 414,
+          "height": 896
+        }
+      },
+      "actual": {
+        "path": "mobile/actual/home.png",
+        "sha256": "3217e1220647d386e1aac920babbb12f49d96e65a81a366134892576deea3623",
+        "dimensions": {
+          "width": 414,
+          "height": 896
+        }
+      }
+    },
+    {
+      "profile": "mobile",
+      "page": "detail",
+      "reference": {
+        "path": "mobile/reference/detail.png",
+        "sha256": "90fa457d6dde78b1b0915057af9e0e94484075dc0fb5fdaea9f9b20c30f78593",
+        "dimensions": {
+          "width": 414,
+          "height": 896
+        }
+      },
+      "actual": {
+        "path": "mobile/actual/detail.png",
+        "sha256": "da6f454d92eaa7eb79d16981ef997e4424f0c5e32308086d90ff58c9c0d6b853",
+        "dimensions": {
+          "width": 414,
+          "height": 896
+        }
+      }
+    },
+    {
+      "profile": "mobile",
+      "page": "cart",
+      "reference": {
+        "path": "mobile/reference/cart.png",
+        "sha256": "cd995522d7131cfc50d26a4e108d2a156d34ae250d4a46fbec99845e8a03873c",
+        "dimensions": {
+          "width": 414,
+          "height": 896
+        }
+      },
+      "actual": {
+        "path": "mobile/actual/cart.png",
+        "sha256": "9e3adf04f5b64bd2a21b99260be637d79c922d44f82d4dad4d834fc32d145d75",
+        "dimensions": {
+          "width": 414,
+          "height": 896
+        }
+      }
+    },
+    {
+      "profile": "mobile",
+      "page": "payment",
+      "reference": {
+        "path": "mobile/reference/payment.png",
+        "sha256": "ba67eff6e2d0ceea9315d6a3f88cac3553741df60059bb176397d814d0419640",
+        "dimensions": {
+          "width": 414,
+          "height": 896
+        }
+      },
+      "actual": {
+        "path": "mobile/actual/payment.png",
+        "sha256": "7e45b617ece12570481f2fe988c07b7919c6e11ca631d8d533674d7f4abaded7",
+        "dimensions": {
+          "width": 414,
+          "height": 896
+        }
+      }
+    },
+    {
+      "profile": "mobile",
+      "page": "login",
+      "reference": {
+        "path": "mobile/reference/login.png",
+        "sha256": "189ae8cff66e02bbd96964cc3e163d5e45449598cf05708667b298d77b523b96",
+        "dimensions": {
+          "width": 414,
+          "height": 896
+        }
+      },
+      "actual": {
+        "path": "mobile/actual/login.png",
+        "sha256": "14d9b5333cbe6bf3c080e4211736049768eb0b3f552e8b9059819f088cff5b80",
+        "dimensions": {
+          "width": 414,
+          "height": 896
+        }
+      }
+    },
+    {
+      "profile": "mobile",
+      "page": "register",
+      "reference": {
+        "path": "mobile/reference/register.png",
+        "sha256": "5b6dfd323d775439bb992dab6b4e66c33dcd65077be50609d78fdc978e6b4aec",
+        "dimensions": {
+          "width": 414,
+          "height": 896
+        }
+      },
+      "actual": {
+        "path": "mobile/actual/register.png",
+        "sha256": "4cd245298b2e5be3bd238c5cff4abceb9221612ecdfd3b8ac8e96f1913f294cc",
+        "dimensions": {
+          "width": 414,
+          "height": 896
+        }
+      }
+    },
+    {
+      "profile": "mobile",
+      "page": "profile",
+      "actual": {
+        "path": "mobile/actual/profile.png",
+        "sha256": "f3a2a1540e222919e01533fd2fbbd323e39c63a044521be2363f9ea721a67cc4",
+        "dimensions": {
+          "width": 414,
+          "height": 896
+        }
+      }
+    },
+    {
+      "profile": "mobile",
+      "page": "wallets",
+      "actual": {
+        "path": "mobile/actual/wallets.png",
+        "sha256": "4f89b7dbfa6a9854f86ce7caae72b83ab86f62893cce822108ddb79b843214c0",
+        "dimensions": {
+          "width": 414,
+          "height": 896
+        }
+      }
+    },
+    {
+      "profile": "mobile",
+      "page": "receipt",
+      "actual": {
+        "path": "mobile/actual/receipt.png",
+        "sha256": "138f9b7dae7d6dfa1a8dae791fa7cadc7c421cbb9ce90e3d1cd6611077836dd2",
+        "dimensions": {
+          "width": 414,
+          "height": 896
+        }
+      }
+    }
+  ],
+  "archivedAt": "2026-10-23T14:01:59.734642+00:00",
+  "codeCommit": "8b314b16058f1a89817865bff3c99833ff00a62b",
+  "buildHtmlSha256": "dfaef3ebb60919711b779375d266655e8f08e720e62178f947735190f7d11d85",
+  "verifiedBuildCommit": "87e20f0 (aplicação inalterada desde 8b314b1)"
+}

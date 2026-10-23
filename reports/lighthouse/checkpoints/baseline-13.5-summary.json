@@ -1,0 +1,72 @@
+{
+  "measuredAt": "2026-10-23T13:09:14.560Z",
+  "environment": {
+    "node": "v24.12.0",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "lighthouse": "13.5.0",
+    "runner": "lighthouse/run.mjs (CLI nativa, mediana de três execuções)",
+    "buildHtmlSha256": "4552b85a50c6ac0de16ea4fb7c8e650e2547f378408d3c648c95c734cc2f4625",
+    "baseUrl": "http://localhost:4173"
+  },
+  "thresholds": {
+    "performance": 90,
+    "accessibility": 95,
+    "bestPractices": 95,
+    "seo": 90
+  },
+  "rows": [
+    {
+      "profile": "desktop",
+      "page": "home",
+      "runs": 3,
+      "performance": 99,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 942.4384000000003,
+      "cls": 0.01222547837197288,
+      "tbtMs": 0,
+      "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+    },
+    {
+      "profile": "desktop",
+      "page": "detail",
+      "runs": 3,
+      "performance": 98,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 895.563075,
+      "cls": 0.06232130050203203,
+      "tbtMs": 0,
+      "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+    },
+    {
+      "profile": "mobile",
+      "page": "home",
+      "runs": 3,
+      "performance": 90,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 3548.4440000000004,
+      "cls": 0,
+      "tbtMs": 51.5,
+      "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+    },
+    {
+      "profile": "mobile",
+      "page": "detail",
+      "runs": 3,
+      "performance": 89,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 3764.009799999999,
+      "cls": 0,
+      "tbtMs": 57.5,
+      "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+    }
+  ]
+}

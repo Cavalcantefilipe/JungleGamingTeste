@@ -1,0 +1,105 @@
+{
+  "current": "../summary.json",
+  "checkpoints": [
+    {
+      "id": "legacy-lh12",
+      "status": "below-threshold",
+      "summary": "legacy-12.6.1-summary.json"
+    },
+    {
+      "id": "lh13-before-brotli",
+      "status": "below-threshold",
+      "summary": "baseline-13.5-summary.json"
+    },
+    {
+      "id": "worktree-brotli-puppeteer-25.16",
+      "status": "complete-passed",
+      "summary": "worktree-25.16-summary.json"
+    },
+    {
+      "id": "clean-clone-puppeteer-25.16",
+      "status": "collection-error",
+      "exitCode": 1,
+      "completedRuns": 11,
+      "failedRun": "mobile/detail/3",
+      "error": "ConnectionClosedError em CdpPage.close durante cleanup do Lighthouse",
+      "summaryProduced": false,
+      "runs": [
+        {
+          "profile": "desktop",
+          "page": "home",
+          "run": 1,
+          "score": 99
+        },
+        {
+          "profile": "desktop",
+          "page": "home",
+          "run": 2,
+          "score": 99
+        },
+        {
+          "profile": "desktop",
+          "page": "home",
+          "run": 3,
+          "score": 99
+        },
+        {
+          "profile": "desktop",
+          "page": "detail",
+          "run": 1,
+          "score": 99
+        },
+        {
+          "profile": "desktop",
+          "page": "detail",
+          "run": 2,
+          "score": 99
+        },
+        {
+          "profile": "desktop",
+          "page": "detail",
+          "run": 3,
+          "score": 99
+        },
+        {
+          "profile": "mobile",
+          "page": "home",
+          "run": 1,
+          "score": 91
+        },
+        {
+          "profile": "mobile",
+          "page": "home",
+          "run": 2,
+          "score": 91
+        },
+        {
+          "profile": "mobile",
+          "page": "home",
+          "run": 3,
+          "score": 91
+        },
+        {
+          "profile": "mobile",
+          "page": "detail",
+          "run": 1,
+          "score": 92
+        },
+        {
+          "profile": "mobile",
+          "page": "detail",
+          "run": 2,
+          "score": 91
+        }
+      ]
+    },
+    {
+      "id": "clean-clone-puppeteer-25.9",
+      "status": "complete-passed",
+      "exitCode": 0,
+      "summary": "../summary.json",
+      "codeCommit": "87e20f0",
+      "appCommit": "8b314b1"
+    }
+  ]
+}

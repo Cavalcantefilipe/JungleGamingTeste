@@ -6,7 +6,7 @@ Data: **23/10/2026**. Escopo: branch `feat/kurio-execucao`, código da aplicaç�
 
 Os testes exercitam controles de autorização, isolamento de sessão e regras de compra **na simulação**. O projeto não possui servidor de aplicação ou banco remoto: MSW, tokens, contas, hashes de senha e pedidos vivem no navegador/localStorage. Quem controla esse navegador pode alterar a própria simulação. Portanto, **esta entrega não constitui um backend seguro para dinheiro, carteiras ou dados reais**, mesmo que o site seja publicado. `window.__kurio` é um controle de demonstração, não uma API administrativa protegida.
 
-Não foi comprovado acesso entre usuários pela API nos casos de BOLA/IDOR testados, nem execução de XSS no texto de perfil testado. Isso não é prova de ausência de outras vulnerabilidades. Os dois alertas de dependência ainda existentes e os requisitos para produção estão descritos abaixo.
+Não foi comprovado acesso entre usuários pela API nos casos de BOLA/IDOR testados, nem execução de XSS no texto de perfil testado. Isso não é prova de ausência de outras vulnerabilidades. A atualização da ferramenta de auditoria removeu os dois alertas altos de desenvolvimento; a consulta atual retornou zero alertas. Os limites para produção continuam descritos abaixo.
 
 ## Problemas encontrados e corrigidos nesta revisão
 
@@ -72,7 +72,7 @@ Redes/carteiras são simulações: não existe assinatura de posse, liquidação
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | A01 Controle de acesso     | Testes de dono/token, corpo adulterado, sessão revogada, cache e socket. Sem servidor para testar SSRF.                                               |
 | A02 Configuração           | Headers CSP, anti-iframe, nosniff, HSTS, referrer e permissions preparados em `vercel.json`; presença em produção ainda depende do deploy.            |
-| A03 Cadeia de dependências | Lockfile e auditoria realizados. Overrides corrigem `tmp`, `uuid` e `basic-ftp`; dois alertas de `extract-zip` continuam explícitos.                  |
+| A03 Cadeia de dependências | Lighthouse atualizado para 13.5.0; cadeia de `extract-zip` removida. Audit completo e de produção retornaram zero alertas.                            |
 | A04 Criptografia           | Tokens aleatórios de 32 bytes; senhas do mock com PBKDF2/salt. LocalStorage não é cofre; produção exige gestão de credenciais independente e TLS.     |
 | A05 Injeção                | Caminho de XSS testado, contratos Zod e URLs restritas. Não existem SQL, shell ou templates de servidor nesta aplicação.                              |
 | A06 Design                 | Autoridade de preço no mock, transações, idempotência, reservas e recuperação testadas. Não há garantia distribuída entre abas/processos.             |
@@ -81,17 +81,21 @@ Redes/carteiras são simulações: não existe assinatura de posse, liquidação
 | A09 Logs e alertas         | Erros tratados na UI; não há trilha de auditoria central ou monitoramento de incidentes. Requisito de produção pendente.                              |
 | A10 Exceções               | Entrada inválida, storage cheio/corrompido, timeout e respostas fora de ordem cobertos. Corrigida a exceção de avatar e expiração que falhava aberta. |
 
-## Dependências: resultado honesto
+## Dependências: dois alertas altos resolvidos
 
-`pnpm audit --prod --json`: **zero alertas** na consulta desta revisão.
+`pnpm audit --json` e `pnpm audit --prod --json`: **zero alertas em todas as severidades**, consulta de 23/10/2026. `pnpm peers check` também passou.
 
-A auditoria completa começou com seis advisories (quatro altos, um moderado e um baixo). Atualizações transitivas verificadas no lockfile corrigiram quatro advisories: `tmp` 0.2.7, `uuid` 11.1.1 e `basic-ftp` 6.2.3. `lhci --version`, build e testes verificam compatibilidade inicial; a auditoria completa do Lighthouse foi executada e está em [LIGHTHOUSE.md](LIGHTHOUSE.md), com a falha de performance do detalhe mobile preservada.
+A origem era `@lhci/cli` 0.15.1, que conservava Lighthouse 12.6.1 e uma cadeia de downloader com `extract-zip` 2.0.1. A ferramenta foi substituída pela CLI nativa do **Lighthouse 13.5.0**; `puppeteer-core` é fixado em 25.9.0, base da faixa declarada pela ferramenta, após erro intermitente de cleanup com 25.16.0 e `pnpm why extract-zip` não encontra o pacote. Não foi necessário baixar ZIP pelo Puppeteer: a coleta reutiliza o Chromium instalado pelo Playwright ou `CHROME_PATH`.
 
-Restam **dois advisories altos** em `extract-zip` 2.0.1, trazido pelo downloader de navegador do Lighthouse/Puppeteer. O npm consultado ainda publica 2.0.1 como última versão, embora os advisories indiquem correção em 2.0.2. A tentativa de instalar essa versão retornou `NO_MATCHING_VERSION`; nenhum alerta foi ocultado e nenhuma versão foi falsificada. Essa biblioteca não integra o bundle do aplicativo nem recebe uploads da aplicação. Os testes usam Chrome já instalado; não forneça ZIPs não confiáveis ao downloader. A auditoria completa continua com saída não zero até resolução dessa dependência.
+Os antigos overrides de `tmp`, `uuid` e `basic-ftp` saíram porque seus pacotes já não integram a árvore. O override de `@opentelemetry/api` 1.9.0 atende aos peers declarados da ferramenta. Nenhum advisory foi ignorado, nenhum limite foi reduzido e nenhuma versão inexistente foi declarada.
 
-Referências e resumo verificável: [dependencies.json](../reports/security/dependencies.json). Os links dos dois advisories estão nesse arquivo. Essa condição deve ser revista antes de executar downloads de navegador em CI e antes de aprovar a cadeia de build para produção.
+Os dois advisories históricos estão preservados como resolvidos em [dependencies.json](../reports/security/dependencies.json), junto ao hash do lockfile. Respostas completas: [audit completo](../reports/security/audit-full.json) e [audit de produção](../reports/security/audit-production.json). Zero avisos nessa base de advisories não prova ausência de outras vulnerabilidades.
 
-## Verificação
+## Revalidação após performance e Figma
+
+A suíte posterior passou com **109 unitários + 6 testes Node e 210 E2E/10 skips explícitos**, incluindo BOLA/IDOR, XSS, sessão, CSP, concorrência e intenção da carteira. Build válido. São evidências locais do executor; não correspondem a outra auditoria independente nem a garantias de servidor/banco. [Testes](TESTING.md) e [Lighthouse](LIGHTHOUSE.md).
+
+## Verificação histórica da revisão de segurança
 
 - `pnpm check`: **106 testes unitários passaram**, TypeScript, lint sem erros e formatação válidos. Warnings de tamanho de função herdados continuam registrados no ledger.
 - `pnpm build`: passou.

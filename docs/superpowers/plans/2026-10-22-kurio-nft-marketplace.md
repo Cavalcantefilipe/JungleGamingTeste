@@ -8,7 +8,7 @@
 
 **Arquitetura:** SPA React 19 + TypeScript com TanStack Router (file-based, estado na URL), TanStack Query (estado remoto, invalidação, otimista) e Axios como único transporte. Toda a "API" vive em MSW 2.x no browser: handlers REST + servidor Socket.IO simulado via `@mswjs/socket.io-binding`, ambos lendo/escrevendo um único mock store persistido em `localStorage`, com cenários nomeados e reset total. Contratos zod compartilhados entre mocks, transporte e UI. Organização por feature.
 
-**Stack:** Vite 7, React 19, TypeScript 5.9, TanStack Router 1.170+, TanStack Query 5, Axios 1.20, MSW **2.15** (não 3.x), `@mswjs/socket.io-binding` 0.2, socket.io-client 4.8, Tailwind CSS 4, shadcn/ui (Radix), zod 4, react-hook-form 7, big.js, Playwright 1.64, `@axe-core/playwright`, Lighthouse CI 0.15, Vitest 5, pnpm 11, deploy Vercel.
+**Stack:** Vite 7, React 19, TypeScript 5.9, TanStack Router 1.170+, TanStack Query 5, Axios 1.20, MSW **2.15** (não 3.x), `@mswjs/socket.io-binding` 0.2, socket.io-client 4.8, Tailwind CSS 4, shadcn/ui (Radix), zod 4, react-hook-form 7, big.js, Playwright 1.64, `@axe-core/playwright`, Lighthouse 13.5 (CLI nativa após correção de dependências), Vitest 5, pnpm 11, deploy Vercel.
 
 **Spec:** `/Users/filipecavalcante/Documents/JungleGamingTeste/README.md` (enunciado do desafio; mover para `docs/CHALLENGE.md`). Figma (view-only, público): https://www.figma.com/design/Ff0SksUi7UFtPWUO8kyNtw/Frontend-Challenge?node-id=0-1
 
@@ -290,7 +290,7 @@ Instale como `.claude/rules/kurio.md` no repo e cite no `README.md`.
 
 - Figma: abrir o link no Chrome (view-only funciona sem login; a aba `Properties` mostra layout/cores/tipografia do nó selecionado; `cmd+click` seleciona o nó profundo; `shift+2` dá zoom na seleção; com nada selecionado, a aba lista todos os Text/Color styles e o popover "View color style" mostra o hex). Alternativas: `claude mcp add --transport http figma https://mcp.figma.com/mcp` + autenticação; ou token pessoal com `GET https://api.figma.com/v1/files/Ff0SksUi7UFtPWUO8kyNtw` (header `X-Figma-Token`).
 - Assets: exportar as imagens dos macacos e do hero do Figma (painel Export, PNG 2x) **com aprovação explícita do usuário para o download**; converter para AVIF/WebP com `sharp` em `scripts/optimize-images.mjs`. Fallback: arte SVG gerada proceduralmente em `fixtures/images.ts`, com a substituição registrada em `ARCHITECTURE.md`.
-- Playwright MCP / chrome-devtools MCP para inspeção visual e Lighthouse ad hoc; `@lhci/cli` para a auditoria oficial.
+- Playwright MCP / chrome-devtools MCP para inspeção visual e Lighthouse ad hoc; CLI nativa `lighthouse` 13.5.0 para a auditoria oficial; a migração posterior remove a cadeia vulnerável de `@lhci/cli` sem alterar perfis/metas.
 
 ## 6. Cronograma (2 dias) e linha de corte
 
@@ -569,14 +569,16 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 
 ### Task 17: Performance e Lighthouse
 
+> Atualização de 23/10: a CLI nativa Lighthouse 13.5.0 substitui LHCI 0.15.1 para resolver os dois advisories altos de desenvolvimento. O runner escreve HTML/JSON no filesystem, mantém três execuções por página/perfil, medianas e os mesmos limites. Histórico, condições e resultados em `docs/LIGHTHOUSE.md`.
+
 **Files:**
 
-- Create: `lighthouse/lighthouserc.desktop.json`, `lighthouse/lighthouserc.mobile.json`, `lighthouse/run.mjs` (executa LHCI nos 2 perfis contra `pnpm preview`, salva em `reports/lighthouse/<perfil>/<pagina>/`, imprime tabela de medianas), `docs/LIGHTHOUSE.md`, `scripts/optimize-images.mjs`
+- Create: `lighthouse/lighthouserc.desktop.json`, `lighthouse/lighthouserc.mobile.json`, `lighthouse/run.mjs` (executa Lighthouse nos 2 perfis contra `pnpm preview`, salva em `reports/lighthouse/<perfil>/<pagina>/`, imprime tabela de medianas), `docs/LIGHTHOUSE.md`, `scripts/optimize-images.mjs`
 - Modify: `index.html` (meta description, `lang="pt-BR"`, preload da fonte 400 e da imagem do hero com `fetchpriority="high"`), `vite.config.ts` (`autoCodeSplitting`, `build.target 'es2022'`), imagens (AVIF/WebP + width/height + `sizes`)
 
-- [x] **Passo 1:** `lighthouserc.*.json`: `collect.url` = `http://localhost:4173/` e `/nfts/<id fixo>`, `numberOfRuns: 3`, `settings.preset` (`desktop`) / mobile default, `upload.target: 'filesystem'`, `assert` com `aggregationMethod: 'median'` e os mínimos da seção Global Constraints.
+- [x] **Passo 1:** `lighthouserc.*.json`: `collect.url` = `http://localhost:4173/` e `/nfts/<id fixo>`, `numberOfRuns: 3`, `settings.preset` (`desktop`) / mobile default, runner nativo salvando no filesystem, `assert` com `aggregationMethod: 'median'` e os mínimos da seção Global Constraints.
 - [x] **Passo 2:** `pnpm lighthouse` → se abaixo da meta, atacar: LCP (hero AVIF ≤ 60 KB, preload), TBT (code split, excluir devtools do Query do build), CLS (dimensões), SEO (title/description/`robots.txt`/links com texto), Best Practices (sem erros de console; imagens em proporção).
-- [x] **Passo 3:** `docs/LIGHTHOUSE.md` com tabela de medianas por página/perfil, LCP/CLS/TBT, versões (`lighthouse`, `@lhci/cli`, Chrome, Node), ambiente e condições; justificar qualquer resultado abaixo da meta. Versionar HTML/JSON em `reports/lighthouse/`. Commit `perf: otimizações e auditoria lighthouse versionada`.
+- [x] **Passo 3:** `docs/LIGHTHOUSE.md` com tabela de medianas por página/perfil, LCP/CLS/TBT, versões (`lighthouse`, runner nativo, Chrome, Node), ambiente e condições; justificar qualquer resultado abaixo da meta. Versionar HTML/JSON em `reports/lighthouse/`. Commit `perf: otimizações e auditoria lighthouse versionada`.
 
 ### Task 18: Deploy (Vercel) e verificação publicada
 
@@ -597,16 +599,20 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 
 - [x] **Passo 1:** `README.md`: visão geral, stack, requisitos (Node 24, pnpm 11), setup (`pnpm i`; `mockServiceWorker.js` já versionado), variáveis, credenciais (`ana@kurio.test`/`bruno@kurio.test`, senha `Kurio!2026`), cupons, seleção de cenário (`?scenario=`, painel `?devtools=1`, `window.__kurio`), reset, comandos (`dev`, `build`, `preview`, `typecheck`, `lint`, `test`, `e2e`, `e2e:ui`, `lighthouse`, `check`), como reproduzir cada fluxo de falha (tabela cenário → passos → comportamento esperado), URL pública, estrutura de pastas.
 - [x] **Passo 2:** `ARCHITECTURE.md`: decisões (versões, MSW 2 vs 3, token em localStorage), contratos (link para `docs/CONTRACTS.md` com tabelas da seção 3.4 e exemplos JSON), política de sessão, estado do carrinho (guest/user/merge), cache/retries/invalidação (3.6), reconciliação REST × Socket (3.5), idempotência, limitações (transporte websocket-only, sem multi-aba, login social indisponível), decisões de UX e desvios do Figma (grid normalizado, backdrop, estados não desenhados, substituição de assets se houver), ajustes de acessibilidade (contraste de Text/Secondary sobre Surface Card — verificar ≥ 4.5:1; se não atingir, escurecer o fundo do card e registrar).
-- [ ] **Passo 3:** `code-reviewer` em todo o repositório; corrigir CRITICAL/HIGH. `pnpm check && pnpm e2e && pnpm lighthouse` verdes a partir de **checkout limpo** (`git clone` em pasta temporária → `pnpm i --frozen-lockfile` → tudo roda).
+- [x] **Passo 3:** `code-reviewer` em todo o repositório; corrigir CRITICAL/HIGH. `pnpm check && pnpm e2e && pnpm lighthouse` verdes a partir de **checkout limpo** (`git clone` em pasta temporária → `pnpm i --frozen-lockfile` → tudo roda). Checkpoint local final: `87e20f0`, check109+6, E2E210/10skips e Lighthouse12runs/exit0; histórico da revisão em `docs/FINAL-REVIEW.md`.
 - [ ] **Passo 4:** Commit `docs: README, ARCHITECTURE e documentação de contratos, mocks e testes`; push; confirmar que o deploy corresponde ao `HEAD`.
 
 ---
 
 ## Verificação final (checklist do executor antes de entregar)
 
-- [ ] Eliminatórios: stack toda em uso; fluxos funcionais; confirmação só após `order.updated`/`GET /orders` confirmado; Bruno nunca vê dados de Ana (testado); eventos passam pelo `socket.io-client` (nenhum `setQueryData` de tempo real fora de `applyRealtimeEvent`); `pnpm e2e` executável de checkout limpo.
-- [ ] 12 cenários de E2E do enunciado cobertos (specs 01–12) + visual (13) + layout (00), em desktop e mobile.
-- [ ] Figma: comparar lado a lado cada tela em 1440 e 390 (screenshots do Playwright vs. frames); tipografia Roboto Mono, cores exatas, espaçamentos 120/96/48/32/24.
-- [ ] Lighthouse medianas ≥ metas em `docs/LIGHTHOUSE.md`, relatórios versionados.
+- [x] Eliminatórios: stack toda em uso; fluxos funcionais; confirmação só após `order.updated`/`GET /orders` confirmado; Bruno nunca vê dados de Ana (testado); eventos passam pelo `socket.io-client` (nenhum `setQueryData` de tempo real fora de `applyRealtimeEvent`); `pnpm e2e` executável de checkout limpo.
+- [x] 12 cenários de E2E do enunciado cobertos (specs 01–12) + visual (13) + layout (00), em desktop e mobile.
+- [x] Figma: comparar lado a lado cada tela em 1440 e 390 (screenshots do Playwright vs. frames); tipografia Roboto Mono, cores exatas, espaçamentos 120/96/48/32/24.
+- [x] Lighthouse medianas ≥ metas em `docs/LIGHTHOUSE.md`, relatórios versionados.
 - [ ] Segurança: headers em produção, sem segredos, senhas com hash, 401/403 corretos, idempotência, validação dupla, `pnpm audit` sem vulnerabilidades altas.
 - [ ] Documentação completa e URL pública funcionando com refresh e acesso direto.
+
+### Checkpoint local de 23/10/2026
+
+Código de aplicação `8b314b1`; ferramenta de auditoria/limpeza final `87e20f0`. Clone com frozen install, check109+6, build, E2E210/10 skips e Lighthouse12runs/exit0. Medianas desktop99/99, mobile91/92; demais categorias100. Audits completo/de produção0. Conferência visual:15frames originais e18capturas, ajustes e diferenças documentados em `docs/DESIGN-REVIEW.md`. Task18 e push/validação de URL da Task19 continuam pendentes das ações autorizadas pelo usuário; o plano inteiro não está marcado como publicado.

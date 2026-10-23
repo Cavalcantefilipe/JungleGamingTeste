@@ -42,4 +42,8 @@ O campo de endereço é opcional no parser do pedido para ler tentativas antigas
 
 ## Limites restantes
 
-Não há backend/banco compartilhado nem pagamento real. Publicação e validação da URL pública estão pendentes. A medição Lighthouse disponível é a do commit `52bdb86` (mobile 89/88); não foi refeita para esta alteração de comportamento. Comparações visuais usam medidas do Figma e baselines da implementação com tolerância de 1%, sem garantia de igualdade absoluta. [Estimativa de avaliação](DELIVERY-ASSESSMENT.md).
+Não há backend/banco compartilhado nem pagamento real. Publicação e validação da URL pública estão pendentes. A medição histórica do commit `52bdb86` (mobile 89/88) foi substituída pela revisão posterior de performance; consulte [Lighthouse](LIGHTHOUSE.md) para o resultado vigente. Comparações visuais usam medidas do Figma e baselines da implementação com tolerância de 1%, sem garantia de igualdade absoluta. [Estimativa de avaliação](DELIVERY-ASSESSMENT.md).
+
+## Revalidação após os ajustes de performance/Figma
+
+A rodada completa posterior passou com **210 E2E/10 skips explícitos**, incluindo todos os casos de segurança, recuperação, concorrência e intenção da carteira. Os 109 unitários e seis testes Node de ferramentas passaram em `pnpm check`. Nenhuma regra de token, dono, preço ou confirmação foi retirada para melhorar desempenho. [Testes](TESTING.md) e [conferência visual](DESIGN-REVIEW.md).

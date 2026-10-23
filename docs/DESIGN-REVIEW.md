@@ -1,6 +1,6 @@
 # Conferência do Figma
 
-Fonte: [Frontend Challenge](https://www.figma.com/design/Ff0SksUi7UFtPWUO8kyNtw/Frontend-Challenge). Inspeção direta em 22/10/2026, painel Properties e canvas desktop/mobile.
+Fonte: [Frontend Challenge](https://www.figma.com/design/Ff0SksUi7UFtPWUO8kyNtw/Frontend-Challenge). Inspeção direta em 22–23/10/2026, painel Properties, canvas e exportação dos 15 frames desktop/mobile.
 
 ## Medidas verificadas
 
@@ -16,7 +16,7 @@ Fonte: [Frontend Challenge](https://www.figma.com/design/Ff0SksUi7UFtPWUO8kyNtw/
 | Detalhe          | galeria + resumo em duas colunas      | imagem, painel sobreposto, título 20 px |
 | Navegação mobile | —                                     | cinco ícones e ação central elevada     |
 
-A grade mobile tem duas colunas alinhadas, conforme a normalização prevista no plano. Áreas de toque continuam com pelo menos 44 px, mesmo onde o desenho apresenta controles menores.
+A revisão de 23/10 substituiu a normalização prevista no plano: a grade mobile agora preserva o desnível de 32 px da coluna direita do Figma. Skeleton e conteúdo compartilham essa geometria. Áreas de toque continuam com pelo menos 44 px, mesmo onde o desenho apresenta controles menores.
 
 ## Assets originais
 
@@ -39,7 +39,7 @@ Os quatro arquivos são reutilizados pelo próprio Figma. Derivados WebP/AVIF de
 
 ## Perfil e carteiras
 
-Conferidos os frames `Desktop / Perfil do Colecionador` (`9:1238`) e `Desktop / Carteiras` (`9:1670`): coluna lateral de 310 px, intervalo de 28 px, formulário em duas colunas, rótulos de 12 px e campos de 40 px. Em 390 px os campos têm 44 px, ficam em uma coluna e a navegação da conta aparece acima do conteúdo; o arquivo não fornece um frame mobile dessas páginas.
+Conferidos os frames `Desktop / Perfil do Colecionador` (`9:1238`) e `Desktop / Carteiras` (`9:1670`): coluna lateral de 310 px, intervalo de 28 px, formulário em duas colunas, rótulos de 14 px e campos de 40 px. Em 390 px os campos têm 44 px, ficam em uma coluna e a navegação da conta aparece acima do conteúdo; o arquivo não fornece um frame mobile dessas páginas.
 
 O perfil usa ações separadas “Salvar perfil” e “Alterar senha”, para cada resposta da API ter um resultado explícito. O avatar permite alterar e remover; a imagem válida é normalizada para WebP de até 512 px antes do envio, para caber no armazenamento da simulação.
 
@@ -61,7 +61,7 @@ A lixeira permanece como ação visível em cada item. Os controles de quantidad
 
 | Tela      | Referência conferida                                  | Ajustes desta revisão                                                                                                                                                    |
 | --------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Início    | `2:2`, `14:5226`                                      | Grade mobile alinhada; dados da última linha Golden revisados; assets da Home preservados.                                                                               |
+| Início    | `2:2`, `14:5226`                                      | Grade mobile com desnível de 32 px; dados da última linha Golden revisados; assets da Home preservados.                                                                  |
 | Detalhe   | `10:244`, Mobile / Detalhes do NFT                    | Galeria desktop 573 × 448, quatro miniaturas de 100 px, imagem de 404 px em suporte de 444 px e intervalo de 32 px para o resumo; preço de 24 px e edições com contorno. |
 | Carrinho  | Desktop / Carrinho de NFTs, Mobile / Carrinho de NFTs | Círculos, lixeira, legenda da taxa e gradiente original conforme seção acima.                                                                                            |
 | Login     | `9:115`, `16:1022`                                    | Painel desktop 500 × 600, fundo Card, abas e borda inferior; marca branca de 32 px apenas no mobile; botões sociais empilhados.                                          |
@@ -94,3 +94,32 @@ Mercado recebe a cor Primary, sublinhado e `aria-current` no detalhe, carrinho e
 O rodapé mantém a faixa desktop de236px; espaçamento vertical e line-height foram compactados para que o último link fique inteiro dentro do fundo. A captura anterior deixava8px fora da faixa. Alvos mobile de44px foram preservados.
 
 Oito baselines de Início/Detalhe/Carrinho/Pagamento estão em `e2e/__screenshots__/13-visual.spec.ts`, com relógio fixo, cenário padrão e fontes/assets carregados. Foram inspecionados contra as medidas/fontes/cores do Figma. Revisão automática complementa a referência; controles adicionais de cotação/conexão e estados simulados continuam como diferenças funcionais documentadas.
+
+## Conferência complementar de 23/10: os 15 frames
+
+Foram exportados do arquivo original os nove frames desktop (1440 px) e os seis mobile (414 × 896). A comparação usa estados reais da aplicação: visitante com carrinho, login/cadastro, conta autenticada, pagamento revisado e recibo confirmado. O relógio dos dados foi iniciado em 29/07/2026; compra, API e Socket.IO continuam funcionando normalmente. Capturas são feitas depois de carregar fontes/imagens, remover foco transitório e voltar ao topo. O [índice de evidências](../reports/design/README.md) identifica referência e implementação para cada tela.
+
+Ajustes confirmados nesta rodada:
+
+- Home: posição do texto do hero, espaçamento das abas, coluna mobile deslocada 32 px, margem dos nomes dos cards, selo RARO e coração visível de 28 px dentro de alvo de 44 px.
+- Carrinho: títulos/valores desktop de 16 px, cabeçalho do resumo de 18 px, coluna lateral de 332 px, valores de subtotal/taxa de 18 px e rótulos de 14 px. A legenda da taxa mantém 12/16 e a cor Accent já medida.
+- Login/cadastro: raio mobile do botão de 12 px e texto inferior de 14 px. Ícones sociais originais mantidos.
+- Perfil/carteiras/pagamento: labels e campos desktop de 14 px, navegação da conta de 14 px, cards mobile e indicadores de seleção legíveis. O resumo de pagamento tem cabeçalhos e linhas com fundo Card.
+- Detalhe: rótulo Qtd., botão mobile de 196 × 60 px e cesto circular de 60 px, cores compartilhadas do desenho. O desktop mantém a ação adicional de adicionar sem navegar.
+- Recibo: removido espaço extra criado pela descrição acessível, tipografia desktop dos metadados/itens ajustada e identidade da compra preservada no snapshot.
+
+**A conferência não declara igualdade absoluta de pixels.** As diferenças remanescentes foram identificadas:
+
+| Diferença                                                                                  | Tratamento                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Controles menores que 44 px no desenho; ícones e pontos do carrossel mais próximos.        | Áreas de toque de 44 px, foco e ícones Lucide preservados. Os três pontos não são aproximados sobre regiões clicáveis de outro botão.                         |
+| Frames usam imagens, ordem, edições, tokens e contas diferentes para o mesmo nome de NFT.  | Identidade e ordenação únicas da API, estoque válido e dados da conta autenticada; não mudar valores conforme a rota.                                         |
+| Carrinho mobile desenha subtotal 8,92/total 8,936, mas seus itens somam 8,14.              | Exibir 8,14 + 0,016 = 8,156 ETH. Desktop reproduz 26,83 + 0,016 = 26,846 ETH.                                                                                 |
+| Login social, páginas editoriais e itens auxiliares do menu.                               | Mostrar indisponibilidade explícita; textos editoriais e metadados são fixtures da API.                                                                       |
+| Login/cadastro mostram formulário sobre catálogo com conteúdos distintos em cada frame.    | Fundo mantém o catálogo canônico, overlay acessível e botão de fechar.                                                                                        |
+| Perfil desenha um único Salvar; checkout não mostra revisão/conexão/recuperação separadas. | Ações independentes e confirmação explícita continuam; são estados funcionais exigidos e têm testes.                                                          |
+| Detalhe apresenta textos longos e links sociais específicos no desenho.                    | Descrição e atributos vêm dos contratos, com abas e compartilhamento nativo/fallback. Não há reprodução literal dos parágrafos editoriais de todos os frames. |
+| Recibo desenhado em posição fixa e sem indicador de simulação.                             | Centralizado na viewport, rolável conforme quantidade e com marcador “simulado”; dados reais do pedido local.                                                 |
+| Perfil, carteiras e recibo sem referência mobile no arquivo.                               | Adaptação responsiva exercitada em 390 px; não existe frame equivalente para alegar igualdade.                                                                |
+
+Os oito baselines internos foram atualizados somente para as alterações acima e conferidos novamente pela suíte normal. Eles detectam regressão da implementação; não substituem os PNGs originais nem uma comparação manual.
