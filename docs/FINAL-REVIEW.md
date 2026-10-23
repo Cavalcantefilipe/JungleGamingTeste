@@ -23,10 +23,10 @@ Evidências novas: `src/features/realtime/catalog-reconciliation.test.ts` (três
 
 ## Limitações mantidas
 
-O detalhe mobile ficou em 88 no Lighthouse, abaixo de 90; assertions continuam falhando. Os dois advisories altos de desenvolvimento, o backend simulado e os testes em URL publicada pendentes permanecem explícitos. [Lighthouse](LIGHTHOUSE.md), [persistência/consultas](DATA-PERFORMANCE.md) e [segurança](SECURITY-REVIEW.md).
+No clone final, Home mobile ficou em 89 e detalhe em 88 no Lighthouse, abaixo de 90; assertions continuam falhando. Os dois advisories altos de desenvolvimento, o backend simulado e os testes em URL publicada pendentes permanecem explícitos. [Lighthouse](LIGHTHOUSE.md), [persistência/consultas](DATA-PERFORMANCE.md) e [segurança](SECURITY-REVIEW.md).
 
 A revisão recomendou corrigir os importantes antes da integração. A publicação só pode ser declarada concluída depois da autorização do repositório/push, login Vercel e verificações da URL pública exigidas por `CLAUDE.md`.
 
 ## Verificação do executor após a correção
 
-`pnpm check`: 106 unitários, tipos, lint sem erros e formatação passaram. Suíte Playwright: 203 passaram e 9 skips explícitos por viewport. A instalação/execução em clone limpo e a publicação são gates separados; não estão implícitos nesses resultados.
+`pnpm check`: 106 unitários, tipos, lint sem erros e formatação passaram. Suíte Playwright: 203 passaram e 9 skips explícitos por viewport. O clone limpo do commit 52bdb86 também passou instalação frozen, check, build e 203 E2E/9 skips. Lighthouse foi executado e conserva saída 1 para as duas medianas mobile. Publicação e verificações da URL continuam pendentes.

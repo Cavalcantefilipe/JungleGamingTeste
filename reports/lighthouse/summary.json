@@ -1,12 +1,12 @@
 {
-  "measuredAt": "2026-10-23T05:20:23.806Z",
+  "measuredAt": "2026-10-23T06:09:07.023Z",
   "environment": {
     "node": "v24.12.0",
     "platform": "darwin",
     "architecture": "arm64",
     "lighthouse": "12.6.1",
     "lhci": "0.15.1",
-    "buildHtmlSha256": "d854302430f45f97da816d77d693a1b34d24ae8c1466e34c48a077eacf9e395a",
+    "buildHtmlSha256": "05b6613b3658c7c9b043ee328c5f917802e0c3a712c23d0053cde14714aef623",
     "baseUrl": "http://localhost:4173"
   },
   "thresholds": {
@@ -24,7 +24,7 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "lcpMs": 919.3011999999999,
+      "lcpMs": 907.2295999999997,
       "cls": 0.01222547837197288,
       "tbtMs": 0,
       "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
@@ -37,7 +37,7 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "lcpMs": 839.27435,
+      "lcpMs": 871.9545000000002,
       "cls": 0.06232130050203203,
       "tbtMs": 0,
       "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
@@ -46,11 +46,11 @@
       "profile": "mobile",
       "page": "home",
       "runs": 3,
-      "performance": 91,
+      "performance": 89,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "lcpMs": 3517.5638,
+      "lcpMs": 3513.0988000000007,
       "cls": 0,
       "tbtMs": 0,
       "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
@@ -63,9 +63,9 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "lcpMs": 3802.8275749999993,
+      "lcpMs": 3879.6141999999995,
       "cls": 0,
-      "tbtMs": 4,
+      "tbtMs": 3,
       "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
     }
   ]

@@ -54,6 +54,7 @@
       "moderate": 0,
       "high": 2,
       "critical": 0
-    }
+    },
+    "registryLastPublishedExtractZip": "2.0.1"
   }
 }

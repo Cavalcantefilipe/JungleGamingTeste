@@ -100,6 +100,6 @@ reports          relatórios versionados de segurança/performance
 - [Figma e adaptações](docs/DESIGN-REVIEW.md), [testes](docs/TESTING.md), [Lighthouse](docs/LIGHTHOUSE.md).
 - [Falhas encontradas e corrigidas, BOLA/IDOR, XSS e OWASP](docs/SECURITY-REVIEW.md) e [revisão final](docs/FINAL-REVIEW.md).
 
-Performance do detalhe mobile ainda está abaixo de 90 no Lighthouse (88; Home mobile 91); o comando retorna falha e os relatórios preservam os resultados. Existem dois advisories altos de desenvolvimento em `extract-zip`, sem correção publicada no registro consultado; produção teve zero advisories na revisão. Não há banco real para certificar otimização SQL.
+Performance mobile ainda está abaixo de 90 no Lighthouse (Home 89; detalhe 88 no clone final); o comando retorna falha e os relatórios preservam os resultados. Existem dois advisories altos de desenvolvimento em `extract-zip`, sem correção publicada no registro consultado; produção teve zero advisories na revisão. Não há banco real para certificar otimização SQL.
 
 **URL pública: pendente.** `vercel.json` e `.vercelignore` estão preparados. A criação/push do repositório depende da autorização prevista em `CLAUDE.md`, e o login/importação no Vercel depende do usuário. Ainda não foram verificados headers, refresh nem Lighthouse em URL publicada.

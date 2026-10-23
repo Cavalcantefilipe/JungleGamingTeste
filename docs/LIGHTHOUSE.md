@@ -1,17 +1,17 @@
 # Lighthouse e desempenho
 
-Medição: 2026-10-23T05:20:23.806Z. Build de produção local, cenário default, perfil limpo por execução, três execuções por página/perfil e mediana por métrica. Sem outros testes ou builds simultâneos. Não representa medição em celular físico nem produção publicada.
+Medição final em clone limpo do commit `52bdb86`: 2026-10-23T06:09:07.023Z. Build de produção local, cenário default, perfil limpo por execução, três execuções por página/perfil e mediana por métrica. Sem outros testes ou builds simultâneos. Não representa medição em celular físico nem produção publicada.
 
 ## Resultados
 
 | Perfil  | Página | Performance | Acessibilidade | Boas práticas | SEO |     LCP |    CLS |  TBT |
 | ------- | ------ | ----------: | -------------: | ------------: | --: | ------: | -----: | ---: |
-| desktop | home   |          99 |            100 |           100 | 100 |  919 ms | 0.0122 | 0 ms |
-| desktop | detail |          99 |            100 |           100 | 100 |  839 ms | 0.0623 | 0 ms |
-| mobile  | home   |          91 |            100 |           100 | 100 | 3518 ms | 0.0000 | 0 ms |
-| mobile  | detail |          88 |            100 |           100 | 100 | 3803 ms | 0.0000 | 4 ms |
+| desktop | home   |          99 |            100 |           100 | 100 |  907 ms | 0.0122 | 0 ms |
+| desktop | detail |          99 |            100 |           100 | 100 |  872 ms | 0.0623 | 0 ms |
+| mobile  | home   |          89 |            100 |           100 | 100 | 3513 ms | 0.0000 | 0 ms |
+| mobile  | detail |          88 |            100 |           100 | 100 | 3880 ms | 0.0000 | 3 ms |
 
-Metas: Performance ≥90, Acessibilidade ≥95, Boas práticas ≥95, SEO ≥90. **Performance do detalhe mobile não atingiu a meta (88).** Home mobile atingiu 91. O comando mantém as assertions e termina com código 1 para o detalhe; nenhum limite foi reduzido. As demais categorias passaram.
+Metas: Performance ≥90, Acessibilidade ≥95, Boas práticas ≥95, SEO ≥90. **Performance mobile ficou abaixo da meta: Home 89 e detalhe 88.** O comando conserva as assertions e termina com código 1 para essas páginas; nenhum limite foi reduzido. As demais categorias passaram.
 
 ## O que foi feito
 
@@ -24,9 +24,9 @@ Metas: Performance ≥90, Acessibilidade ≥95, Boas práticas ≥95, SEO ≥90.
 
 ## Pendência mobile e tentativas rejeitadas
 
-O baseline anterior mediu Performance 89 nas duas páginas mobile, LCP de aproximadamente 3358/3488ms e TBT 0. A versão atual mede 91 na Home e 88 no detalhe: o feedback inicial melhorou a pontuação da Home, mas **não há melhora comprovada do detalhe mobile em relação ao baseline**. As melhorias de imagem, acessibilidade e CSP têm evidências independentes. O resultado não foi descrito como aprovação completa de performance.
+O baseline anterior mediu Performance 89 nas duas páginas mobile, LCP de aproximadamente 3358/3488ms e TBT 0. A auditoria antes da revisão final chegou a 91 na Home e 88 no detalhe; o clone final após as correções mediu 89/88. Portanto, **não há ganho consistente comprovado da performance mobile em relação ao baseline**. As melhorias de feedback inicial, imagem, acessibilidade e CSP têm evidências independentes. Os relatórios versionados são os do clone final, e não os melhores resultados escolhidos entre sondagens.
 
-A inicialização inclui React, Query/Router, contratos e um backend MSW inteiro no navegador, registro do service worker e primeira resposta simulada. Os relatórios mostram LCP acima da meta com TBT praticamente zero e CLS zero no mobile; o caminho de carga e renderização inicial continua sendo a pendência. Esse desenho é exigido pela demonstração, mas isso não elimina o requisito de desempenho.
+A inicialização inclui React, Query/Router, contratos e um backend MSW inteiro no navegador, registro do service worker e primeira resposta simulada. Os relatórios mostram LCP acima da meta com TBT praticamente zero e CLS zero no mobile; o caminho de carga e renderização inicial continua sendo a pendência. Esse desenho é exigido pela demonstração, mas isso não elimina a meta de desempenho. O build final inclui chunks de aproximadamente 108KB gzip para o backend MSW, 65KB para o renderer e 76KB compartilhados pela interface/Query/Router, além de validação e demais módulos. A árvore de dependências dos relatórios liga essa inicialização às primeiras consultas e à renderização da imagem. Essa é a causa inferida do atraso inicial; não é uma medição de lentidão SQL, pois não há SQL.
 
 Antecipar amplamente os módulos, carregar o renderer estaticamente e separar abas/recomendações do detalhe pioraram as sondagens, por isso essas variações foram removidas. O renderer atual carrega em paralelo aos providers/mocks; isso exige o transporte Socket.IO isolado após a montagem. Não foram desligados throttling, mocks, Socket.IO, validação ou medidas de segurança para melhorar a pontuação. Uma próxima intervenção deve comparar o caminho crítico e a distribuição dos chunks com a mesma coleta de três execuções. O resultado publicado ainda precisa ser medido; CDN, compressão e HTTP/2 podem alterar os tempos, sem garantia de aprovação.
 
@@ -39,3 +39,7 @@ Execute pnpm build e depois pnpm lighthouse, com a porta 4173 livre. O script in
 Ambiente: Node v24.12.0, Lighthouse 12.6.1, LHCI 0.15.1, Chrome 156, darwin/arm64. Mobile usa o perfil padrão simulado do Lighthouse; desktop usa preset desktop. Métricas são medianas independentes e não precisam pertencer ao mesmo run.
 
 [Consultas e persistência](DATA-PERFORMANCE.md) e [segurança](SECURITY-REVIEW.md) têm resultados separados. Os dois advisories dev de extract-zip continuam registrados, sem esconder a falha do audit completo.
+
+## Verificação do clone
+
+Clone novo de `52bdb86cd91562a26530e69a1cbd66db67256ce3`, instalação com `--frozen-lockfile`, `pnpm check` (106 unitários), build e `CI=true pnpm e2e` (203 aprovados/9 skips) passaram. O preview de teste foi iniciado no diretório do clone, sem reutilizar o servidor do worktree. Lighthouse executou as doze medições e retornou 1 pelas duas medianas mobile. Nenhum arquivo de código foi alterado pelos comandos; apenas os relatórios gerados mudaram. O hash do HTML auditado está em summary.json.

@@ -57,3 +57,7 @@ Relatório HTML em `reports/playwright-report` e traces/screenshots de falha em 
 ## Resultado da revisão final local
 
 Depois da rodada única de correção: `pnpm check` com 106 unitários em 27 arquivos, build válido e Playwright com 203 aprovados/9 skips explícitos. O teste de teclado aguarda o conteúdo autoritativo da página 2 antes de navegar pelos novos cards: a URL muda antes dos dados por causa de keepPreviousData. Nenhuma espera fixa ou retry automático foi adicionado para encobrir falhas.
+
+## Clone limpo verificado
+
+Em 23/10/2026, um novo clone de `52bdb86cd91562a26530e69a1cbd66db67256ce3` passou `pnpm install --frozen-lockfile`, `pnpm check` (106), `pnpm build` e `CI=true pnpm e2e` (203/9 skips). A porta 4175 foi servida pelo próprio clone, com reuse desativado; o preview anterior foi restaurado ao terminar. `pnpm lighthouse` executou 12 auditorias e retornou 1 para Performance mobile 89/88, com as outras categorias em 100. Veja [LIGHTHOUSE.md](LIGHTHOUSE.md) para a limitação quantitativa; essa etapa não foi registrada como Lighthouse verde.
