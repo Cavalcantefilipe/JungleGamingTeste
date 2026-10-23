@@ -26,7 +26,7 @@ export function FooterLinks() {
   return (
     <div
       data-testid="footer-links"
-      className="grid grid-cols-2 gap-8 bg-surface-card p-8 md:grid-cols-4 xl:h-[236px] xl:gap-4 xl:py-6"
+      className="grid grid-cols-1 gap-8 bg-surface-card p-8 min-[390px]:grid-cols-2 md:grid-cols-4 xl:h-[236px] xl:gap-4 xl:py-6"
     >
       <div className="footer-links">
         <h2>Meu perfil</h2>

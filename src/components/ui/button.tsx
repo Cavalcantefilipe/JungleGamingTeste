@@ -18,7 +18,7 @@ const buttonVariants = cva(
         'quantity-cart':
           'relative rounded-full text-foreground before:pointer-events-none before:absolute before:size-6 before:rounded-full before:border before:border-border before:bg-surface-raised hover:before:bg-border-soft active:before:bg-border',
         remove:
-          'rounded-full text-primary hover:bg-surface-raised hover:text-primary-light active:bg-border active:text-primary-dark',
+          'rounded-full text-primary md:text-secondary hover:bg-surface-raised hover:text-primary-light active:bg-border active:text-primary-dark',
         edition:
           'rounded-full border border-border bg-transparent text-text-secondary hover:border-primary-light active:bg-surface-raised aria-pressed:border-primary aria-pressed:text-text-accent',
         basket:

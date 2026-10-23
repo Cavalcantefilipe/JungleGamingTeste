@@ -13,7 +13,7 @@ export function HeroSection({ items, loading = false }: { items: Nft[]; loading?
   return (
     <section
       data-testid="home-hero"
-      className="relative mb-0 h-[190px] overflow-hidden rounded-xl bg-transparent p-4 md:mb-24 md:grid md:h-[450px] md:grid-cols-[minmax(0,1fr)_40%] md:items-center md:overflow-visible md:rounded-none md:bg-transparent md:p-0 md:pl-10 xl:grid-cols-[minmax(0,1fr)_450px]"
+      className="relative mb-0 min-h-[190px] rounded-xl bg-transparent px-4 pt-4 pb-0 md:mb-24 md:grid md:h-[450px] md:grid-cols-[minmax(0,1fr)_40%] md:items-center md:overflow-visible md:rounded-none md:bg-transparent md:p-0 md:pl-10 xl:grid-cols-[minmax(0,1fr)_450px]"
     >
       <img
         src="/images/ui/mobile-hero-background.svg"
@@ -37,23 +37,23 @@ export function HeroSection({ items, loading = false }: { items: Nft[]; loading?
             width={450}
             height={450}
             fetchPriority="high"
-            className="aspect-square w-full rounded-xl object-cover md:rounded-3xl"
+            className="aspect-square w-full rounded-2xl object-cover md:rounded-3xl"
           />
         ) : (
           <div className="aspect-square rounded-xl bg-surface-raised md:rounded-3xl" />
         )}
         {featured[1] && (
           <ArtworkImage
-            sizes="60px"
+            sizes="58px"
             src={featured[1].images[0]?.src}
             alt=""
-            width={60}
-            height={60}
-            className="absolute -bottom-2 left-4 size-[60px] rounded-xl border-4 border-surface-dark object-cover md:hidden"
+            width={58}
+            height={58}
+            className="absolute -bottom-2 left-3.5 size-[58px] rounded-2xl object-cover md:hidden"
           />
         )}
       </div>
-      <div className="absolute bottom-0 left-1/2 flex -translate-x-1/2 md:bottom-10 md:left-[64%] md:gap-2 lg:left-[60%] xl:left-[56%]">
+      <div className="absolute right-0 bottom-0 flex min-[390px]:right-auto min-[390px]:left-1/2 min-[390px]:-translate-x-1/2 md:bottom-10 md:left-[64%] md:gap-2 lg:left-[60%] xl:left-[56%]">
         {featured.map((item, index) => (
           <button
             key={item.id}

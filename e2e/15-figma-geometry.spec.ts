@@ -75,7 +75,7 @@ test('controles e resumo do carrinho seguem cores e formas medidas no Figma', as
   expect(circle.radius).toBeGreaterThanOrEqual(12);
   await expect(row.getByRole('button', { name: 'Remover Emerald Ape #042' })).toHaveCSS(
     'color',
-    'rgb(210, 138, 76)',
+    isMobile ? 'rgb(210, 138, 76)' : 'rgb(179, 148, 99)',
   );
   const caption = page.getByText('Taxa estimada', { exact: true });
   await expect(caption).toHaveCSS('font-size', '12px');

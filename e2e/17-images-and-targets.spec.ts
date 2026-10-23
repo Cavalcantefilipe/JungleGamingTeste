@@ -63,3 +63,39 @@ test('HTML inicial oferece feedback antes de carregar o JavaScript', async ({ pa
   await expect(page.getByTestId('home-hero')).toBeVisible();
   await expect(page.getByRole('status', { name: 'Carregando Kurio', exact: true })).toHaveCount(0);
 });
+
+test('imagens editoriais mantêm o enquadramento e cards não ampliam no hover', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByTestId('nft-grid').getByRole('article')).toHaveCount(9);
+  const firstArtwork = page.getByTestId('nft-grid').getByRole('img').first();
+  const before = await firstArtwork.boundingBox();
+  await firstArtwork.hover();
+  await expect(firstArtwork).toHaveCSS('transform', 'none');
+  const after = await firstArtwork.boundingBox();
+  expect(after?.width).toBe(before?.width);
+  expect(after?.height).toBe(before?.height);
+  const heading = page.getByRole('heading', { name: 'Diário da Cunhagem', exact: true });
+  const journal = heading.locator('..').locator('..');
+  const photo = journal.getByRole('img').first();
+  await photo.scrollIntoViewIfNeeded();
+  const box = await photo.boundingBox();
+  expect(box && box.width / box.height).toBeCloseTo(268 / 195, 2);
+});
+
+test('ícones originais carregam sob a política de conteúdo da aplicação', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByTestId('nft-grid').getByRole('article')).toHaveCount(9);
+  const icons = page
+    .locator('svg:has(use[href^="/images/ui/figma-icons.svg#"])')
+    .filter({ visible: true });
+  expect(await icons.count()).toBeGreaterThan(5);
+  for (const icon of await icons.all()) {
+    await expect
+      .poll(() =>
+        icon.evaluate((element) =>
+          element instanceof SVGGraphicsElement ? element.getBBox().width : 0,
+        ),
+      )
+      .toBeGreaterThan(0);
+  }
+});

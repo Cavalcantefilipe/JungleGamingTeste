@@ -1,25 +1,16 @@
 import { Link } from '@tanstack/react-router';
-import {
-  Activity,
-  Download,
-  HandCoins,
-  Heart,
-  LifeBuoy,
-  LogOut,
-  UserRound,
-  Wallet,
-} from 'lucide-react';
 import { toast } from 'sonner';
 
+import { FigmaIcon, type FigmaIconName } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
 import { useLogout } from '@/features/auth/mutations';
 
-const unavailable = [
-  { label: 'Atividade', icon: Activity },
-  { label: 'Lista de interesse', icon: Heart },
-  { label: 'Ofertas', icon: HandCoins },
-  { label: 'Arquivos baixados', icon: Download },
-  { label: 'Suporte', icon: LifeBuoy },
+const unavailable: { label: string; icon: FigmaIconName }[] = [
+  { label: 'Atividade', icon: 'activity' },
+  { label: 'Lista de interesse', icon: 'heart' },
+  { label: 'Ofertas', icon: 'cart' },
+  { label: 'Arquivos baixados', icon: 'download' },
+  { label: 'Suporte', icon: 'warning' },
 ];
 export function AccountSidebar() {
   const logout = useLogout();
@@ -33,7 +24,7 @@ export function AccountSidebar() {
           activeProps={{ className: 'border-primary text-primary' }}
           inactiveProps={{ className: 'border-transparent text-text-secondary' }}
         >
-          <UserRound aria-hidden="true" size={16} />
+          <FigmaIcon name="user" aria-hidden="true" size={16} />
           Dados do perfil
         </Link>
         <Link
@@ -42,17 +33,17 @@ export function AccountSidebar() {
           activeProps={{ className: 'border-primary text-primary' }}
           inactiveProps={{ className: 'border-transparent text-text-secondary' }}
         >
-          <Wallet aria-hidden="true" size={16} />
+          <FigmaIcon name="location" aria-hidden="true" size={16} />
           Carteiras
         </Link>
-        {unavailable.map(({ label, icon: Icon }) => (
+        {unavailable.map(({ label, icon }) => (
           <Button
             key={label}
             variant="ghost"
             className="hidden justify-start rounded-none px-4 text-sm font-normal text-text-secondary md:flex md:min-h-[45px]"
             onClick={() => toast.info('Conteúdo indisponível nesta demonstração')}
           >
-            <Icon aria-hidden="true" size={16} />
+            <FigmaIcon name={icon} size={18} />
             {label}
           </Button>
         ))}
@@ -64,7 +55,7 @@ export function AccountSidebar() {
             logout.mutate();
           }}
         >
-          <LogOut aria-hidden="true" size={16} />
+          <FigmaIcon name="logout" aria-hidden="true" size={16} />
           Sair
         </Button>
       </nav>

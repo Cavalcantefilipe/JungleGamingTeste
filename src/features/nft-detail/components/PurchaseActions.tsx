@@ -1,5 +1,4 @@
-import { ShoppingCart } from 'lucide-react';
-
+import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
 
 export function PurchaseActions({
@@ -31,7 +30,7 @@ export function PurchaseActions({
         disabled={pending || disabled}
         onClick={add}
       >
-        <ShoppingCart aria-hidden="true" size={18} />
+        <FigmaIcon name="cart-solid" aria-hidden="true" size={20} />
       </Button>
     </>
   );

@@ -44,7 +44,7 @@ export function OrderReceiptModal({ order }: { order: Order }) {
             propriedade foi transferida para sua carteira conectada e registrada na rede simulada.
           </p>
           <div className="mt-5 text-center">
-            <Button asChild>
+            <Button asChild className="max-w-full whitespace-normal">
               <a href={order.explorerUrl} target="_blank" rel="noopener noreferrer">
                 Ver no Etherscan (simulado)
               </a>

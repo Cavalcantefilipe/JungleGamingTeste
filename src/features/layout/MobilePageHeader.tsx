@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router';
-import { ArrowLeft } from 'lucide-react';
 
+import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/cn';
 
@@ -22,7 +22,7 @@ export function MobilePageHeader({
     >
       <Button asChild size="icon" variant="secondary" className="absolute left-0 rounded-full">
         <Link to={backTo} aria-label="Voltar">
-          <ArrowLeft aria-hidden="true" />
+          <FigmaIcon name="chevron-left" aria-hidden="true" />
         </Link>
       </Button>
       <h1

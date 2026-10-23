@@ -25,6 +25,7 @@ export default defineConfig([
     'dist',
     'node_modules',
     'reports',
+    'test-results',
     'public',
     '.superpowers',
     'src/routeTree.gen.ts',

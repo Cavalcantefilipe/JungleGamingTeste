@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router';
-import { ArrowLeft, Share2 } from 'lucide-react';
+import { Share2 } from 'lucide-react';
 
+import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
 import { type Nft } from '@/contracts/nft';
 import { FavoriteButton } from '@/features/favorites/components/FavoriteButton';
@@ -19,7 +20,7 @@ export function NftDetailPage({ nft }: { nft: Nft }) {
       <div className="mb-2 flex items-center justify-between md:hidden">
         <Button asChild variant="secondary" size="icon" className="rounded-full">
           <Link to="/" aria-label="Voltar para o catálogo">
-            <ArrowLeft aria-hidden="true" />
+            <FigmaIcon name="chevron-left" aria-hidden="true" />
           </Link>
         </Button>
         <FavoriteButton

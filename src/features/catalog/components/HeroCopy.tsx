@@ -1,10 +1,9 @@
-import { ArrowRight } from 'lucide-react';
-
+import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
 
 export function HeroCopy() {
   return (
-    <div className="relative z-10 -mt-2 w-[58%] max-w-[190px] space-y-1 md:mt-10 md:w-full md:max-w-[600px] md:space-y-1 md:self-start">
+    <div className="pointer-events-none relative z-10 -mt-2 w-[58%] max-w-[190px] space-y-1 md:mt-10 md:w-full md:max-w-[600px] md:space-y-1 md:self-start">
       <p className="text-[11px] leading-4 text-foreground md:text-sm md:leading-6 md:font-medium md:tracking-[0.1em]">
         Bem-vindo à Kurio
       </p>
@@ -25,15 +24,17 @@ export function HeroCopy() {
       </p>
       <div className="hidden pt-7 md:block">
         <Button asChild className="w-[140px] px-0">
-          <a href="#catalogo">EXPLORAR</a>
+          <a href="#catalogo" className="pointer-events-auto">
+            EXPLORAR
+          </a>
         </Button>
       </div>
       <a
         href="#catalogo"
-        className="absolute top-[122px] left-0 inline-flex min-h-11 items-center gap-2 text-xs font-bold text-primary hover:text-primary-light md:hidden"
+        className="pointer-events-auto -mt-0.5 flex min-h-11 w-fit items-start gap-2 pt-1 text-xs font-bold text-primary hover:text-primary-light md:hidden"
       >
         EXPLORAR
-        <ArrowRight size={14} aria-hidden="true" />
+        <FigmaIcon name="arrow-right" size={14} aria-hidden="true" />
       </a>
     </div>
   );

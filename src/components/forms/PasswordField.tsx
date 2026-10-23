@@ -1,7 +1,8 @@
-import { Eye, EyeOff } from 'lucide-react';
+import { Eye } from 'lucide-react';
 import { useState } from 'react';
 import { useFormContext, type FieldPath, type FieldValues } from 'react-hook-form';
 
+import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
@@ -49,7 +50,7 @@ export function PasswordField<T extends FieldValues>({
                 setVisible(!visible);
               }}
             >
-              {visible ? <Eye /> : <EyeOff />}
+              {visible ? <Eye /> : <FigmaIcon name="hide" />}
             </Button>
           </div>
           <FormMessage />

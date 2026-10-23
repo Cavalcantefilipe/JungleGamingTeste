@@ -1,5 +1,4 @@
-import { Search } from 'lucide-react';
-
+import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Input } from '@/components/ui/input';
 import type { NftFacets } from '@/contracts/nft';
 import type { CatalogSearch } from '@/features/catalog/search-params';
@@ -20,7 +19,8 @@ export function MobileCatalogSearch({
   return (
     <div className="mb-4 flex items-center gap-2 md:hidden">
       <div className="relative min-w-0 flex-1">
-        <Search
+        <FigmaIcon
+          name="search-curved"
           aria-hidden="true"
           size={18}
           className="pointer-events-none absolute top-3 left-3 text-text-secondary"

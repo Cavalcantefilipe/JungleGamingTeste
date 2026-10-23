@@ -1,6 +1,6 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useRef } from 'react';
 
+import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
 import type { Nft } from '@/contracts/nft';
 import { NftCard } from '@/features/catalog/components/NftCard';
@@ -28,10 +28,10 @@ export function RelatedCarousel({ nft }: { nft: Nft }) {
             aria-label="NFTs anteriores"
             onClick={() => scroll(-1)}
           >
-            <ChevronLeft aria-hidden="true" />
+            <FigmaIcon name="chevron-left" aria-hidden="true" />
           </Button>
           <Button variant="ghost" size="icon" aria-label="Próximos NFTs" onClick={() => scroll(1)}>
-            <ChevronRight aria-hidden="true" />
+            <FigmaIcon name="chevron-right" aria-hidden="true" />
           </Button>
         </div>
       </div>

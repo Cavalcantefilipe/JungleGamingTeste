@@ -29,12 +29,12 @@ export function OrderReview({ quote, loading }: { quote: Quote | undefined; load
                   className="size-[70px] rounded-control object-cover"
                 />
                 <div className="min-w-0 flex-1 text-sm">
-                  <strong className="block truncate text-base">{item.name}</strong>
+                  <strong className="block text-base wrap-anywhere">{item.name}</strong>
                   <span className="text-text-secondary">
                     Edição {item.editionLabel} · {item.quantity} un.
                   </span>
                 </div>
-                <span className="text-lg font-bold text-text-accent">
+                <span className="shrink-0 text-lg font-bold text-text-accent">
                   {formatEth(item.lineTotal)}
                 </span>
               </li>

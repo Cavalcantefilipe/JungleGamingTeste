@@ -1,5 +1,4 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-
+import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
 
 export function Pagination({
@@ -26,7 +25,7 @@ export function Pagination({
         }}
         disabled={page === 1}
       >
-        <ChevronLeft aria-hidden="true" />
+        <FigmaIcon name="chevron-left" aria-hidden="true" />
       </Button>
       {Array.from({ length: totalPages }, (_, index) => index + 1).map((number) => (
         <Button
@@ -51,7 +50,7 @@ export function Pagination({
         }}
         disabled={page >= totalPages}
       >
-        <ChevronRight aria-hidden="true" />
+        <FigmaIcon name="chevron-right" aria-hidden="true" />
       </Button>
     </nav>
   );

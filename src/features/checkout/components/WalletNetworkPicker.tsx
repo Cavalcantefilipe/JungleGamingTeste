@@ -37,7 +37,7 @@ export function WalletNetworkPicker({
               select(wallet);
             }}
             className={cn(
-              'h-auto min-h-20 w-full justify-start rounded-[14px] border-transparent bg-surface-card p-4 text-left text-sm font-normal',
+              'h-auto min-h-20 w-full justify-start rounded-[14px] border-transparent bg-surface-card p-4 text-left text-sm font-normal whitespace-normal',
               wallet.id === selected.id && 'border-primary',
             )}
           >
@@ -48,9 +48,9 @@ export function WalletNetworkPicker({
                 <Circle className="size-4" />
               )}
             </span>
-            <span className="grid min-w-0 gap-1">
+            <span className="grid min-w-0 gap-1 wrap-anywhere">
               <strong className="text-base">{wallet.walletNickname}</strong>
-              <span className="truncate">
+              <span className="wrap-anywhere">
                 {wallet.ensName ? `${wallet.ensName}.eth` : wallet.address}
               </span>
               <span className="text-text-secondary">Rede {NFT_NETWORK_LABELS[wallet.network]}</span>

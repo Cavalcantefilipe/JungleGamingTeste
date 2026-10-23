@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router';
-import { Trash2 } from 'lucide-react';
 
+import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { ArtworkImage } from '@/components/media/ArtworkImage';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -32,7 +32,7 @@ export function CartItemRow({
   return (
     <tr
       data-testid="cart-item"
-      className="relative block h-[100px] overflow-hidden rounded-[14px] bg-surface-card md:table-row md:h-auto"
+      className="relative block min-h-[100px] rounded-[14px] bg-surface-card md:table-row md:h-auto"
     >
       <td className="block md:table-cell md:pr-4">
         <Link
@@ -48,8 +48,8 @@ export function CartItemRow({
             height={100}
             className="size-[100px] shrink-0 rounded-l-[14px] object-cover md:size-[72px] md:rounded-lg"
           />
-          <div className="min-w-0 pt-[13px] pr-10 md:py-2 md:pr-0">
-            <h2 className="truncate text-[15px] leading-4 font-bold md:text-base">
+          <div className="min-w-0 pt-[13px] pr-11 pb-3 min-[390px]:pb-10 md:py-2 md:pr-0">
+            <h2 className="text-[15px] leading-4 font-bold wrap-anywhere md:text-base">
               {item.snapshot.name}
             </h2>
             <p className="mt-[6px] text-sm leading-4 text-text-secondary md:hidden">
@@ -64,7 +64,7 @@ export function CartItemRow({
       <td className="hidden whitespace-nowrap md:table-cell md:px-2">
         <span className="text-base font-bold text-text-secondary">{formatEth(item.unitPrice)}</span>
       </td>
-      <td className="absolute right-1 bottom-2 md:static md:table-cell md:px-2">
+      <td className="ml-auto flex w-fit pr-1 pb-2 min-[390px]:absolute min-[390px]:right-1 min-[390px]:bottom-2 min-[390px]:p-0 md:static md:table-cell md:px-2">
         <QuantityStepper
           tone="cart"
           value={item.quantity}
@@ -73,7 +73,7 @@ export function CartItemRow({
           disabled={busy || !nft}
         />
       </td>
-      <td className="absolute top-[69px] left-[109px] whitespace-nowrap md:static md:table-cell md:px-2">
+      <td className="absolute bottom-[18px] left-3 whitespace-nowrap min-[390px]:left-[109px] md:static md:table-cell md:px-2">
         <div
           className={cn(
             'text-[18px] leading-4 font-bold text-text-accent md:text-base',
@@ -91,7 +91,7 @@ export function CartItemRow({
           disabled={busy}
           onClick={remove}
         >
-          <Trash2 aria-hidden="true" size={16} />
+          <FigmaIcon name="delete" aria-hidden="true" size={24} />
         </Button>
       </td>
     </tr>

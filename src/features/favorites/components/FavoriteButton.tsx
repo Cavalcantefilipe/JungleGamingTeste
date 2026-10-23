@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useNavigate, useRouterState } from '@tanstack/react-router';
-import { Heart } from 'lucide-react';
 
+import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
 import { useSession } from '@/features/auth/session-store';
 import { cn } from '@/lib/cn';
@@ -42,13 +42,13 @@ export function FavoriteButton({
         mutation.mutate(nftId);
       }}
       className={cn(
-        'text-foreground hover:text-primary',
+        'text-text-accent hover:text-primary',
         selected && 'text-primary',
         showLabel && 'rounded-control bg-transparent px-3 text-xs text-text-accent',
         className,
       )}
     >
-      <Heart aria-hidden="true" size={18} className={cn(selected && 'fill-current')} />
+      <FigmaIcon name={selected ? 'heart-solid' : 'heart'} size={18} />
       {showLabel && 'Favoritar'}
     </Button>
   );

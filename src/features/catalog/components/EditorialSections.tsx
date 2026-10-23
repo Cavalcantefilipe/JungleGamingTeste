@@ -1,6 +1,6 @@
-import { ArrowRight } from 'lucide-react';
 import { toast } from 'sonner';
 
+import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { ArtworkImage } from '@/components/media/ArtworkImage';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -21,23 +21,23 @@ export function EditorialSections() {
         {query.data.promotions.map((promotion) => (
           <article
             key={promotion.title}
-            className="grid min-h-56 grid-cols-2 items-center overflow-hidden rounded-xl bg-surface-raised"
+            className="grid min-h-56 grid-cols-1 items-center overflow-hidden rounded-xl bg-surface-raised sm:grid-cols-2 xl:h-[250px]"
           >
             <ArtworkImage
-              sizes="(min-width: 768px) 25vw, 50vw"
+              sizes="(min-width: 1280px) 292px, (min-width: 768px) 25vw, (min-width: 640px) 50vw, calc(100vw - 48px)"
               src={promotion.image.src}
               alt={promotion.image.alt}
-              width={260}
-              height={260}
+              width={292}
+              height={250}
               loading="lazy"
-              className="h-full w-full object-cover"
+              className="aspect-[292/250] w-full object-cover xl:h-full"
             />
             <div className="space-y-4 p-4 sm:p-6">
-              <h2 className="text-sm font-bold sm:text-title">{promotion.title}</h2>
+              <h2 className="text-sm font-bold xl:text-lg">{promotion.title}</h2>
               <p className="text-xs leading-5 text-text-secondary">{promotion.description}</p>
               <Button asChild size="sm">
                 <a href="#catalogo">
-                  Explorar <ArrowRight aria-hidden="true" size={16} />
+                  Explorar <FigmaIcon name="arrow-right" aria-hidden="true" size={16} />
                 </a>
               </Button>
             </div>
@@ -58,10 +58,10 @@ export function EditorialSections() {
                 sizes="(min-width: 1280px) 280px, (min-width: 640px) 50vw, calc(100vw - 48px)"
                 src={article.image.src}
                 alt={article.image.alt}
-                width={280}
-                height={180}
+                width={268}
+                height={195}
                 loading="lazy"
-                className="aspect-[1.6] w-full object-cover"
+                className="aspect-[268/195] w-full object-cover"
               />
               <div className="space-y-4 p-4">
                 <p className="text-[10px] text-text-secondary">
@@ -73,7 +73,7 @@ export function EditorialSections() {
                   className="flex min-h-11 cursor-pointer items-center gap-2 text-xs font-bold text-primary hover:text-primary-light"
                   onClick={() => toast.info('Conteúdo indisponível nesta demonstração')}
                 >
-                  Ler mais <ArrowRight aria-hidden="true" size={14} />
+                  Ler mais <FigmaIcon name="arrow-right" aria-hidden="true" size={14} />
                 </button>
               </div>
             </article>

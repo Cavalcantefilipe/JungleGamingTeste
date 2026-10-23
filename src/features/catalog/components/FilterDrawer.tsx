@@ -1,6 +1,6 @@
-import { SlidersHorizontal } from 'lucide-react';
 import { useState } from 'react';
 
+import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -39,7 +39,7 @@ export function FilterDrawer({
           aria-label="Filtros"
           className="rounded-xl lg:hidden"
         >
-          <SlidersHorizontal aria-hidden="true" size={18} />
+          <FigmaIcon name="filter" aria-hidden="true" size={20} />
           <span className={compact ? 'sr-only' : ''}>Filtros</span>
         </Button>
       </SheetTrigger>

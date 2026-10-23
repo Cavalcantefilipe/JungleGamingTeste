@@ -1,0 +1,167 @@
+{
+  "figma": "https://www.figma.com/design/Ff0SksUi7UFtPWUO8kyNtw/Frontend-Challenge",
+  "exportedAt": "2026-10-23",
+  "asset": "public/images/ui/figma-icons.svg",
+  "sha256": "8d18fdfac6a74874795d88d10b534dfe2915c99599aa05cdb4f9c82f44b1e50d",
+  "normalization": "Original paths retained; individual icon frames centered in viewBox; visible fill/stroke use currentColor. Heart background belongs to the button and is omitted.",
+  "icons": [
+    {
+      "name": "home",
+      "source": "mobile-tab-bar",
+      "layer": "Iconly/Bold/Home",
+      "viewBox": "36 80 20 20"
+    },
+    {
+      "name": "user-solid",
+      "source": "mobile-tab-bar",
+      "layer": "User",
+      "viewBox": "354 80 20 20"
+    },
+    {
+      "name": "cart-solid",
+      "source": "mobile-tab-bar",
+      "layer": "Shop",
+      "viewBox": "291.5 80 20 20"
+    },
+    {
+      "name": "heart-solid",
+      "source": "mobile-tab-bar",
+      "layer": "Vector_4",
+      "viewBox": "108 80 20 20"
+    },
+    {
+      "name": "market",
+      "source": "mobile-tab-bar",
+      "layer": "Group",
+      "viewBox": "193.5 28 28 28"
+    },
+    {
+      "name": "search",
+      "source": "desktop-home",
+      "layer": "Search Icon",
+      "viewBox": "1111 29.5 24 24"
+    },
+    {
+      "name": "cart",
+      "source": "desktop-home",
+      "layer": "Cart Icon",
+      "viewBox": "1161 29.5 24 24"
+    },
+    {
+      "name": "logout",
+      "source": "desktop-home",
+      "layer": "Iconly/Curved/Logout",
+      "viewBox": "1227 29 24 24"
+    },
+    {
+      "name": "chevron-down",
+      "source": "desktop-home",
+      "layer": "Iconly/Two-tone/Arrow - Down 2",
+      "viewBox": "1298 649 16 16"
+    },
+    {
+      "name": "chevron-right",
+      "source": "desktop-home",
+      "layer": "Iconly/Curved/Arrow - Right 2",
+      "viewBox": "1293 1993 18 18"
+    },
+    {
+      "name": "arrow-right",
+      "source": "desktop-home",
+      "layer": "Iconly/Curved/Arrow - Right",
+      "viewBox": "630 2292 18 18"
+    },
+    {
+      "name": "filter",
+      "source": "mobile-home",
+      "layer": "Iconly/Curved/Filter",
+      "viewBox": "358.5 53.5 20 20"
+    },
+    {
+      "name": "search-curved",
+      "source": "mobile-home",
+      "layer": "Search",
+      "viewBox": "37 53 20 20"
+    },
+    {
+      "name": "chevron-left",
+      "source": "mobile-detail",
+      "layer": "Iconly/Curved/Arrow - Left 2",
+      "viewBox": "36 31 20 20"
+    },
+    {
+      "name": "heart",
+      "source": "mobile-detail",
+      "layer": "Heart",
+      "viewBox": "363.5 32.5 16 16"
+    },
+    {
+      "name": "star",
+      "source": "mobile-detail",
+      "layer": "Iconly/Bold/Star",
+      "viewBox": "314 431 12 12"
+    },
+    {
+      "name": "user",
+      "source": "desktop-profile",
+      "layer": "User",
+      "viewBox": "136 158.5 18 18"
+    },
+    {
+      "name": "location",
+      "source": "desktop-profile",
+      "layer": "Iconly/Light-Outline/Location",
+      "viewBox": "136 202.5 20 20"
+    },
+    {
+      "name": "activity",
+      "source": "desktop-profile",
+      "layer": "Iconly/Curved/Activity",
+      "viewBox": "136 338.5 18 18"
+    },
+    {
+      "name": "download",
+      "source": "desktop-profile",
+      "layer": "Iconly/Curved/Download",
+      "viewBox": "136 383.5 18 18"
+    },
+    {
+      "name": "warning",
+      "source": "desktop-profile",
+      "layer": "Iconly/Curved/Danger Triangle",
+      "viewBox": "136 428.5 18 18"
+    },
+    {
+      "name": "image",
+      "source": "desktop-profile",
+      "layer": "Iconly/Curved/Image 2",
+      "viewBox": "915 392 24 24"
+    },
+    {
+      "name": "hide",
+      "source": "desktop-profile",
+      "layer": "Iconly/Light-Outline/Hide",
+      "viewBox": "838.5 543.5 20 20"
+    },
+    {
+      "name": "delete",
+      "source": "desktop-cart",
+      "layer": "Iconly/Curved/Delete",
+      "viewBox": "854.5 192 24 24"
+    }
+  ],
+  "backgrounds": [
+    {
+      "asset": "public/images/ui/mobile-tab-background.svg",
+      "layer": "70395:245 / Vector",
+      "normalization": "Original background path; viewBox 0 40 414 95; preserveAspectRatio none.",
+      "sha256": "a39dca86017cf8c0bfea74bfe9e94ad913f2e714061db779d00ca7a6977fe781"
+    },
+    {
+      "asset": "public/images/ui/mobile-hero-background.svg",
+      "layer": "14:5290",
+      "normalization": "Original vector background; preserveAspectRatio none so the background follows wrapped text.",
+      "sha256": "492da3f2d29bc2ba57a7a03fcbfa6a52adb03aebfa79e099a0a5b7dd45c55c90"
+    }
+  ]
+}

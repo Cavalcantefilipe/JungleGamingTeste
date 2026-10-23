@@ -19,7 +19,7 @@ export function NftCard({ nft, priority = false }: { nft: Nft; priority?: boolea
             width={600}
             height={600}
             loading={priority ? 'eager' : 'lazy'}
-            className="aspect-square w-full rounded-[15px] object-cover transition-transform duration-300 motion-safe:group-hover:scale-105"
+            className="aspect-square w-full rounded-[15px] object-cover"
           />
           {nft.rarity && (
             <span className="absolute top-4 left-0 flex h-8 w-[68px] items-center bg-primary px-2 text-xs font-bold text-ink lg:w-20 lg:text-sm">
@@ -32,7 +32,7 @@ export function NftCard({ nft, priority = false }: { nft: Nft; priority?: boolea
           />
         </div>
         <div className="space-y-0 px-2 lg:space-y-3 lg:px-0">
-          <h3 className="truncate pr-6 text-sm leading-4 font-normal">{nft.name}</h3>
+          <h3 className="min-w-0 text-sm leading-4 font-normal wrap-anywhere">{nft.name}</h3>
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-sm leading-4 font-bold text-text-accent">
               {formatEth(nft.price)}

@@ -1,6 +1,6 @@
-import { ImagePlus } from 'lucide-react';
 import { useRef } from 'react';
 
+import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
 import type { Profile } from '@/contracts/profile';
 import { ApiError, errorMessage } from '@/lib/errors';
@@ -27,7 +27,7 @@ export function AvatarField({ profile }: { profile: Profile }) {
           />
         ) : (
           <div className="flex size-12 items-center justify-center rounded-full bg-surface-card text-primary">
-            <ImagePlus aria-hidden="true" size={20} />
+            <FigmaIcon name="image" aria-hidden="true" size={20} />
           </div>
         )}
         <input

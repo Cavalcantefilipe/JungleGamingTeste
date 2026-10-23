@@ -1,8 +1,8 @@
 import { Link, useRouterState } from '@tanstack/react-router';
-import { LogIn, Search, ShoppingCart, UserRound } from 'lucide-react';
 import { lazy, Suspense } from 'react';
 import { toast } from 'sonner';
 
+import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
 import { useSession } from '@/features/auth/session-store';
 import { useCartQuery } from '@/features/cart/queries';
@@ -67,7 +67,7 @@ export function Header() {
           <div className="flex items-center justify-end gap-2 sm:gap-4">
             <Button asChild variant="ghost" size="icon">
               <a href={pathname === '/' ? '#busca' : '/#busca'} aria-label="Buscar NFTs">
-                <Search aria-hidden="true" className="size-6" />
+                <FigmaIcon name="search" aria-hidden="true" className="size-6" />
               </a>
             </Button>
             <Button asChild variant="ghost" size="icon">
@@ -76,7 +76,7 @@ export function Header() {
                 className="relative"
                 aria-label={`Carrinho, ${cartQuantity} ${cartQuantity === 1 ? 'item' : 'itens'}`}
               >
-                <ShoppingCart aria-hidden="true" className="size-6" />
+                <FigmaIcon name="cart" aria-hidden="true" className="size-6" />
                 <CartBadge quantity={cartQuantity} />
               </Link>
             </Button>
@@ -89,7 +89,7 @@ export function Header() {
                     size="icon"
                     aria-label="Carregando menu da conta"
                   >
-                    <UserRound aria-hidden="true" />
+                    <FigmaIcon name="user" aria-hidden="true" />
                   </Button>
                 }
               >
@@ -98,7 +98,7 @@ export function Header() {
             ) : (
               <Button asChild>
                 <Link to="/login" search={{ returnTo: '/' }}>
-                  <LogIn aria-hidden="true" />
+                  <FigmaIcon name="logout" size={24} aria-hidden="true" />
                   <span>Entrar</span>
                 </Link>
               </Button>

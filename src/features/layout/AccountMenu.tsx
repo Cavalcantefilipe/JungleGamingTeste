@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router';
-import { UserRound } from 'lucide-react';
 
+import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -20,7 +20,7 @@ export function AccountMenu({ session }: { session: Session }) {
           {session.user.avatarUrl ? (
             <img src={session.user.avatarUrl} alt="" className="size-8 rounded-full object-cover" />
           ) : (
-            <UserRound aria-hidden="true" />
+            <FigmaIcon name="user" aria-hidden="true" />
           )}
         </Button>
       </DropdownMenuTrigger>

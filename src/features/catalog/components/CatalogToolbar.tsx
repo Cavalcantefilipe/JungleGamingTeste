@@ -31,7 +31,7 @@ export function CatalogToolbar({
         <div
           role="tablist"
           aria-label="Catálogo"
-          className="flex gap-2 text-xs min-[390px]:text-sm xl:gap-4"
+          className="flex min-w-0 flex-wrap gap-2 text-xs min-[390px]:text-sm xl:gap-4"
         >
           {(
             [
