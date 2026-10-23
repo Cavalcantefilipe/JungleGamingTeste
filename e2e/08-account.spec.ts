@@ -69,7 +69,9 @@ test('senha atual errada mostra erro; troca válida permite novo login', async (
   await page.getByLabel('Nova senha', { exact: true }).fill('NovaSenha!2026');
   await page.getByLabel('Confirmar nova senha', { exact: true }).fill('NovaSenha!2026');
   await page.getByRole('button', { name: 'Alterar senha', exact: true }).click();
+  await expect(page.getByRole('alert')).toHaveCount(1);
   await expect(page.getByRole('alert')).toContainText('Senha atual incorreta');
+  await expect(page.getByLabel('Senha atual', { exact: true })).toBeFocused();
   await page.getByLabel('Senha atual', { exact: true }).fill('Kurio!2026');
   await page.getByRole('button', { name: 'Alterar senha', exact: true }).click();
   await expect(page.getByRole('status')).toContainText('Senha alterada');

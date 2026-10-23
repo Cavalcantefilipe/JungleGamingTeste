@@ -6,9 +6,12 @@ export function applyFormError<T extends FieldValues>(
   error: unknown,
   setError: UseFormSetError<T>,
 ): void {
-  if (error instanceof ApiError && error.fields) {
-    for (const [name, message] of Object.entries(error.fields))
-      setError(name as FieldPath<T>, { message });
+  const fields = error instanceof ApiError && error.fields ? Object.entries(error.fields) : [];
+  if (fields.length) {
+    fields.forEach(([name, message], index) => {
+      setError(name as FieldPath<T>, { message }, { shouldFocus: index === 0 });
+    });
+    return;
   }
   setError('root', { message: errorMessage(error) });
 }

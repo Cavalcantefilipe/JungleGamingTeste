@@ -224,3 +224,14 @@ test('perfil mantém controles de senha, botões e alinhamento da conta', async 
     expect(selected?.x).toBe(sidebar?.x);
   }
 });
+
+test('links do rodapé ficam inteiros dentro da faixa de fundo', async ({ page, isMobile }) => {
+  test.skip(isMobile, 'Faixa fixa do frame desktop');
+  await page.goto('/');
+  const panel = page.getByTestId('footer-links');
+  const last = panel.getByRole('link', { name: 'Lista de interesse', exact: true });
+  const container = await panel.boundingBox();
+  const link = await last.boundingBox();
+  if (!container || !link) throw new Error('Rodapé ausente');
+  expect(link.y + link.height).toBeLessThanOrEqual(container.y + container.height - 12);
+});

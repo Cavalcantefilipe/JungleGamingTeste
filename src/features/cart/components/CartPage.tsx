@@ -17,7 +17,7 @@ export function CartPage() {
       <MobilePageHeader title="Carrinho de NFTs" />
       <h1 className="mb-6 hidden text-xs text-text-secondary md:block">Carrinho de NFTs</h1>
       {query.isPending ? (
-        <div aria-label="Carregando carrinho" className="space-y-4">
+        <div role="status" aria-label="Carregando carrinho" className="space-y-4">
           {[0, 1, 2].map((index) => (
             <Skeleton key={index} className="h-[100px] w-full" />
           ))}

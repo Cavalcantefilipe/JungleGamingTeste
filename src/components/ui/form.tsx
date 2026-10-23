@@ -130,6 +130,7 @@ function FormMessage({ className, ...props }: React.ComponentProps<'p'>) {
   return (
     <p
       data-slot="form-message"
+      role={error ? 'alert' : undefined}
       id={formMessageId}
       className={cn('text-sm text-destructive', className)}
       {...props}

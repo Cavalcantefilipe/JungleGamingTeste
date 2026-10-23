@@ -20,6 +20,7 @@ export function Header() {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   const hideOnMobile =
     ['/', '/cart', '/checkout'].includes(pathname) || pathname.startsWith('/nfts/');
+  const marketActive = ['/cart', '/checkout'].includes(pathname) || pathname.startsWith('/nfts/');
   const cart = useCartQuery();
   const cartQuantity = cart.data?.items.reduce((sum, item) => sum + item.quantity, 0) ?? 0;
   const session = useSession();
@@ -41,11 +42,19 @@ export function Header() {
           >
             <Link
               to="/"
+              activeOptions={{ exact: true }}
               activeProps={{ className: 'text-primary underline underline-offset-[14px]' }}
             >
               Início
             </Link>
-            <a className="py-3 hover:text-primary" href="/#catalogo">
+            <a
+              className={cn(
+                'py-3 hover:text-primary',
+                marketActive && 'text-primary underline underline-offset-[14px]',
+              )}
+              aria-current={marketActive ? 'page' : undefined}
+              href="/#catalogo"
+            >
               Mercado
             </a>
             {['Criadores', 'Aprenda'].map((label) => (

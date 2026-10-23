@@ -4,6 +4,7 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/compone
 import { LoginForm } from '@/features/auth/components/LoginForm';
 import { RegisterForm } from '@/features/auth/components/RegisterForm';
 import { SocialButtons } from '@/features/auth/components/SocialButtons';
+import { useReturnFocus } from '@/features/auth/useReturnFocus';
 import { CatalogPage } from '@/features/catalog/components/CatalogPage';
 import { defaultCatalogSearch } from '@/features/catalog/search-params';
 import { cn } from '@/lib/cn';
@@ -16,6 +17,7 @@ export function AuthDialog({
   returnTo: string;
 }) {
   const navigate = useNavigate();
+  const restoreFocus = useReturnFocus();
   return (
     <>
       <CatalogPage search={defaultCatalogSearch} />
@@ -26,6 +28,7 @@ export function AuthDialog({
         }}
       >
         <DialogContent
+          onCloseAutoFocus={restoreFocus}
           className={cn(
             'flex max-h-dvh flex-col gap-0 overflow-y-auto rounded-none border-0 bg-ink px-7 pt-20 pb-6 max-md:inset-0 max-md:max-w-none max-md:translate-0 md:h-[600px] md:w-[500px] md:max-w-[500px] md:border-b-[10px] md:border-primary md:bg-surface-card md:px-0 md:pt-12 md:pb-10',
             register && 'md:h-[656px] md:rounded-lg',

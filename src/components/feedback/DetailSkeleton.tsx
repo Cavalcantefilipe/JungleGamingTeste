@@ -2,7 +2,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 export function DetailSkeleton() {
   return (
-    <div aria-label="Carregando detalhes" aria-busy="true">
+    <div role="status" aria-label="Carregando detalhes" aria-busy="true">
       <div className="mb-2 flex h-11 justify-between md:hidden">
         <Skeleton className="size-11 rounded-full" />
         <Skeleton className="size-11 rounded-full" />

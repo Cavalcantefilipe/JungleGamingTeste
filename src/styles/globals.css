@@ -45,11 +45,11 @@
     @apply flex min-w-0 flex-col items-start text-sm text-foreground;
   }
   .footer-links h2 {
-    @apply mb-2 text-base font-bold text-foreground;
+    @apply mb-2 text-base leading-4 font-bold text-foreground;
   }
   .footer-links a,
   .footer-links button {
-    @apply min-h-11 cursor-pointer py-2 text-left hover:text-primary active:text-primary-light sm:min-h-8;
+    @apply min-h-11 cursor-pointer py-2 text-left hover:text-primary active:text-primary-light sm:min-h-8 sm:py-1;
   }
   .skeleton {
     background: linear-gradient(

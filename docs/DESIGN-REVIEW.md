@@ -86,3 +86,11 @@ Desktop pagamento (`11:2862`): formulário “Perfil do colecionador” em duas 
 O modal de confirmação (`70376:239`) mede 578 px de largura e 821 px de altura para os três itens do desenho. A implementação mantém largura, selo de 80 px, título de 16 px, metadados em quatro colunas, tabela com imagens de 70 px, taxa/total à direita e borda inferior Primary. A altura acompanha os itens e respeita a viewport. Em mobile a confirmação ocupa a página, com metadados em duas colunas e imagens de 48 px. O link é identificado como simulado. Todos os valores e imagens vêm do snapshot imutável do pedido confirmado.
 
 `e2e/06-purchase-happy-path.spec.ts` captura pagamento e recibo em desktop/mobile, além de validar o fluxo completo, campos, revisão após preço/estoque/expiração, conexão recusada/desconectada, cadastro de carteira com retorno e recuperação do rascunho após expiração da sessão.
+
+## Fechamento visual e acessibilidade
+
+Mercado recebe a cor Primary, sublinhado e `aria-current` no detalhe, carrinho e pagamento. Login devolve foco ao controle que o abriu após Esc; mensagens de campo são anunciadas uma vez e focam o primeiro erro. Skeletons nomeados têm papel de status válido. O recibo também passou por axe e overflow em desktop/mobile.
+
+O rodapé mantém a faixa desktop de236px; espaçamento vertical e line-height foram compactados para que o último link fique inteiro dentro do fundo. A captura anterior deixava8px fora da faixa. Alvos mobile de44px foram preservados.
+
+Oito baselines de Início/Detalhe/Carrinho/Pagamento estão em `e2e/__screenshots__/13-visual.spec.ts`, com relógio fixo, cenário padrão e fontes/assets carregados. Foram inspecionados contra as medidas/fontes/cores do Figma. Revisão automática complementa a referência; controles adicionais de cotação/conexão e estados simulados continuam como diferenças funcionais documentadas.

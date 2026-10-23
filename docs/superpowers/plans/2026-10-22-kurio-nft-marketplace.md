@@ -563,9 +563,9 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 
 - Create: `e2e/11-a11y-keyboard.spec.ts`, `e2e/13-visual.spec.ts`, `e2e/__screenshots__/**` (baselines), `docs/TESTING.md`
 
-- [ ] **Passo 1:** `e2e/11`: `navegação por teclado completa no catálogo (Tab até paginação, Enter abre detalhe)`, `diálogo de login prende foco e devolve ao fechar (Esc)`, `drawer de filtros mobile idem`, `erros de formulário são anunciados e focam o primeiro campo inválido`, `axe sem violações críticas/sérias em /, /nfts/:id, /cart, /checkout, /login, /account/profile`, `sem overflow horizontal em 390px` (todas as rotas), `zoom 200% (viewport 720 de largura) mantém conteúdo`. `e2e/13`: `toHaveScreenshot` de Início, Detalhe, Carrinho, Pagamento em desktop e mobile com `mocks.reset('default')`, `page.clock.setFixedTime('2026-07-29T12:00:00Z')`, animações desativadas, fontes carregadas (`document.fonts.ready`). → FAIL/gerar baselines.
-- [ ] **Passo 2:** corrigir violações; gerar baselines (`pnpm e2e --update-snapshots`) só após conferência visual contra o Figma; versionar.
-- [ ] **Passo 3:** suíte completa `pnpm e2e` verde em ambos os projetos; relatório HTML em `reports/playwright-report`. Commit `test: suíte E2E completa, a11y e baselines visuais`.
+- [x] **Passo 1:** `e2e/11`: `navegação por teclado completa no catálogo (Tab até paginação, Enter abre detalhe)`, `diálogo de login prende foco e devolve ao fechar (Esc)`, `drawer de filtros mobile idem`, `erros de formulário são anunciados e focam o primeiro campo inválido`, `axe sem violações críticas/sérias em /, /nfts/:id, /cart, /checkout, /login, /account/profile`, `sem overflow horizontal em 390px` (todas as rotas), `zoom 200% (viewport 720 de largura) mantém conteúdo`. `e2e/13`: `toHaveScreenshot` de Início, Detalhe, Carrinho, Pagamento em desktop e mobile com `mocks.reset('default')`, `page.clock.setFixedTime('2026-07-29T12:00:00Z')`, animações desativadas, fontes carregadas (`document.fonts.ready`). → FAIL/gerar baselines.
+- [x] **Passo 2:** corrigir violações; gerar baselines (`pnpm e2e --update-snapshots`) só após conferência visual contra o Figma; versionar.
+- [x] **Passo 3:** suíte completa `pnpm e2e` verde em ambos os projetos; relatório HTML em `reports/playwright-report`. Commit `test: suíte E2E completa, a11y e baselines visuais`.
 
 ### Task 17: Performance e Lighthouse
 
