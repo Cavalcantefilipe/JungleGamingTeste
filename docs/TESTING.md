@@ -31,10 +31,11 @@ O worker MSW está versionado em `public/mockServiceWorker.js`. Os testes usam a
 - `13`: referências visuais versionadas de Início, Detalhe, Carrinho e Pagamento em desktop/mobile.
 - `15`: cores, dimensões, tipografia e alinhamentos medidos no Figma; controles circulares, taxa do carrinho, desnível mobile e raio de autenticação.
 - `16`: texto de perfil não executa código e identidade adulterada não libera rota privada.
-- `17`: AVIF responsivo, preload local, alvos de quantidade e feedback HTML antes do JavaScript/fonte.
+- `17`: AVIF responsivo, preload local, alvos de quantidade, feedback HTML, proporções editoriais, ausência de zoom e carregamento dos ícones SVG.
 - `18`: headers CSP de produção aplicados à navegação; catálogo, Socket.IO, carteira e compra sem violações.
 - `19`: cenário inválido, falha/retry do worker e recuperação após logout com isolamento Ana/Bruno.
 - `20`: edição autenticada da carteira durante conexão/criação de pedido, atualização dos dados e nova revisão sem perder carrinho/rascunho.
+- `21`: nove telas em 320/360/375/390/414 px; leitura de textos, ausência de recortes, separação de ações e cliques nos três destaques do hero.
 - Unitários de reconciliação: filtro, ordenação/composição da página e evento antes da primeira resposta REST.
 
 Os números identificam os cenários do plano, não indicam arquivos ausentes obrigatórios. Testes específicos de desktop/mobile têm skips explícitos no outro projeto. Não são testes ignorados por falha.
@@ -90,3 +91,11 @@ O mesmo `Caddyfile` usado pelo Railpack foi validado com Caddy 2.11.7 local: **2
 No domínio [kurio-production-8274.up.railway.app](https://kurio-production-8274.up.railway.app), o build do commit `45cd7e1` passou **16 testes em 1,2 minuto**, oito em cada viewport: cadastro com carrinho, login com refresh, compra até o recibo, preço pelo socket sem novo REST, skeletons de catálogo/detalhe em rede lenta, CSP e recuperação isolada após logout. São contextos independentes com dados simulados. O caso CSP reaplica a política versionada; o script HTTP confere separadamente que a resposta pública já contém esses mesmos headers.
 
 `pnpm verify:deployment https://kurio-production-8274.up.railway.app` passou: navegação direta nas rotas SPA, HTML, headers reais, cache, integridade Brotli versus identity, worker, healthcheck e 404 sem HTML indevido. O build remoto usou Node 24.21.0, pnpm 11.18.0, Railpack 0.43.0 e Caddy 2.11.7 em Linux/amd64; as auditorias de navegador foram executadas no Mac local. [Publicação](DEPLOYMENT.md) e [Lighthouse público](LIGHTHOUSE.md).
+
+## Revisão de ícones, enquadramentos e textos mobile — 23/10/2026
+
+Suíte completa: **219 aprovados/15 skips explícitos, 4,7 minutos**; `pnpm check`: **109 unitários + 6 testes Node**, typecheck, lint sem erros e formatação válidos. Depois dos últimos ajustes decorativos de tamanho dos ícones e fundo adaptável do hero, os cenários visuais, geometria, imagens e matriz mobile foram reexecutados: **40 aprovados/10 skips explícitos**. As capturas atualizadas incluem 1440 × 900, 414 × 896 e 320 × 844. Os baselines foram comparados às referências e revistos visualmente.
+
+A regressão de recorte foi reproduzida primeiro em 320 px: nomes dos NFTs e título do rodapé. A navegação completa também revelou o recibo transbordando nessa largura. A revisão independente encontrou um indicador do hero coberto pelo bloco de texto; o teste agora clica nos três indicadores em cada largura.
+
+O lint passa a ignorar `test-results`, diretório de artefatos temporários já ignorado pelo Git. Isso evita tentar ler arquivos de trace enquanto o Playwright os remove, sem excluir testes ou código-fonte da análise. Esta rodada usa Chromium; não comprova renderização em Safari/Firefox nem pontuações Lighthouse do novo build.

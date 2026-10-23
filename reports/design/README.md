@@ -1,10 +1,10 @@
 # Evidências da conferência visual
 
-23/10/2026. Referências PNG exportadas diretamente do Figma e capturas reais da aplicação em desktop 1440 × 900 e mobile 414 × 896. PNGs preservados sem redimensionamento ou compressão com perda. [Manifesto e hashes](manifest.json).
+23/10/2026. Referências PNG exportadas diretamente do Figma e capturas reais da aplicação em desktop 1440 × 900 e mobile 414 × 896 e 320 × 844. PNGs preservados sem redimensionamento ou compressão com perda. [Manifesto e hashes](manifest.json).
 
 As páginas desktop são capturas completas; modais da aplicação se centralizam na viewport de 900 px, enquanto o Figma os posiciona em artboards maiores. As capturas mobile mostram o viewport do frame original. Não inferir igualdade de altura entre artboard e página dinâmica. Foco transitório e rolagem foram neutralizados, fontes/imagens carregadas. Usuário, carteiras, edições e pedidos vêm da API MSW; nomes e quantidades da amostra estão no manifesto.
 
-São 15 referências originais e 18 estados da aplicação. Não há referência mobile de perfil, carteiras ou recibo no arquivo. O carrinho desktop soma 26,846 ETH com taxa; o mobile soma 8,156 ETH, corrigindo a soma inconsistente do Figma. [Ajustes e diferenças documentadas](../../docs/DESIGN-REVIEW.md).
+São 15 referências originais e 27 estados da aplicação. Não há referência mobile de perfil, carteiras ou recibo no arquivo. O carrinho desktop soma 26,846 ETH com taxa; o mobile soma 8,156 ETH, corrigindo a soma inconsistente do Figma. [Ajustes e diferenças documentadas](../../docs/DESIGN-REVIEW.md).
 
 | Perfil | Tela | Referência | Implementação |
 | --- | --- | --- | --- |
@@ -26,3 +26,22 @@ São 15 referências originais e 18 estados da aplicação. Não há referência
 | mobile | Perfil do Colecionador | Sem frame equivalente | [Aplicação](mobile/actual/profile.png) |
 | mobile | Carteiras | Sem frame equivalente | [Aplicação](mobile/actual/wallets.png) |
 | mobile | Confirmação de Pedido | Sem frame equivalente | [Aplicação](mobile/actual/receipt.png) |
+
+
+## Telas estreitas — 320 × 844
+
+Capturas atualizadas para o código `cf36ac1`, incluindo os vetores originais e a correção dos textos. A matriz automatizada também percorreu 360, 375 e 390 px. O Figma fornece o frame mobile de 414 px; as adaptações menores preservam o conteúdo com quebra de linha e crescimento vertical.
+
+| Tela | Implementação em 320 px |
+| --- | --- |
+| Início | [Captura](mobile-320/actual/home.png) |
+| Detalhe | [Captura](mobile-320/actual/detail.png) |
+| Carrinho | [Captura](mobile-320/actual/cart.png) |
+| Login | [Captura](mobile-320/actual/login.png) |
+| Cadastro | [Captura](mobile-320/actual/register.png) |
+| Perfil | [Captura](mobile-320/actual/profile.png) |
+| Carteiras | [Captura](mobile-320/actual/wallets.png) |
+| Pagamento | [Captura](mobile-320/actual/payment.png) |
+| Recibo | [Captura](mobile-320/actual/receipt.png) |
+
+[Camadas e hashes dos ícones originais](icons.json). O manifesto registra os resultados da suíte completa e da rodada focada após os últimos ajustes decorativos. As medições Lighthouse anteriores não foram atribuídas a este build.
