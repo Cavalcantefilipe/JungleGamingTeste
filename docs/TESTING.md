@@ -105,3 +105,18 @@ O lint passa a ignorar `test-results`, diretório de artefatos temporários já 
 A aplicação de `cf36ac1`, publicada pelo deploy `529ec4be-9b97-48c4-86a9-0be6f31fbbe6` do commit documental `c1ce70f`, passou **10 testes de imagens/ícones em desktop e mobile** e **5 fluxos completos mobile em 320/360/375/390/414 px**. O script HTTP também passou; o HTML e os três SVGs conferidos têm bytes idênticos aos arquivos locais validados.
 
 Na primeira coleta pública a nova análise geométrica contou cartões fora da janela de um carrossel com rolagem horizontal como recortes. O teste foi corrigido para reconhecer contêineres roláveis, aguardar a coleção relacionada e clicar em “Próximos NFTs” até verificar cada título inteiro. Usar `scrollIntoViewIfNeeded` nesse caso disputava com `scroll-snap`; o fluxo final usa os controles reais e aguarda a posição visível. As cinco larguras passaram em 51,9 segundos, sem espera fixa nem retry automático. Essa correção altera apenas o teste, sem relaxar a verificação de textos truncados dentro dos cartões.
+
+## Tokens e refatoração do frontend — 23/10/2026
+
+Código da aplicação: `1b4551c`, incluindo o ajuste visual `e7b453d` e a refatoração do checkout `59a121a`.
+
+- `pnpm check`: aprovado; 109 unitários, 6 testes de ferramentas, zero erros de lint e 41 avisos anteriores restantes (58 antes da refatoração).
+- `pnpm build`: aprovado.
+- `pnpm e2e`: **222 aprovados, 16 ignorados por viewport, 4,7 minutos**. Inclui a suíte completa, os oito baselines visuais e os percursos de nove telas nas cinco larguras mobile.
+- `e2e/22-design-tokens.spec.ts`: verifica gradientes renderizados, posição do coração relativa à imagem, alvo de 44 px, hover, foco e uso por toque. Antes da correção, os três casos aplicáveis falharam; após o ajuste, passaram.
+- Capturas finais: três percursos concluídos, 27 PNGs atualizados. Hashes e commit em `reports/design/manifest.json`.
+- Revisão de código independente: nenhum achado acionável; sessão, cotação, carteira e recuperação idempotente preservadas.
+
+A extração dos componentes manteve a composição visual: os baselines aprovados após o ajuste dos gradientes passaram novamente na suíte completa, sem atualização de screenshots durante a refatoração. Os testes de rascunho após expiração de sessão passaram com a assinatura `subscribe`.
+
+No domínio público da Railway, sobre o mesmo código `1b4551c`, passaram **18 testes E2E**, com 6 ignorados por viewport, em 1 minuto: dez de imagens/ícones/alvos, cinco percursos mobile e três de gradientes/favoritos. `pnpm verify:deployment` também passou; o SHA-256 do HTML publicado coincide com o build local. Esses resultados não são uma nova auditoria Lighthouse.

@@ -85,7 +85,7 @@
       },
       "actual": {
         "path": "desktop/actual/home.png",
-        "sha256": "662c6212bee988d2b58b3eaecd45fd8a2073e9fca01c2e1aa62704e25aec0222",
+        "sha256": "3aacb2d8df913cbbd307429e83111ac48564f2899d7ca135df9b5a05e3cfea2d",
         "dimensions": {
           "width": 1440,
           "height": 3734
@@ -105,7 +105,7 @@
       },
       "actual": {
         "path": "desktop/actual/detail.png",
-        "sha256": "cae8501202552c684e0ccac89548780e995e5fce0a6a5ddd62629eae1738210b",
+        "sha256": "925d9951b2a8b7c65f978f10d33473bbcc59928c4f452ea81a3e21c124a524db",
         "dimensions": {
           "width": 1440,
           "height": 1768
@@ -125,7 +125,7 @@
       },
       "actual": {
         "path": "desktop/actual/cart.png",
-        "sha256": "aedecd2f39499e183549425288ec7c3b266676d9140531748d8e019f5f288709",
+        "sha256": "ef3aaa4d18ed631c0aa32ec69eb583d495f6448ecfedad0e238308aac84aeb4a",
         "dimensions": {
           "width": 1440,
           "height": 1784
@@ -145,7 +145,7 @@
       },
       "actual": {
         "path": "desktop/actual/payment.png",
-        "sha256": "e578d89861947df8bfa58d1247e4b1c29de0768f9c54fdcc79a6bfaa2441c4b5",
+        "sha256": "9bd8aab2358ca875683ecb057fed1ed8f28f8beefc4fab0906aededf2c0f97d4",
         "dimensions": {
           "width": 1440,
           "height": 1880
@@ -165,7 +165,7 @@
       },
       "actual": {
         "path": "desktop/actual/login.png",
-        "sha256": "13a3d4077cb8d1be1820ff6655fb68f78245f6e2406239d3be361eef70c293ce",
+        "sha256": "04f647b0f54e79133632fa0f121fccb0a2ef0e207727a4d0ec93589b6d151900",
         "dimensions": {
           "width": 1440,
           "height": 3734
@@ -185,7 +185,7 @@
       },
       "actual": {
         "path": "desktop/actual/register.png",
-        "sha256": "02cec6e459e8a0a50319ec0ee8d0d2b1952ac5155f2b4ddc6250a71102f39c7f",
+        "sha256": "1d3b519f882d1f1be7cd21566b78743b2ccdebdde5dd9461ca87f6eb28118991",
         "dimensions": {
           "width": 1440,
           "height": 3734
@@ -245,7 +245,7 @@
       },
       "actual": {
         "path": "desktop/actual/receipt.png",
-        "sha256": "a78032e5b56dfe9bdccea5695173aa3a889feee72ea9b2c0ed1a0eef431a07a1",
+        "sha256": "fa33fae7ecb24ed70a557ecc4edd88619df2be60b2183126c8c7d2f47521625a",
         "dimensions": {
           "width": 1440,
           "height": 900
@@ -265,7 +265,7 @@
       },
       "actual": {
         "path": "mobile/actual/home.png",
-        "sha256": "e17d132bb41d88ff11234ba3613eed72f9530cc27d4c6c73cc9cc7d334429b8a",
+        "sha256": "5a9d652da765e25984d1f313e1f90f4809f34c28acf43481d1fb759262b9414a",
         "dimensions": {
           "width": 414,
           "height": 896
@@ -285,7 +285,7 @@
       },
       "actual": {
         "path": "mobile/actual/detail.png",
-        "sha256": "188669bbd397dd367c097efad67ecb969a2b71578f8ad954e8a5b0d67422a774",
+        "sha256": "4ccf5ec24158124b782b14259d91d0e437529194bd4d7dfb970222f791e2735a",
         "dimensions": {
           "width": 414,
           "height": 896
@@ -305,7 +305,7 @@
       },
       "actual": {
         "path": "mobile/actual/cart.png",
-        "sha256": "5059130b8f378c6c2f863c326c60bf20780989cb0b88f55c27c8262175a3dd29",
+        "sha256": "987f64800c3f43d58f9bee114f7e595115a24830f31b6d87d7ecbfee7d0e90b2",
         "dimensions": {
           "width": 414,
           "height": 896
@@ -325,7 +325,7 @@
       },
       "actual": {
         "path": "mobile/actual/payment.png",
-        "sha256": "71547e518bda4c69d76b23b44d8319a1320be2bda3e55b605a2705ca275da604",
+        "sha256": "9cfd45bfb53c2dd6ca8f91e45cea0f15149536a454a8e148212709f94c420a5d",
         "dimensions": {
           "width": 414,
           "height": 896
@@ -377,7 +377,7 @@
       "page": "profile",
       "actual": {
         "path": "mobile/actual/profile.png",
-        "sha256": "7d04e2fb476316bf22c44ac1f3ac7a8804ab8ebb0044cf3cd5268075805c0b91",
+        "sha256": "f44d844c90ab8cee5ee11b60664fd274a2b732fd6570404954e89d662b6b6d6b",
         "dimensions": {
           "width": 414,
           "height": 896
@@ -389,7 +389,7 @@
       "page": "wallets",
       "actual": {
         "path": "mobile/actual/wallets.png",
-        "sha256": "e3d09ab191d427b1fa10e1cfd5e278cff509729e8a7368c1d7b7569bf23556f7",
+        "sha256": "d34f516209d8f6ab7ca6e93e9f3d2af2f6090e7e408aeb43c21d60079305281f",
         "dimensions": {
           "width": 414,
           "height": 896
@@ -401,7 +401,7 @@
       "page": "receipt",
       "actual": {
         "path": "mobile/actual/receipt.png",
-        "sha256": "3e653fed3dcfa3b4d3998e1f68c2ffa52041d712b3b6a49d3b83a6657945801e",
+        "sha256": "10cb87fd8baf126895fb096e3650bf14ac39ea2a9728da21e66870dd27251d5c",
         "dimensions": {
           "width": 414,
           "height": 896
@@ -413,7 +413,7 @@
       "page": "cart",
       "actual": {
         "path": "mobile-320/actual/cart.png",
-        "sha256": "95594bcb3d8744996bfdaf32f876ee16385dfdc6ed09cb1ac3dccbac8f5e9c4b",
+        "sha256": "6009b45bd9d4bb5f82ff4f9378c6da02ed31aba75b92cf4a45d35ab20829975a",
         "dimensions": {
           "width": 320,
           "height": 844
@@ -425,7 +425,7 @@
       "page": "detail",
       "actual": {
         "path": "mobile-320/actual/detail.png",
-        "sha256": "4e1324fe07bff764ba784d6d2c5f6a41c65cd8e983bee0facb49ae27e55fda19",
+        "sha256": "88a6ac32151c5fbf5af16dc986e55bda2a42d403a8ed5803f202386bd6795fbb",
         "dimensions": {
           "width": 320,
           "height": 844
@@ -437,7 +437,7 @@
       "page": "home",
       "actual": {
         "path": "mobile-320/actual/home.png",
-        "sha256": "2b2cfea5fd378d878ac3524536937451b3a81641d943c143d3f43b6af642f1ff",
+        "sha256": "c9a57c90a68df87f7b5e1f0885a987e998350631d5f25926de8478fae7d44740",
         "dimensions": {
           "width": 320,
           "height": 844
@@ -461,7 +461,7 @@
       "page": "payment",
       "actual": {
         "path": "mobile-320/actual/payment.png",
-        "sha256": "99d4d2f2ca3f2777df58f6be92bb10e8f056407db45769fb50670065fbbc3d5c",
+        "sha256": "197267236003c1839222f62122bf2dfe09ed7ce8fc5e83d15e544ac37b98ed97",
         "dimensions": {
           "width": 320,
           "height": 844
@@ -473,7 +473,7 @@
       "page": "profile",
       "actual": {
         "path": "mobile-320/actual/profile.png",
-        "sha256": "e8e4416e8004480ea00e9af6b9f400ac01e250196c984662ac0fe18d1f6d7f9e",
+        "sha256": "1e2392e4b16958dfd45056210b113fc424424a49cfc780aadd47801f6db4d38b",
         "dimensions": {
           "width": 320,
           "height": 844
@@ -485,7 +485,7 @@
       "page": "receipt",
       "actual": {
         "path": "mobile-320/actual/receipt.png",
-        "sha256": "fb804fca2f9fd431118064649a6e3b92c14fb0221c1e55e4086edd2d4d0e2e85",
+        "sha256": "8f947b2b24925a81e71a6e7e585562354c8d504d1b64403b16a2755ea9e5d463",
         "dimensions": {
           "width": 320,
           "height": 844
@@ -509,7 +509,7 @@
       "page": "wallets",
       "actual": {
         "path": "mobile-320/actual/wallets.png",
-        "sha256": "09f81abeebf1828ddccb7aaaf33d3f5dba321df735d7bf21caaf881d13e40bf0",
+        "sha256": "9e44e5b8b574c362e8a803d9f2b3ba9c0fc04352dbea212a2a75a150afa43044",
         "dimensions": {
           "width": 320,
           "height": 844
@@ -517,21 +517,17 @@
       }
     }
   ],
-  "archivedAt": "2026-10-23T17:39:59.694172+00:00",
-  "codeCommit": "cf36ac1bd0433c745432b023725fc902c741b37a",
-  "buildHtmlSha256": "c5b143ff1fe56df24752c25eca18fc5758f1eb80fcd6d171125b86e49e58aaa8",
-  "verifiedBuildCommit": "cf36ac1bd0433c745432b023725fc902c741b37a",
+  "archivedAt": "2026-10-23T19:46:58.558362+00:00",
+  "codeCommit": "1b4551c06cd05edcaa50678132e1d93d7dbecdef",
+  "buildHtmlSha256": "26226f082e10760b9c0dc59614f9f446ac6d8bc6c3d18e03fa0869d9ea6e2525",
+  "verifiedBuildCommit": "1b4551c06cd05edcaa50678132e1d93d7dbecdef",
   "validation": {
     "unitTests": 109,
     "toolingTests": 6,
     "fullE2E": {
-      "passed": 219,
-      "skipped": 15,
-      "note": "Before the final decorative icon sizing and adaptable hero background changes."
-    },
-    "finalVisualGeometryAndMobileE2E": {
-      "passed": 40,
-      "skipped": 10
+      "passed": 222,
+      "skipped": 16,
+      "note": "Exact application code at 1b4551c06cd05edcaa50678132e1d93d7dbecdef"
     },
     "captureFlows": 3,
     "mobileWidths": [
@@ -542,15 +538,22 @@
       414
     ],
     "browser": "Chromium",
+    "lint": {
+      "errors": 0,
+      "warnings": 41
+    },
     "public": {
       "url": "https://kurio-production-8274.up.railway.app/",
-      "deploymentId": "529ec4be-9b97-48c4-86a9-0be6f31fbbe6",
-      "deploymentCommit": "c1ce70fb2aecbc1c60c0d57400d491402e3f4818",
+      "deploymentId": "58314c49-9814-4583-ba43-7edc73fd7324",
+      "deploymentCommit": "1b4551c06cd05edcaa50678132e1d93d7dbecdef",
+      "status": "SUCCESS",
+      "e2ePassed": 18,
+      "e2eSkipped": 6,
       "imageAndIconTestsPassed": 10,
       "mobileFlowTestsPassed": 5,
-      "relatedCarouselTitles": "Every card scrolled into view using the Next button in all five widths.",
+      "gradientAndFavoriteTestsPassed": 3,
       "httpChecks": "passed",
-      "htmlAndSvgBytesMatchLocal": true
+      "htmlBytesMatchLocal": true
     }
   }
 }

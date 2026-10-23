@@ -30,7 +30,7 @@ São 15 referências originais e 27 estados da aplicação. Não há referência
 
 ## Telas estreitas — 320 × 844
 
-Capturas atualizadas para o código `cf36ac1`, incluindo os vetores originais e a correção dos textos. A matriz automatizada também percorreu 360, 375 e 390 px. O Figma fornece o frame mobile de 414 px; as adaptações menores preservam o conteúdo com quebra de linha e crescimento vertical.
+Capturas atualizadas para o código `1b4551c`, incluindo os tokens de gradiente, posição do favorito e refatoração dos componentes. A matriz automatizada também percorreu 360, 375 e 390 px. O Figma fornece o frame mobile de 414 px; as adaptações menores preservam o conteúdo com quebra de linha e crescimento vertical.
 
 | Tela | Implementação em 320 px |
 | --- | --- |
@@ -44,4 +44,4 @@ Capturas atualizadas para o código `cf36ac1`, incluindo os vetores originais e 
 | Pagamento | [Captura](mobile-320/actual/payment.png) |
 | Recibo | [Captura](mobile-320/actual/receipt.png) |
 
-[Camadas e hashes dos ícones originais](icons.json). O manifesto registra os resultados da suíte completa e da rodada focada após os últimos ajustes decorativos. As medições Lighthouse anteriores não foram atribuídas a este build.
+[Camadas e hashes dos ícones originais](icons.json). O manifesto registra os resultados da suíte completa sobre o código atual e da verificação pública. As medições Lighthouse anteriores não foram atribuídas a este build.

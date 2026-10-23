@@ -146,3 +146,7 @@ Revisão solicitada após a publicação na Railway. A referência continua send
 `e2e/21-mobile-text.spec.ts` percorre Home, detalhe, carrinho, login, cadastro, perfil, carteiras, pagamento e recibo em **320, 360, 375, 390 e 414 px**. Verifica os retângulos dos textos, recorte por ancestrais, largura da página, separação entre título/remoção e descrição/CTA, além de clicar nos três destaques. As verificações de imagens cobrem proporção editorial, ausência de zoom no hover e carregamento dos símbolos SVG. A revisão por `code-reviewer` não deixou achados acionáveis pendentes.
 
 A matriz usa Chromium e dados da simulação. Safari/Firefox não foram validados nesta rodada. Textos podem ocupar mais linhas e telas estreitas podem crescer verticalmente; isso é intencional para preservar a leitura. Não se declara igualdade absoluta de pixels. Os resultados de Lighthouse anteriores continuam vinculados aos respectivos commits, sem atribuí-los automaticamente a este novo build.
+
+## Gradientes e favorito — revisão complementar
+
+A [revisão do frontend](FRONTEND-REVIEW.md) registra os tokens adicionados para filtros, cards mobile, detalhe, navegação, oferta lateral e CTAs. Os fundos sólidos indevidos foram corrigidos usando os stops/direções dos SVGs exportados. A posição do favorito acompanha a imagem e seu comportamento distingue mouse/teclado de toque. No celular o controle permanece disponível sem hover. `e2e/22-design-tokens.spec.ts` verifica gradientes renderizados, alinhamento, alvo de toque, revelação por hover/foco e navegação para login.

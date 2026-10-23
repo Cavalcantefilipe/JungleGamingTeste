@@ -71,3 +71,14 @@ Não há `railway.json`: a documentação atual reserva esse formato aos serviç
 Código da interface: `cf36ac1`. Deploy `529ec4be-9b97-48c4-86a9-0be6f31fbbe6`, commit de publicação `c1ce70fb2aecbc1c60c0d57400d491402e3f4818`, concluído com SUCCESS. Foram conferidos os novos SVGs e o HTML, além de 10 testes de imagens/ícones e 5 fluxos de nove telas nas larguras 320–414 px na URL pública. [Detalhes da validação](TESTING.md#verificação-pública-da-revisão-mobile).
 
 Hash SHA-256 do HTML: `c5b143ff1fe56df24752c25eca18fc5758f1eb80fcd6d171125b86e49e58aaa8`. Publicações posteriores somente de testes/documentação preservam o código da interface; o [manifesto visual](../reports/design/manifest.json) referencia o commit de aplicação. As notas Lighthouse anteriores não foram reaproveitadas como medição deste build.
+
+## Publicação dos tokens e refatoração — 23/10/2026
+
+Aplicação publicada no deploy `58314c49-9814-4583-ba43-7edc73fd7324`, estado `SUCCESS`, commit `1b4551c06cd05edcaa50678132e1d93d7dbecdef`. Inclui os commits `e7b453d` (gradientes/favorito), `59a121a` (checkout) e `1b4551c` (composição das demais páginas).
+
+- Verificação HTTP de headers, Brotli, cache, fallback SPA e worker: aprovada.
+- HTML público e local com o mesmo SHA-256: `26226f082e10760b9c0dc59614f9f446ac6d8bc6c3d18e03fa0869d9ea6e2525`.
+- E2E público: 18 aprovados / 6 ignorados por viewport. Cobertura de gradientes, favorito por mouse/foco/toque, imagens/ícones e nove telas nas larguras de 320 a 414 px.
+- A aba existente foi recarregada após o deploy e conservou os dois itens do carrinho. Testes usaram contextos isolados.
+
+Capturas, hashes e resultados estão em `reports/design/manifest.json`; a análise estrutural e os avisos remanescentes estão em `docs/FRONTEND-REVIEW.md`. O commit posterior de documentação não altera o código da aplicação validado acima.

@@ -52,3 +52,9 @@ Texto secundário `#CFB28C` sobre card `#241612` tem contraste aproximado de 8,6
 ## Entrega e pendências
 
 A publicação na Railway usa `railpack.json` e `Caddyfile`: headers de segurança, fallback SPA, `/healthz`, cache imutável para assets com hash e `no-store` para worker/erros. `vercel.json` preserva a mesma política como alternativa. O teste HTTP verifica os headers reais; o E2E percorre compra/socket sob a CSP. O serviço acompanha a branch `main` do GitHub público. [DEPLOYMENT.md](docs/DEPLOYMENT.md) registra URL, runtime e verificações. [LIGHTHOUSE.md](docs/LIGHTHOUSE.md) distingue as coletas locais e públicas; os audits completo/de produção retornaram zero após a remoção dos dois advisories altos.
+
+## Composição do frontend
+
+As páginas de catálogo, detalhe, autenticação e checkout compõem seções com responsabilidades específicas. `useCheckoutController` coordena seleção de carteira, formulário, cotação, conexão e envio; `useCheckoutSubmission` mantém as validações e `createOrderRequest` prepara apenas os campos aceitos pelo contrato. A persistência do rascunho fica em `useCheckoutDraftPersistence`, com `subscribe`, cleanup e guarda de sessão. Componentes de campos, opções e resumos recebem dados e ações dos respectivos controladores.
+
+A paleta e os gradientes reutilizáveis ficam no `@theme` de `src/styles/tokens.css` (Tailwind 4). Variantes comuns são definidas em `components/ui/button.tsx`. [Revisão do frontend](docs/FRONTEND-REVIEW.md) registra os problemas corrigidos, referências do Figma, redução dos componentes e limites da validação.
