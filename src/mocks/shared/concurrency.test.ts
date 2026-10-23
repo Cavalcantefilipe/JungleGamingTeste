@@ -24,7 +24,12 @@ function setupOrder(): CreateOrderInput {
   return {
     quoteId: quote.id,
     items: [item],
-    wallet: { walletId: 'wallet-ana-primary', provider: 'metamask', network: 'ethereum' },
+    wallet: {
+      walletId: 'wallet-ana-primary',
+      provider: 'metamask',
+      network: 'ethereum',
+      address: '0x1234567890abcdef1234567890abcdef12345678',
+    },
     collector: { displayName: 'Ana Costa', email: 'ana@kurio.test' },
   };
 }

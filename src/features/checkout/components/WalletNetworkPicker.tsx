@@ -84,7 +84,12 @@ export function WalletNetworkPicker({
           className="w-full"
           disabled={connection.connecting}
           onClick={() => {
-            connection.connect({ walletId: selected.id, provider: selected.walletType });
+            connection.connect({
+              walletId: selected.id,
+              provider: selected.walletType,
+              address: selected.address,
+              network: selected.network,
+            });
           }}
         >
           {connection.connecting

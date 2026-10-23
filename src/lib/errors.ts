@@ -35,6 +35,7 @@ const messages: Record<string, string> = {
   QUOTE_STALE: 'Os valores mudaram. Revise a nova cotação antes de confirmar.',
   WALLET_REJECTED: 'Conexão recusada. Tente conectar sua carteira novamente.',
   WALLET_DISCONNECTED: 'A carteira foi desconectada. Conecte novamente.',
+  WALLET_CHANGED: 'A carteira mudou. Revise os dados e conecte novamente antes de comprar.',
   IDEMPOTENCY_CONFLICT: 'Esta tentativa já foi usada com outros dados. Revise o pedido.',
   WRONG_PASSWORD: 'Senha atual incorreta.',
   INVALID_IMAGE: 'Escolha uma imagem PNG, JPEG ou WebP válida de até 2 MB.',

@@ -36,7 +36,12 @@ async function orderInput() {
   return {
     quoteId: quote.id,
     items: [item],
-    wallet: { walletId: 'wallet-ana-primary', provider: 'metamask', network: 'ethereum' },
+    wallet: {
+      walletId: 'wallet-ana-primary',
+      provider: 'metamask',
+      network: 'ethereum',
+      address: '0x1234567890abcdef1234567890abcdef12345678',
+    },
     collector: { displayName: 'Ana Costa', email: 'ana@kurio.test' },
   };
 }
@@ -108,7 +113,12 @@ describe('REST MSW', () => {
     await request(
       '/wallet-session/connect',
       'POST',
-      { walletId: 'wallet-ana-primary', provider: 'metamask' },
+      {
+        walletId: 'wallet-ana-primary',
+        provider: 'metamask',
+        address: '0x1234567890abcdef1234567890abcdef12345678',
+        network: 'ethereum',
+      },
       ana.token,
     );
     const key = crypto.randomUUID();
@@ -148,7 +158,12 @@ describe('REST MSW', () => {
     await request(
       '/wallet-session/connect',
       'POST',
-      { walletId: 'wallet-ana-primary', provider: 'metamask' },
+      {
+        walletId: 'wallet-ana-primary',
+        provider: 'metamask',
+        address: '0x1234567890abcdef1234567890abcdef12345678',
+        network: 'ethereum',
+      },
       ana.token,
     );
     mockStore.write((db) => ({

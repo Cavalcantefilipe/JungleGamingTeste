@@ -42,6 +42,7 @@ export const createOrderInputSchema = z.object({
     walletId: idSchema,
     provider: walletProviderSchema,
     network: nftNetworkSchema,
+    address: z.string().trim().min(1).max(64).optional(),
   }),
   collector: orderCollectorSchema,
 });

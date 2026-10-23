@@ -126,6 +126,10 @@ Tentativas preservadas contêm o payload necessário para repetir a mesma chave.
 
 Os nove testes focados novos (três unitários e seis E2E, desktop/mobile) falharam antes e passaram após as correções. A rodada completa final é registrada em [TESTING.md](TESTING.md). [FINAL-REVIEW.md](FINAL-REVIEW.md) registra decisões e limites da revisão.
 
-## O que ainda é necessário para produção
+## Atualização R05 — vínculo com endereço revisado
+
+A revisão posterior solicitada pelo usuário reproduziu criação de pedido para um endereço alterado da própria carteira depois de reconectá-la. O ID/rede/provedor eram insuficientes para preservar a intenção revisada. Conexão e pedido agora validam o endereço; o cliente confere a resposta, atualiza as carteiras e exige nova revisão. E2E exercita edições autenticadas durante conexão e criação, preservando carrinho/rascunho, em desktop/mobile. Tentativas antigas já aceitas continuam recuperáveis; compras novas sem endereço são recusadas. Não foi demonstrado acesso à carteira de outro usuário. [BEHAVIOR-REVIEW.md](BEHAVIOR-REVIEW.md) contém os testes e o estado dos gates desta atualização.
+
+## Requisitos de produção
 
 Backend independente com autorização por objeto em toda operação; persistência transacional compartilhada com índices/restrições; política de sessão e cookies seguros/CSRF conforme arquitetura; verificação real de posse da carteira; regras por rede/moeda; rate limiting no servidor; logs sem segredos e alertas; revisão da cadeia de dependências; validação dos headers e testes contra o deploy real. Nenhuma dessas garantias pode ser criada apenas com validações no front.

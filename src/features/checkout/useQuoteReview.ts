@@ -8,7 +8,14 @@ import type { Wallet } from '@/contracts/wallet';
 import { quoteQueryOptions } from './quote';
 
 export function useQuoteReview(cart: Cart, wallet: Wallet, couponCode?: string) {
-  const [reviewed, setReviewed] = useState<Quote | null>(null);
+  const walletIdentity = JSON.stringify([
+    wallet.id,
+    wallet.address,
+    wallet.network,
+    wallet.walletType,
+  ]);
+  const [review, setReview] = useState<{ quote: Quote; walletIdentity: string } | null>(null);
+  const reviewed = review?.quote ?? null;
   const [now, setNow] = useState(Date.now);
   const query = useQuery(
     quoteQueryOptions(
@@ -32,7 +39,8 @@ export function useQuoteReview(cart: Cart, wallet: Wallet, couponCode?: string) 
   const current = query.data;
   const stale = Boolean(
     reviewed &&
-    (reviewed.version !== current?.version ||
+    (review?.walletIdentity !== walletIdentity ||
+      reviewed.version !== current?.version ||
       reviewed.total !== current.total ||
       JSON.stringify(reviewed.items) !== JSON.stringify(current.items) ||
       reviewed.network !== wallet.network ||
@@ -45,7 +53,7 @@ export function useQuoteReview(cart: Cart, wallet: Wallet, couponCode?: string) 
     valid: Boolean(reviewed && !stale && !query.isFetching && !query.isError),
     review: async () => {
       const response = await query.refetch();
-      if (response.data && !response.isError) setReviewed(response.data);
+      if (response.data && !response.isError) setReview({ quote: response.data, walletIdentity });
     },
   };
 }

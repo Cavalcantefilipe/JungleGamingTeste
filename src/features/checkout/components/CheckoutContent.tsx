@@ -73,7 +73,12 @@ export function CheckoutContent({
     if (!review.valid || !review.reviewed || !connection.connected || storageError) return;
     form.clearErrors('root');
     try {
-      await connection.verify({ walletId: selected.id, provider: selected.walletType });
+      await connection.verify({
+        walletId: selected.id,
+        provider: selected.walletType,
+        address: selected.address,
+        network: selected.network,
+      });
       await create.mutateAsync({
         quoteId: review.reviewed.id,
         items: review.reviewed.items.map(({ nftId, editionId, quantity }) => ({
@@ -82,7 +87,12 @@ export function CheckoutContent({
           quantity,
         })),
         ...(couponCode ? { couponCode } : {}),
-        wallet: { walletId: selected.id, provider: selected.walletType, network: selected.network },
+        wallet: {
+          walletId: selected.id,
+          provider: selected.walletType,
+          network: selected.network,
+          address: selected.address,
+        },
         collector: {
           displayName: values.displayName,
           email: values.email,
@@ -91,6 +101,7 @@ export function CheckoutContent({
         },
       });
     } catch (error) {
+      if (error instanceof ApiError && error.code === 'WALLET_CHANGED') connection.reset();
       if (
         error instanceof ApiError &&
         ['WALLET_REJECTED', 'WALLET_DISCONNECTED'].includes(error.code)

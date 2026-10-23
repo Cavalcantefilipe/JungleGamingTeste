@@ -132,6 +132,8 @@ it('token de Bruno não conecta a carteira de Ana', async () => {
       await request('/wallet-session/connect', bruno.token, {
         walletId: 'wallet-ana-primary',
         provider: 'metamask',
+        address: '0x1234567890abcdef1234567890abcdef12345678',
+        network: 'ethereum',
         userId: 'user-ana',
       })
     ).status,
@@ -155,6 +157,8 @@ it('troca de senha revoga outras sessões e conexões da mesma conta', async () 
   await request('/wallet-session/connect', first.token, {
     walletId: 'wallet-ana-primary',
     provider: 'metamask',
+    address: '0x1234567890abcdef1234567890abcdef12345678',
+    network: 'ethereum',
   });
   expect(
     (

@@ -47,7 +47,7 @@ Códigos e mensagens ficam em `src/contracts/common.ts` e `src/lib/errors.ts`. A
 | DELETE `/cart/items/:id`       | —                                                                    | carrinho atualizado                                    | mesmo scope                     |
 | POST `/cart/merge`             | guestId                                                              | carrinho do usuário com merge                          | sessão                          |
 | POST `/quote`                  | items, couponCode opcional, network                                  | cotação válida por 60s                                 | público                         |
-| POST `/wallet-session/connect` | walletId, provider                                                   | `{status:"connected",address}`                         | dono da carteira                |
+| POST `/wallet-session/connect` | walletId, provider, address, network                                 | `{status:"connected",address}`                         | dono e identidade da carteira   |
 | POST `/orders`                 | cotação, itens, carteira e coletor; header Idempotency-Key           | pedido pendente, 201; repetição 200                    | sessão                          |
 | GET `/orders/:id`              | —                                                                    | pedido/snapshot/status                                 | dono do pedido                  |
 | GET `/profile`                 | —                                                                    | perfil                                                 | sessão                          |
@@ -77,12 +77,19 @@ Os IDs de edição devem vir do GET do NFT; o exemplo ilustra o formato e não s
   "quoteId": "<id recebido da cotação>",
   "items": [{ "nftId": "nft-001", "editionId": "<id recebido do NFT>", "quantity": 1 }],
   "couponCode": "LANCAMENTO10",
-  "wallet": { "walletId": "<id da carteira salva>", "provider": "metamask", "network": "ethereum" },
+  "wallet": {
+    "walletId": "<id da carteira salva>",
+    "provider": "metamask",
+    "network": "ethereum",
+    "address": "<endereço revisado>"
+  },
   "collector": { "displayName": "Ana", "email": "ana@kurio.test" }
 }
 ```
 
 `Idempotency-Key` é obrigatório no POST; o cliente persiste a chave antes de enviar. Mesma chave/usuário e hash do corpo normalizado devolvem o mesmo pedido; corpo diferente retorna `IDEMPOTENCY_CONFLICT`. O commit revalida sessão, carteira/conexão, cotação, preço, cupom e estoque. `QUOTE_STALE` exige revisão; `UNAVAILABLE` preserva o item para ajuste.
+
+Conexão e compra com endereço/rede/provedor diferentes da carteira salva retornam `WALLET_CHANGED` e exigem nova revisão. O cliente envia sempre o endereço revisado. O parser de pedido aceita endereço ausente somente para compatibilidade de leitura/replay de tentativas antigas: uma chave antiga já aceita recupera o pedido original; uma compra nova sem endereço é recusada no commit, sem gravar pedido ou chave. [Regressões de carteira](BEHAVIOR-REVIEW.md).
 
 Pedido contém id, userId, status (`pending`, `confirmed`, `declined`), itens e valores em snapshot, wallet, transactionRef, explorerUrl, datas e version. Apenas pedido confirmado permite recibo final; URL do explorer aceita o formato HTTPS exato de transação Etherscan ou marcador interno pending. Não há blockchain real.
 

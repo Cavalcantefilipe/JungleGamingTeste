@@ -16,7 +16,7 @@ Evidências novas: `src/features/realtime/catalog-reconciliation.test.ts` (três
 - Publicação: sem URL, os testes de headers, refresh, socket e commit publicado continuam pendentes.
 - Token válido de outra conta com identidade local adulterada nos favoritos: não foi encontrada transição normal que produza isso nem acesso sem a credencial correspondente. Não se classifica como divulgação não autorizada comprovada; rotas privadas recusam identidade inconsistente. Quem possui o token já possui a credencial daquela conta.
 - Reordenação de perfil do mesmo usuário: não foi estabelecido dano concreto no fluxo atual, que desabilita o envio pendente. Ausência de versionamento entre formulários continua merecendo atenção em uma integração real.
-- Carteira alterada durante verificação: o cliente não compara o endereço retornado com o endereço revisado. Edições revogam conexões e o commit valida dono/carteira/rede atuais. Uma combinação de edição anterior a um reconnect atrasado pode precisar de proteção de intenção; não foi reproduzida em ordenação suportada da UI. Isso não equivale a prova de segurança de carteira real, que permanece fora da implementação.
+- Carteira alterada durante verificação: a hipótese ficou aberta na revisão original. Na atualização posterior solicitada pelo usuário, um teste reproduziu pedido para endereço alterado após reconectar. Foi corrigido vinculando conexão/pedido ao endereço revisado, com revalidação no commit e nova revisão na UI. [BEHAVIOR-REVIEW.md](BEHAVIOR-REVIEW.md) registra a reprodução, a concorrência por API autenticada e seus limites. Carteira real continua fora da implementação.
 - Dependência extract-zip: mantida a evidência da consulta ao registro; dois advisories altos dev continuam abertos, sem ocultação. Não há nova consulta independente do revisor.
 - Acessibilidade: axe e reflow em 720px não são certificação, cobertura de todos os leitores de tela ou medição real de zoom 200% do navegador.
 - Artefatos gerados: configurações, resumos e evidências representativas foram avaliados. HTML/JSON/screenshots não foram relidos linha por linha.
@@ -30,3 +30,7 @@ A revisão recomendou corrigir os importantes antes da integração. A publicaç
 ## Verificação do executor após a correção
 
 `pnpm check`: 106 unitários, tipos, lint sem erros e formatação passaram. Suíte Playwright: 203 passaram e 9 skips explícitos por viewport. O clone limpo do commit 52bdb86 também passou instalação frozen, check, build e 203 E2E/9 skips. Lighthouse foi executado e conserva saída 1 para as duas medianas mobile. Publicação e verificações da URL continuam pendentes.
+
+## Atualização posterior solicitada pelo usuário
+
+A hipótese de intenção da carteira foi reaberta e corrigida com reprodução de domínio e testes de concorrência local pela API. Também foi acrescentado cadastro bem-sucedido com carrinho e novo login. Gates locais atuais: **109 unitários**, build e **209 E2E aprovados/9 skips**. Esta atualização não corresponde a uma segunda revisão independente nem a uma nova auditoria Lighthouse; o clone e a medição acima continuam referindo-se ao commit histórico. [Validação dos comportamentos](BEHAVIOR-REVIEW.md) e [estimativa de avaliação](DELIVERY-ASSESSMENT.md).

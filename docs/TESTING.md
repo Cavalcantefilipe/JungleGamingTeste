@@ -26,6 +26,7 @@ O worker MSW está versionado em `public/mockServiceWorker.js`. Os testes usam a
 - `17`: AVIF responsivo, preload local, alvos de quantidade e feedback HTML antes do JavaScript/fonte.
 - `18`: headers CSP de produção aplicados à navegação; catálogo, Socket.IO, carteira e compra sem violações.
 - `19`: cenário inválido, falha/retry do worker e recuperação após logout com isolamento Ana/Bruno.
+- `20`: edição autenticada da carteira durante conexão/criação de pedido, atualização dos dados e nova revisão sem perder carrinho/rascunho.
 - Unitários de reconciliação: filtro, ordenação/composição da página e evento antes da primeira resposta REST.
 
 Os números identificam os cenários do plano, não indicam arquivos ausentes obrigatórios. Testes específicos de desktop/mobile têm skips explícitos no outro projeto. Não são testes ignorados por falha.
@@ -61,3 +62,9 @@ Depois da rodada única de correção: `pnpm check` com 106 unitários em 27 arq
 ## Clone limpo verificado
 
 Em 23/10/2026, um novo clone de `52bdb86cd91562a26530e69a1cbd66db67256ce3` passou `pnpm install --frozen-lockfile`, `pnpm check` (106), `pnpm build` e `CI=true pnpm e2e` (203/9 skips). A porta 4175 foi servida pelo próprio clone, com reuse desativado; o preview anterior foi restaurado ao terminar. `pnpm lighthouse` executou 12 auditorias e retornou 1 para Performance mobile 89/88, com as outras categorias em 100. Veja [LIGHTHOUSE.md](LIGHTHOUSE.md) para a limitação quantitativa; essa etapa não foi registrada como Lighthouse verde.
+
+## Atualização de comportamento posterior ao clone
+
+A revisão solicitada pelo usuário acrescentou o cadastro válido com merge/refresh/logout/login e a vinculação da compra ao endereço revisado. O teste `20` aguarda a latência registrada pelo MSW antes de editar a carteira por API autenticada; não depende apenas do evento de início de request nem usa sleep. A validação de domínio anterior criou um pedido para endereço diferente mesmo após reconectar: duas regressões falharam antes e passaram depois da correção. O terceiro unitário preserva replay de pedido antigo sem endereço no payload. Resultados atuais e limites em [BEHAVIOR-REVIEW.md](BEHAVIOR-REVIEW.md); os registros acima continuam identificando o commit histórico realmente auditado.
+
+Verificação desta atualização: `pnpm check` com **109 unitários em 28 arquivos**, build válido e suíte completa Playwright com **209 aprovados/9 skips explícitos**. O novo cadastro mobile navega ao perfil para acessar logout, pois o carrinho mobile não apresenta o header. A primeira rodada registrou essa falha de seletor; após correção do teste, o caso focado e a suíte completa passaram.

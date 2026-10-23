@@ -23,7 +23,12 @@ function input(): CreateOrderInput {
   return {
     quoteId: quote.id,
     items,
-    wallet: { walletId: wallet.id, provider: wallet.walletType, network: wallet.network },
+    wallet: {
+      walletId: wallet.id,
+      provider: wallet.walletType,
+      network: wallet.network,
+      address: wallet.address,
+    },
     collector: { displayName: 'Ana Costa', email: 'ana@kurio.test' },
   };
 }

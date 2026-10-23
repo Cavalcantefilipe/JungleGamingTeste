@@ -97,6 +97,8 @@ export type SaveWalletInput = z.infer<typeof saveWalletInputSchema>;
 export const walletConnectInputSchema = z.object({
   walletId: idSchema,
   provider: walletProviderSchema,
+  address: z.string().trim().min(1).max(64),
+  network: nftNetworkSchema,
 });
 export type WalletConnectInput = z.infer<typeof walletConnectInputSchema>;
 

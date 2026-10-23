@@ -49,6 +49,8 @@ No E2E com **1.500 ms de latência simulada**, a estimativa apareceu em **17 ms*
 
 Salvar a carteira e atualizar a cópia secundária usa uma transação, com sessão revalidada. Mudar endereço, rede ou provedor remove as conexões dos IDs alterados; a compra exige uma nova conexão. Alterar apenas o apelido preserva a conexão.
 
+Conexão e criação do pedido também conferem o endereço revisado. Reconectar um registro editado não autoriza a intenção anterior: divergência retorna `WALLET_CHANGED`, atualiza os dados e exige revisar/conectar novamente. O teste cobre edição durante as duas requisições e mantém carrinho/rascunho. Compatibilidade de replay de tentativas antigas é preservada sem aceitar compras novas sem endereço; [evidência](BEHAVIOR-REVIEW.md).
+
 O front serializa alterações de carteira por usuário e verifica o token capturado antes de executar uma alteração que estava na fila. Respostas antigas também verificam a sessão antes de atualizar o cache. O E2E troca de Ana para Bruno sem recarregar a página, mantém a primeira resposta pendente e verifica que a alteração seguinte não é enviada com a conta nova.
 
 ## Tentativas e respostas atrasadas no navegador

@@ -17,8 +17,13 @@ export function validateOrderWallet(
   const wallet = [wallets?.primary, wallets?.secondary].find(
     (entry) => entry?.id === input.wallet.walletId,
   );
-  if (wallet?.network !== input.wallet.network || wallet.walletType !== input.wallet.provider)
-    throw new MockError(403, 'FORBIDDEN');
+  if (!wallet) throw new MockError(403, 'FORBIDDEN');
+  if (
+    wallet.address !== input.wallet.address ||
+    wallet.network !== input.wallet.network ||
+    wallet.walletType !== input.wallet.provider
+  )
+    throw new MockError(409, 'WALLET_CHANGED');
   if (db.walletConnections[token] !== wallet.id) throw new MockError(409, 'WALLET_DISCONNECTED');
   return wallet;
 }

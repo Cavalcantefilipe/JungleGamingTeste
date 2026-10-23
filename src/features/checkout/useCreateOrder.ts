@@ -22,6 +22,10 @@ export function useCreateOrder(session: Session) {
   const active = () => sessionStore.getSnapshot()?.token === session.token;
   return useMutation({
     mutationKey: ['orders', 'create', session.user.id],
+    onError: (error) => {
+      if (active() && error instanceof ApiError && error.code === 'WALLET_CHANGED')
+        void client.invalidateQueries({ queryKey: queryKeys.wallets(session.user.id) });
+    },
     mutationFn: async (input: CreateOrderInput) => {
       if (!active()) throw new ApiError('SESSION_EXPIRED', 401);
       const attempt = await prepareOrderAttempt(session.user.id, input, active);

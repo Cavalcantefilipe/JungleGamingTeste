@@ -17,7 +17,13 @@ export const walletSessionHandlers = [
       const wallet = [wallets?.primary, wallets?.secondary].find(
         (entry) => entry?.id === input.walletId,
       );
-      if (wallet?.walletType !== input.provider) throw new MockError(403, 'FORBIDDEN');
+      if (!wallet) throw new MockError(403, 'FORBIDDEN');
+      if (
+        wallet.address !== input.address ||
+        wallet.network !== input.network ||
+        wallet.walletType !== input.provider
+      )
+        throw new MockError(409, 'WALLET_CHANGED');
       if (getScenario().name === 'wallet-rejected') throw new MockError(403, 'WALLET_REJECTED');
       if (getScenario().name === 'wallet-disconnected')
         throw new MockError(409, 'WALLET_DISCONNECTED');
