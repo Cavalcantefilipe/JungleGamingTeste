@@ -46,6 +46,10 @@ Teste: `src/mocks/shared/storeQuote.test.ts`, via `pnpm exec vitest run src/mock
 
 O teste E2E com 1.500 ms de latência artificial continua verificando estimativa antes da rede e exatamente uma consulta de cotação. O preço final é sempre confirmado no mock da API, nunca pelo cálculo do front. Evidência anterior de 17 ms para feedback está em [CONCURRENCY.md](CONCURRENCY.md).
 
+## Eventos e custo de reconciliação
+
+Um preço novo altera imediatamente o detalhe e as linhas já conhecidas, sem refazer a consulta do detalhe. Listas com limites de preço ou ordenação por preço precisam de REST para recuperar a composição/página e os totais corretos: o cache contém apenas uma página e não consegue descobrir sozinho um NFT que passou a pertencer a ela. Mudança de badge também reconcilia uma tab filtrada. Listas sem critérios afetados recebem a atualização local. Um evento durante o primeiro GET cancela a resposta antiga e inicia uma leitura atual quando a query está ativa. Esse custo corrige consistência; não adiciona verificação de sessão por rede a cada cálculo local.
+
 ## O que não está otimizado para um banco real
 
 O armazenamento inteiro ainda é clonado/validado/serializado em cada gravação; localStorage é síncrono e tem quota limitada. Arrays de sessões/contas/pedidos usam busca linear. Para 48 NFTs o custo medido é pequeno, mas o desenho não escala como banco de produção. Históricos de pedidos e chaves de idempotência precisam de política de retenção própria; descartá-los indiscriminadamente permitiria duplicar uma compra antiga.

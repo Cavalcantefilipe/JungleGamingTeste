@@ -11,9 +11,7 @@ function notify(): void {
   for (const listener of listeners) listener();
 }
 function clearPrivateStorage(preserveDraft: boolean): void {
-  const keys = Object.keys(localStorage).filter(
-    (key) => key.startsWith('kurio.checkoutDraft.') || key.startsWith('kurio.pendingOrder'),
-  );
+  const keys = Object.keys(localStorage).filter((key) => key.startsWith('kurio.checkoutDraft.'));
   if (!preserveDraft) for (const key of keys) localStorage.removeItem(key);
   if (!preserveDraft)
     for (const key of Object.keys(sessionStorage).filter(

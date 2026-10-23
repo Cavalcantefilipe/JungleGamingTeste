@@ -1,5 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 
+import { nftListResponseSchema } from '@/contracts/nft';
+
 import { addNft, prepareCheckout } from './fixtures/checkout';
 import { expect, login, test } from './fixtures/kurio';
 
@@ -41,9 +43,16 @@ test('teclado alcança paginação e abre detalhe sem mouse', async ({ page }) =
   const second = page.getByRole('button', { name: 'Página 2', exact: true });
   await expect(second).toBeVisible();
   await tabUntil(page, second);
+  const pageTwoResponse = page.waitForResponse((response) => {
+    const url = new URL(response.url());
+    return url.pathname === '/api/nfts' && url.searchParams.get('page') === '2';
+  });
   await page.keyboard.press('Enter');
   await expect(page).toHaveURL(/page=2/);
+  const first = nftListResponseSchema.parse(await (await pageTwoResponse).json()).items[0];
+  if (!first) throw new Error('Segunda página sem NFTs');
   const nft = page.getByTestId('nft-grid').getByRole('link').first();
+  await expect(nft).toHaveAttribute('href', `/nfts/${first.id}`);
   await tabUntil(page, nft, true);
   await page.keyboard.press('Enter');
   await expect(page.getByTestId('gallery-image')).toBeVisible();

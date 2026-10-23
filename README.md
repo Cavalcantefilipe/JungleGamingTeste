@@ -98,7 +98,7 @@ reports          relatórios versionados de segurança/performance
 - [Enunciado](docs/CHALLENGE.md), [arquitetura](ARCHITECTURE.md), [contratos](docs/CONTRACTS.md).
 - [Concorrência e recuperação](docs/CONCURRENCY.md), [persistência/consultas](docs/DATA-PERFORMANCE.md).
 - [Figma e adaptações](docs/DESIGN-REVIEW.md), [testes](docs/TESTING.md), [Lighthouse](docs/LIGHTHOUSE.md).
-- [Falhas encontradas e corrigidas, BOLA/IDOR, XSS e OWASP](docs/SECURITY-REVIEW.md).
+- [Falhas encontradas e corrigidas, BOLA/IDOR, XSS e OWASP](docs/SECURITY-REVIEW.md) e [revisão final](docs/FINAL-REVIEW.md).
 
 Performance do detalhe mobile ainda está abaixo de 90 no Lighthouse (88; Home mobile 91); o comando retorna falha e os relatórios preservam os resultados. Existem dois advisories altos de desenvolvimento em `extract-zip`, sem correção publicada no registro consultado; produção teve zero advisories na revisão. Não há banco real para certificar otimização SQL.
 

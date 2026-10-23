@@ -4,6 +4,8 @@ import { orderSchema, type Order } from '@/contracts/order';
 import type { NftUpdatedEvent, RealtimeEvent } from '@/contracts/realtime';
 import { queryKeys } from '@/lib/query-keys';
 
+import { reconcileNftEvent } from './reconcileNftEvent';
+
 import type { QueryClient } from '@tanstack/react-query';
 
 function updateNft(nft: Nft | undefined, event: NftUpdatedEvent) {
@@ -16,6 +18,13 @@ function cancelOlderNftRequests(client: QueryClient, event: NftUpdatedEvent): vo
     const detail = nftSchema.safeParse(query.state.data);
     const list = nftListResponseSchema.safeParse(query.state.data);
     const older = (nft: Nft) => nft.id === event.resource.id && nft.version < event.version;
+    const uncached =
+      query.state.data === undefined &&
+      (query.queryKey[1] === 'list' || query.queryKey[2] === event.resource.id);
+    if (uncached) {
+      void client.cancelQueries({ queryKey: query.queryKey, exact: true }, { silent: true });
+      continue;
+    }
     if ((detail.success && older(detail.data)) || list.data?.items.some(older))
       void client.cancelQueries(
         { queryKey: query.queryKey, exact: true },
@@ -31,6 +40,7 @@ function applyNft(client: QueryClient, event: NftUpdatedEvent): void {
   client.setQueriesData<NftListResponse>({ queryKey: queryKeys.nfts.lists() }, (list) =>
     list ? { ...list, items: list.items.map((nft) => updateNft(nft, event) ?? nft) } : list,
   );
+  reconcileNftEvent(client, event);
   const carts = client.getQueryCache().findAll({ queryKey: ['cart'] });
   for (const query of carts) {
     const cart = client.getQueryData<Cart>(query.queryKey);

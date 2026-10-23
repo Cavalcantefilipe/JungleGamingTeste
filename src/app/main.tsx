@@ -5,6 +5,8 @@ import '@/styles/globals.css';
 
 import { StrictMode } from 'react';
 
+import { renderStartupError } from '@/app/renderStartupError';
+
 async function prepareMocks(): Promise<void> {
   const { env } = await import('@/lib/env');
   if (!env.enableMocks) return;
@@ -28,5 +30,6 @@ async function bootstrap(): Promise<void> {
 requestAnimationFrame(() => {
   void bootstrap().catch((error: unknown) => {
     console.error('Falha ao iniciar aplicação', error);
+    renderStartupError();
   });
 });

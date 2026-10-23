@@ -25,6 +25,8 @@ O worker MSW está versionado em `public/mockServiceWorker.js`. Os testes usam a
 - `16`: texto de perfil não executa código e identidade adulterada não libera rota privada.
 - `17`: AVIF responsivo, preload local, alvos de quantidade e feedback HTML antes do JavaScript/fonte.
 - `18`: headers CSP de produção aplicados à navegação; catálogo, Socket.IO, carteira e compra sem violações.
+- `19`: cenário inválido, falha/retry do worker e recuperação após logout com isolamento Ana/Bruno.
+- Unitários de reconciliação: filtro, ordenação/composição da página e evento antes da primeira resposta REST.
 
 Os números identificam os cenários do plano, não indicam arquivos ausentes obrigatórios. Testes específicos de desktop/mobile têm skips explícitos no outro projeto. Não são testes ignorados por falha.
 
@@ -51,3 +53,7 @@ Relatório HTML em `reports/playwright-report` e traces/screenshots de falha em 
 ## Gate de Lighthouse
 
 `pnpm build && pnpm lighthouse` coleta três execuções por página/perfil e guarda HTML/JSON versionados. O comando conserva saída não zero quando uma mediana não atinge a meta. Consulte [LIGHTHOUSE.md](LIGHTHOUSE.md) para o resultado real; não trate a existência dos relatórios como aprovação. Evite concorrência de testes/build durante a coleta.
+
+## Resultado da revisão final local
+
+Depois da rodada única de correção: `pnpm check` com 106 unitários em 27 arquivos, build válido e Playwright com 203 aprovados/9 skips explícitos. O teste de teclado aguarda o conteúdo autoritativo da página 2 antes de navegar pelos novos cards: a URL muda antes dos dados por causa de keepPreviousData. Nenhuma espera fixa ou retry automático foi adicionado para encobrir falhas.

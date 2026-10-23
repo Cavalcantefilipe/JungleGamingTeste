@@ -21,6 +21,8 @@ Com mocks habilitados, `window.__kurio` oferece:
 - `disconnectSocket()`, `reconnectSocket()` e `getConnections()` (IDs de usuários, sem tokens);
 - `advanceOrder(orderId, status)`: executa a transição persistida, estoque/carrinho e emissão correspondente.
 
+Cenário desconhecido na URL/armazenamento usa default. Falha ao iniciar o worker ou carregar módulos mostra erro acessível com ação de tentar novamente.
+
 A aplicação não importa esses controles. Só `main.tsx` importa o módulo de inicialização dos mocks. Os testes exercitam os controles no navegador e observam o DOM, inclusive ausência de nova chamada REST quando chega um preço pelo socket.
 
 ## Limitações

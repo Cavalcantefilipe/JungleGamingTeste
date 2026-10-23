@@ -93,10 +93,10 @@ Referências e resumo verificável: [dependencies.json](../reports/security/depe
 
 ## Verificação
 
-- `pnpm check`: **103 testes unitários passaram**, TypeScript, lint sem erros e formatação válidos. Warnings de tamanho de função herdados continuam registrados no ledger.
+- `pnpm check`: **106 testes unitários passaram**, TypeScript, lint sem erros e formatação válidos. Warnings de tamanho de função herdados continuam registrados no ledger.
 - `pnpm build`: passou.
 - Testes novos de segurança no navegador: **4/4**, desktop e mobile.
-- Suíte completa: **197 passaram, 9 skips deliberados por viewport**, desktop e mobile.
+- Suíte completa: **203 passaram, 9 skips deliberados por viewport**, desktop e mobile.
 - Testes relevantes: `src/lib/{http,request-identity}.test.ts`, `src/features/auth/route-guard.test.ts`, `src/mocks/handlers/{handlers,security}.test.ts`, `src/contracts/security.test.ts`, `src/mocks/shared/{concurrency,auth-concurrency,timing,storeQuote}.test.ts`, `e2e/{07-payment-failures,08-account,10-realtime-resilience,16-security}.spec.ts`.
 
 ## Erros anteriores já corrigidos durante a execução
@@ -110,6 +110,21 @@ Referências e resumo verificável: [dependencies.json](../reports/security/depe
 | Erro de preço duplicava aviso e impedia nova tentativa válida.                                                | Libera somente tentativa definitivamente rejeitada, mantém a ambígua (`ea620c2`).                      |
 | JSON de tentativa corrompido expunha erro padrão do Router.                                                   | Mensagem própria e bloqueio conservador; uma chave possivelmente aceita não é descartada (`ea620c2`).  |
 | Galeria deslocava cerca de 50px após carregamento.                                                            | Skeleton reserva navegação e proporções da galeria (`08848e3`).                                        |
+
+## Revisão final independente e regressões adicionais
+
+A revisão da branch e365f97 identificou três problemas importantes; um quarto caso inicialmente sem reprodução foi elevado a importante após um teste demonstrar a perda do evento.
+
+| ID  | Erro anterior                                                                                             | Correção e evidência                                                                                                                                                                                        |
+| --- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| R01 | Logout apagava todas as tentativas pendentes, incluindo referência necessária após timeout de compra.     | Preserva tentativa por usuário; limpa sessão, cache e rascunhos visíveis. E2E timeout → logout → Bruno sem compra de Ana → Ana recupera o mesmo pedido/chave.                                               |
+| R02 | Evento de preço alterava a linha, mas deixava NFT fora do filtro ou na posição/página errada.             | Reconcilia listas quando preço afeta filtro/ordem ou badge afeta tab. Testes usam QueryObserver ativo e resultado canônico de filtro, total e composição da página. Detalhe existente continua sem refetch. |
+| R03 | Cenário desconhecido ou falha no worker deixava carregamento permanente.                                  | Cenário inválido usa default. Falhas de bootstrap mostram alerta e botão de tentar novamente, sem HTML de entrada ou stack na tela. E2E rejeita registro do worker uma vez e recupera pelo botão.           |
+| R04 | Evento antes do primeiro REST não encontrava cache; resposta antiga ainda podia publicar versão anterior. | Cancela consulta inicial afetada e reconcilia. Teste com primeira resposta adiada falhou com versão 1/preço antigo e passou com versão 2/preço novo.                                                        |
+
+Tentativas preservadas contêm o payload necessário para repetir a mesma chave. São lidas pela UI somente para o usuário autenticado correspondente; o teste cobre a troca para Bruno. **Ainda ficam no localStorage**, assim como o banco inteiro do mock. Logout não transforma esse armazenamento em cofre nem garante confidencialidade contra outra pessoa com acesso ao navegador. Em produção, referências mínimas e recuperação autenticada precisam residir no backend.
+
+Os nove testes focados novos (três unitários e seis E2E, desktop/mobile) falharam antes e passaram após as correções. A rodada completa final é registrada em [TESTING.md](TESTING.md). [FINAL-REVIEW.md](FINAL-REVIEW.md) registra decisões e limites da revisão.
 
 ## O que ainda é necessário para produção
 
