@@ -55,13 +55,19 @@
     @apply min-h-11 cursor-pointer py-2 text-left hover:text-primary active:text-primary-light sm:min-h-8 sm:py-1;
   }
   .skeleton {
-    background: linear-gradient(
-      90deg,
-      var(--color-surface-card) 25%,
-      var(--color-surface-raised) 50%,
-      var(--color-surface-card) 75%
-    );
+    background-image: var(--background-image-skeleton-gradient);
     background-size: 200% 100%;
     @apply motion-safe:animate-shimmer;
+  }
+}
+
+@utility reveal-on-hover {
+  @media (hover: hover) and (pointer: fine) {
+    opacity: 0;
+    .group:hover &,
+    .group:focus-within &,
+    &[aria-pressed='true'] {
+      opacity: 1;
+    }
   }
 }

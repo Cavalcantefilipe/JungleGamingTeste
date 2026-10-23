@@ -86,7 +86,10 @@ test('controles e resumo do carrinho seguem cores e formas medidas no Figma', as
   expect(fee && label && label.y >= fee.y + fee.height).toBe(true);
   expect(fee && label && Math.abs(fee.x + fee.width - label.x - label.width) < 1).toBe(true);
   const checkout = page.getByRole('link', { name: 'Conectar e finalizar', exact: true });
-  await expect(checkout).toHaveCSS('background-image', /primary-button-gradient\.svg/);
+  await expect(checkout).toHaveCSS(
+    'background-image',
+    /linear-gradient\(108\.86deg, rgb\(210, 138, 76\)/,
+  );
   if (isMobile) {
     await expect(checkout).toHaveCSS('height', '60px');
     await expect(page.getByRole('complementary', { name: 'Resumo da carteira' })).toHaveCSS(

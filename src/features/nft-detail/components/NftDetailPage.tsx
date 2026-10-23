@@ -17,6 +17,11 @@ export function NftDetailPage({ nft }: { nft: Nft }) {
   const share = useShareLink();
   return (
     <>
+      <div
+        data-testid="detail-background"
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[506px] bg-detail-gradient md:hidden"
+      />
       <div className="mb-2 flex items-center justify-between md:hidden">
         <Button asChild variant="secondary" size="icon" className="rounded-full">
           <Link to="/" aria-label="Voltar para o catálogo">

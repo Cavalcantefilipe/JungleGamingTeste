@@ -9,7 +9,7 @@ export function FeaturedCard({ nft }: { nft?: Nft }) {
     <Link
       to="/nfts/$nftId"
       params={{ nftId: nft.id }}
-      className="mt-8 block overflow-hidden rounded-xl bg-surface-dark p-4"
+      className="mt-8 block overflow-hidden rounded-xl bg-featured-gradient p-4"
     >
       <p className="mb-1 text-sm font-bold text-amber">NFT EM DESTAQUE</p>
       <p className="mb-4 text-xs font-bold">OFERTA LIMITADA</p>

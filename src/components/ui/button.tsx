@@ -11,6 +11,7 @@ const buttonVariants = cva(
       variant: {
         default: 'bg-primary text-ink hover:bg-primary-light active:bg-primary-dark',
         primary: 'bg-primary text-ink hover:bg-primary-light active:bg-primary-dark',
+        filter: 'bg-filter-gradient text-ink hover:brightness-110 active:brightness-95',
         favorite:
           'relative rounded-full bg-transparent text-primary before:pointer-events-none before:absolute before:size-7 before:rounded-full before:bg-surface-dark hover:before:bg-surface-raised active:before:bg-border [&_svg]:relative [&_svg]:size-3.5',
         quantity:
@@ -59,7 +60,7 @@ const buttonVariants = cva(
         variant: ['default', 'primary'],
         size: ['purchase', 'purchase-icon', 'coupon', 'checkout'],
         className:
-          'bg-transparent [background-image:var(--background-image-primary-gradient)] bg-[length:100%_100%] hover:bg-transparent hover:brightness-105 active:bg-transparent active:brightness-95',
+          'bg-transparent bg-primary-gradient hover:bg-transparent hover:brightness-105 active:bg-transparent active:brightness-95',
       },
     ],
     defaultVariants: {

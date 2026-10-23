@@ -34,7 +34,7 @@ export function FilterDrawer({
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button
-          variant={compact ? 'primary' : 'secondary'}
+          variant={compact ? 'filter' : 'secondary'}
           size={compact ? 'icon' : 'default'}
           aria-label="Filtros"
           className="rounded-xl lg:hidden"

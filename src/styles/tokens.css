@@ -26,7 +26,42 @@
   --color-transparent: transparent;
 
   --shadow-coupon: 0 6px 20px rgb(10 6 4 / 0.45);
-  --background-image-primary-gradient: url('/images/ui/primary-button-gradient.svg');
+  --background-image-primary-gradient: linear-gradient(
+    108.8596deg,
+    var(--color-primary) -3.9595%,
+    color-mix(in srgb, var(--color-primary) 80%, transparent) 121.9658%
+  );
+  --background-image-filter-gradient: linear-gradient(
+    137.0454deg,
+    color-mix(in srgb, var(--color-primary) 45%, transparent) -24.6032%,
+    var(--color-primary) 100%
+  );
+  --background-image-surface-gradient: linear-gradient(
+    139.5479deg,
+    var(--color-surface-card) -11.9992%,
+    var(--color-surface-raised) 106.5948%
+  );
+  --background-image-detail-gradient: linear-gradient(
+    137.6401deg,
+    var(--color-surface-card) -11.9994%,
+    var(--color-surface-raised) 106.5947%
+  );
+  --background-image-market-gradient: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-primary) 40%, transparent) -16.9231%,
+    var(--color-primary) 109.2308%
+  );
+  --background-image-featured-gradient: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-primary) 10%, transparent),
+    color-mix(in srgb, var(--color-primary) 3%, transparent)
+  );
+  --background-image-skeleton-gradient: linear-gradient(
+    90deg,
+    var(--color-surface-card) 25%,
+    var(--color-surface-raised) 50%,
+    var(--color-surface-card) 75%
+  );
 
   --font-mono: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-sans: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;

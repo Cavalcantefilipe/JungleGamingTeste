@@ -51,7 +51,7 @@ export function MobileTabBar() {
       <a
         href="/#catalogo"
         aria-label="Explorar mercado"
-        className="mx-auto -mt-8 flex size-[65px] items-center justify-center self-start rounded-full bg-gradient-to-b from-primary/40 to-primary text-foreground shadow-lg hover:brightness-110 active:brightness-95"
+        className="mx-auto -mt-8 flex size-[65px] items-center justify-center self-start rounded-full bg-market-gradient text-foreground shadow-lg hover:brightness-110 active:brightness-95"
       >
         <FigmaIcon name="market" size={28} aria-hidden="true" />
       </a>
