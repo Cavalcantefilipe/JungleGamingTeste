@@ -23,6 +23,16 @@ async function expectReadableText(page: Page) {
         ancestor = ancestor.parentElement;
       }
     }
+    function hasHorizontalScroller(element: HTMLElement) {
+      let ancestor = element.parentElement;
+      while (ancestor && ancestor !== document.body) {
+        const overflow = getComputedStyle(ancestor).overflowX;
+        if (['auto', 'scroll'].includes(overflow) && ancestor.scrollWidth > ancestor.clientWidth)
+          return true;
+        ancestor = ancestor.parentElement;
+      }
+      return false;
+    }
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
     while (walker.nextNode()) {
       const node = walker.currentNode;
@@ -34,7 +44,8 @@ async function expectReadableText(page: Page) {
       range.selectNode(node);
       for (const rect of range.getClientRects()) {
         if (rect.width < 2 || rect.height < 2) continue;
-        if (rect.left < -1 || rect.right > innerWidth + 1) failures.push(`Viewport: ${text}`);
+        if ((rect.left < -1 || rect.right > innerWidth + 1) && !hasHorizontalScroller(element))
+          failures.push(`Viewport: ${text}`);
         checkClipping(element, rect, text);
       }
     }
@@ -42,6 +53,21 @@ async function expectReadableText(page: Page) {
   });
   expect(clipped).toEqual([]);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+}
+
+async function expectRelatedCardsReadable(page: Page) {
+  const heading = page.getByRole('heading', { name: 'Mais desta coleção', exact: true });
+  await expect(heading).toBeVisible();
+  const section = heading.locator('..').locator('..');
+  const cards = section.getByRole('article');
+  await expect(cards).toHaveCount(5);
+  await section.scrollIntoViewIfNeeded();
+  for (const [index, card] of (await cards.all()).entries()) {
+    if (index > 0)
+      await section.getByRole('button', { name: 'Próximos NFTs', exact: true }).click();
+    await expect(card.getByRole('heading')).toBeInViewport({ ratio: 1 });
+    await expectReadableText(page);
+  }
 }
 
 for (const width of [320, 360, 375, 390, 414]) {
@@ -67,6 +93,7 @@ for (const width of [320, 360, 375, 390, 414]) {
     }
     await page.goto('/nfts/nft-001');
     await expect(page.getByTestId('gallery-image')).toBeVisible();
+    await expectRelatedCardsReadable(page);
     await expectReadableText(page);
     await page.getByRole('button', { name: 'Comprar NFT', exact: true }).click();
     await expect(page.getByTestId('cart-item')).toHaveCount(1);

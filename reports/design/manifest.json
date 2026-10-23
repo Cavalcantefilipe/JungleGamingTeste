@@ -541,6 +541,16 @@
       390,
       414
     ],
-    "browser": "Chromium"
+    "browser": "Chromium",
+    "public": {
+      "url": "https://kurio-production-8274.up.railway.app/",
+      "deploymentId": "529ec4be-9b97-48c4-86a9-0be6f31fbbe6",
+      "deploymentCommit": "c1ce70fb2aecbc1c60c0d57400d491402e3f4818",
+      "imageAndIconTestsPassed": 10,
+      "mobileFlowTestsPassed": 5,
+      "relatedCarouselTitles": "Every card scrolled into view using the Next button in all five widths.",
+      "httpChecks": "passed",
+      "htmlAndSvgBytesMatchLocal": true
+    }
   }
 }

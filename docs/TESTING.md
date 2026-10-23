@@ -99,3 +99,9 @@ Suíte completa: **219 aprovados/15 skips explícitos, 4,7 minutos**; `pnpm chec
 A regressão de recorte foi reproduzida primeiro em 320 px: nomes dos NFTs e título do rodapé. A navegação completa também revelou o recibo transbordando nessa largura. A revisão independente encontrou um indicador do hero coberto pelo bloco de texto; o teste agora clica nos três indicadores em cada largura.
 
 O lint passa a ignorar `test-results`, diretório de artefatos temporários já ignorado pelo Git. Isso evita tentar ler arquivos de trace enquanto o Playwright os remove, sem excluir testes ou código-fonte da análise. Esta rodada usa Chromium; não comprova renderização em Safari/Firefox nem pontuações Lighthouse do novo build.
+
+### Verificação pública da revisão mobile
+
+A aplicação de `cf36ac1`, publicada pelo deploy `529ec4be-9b97-48c4-86a9-0be6f31fbbe6` do commit documental `c1ce70f`, passou **10 testes de imagens/ícones em desktop e mobile** e **5 fluxos completos mobile em 320/360/375/390/414 px**. O script HTTP também passou; o HTML e os três SVGs conferidos têm bytes idênticos aos arquivos locais validados.
+
+Na primeira coleta pública a nova análise geométrica contou cartões fora da janela de um carrossel com rolagem horizontal como recortes. O teste foi corrigido para reconhecer contêineres roláveis, aguardar a coleção relacionada e clicar em “Próximos NFTs” até verificar cada título inteiro. Usar `scrollIntoViewIfNeeded` nesse caso disputava com `scroll-snap`; o fluxo final usa os controles reais e aguarda a posição visível. As cinco larguras passaram em 51,9 segundos, sem espera fixa nem retry automático. Essa correção altera apenas o teste, sem relaxar a verificação de textos truncados dentro dos cartões.

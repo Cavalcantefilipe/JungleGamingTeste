@@ -65,3 +65,9 @@ Na preparação local, Caddy 2.10.2 respondeu 206 a GET Brotli comum; a versão 
 - [Caddy: arquivos pré-comprimidos](https://caddyserver.com/docs/caddyfile/directives/file_server#syntax).
 
 Não há `railway.json`: a documentação atual reserva esse formato aos serviços antigos. A configuração de build fica em `railpack.json`; opções do serviço ficam na Railway. [Configuração da Railway](https://docs.railway.com/config-as-code/reference).
+
+## Revisão visual mobile — 23/10/2026
+
+Código da interface: `cf36ac1`. Deploy `529ec4be-9b97-48c4-86a9-0be6f31fbbe6`, commit de publicação `c1ce70fb2aecbc1c60c0d57400d491402e3f4818`, concluído com SUCCESS. Foram conferidos os novos SVGs e o HTML, além de 10 testes de imagens/ícones e 5 fluxos de nove telas nas larguras 320–414 px na URL pública. [Detalhes da validação](TESTING.md#verificação-pública-da-revisão-mobile).
+
+Hash SHA-256 do HTML: `c5b143ff1fe56df24752c25eca18fc5758f1eb80fcd6d171125b86e49e58aaa8`. Publicações posteriores somente de testes/documentação preservam o código da interface; o [manifesto visual](../reports/design/manifest.json) referencia o commit de aplicação. As notas Lighthouse anteriores não foram reaproveitadas como medição deste build.
