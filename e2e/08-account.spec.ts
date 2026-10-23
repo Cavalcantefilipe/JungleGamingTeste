@@ -157,7 +157,7 @@ test('alterações de carteira na fila não atingem o próximo usuário após lo
   });
   await page.getByRole('button', { name: 'Abrir menu da conta' }).click();
   await page.getByRole('menuitem', { name: 'Sair', exact: true }).click();
-  await expect(page).toHaveURL('http://127.0.0.1:4175/');
+  await expect(page).toHaveURL('/');
   await page.getByRole('link', { name: 'Meu perfil', exact: true }).click();
   await page.getByLabel('E-mail', { exact: true }).fill('bruno@kurio.test');
   await page.getByLabel('Senha', { exact: true }).fill('Kurio!2026');

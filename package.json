@@ -22,7 +22,8 @@
     "e2e:ui": "playwright test --ui",
     "lighthouse": "node lighthouse/run.mjs",
     "check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test && pnpm test:tooling",
-    "test:tooling": "node --test lighthouse/*.test.mjs scripts/compressedAssets.test.mjs"
+    "test:tooling": "node --test lighthouse/*.test.mjs scripts/compressedAssets.test.mjs",
+    "verify:deployment": "node scripts/verifyDeployment.mjs"
   },
   "dependencies": {
     "@fontsource/roboto-mono": "^5.3.0",

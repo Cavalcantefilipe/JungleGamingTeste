@@ -1,5 +1,7 @@
 import { defineConfig } from '@playwright/test';
 
+const externalBaseURL = process.env.E2E_BASE_URL;
+
 export default defineConfig({
   testDir: './e2e',
   snapshotPathTemplate: '{testDir}/__screenshots__/{testFilePath}/{arg}-{projectName}{ext}',
@@ -8,7 +10,7 @@ export default defineConfig({
   timeout: 30_000,
   expect: { timeout: 8000, toHaveScreenshot: { maxDiffPixelRatio: 0.01 } },
   use: {
-    baseURL: 'http://127.0.0.1:4175',
+    baseURL: externalBaseURL ?? 'http://127.0.0.1:4175',
     actionTimeout: 10_000,
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
@@ -29,9 +31,13 @@ export default defineConfig({
       },
     },
   ],
-  webServer: {
-    command: 'pnpm exec vite preview --port 4175 --strictPort --host 127.0.0.1',
-    url: 'http://127.0.0.1:4175',
-    reuseExistingServer: !process.env.CI,
-  },
+  ...(externalBaseURL
+    ? {}
+    : {
+        webServer: {
+          command: 'pnpm exec vite preview --port 4175 --strictPort --host 127.0.0.1',
+          url: 'http://127.0.0.1:4175',
+          reuseExistingServer: !process.env.CI,
+        },
+      }),
 });

@@ -15,7 +15,7 @@ test('ações editoriais e newsletter informam indisponibilidade', async ({ page
     await expect(
       page.getByText('Conteúdo indisponível nesta demonstração', { exact: true }),
     ).toBeVisible();
-    await expect(page).toHaveURL('http://127.0.0.1:4175/');
+    await expect(page).toHaveURL('/');
   }
   await page
     .getByRole('textbox', { name: 'E-mail para newsletter' })
@@ -29,7 +29,7 @@ test('rota inexistente mostra 404 e volta para início', async ({ page }) => {
   await page.goto('/pagina-inexistente');
   await expect(page.getByRole('heading', { name: 'Página não encontrada' })).toBeVisible();
   await page.getByRole('link', { name: 'Voltar para Início', exact: true }).click();
-  await expect(page).toHaveURL('http://127.0.0.1:4175/');
+  await expect(page).toHaveURL('/');
 });
 test('tab bar aparece somente no mobile', async ({ page, isMobile }) => {
   await page.goto('/');

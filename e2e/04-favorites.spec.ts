@@ -41,7 +41,7 @@ test('favorito de Ana não aparece para Bruno e socket troca de sessão', async 
     .toEqual(['user-ana']);
   await page.getByRole('button', { name: 'Abrir menu da conta' }).click();
   await page.getByRole('menuitem', { name: 'Sair', exact: true }).click();
-  await expect(page).toHaveURL('http://127.0.0.1:4175/');
+  await expect(page).toHaveURL('/');
   await login(page, 'bruno', '/?favorites=true');
   await expect
     .poll(() => page.evaluate(() => window.__kurio.getConnections()))

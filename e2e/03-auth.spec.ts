@@ -26,7 +26,7 @@ test.describe('auth', () => {
     await expect(page.getByLabel('Nome de exibição', { exact: true })).toHaveValue('nova_colecao');
     await page.getByRole('button', { name: 'Abrir menu da conta' }).click();
     await page.getByRole('menuitem', { name: 'Sair', exact: true }).click();
-    await expect(page).toHaveURL('http://127.0.0.1:4175/');
+    await expect(page).toHaveURL('/');
     await login(page, 'nova_colecao');
     await expect(page.getByLabel('Nome de exibição', { exact: true })).toHaveValue('nova_colecao');
     await page.goto('/cart');
@@ -77,7 +77,7 @@ test.describe('auth', () => {
     await login(page);
     await page.getByRole('button', { name: 'Abrir menu da conta' }).click();
     await page.getByRole('menuitem', { name: 'Sair', exact: true }).click();
-    await expect(page).toHaveURL('http://127.0.0.1:4175/');
+    await expect(page).toHaveURL('/');
     await expect(page.getByRole('button', { name: 'Abrir menu da conta' })).toHaveCount(0);
     expect(await page.evaluate(() => localStorage.getItem('kurio.session'))).toBeNull();
     await login(page, 'bruno');
@@ -91,7 +91,7 @@ test.describe('auth', () => {
     await page.getByLabel('E-mail', { exact: true }).fill('ana@kurio.test');
     await page.getByLabel('Senha', { exact: true }).fill('Kurio!2026');
     await page.getByRole('button', { name: 'Entrar', exact: true }).click();
-    await expect(page).toHaveURL('http://127.0.0.1:4175/');
+    await expect(page).toHaveURL('/');
   });
 });
 
@@ -110,7 +110,7 @@ test('carrinho de visitante é preservado ao entrar e não vaza para outro usuá
   await expect(page.getByRole('link', { name: 'Carrinho, 1 item', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Abrir menu da conta' }).click();
   await page.getByRole('menuitem', { name: 'Sair', exact: true }).click();
-  await expect(page).toHaveURL('http://127.0.0.1:4175/');
+  await expect(page).toHaveURL('/');
   await expect(page.getByRole('button', { name: 'Abrir menu da conta' })).toHaveCount(0);
   await login(page, 'bruno');
   await expect(page.getByRole('link', { name: 'Carrinho, 0 itens', exact: true })).toBeVisible();

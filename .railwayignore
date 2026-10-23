@@ -1,0 +1,15 @@
+.git
+.superpowers
+node_modules
+dist
+dist-ssr
+reports
+test-results
+e2e
+docs
+.env
+.env.*
+!.env.example
+*.log
+*.tsbuildinfo
+.DS_Store
