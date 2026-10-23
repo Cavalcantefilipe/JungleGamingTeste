@@ -1,15 +1,17 @@
 import { spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { access, mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
+import { access, mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import os from 'node:os';
 import path from 'node:path';
 
 import { chromium } from '@playwright/test';
 
+import { clearReports } from './clearReports.mjs';
 import { assertThresholds, summarize } from './metrics.mjs';
 
 const require = createRequire(import.meta.url);
+const lighthouseRequire = createRequire(require.resolve('lighthouse/package.json'));
 const output = process.env.KURIO_LH_REPORT_DIR ?? 'reports/lighthouse';
 const remoteBase = process.env.KURIO_LH_BASE_URL;
 
@@ -101,15 +103,9 @@ async function runProfile(profile) {
   for (const failure of failures) process.stderr.write(`${failure}\n`);
   return { status: failures.length ? 1 : 0, rows };
 }
-async function resetOutput() {
-  await mkdir(output, { recursive: true });
-  for (const profile of ['desktop', 'mobile'])
-    await rm(path.join(output, profile), { recursive: true, force: true });
-  await rm(path.join(output, 'summary.json'), { force: true });
-}
 async function main() {
   process.env.CHROME_PATH = await resolveChrome();
-  await resetOutput();
+  await clearReports(output);
   const preview = remoteBase ? null : startPreview();
   const rows = [];
   let status = 0;
@@ -128,6 +124,7 @@ async function main() {
         platform: os.platform(),
         architecture: os.arch(),
         lighthouse: require('lighthouse/package.json').version,
+        puppeteerCore: lighthouseRequire('puppeteer-core/package.json').version,
         runner: 'lighthouse/run.mjs (CLI nativa, mediana de três execuções)',
         buildHtmlSha256: remoteBase
           ? null
