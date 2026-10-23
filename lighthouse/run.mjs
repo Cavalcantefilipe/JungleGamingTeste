@@ -1,21 +1,24 @@
 import { spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { access, copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
+import { access, mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import os from 'node:os';
 import path from 'node:path';
 
 import { chromium } from '@playwright/test';
 
+import { assertThresholds, summarize } from './metrics.mjs';
+
 const require = createRequire(import.meta.url);
-const lhciRequire = createRequire(require.resolve('@lhci/cli/package.json'));
 const output = process.env.KURIO_LH_REPORT_DIR ?? 'reports/lighthouse';
 const remoteBase = process.env.KURIO_LH_BASE_URL;
-const median = (values) => values.toSorted((first, second) => first - second)[1];
 
 function command(args) {
   return new Promise((resolve, reject) => {
-    const child = spawn('pnpm', ['exec', 'lhci', ...args], { stdio: 'inherit', env: process.env });
+    const child = spawn('pnpm', ['exec', 'lighthouse', ...args], {
+      stdio: 'inherit',
+      env: process.env,
+    });
     child.once('error', reject);
     child.once('exit', (code) => resolve(code ?? 1));
   });
@@ -56,55 +59,57 @@ function startPreview() {
   });
   return { server, ready };
 }
-async function archiveReports(profile) {
-  const manifest = JSON.parse(
-    await readFile(`.superpowers/lighthouse-upload/${profile}/manifest.json`, 'utf8'),
-  );
-  const groups = new Map();
-  for (const entry of manifest) {
-    const report = JSON.parse(await readFile(entry.jsonPath, 'utf8'));
+async function collectPage(profile, url, settings) {
+  const page = new URL(url).pathname === '/' ? 'home' : 'detail';
+  const folder = path.join(output, profile, page);
+  await mkdir(folder, { recursive: true });
+  const reports = [];
+  for (let run = 1; run <= 3; run++) {
+    const prefix = path.join(folder, `run-${run}`);
+    const args = [
+      url,
+      '--output=json',
+      '--output=html',
+      `--output-path=${prefix}`,
+      `--only-categories=${settings.onlyCategories.join(',')}`,
+      `--chrome-flags=${settings.chromeFlags}`,
+      '--no-enable-error-reporting',
+      '--quiet',
+      ...(settings.preset ? [`--preset=${settings.preset}`] : []),
+    ];
+    if (await command(args)) throw new Error(`Coleta falhou: ${profile}/${page}/${run}`);
+    for (const extension of ['html', 'json'])
+      await rename(`${prefix}.report.${extension}`, `${prefix}.${extension}`);
+    const report = JSON.parse(await readFile(`${prefix}.json`, 'utf8'));
     if (report.runtimeError) throw new Error(JSON.stringify(report.runtimeError));
-    const page = new URL(entry.url).pathname === '/' ? 'home' : 'detail';
-    const reports = groups.get(page) ?? [];
     reports.push(report);
-    groups.set(page, reports);
-    const folder = path.join(output, profile, page);
-    await mkdir(folder, { recursive: true });
-    await copyFile(entry.jsonPath, path.join(folder, `run-${reports.length}.json`));
-    await copyFile(entry.htmlPath, path.join(folder, `run-${reports.length}.html`));
+    process.stdout.write(
+      `${profile}/${page} ${run}/3: ${report.categories.performance.score * 100}\n`,
+    );
   }
-  return [...groups].map(([page, reports]) => summarize(profile, page, reports));
-}
-function summarize(profile, page, reports) {
-  if (reports.length !== 3) throw new Error(`${profile}/${page}: esperados três relatórios.`);
-  const category = (name) => median(reports.map((report) => report.categories[name].score * 100));
-  const metric = (name) => median(reports.map((report) => report.audits[name].numericValue));
-  return {
-    profile,
-    page,
-    runs: reports.length,
-    performance: category('performance'),
-    accessibility: category('accessibility'),
-    bestPractices: category('best-practices'),
-    seo: category('seo'),
-    lcpMs: metric('largest-contentful-paint'),
-    cls: metric('cumulative-layout-shift'),
-    tbtMs: metric('total-blocking-time'),
-    browser: reports[0].environment.hostUserAgent,
-  };
+  return summarize(profile, page, reports);
 }
 async function runProfile(profile) {
-  const config = `--config=lighthouse/lighthouserc.${profile}.json`;
+  const { ci } = JSON.parse(await readFile(`lighthouse/lighthouserc.${profile}.json`, 'utf8'));
+  if (ci.collect.numberOfRuns !== 3) throw new Error('A auditoria exige três execuções.');
   const urls = remoteBase
-    ? [`--url=${new URL('/', remoteBase)}`, `--url=${new URL('/nfts/nft-001', remoteBase)}`]
-    : [];
-  if (await command(['collect', config, ...urls])) throw new Error(`Coleta ${profile} falhou.`);
-  const status = await command(['assert', config]);
-  if (await command(['upload', config])) throw new Error(`Arquivo local ${profile} falhou.`);
-  return { status, rows: await archiveReports(profile) };
+    ? [new URL('/', remoteBase).href, new URL('/nfts/nft-001', remoteBase).href]
+    : ci.collect.url;
+  const rows = [];
+  for (const url of urls) rows.push(await collectPage(profile, url, ci.collect.settings));
+  const failures = assertThresholds(rows, ci.assert.assertions);
+  for (const failure of failures) process.stderr.write(`${failure}\n`);
+  return { status: failures.length ? 1 : 0, rows };
+}
+async function resetOutput() {
+  await mkdir(output, { recursive: true });
+  for (const profile of ['desktop', 'mobile'])
+    await rm(path.join(output, profile), { recursive: true, force: true });
+  await rm(path.join(output, 'summary.json'), { force: true });
 }
 async function main() {
   process.env.CHROME_PATH = await resolveChrome();
+  await resetOutput();
   const preview = remoteBase ? null : startPreview();
   const rows = [];
   let status = 0;
@@ -122,8 +127,8 @@ async function main() {
         node: process.version,
         platform: os.platform(),
         architecture: os.arch(),
-        lighthouse: lhciRequire('lighthouse/package.json').version,
-        lhci: require('@lhci/cli/package.json').version,
+        lighthouse: require('lighthouse/package.json').version,
+        runner: 'lighthouse/run.mjs (CLI nativa, mediana de três execuções)',
         buildHtmlSha256: remoteBase
           ? null
           : createHash('sha256')

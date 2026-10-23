@@ -40,10 +40,6 @@
           }
         ]
       }
-    },
-    "upload": {
-      "target": "filesystem",
-      "outputDir": ".superpowers/lighthouse-upload/desktop"
     }
   }
 }

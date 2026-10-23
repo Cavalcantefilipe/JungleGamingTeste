@@ -21,5 +21,11 @@
     "exactOptionalPropertyTypes": true,
     "noImplicitOverride": true
   },
-  "include": ["vite.config.ts", "playwright.config.ts", "lighthouse/**/*.mjs", "scripts/**/*.mjs"]
+  "include": [
+    "vite.config.ts",
+    "playwright.config.ts",
+    "lighthouse/**/*.mjs",
+    "scripts/**/*.mjs",
+    "scripts/**/*.ts"
+  ]
 }

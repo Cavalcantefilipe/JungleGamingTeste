@@ -39,10 +39,6 @@
           }
         ]
       }
-    },
-    "upload": {
-      "target": "filesystem",
-      "outputDir": ".superpowers/lighthouse-upload/mobile"
     }
   }
 }
