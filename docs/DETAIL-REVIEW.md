@@ -1,6 +1,7 @@
 # Revisão após o apontamento em `/nfts/nft-002`
 
-23/10/2026. A revisão anterior deixou passar as estrelas de texto e reutilizou o estilo dos favoritos dos cards na página de detalhes. Os testes existentes não verificavam esses elementos contra o desenho. Esta rodada compara os vetores, cores e medidas do Figma, além de verificar o comportamento.
+> Registro de uma etapa anterior. A [revisão tela por tela](SCREEN-REVIEW.md) documenta as correções posteriores e a nova conferência; medidas conflitantes deste registro foram substituídas.
+> 23/10/2026. A revisão anterior deixou passar as estrelas de texto e reutilizou o estilo dos favoritos dos cards na página de detalhes. Os testes existentes não verificavam esses elementos contra o desenho. Esta rodada compara os vetores, cores e medidas do Figma, além de verificar o comportamento.
 
 ## Referência e escopo
 

@@ -1,10 +1,10 @@
 # Evidências da conferência visual
 
-23/10/2026. Referências PNG exportadas diretamente do Figma e capturas reais da aplicação em desktop 1440 × 900 e mobile 414 × 896 e 320 × 844. PNGs preservados sem redimensionamento ou compressão com perda. [Manifesto e hashes](manifest.json).
+23/10/2026. [Revisão tela por tela](../../docs/SCREEN-REVIEW.md) e [nova exportação SVG com medidas](source-manifest.json). Referências PNG exportadas diretamente do Figma e capturas reais da aplicação em desktop 1440 × 900 e mobile 414 × 896 e 320 × 844. PNGs preservados sem redimensionamento ou compressão com perda. [Manifesto e hashes](manifest.json).
 
-As páginas desktop são capturas completas; modais da aplicação se centralizam na viewport de 900 px, enquanto o Figma os posiciona em artboards maiores. As capturas mobile mostram o viewport do frame original. Não inferir igualdade de altura entre artboard e página dinâmica. Foco transitório e rolagem foram neutralizados, fontes/imagens carregadas. Usuário, carteiras, edições e pedidos vêm da API MSW; nomes e quantidades da amostra estão no manifesto.
+As páginas desktop são capturas completas; login/cadastro desktop começam em y=160 conforme o Figma; o recibo se centraliza na viewport e possui rolagem quando necessário. As capturas mobile mostram o viewport do frame original. Não inferir igualdade de altura entre artboard e página dinâmica. Foco transitório e rolagem foram neutralizados, fontes/imagens carregadas. Usuário, carteiras, edições e pedidos vêm da API MSW; nomes e quantidades da amostra estão no manifesto.
 
-São 15 referências originais e 30 estados da aplicação. Não há referência mobile de perfil, carteiras ou recibo no arquivo. O carrinho desktop soma 26,846 ETH com taxa; o mobile soma 8,156 ETH, corrigindo a soma inconsistente do Figma. [Ajustes e diferenças documentadas](../../docs/DESIGN-REVIEW.md).
+São 15 referências originais e 30 estados da aplicação. Não há referência mobile de perfil, carteiras ou recibo no arquivo. O carrinho desktop soma 26,846 ETH com taxa; o mobile soma 8,156 ETH, corrigindo a soma inconsistente do Figma. [Ajustes e diferenças documentadas](../../docs/SCREEN-REVIEW.md).
 
 | Perfil | Tela | Referência | Implementação |
 | --- | --- | --- | --- |
@@ -30,7 +30,7 @@ São 15 referências originais e 30 estados da aplicação. Não há referência
 
 ## Telas estreitas — 320 × 844
 
-Capturas atualizadas para o código `544acda`, incluindo a revisão de estrelas/favorito, galeria, abas e componentes compartilhados. A matriz automatizada também percorreu 360, 375 e 390 px. O Figma fornece o frame mobile de 414 px; as adaptações menores preservam o conteúdo com quebra de linha e crescimento vertical.
+Capturas atualizadas após a revisão tela por tela, incluindo estrelas/favorito, galeria, abas, formulários, navegação, rodapé e checkout. O commit e o hash do build estão no manifesto. A matriz automatizada também percorreu 360, 375 e 390 px. O Figma fornece o frame mobile de 414 px; as adaptações menores preservam o conteúdo com quebra de linha e crescimento vertical.
 
 | Tela | Implementação em 320 px |
 | --- | --- |
@@ -57,7 +57,7 @@ Capturas atualizadas para o código `544acda`, incluindo a revisão de estrelas/
 
 ## Verificação da publicação
 
-As capturas abaixo vêm diretamente da Railway, no deployment `ee30fb40-a143-4eaf-9512-620933fb7d35`, com o código `544acda`. Foram confirmados o carregamento dos SVGs, a ausência de overflow e a correspondência do HTML com o build local. São duas capturas adicionais aos 30 estados locais.
+As capturas abaixo vêm diretamente da Railway, no deployment `d211ea55-5de4-4287-bd7e-401768073679`, com o código `242294b`. Foram confirmados o carregamento dos SVGs, a ausência de overflow e a correspondência do HTML com o build local. São duas capturas adicionais aos 30 estados locais.
 
 - [Detalhe desktop publicado](public/detail-002-desktop.png)
 - [Detalhe mobile publicado](public/detail-002-mobile.png)

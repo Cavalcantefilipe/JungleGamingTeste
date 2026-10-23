@@ -1,6 +1,7 @@
 # Conferência do Figma
 
-Fonte: [Frontend Challenge](https://www.figma.com/design/Ff0SksUi7UFtPWUO8kyNtw/Frontend-Challenge). Inspeção direta em 22–23/10/2026, painel Properties, canvas e exportação dos 15 frames desktop/mobile.
+> Registro de uma etapa anterior. A [revisão tela por tela](SCREEN-REVIEW.md) documenta as correções posteriores e a nova conferência; medidas conflitantes deste registro foram substituídas.
+> Fonte: [Frontend Challenge](https://www.figma.com/design/Ff0SksUi7UFtPWUO8kyNtw/Frontend-Challenge). Inspeção direta em 22–23/10/2026, painel Properties, canvas e exportação dos 15 frames desktop/mobile.
 
 ## Medidas verificadas
 

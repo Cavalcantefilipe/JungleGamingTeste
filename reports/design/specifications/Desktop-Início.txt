@@ -1,0 +1,372 @@
+ g {'id': 'Desktop / InÃ\xadcio'}
+  rect {'width': '1440', 'height': '3668', 'fill': '#140D0A'}
+  g {'id': 'Top', 'clip-path': 'url(#clip0_2_2)'}
+   g {'id': 'Header With Divider'}
+    g {'id': 'Header Row'}
+     g {'id': 'Logo'}
+      TEXT {'id': 'KURIO Wordmark', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'font-weight': 'bold', 'letter-spacing': '0.1em'} 'KURIO' [{'x': '120', 'y': '46.588'}]
+     g {'id': 'Nav', 'clip-path': 'url(#clip1_2_2)'}
+      g {'id': 'Nav Item'}
+       TEXT {'id': 'InÃ\xadcio', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Início' [{'x': '496', 'y': '40.7148'}]
+      TEXT {'id': 'Mercado', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'letter-spacing': '0em'} 'Mercado' [{'x': '594', 'y': '40.7148'}]
+      TEXT {'id': 'Criadores', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'letter-spacing': '0em'} 'Criadores' [{'x': '702', 'y': '40.7148'}]
+      TEXT {'id': 'Aprenda', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'letter-spacing': '0em'} 'Aprenda' [{'x': '829', 'y': '40.7148'}]
+     g {'id': 'Header Actions'}
+      g {'id': 'Cart'}
+       TEXT {'id': 'Badge Count', 'fill': '#140D0A', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '10', 'font-weight': '500', 'letter-spacing': '0em'} '6' [{'x': '1181', 'y': '41.3843'}]
+      g {'id': 'Login'}
+       g {'id': 'Login Button'}
+        rect {'x': '1220', 'y': '24', 'width': '100', 'height': '35', 'rx': '6', 'fill': '#D28A4C'}
+        g {'id': 'Login Button Content'}
+         g {'id': 'Iconly/Curved/Logout'}
+          g {'id': 'Logout'}
+         TEXT {'id': 'Entrar', 'fill': '#140D0A', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': '500', 'letter-spacing': '0em'} 'Entrar' [{'x': '1253', 'y': '47.7148'}]
+   g {'id': 'Hero'}
+    g {'id': 'Frame 137'}
+     g {'id': 'Frame 135'}
+      g {'id': 'Frame 134'}
+       g {'id': 'Frame 133'}
+        g {'id': 'Frame 132'}
+         TEXT {'id': 'Bem-vindo Ã\xa0 Kurio', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'font-weight': '500', 'letter-spacing': '0.1em'} 'Bem-vindo à Kurio' [{'x': '160', 'y': '157.438'}]
+         TEXT {'id': 'OWN THE FUTURE OF\nDIGITAL ART', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '43', 'font-weight': 'bold', 'letter-spacing': '0em'} 'SEJA DONO DO FUTURO\nDA ARTE DIGITAL' [{'x': '160', 'y': '219.702'}, {'x': '160', 'y': '289.702'}]
+        TEXT {'id': 'Discover curated NFTs from emerging and established creators. Collect rare digit', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Descubra NFTs selecionados de criadores emergentes e consagrados. Colecione arte digital rara, apoie artistas e tenha uma parte da cultura da internet.' [{'x': '160', 'y': '329.438'}, {'x': '160', 'y': '353.438'}, {'x': '160', 'y': '377.438'}]
+       g {'id': 'Frame 131'}
+        rect {'x': '160', 'y': '416', 'width': '140', 'height': '40', 'rx': '6', 'fill': '#D28A4C'}
+        TEXT {'id': 'EXPLORAR', 'fill': '#140D0A', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': 'bold', 'letter-spacing': '0em'} 'EXPLORAR' [{'x': '187.5', 'y': '442.215'}]
+      g {'id': 'Group 4'}
+       circle {'id': 'Ellipse 2', 'cx': '740', 'cy': '504', 'r': '4', 'fill': '#D28A4C'}
+       circle {'id': 'Ellipse 3', 'cx': '756', 'cy': '504', 'r': '4', 'fill': '#D28A4C'}
+       circle {'id': 'Ellipse 4', 'cx': '724', 'cy': '504', 'r': '4', 'fill': '#D28A4C'}
+     g {'id': 'Frame 136'}
+      rect {'x': '870', 'y': '101', 'width': '450', 'height': '450', 'rx': '24', 'fill': 'url(#pattern0_2_2)'}
+  g {'id': 'Products'}
+   g {'id': 'Sidebar'}
+    g {'id': 'Filters'}
+     rect {'width': '310', 'height': '785', 'transform': 'translate(120 647)', 'fill': '#241612'}
+     g {'id': 'Frame 140'}
+      g {'id': 'Collections Filter', 'clip-path': 'url(#clip2_2_2)'}
+       TEXT {'id': 'ColeÃ§Ãµes', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Coleções' [{'x': '140', 'y': '681.992'}]
+       g {'id': 'List'}
+        g {'id': 'Frame 382'}
+         g {'id': 'Frame 373'}
+          TEXT {'id': 'Digital Art\nPhotography\nMusic\n3D Art\nCollectibles\nGenerative\nGaming\nMemberships', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Arte digital' [{'x': '152', 'y': '720.826'}]
+         TEXT {'id': '(33)', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'font-weight': 'bold', 'letter-spacing': '0em'} '(33)' [{'x': '361.965', 'y': '720.826'}]
+        g {'id': 'Frame 383'}
+         g {'id': 'Frame 374'}
+          TEXT {'id': 'Digital Art\nPhotography\nMusic\n3D Art\nCollectibles\nGenerative\nGaming\nMemberships\n', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Fotografia' [{'x': '152', 'y': '760.826'}]
+         TEXT {'id': '(12)', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'font-weight': 'bold', 'letter-spacing': '0em'} '(12)' [{'x': '361.965', 'y': '760.826'}]
+        g {'id': 'Frame 384'}
+         g {'id': 'Frame 375'}
+          TEXT {'id': 'Digital Art\nPhotography\nMusic\n3D Art\nCollectibles\nGenerative\nGaming\nMemberships\n_2', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Música' [{'x': '152', 'y': '800.826'}]
+         TEXT {'id': '(65)', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'font-weight': 'bold', 'letter-spacing': '0em'} '(65)' [{'x': '361.965', 'y': '800.826'}]
+        g {'id': 'Frame 385'}
+         g {'id': 'Frame 376'}
+          TEXT {'id': 'Digital Art\nPhotography\nMusic\n3D Art\nCollectibles\nGenerative\nGaming\nMemberships\n_3', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Arte 3D' [{'x': '152', 'y': '840.826'}]
+         TEXT {'id': '(39)', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'font-weight': 'bold', 'letter-spacing': '0em'} '(39)' [{'x': '361.965', 'y': '840.826'}]
+        g {'id': 'Frame 390'}
+         g {'id': 'Frame 377'}
+          TEXT {'id': 'Digital Art\nPhotography\nMusic\n3D Art\nCollectibles\nGenerative\nGaming\nMemberships\n_4', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Colecionáveis' [{'x': '152', 'y': '880.826'}]
+         TEXT {'id': '(23)', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'font-weight': 'bold', 'letter-spacing': '0em'} '(23)' [{'x': '361.965', 'y': '880.826'}]
+        g {'id': 'Frame 389'}
+         g {'id': 'Frame 378'}
+          TEXT {'id': 'Digital Art\nPhotography\nMusic\n3D Art\nCollectibles\nGenerative\nGaming\nMemberships\n_5', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Generativa' [{'x': '152', 'y': '920.826'}]
+         TEXT {'id': '(17)', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'font-weight': 'bold', 'letter-spacing': '0em'} '(17)' [{'x': '361.965', 'y': '920.826'}]
+        g {'id': 'Frame 388'}
+         g {'id': 'Frame 379'}
+          TEXT {'id': 'Digital Art\nPhotography\nMusic\n3D Art\nCollectibles\nGenerative\nGaming\nMemberships\n_6', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Jogos' [{'x': '152', 'y': '960.826'}]
+         TEXT {'id': '(19)', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'font-weight': 'bold', 'letter-spacing': '0em'} '(19)' [{'x': '361.965', 'y': '960.826'}]
+        g {'id': 'Frame 387'}
+         g {'id': 'Frame 380'}
+          TEXT {'id': 'Digital Art\nPhotography\nMusic\n3D Art\nCollectibles\nGenerative\nGaming\nMemberships\n_7', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Assinaturas' [{'x': '152', 'y': '1000.83'}]
+         TEXT {'id': '(13)', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'font-weight': 'bold', 'letter-spacing': '0em'} '(13)' [{'x': '361.965', 'y': '1000.83'}]
+        g {'id': 'Frame 386'}
+         g {'id': 'Frame 381'}
+          TEXT {'id': 'Digital Art\nPhotography\nMusic\n3D Art\nCollectibles\nGenerative\nGaming\nMemberships\n_8', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Utilidade' [{'x': '152', 'y': '1040.83'}]
+         TEXT {'id': '(18)', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'font-weight': 'bold', 'letter-spacing': '0em'} '(18)' [{'x': '361.965', 'y': '1040.83'}]
+      g {'id': 'Price Filter', 'clip-path': 'url(#clip3_2_2)'}
+       TEXT {'id': 'Faixa de preÃ§o', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Faixa de preço' [{'x': '140', 'y': '1109.99'}]
+       g {'id': 'Controls'}
+        g {'id': 'Slider'}
+        g {'id': 'Frame 391'}
+         TEXT {'id': 'PreÃ§o: 0,02 - 12,30 ETH', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Preço: 0,02 - 12,30 ETH' [{'x': '152', 'y': '1171.83'}]
+        g {'id': 'Apply Button'}
+         rect {'x': '152', 'y': '1188', 'width': '92', 'height': '36', 'rx': '6', 'fill': '#D28A4C'}
+         TEXT {'id': 'Aplicar', 'fill': '#140D0A', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Aplicar' [{'x': '164', 'y': '1212.21'}]
+      g {'id': 'Network Filter', 'clip-path': 'url(#clip4_2_2)'}
+       TEXT {'id': 'Rede', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Rede' [{'x': '140', 'y': '1278.99'}]
+       g {'id': 'List_2'}
+        g {'id': 'Frame 392'}
+         TEXT {'id': 'Ethereum\nPolygon\nSolana', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Ethereum' [{'x': '152', 'y': '1317.83'}]
+         TEXT {'id': '(119)', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} '(119)' [{'x': '364.956', 'y': '1317.83'}]
+        g {'id': 'Frame 393'}
+         TEXT {'id': 'Ethereum\nPolygon\nSolana_2', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Polygon' [{'x': '152', 'y': '1357.83'}]
+         TEXT {'id': '(78)', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} '(78)' [{'x': '373.965', 'y': '1357.83'}]
+        g {'id': 'Frame 394'}
+         TEXT {'id': 'Ethereum\nPolygon\nSolana_3', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Solana' [{'x': '152', 'y': '1397.83'}]
+         TEXT {'id': '(86)', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} '(86)' [{'x': '373.965', 'y': '1397.83'}]
+    g {'id': 'Featured NFT Banner', 'clip-path': 'url(#clip5_2_2)'}
+     rect {'width': '310', 'height': '470', 'transform': 'translate(120 1456)', 'fill': 'url(#paint0_linear_2_2)'}
+     g {'id': 'Frame 396'}
+      g {'id': 'Frame 395'}
+       g {'id': 'Frame 397'}
+        TEXT {'id': 'NFT EM DESTAQUE', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '24', 'font-weight': 'bold', 'letter-spacing': '0em'} 'NFT EM DESTAQUE' [{'x': '140', 'y': '1505.32'}]
+       g {'id': 'Frame 398'}
+        TEXT {'id': 'OFERTA LIMITADA', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '22', 'font-weight': 'bold', 'letter-spacing': '0em'} 'OFERTA LIMITADA' [{'x': '175.903', 'y': '1544.55'}]
+      rect {'id': 'NFT Artwork 18', 'x': '120', 'y': '1560', 'width': '310', 'height': '368', 'rx': '22', 'fill': 'url(#pattern1_2_2)'}
+     rect {'id': 'Rectangle 31', 'x': '368', 'y': '1799', 'width': '45', 'height': '45', 'rx': '22.5', 'fill': 'url(#paint2_linear_2_2)', 'fill-opacity': '0.3'}
+     rect {'id': 'Rectangle 32', 'x': '158', 'y': '1561', 'width': '15', 'height': '15', 'rx': '7.5', 'fill': 'url(#paint3_linear_2_2)', 'fill-opacity': '0.3'}
+   g {'id': 'Product Grid'}
+    g {'id': 'Frame 233'}
+     g {'id': 'Toolbar'}
+      g {'id': 'Tabs', 'clip-path': 'url(#clip6_2_2)'}
+       TEXT {'id': 'Todos os NFTs', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'font-weight': '500', 'letter-spacing': '0em'} 'Todos os NFTs' [{'x': '478', 'y': '661.826'}]
+       TEXT {'id': 'Novos lanÃ§amentos', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'font-weight': '500', 'letter-spacing': '0em'} 'Novos lançamentos' [{'x': '616', 'y': '661.826'}]
+       TEXT {'id': 'Em alta', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'font-weight': '500', 'letter-spacing': '0em'} 'Em alta' [{'x': '790', 'y': '661.826'}]
+      g {'id': 'Sort'}
+       TEXT {'id': 'Ordenar por:', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Ordenar por:' [{'x': '1020', 'y': '662.826'}]
+       TEXT {'id': 'Listados recentemente', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Listados recentemente' [{'x': '1130', 'y': '662.826'}]
+       g {'id': 'Iconly/Two-tone/Arrow - Down 2'}
+        g {'id': 'Iconly/Two-tone/Arrow - Down 2_2'}
+         g {'id': 'Arrow - Down 2'}
+     g {'id': 'Grid Rows'}
+      g {'id': 'Frame 206'}
+       g {'id': 'Frame 141'}
+        rect {'id': 'Rectangle 6', 'x': '478', 'y': '697', 'width': '258', 'height': '300', 'fill': '#241612'}
+        TEXT {'id': 'Emerald Ape #042', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'letter-spacing': '0em'} 'Emerald Ape #042' [{'x': '478', 'y': '1023.21'}]
+        TEXT {'id': '1.19 ETH', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} '1.19 ETH' [{'x': '478', 'y': '1051.99'}]
+        rect {'id': 'NFT Artwork 03', 'x': '482', 'y': '728', 'width': '250', 'height': '250', 'rx': '15', 'fill': 'url(#pattern2_2_2)'}
+       g {'id': 'Frame 142'}
+        rect {'id': 'Rectangle 7', 'x': '770', 'y': '697', 'width': '258', 'height': '300', 'fill': '#241612'}
+        TEXT {'id': 'Sage Nomad #009', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'letter-spacing': '0em'} 'Sage Nomad #009' [{'x': '770', 'y': '1023.21'}]
+        TEXT {'id': '1.69 ETH', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} '1.69 ETH' [{'x': '770', 'y': '1051.99'}]
+        rect {'id': 'NFT Artwork 04', 'x': '774', 'y': '722', 'width': '250', 'height': '250', 'rx': '15', 'fill': 'url(#pattern3_2_2)'}
+       g {'id': 'Frame 144'}
+        rect {'id': 'Rectangle 8', 'x': '1062', 'y': '697', 'width': '258', 'height': '300', 'fill': '#241612'}
+        TEXT {'id': 'Neon Vessel #552', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'letter-spacing': '0em'} 'Neon Vessel #552' [{'x': '1062', 'y': '1023.21'}]
+        g {'id': 'Frame 143'}
+         TEXT {'id': '1.99 ETH', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} '1.99 ETH' [{'x': '1062', 'y': '1051.99'}]
+         TEXT {'id': '2.29 ETH', 'fill': '#B39463', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'letter-spacing': '0em'} '2.29 ETH' [{'x': '1161', 'y': '1051.99'}]
+        rect {'id': 'NFT Artwork 05', 'x': '1066', 'y': '721', 'width': '250', 'height': '250', 'rx': '15', 'fill': 'url(#pattern4_2_2)'}
+      g {'id': 'Frame 230'}
+       g {'id': 'Frame 209'}
+        g {'id': 'Frame 207'}
+         rect {'width': '258', 'height': '300', 'transform': 'translate(478 1125)', 'fill': '#241612'}
+         rect {'id': 'NFT Artwork 06', 'x': '498', 'y': '1131', 'width': '224', 'height': '286', 'rx': '13', 'fill': 'url(#pattern5_2_2)'}
+        g {'id': 'Frame 208'}
+         TEXT {'id': 'Cosmic Bloom #118', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'letter-spacing': '0em'} 'Cosmic Bloom #118' [{'x': '478', 'y': '1451.21'}]
+         TEXT {'id': '1.29 ETH', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} '1.29 ETH' [{'x': '478', 'y': '1473.99'}]
+       g {'id': 'Frame 212'}
+        g {'id': 'Frame 211'}
+         rect {'width': '258', 'height': '300', 'transform': 'translate(770 1125)', 'fill': '#241612'}
+         rect {'id': 'NFT Artwork 07', 'x': '774', 'y': '1149', 'width': '250', 'height': '250', 'rx': '15', 'fill': 'url(#pattern6_2_2)'}
+        g {'id': 'Frame 210'}
+         TEXT {'id': 'Violet Nomad #314', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'letter-spacing': '0em'} 'Violet Nomad #314' [{'x': '770', 'y': '1451.21'}]
+         TEXT {'id': '1.39 ETH', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} '1.39 ETH' [{'x': '770', 'y': '1473.99'}]
+       g {'id': 'Frame 215'}
+        g {'id': 'Frame 214'}
+         rect {'width': '258', 'height': '300', 'transform': 'translate(1062 1125)', 'fill': '#241612'}
+         rect {'id': 'NFT Artwork 08', 'x': '1066', 'y': '1149', 'width': '250', 'height': '250', 'rx': '15', 'fill': 'url(#pattern7_2_2)'}
+        g {'id': 'Frame 213'}
+         TEXT {'id': 'Ivory Baron #088', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'letter-spacing': '0em'} 'Ivory Baron #088' [{'x': '1062', 'y': '1451.21'}]
+         TEXT {'id': '1.79 ETH', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} '1.79 ETH' [{'x': '1062', 'y': '1473.99'}]
+      g {'id': 'Frame 231'}
+       g {'id': 'Frame 218'}
+        g {'id': 'Frame 216'}
+         rect {'width': '258', 'height': '300', 'transform': 'translate(478 1547)', 'fill': '#241612'}
+         rect {'id': 'NFT Artwork 09', 'x': '482', 'y': '1567', 'width': '250', 'height': '250', 'rx': '15', 'fill': 'url(#pattern8_2_2)'}
+        g {'id': 'Frame 217'}
+         TEXT {'id': 'Golden Beat #207', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'letter-spacing': '0em'} 'Golden Beat #207' [{'x': '478', 'y': '1873.21'}]
+         TEXT {'id': '0.99 ETH', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} '0.99 ETH' [{'x': '478', 'y': '1895.99'}]
+       g {'id': 'Frame 220'}
+        rect {'width': '258', 'height': '300', 'transform': 'translate(770 1547)', 'fill': '#241612'}
+        rect {'id': 'NFT Artwork 10', 'x': '774', 'y': '1575', 'width': '250', 'height': '250', 'rx': '15', 'fill': 'url(#pattern9_2_2)'}
+       g {'id': 'Frame 223'}
+        g {'id': 'Frame 221'}
+         rect {'width': '258', 'height': '300', 'transform': 'translate(1062 1547)', 'fill': '#241612'}
+         rect {'id': 'NFT Artwork 11', 'x': '1066', 'y': '1567', 'width': '250', 'height': '250', 'rx': '15', 'fill': 'url(#pattern10_2_2)'}
+        g {'id': 'Frame 222'}
+         TEXT {'id': 'Golden Signal #160', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'letter-spacing': '0em'} 'Golden Signal #160' [{'x': '1062', 'y': '1873.21'}]
+         TEXT {'id': '0.39 ETH', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} '0.39 ETH' [{'x': '1062', 'y': '1895.99'}]
+    g {'id': 'Pagination'}
+     g {'id': 'Frame 224'}
+      rect {'x': '1113', 'y': '1985', 'width': '35', 'height': '35', 'rx': '4', 'fill': '#D28A4C'}
+      TEXT {'id': '1', 'fill': '#140D0A', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} '1' [{'x': '1125', 'y': '2009.49'}]
+     g {'id': 'Frame 225'}
+      rect {'x': '1156.5', 'y': '1985.5', 'width': '34', 'height': '34', 'rx': '3.5', 'stroke': '#3F2319'}
+      TEXT {'id': '2', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'letter-spacing': '0em'} '2' [{'x': '1168', 'y': '2008.49'}]
+     g {'id': 'Frame 226'}
+      rect {'x': '1199.5', 'y': '1985.5', 'width': '34', 'height': '34', 'rx': '3.5', 'stroke': '#3F2319'}
+      TEXT {'id': '3', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'letter-spacing': '0em'} '3' [{'x': '1211', 'y': '2008.49'}]
+     g {'id': 'Frame 227'}
+      rect {'x': '1242.5', 'y': '1985.5', 'width': '34', 'height': '34', 'rx': '3.5', 'stroke': '#3F2319'}
+      TEXT {'id': '4', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'letter-spacing': '0em'} '4' [{'x': '1254', 'y': '2008.49'}]
+     g {'id': 'Frame 228'}
+      rect {'x': '1285.5', 'y': '1985.5', 'width': '34', 'height': '34', 'rx': '3.5', 'stroke': '#3F2319'}
+      g {'id': 'Iconly/Curved/Arrow - Right 2'}
+       g {'id': 'Arrow - Right 2'}
+  g {'id': 'Promos', 'clip-path': 'url(#clip7_2_2)'}
+   g {'id': 'Promo Card â\x80\x94 Genesis Drops'}
+    g {'clip-path': 'url(#clip8_2_2)'}
+     rect {'id': 'Rectangle 22', 'x': '120', 'y': '2116', 'width': '586', 'height': '250', 'fill': '#241612'}
+     TEXT {'id': 'Limited-edition\ngenesis drops', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Lançamentos gênesis\nde edição limitada' [{'x': '470.6', 'y': '2171.99'}, {'x': '481.41', 'y': '2195.99'}]
+     TEXT {'id': 'Colecione ediÃ§Ãµes escassas diretamente dos criadores antes da revelaÃ§Ã£o pÃºblica.', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Colecione edições escassas diretamente dos criadores antes da revelação pública.' [{'x': '457.387', 'y': '2227.44'}, {'x': '415.346', 'y': '2251.44'}, {'x': '499.428', 'y': '2275.44'}]
+     rect {'id': 'NFT Artwork 17', 'x': '115', 'y': '2116', 'width': '292', 'height': '250', 'rx': '18', 'fill': 'url(#pattern11_2_2)'}
+     g {'id': 'Group 16'}
+      rect {'id': 'Rectangle 23', 'x': '536', 'y': '2280', 'width': '140', 'height': '40', 'rx': '6', 'fill': '#D28A4C'}
+      g {'id': 'Group 14'}
+       g {'id': 'Frame 15'}
+        TEXT {'id': 'Explorar', 'fill': '#140D0A', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'font-weight': '500', 'letter-spacing': '0em'} 'Explorar' [{'x': '562', 'y': '2305.44'}]
+        g {'id': 'Iconly/Curved/Arrow - Right'}
+         g {'id': 'Arrow - Right'}
+     g {'id': 'Mask Group'}
+       rect {'id': 'Rectangle 22_2', 'x': '120', 'y': '2116', 'width': '586', 'height': '250', 'fill': '#FBFBFB'}
+      g {'mask': 'url(#mask0_2_2)'}
+   g {'id': 'Promo Card â\x80\x94 Curated Art'}
+    g {'clip-path': 'url(#clip9_2_2)'}
+     rect {'id': 'Rectangle 24', 'x': '734', 'y': '2116', 'width': '586', 'height': '250', 'fill': '#241612'}
+     TEXT {'id': 'Curated digital art\n& much more', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Arte digital selecionada\ne muito mais' [{'x': '1025.55', 'y': '2171.99'}, {'x': '1155.27', 'y': '2195.99'}]
+     rect {'id': 'NFT Artwork 16', 'x': '736', 'y': '2116', 'width': '287', 'height': '250', 'rx': '17', 'fill': 'url(#pattern12_2_2)'}
+     TEXT {'id': 'Explore novos artistas, coleÃ§Ãµes verificadas e obras digitais que definem a cultura.', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Explore novos artistas, coleções verificadas e obras digitais que definem a cultura.' [{'x': '1087.61', 'y': '2227.44'}, {'x': '1045.57', 'y': '2251.44'}, {'x': '1096.02', 'y': '2275.44'}, {'x': '1213.73', 'y': '2299.44'}]
+     g {'id': 'Group 17'}
+      rect {'id': 'Rectangle 23_2', 'x': '1145', 'y': '2280', 'width': '140', 'height': '40', 'rx': '6', 'fill': '#D28A4C'}
+      g {'id': 'Group 15'}
+       g {'id': 'Frame 15_2'}
+        TEXT {'id': 'Explorar_2', 'fill': '#140D0A', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'font-weight': '500', 'letter-spacing': '0em'} 'Explorar' [{'x': '1173', 'y': '2305.44'}]
+        g {'id': 'Iconly/Curved/Arrow - Right_2'}
+         g {'id': 'Arrow - Right_2'}
+     g {'id': 'Mask Group_2'}
+       rect {'id': 'Rectangle 22_3', 'x': '734', 'y': '2116', 'width': '586', 'height': '250', 'fill': '#FBFBFB'}
+      g {'mask': 'url(#mask1_2_2)'}
+  g {'id': 'Blog', 'clip-path': 'url(#clip10_2_2)'}
+   g {'id': 'Blog Section Header', 'clip-path': 'url(#clip11_2_2)'}
+    TEXT {'id': 'DiÃ¡rio da Cunhagem', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '28', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Diário da Cunhagem' [{'x': '568.652', 'y': '2491.38'}]
+    TEXT {'id': 'HistÃ³rias, guias e insights para colecionadores sobre o universo da propriedade digital.', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Histórias, guias e insights para colecionadores sobre o universo da propriedade digital.' [{'x': '350.039', 'y': '2525.44'}]
+   g {'id': 'Cards'}
+    g {'id': 'Card 1'}
+     g {'clip-path': 'url(#clip12_2_2)'}
+      rect {'x': '120', 'y': '2569', 'width': '268', 'height': '369', 'rx': '8', 'fill': '#241612'}
+      rect {'id': 'Image', 'x': '120', 'y': '2569', 'width': '268', 'height': '195', 'fill': 'url(#pattern13_2_2)'}
+      g {'id': 'Content'}
+       TEXT {'id': '12 de setembro | Leitura de 6 min', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '12', 'font-weight': '500', 'letter-spacing': '0em'} '12 de setembro  |  Leitura de 6 min' [{'x': '136', 'y': '2788.66'}, {'x': '136', 'y': '2804.66'}]
+       TEXT {'id': 'Como funciona a propriedade de NFTs', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Como funciona a propriedade de NFTs' [{'x': '136', 'y': '2832.71'}, {'x': '136', 'y': '2853.71'}]
+       TEXT {'id': 'Aprenda a colecionar, negociar e verificar ativos digitais.', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '12', 'font-weight': '500', 'letter-spacing': '0em'} 'Aprenda a colecionar, negociar e verificar ativos digitais.' [{'x': '136', 'y': '2878.66'}, {'x': '136', 'y': '2894.66'}]
+       g {'id': 'CTA', 'clip-path': 'url(#clip13_2_2)'}
+        TEXT {'id': 'Ler mais', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '12', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Ler mais' [{'x': '136', 'y': '2917.66'}]
+        TEXT {'id': 'â\x86\x92', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '12', 'letter-spacing': '0em'} '→' [{'x': '198', 'y': '2918.66'}]
+    g {'id': 'Card 2'}
+     g {'clip-path': 'url(#clip14_2_2)'}
+      rect {'x': '412', 'y': '2569', 'width': '268', 'height': '369', 'rx': '8', 'fill': '#241612'}
+      rect {'id': 'Image_2', 'x': '412', 'y': '2569', 'width': '268', 'height': '195', 'fill': 'url(#pattern14_2_2)'}
+      g {'id': 'Content_2'}
+       TEXT {'id': '13 de setembro | Leitura de 2 min', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '12', 'font-weight': '500', 'letter-spacing': '0em'} '13 de setembro  |  Leitura de 2 min' [{'x': '428', 'y': '2788.66'}, {'x': '428', 'y': '2804.66'}]
+       TEXT {'id': '10 artistas digitais para acompanhar', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': 'bold', 'letter-spacing': '0em'} '10 artistas digitais para acompanhar' [{'x': '428', 'y': '2832.71'}, {'x': '428', 'y': '2853.71'}]
+       TEXT {'id': 'ConheÃ§a criadores que moldam a cultura digital.', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '12', 'font-weight': '500', 'letter-spacing': '0em'} 'Conheça criadores que moldam a cultura digital.' [{'x': '428', 'y': '2878.66'}, {'x': '428', 'y': '2894.66'}]
+       g {'id': 'CTA_2', 'clip-path': 'url(#clip15_2_2)'}
+        TEXT {'id': 'Ler mais_2', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '12', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Ler mais' [{'x': '428', 'y': '2917.66'}]
+        TEXT {'id': 'â\x86\x92_2', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '12', 'letter-spacing': '0em'} '→' [{'x': '490', 'y': '2918.66'}]
+    g {'id': 'Card 3'}
+     g {'clip-path': 'url(#clip16_2_2)'}
+      rect {'x': '704', 'y': '2569', 'width': '268', 'height': '369', 'rx': '8', 'fill': '#241612'}
+      rect {'id': 'Image_3', 'x': '704', 'y': '2569', 'width': '268', 'height': '195', 'fill': 'url(#pattern15_2_2)'}
+      g {'id': 'Content_3'}
+       TEXT {'id': '15 de setembro | Leitura de 3 min', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '12', 'font-weight': '500', 'letter-spacing': '0em'} '15 de setembro  |  Leitura de 3 min' [{'x': '720', 'y': '2788.66'}, {'x': '720', 'y': '2804.66'}]
+       TEXT {'id': 'Raridade, atributos e procedÃªncia', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Raridade, atributos e procedência' [{'x': '720', 'y': '2832.71'}, {'x': '720', 'y': '2853.71'}]
+       TEXT {'id': 'Entenda raridade, procedÃªncia, direitos autorais e utilidade.', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '12', 'font-weight': '500', 'letter-spacing': '0em'} 'Entenda raridade, procedência, direitos autorais e utilidade.' [{'x': '720', 'y': '2878.66'}, {'x': '720', 'y': '2894.66'}]
+       g {'id': 'CTA_3', 'clip-path': 'url(#clip17_2_2)'}
+        TEXT {'id': 'Ler mais_3', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '12', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Ler mais' [{'x': '720', 'y': '2917.66'}]
+        TEXT {'id': 'â\x86\x92_3', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '12', 'letter-spacing': '0em'} '→' [{'x': '782', 'y': '2918.66'}]
+    g {'id': 'Card 4'}
+     g {'clip-path': 'url(#clip18_2_2)'}
+      rect {'x': '996', 'y': '2569', 'width': '268', 'height': '369', 'rx': '8', 'fill': '#241612'}
+      rect {'id': 'Image_4', 'x': '996', 'y': '2569', 'width': '268', 'height': '195', 'fill': 'url(#pattern16_2_2)'}
+      g {'id': 'Content_4'}
+       TEXT {'id': '15 de setembro | Leitura de 2 min', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '12', 'font-weight': '500', 'letter-spacing': '0em'} '15 de setembro  |  Leitura de 2 min' [{'x': '1012', 'y': '2788.66'}, {'x': '1012', 'y': '2804.66'}]
+       TEXT {'id': 'Como proteger sua carteira', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Como proteger sua carteira' [{'x': '1012', 'y': '2832.71'}, {'x': '1012', 'y': '2853.71'}]
+       TEXT {'id': 'Proteja sua carteira, seus ativos e sua identidade.', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '12', 'font-weight': '500', 'letter-spacing': '0em'} 'Proteja sua carteira, seus ativos e sua identidade.' [{'x': '1012', 'y': '2878.66'}, {'x': '1012', 'y': '2894.66'}]
+       g {'id': 'CTA_4', 'clip-path': 'url(#clip19_2_2)'}
+        TEXT {'id': 'Ler mais_4', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '12', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Ler mais' [{'x': '1012', 'y': '2917.66'}]
+        TEXT {'id': 'â\x86\x92_4', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '12', 'letter-spacing': '0em'} '→' [{'x': '1074', 'y': '2918.66'}]
+  g {'id': 'Footer'}
+   g {'id': 'Frame 122'}
+    rect {'width': '1200', 'height': '250', 'transform': 'translate(120 3034)', 'fill': '#241612'}
+    g {'id': 'Frame 100'}
+     g {'id': 'Frame 22'}
+      g {'id': 'Frame 92'}
+       g {'id': 'Frame 91'}
+        rect {'x': '168', 'y': '3066', 'width': '74', 'height': '74', 'rx': '37', 'fill': '#D28A4C'}
+        TEXT {'id': 'Service mark W', 'fill': '#140D0A', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '24', 'font-weight': 'bold', 'letter-spacing': '0em'} 'W' [{'x': '197.793', 'y': '3112.32'}]
+       TEXT {'id': 'SeguranÃ§a da carteira', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '17', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Segurança da carteira' [{'x': '168', 'y': '3166.6'}]
+       TEXT {'id': 'Proteja sua carteira e colecione arte digital verificada com confianÃ§a.', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Proteja sua carteira e colecione arte digital verificada com confiança.' [{'x': '168', 'y': '3196.44'}, {'x': '168', 'y': '3218.44'}, {'x': '168', 'y': '3240.44'}, {'x': '168', 'y': '3262.44'}]
+     rect {'id': 'Rectangle 36', 'x': '416.667', 'y': '3268', 'width': '202', 'height': '1.00001', 'transform': 'rotate(-90 416.667 3268)', 'fill': '#D28A4C'}
+     g {'id': 'Frame 21'}
+      g {'id': 'Frame 94'}
+       g {'id': 'Frame 93'}
+        rect {'x': '433.667', 'y': '3066', 'width': '74', 'height': '74', 'rx': '37', 'fill': '#D28A4C'}
+        TEXT {'id': 'Service mark C', 'fill': '#140D0A', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '24', 'font-weight': 'bold', 'letter-spacing': '0em'} 'C' [{'x': '463.167', 'y': '3112.32'}]
+       TEXT {'id': 'Criadores em destaque', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '17', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Criadores em destaque' [{'x': '433.667', 'y': '3166.6'}]
+       TEXT {'id': 'ConheÃ§a artistas, estÃºdios e comunidades que moldam a cultura digital na rede.', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Conheça artistas, estúdios e comunidades que moldam a cultura digital na rede.' [{'x': '433.667', 'y': '3196.44'}, {'x': '433.667', 'y': '3218.44'}, {'x': '433.667', 'y': '3240.44'}, {'x': '433.667', 'y': '3262.44'}]
+     rect {'id': 'Rectangle 38', 'x': '682.333', 'y': '3268', 'width': '202', 'height': '1.00001', 'transform': 'rotate(-90 682.333 3268)', 'fill': '#D28A4C'}
+     g {'id': 'Frame 20'}
+      g {'id': 'Frame 96'}
+       g {'id': 'Frame 95'}
+        rect {'x': '699.333', 'y': '3066', 'width': '74', 'height': '74', 'rx': '37', 'fill': '#D28A4C'}
+        TEXT {'id': 'Service mark D', 'fill': '#140D0A', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '24', 'font-weight': 'bold', 'letter-spacing': '0em'} 'D' [{'x': '728.833', 'y': '3112.32'}]
+       TEXT {'id': 'Alertas de lanÃ§amentos', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '17', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Alertas de lançamentos' [{'x': '699.333', 'y': '3166.6'}]
+       TEXT {'id': 'Receba calendÃ¡rios de cunhagem, novidades de listas de acesso e anÃ¡lises do mercado.', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Receba calendários de cunhagem, novidades de listas de acesso e análises do mercado.' [{'x': '699.333', 'y': '3196.44'}, {'x': '699.333', 'y': '3218.44'}, {'x': '699.333', 'y': '3240.44'}, {'x': '699.333', 'y': '3262.44'}]
+     rect {'id': 'Rectangle 39', 'x': '948', 'y': '3268', 'width': '202', 'height': '1.00001', 'transform': 'rotate(-90 948 3268)', 'fill': '#D28A4C'}
+     g {'id': 'Frame 99'}
+      g {'id': 'Frame 102'}
+       TEXT {'id': 'Antecipe-se ao prÃ³ximo lanÃ§amento', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Antecipe-se ao próximo lançamento' [{'x': '965', 'y': '3080.99'}, {'x': '965', 'y': '3096.99'}]
+       g {'id': 'Frame 101'}
+        g {'id': 'Frame 98', 'filter': 'url(#filter0_d_2_2)'}
+         rect {'x': '965', 'y': '3114', 'width': '325', 'height': '40', 'rx': '6', 'fill': '#38220F', 'shape-rendering': 'crispEdges'}
+         TEXT {'id': 'digite seu e-mail...', 'fill': '#B39463', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'digite seu e-mail...' [{'x': '977', 'y': '3139.44'}]
+         g {'id': 'Frame 97'}
+          TEXT {'id': 'Enviar', 'fill': '#140D0A', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Enviar' [{'x': '1221', 'y': '3140.99'}]
+      TEXT {'id': 'Get curated drops, creator stories, and collector rewards delivered to your inbo', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '13', 'letter-spacing': '0em'} 'Receba lançamentos selecionados, histórias de criadores e novidades do mercado.' [{'x': '965', 'y': '3182.05'}, {'x': '965', 'y': '3204.05'}, {'x': '965', 'y': '3226.05'}]
+   g {'id': 'Frame 121'}
+    g {'id': 'Frame 120'}
+     rect {'width': '1200', 'height': '88', 'transform': 'translate(120 3284)', 'fill': '#38220F'}
+     g {'id': 'Frame 119'}
+      g {'id': 'Logo_2'}
+       TEXT {'id': 'KURIO Wordmark_2', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'font-weight': 'bold', 'letter-spacing': '0.1em'} 'KURIO' [{'x': '152', 'y': '3333.44'}]
+      g {'id': 'Frame 126'}
+       TEXT {'id': 'Built for collectors,\r\ncreators, and culture', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Feito para colecionadores,\ncriadores e cultura' [{'x': '454.667', 'y': '3322.44'}, {'x': '454.667', 'y': '3344.44'}]
+      g {'id': 'Frame 124'}
+       TEXT {'id': 'contato@email.com', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'contato@email.com' [{'x': '757.333', 'y': '3333.44'}]
+      g {'id': 'Frame 125'}
+       TEXT {'id': '+55 11 4002 8922', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} '+55 11 4002 8922' [{'x': '1060', 'y': '3333.44'}]
+    g {'id': 'Frame 118'}
+     g {'id': 'Frame 117'}
+      rect {'width': '1200', 'height': '236', 'transform': 'translate(120 3372)', 'fill': '#241612'}
+      g {'id': 'Frame 116'}
+       g {'id': 'Frame 103'}
+        TEXT {'id': 'Meu perfil', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Meu perfil' [{'x': '152', 'y': '3418.99'}]
+        TEXT {'id': 'My Profile\nMy Collection\r\nActivity\r\nCreator Studio\r\nWatchlist', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Meu perfil\nMinha coleção\nAtividade\nEstúdio do criador\nLista de interesse' [{'x': '152', 'y': '3448.44'}, {'x': '152', 'y': '3478.44'}, {'x': '152', 'y': '3508.44'}, {'x': '152', 'y': '3538.44'}, {'x': '152', 'y': '3568.44'}]
+       g {'id': 'Frame 104'}
+        TEXT {'id': 'Central de ajuda', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Central de ajuda' [{'x': '454.667', 'y': '3418.99'}]
+        TEXT {'id': 'Help Center\r\nHow to Buy NFTs\r\nWallet & Security\r\nMarketplace Policy\r\nReport an I', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Central de ajuda\nComo comprar NFTs\nCarteira e segurança\nPolítica do mercado\nDenunciar item' [{'x': '454.667', 'y': '3448.44'}, {'x': '454.667', 'y': '3478.44'}, {'x': '454.667', 'y': '3508.44'}, {'x': '454.667', 'y': '3538.44'}, {'x': '454.667', 'y': '3568.44'}]
+       g {'id': 'Frame 105'}
+        TEXT {'id': 'ColeÃ§Ãµes_2', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Coleções' [{'x': '757.333', 'y': '3418.99'}]
+        TEXT {'id': 'Digital Art\r\nPhotography\r\nMusic\r\n3D Art\r\nUtility', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Arte digital\nFotografia\nMúsica\nArte 3D\nUtilidade' [{'x': '757.333', 'y': '3448.44'}, {'x': '757.333', 'y': '3478.44'}, {'x': '757.333', 'y': '3508.44'}, {'x': '757.333', 'y': '3538.44'}, {'x': '757.333', 'y': '3568.44'}]
+       g {'id': 'Frame 115'}
+        g {'id': 'Frame 114'}
+         TEXT {'id': 'Redes sociais', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Redes sociais' [{'x': '1060', 'y': '3418.99'}]
+         g {'id': 'Frame 113'}
+          g {'id': 'Frame 108'}
+           rect {'x': '1059.5', 'y': '3439.5', 'width': '31', 'height': '31', 'rx': '4.5', 'stroke': '#D28A4C'}
+          g {'id': 'Frame 109'}
+           rect {'x': '1099.5', 'y': '3439.5', 'width': '31', 'height': '31', 'rx': '4.5', 'stroke': '#D28A4C'}
+          g {'id': 'Frame 110'}
+           rect {'x': '1139.5', 'y': '3439.5', 'width': '31', 'height': '31', 'rx': '4.5', 'stroke': '#D28A4C'}
+          g {'id': 'Frame 111'}
+           rect {'x': '1179.5', 'y': '3439.5', 'width': '31', 'height': '31', 'rx': '4.5', 'stroke': '#D28A4C'}
+          g {'id': 'Frame 112'}
+           rect {'x': '1219.5', 'y': '3439.5', 'width': '31', 'height': '31', 'rx': '4.5', 'stroke': '#D28A4C'}
+        g {'id': 'Frame 107'}
+         TEXT {'id': 'Carteiras compatÃ\xadveis', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Carteiras compatíveis' [{'x': '1060', 'y': '3516.99'}]
+         g {'id': 'Frame 106'}
+          rect {'x': '1060.5', 'y': '3530.5', 'width': '227', 'height': '25', 'rx': '5.5', 'fill': '#38220F'}
+          rect {'x': '1060.5', 'y': '3530.5', 'width': '227', 'height': '25', 'rx': '5.5', 'stroke': '#55321F'}
+          TEXT {'id': 'Supported wallet brands', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '9', 'font-weight': 'bold', 'letter-spacing': '0.1px'} 'METAMASK  •  WALLETCONNECT  •  COINBASE' [{'x': '1070.5', 'y': '3546.5'}]
+     TEXT {'id': 'Â© 2026 Kurio. Propriedade digital para todos.', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} '© 2026 Kurio. Propriedade digital para todos.' [{'x': '530.815', 'y': '3634.44'}]

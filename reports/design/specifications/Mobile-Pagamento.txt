@@ -1,0 +1,59 @@
+ g {'id': 'Mobile / Pagamento'}
+  rect {'width': '414', 'height': '896', 'rx': '40', 'fill': '#140D0A'}
+  g {'id': 'Content', 'clip-path': 'url(#clip0_16_748)'}
+   g {'id': 'Frame 442'}
+    g {'id': 'Screen Header'}
+     g {'id': 'Back'}
+      g {'id': 'Iconly/Curved/Arrow - Left 2'}
+       g {'id': 'Arrow - Left 2'}
+     TEXT {'id': 'Pagamento com carteira', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '20', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Pagamento com carteira' [{'x': '87', 'y': '56.7686'}]
+    g {'id': 'Frame 2'}
+     TEXT {'id': 'Carteira conectada', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Carteira conectada' [{'x': '28', 'y': '106.215'}]
+     TEXT {'id': 'Trocar carteira', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Trocar carteira' [{'x': '259', 'y': '105.438'}]
+    g {'id': 'Wallet Cards', 'clip-path': 'url(#clip1_16_748)'}
+     g {'id': 'Wallet Card â\x80\x94 Reserva'}
+      g {'id': 'Rectangle 102', 'filter': 'url(#filter0_d_16_748)'}
+       rect {'x': '28', 'y': '124', 'width': '358', 'height': '93', 'rx': '14', 'fill': '#241612'}
+      TEXT {'id': 'Reserva', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Reserva' [{'x': '82', 'y': '153.215'}]
+      TEXT {'id': 'nova.kurio.eth Rede Polygon', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'nova.kurio.eth\nRede Polygon' [{'x': '82', 'y': '178.438'}, {'x': '82', 'y': '200.438'}]
+      g {'id': 'Group 87'}
+       circle {'id': 'Ellipse 46', 'cx': '365.5', 'cy': '164.5', 'r': '1.5', 'fill': '#B39463'}
+       circle {'id': 'Ellipse 47', 'cx': '365.5', 'cy': '170.5', 'r': '1.5', 'fill': '#B39463'}
+       circle {'id': 'Ellipse 48', 'cx': '365.5', 'cy': '176.5', 'r': '1.5', 'fill': '#B39463'}
+      g {'id': 'Group 90'}
+       circle {'id': 'Ellipse 35', 'cx': '55', 'cy': '171', 'r': '4', 'fill': '#D28A4C'}
+     g {'id': 'Wallet Card â\x80\x94 Principal'}
+      rect {'id': 'Rectangle 106', 'x': '28', 'y': '237', 'width': '358', 'height': '93', 'rx': '14', 'fill': '#241612'}
+      TEXT {'id': 'Principal', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Principal' [{'x': '82', 'y': '267.215'}]
+      TEXT {'id': '0xA91Fâ\x80¦E82C\nEthereum Mainnet', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} '0xA91F…E82C\nRede principal Ethereum' [{'x': '82', 'y': '291.438'}, {'x': '82', 'y': '313.438'}]
+      g {'id': 'Group 88'}
+       circle {'id': 'Ellipse 46_2', 'cx': '365.5', 'cy': '277.5', 'r': '1.5', 'fill': '#B39463'}
+       circle {'id': 'Ellipse 47_2', 'cx': '365.5', 'cy': '283.5', 'r': '1.5', 'fill': '#B39463'}
+       circle {'id': 'Ellipse 48_2', 'cx': '365.5', 'cy': '289.5', 'r': '1.5', 'fill': '#B39463'}
+    g {'id': 'Wallet Options', 'clip-path': 'url(#clip2_16_748)'}
+     TEXT {'id': 'Carteira e rede', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Carteira e rede' [{'x': '28', 'y': '360.215'}]
+     g {'id': 'Option â\x80\x94 WalletConnect'}
+      g {'id': 'Rectangle 105', 'filter': 'url(#filter1_d_16_748)'}
+       rect {'x': '28', 'y': '378', 'width': '359', 'height': '65', 'rx': '15', 'fill': '#241612'}
+      TEXT {'id': 'WalletConnect', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'WalletConnect' [{'x': '93', 'y': '416.438'}]
+      TEXT {'id': 'Wallet mark W', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'font-weight': 'bold', 'letter-spacing': '0em'} 'W' [{'x': '55', 'y': '416.438'}]
+     g {'id': 'Option â\x80\x94 MetaMask'}
+      g {'id': 'Rectangle 104', 'filter': 'url(#filter2_d_16_748)'}
+       rect {'x': '28', 'y': '459', 'width': '359', 'height': '65', 'rx': '15', 'fill': '#241612'}
+      TEXT {'id': 'MetaMask', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'MetaMask' [{'x': '93', 'y': '497.438'}]
+      TEXT {'id': 'Wallet mark M', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'font-weight': 'bold', 'letter-spacing': '0em'} 'M' [{'x': '56', 'y': '497.438'}]
+     g {'id': 'Option â\x80\x94 Coinbase'}
+      g {'id': 'Rectangle 88', 'filter': 'url(#filter3_d_16_748)'}
+       rect {'x': '28', 'y': '540', 'width': '359', 'height': '65', 'rx': '15', 'fill': '#241612'}
+      TEXT {'id': 'Coinbase Wallet', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Coinbase Wallet' [{'x': '93', 'y': '578.438'}]
+      g {'id': 'Group 89'}
+       circle {'id': 'Ellipse 35_2', 'cx': '362', 'cy': '573', 'r': '4', 'fill': '#D28A4C'}
+      g {'id': 'Iconly/Curved/Wallet'}
+       g {'id': 'Wallet'}
+    g {'id': 'Total Row'}
+     g {'id': 'Frame 3'}
+      TEXT {'id': 'Total:', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Total:' [{'x': '202', 'y': '635.215'}]
+      TEXT {'id': '8.936 ETH', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} '8.936 ETH' [{'x': '288.705', 'y': '635.992'}]
+   g {'id': 'Confirm Button'}
+    rect {'x': '28', 'y': '804', 'width': '358', 'height': '60', 'rx': '30', 'fill': 'url(#paint0_linear_16_748)'}
+    TEXT {'id': 'Confirmar compra', 'fill': '#140D0A', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Confirmar compra' [{'x': '134.93', 'y': '839.826'}]

@@ -1,0 +1,43 @@
+ g {'id': 'Mobile / Login'}
+  rect {'width': '414', 'height': '896', 'rx': '40', 'fill': '#140D0A'}
+  g {'id': 'Logo'}
+   TEXT {'id': 'KURIO Wordmark', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '32', 'font-weight': 'bold', 'letter-spacing': '0.1em'} 'KURIO' [{'x': '152.553', 'y': '160.43'}]
+  g {'id': 'Title', 'clip-path': 'url(#clip0_16_1022)'}
+   TEXT {'id': 'Entrar', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '20', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Entrar' [{'x': '170.5', 'y': '271.769'}]
+  g {'id': 'Form', 'clip-path': 'url(#clip1_16_1022)'}
+   g {'id': 'Frame 445'}
+    rect {'x': '28.5', 'y': '312.5', 'width': '357', 'height': '49', 'rx': '9.5', 'stroke': '#3F2319'}
+    TEXT {'id': 'contato@email.com', 'fill': '#B39463', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'contato@email.com' [{'x': '44', 'y': '342.438'}]
+   g {'id': 'Frame 444'}
+    rect {'x': '28.5', 'y': '374.5', 'width': '357', 'height': '49', 'rx': '9.5', 'stroke': '#D28A4C'}
+    g {'id': 'Frame 443'}
+     g {'id': 'Group 91'}
+      TEXT {'id': '***********', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'letter-spacing': '0em'} '***********' [{'x': '44', 'y': '405.215'}]
+     g {'id': 'Iconly/Curved/Hide'}
+      g {'id': 'Hide'}
+   g {'id': 'Forgot Link'}
+    TEXT {'id': 'Esqueceu a senha?', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Esqueceu a senha?' [{'x': '243', 'y': '449.438'}]
+  g {'id': 'Sign In Button'}
+   rect {'x': '28', 'y': '492', 'width': '358', 'height': '60', 'rx': '10', 'fill': '#D28A4C'}
+   TEXT {'id': 'Entrar_2', 'fill': '#140D0A', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Entrar' [{'x': '178', 'y': '528.215'}]
+  g {'id': 'Mobile Social Block', 'clip-path': 'url(#clip2_16_1022)'}
+   g {'id': 'Frame 4'}
+    TEXT {'id': 'Ou continue com', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '13', 'letter-spacing': '0em'} 'Ou continue com' [{'x': '148', 'y': '605.05'}]
+   g {'id': 'Frame 370'}
+    g {'id': 'Social Button'}
+     rect {'x': '28.5', 'y': '620.5', 'width': '357', 'height': '39', 'rx': '4.5', 'stroke': '#3F2319'}
+     g {'id': 'Content'}
+      g {'id': 'google 1', 'clip-path': 'url(#clip3_16_1022)'}
+       g {'id': 'Group'}
+        g {'id': 'Connected_Home_1_'}
+         g {'id': 'Group_2'}
+          g {'id': 'Group_3'}
+           g {'id': 'Group_4'}
+      TEXT {'id': 'Continuar com Google', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '13', 'font-weight': '500', 'letter-spacing': '0em'} 'Continuar com Google' [{'x': '135.924', 'y': '645.05'}]
+    g {'id': 'Social Button_2'}
+     rect {'x': '28.5', 'y': '676.5', 'width': '357', 'height': '39', 'rx': '4.5', 'stroke': '#3F2319'}
+     g {'id': 'Content_2'}
+      g {'id': 'facebook 1'}
+      TEXT {'id': 'Continuar com Facebook', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '13', 'font-weight': '500', 'letter-spacing': '0em'} 'Continuar com Facebook' [{'x': '128.116', 'y': '701.05'}]
+  g {'id': 'Signup Link'}
+   TEXT {'id': 'Novo na Kurio? Crie uma conta', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Novo na Kurio? Crie uma conta' [{'x': '76', 'y': '771.826'}]

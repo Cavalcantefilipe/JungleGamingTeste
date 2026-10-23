@@ -1,0 +1,132 @@
+ g {'id': 'Desktop / Carteiras'}
+  rect {'width': '1440', 'height': '1080', 'fill': '#140D0A'}
+  g {'id': 'Top', 'clip-path': 'url(#clip0_9_1670)'}
+   g {'id': 'Header With Divider'}
+    g {'id': 'Header Row'}
+     g {'id': 'Logo'}
+      TEXT {'id': 'KURIO Wordmark', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'font-weight': 'bold', 'letter-spacing': '0.1em'} 'KURIO' [{'x': '120', 'y': '46.5879'}]
+     g {'id': 'Nav', 'clip-path': 'url(#clip1_9_1670)'}
+      g {'id': 'Nav Item'}
+       TEXT {'id': 'InÃ\xadcio', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Início' [{'x': '496', 'y': '40.7148'}]
+      TEXT {'id': 'Mercado', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'letter-spacing': '0em'} 'Mercado' [{'x': '594', 'y': '40.7148'}]
+      TEXT {'id': 'Criadores', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'letter-spacing': '0em'} 'Criadores' [{'x': '702', 'y': '40.7148'}]
+      TEXT {'id': 'Aprenda', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'letter-spacing': '0em'} 'Aprenda' [{'x': '829', 'y': '40.7148'}]
+     g {'id': 'Header Actions'}
+      g {'id': 'Cart'}
+       TEXT {'id': 'Badge Count', 'fill': '#140D0A', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '10', 'font-weight': '500', 'letter-spacing': '0em'} '6' [{'x': '1181', 'y': '41.3843'}]
+      g {'id': 'Login'}
+       g {'id': 'Login Button'}
+        rect {'x': '1220', 'y': '24', 'width': '100', 'height': '35', 'rx': '6', 'fill': '#D28A4C'}
+        g {'id': 'Login Button Content'}
+         g {'id': 'Iconly/Curved/Logout'}
+          g {'id': 'Logout'}
+         TEXT {'id': 'Entrar', 'fill': '#140D0A', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': '500', 'letter-spacing': '0em'} 'Entrar' [{'x': '1253', 'y': '47.7148'}]
+   g {'id': 'Body', 'clip-path': 'url(#clip2_9_1670)'}
+    g {'id': 'Account Sidebar'}
+     rect {'width': '310', 'height': '407', 'transform': 'translate(120 101)', 'fill': '#241612'}
+     g {'id': 'Frame 457'}
+      TEXT {'id': 'Meu perfil', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Meu perfil' [{'x': '130', 'y': '133.992'}]
+     g {'id': 'Frame 459'}
+      g {'id': 'Frame 458'}
+       g {'id': 'User'}
+        g {'id': 'Vector'}
+       TEXT {'id': 'Profile Details\nWallets\nActivity\nWatchlist\nOffers\nDownloads\nSupport', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Dados do perfil' [{'x': '170', 'y': '173.326'}]
+     g {'id': 'Frame 460'}
+      g {'id': 'Iconly/Light-Outline/Location'}
+       g {'id': 'Location'}
+        g {'id': 'Group 5'}
+         g {'mask': 'url(#mask0_9_1670)'}
+      TEXT {'id': 'Profile Details\nWallets\nActivity\nWatchlist\nOffers\nDownloads\nSupport_2', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Carteiras' [{'x': '168', 'y': '218.326'}]
+     g {'id': 'Frame 461'}
+      g {'id': 'shopping 1', 'clip-path': 'url(#clip3_9_1670)'}
+      TEXT {'id': 'Profile Details\nWallets\nActivity\nWatchlist\nOffers\nDownloads\nSupport_3', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Atividade' [{'x': '166', 'y': '263.326'}]
+     g {'id': 'Frame 462'}
+      g {'id': 'heart 1'}
+      TEXT {'id': 'Profile Details\nWallets\nActivity\nWatchlist\nOffers\nDownloads\nSupport_4', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Lista de interesse' [{'x': '164', 'y': '308.326'}]
+     g {'id': 'Frame 463'}
+      g {'id': 'Iconly/Curved/Activity'}
+       g {'id': 'Activity'}
+      TEXT {'id': 'Profile Details\nWallets\nActivity\nWatchlist\nOffers\nDownloads\nSupport_5', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Ofertas' [{'x': '166', 'y': '353.326'}]
+     g {'id': 'Frame 464'}
+      g {'id': 'Iconly/Curved/Download'}
+       g {'id': 'Download'}
+      TEXT {'id': 'Profile Details\nWallets\nActivity\nWatchlist\nOffers\nDownloads\nSupport_6', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Arquivos baixados' [{'x': '166', 'y': '398.326'}]
+     g {'id': 'Frame 465'}
+      g {'id': 'Iconly/Curved/Danger Triangle'}
+       g {'id': 'Danger Triangle'}
+      TEXT {'id': 'Profile Details\nWallets\nActivity\nWatchlist\nOffers\nDownloads\nSupport_7', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Suporte' [{'x': '166', 'y': '443.326'}]
+     g {'id': 'Frame 38'}
+      g {'id': 'Iconly/Curved/Logout_2'}
+       g {'id': 'Logout_2'}
+      TEXT {'id': 'Sair', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Sair' [{'x': '164', 'y': '485.826'}]
+    g {'id': 'Wallets Form', 'clip-path': 'url(#clip4_9_1670)'}
+     g {'id': 'Section Heading', 'clip-path': 'url(#clip5_9_1670)'}
+      g {'id': 'Title Row', 'clip-path': 'url(#clip6_9_1670)'}
+       TEXT {'id': 'Carteira principal', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '17', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Carteira principal' [{'x': '458', 'y': '115.603'}]
+       TEXT {'id': 'Adicionar', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': '500', 'letter-spacing': '0em'} 'Adicionar' [{'x': '1233', 'y': '115.215'}]
+      TEXT {'id': 'Estas carteiras ficam disponÃ\xadveis no pagamento e para receber NFTs comprados.', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Estas carteiras ficam disponíveis no pagamento e para receber NFTs comprados.' [{'x': '458', 'y': '137.938'}]
+     g {'id': 'Fields', 'clip-path': 'url(#clip7_9_1670)'}
+      g {'id': 'Field Row 1', 'clip-path': 'url(#clip8_9_1670)'}
+       g {'id': 'Main Wallet Name', 'clip-path': 'url(#clip9_9_1670)'}
+        g {'id': 'Frame 19'}
+         TEXT {'id': 'Nome de exibiÃ§Ã£o', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Nome de exibição' [{'x': '458', 'y': '192.326'}]
+         TEXT {'id': '*', 'fill': '#F0805F', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '22', 'letter-spacing': '0em'} '*' [{'x': '603.787', 'y': '195.045'}]
+       g {'id': 'Wallet Alias', 'clip-path': 'url(#clip10_9_1670)'}
+        g {'id': 'Frame 27'}
+         TEXT {'id': 'Apelido da carteira', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Apelido da carteira' [{'x': '903', 'y': '192.326'}]
+         TEXT {'id': '*_2', 'fill': '#F0805F', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '22', 'letter-spacing': '0em'} '*' [{'x': '1075.79', 'y': '195.045'}]
+      g {'id': 'Field Row 2', 'clip-path': 'url(#clip11_9_1670)'}
+       g {'id': 'Network Select', 'clip-path': 'url(#clip12_9_1670)'}
+        g {'id': 'Frame 20'}
+         TEXT {'id': 'Rede', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Rede' [{'x': '458', 'y': '281.326'}]
+         TEXT {'id': '*_3', 'fill': '#F0805F', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '22', 'letter-spacing': '0em'} '*' [{'x': '499', 'y': '284.045'}]
+        g {'id': 'Input'}
+         TEXT {'id': 'Selecione uma rede', 'fill': '#B39463', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Selecione uma rede' [{'x': '471', 'y': '310.938'}]
+         g {'id': 'Arrow-Down'}
+       g {'id': 'Wallet Label', 'clip-path': 'url(#clip13_9_1670)'}
+        g {'id': 'Frame 26'}
+         TEXT {'id': 'Nome do perfil', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Nome do perfil' [{'x': '903', 'y': '281.326'}]
+         TEXT {'id': '*_4', 'fill': '#F0805F', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '22', 'letter-spacing': '0em'} '*' [{'x': '1030.79', 'y': '284.045'}]
+      g {'id': 'Field Row 3', 'clip-path': 'url(#clip14_9_1670)'}
+       g {'id': 'Wallet Address', 'clip-path': 'url(#clip15_9_1670)'}
+        g {'id': 'Frame 21'}
+         TEXT {'id': 'EndereÃ§o da carteira', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Endereço da carteira' [{'x': '458', 'y': '370.326'}]
+         TEXT {'id': '*_5', 'fill': '#F0805F', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '22', 'letter-spacing': '0em'} '*' [{'x': '639.787', 'y': '373.045'}]
+        g {'id': 'Input_2'}
+         TEXT {'id': 'EndereÃ§o 0x da carteira', 'fill': '#B39463', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Endereço 0x da carteira' [{'x': '471', 'y': '399.938'}]
+       g {'id': 'Secondary Address Input'}
+        TEXT {'id': 'ENS ou carteira secundÃ¡ria (opcional)', 'fill': '#B39463', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'ENS ou carteira secundária (opcional)' [{'x': '916', 'y': '399.938'}]
+      g {'id': 'Field Row 4', 'clip-path': 'url(#clip16_9_1670)'}
+       g {'id': 'Wallet Select', 'clip-path': 'url(#clip17_9_1670)'}
+        g {'id': 'Frame 22'}
+         TEXT {'id': 'Tipo de carteira', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Tipo de carteira' [{'x': '458', 'y': '459.326'}]
+         TEXT {'id': '*_6', 'fill': '#F0805F', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '22', 'letter-spacing': '0em'} '*' [{'x': '603.787', 'y': '462.045'}]
+        g {'id': 'Input_3'}
+         TEXT {'id': 'Selecione uma carteira', 'fill': '#B39463', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Selecione uma carteira' [{'x': '471', 'y': '488.938'}]
+         g {'id': 'Arrow-Down_2'}
+       g {'id': 'Wallet Tag', 'clip-path': 'url(#clip18_9_1670)'}
+        g {'id': 'Frame 25'}
+         TEXT {'id': 'CÃ³digo de indicaÃ§Ã£o', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Código de indicação' [{'x': '903', 'y': '459.326'}]
+         TEXT {'id': '*_7', 'fill': '#F0805F', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '22', 'letter-spacing': '0em'} '*' [{'x': '1075.79', 'y': '462.045'}]
+      g {'id': 'Field Row 5', 'clip-path': 'url(#clip19_9_1670)'}
+       g {'id': 'Extra Field', 'clip-path': 'url(#clip20_9_1670)'}
+        g {'id': 'Frame 23'}
+         TEXT {'id': 'E-mail', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'E-mail' [{'x': '458', 'y': '548.326'}]
+         TEXT {'id': '*_8', 'fill': '#F0805F', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '22', 'letter-spacing': '0em'} '*' [{'x': '513', 'y': '551.045'}]
+       g {'id': 'ENS Field', 'clip-path': 'url(#clip21_9_1670)'}
+        g {'id': 'Frame 24'}
+         TEXT {'id': 'Nome ENS', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Nome ENS' [{'x': '903', 'y': '548.326'}]
+         TEXT {'id': '*_9', 'fill': '#F0805F', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '22', 'letter-spacing': '0em'} '*' [{'x': '980', 'y': '551.045'}]
+        g {'id': 'Input_4'}
+         TEXT {'id': '.eth', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} '.eth' [{'x': '913', 'y': '579.326'}]
+         g {'id': 'Arrow-Down_3'}
+     g {'id': 'Save Wallet Button'}
+      rect {'x': '458', 'y': '625', 'width': '131', 'height': '40', 'rx': '3', 'fill': '#D28A4C'}
+      TEXT {'id': 'Salvar carteira', 'fill': '#140D0A', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Salvar carteira' [{'x': '460.438', 'y': '650.438'}]
+     g {'id': 'Secondary Wallet', 'clip-path': 'url(#clip22_9_1670)'}
+      g {'id': 'Title Row_2', 'clip-path': 'url(#clip23_9_1670)'}
+       TEXT {'id': 'Carteira secundÃ¡ria', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '17', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Carteira secundária' [{'x': '458', 'y': '711.603'}]
+       g {'id': 'Actions'}
+        TEXT {'id': 'Igual Ã\xa0 carteira principal', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Igual à carteira principal' [{'x': '1001', 'y': '710.438'}]
+        TEXT {'id': 'Adicionar_2', 'fill': '#E89B55', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': '500', 'letter-spacing': '0em'} 'Adicionar' [{'x': '1228', 'y': '711.215'}]
+      TEXT {'id': 'VocÃª ainda nÃ£o adicionou uma carteira secundÃ¡ria.', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Você ainda não adicionou uma carteira secundária.' [{'x': '458', 'y': '737.938'}]

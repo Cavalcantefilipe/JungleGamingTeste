@@ -1,0 +1,98 @@
+{
+  "figma": "https://www.figma.com/design/Ff0SksUi7UFtPWUO8kyNtw/Frontend-Challenge",
+  "export": "SVG, include IDs, outline text disabled; original text, fills and geometry read from XML",
+  "download": "Frontend Challenge (17).zip",
+  "exportedAt": "2026-10-23T21:33:04.981791+00:00",
+  "frames": [
+    {
+      "frame": "Cadastro",
+      "platform": "Desktop",
+      "svgSha256": "e638b82baac0bc68d064d3f8d268ba8d4e18ca967e99ec1b59a3ab05cd8a8346",
+      "specification": "specifications/Desktop-Cadastro.txt"
+    },
+    {
+      "frame": "Carrinho de NFTs",
+      "platform": "Desktop",
+      "svgSha256": "ead34d3ebea05ca990ffa532579246bf80ca3519474a653d6c219ec76b73c786",
+      "specification": "specifications/Desktop-Carrinho de NFTs.txt"
+    },
+    {
+      "frame": "Carteiras",
+      "platform": "Desktop",
+      "svgSha256": "e1e1ca5e8e57e44caab2cf4104335ce0f113acaabcdd8ff4ed226eea63718cfe",
+      "specification": "specifications/Desktop-Carteiras.txt"
+    },
+    {
+      "frame": "Confirmação de Pedido",
+      "platform": "Desktop",
+      "svgSha256": "e66c92200d362add8d227c65a43f32d4457d5be023f775b7341007e8430f90bd",
+      "specification": "specifications/Desktop-Confirmação de Pedido.txt"
+    },
+    {
+      "frame": "Detalhes do NFT",
+      "platform": "Desktop",
+      "svgSha256": "64e83621fccc24c300eb7ee3c6b0198a96960e0ffa5d242e39496b74b24de37a",
+      "specification": "specifications/Desktop-Detalhes do NFT.txt"
+    },
+    {
+      "frame": "Início",
+      "platform": "Desktop",
+      "svgSha256": "215370ed06972b43e1597ae175c2faf77ac9fe481364b22396af2d611297cedf",
+      "specification": "specifications/Desktop-Início.txt"
+    },
+    {
+      "frame": "Login",
+      "platform": "Desktop",
+      "svgSha256": "447abf9f99f700cc248b4735a19d3a3c901eeccd6af48b20fe521f0fe5fcc7a7",
+      "specification": "specifications/Desktop-Login.txt"
+    },
+    {
+      "frame": "Pagamento",
+      "platform": "Desktop",
+      "svgSha256": "e1100cd2f42791abc2e32b8a73e7879759b501cf9ed4e73dae4fef005c24f4fa",
+      "specification": "specifications/Desktop-Pagamento.txt"
+    },
+    {
+      "frame": "Perfil do Colecionador",
+      "platform": "Desktop",
+      "svgSha256": "7a52ddb2569e9ba796787d1c7f12c3cba75cdba0e23eea4b540e5fe876b0a538",
+      "specification": "specifications/Desktop-Perfil do Colecionador.txt"
+    },
+    {
+      "frame": "Cadastro",
+      "platform": "Mobile",
+      "svgSha256": "9b750490063c5bdc7a0b4b512c571773fb9d75de0b2b6b3e2c0d2f7687064311",
+      "specification": "specifications/Mobile-Cadastro.txt"
+    },
+    {
+      "frame": "Carrinho de NFTs",
+      "platform": "Mobile",
+      "svgSha256": "82c04b1b9e08a104235a9322307912c49f2f2d40c2d4f4b291139c4ae21fb17b",
+      "specification": "specifications/Mobile-Carrinho de NFTs.txt"
+    },
+    {
+      "frame": "Detalhes do NFT",
+      "platform": "Mobile",
+      "svgSha256": "1cbcb6ba3e2b65687769601e8e8934c435e4229e0304e59d2feb3fafed2cfbc6",
+      "specification": "specifications/Mobile-Detalhes do NFT.txt"
+    },
+    {
+      "frame": "Início",
+      "platform": "Mobile",
+      "svgSha256": "eb142d04b162de287702cb359e086149f49c8f68133a142a990a94d0589b8e68",
+      "specification": "specifications/Mobile-Início.txt"
+    },
+    {
+      "frame": "Login",
+      "platform": "Mobile",
+      "svgSha256": "bec41633db8fdb1f97cc1c040770a53238aa85d938112687ccfe964115666e87",
+      "specification": "specifications/Mobile-Login.txt"
+    },
+    {
+      "frame": "Pagamento",
+      "platform": "Mobile",
+      "svgSha256": "54a5bc50bf826cc3573d410ef16fdae05de0a798242af55f8d591d1caa939bdc",
+      "specification": "specifications/Mobile-Pagamento.txt"
+    }
+  ]
+}

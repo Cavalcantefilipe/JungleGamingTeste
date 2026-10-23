@@ -1,0 +1,48 @@
+ g {'id': 'Mobile / Cadastro'}
+  rect {'width': '414', 'height': '896', 'rx': '40', 'fill': '#140D0A'}
+  g {'id': 'Logo'}
+   TEXT {'id': 'KURIO Wordmark', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '32', 'font-weight': 'bold', 'letter-spacing': '0.1em'} 'KURIO' [{'x': '152.553', 'y': '160.43'}]
+  g {'id': 'Title', 'clip-path': 'url(#clip0_16_1228)'}
+   TEXT {'id': 'Criar perfil de colecionador', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '18', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Criar perfil de colecionador' [{'x': '55.5', 'y': '270.992'}]
+  g {'id': 'Form', 'clip-path': 'url(#clip1_16_1228)'}
+   g {'id': 'Container'}
+    rect {'x': '28.5', 'y': '312.5', 'width': '357', 'height': '49', 'rx': '9.5', 'stroke': '#3F2319'}
+    TEXT {'id': 'User Name', 'fill': '#B39463', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Nome de usuário' [{'x': '143.5', 'y': '342.438'}]
+   g {'id': 'Frame 447'}
+    rect {'x': '28.5', 'y': '374.5', 'width': '357', 'height': '49', 'rx': '9.5', 'stroke': '#3F2319'}
+    TEXT {'id': 'Digite seu e-mail', 'fill': '#B39463', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Digite seu e-mail' [{'x': '44', 'y': '404.438'}]
+   g {'id': 'Frame 449'}
+    g {'id': 'Frame 448'}
+     TEXT {'id': 'Senha', 'fill': '#B39463', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Senha' [{'x': '44', 'y': '465.438'}]
+     g {'id': 'Iconly/Curved/Hide'}
+      g {'id': 'Hide'}
+   g {'id': 'Frame 451'}
+    g {'id': 'Group 98'}
+    g {'id': 'Frame 450'}
+     TEXT {'id': 'Confirmar senha', 'fill': '#B39463', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '14', 'letter-spacing': '0em'} 'Confirmar senha' [{'x': '44', 'y': '528.438'}]
+     g {'id': 'Iconly/Curved/Hide_2'}
+      g {'id': 'Hide_2'}
+  g {'id': 'Create Profile Button'}
+   rect {'x': '28', 'y': '588', 'width': '358', 'height': '60', 'rx': '10', 'fill': '#D28A4C'}
+   TEXT {'id': 'Criar perfil', 'fill': '#140D0A', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '16', 'font-weight': 'bold', 'letter-spacing': '0em'} 'Criar perfil' [{'x': '149', 'y': '624.215'}]
+  g {'id': 'Mobile Social Block', 'clip-path': 'url(#clip2_16_1228)'}
+   g {'id': 'Frame 4'}
+    TEXT {'id': 'Ou continue com', 'fill': '#F5F1EB', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '13', 'letter-spacing': '0em'} 'Ou continue com' [{'x': '148', 'y': '701.05'}]
+   g {'id': 'Frame 370'}
+    g {'id': 'Social Button'}
+     rect {'x': '28.5', 'y': '716.5', 'width': '357', 'height': '39', 'rx': '4.5', 'stroke': '#3F2319'}
+     g {'id': 'Content'}
+      g {'id': 'google 1', 'clip-path': 'url(#clip3_16_1228)'}
+       g {'id': 'Group'}
+        g {'id': 'Connected_Home_1_'}
+         g {'id': 'Group_2'}
+          g {'id': 'Group_3'}
+           g {'id': 'Group_4'}
+      TEXT {'id': 'Continuar com Google', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '13', 'font-weight': '500', 'letter-spacing': '0em'} 'Continuar com Google' [{'x': '135.924', 'y': '741.05'}]
+    g {'id': 'Social Button_2'}
+     rect {'x': '28.5', 'y': '772.5', 'width': '357', 'height': '39', 'rx': '4.5', 'stroke': '#3F2319'}
+     g {'id': 'Content_2'}
+      g {'id': 'facebook 1'}
+      TEXT {'id': 'Continuar com Facebook', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '13', 'font-weight': '500', 'letter-spacing': '0em'} 'Continuar com Facebook' [{'x': '128.116', 'y': '797.05'}]
+  g {'id': 'Login Link'}
+   TEXT {'id': 'JÃ¡ tem uma conta? Entre', 'fill': '#CFB28C', 'style': 'white-space: pre', '{http://www.w3.org/XML/1998/namespace}space': 'preserve', 'font-family': 'Roboto Mono', 'font-size': '15', 'letter-spacing': '0em'} 'Já tem uma conta? Entre' [{'x': '103', 'y': '867.826'}]
