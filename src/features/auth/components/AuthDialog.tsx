@@ -1,13 +1,13 @@
-import { Link, useNavigate } from '@tanstack/react-router';
+import { useNavigate } from '@tanstack/react-router';
 
-import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
-import { LoginForm } from '@/features/auth/components/LoginForm';
-import { RegisterForm } from '@/features/auth/components/RegisterForm';
-import { SocialButtons } from '@/features/auth/components/SocialButtons';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { useReturnFocus } from '@/features/auth/useReturnFocus';
 import { CatalogPage } from '@/features/catalog/components/CatalogPage';
 import { defaultCatalogSearch } from '@/features/catalog/search-params';
 import { cn } from '@/lib/cn';
+
+import { AuthDialogHeading } from './AuthDialogHeading';
+import { AuthFormPanel } from './AuthFormPanel';
 
 export function AuthDialog({
   register = false,
@@ -34,64 +34,8 @@ export function AuthDialog({
             register && 'md:h-[656px] md:rounded-lg',
           )}
         >
-          <div className="mb-10 flex h-[136px] shrink-0 items-center justify-center md:hidden">
-            <Link
-              to="/"
-              className="text-[32px] leading-[42px] font-bold tracking-[0.1em] text-foreground"
-              aria-label="Kurio — Início"
-            >
-              KURIO
-            </Link>
-          </div>
-          <div className="mb-9 hidden items-center justify-center gap-2 text-xl font-bold md:flex">
-            <Link
-              to="/login"
-              search={{ returnTo }}
-              className={cn(
-                'flex min-h-8 items-center hover:text-primary-light',
-                !register && 'text-primary',
-              )}
-            >
-              Entrar
-            </Link>
-            <span aria-hidden="true" className="text-primary">
-              |
-            </span>
-            <Link
-              to="/register"
-              search={{ returnTo }}
-              className={cn(
-                'flex min-h-8 items-center hover:text-primary-light',
-                register && 'text-primary',
-              )}
-            >
-              Criar conta
-            </Link>
-          </div>
-          <DialogTitle className="mb-10 text-center text-lg leading-4 font-bold md:sr-only">
-            {register ? 'Criar perfil de colecionador' : 'Entrar'}
-          </DialogTitle>
-          <DialogDescription className="mx-auto mb-6 hidden max-w-[400px] text-center text-sm leading-4 text-foreground md:block">
-            {register
-              ? 'Crie seu perfil de colecionador e conecte uma carteira quando quiser.'
-              : 'Entre para gerenciar sua carteira, coleção e perfil de criador.'}
-          </DialogDescription>
-          <div className="mx-auto w-full md:max-w-[340px]">
-            {register ? <RegisterForm returnTo={returnTo} /> : <LoginForm returnTo={returnTo} />}
-            <div className="mt-10 md:mt-6">
-              <SocialButtons />
-            </div>
-          </div>
-          <p className="mt-8 text-center text-sm text-text-secondary md:hidden">
-            {register ? 'Já tem uma conta? ' : 'Novo na Kurio? '}
-            <Link
-              to={register ? '/login' : '/register'}
-              search={{ returnTo }}
-              className="inline-flex min-h-11 items-center font-bold text-primary hover:text-primary-light active:text-primary-dark"
-            >
-              {register ? 'Entre' : 'Crie uma conta'}
-            </Link>
-          </p>
+          <AuthDialogHeading register={register} returnTo={returnTo} />
+          <AuthFormPanel register={register} returnTo={returnTo} />
         </DialogContent>
       </Dialog>
     </>

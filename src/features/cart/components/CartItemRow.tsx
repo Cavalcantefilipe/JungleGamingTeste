@@ -1,65 +1,32 @@
-import { Link } from '@tanstack/react-router';
-
-import { FigmaIcon } from '@/components/icons/FigmaIcon';
-import { ArtworkImage } from '@/components/media/ArtworkImage';
-import { Button } from '@/components/ui/button';
-import { Skeleton } from '@/components/ui/skeleton';
 import type { CartItem } from '@/contracts/cart';
 import type { Nft } from '@/contracts/nft';
 import type { QuoteItem } from '@/contracts/quote';
 import { QuantityStepper } from '@/features/nft-detail/components/QuantityStepper';
-import { cn } from '@/lib/cn';
 import { formatEth } from '@/lib/money';
 
-export function CartItemRow({
-  item,
-  nft,
-  quote,
-  busy,
-  update,
-  remove,
-}: {
+import { CartItemIdentity } from './CartItemIdentity';
+import { CartLineTotal } from './CartLineTotal';
+import { CartRemoveAction } from './CartRemoveAction';
+
+interface CartItemRowProps {
   item: CartItem;
   nft: Nft | undefined;
   quote: QuoteItem | undefined;
   busy: boolean;
   update: (quantity: number) => void;
   remove: () => void;
-}) {
+}
+
+export function CartItemRow({ item, nft, quote, busy, update, remove }: CartItemRowProps) {
   const available =
     nft?.editions.find((edition) => edition.id === item.editionId)?.available ?? item.quantity;
-  const lineTotal = quote ? formatEth(quote.lineTotal) : undefined;
   return (
     <tr
       data-testid="cart-item"
       className="relative block min-h-[100px] rounded-[14px] bg-surface-card md:table-row md:h-auto"
     >
       <td className="block md:table-cell md:pr-4">
-        <Link
-          to="/nfts/$nftId"
-          params={{ nftId: item.nftId }}
-          className="flex items-start gap-[9px] md:items-center md:gap-3"
-        >
-          <ArtworkImage
-            sizes="(min-width: 768px) 72px, 100px"
-            src={item.snapshot.image.src}
-            alt={item.snapshot.image.alt}
-            width={100}
-            height={100}
-            className="size-[100px] shrink-0 rounded-l-[14px] object-cover md:size-[72px] md:rounded-lg"
-          />
-          <div className="min-w-0 pt-[13px] pr-11 pb-3 min-[390px]:pb-10 md:py-2 md:pr-0">
-            <h2 className="text-[15px] leading-4 font-bold wrap-anywhere md:text-base">
-              {item.snapshot.name}
-            </h2>
-            <p className="mt-[6px] text-sm leading-4 text-text-secondary md:hidden">
-              Edição: {item.snapshot.editionLabel}
-            </p>
-            <p className="mt-1 hidden text-sm text-text-secondary md:block">
-              ID do token: #{nft?.tokenId ?? '—'}
-            </p>
-          </div>
-        </Link>
+        <CartItemIdentity item={item} nft={nft} />
       </td>
       <td className="hidden whitespace-nowrap md:table-cell md:px-2">
         <span className="text-base font-bold text-text-secondary">{formatEth(item.unitPrice)}</span>
@@ -73,27 +40,8 @@ export function CartItemRow({
           disabled={busy || !nft}
         />
       </td>
-      <td className="absolute bottom-[18px] left-3 whitespace-nowrap min-[390px]:left-[109px] md:static md:table-cell md:px-2">
-        <div
-          className={cn(
-            'text-[18px] leading-4 font-bold text-text-accent md:text-base',
-            (lineTotal?.length ?? 0) > 9 && 'text-[15px]',
-          )}
-        >
-          {lineTotal ?? <Skeleton className="h-5 w-20" />}
-        </div>
-      </td>
-      <td className="absolute top-0 right-0 md:static md:table-cell md:pr-1">
-        <Button
-          variant="remove"
-          size="icon"
-          aria-label={`Remover ${item.snapshot.name}`}
-          disabled={busy}
-          onClick={remove}
-        >
-          <FigmaIcon name="delete" aria-hidden="true" size={24} />
-        </Button>
-      </td>
+      <CartLineTotal quote={quote} />
+      <CartRemoveAction name={item.snapshot.name} busy={busy} remove={remove} />
     </tr>
   );
 }
