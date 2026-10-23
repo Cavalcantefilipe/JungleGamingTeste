@@ -1,7 +1,4 @@
 {
   "$schema": "https://schema.railpack.com",
-  "packages": { "node": "24", "caddy": "2.11.7" },
-  "steps": {
-    "install": { "commands": ["pnpm install --frozen-lockfile"] }
-  }
+  "packages": { "node": "24", "caddy": "2.11.7" }
 }
