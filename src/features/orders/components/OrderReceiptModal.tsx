@@ -19,7 +19,7 @@ export function OrderReceiptModal({ order }: { order: Order }) {
         if (!open) void navigate({ to: '/' });
       }}
     >
-      <DialogContent className="max-h-dvh gap-0 overflow-y-auto rounded-none border-0 border-b-[10px] border-primary bg-surface-card p-0 max-md:inset-0 max-md:max-w-none max-md:translate-0 md:max-h-[calc(100dvh-32px)] md:max-w-[578px]">
+      <DialogContent className="max-h-dvh gap-0 overflow-y-auto rounded-none border-0 border-b-[10px] border-primary bg-surface-card p-0 max-md:inset-0 max-md:max-w-none max-md:translate-0 sm:max-w-none md:max-h-[calc(100dvh-32px)] md:max-w-[578px]">
         <ReceiptHeading />
         <ReceiptMetadata order={order} />
         <div className="px-6 py-6 md:px-11">

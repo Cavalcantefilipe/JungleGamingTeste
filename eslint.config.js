@@ -107,7 +107,7 @@ export default defineConfig([
     },
   },
   {
-    files: ['src/routes/**/*.tsx', 'vite.config.ts', 'playwright.config.ts', 'eslint.config.js'],
+    files: ['src/routes/**/*.tsx', 'vite.config.ts', 'playwright*.config.ts', 'eslint.config.js'],
     rules: {
       'import-x/no-default-export': 'off',
     },

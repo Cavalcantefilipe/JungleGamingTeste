@@ -8,6 +8,7 @@ dist-ssr/
 *.tsbuildinfo
 node_modules/.cache/
 reports/playwright-report/
+reports/playwright-compat/
 test-results/
 e2e/.auth/
 .superpowers/

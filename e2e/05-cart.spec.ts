@@ -75,6 +75,7 @@ test('itens de visitante são preservados ao autenticar', async ({ page, isMobil
   await page.getByLabel('Senha', { exact: true }).fill('Kurio!2026');
   await page.getByRole('button', { name: 'Entrar', exact: true }).click();
   await expect(page).toHaveURL(/\/checkout/);
+  await expect(page.getByRole('button', { name: 'Revisar cotação', exact: true })).toBeVisible();
   await page.goto('/cart');
   await expect(page.getByTestId('cart-item').getByRole('spinbutton')).toHaveValue('1');
 });

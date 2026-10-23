@@ -31,7 +31,7 @@ export function AuthDialog({
           onCloseAutoFocus={restoreFocus}
           overlayClassName="bg-transparent"
           className={cn(
-            'flex max-h-dvh flex-col gap-0 overflow-y-auto rounded-none border-0 bg-ink px-7 pt-20 pb-6 max-md:inset-0 max-md:max-w-none max-md:translate-0 md:top-40 md:h-[600px] md:max-h-[calc(100dvh-176px)] md:w-[500px] md:max-w-[500px] md:translate-y-0 md:border-b-[10px] md:border-primary md:bg-surface-card md:px-0 md:pt-12 md:pb-10',
+            'flex max-h-dvh flex-col gap-0 overflow-y-auto rounded-none border-0 bg-ink px-7 pt-20 pb-6 max-md:inset-0 max-md:max-w-none max-md:translate-0 sm:max-w-none md:top-40 md:h-[600px] md:max-h-[calc(100dvh-176px)] md:w-[500px] md:max-w-[500px] md:translate-y-0 md:border-b-[10px] md:border-primary md:bg-surface-card md:px-0 md:pt-12 md:pb-10',
             register && 'md:h-[656px] md:rounded-lg',
           )}
         >

@@ -4,6 +4,7 @@ import { lazy, Suspense } from 'react';
 import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
 import { useSession } from '@/features/auth/session-store';
+import { focusClickedElement } from '@/lib/focusClickedElement';
 
 const AccountMenu = lazy(() =>
   import('./AccountMenu').then((module) => ({ default: module.AccountMenu })),
@@ -25,7 +26,7 @@ export function HeaderAccount() {
         </Suspense>
       ) : (
         <Button asChild size="header">
-          <Link to="/login" search={{ returnTo: '/' }}>
+          <Link to="/login" search={{ returnTo: '/' }} onClick={focusClickedElement}>
             <FigmaIcon name="logout" size={20} aria-hidden="true" />
             <span>Entrar</span>
           </Link>

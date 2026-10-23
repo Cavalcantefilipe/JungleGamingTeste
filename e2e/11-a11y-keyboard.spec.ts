@@ -8,9 +8,13 @@ import { expect, login, test } from './fixtures/kurio';
 import type { Locator, Page } from '@playwright/test';
 
 async function tabUntil(page: Page, target: Locator, reverse = false) {
+  const modifier =
+    process.platform === 'darwin' && page.context().browser()?.browserType().name() === 'webkit'
+      ? 'Alt+'
+      : '';
   for (let step = 0; step < 160; step++) {
     if (await target.evaluate((element) => element === document.activeElement)) return;
-    await page.keyboard.press(reverse ? 'Shift+Tab' : 'Tab');
+    await page.keyboard.press(`${modifier}${reverse ? 'Shift+Tab' : 'Tab'}`);
   }
   await expect(target).toBeFocused();
 }
@@ -182,8 +186,10 @@ test('pedido pendente e recibo confirmado permanecem acessíveis', async ({ page
   await expect(page.getByText('Cotação revisada', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Conectar MetaMask', exact: true }).click();
   await expect(page.getByText('Carteira conectada', { exact: true })).toBeVisible();
+  await expect(page.getByText('NFT adicionado ao carrinho', { exact: true })).toHaveCount(0);
   await page.getByRole('button', { name: 'Confirmar compra', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Aguardando confirmação da rede' })).toBeVisible();
+  await page.clock.setFixedTime(await page.evaluate(() => Date.now()));
   await expectAccessible(page, 'pedido pendente');
   await expectNoOverflow(page);
   await page.evaluate(() => {

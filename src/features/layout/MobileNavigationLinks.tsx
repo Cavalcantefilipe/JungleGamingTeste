@@ -4,6 +4,7 @@ import { FigmaIcon } from '@/components/icons/FigmaIcon';
 
 import { CartBadge } from './CartBadge';
 import { MobileFavoritesLink } from './MobileFavoritesLink';
+import { MobileProfileLink } from './MobileProfileLink';
 
 export function MobileNavigationLinks({
   authenticated,
@@ -39,9 +40,7 @@ export function MobileNavigationLinks({
         <FigmaIcon name="cart-solid" size={20} aria-hidden="true" />
         <CartBadge quantity={quantity} />
       </Link>
-      <Link className="mobile-tab" to="/account/profile" aria-label="Perfil">
-        <FigmaIcon name="user-solid" size={20} aria-hidden="true" />
-      </Link>
+      <MobileProfileLink />
     </>
   );
 }

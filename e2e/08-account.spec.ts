@@ -77,6 +77,8 @@ test('senha atual errada mostra erro; troca válida permite novo login', async (
   await expect(page.getByRole('status')).toContainText('Senha alterada');
   await page.getByRole('button', { name: 'Abrir menu da conta' }).click();
   await page.getByRole('menuitem', { name: 'Sair', exact: true }).click();
+  await expect(page).toHaveURL('/');
+  await expect(page.getByRole('button', { name: 'Abrir menu da conta' })).toHaveCount(0);
   await page.goto('/login');
   await page.getByLabel('E-mail', { exact: true }).fill('ana@kurio.test');
   await page.getByLabel('Senha', { exact: true }).fill('NovaSenha!2026');

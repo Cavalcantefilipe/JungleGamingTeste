@@ -8,6 +8,7 @@ export async function addNft(page: Page, isMobile: boolean, id = 'nft-001') {
     .getByRole('button', { name: isMobile ? 'Comprar NFT' : 'COMPRAR', exact: true })
     .click();
   await expect(page).toHaveURL(/\/cart/);
+  await expect(page.getByTestId('quote-total')).toBeVisible();
 }
 export async function prepareCheckout(page: Page, isMobile: boolean, scenario = 'default') {
   await login(page, 'ana', '/');
