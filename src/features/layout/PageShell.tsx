@@ -15,6 +15,9 @@ export function PageShell({ children }: { children: ReactNode }) {
   const isPurchase = useRouterState({
     select: (state) => ['/cart', '/checkout'].includes(state.location.pathname),
   });
+  const isAccount = useRouterState({
+    select: (state) => state.location.pathname.startsWith('/account/'),
+  });
   return (
     <>
       <a
@@ -30,11 +33,12 @@ export function PageShell({ children }: { children: ReactNode }) {
           'page-container min-h-[50vh] pt-10 pb-8 md:pt-8 md:pb-12',
           isDetail && 'pt-6',
           isPurchase && 'pt-8',
+          isAccount && 'pb-28 md:pb-12',
         )}
       >
         {children}
       </main>
-      <div className={cn(isPurchase && 'hidden md:block')}>
+      <div className={cn(isPurchase && 'hidden md:block', isAccount && 'hidden')}>
         <Footer />
       </div>
       <MobileTabBar />

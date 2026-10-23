@@ -18,15 +18,22 @@ export async function readAvatar(file: File): Promise<string> {
     throw new Error('Escolha uma imagem PNG, JPEG ou WebP de até 2 MB.');
   if (!isValidImage(new Uint8Array(await file.arrayBuffer()), file.type))
     throw new Error('O conteúdo do arquivo não é uma imagem válida.');
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (typeof reader.result === 'string') resolve(reader.result);
-      else reject(new Error('Falha ao ler imagem'));
-    };
-    reader.onerror = () => {
-      reject(new Error('Falha ao ler imagem'));
-    };
-    reader.readAsDataURL(file);
-  });
+  let bitmap: ImageBitmap;
+  try {
+    bitmap = await createImageBitmap(file);
+  } catch {
+    throw new Error('O conteúdo do arquivo não é uma imagem válida.');
+  }
+  try {
+    const scale = Math.min(1, 512 / Math.max(bitmap.width, bitmap.height));
+    const canvas = document.createElement('canvas');
+    canvas.width = Math.max(1, Math.round(bitmap.width * scale));
+    canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+    const context = canvas.getContext('2d');
+    if (!context) throw new Error('Não foi possível preparar a imagem. Tente novamente.');
+    context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+    return canvas.toDataURL('image/webp', 0.85);
+  } finally {
+    bitmap.close();
+  }
 }

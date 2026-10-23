@@ -36,3 +36,11 @@ Os quatro arquivos são reutilizados pelo próprio Figma. Derivados WebP/AVIF de
 ## Evidência e limites
 
 `e2e/15-figma-geometry.spec.ts` verifica medidas do topo e painel mobile. `e2e/00-layout.spec.ts` captura screenshots em 390, 768 e 1440 px e verifica ausência de transbordamento horizontal. A conferência das demais telas acompanha sua implementação; esta nota não declara paridade de telas ainda pendentes.
+
+## Perfil e carteiras
+
+Conferidos os frames `Desktop / Perfil do Colecionador` (`9:1238`) e `Desktop / Carteiras` (`9:1670`): coluna lateral de 310 px, intervalo de 28 px, formulário em duas colunas, rótulos de 12 px e campos de 40 px. Em 390 px os campos têm 44 px, ficam em uma coluna e a navegação da conta aparece acima do conteúdo; o arquivo não fornece um frame mobile dessas páginas.
+
+O perfil usa ações separadas “Salvar perfil” e “Alterar senha”, para cada resposta da API ter um resultado explícito. O avatar permite alterar e remover; a imagem válida é normalizada para WebP de até 512 px antes do envio, para caber no armazenamento da simulação.
+
+`e2e/08-account.spec.ts` captura perfil/carteiras nos dois projetos, verifica ausência de transbordamento, campos mobile de pelo menos 44 px, persistência e isolamento das alterações pendentes ao trocar de conta.

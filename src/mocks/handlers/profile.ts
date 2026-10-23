@@ -41,6 +41,12 @@ export const profileHandlers = [
       return HttpResponse.json(updateProfile(user.id, { avatarUrl: dataUrl }));
     }),
   ),
+  http.delete(
+    '*/api/profile/avatar',
+    withNetwork(({ request }) =>
+      HttpResponse.json(updateProfile(requireSession(request).user.id, { avatarUrl: null })),
+    ),
+  ),
   http.post(
     '*/api/profile/password',
     withNetwork(async ({ request }) => {

@@ -44,3 +44,9 @@ A alteração do carrinho e a nova cotação rodam em paralelo. A chave da consu
 Medição local em 22/10/2026, Node 24, com o catálogo de 48 NFTs: 100 cálculos de cotação com validação e persistência tiveram média de **1,81 ms**, percentil 95 de **2,19 ms** e máximo de **9,88 ms**. Vinte chamadas simultâneas com a mesma chave demoraram **21,88 ms** no total e produziram um pedido. Esses números medem a simulação local, sem rede, e não são estimativa de capacidade de um servidor externo.
 
 No E2E com **1.500 ms de latência simulada**, a estimativa apareceu em **17 ms** tanto no desktop quanto no mobile; a cotação foi confirmada em **1.816/1.819 ms**, com **uma** consulta. O teste `quantidade atualiza estimativa antes da rede e consulta a cotação uma vez` registra as medições como artefato do Playwright. O teste de concorrência `valores enviados pelo cliente não substituem o cálculo do backend` verifica a autoridade do cálculo do pedido.
+
+## Edição de carteiras
+
+Salvar a carteira e atualizar a cópia secundária usa uma transação, com sessão revalidada. Mudar endereço, rede ou provedor remove as conexões dos IDs alterados; a compra exige uma nova conexão. Alterar apenas o apelido preserva a conexão.
+
+O front serializa alterações de carteira por usuário e verifica o token capturado antes de executar uma alteração que estava na fila. Respostas antigas também verificam a sessão antes de atualizar o cache. O E2E troca de Ana para Bruno sem recarregar a página, mantém a primeira resposta pendente e verifica que a alteração seguinte não é enviada com a conta nova.

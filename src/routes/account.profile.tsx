@@ -1,18 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router';
 
 import { requireAuth } from '@/features/auth/route-guard';
-import { useSession } from '@/features/auth/session-store';
+import { ProfilePage } from '@/features/profile/components/ProfilePage';
 
 export const Route = createFileRoute('/account/profile')({
   beforeLoad: requireAuth,
-  component: Profile,
+  component: ProfilePage,
 });
-function Profile() {
-  const session = useSession();
-  return (
-    <section>
-      <h1 className="text-heading">Perfil do colecionador</h1>
-      <p>{session?.user.displayName}</p>
-    </section>
-  );
-}

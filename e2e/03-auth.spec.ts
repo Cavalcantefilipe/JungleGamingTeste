@@ -46,7 +46,9 @@ test.describe('auth', () => {
     await expect(page.getByRole('button', { name: 'Abrir menu da conta' })).toHaveCount(0);
     expect(await page.evaluate(() => localStorage.getItem('kurio.session'))).toBeNull();
     await login(page, 'bruno');
-    await expect(page.getByRole('main').getByText('Bruno Santos', { exact: true })).toBeVisible();
+    await expect(
+      page.getByRole('main').getByLabel('Nome de exibição', { exact: true }),
+    ).toHaveValue('Bruno Santos');
     await expect(page.getByText('Ana Costa', { exact: true })).toHaveCount(0);
   });
   test('returnTo externo é normalizado para início', async ({ page }) => {

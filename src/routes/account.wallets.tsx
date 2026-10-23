@@ -1,11 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router';
 
 import { requireAuth } from '@/features/auth/route-guard';
+import { WalletsPage } from '@/features/wallets/components/WalletsPage';
 
 export const Route = createFileRoute('/account/wallets')({
   beforeLoad: requireAuth,
-  component: Wallets,
+  component: WalletsPage,
 });
-function Wallets() {
-  return <h1 className="text-heading">Carteiras</h1>;
-}

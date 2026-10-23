@@ -5,7 +5,7 @@ import { MockError } from './respond';
 
 export function updateProfile(
   userId: string,
-  input: UpdateProfileInput | { avatarUrl: string },
+  input: UpdateProfileInput | { avatarUrl: string | null },
 ): Profile {
   const db = mockStore.read();
   if (

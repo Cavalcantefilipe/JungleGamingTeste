@@ -554,8 +554,8 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 
 - Produces: `profileQueryOptions(userId)`, `useUpdateProfile()`, `useUpdateAvatar()` (valida tipo/tamanho/magic bytes no cliente, envia data URL), `useChangePassword()`; `walletsQueryOptions(userId)`, `useSaveWallet(role)`; `walletInputSchema` (campos do Figma: displayName, walletNickname, network, profileName, address, secondaryAddress?, walletType, referralCode?, email, ensName); `_account.tsx` layout com `AccountSidebar` (Dados do perfil, Carteiras ativos; demais itens informam indisponibilidade) e versão mobile (lista no topo / Sheet).
 
-- [ ] **Passo 1:** `e2e/08-account.spec.ts`: `editar nome e e-mail persiste após refresh`, `username em conflito mostra erro da API no campo`, `avatar inválido (pdf, >2MB) é rejeitado; válido aparece no header`, `senha atual errada mostra erro; troca válida permite novo login`, `carteira principal com endereço inválido mostra erro; válida persiste`, `secundária "igual à principal" espelha dados`, `perfil e carteiras funcionam em 390px`. → FAIL.
-- [ ] **Passo 2:** implementar. → PASS. Commit `feat: perfil do colecionador, avatar, senha e carteiras`.
+- [x] **Passo 1:** `e2e/08-account.spec.ts`: `editar nome e e-mail persiste após refresh`, `username em conflito mostra erro da API no campo`, `avatar inválido (pdf, >2MB) é rejeitado; válido aparece no header`, `senha atual errada mostra erro; troca válida permite novo login`, `carteira principal com endereço inválido mostra erro; válida persiste`, `secundária "igual à principal" espelha dados`, `perfil e carteiras funcionam em 390px`. → FAIL.
+- [x] **Passo 2:** implementar. → PASS. Commit `feat: perfil do colecionador, avatar, senha e carteiras`.
 
 ### Task 16: Acessibilidade, teclado e regressão visual
 

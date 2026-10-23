@@ -1,0 +1,74 @@
+import { ImagePlus } from 'lucide-react';
+import { useRef } from 'react';
+
+import { Button } from '@/components/ui/button';
+import type { Profile } from '@/contracts/profile';
+import { ApiError, errorMessage } from '@/lib/errors';
+
+import { profileMessages } from '../messages';
+import { useUpdateAvatar } from '../mutations';
+
+export function AvatarField({ profile }: { profile: Profile }) {
+  const input = useRef<HTMLInputElement>(null);
+  const mutation = useUpdateAvatar();
+  const error = mutation.error;
+  const message = error instanceof ApiError ? errorMessage(error) : error?.message;
+  return (
+    <div className="space-y-2">
+      <p className="text-xs">Avatar</p>
+      <div className="flex min-h-11 items-center gap-3">
+        {profile.avatarUrl ? (
+          <img
+            src={profile.avatarUrl}
+            alt="Avatar do colecionador"
+            width={48}
+            height={48}
+            className="size-12 rounded-full object-cover"
+          />
+        ) : (
+          <div className="flex size-12 items-center justify-center rounded-full bg-surface-card text-primary">
+            <ImagePlus aria-hidden="true" size={20} />
+          </div>
+        )}
+        <input
+          ref={input}
+          type="file"
+          tabIndex={-1}
+          aria-invalid={Boolean(error)}
+          accept="image/png,image/jpeg,image/webp"
+          aria-label="Alterar avatar"
+          aria-describedby="avatar-help avatar-error"
+          className="sr-only"
+          disabled={mutation.isPending}
+          onChange={(event) => {
+            const file = event.currentTarget.files?.[0];
+            event.currentTarget.value = '';
+            if (file) mutation.mutate(file);
+          }}
+        />
+        <Button type="button" disabled={mutation.isPending} onClick={() => input.current?.click()}>
+          Alterar
+        </Button>
+        <Button
+          type="button"
+          variant="ghost"
+          aria-label="Remover avatar"
+          disabled={mutation.isPending || !profile.avatarUrl}
+          onClick={() => {
+            mutation.mutate(null);
+          }}
+        >
+          Remover
+        </Button>
+      </div>
+      <p id="avatar-help" className="text-[11px] text-text-secondary">
+        {profileMessages.avatarHelp}
+      </p>
+      {message && (
+        <p id="avatar-error" role="alert" className="text-xs text-text-coral">
+          {message}
+        </p>
+      )}
+    </div>
+  );
+}
