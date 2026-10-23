@@ -6,6 +6,7 @@ import { RegisterForm } from '@/features/auth/components/RegisterForm';
 import { SocialButtons } from '@/features/auth/components/SocialButtons';
 import { CatalogPage } from '@/features/catalog/components/CatalogPage';
 import { defaultCatalogSearch } from '@/features/catalog/search-params';
+import { cn } from '@/lib/cn';
 
 export function AuthDialog({
   register = false,
@@ -24,34 +25,68 @@ export function AuthDialog({
           if (!open) void navigate({ to: '/' });
         }}
       >
-        <DialogContent className="max-h-dvh overflow-y-auto rounded-none border-border-soft bg-ink p-7 max-sm:inset-0 max-sm:top-0 max-sm:left-0 max-sm:max-w-none max-sm:translate-0 sm:max-w-[460px] sm:rounded-xl sm:p-10">
-          <Link
-            to="/"
-            className="my-4 text-center text-3xl font-bold tracking-[0.2em] text-primary"
-            aria-label="Kurio — Início"
-          >
-            KURIO
-          </Link>
-          <div className="mb-6 space-y-2 text-center">
-            <DialogTitle className="text-heading-sm">
-              {register ? 'Crie sua conta' : 'Bem-vindo de volta'}
-            </DialogTitle>
-            <DialogDescription className="text-text-secondary">
-              {register ? 'Sua próxima coleção começa aqui.' : 'Entre para continuar sua coleção.'}
-            </DialogDescription>
+        <DialogContent
+          className={cn(
+            'flex max-h-dvh flex-col gap-0 overflow-y-auto rounded-none border-0 bg-ink px-7 pt-20 pb-6 max-md:inset-0 max-md:max-w-none max-md:translate-0 md:h-[600px] md:w-[500px] md:max-w-[500px] md:border-b-[10px] md:border-primary md:bg-surface-card md:px-0 md:pt-12 md:pb-10',
+            register && 'md:h-[656px] md:rounded-lg',
+          )}
+        >
+          <div className="mb-10 flex h-[136px] shrink-0 items-center justify-center md:hidden">
+            <Link
+              to="/"
+              className="text-[32px] leading-[42px] font-bold tracking-[0.1em] text-foreground"
+              aria-label="Kurio — Início"
+            >
+              KURIO
+            </Link>
           </div>
-          {register ? <RegisterForm returnTo={returnTo} /> : <LoginForm returnTo={returnTo} />}
-          <div className="my-5">
-            <SocialButtons />
+          <div className="mb-9 hidden items-center justify-center gap-2 text-xl font-bold md:flex">
+            <Link
+              to="/login"
+              search={{ returnTo }}
+              className={cn(
+                'flex min-h-8 items-center hover:text-primary-light',
+                !register && 'text-primary',
+              )}
+            >
+              Entrar
+            </Link>
+            <span aria-hidden="true" className="text-primary">
+              |
+            </span>
+            <Link
+              to="/register"
+              search={{ returnTo }}
+              className={cn(
+                'flex min-h-8 items-center hover:text-primary-light',
+                register && 'text-primary',
+              )}
+            >
+              Criar conta
+            </Link>
           </div>
-          <p className="text-center text-sm text-text-secondary">
-            {register ? 'Já tem uma conta? ' : 'Ainda não tem uma conta? '}
+          <DialogTitle className="mb-10 text-center text-lg leading-4 font-bold md:sr-only">
+            {register ? 'Criar perfil de colecionador' : 'Entrar'}
+          </DialogTitle>
+          <DialogDescription className="mx-auto mb-6 hidden max-w-[400px] text-center text-sm leading-4 text-foreground md:block">
+            {register
+              ? 'Crie seu perfil de colecionador e conecte uma carteira quando quiser.'
+              : 'Entre para gerenciar sua carteira, coleção e perfil de criador.'}
+          </DialogDescription>
+          <div className="mx-auto w-full md:max-w-[340px]">
+            {register ? <RegisterForm returnTo={returnTo} /> : <LoginForm returnTo={returnTo} />}
+            <div className="mt-10 md:mt-6">
+              <SocialButtons />
+            </div>
+          </div>
+          <p className="mt-8 text-center text-xs text-text-secondary md:hidden">
+            {register ? 'Já tem uma conta? ' : 'Novo na Kurio? '}
             <Link
               to={register ? '/login' : '/register'}
               search={{ returnTo }}
-              className="font-bold text-primary underline underline-offset-4"
+              className="inline-flex min-h-11 items-center font-bold text-primary hover:text-primary-light active:text-primary-dark"
             >
-              {register ? 'Entrar' : 'Criar conta'}
+              {register ? 'Entre' : 'Crie uma conta'}
             </Link>
           </p>
         </DialogContent>

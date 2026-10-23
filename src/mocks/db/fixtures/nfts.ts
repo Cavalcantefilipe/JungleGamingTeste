@@ -10,8 +10,8 @@ const names = [
   'Violet Nomad #314',
   'Ivory Baron #088',
   'Golden Beat #207',
-  'Golden Signal #160',
   'Golden Frequency #071',
+  'Golden Signal #160',
 ];
 const prices = [
   '1.19',
@@ -21,8 +21,8 @@ const prices = [
   '1.39',
   '1.79',
   '0.99',
+  '0.59',
   '0.39',
-  '1.65',
   '0.02',
   '12.3',
 ];
@@ -48,10 +48,12 @@ function createNft(index: number): Nft {
       { label: 'Estilo', value: index % 2 === 0 ? 'Óculos vintage' : 'Explorador' },
       { label: 'Origem', value: 'Arte digital' },
     ],
-    images: [
-      { src: createArtwork(index), alt: `Ilustração de ${name}`, width: 600, height: 600 },
-      { src: createArtwork(index + 1), alt: `Variação de ${name}`, width: 600, height: 600 },
-    ],
+    images: Array.from({ length: 4 }, () => ({
+      src: createArtwork(index),
+      alt: `Ilustração de ${name}`,
+      width: 800,
+      height: 800,
+    })),
     editions: [
       { id: `${id}-10`, label: '1/10', available: 10, max: 10 },
       { id: `${id}-1`, label: '1/1', available: index % 3 === 0 ? 0 : 1, max: 1 },

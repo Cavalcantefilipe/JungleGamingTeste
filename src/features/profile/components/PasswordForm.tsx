@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { applyFormError } from '@/components/forms/applyFormError';
+import { PasswordField } from '@/components/forms/PasswordField';
 import { RootFormError } from '@/components/forms/RootFormError';
-import { TextField } from '@/components/forms/TextField';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import { changePasswordInputSchema } from '@/contracts/profile';
@@ -38,7 +38,10 @@ export function PasswordForm() {
     }
   });
   return (
-    <section aria-labelledby="password-heading" className="mt-8 max-w-md space-y-5">
+    <section
+      aria-labelledby="password-heading"
+      className="mt-8 max-w-md space-y-5 lg:w-[calc((100%_-_28px)/2)] lg:max-w-none"
+    >
       <h2 id="password-heading" className="text-sm font-bold">
         Alterar senha
       </h2>
@@ -50,26 +53,26 @@ export function PasswordForm() {
             void submit(event);
           }}
         >
-          <TextField<PasswordFormInput>
+          <PasswordField<PasswordFormInput>
             name="currentPassword"
             label="Senha atual"
-            type="password"
+            appearance="default"
             autoComplete="current-password"
           />
-          <TextField<PasswordFormInput>
+          <PasswordField<PasswordFormInput>
             name="newPassword"
             label="Nova senha"
-            type="password"
+            appearance="default"
             autoComplete="new-password"
           />
-          <TextField<PasswordFormInput>
+          <PasswordField<PasswordFormInput>
             name="confirmPassword"
             label="Confirmar nova senha"
-            type="password"
+            appearance="default"
             autoComplete="new-password"
           />
           <RootFormError />
-          <Button type="submit" disabled={mutation.isPending}>
+          <Button size="form" type="submit" disabled={mutation.isPending}>
             Alterar senha
           </Button>
           {saved && (

@@ -51,7 +51,7 @@ export function WalletForm({
       >
         <WalletFields />
         <RootFormError />
-        <Button type="submit" disabled={mutation.isPending}>
+        <Button size="form" type="submit" disabled={mutation.isPending}>
           {mutation.isPending ? 'Salvando…' : 'Salvar carteira'}
         </Button>
         {mutation.isSuccess && (

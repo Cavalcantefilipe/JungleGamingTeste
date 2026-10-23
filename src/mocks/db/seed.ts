@@ -5,6 +5,7 @@ import type { MockDb } from './schema';
 
 export function createSeed(name = 'default'): MockDb {
   return {
+    catalogRevision: 2,
     users: createUsers(),
     sessions: [],
     nfts: name === 'empty' ? [] : createNfts(),

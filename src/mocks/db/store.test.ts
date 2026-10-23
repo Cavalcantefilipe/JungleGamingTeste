@@ -42,3 +42,24 @@ it('falha ao persistir não confirma alteração apenas na memória', () => {
   expect(store.read().nfts).toHaveLength(48);
   storageWrite.mockRestore();
 });
+
+it('atualiza o catálogo legado sem apagar os dados da conta', () => {
+  const legacy = createSeed();
+  const original = legacy.nfts[7];
+  if (!original) throw new Error('Fixture ausente');
+  legacy.nfts[7] = {
+    ...original,
+    name: 'Golden Signal #160',
+    price: '0.39',
+    images: original.images.slice(0, 2),
+  };
+  localStorage.setItem('legacy.db', JSON.stringify({ ...legacy, catalogRevision: 1 }));
+  const upgraded = createMockStore({ seed: createSeed(), persistKey: 'legacy.db' }).read();
+  expect(upgraded.nfts[7]?.name).toBe('Golden Frequency #071');
+  expect(upgraded.nfts[7]?.price).toBe('0.59');
+  expect(upgraded.nfts[7]?.images).toHaveLength(4);
+  expect(upgraded.users).toEqual(legacy.users);
+  expect(upgraded.wallets).toEqual(legacy.wallets);
+  expect(upgraded.favorites).toEqual(legacy.favorites);
+  expect(upgraded.orders).toEqual(legacy.orders);
+});

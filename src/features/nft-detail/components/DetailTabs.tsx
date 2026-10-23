@@ -1,5 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import type { Nft } from '@/contracts/nft';
+import { NFT_NETWORK_LABELS, type Nft } from '@/contracts/nft';
 
 export function DetailTabs({ nft }: { nft: Nft }) {
   return (
@@ -18,6 +18,10 @@ export function DetailTabs({ nft }: { nft: Nft }) {
       >
         <p>{nft.description}</p>
         <dl className="grid grid-cols-2 gap-4 md:grid-cols-3">
+          <div className="rounded-lg bg-surface-card p-4">
+            <dt className="text-xs">Rede</dt>
+            <dd className="mt-2 font-bold text-foreground">{NFT_NETWORK_LABELS[nft.network]}</dd>
+          </div>
           {nft.attributes.map((attribute) => (
             <div key={attribute.label} className="rounded-lg bg-surface-card p-4">
               <dt className="text-xs">{attribute.label}</dt>

@@ -13,10 +13,12 @@ export function FavoriteButton({
   nftId,
   name,
   className,
+  showLabel = false,
 }: {
   nftId: string;
   name: string;
   className?: string;
+  showLabel?: boolean;
 }) {
   const session = useSession();
   const favorites = useQuery(favoritesQueryOptions(session?.user.id ?? ''));
@@ -26,8 +28,8 @@ export function FavoriteButton({
   const selected = favorites.data?.nftIds.includes(nftId) ?? false;
   return (
     <Button
-      variant="ghost"
-      size="icon"
+      variant={showLabel ? 'secondary' : 'ghost'}
+      size={showLabel ? 'form' : 'icon'}
       aria-label={`Favoritar ${name}`}
       aria-pressed={selected}
       aria-busy={mutation.isPending}
@@ -40,12 +42,15 @@ export function FavoriteButton({
         mutation.mutate(nftId);
       }}
       className={cn(
-        'rounded-full bg-ink/70 text-foreground hover:text-primary',
+        'text-foreground hover:text-primary',
+        !showLabel && 'rounded-full bg-ink/70',
         selected && 'text-primary',
+        showLabel && 'rounded-control bg-transparent px-3 text-xs text-text-accent',
         className,
       )}
     >
       <Heart aria-hidden="true" size={18} className={cn(selected && 'fill-current')} />
+      {showLabel && 'Favoritar'}
     </Button>
   );
 }

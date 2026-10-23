@@ -35,7 +35,12 @@ export function WalletFields() {
       />
       <TextField<WalletFormInput> name="referralCode" label="Código de indicação (opcional)" />
       <TextField<WalletFormInput> name="email" label="E-mail" type="email" autoComplete="email" />
-      <TextField<WalletFormInput> name="ensName" label="Nome ENS" placeholder="Seu nome sem .eth" />
+      <TextField<WalletFormInput>
+        name="ensName"
+        prefix=".eth"
+        label="Nome ENS"
+        placeholder="Seu nome sem .eth"
+      />
     </div>
   );
 }

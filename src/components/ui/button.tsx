@@ -17,6 +17,8 @@ const buttonVariants = cva(
           'relative rounded-full text-foreground before:pointer-events-none before:absolute before:size-6 before:rounded-full before:border before:border-border before:bg-surface-raised hover:before:bg-border-soft active:before:bg-border',
         remove:
           'rounded-full text-primary hover:bg-surface-raised hover:text-primary-light active:bg-border active:text-primary-dark',
+        edition:
+          'rounded-full border border-border bg-transparent text-text-secondary hover:border-primary-light active:bg-surface-raised aria-pressed:border-primary aria-pressed:text-text-accent',
         danger: 'bg-error text-white hover:bg-error/80 active:bg-error/70',
         destructive:
           'bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:bg-destructive/60 dark:focus-visible:ring-destructive/40',
@@ -29,6 +31,11 @@ const buttonVariants = cva(
       },
       size: {
         quantity: 'size-11 p-0',
+        form: 'min-h-11 px-6 text-xs font-bold md:min-h-10',
+        'footer-social': 'size-11 rounded-control p-0 text-primary md:size-8',
+        edition: 'min-h-11 rounded-full px-3 text-xs md:min-h-7 md:px-2',
+        auth: 'h-[60px] rounded-control px-6 text-base font-bold md:h-[45px]',
+        social: 'h-11 rounded-control px-4 text-xs text-text-secondary md:h-10',
         checkout: 'h-[60px] rounded-[40px] px-6 font-bold md:h-10 md:rounded-control',
         coupon: 'h-12 rounded-full px-5 font-bold md:h-10 md:rounded-control',
         purchase: 'h-14 rounded-full px-6 font-bold lg:h-10 lg:rounded-md',

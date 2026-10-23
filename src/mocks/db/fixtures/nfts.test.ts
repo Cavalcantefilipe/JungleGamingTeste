@@ -42,4 +42,11 @@ describe('fixtures de NFTs', () => {
       'Neon Vessel #552',
     ]);
   });
+  it('mantém a última linha identificável do Figma com seus preços', () => {
+    expect(nfts.slice(6, 9).map(({ name, price }) => ({ name, price }))).toEqual([
+      { name: 'Golden Beat #207', price: '0.99' },
+      { name: 'Golden Frequency #071', price: '0.59' },
+      { name: 'Golden Signal #160', price: '0.39' },
+    ]);
+  });
 });

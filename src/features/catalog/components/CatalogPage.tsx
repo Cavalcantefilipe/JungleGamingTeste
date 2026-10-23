@@ -38,7 +38,7 @@ export function CatalogPage({ search }: { search: CatalogSearch }) {
             clear={navigation.clear}
           />
         </div>
-        <div className="grid gap-12 lg:grid-cols-[280px_minmax(0,1fr)]">
+        <div className="grid gap-12 lg:grid-cols-[310px_minmax(0,1fr)]">
           <aside className="hidden lg:block">
             <FilterSidebar
               search={search}

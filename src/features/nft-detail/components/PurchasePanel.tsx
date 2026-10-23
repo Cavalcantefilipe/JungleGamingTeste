@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import type { Nft } from '@/contracts/nft';
 import { useAddToCart } from '@/features/cart/useAddToCart';
+import { FavoriteButton } from '@/features/favorites/components/FavoriteButton';
 import { formatEth } from '@/lib/money';
 
 import { EditionPicker } from './EditionPicker';
@@ -41,7 +42,7 @@ export function PurchasePanel({ nft }: { nft: Nft }) {
     },
   };
   return (
-    <div className="space-y-7">
+    <div className="space-y-5 lg:space-y-3">
       <EditionPicker
         editions={nft.editions}
         value={editionId}
@@ -50,12 +51,13 @@ export function PurchasePanel({ nft }: { nft: Nft }) {
           setQuantity(1);
         }}
       />
-      <p className="text-xs text-text-secondary">
+      <p className="sr-only">
         {available > 0 ? `${available} disponíveis nesta edição` : 'Esta edição está esgotada'}
       </p>
-      <div className="hidden flex-wrap items-center gap-4 lg:flex">
+      <div className="hidden items-center gap-2 lg:flex">
         <QuantityStepper value={quantity} max={available} onChange={setQuantity} />
         <PurchaseActions {...actions} />
+        <FavoriteButton nftId={nft.id} name={nft.name} showLabel />
       </div>
       <div
         data-testid="mobile-purchase-bar"

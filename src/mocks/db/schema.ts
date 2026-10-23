@@ -15,6 +15,7 @@ export const mockUserSchema = z.object({
   profile: profileSchema,
 });
 export const mockDbSchema = z.object({
+  catalogRevision: z.number().int().default(1),
   users: z.array(mockUserSchema),
   sessions: z.array(z.object({ token: z.string(), userId: z.string(), expiresAt: z.string() })),
   nfts: z.array(nftSchema),

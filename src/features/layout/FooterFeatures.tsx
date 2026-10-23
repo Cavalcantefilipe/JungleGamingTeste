@@ -1,0 +1,73 @@
+import { toast } from 'sonner';
+
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+
+const features = [
+  {
+    letter: 'W',
+    title: 'Segurança da carteira',
+    description: 'Proteja sua carteira e colecione arte digital verificada com confiança.',
+  },
+  {
+    letter: 'C',
+    title: 'Criadores em destaque',
+    description: 'Conheça artistas, estúdios e comunidades que moldam a cultura digital na rede.',
+  },
+  {
+    letter: 'D',
+    title: 'Alertas de lançamentos',
+    description:
+      'Receba calendários de cunhagem, novidades de listas de acesso e análises de mercado.',
+  },
+];
+
+export function FooterFeatures() {
+  return (
+    <div
+      data-testid="footer-features"
+      className="grid gap-8 bg-surface-card p-8 md:grid-cols-2 xl:h-[250px] xl:grid-cols-4 xl:gap-3"
+    >
+      {features.map((feature) => (
+        <div key={feature.letter} className="space-y-3 xl:border-r xl:border-primary/60 xl:px-4">
+          <span
+            data-testid="footer-medallion"
+            aria-hidden="true"
+            className="flex size-[74px] items-center justify-center rounded-full bg-primary text-2xl font-bold text-ink"
+          >
+            {feature.letter}
+          </span>
+          <h2 className="text-base leading-4 font-bold">{feature.title}</h2>
+          <p className="text-sm leading-[22px] text-text-secondary">{feature.description}</p>
+        </div>
+      ))}
+      <form
+        className="space-y-4"
+        onSubmit={(event) => {
+          event.preventDefault();
+          toast.info('Newsletter indisponível nesta demonstração');
+        }}
+      >
+        <label htmlFor="newsletter" className="block text-lg leading-4 font-bold">
+          Antecipe-se ao próximo lançamento
+        </label>
+        <div className="flex">
+          <Input
+            id="newsletter"
+            aria-label="E-mail para newsletter"
+            placeholder="Digite seu e-mail..."
+            type="email"
+            required
+            className="min-w-0 rounded-r-none border-0 bg-surface-dark text-sm"
+          />
+          <Button type="submit" className="rounded-l-none px-3">
+            Enviar
+          </Button>
+        </div>
+        <p className="text-sm leading-[22px] text-text-secondary">
+          Receba lançamentos selecionados, histórias de criadores e novidades do mercado.
+        </p>
+      </form>
+    </div>
+  );
+}

@@ -1,12 +1,15 @@
 import { test, expect, login } from './fixtures/kurio';
 
 test.describe('auth', () => {
-  test('cadastro com e-mail existente mostra conflito no campo', async ({ page }) => {
+  test('cadastro com e-mail existente mostra conflito no campo', async ({ page, isMobile }) => {
     await page.goto('/register');
     await page.getByLabel('Nome de usuário', { exact: true }).fill('nova_ana');
     await page.getByLabel('E-mail', { exact: true }).fill('ana@kurio.test');
     await page.getByLabel('Senha', { exact: true }).fill('Kurio!2026');
-    await page.getByRole('button', { name: 'Criar conta', exact: true }).click();
+    await page.getByLabel('Confirmar senha', { exact: true }).fill('Kurio!2026');
+    await page
+      .getByRole('button', { name: isMobile ? 'Criar perfil' : 'Criar conta', exact: true })
+      .click();
     await expect(page.getByText('Este e-mail já está cadastrado', { exact: true })).toBeVisible();
   });
   test('login inválido mostra erro acessível', async ({ page }) => {

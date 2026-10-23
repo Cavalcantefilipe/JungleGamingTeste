@@ -56,3 +56,25 @@ O gradiente original do botão (`70397:251`) foi exportado em SVG, preservando o
 A legenda global `Text Secondary` foi corrigida para `#CFB28C`, confirmada no painel Properties. Controles de compra e cupom reutilizam o fundo original. Enquanto a API atualiza os valores, “Total estimado” identifica a estimativa sem alterar a altura do resumo.
 
 A lixeira permanece como ação visível em cada item. Os controles de quantidade mobile ficam na faixa inferior para preservar áreas de toque separadas da remoção.
+
+## Conferência de todas as telas implementadas
+
+| Tela      | Referência conferida                                  | Ajustes desta revisão                                                                                                                                                    |
+| --------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Início    | `2:2`, `14:5226`                                      | Grade mobile alinhada; dados da última linha Golden revisados; assets da Home preservados.                                                                               |
+| Detalhe   | `10:244`, Mobile / Detalhes do NFT                    | Galeria desktop 573 × 448, quatro miniaturas de 100 px, imagem de 404 px em suporte de 444 px e intervalo de 32 px para o resumo; preço de 24 px e edições com contorno. |
+| Carrinho  | Desktop / Carrinho de NFTs, Mobile / Carrinho de NFTs | Círculos, lixeira, legenda da taxa e gradiente original conforme seção acima.                                                                                            |
+| Login     | `9:115`, `16:1022`                                    | Painel desktop 500 × 600, fundo Card, abas e borda inferior; marca branca de 32 px apenas no mobile; botões sociais empilhados.                                          |
+| Cadastro  | `9:1022`, Mobile / Cadastro                           | Painel desktop 500 × 656, raio de 8 px; confirmação de senha e controles de exibição; título e ação mobile “Criar perfil”.                                               |
+| Perfil    | `9:1238`                                              | Marcador lateral na borda do painel, botões de 12 px, prefixo ENS e campos de senha com controle de exibição alinhados à primeira coluna.                                |
+| Carteiras | `9:1670`                                              | Campos de 40 px em desktop/44 px em mobile, prefixo ENS, ações de 12 px e navegação lateral compartilhada.                                                               |
+
+Os nomes de nós internos do detalhe foram medidos diretamente: `70363:239` (galeria), `70342:2683` (suporte), `11:1161` (imagem). Login: `70381:239`; cadastro: `70383:239`; título mobile do cadastro: `16:1241`, fonte 18/16. O diálogo respeita a altura disponível e permite rolagem em telas menores.
+
+O rodapé compartilhado (`70493:1151`) foi comparado: faixas desktop de 250/88/236/36 px, medalhões de 74 px com W/C/D e fundo Primary. Textos e tipografia foram ajustados. Os cinco ícones sociais vieram da exportação SVG original `Frame 113`, separados em arquivos de 32 px; os ícones de login também são SVGs originais Google/Facebook. `Text Coral` foi corrigido para `#F0805F`.
+
+Alguns fundos de login/cadastro do Figma usam outras imagens e nomes na grade em relação ao frame principal da Home. O catálogo mantém uma associação única, usando as imagens da Home, para o mesmo NFT conservar sua identidade ao navegar. Os textos visíveis da última linha identificam Golden Beat (0,99), Golden Frequency (0,59) e Golden Signal (0,39 ETH). A revisão do catálogo salvo preserva contas, carteiras, carrinhos e pedidos; cotações antigas são invalidadas para nova confirmação do servidor.
+
+Pagamento e recibo tiveram suas referências inspecionadas e os assets necessários exportados; a conferência da implementação acompanha as tarefas 12–14. Não são declarados concluídos nesta revisão das rotas já disponíveis.
+
+A medição final da Home confirmou sidebar de 310 px (`70410:3725`), grade de 842 px e três cards de 258 px distribuídos com 34 px entre eles. O suporte do card mede 258 × 300, a imagem 250 × 250 com raio de 15 px, e o card completo 356 px (`70342:2678`, `3:133`, `4:137`). As linhas têm intervalo de 72 px (`70342:2828`). As imagens são centralizadas nos suportes para manter a grade alinhada. O resumo desktop do detalhe acompanha os 448 px da galeria; a rede continua disponível na aba de detalhes.

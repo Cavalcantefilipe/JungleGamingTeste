@@ -46,12 +46,18 @@ export function AvatarField({ profile }: { profile: Profile }) {
             if (file) mutation.mutate(file);
           }}
         />
-        <Button type="button" disabled={mutation.isPending} onClick={() => input.current?.click()}>
+        <Button
+          size="form"
+          type="button"
+          disabled={mutation.isPending}
+          onClick={() => input.current?.click()}
+        >
           Alterar
         </Button>
         <Button
           type="button"
           variant="ghost"
+          size="form"
           aria-label="Remover avatar"
           disabled={mutation.isPending || !profile.avatarUrl}
           onClick={() => {

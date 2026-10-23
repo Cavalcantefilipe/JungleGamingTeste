@@ -24,9 +24,9 @@ const unavailable = [
 export function AccountSidebar() {
   const logout = useLogout();
   return (
-    <aside className="h-fit bg-surface-card p-3">
-      <h2 className="mb-2 px-2 text-base font-bold">Meu perfil</h2>
-      <nav aria-label="Menu da conta" className="flex flex-wrap gap-1 md:flex-col">
+    <aside className="h-fit bg-surface-card py-3">
+      <h2 className="mb-2 px-3 text-base font-bold">Meu perfil</h2>
+      <nav aria-label="Menu da conta" className="flex flex-wrap gap-1 md:flex-col md:gap-0">
         <Link
           to="/account/profile"
           className="flex min-h-11 items-center gap-3 border-l-4 px-3 text-xs hover:text-primary"
@@ -49,7 +49,7 @@ export function AccountSidebar() {
           <Button
             key={label}
             variant="ghost"
-            className="hidden justify-start text-xs text-text-secondary md:flex"
+            className="hidden justify-start rounded-none px-4 text-xs font-normal text-text-secondary md:flex"
             onClick={() => toast.info('Conteúdo indisponível nesta demonstração')}
           >
             <Icon aria-hidden="true" size={16} />
@@ -58,7 +58,7 @@ export function AccountSidebar() {
         ))}
         <Button
           variant="ghost"
-          className="justify-start text-xs text-text-secondary md:border-t md:border-border-soft"
+          className="justify-start rounded-none px-4 text-xs font-normal text-text-secondary md:border-t md:border-border-soft"
           disabled={logout.isPending}
           onClick={() => {
             logout.mutate();

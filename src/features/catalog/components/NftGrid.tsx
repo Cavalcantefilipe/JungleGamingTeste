@@ -8,7 +8,7 @@ export function NftGrid({ items, loading = false }: { items?: Nft[]; loading?: b
     <div
       data-testid="nft-grid"
       aria-busy={loading}
-      className="grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-6 lg:grid-cols-3"
+      className="grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-6 lg:grid-cols-3 lg:gap-x-[34px] lg:gap-y-[72px]"
     >
       {loading
         ? Array.from({ length: 9 }, (_, index) => <NftCardSkeleton key={index} />)

@@ -11,20 +11,20 @@ export function EditionPicker({
   onChange: (id: string) => void;
 }) {
   return (
-    <fieldset className="space-y-3">
-      <legend className="mb-3 text-sm font-bold">Edição:</legend>
+    <fieldset>
+      <legend className="mb-2 text-sm leading-4 font-bold">Edição:</legend>
       <div className="flex flex-wrap gap-2">
         {editions.map((edition) => (
           <Button
             key={edition.id}
-            variant={value === edition.id ? 'primary' : 'secondary'}
+            variant="edition"
+            size="edition"
             aria-pressed={value === edition.id}
             aria-disabled={edition.available === 0}
             disabled={edition.available === 0}
             onClick={() => {
               onChange(edition.id);
             }}
-            className="rounded-full px-3 text-xs"
           >
             {edition.label.toUpperCase()}
             {edition.available === 0 ? ' · Esgotada' : ''}

@@ -61,6 +61,7 @@ export function ProfileForm({ profile }: { profile: Profile }) {
           />
           <TextField<UpdateProfileInput>
             name="ensName"
+            prefix=".eth"
             label="Nome ENS"
             placeholder="Seu nome sem .eth"
           />
@@ -68,7 +69,7 @@ export function ProfileForm({ profile }: { profile: Profile }) {
           <AvatarField profile={profile} />
         </div>
         <RootFormError />
-        <Button type="submit" disabled={mutation.isPending}>
+        <Button size="form" type="submit" disabled={mutation.isPending}>
           {mutation.isPending ? 'Salvando…' : 'Salvar perfil'}
         </Button>
         {saved && (
