@@ -19,7 +19,7 @@ export function OrderReceiptModal({ order }: { order: Order }) {
       }}
     >
       <DialogContent className="max-h-dvh gap-0 overflow-y-auto rounded-none border-0 border-b-[10px] border-primary bg-surface-card p-0 max-md:inset-0 max-md:max-w-none max-md:translate-0 md:max-h-[calc(100dvh-32px)] md:max-w-[578px]">
-        <div className="space-y-4 px-6 pt-6 pb-5 text-center">
+        <div className="flex flex-col items-center gap-4 px-6 pt-6 pb-5 text-center">
           <img
             src="/images/ui/thank-you.svg"
             alt=""
@@ -39,7 +39,7 @@ export function OrderReceiptModal({ order }: { order: Order }) {
           <h2 className="mb-3 text-sm leading-4 font-bold">Detalhes da transação</h2>
           <OrderItemsTable order={order} />
           <ReceiptTotals order={order} />
-          <p className="mt-4 border-t border-primary/40 pt-4 text-center text-xs leading-[22px] text-text-secondary">
+          <p className="mt-4 border-t border-primary/40 pt-4 text-center text-sm leading-[22px] text-text-secondary">
             Transação simulada confirmada na {NFT_NETWORK_LABELS[order.wallet.network]}. A
             propriedade foi transferida para sua carteira conectada e registrada na rede simulada.
           </p>

@@ -17,7 +17,7 @@ function ReadonlyField({ label, value }: { label: string; value: string }) {
   const id = useId();
   return (
     <div className="space-y-2">
-      <label htmlFor={id} className="text-xs">
+      <label htmlFor={id} className="text-sm">
         {label}
       </label>
       <Input id={id} value={value} readOnly />
@@ -88,7 +88,7 @@ export function CollectorForm({
           />
           <TextField<CollectorFormInput> name="ensName" label="Nome ENS" prefix=".eth" />
         </div>
-        <label className="hidden min-h-11 items-center gap-2 text-xs text-text-secondary lg:flex">
+        <label className="hidden min-h-11 items-center gap-2 text-sm text-foreground lg:flex">
           <input
             type="checkbox"
             className="size-4 accent-primary"
@@ -111,9 +111,13 @@ export function CollectorForm({
           name="note"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Observação (opcional)</FormLabel>
+              <FormLabel>Observação do colecionador (opcional)</FormLabel>
               <FormControl>
-                <Textarea {...field} maxLength={500} />
+                <Textarea
+                  {...field}
+                  maxLength={500}
+                  className="lg:h-[152px] lg:w-[350px] lg:max-w-full"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

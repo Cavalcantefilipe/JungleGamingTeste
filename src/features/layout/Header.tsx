@@ -67,7 +67,7 @@ export function Header() {
           <div className="flex items-center justify-end gap-2 sm:gap-4">
             <Button asChild variant="ghost" size="icon">
               <a href={pathname === '/' ? '#busca' : '/#busca'} aria-label="Buscar NFTs">
-                <Search aria-hidden="true" />
+                <Search aria-hidden="true" className="size-6" />
               </a>
             </Button>
             <Button asChild variant="ghost" size="icon">
@@ -76,7 +76,7 @@ export function Header() {
                 className="relative"
                 aria-label={`Carrinho, ${cartQuantity} ${cartQuantity === 1 ? 'item' : 'itens'}`}
               >
-                <ShoppingCart aria-hidden="true" />
+                <ShoppingCart aria-hidden="true" className="size-6" />
                 <CartBadge quantity={cartQuantity} />
               </Link>
             </Button>

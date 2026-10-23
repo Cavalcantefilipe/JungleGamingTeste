@@ -15,7 +15,7 @@ export function AvatarField({ profile }: { profile: Profile }) {
   const message = error instanceof ApiError ? errorMessage(error) : error?.message;
   return (
     <div className="space-y-2">
-      <p className="text-xs">Avatar</p>
+      <p className="text-sm">Avatar</p>
       <div className="flex min-h-11 items-center gap-3">
         {profile.avatarUrl ? (
           <img

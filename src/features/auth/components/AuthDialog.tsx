@@ -82,7 +82,7 @@ export function AuthDialog({
               <SocialButtons />
             </div>
           </div>
-          <p className="mt-8 text-center text-xs text-text-secondary md:hidden">
+          <p className="mt-8 text-center text-sm text-text-secondary md:hidden">
             {register ? 'Já tem uma conta? ' : 'Novo na Kurio? '}
             <Link
               to={register ? '/login' : '/register'}

@@ -8,7 +8,7 @@ export function CatalogSortSelect({
   change: (value: NftSort) => void;
 }) {
   return (
-    <label className="flex min-h-11 items-center gap-2 text-xs text-text-secondary">
+    <label className="flex min-h-11 items-center gap-2 text-sm text-foreground md:min-h-6">
       Ordenar por
       <select
         aria-label="Ordenar por"
@@ -23,7 +23,7 @@ export function CatalogSortSelect({
           )
             change(sort);
         }}
-        className="min-w-0 flex-1 rounded-md bg-transparent py-2 text-foreground"
+        className="min-w-0 flex-1 rounded-md bg-transparent py-2 text-foreground md:py-0"
       >
         <option value="recent">Listados recentemente</option>
         <option value="price_asc">Menor preço</option>

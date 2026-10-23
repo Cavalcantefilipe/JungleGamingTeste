@@ -22,7 +22,7 @@ export function SelectField<T extends FieldValues>({
           <FormControl>
             <select
               {...field}
-              className="h-11 w-full rounded-md border border-input bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:opacity-50 md:h-10 md:text-xs"
+              className="h-11 w-full rounded-md border border-input bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:opacity-50 md:h-10"
             >
               {options.map((option) => (
                 <option value={option.value} key={option.value}>

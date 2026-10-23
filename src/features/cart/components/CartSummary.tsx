@@ -31,7 +31,9 @@ export function CartSummary({
       aria-label="Resumo da carteira"
       className="fixed inset-x-0 bottom-0 z-40 flex flex-col gap-8 rounded-t-[40px] bg-surface-card p-6 pb-[max(36px,env(safe-area-inset-bottom))] md:static md:block md:space-y-6 md:rounded-none md:bg-transparent md:p-0"
     >
-      <h2 className="hidden text-sm font-bold md:block">Resumo da carteira</h2>
+      <h2 className="hidden border-b border-border-soft pb-2 text-lg font-bold md:block">
+        Resumo da carteira
+      </h2>
       <div className="flex flex-col gap-3 md:gap-6">
         <CouponField
           code={state.couponCode}
@@ -86,7 +88,7 @@ export function CartSummary({
       )}
       <Link
         to="/"
-        className="hidden min-h-11 items-center justify-center text-xs text-text-secondary hover:text-primary md:flex"
+        className="hidden min-h-11 items-center justify-center text-sm text-primary hover:text-primary md:flex"
       >
         Continuar explorando
       </Link>

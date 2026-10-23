@@ -28,7 +28,7 @@ export function FavoriteButton({
   const selected = favorites.data?.nftIds.includes(nftId) ?? false;
   return (
     <Button
-      variant={showLabel ? 'secondary' : 'ghost'}
+      variant={showLabel ? 'secondary' : 'favorite'}
       size={showLabel ? 'form' : 'icon'}
       aria-label={`Favoritar ${name}`}
       aria-pressed={selected}
@@ -43,7 +43,6 @@ export function FavoriteButton({
       }}
       className={cn(
         'text-foreground hover:text-primary',
-        !showLabel && 'rounded-full bg-ink/70',
         selected && 'text-primary',
         showLabel && 'rounded-control bg-transparent px-3 text-xs text-text-accent',
         className,

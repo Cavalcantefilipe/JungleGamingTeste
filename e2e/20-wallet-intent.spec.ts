@@ -9,7 +9,9 @@ for (const phase of ['wallet-session/connect', 'orders']) {
     await prepareCheckout(page, isMobile);
     await reviewAndConnect(page);
     await openCollector(page, isMobile);
-    await page.getByLabel('Observação (opcional)', { exact: true }).fill('Manter meu rascunho');
+    await page
+      .getByLabel('Observação do colecionador (opcional)', { exact: true })
+      .fill('Manter meu rascunho');
     await page.evaluate(() => {
       window.__kurio.setNetwork({ latencyMs: 1800 });
       const original = window.setTimeout.bind(window);
@@ -53,9 +55,9 @@ for (const phase of ['wallet-session/connect', 'orders']) {
     await expect(page.getByLabel('Endereço da carteira', { exact: true })).toHaveValue(
       '0x9876543210abcdef1234567890abcdef12345678',
     );
-    await expect(page.getByLabel('Observação (opcional)', { exact: true })).toHaveValue(
-      'Manter meu rascunho',
-    );
+    await expect(
+      page.getByLabel('Observação do colecionador (opcional)', { exact: true }),
+    ).toHaveValue('Manter meu rascunho');
     await expect(
       page.getByRole('button', { name: 'Confirmar compra', exact: true }),
     ).toBeDisabled();

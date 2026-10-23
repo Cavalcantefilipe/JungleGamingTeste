@@ -15,7 +15,9 @@ export function CartPage() {
   return (
     <>
       <MobilePageHeader title="Carrinho de NFTs" />
-      <h1 className="mb-6 hidden text-xs text-text-secondary md:block">Carrinho de NFTs</h1>
+      <h1 className="mb-0 hidden text-sm font-bold text-foreground md:block">
+        Início / Mercado / Carrinho
+      </h1>
       {query.isPending ? (
         <div role="status" aria-label="Carregando carrinho" className="space-y-4">
           {[0, 1, 2].map((index) => (

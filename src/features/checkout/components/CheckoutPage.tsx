@@ -30,7 +30,7 @@ export function CheckoutPage() {
   return (
     <>
       <MobilePageHeader title="Pagamento com carteira" backTo="/cart" align="start" />
-      <h1 className="mt-2 mb-8 hidden text-xs leading-4 text-text-secondary md:block">
+      <h1 className="mt-2 mb-8 hidden text-sm leading-4 font-bold text-foreground md:block">
         Início / Mercado / Pagamento
       </h1>
       {pending &&

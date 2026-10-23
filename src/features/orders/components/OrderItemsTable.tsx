@@ -6,7 +6,7 @@ export function OrderItemsTable({ order }: { order: Order }) {
   return (
     <table
       data-testid="order-items"
-      className="w-full border-collapse text-left text-xs md:text-sm"
+      className="w-full border-collapse text-left text-xs md:text-base"
     >
       <caption className="sr-only">NFTs comprados</caption>
       <thead>
@@ -36,10 +36,12 @@ export function OrderItemsTable({ order }: { order: Order }) {
                   className="size-12 shrink-0 rounded-control object-cover md:size-[70px]"
                 />
                 <span className="min-w-0">
-                  <strong className="block text-xs leading-4 font-bold md:text-sm">
+                  <strong className="block text-xs leading-4 font-bold md:text-base">
                     {item.name}
                   </strong>
-                  <span className="text-xs text-text-secondary">Edição {item.editionLabel}</span>
+                  <span className="text-xs text-text-secondary md:text-sm">
+                    Edição {item.editionLabel}
+                  </span>
                 </span>
               </div>
             </td>

@@ -11,6 +11,8 @@ const buttonVariants = cva(
       variant: {
         default: 'bg-primary text-ink hover:bg-primary-light active:bg-primary-dark',
         primary: 'bg-primary text-ink hover:bg-primary-light active:bg-primary-dark',
+        favorite:
+          'relative rounded-full bg-transparent text-primary before:pointer-events-none before:absolute before:size-7 before:rounded-full before:bg-surface-dark hover:before:bg-surface-raised active:before:bg-border [&_svg]:relative [&_svg]:size-3.5',
         quantity:
           'relative rounded-full text-ink before:pointer-events-none before:absolute before:size-6 before:rounded-full before:bg-primary hover:before:bg-primary-light active:before:bg-primary-dark',
         'quantity-cart':
@@ -19,6 +21,8 @@ const buttonVariants = cva(
           'rounded-full text-primary hover:bg-surface-raised hover:text-primary-light active:bg-border active:text-primary-dark',
         edition:
           'rounded-full border border-border bg-transparent text-text-secondary hover:border-primary-light active:bg-surface-raised aria-pressed:border-primary aria-pressed:text-text-accent',
+        basket:
+          'rounded-full border border-border bg-surface-raised text-text-secondary hover:bg-border-soft active:bg-border',
         danger: 'bg-error text-white hover:bg-error/80 active:bg-error/70',
         destructive:
           'bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:bg-destructive/60 dark:focus-visible:ring-destructive/40',
@@ -34,12 +38,12 @@ const buttonVariants = cva(
         form: 'min-h-11 px-6 text-xs font-bold md:min-h-10',
         'footer-social': 'size-11 rounded-control p-0 text-primary md:size-8',
         edition: 'min-h-11 rounded-full px-3 text-xs md:min-h-7 md:px-2',
-        auth: 'h-[60px] rounded-control px-6 text-base font-bold md:h-[45px]',
+        auth: 'h-[60px] rounded-xl px-6 text-base font-bold md:h-[45px] md:rounded-control',
         social: 'h-11 rounded-control px-4 text-xs text-text-secondary md:h-10',
         checkout: 'h-[60px] rounded-[40px] px-6 font-bold md:h-10 md:rounded-control',
         coupon: 'h-12 rounded-full px-5 font-bold md:h-10 md:rounded-control',
-        purchase: 'h-14 rounded-full px-6 font-bold lg:h-10 lg:rounded-md',
-        'purchase-icon': 'size-14 rounded-full lg:size-10 lg:rounded-md',
+        purchase: 'h-[60px] rounded-full px-6 text-base font-bold lg:h-10 lg:rounded-md lg:text-sm',
+        'purchase-icon': 'size-[60px] rounded-full lg:size-10 lg:rounded-md',
         default: 'min-h-11 px-6 py-2 text-base font-bold sm:min-h-10 has-[>svg]:px-4',
         xs: "h-6 gap-1 rounded-md px-2 text-xs has-[>svg]:px-1.5 [&_svg:not([class*='size-'])]:size-3",
         sm: 'h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5',

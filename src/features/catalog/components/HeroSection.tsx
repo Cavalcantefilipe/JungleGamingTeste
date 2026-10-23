@@ -13,7 +13,7 @@ export function HeroSection({ items, loading = false }: { items: Nft[]; loading?
   return (
     <section
       data-testid="home-hero"
-      className="relative mb-4 h-[190px] overflow-hidden rounded-xl bg-transparent p-4 md:mb-24 md:grid md:h-[450px] md:grid-cols-[minmax(0,1fr)_40%] md:items-center md:overflow-visible md:rounded-none md:bg-transparent md:p-0 md:pl-10 xl:grid-cols-[minmax(0,1fr)_450px]"
+      className="relative mb-0 h-[190px] overflow-hidden rounded-xl bg-transparent p-4 md:mb-24 md:grid md:h-[450px] md:grid-cols-[minmax(0,1fr)_40%] md:items-center md:overflow-visible md:rounded-none md:bg-transparent md:p-0 md:pl-10 xl:grid-cols-[minmax(0,1fr)_450px]"
     >
       <img
         src="/images/ui/mobile-hero-background.svg"
@@ -65,7 +65,7 @@ export function HeroSection({ items, loading = false }: { items: Nft[]; loading?
             className="flex size-11 cursor-pointer items-center justify-center rounded-full md:size-4"
           >
             <span
-              className={`size-1.5 rounded-full ${selected === index ? 'bg-primary' : 'bg-border-soft'}`}
+              className={`size-1.5 translate-y-3.5 rounded-full md:translate-y-0 ${selected === index ? 'bg-primary' : 'bg-border-soft'}`}
             />
           </button>
         ))}

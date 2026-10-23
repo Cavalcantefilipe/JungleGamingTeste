@@ -32,7 +32,7 @@ export function TextField<T extends FieldValues>({
             {prefix && (
               <span
                 aria-hidden="true"
-                className="flex h-11 w-[76px] shrink-0 items-center justify-center rounded-control border border-input text-xs md:h-10"
+                className="flex h-11 w-[76px] shrink-0 items-center justify-center rounded-control border border-input text-sm md:h-10"
               >
                 {prefix}
               </span>

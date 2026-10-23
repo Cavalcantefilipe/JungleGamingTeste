@@ -7,29 +7,40 @@ import { formatEth } from '@/lib/money';
 export function OrderReview({ quote, loading }: { quote: Quote | undefined; loading: boolean }) {
   return (
     <section aria-label="Resumo do pedido" className="space-y-5">
-      <h2 className="hidden text-sm font-bold lg:block">Seus NFTs</h2>
+      <h2 className="hidden text-lg font-bold lg:block">Seus NFTs</h2>
       {quote && (
-        <ul className="hidden space-y-3 lg:block">
-          {quote.items.map((item) => (
-            <li key={`${item.nftId}:${item.editionId}`} className="flex items-center gap-3">
-              <ArtworkImage
-                sizes="70px"
-                src={item.image.src}
-                alt=""
-                width={70}
-                height={70}
-                className="size-[70px] rounded-control object-cover"
-              />
-              <div className="min-w-0 flex-1 text-xs">
-                <strong className="block truncate">{item.name}</strong>
-                <span className="text-text-secondary">
-                  Edição {item.editionLabel} · {item.quantity} un.
+        <div className="hidden lg:block">
+          <div className="mb-3 flex justify-between border-b border-border-soft pb-2 text-base">
+            <span>NFTs</span>
+            <span>Subtotal</span>
+          </div>
+          <ul className="space-y-3">
+            {quote.items.map((item) => (
+              <li
+                key={`${item.nftId}:${item.editionId}`}
+                className="flex items-center gap-2 bg-surface-card pr-3"
+              >
+                <ArtworkImage
+                  sizes="70px"
+                  src={item.image.src}
+                  alt=""
+                  width={70}
+                  height={70}
+                  className="size-[70px] rounded-control object-cover"
+                />
+                <div className="min-w-0 flex-1 text-sm">
+                  <strong className="block truncate text-base">{item.name}</strong>
+                  <span className="text-text-secondary">
+                    Edição {item.editionLabel} · {item.quantity} un.
+                  </span>
+                </div>
+                <span className="text-lg font-bold text-text-accent">
+                  {formatEth(item.lineTotal)}
                 </span>
-              </div>
-              <span className="text-xs text-text-accent">{formatEth(item.lineTotal)}</span>
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
       {loading || !quote ? (
         <SummarySkeleton />

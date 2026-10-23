@@ -64,8 +64,11 @@ export function PurchasePanel({ nft }: { nft: Nft }) {
         className="fixed inset-x-0 bottom-0 z-40 space-y-4 rounded-t-[32px] bg-surface-card p-6 pb-[max(24px,env(safe-area-inset-bottom))] lg:hidden"
       >
         <div className="flex items-center justify-between gap-4">
-          <QuantityStepper value={quantity} max={available} onChange={setQuantity} />
-          <span className="text-base font-bold text-text-accent">{formatEth(nft.price)}</span>
+          <div className="flex items-center gap-1">
+            <span className="text-sm text-text-secondary">Qtd.</span>
+            <QuantityStepper value={quantity} max={available} onChange={setQuantity} />
+          </div>
+          <span className="text-lg font-bold text-text-accent">{formatEth(nft.price)}</span>
         </div>
         <div className="flex gap-3">
           <PurchaseActions {...actions} />

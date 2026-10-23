@@ -1,3 +1,5 @@
+import { Circle, CircleDot, Wallet as WalletIcon } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import { NFT_NETWORK_LABELS } from '@/contracts/nft';
 import { WALLET_PROVIDER_LABELS } from '@/contracts/order';
@@ -20,7 +22,7 @@ export function WalletNetworkPicker({
 }) {
   return (
     <section className="space-y-4" aria-label="Carteira e rede">
-      <h2 className={cn('text-sm font-bold', !connection.connected && 'lg:sr-only')}>
+      <h2 className={cn('text-base font-bold', !connection.connected && 'lg:sr-only')}>
         {connection.connected ? 'Carteira conectada' : 'Escolha sua carteira'}
       </h2>
       <div role="radiogroup" aria-label="Carteira cadastrada" className="space-y-3 lg:hidden">
@@ -35,15 +37,19 @@ export function WalletNetworkPicker({
               select(wallet);
             }}
             className={cn(
-              'h-auto min-h-20 w-full justify-start rounded-card border-transparent bg-surface-card p-4 text-left text-xs font-normal',
+              'h-auto min-h-20 w-full justify-start rounded-[14px] border-transparent bg-surface-card p-4 text-left text-sm font-normal',
               wallet.id === selected.id && 'border-primary',
             )}
           >
             <span aria-hidden="true" className="text-primary">
-              {wallet.id === selected.id ? '◉' : '○'}
+              {wallet.id === selected.id ? (
+                <CircleDot className="size-4" />
+              ) : (
+                <Circle className="size-4" />
+              )}
             </span>
             <span className="grid min-w-0 gap-1">
-              <strong>{wallet.walletNickname}</strong>
+              <strong className="text-base">{wallet.walletNickname}</strong>
               <span className="truncate">
                 {wallet.ensName ? `${wallet.ensName}.eth` : wallet.address}
               </span>
@@ -52,7 +58,7 @@ export function WalletNetworkPicker({
           </Button>
         ))}
       </div>
-      <h3 className="text-sm font-bold">Carteira e rede</h3>
+      <h3 className="text-base font-bold">Carteira e rede</h3>
       <div role="radiogroup" aria-label="Provedor da carteira" className="space-y-3">
         {(['walletconnect', 'metamask', 'coinbase'] as const).map((provider) => (
           <Button
@@ -62,17 +68,27 @@ export function WalletNetworkPicker({
             role="radio"
             aria-checked={provider === selected.walletType}
             disabled={provider !== selected.walletType}
-            className="h-16 w-full justify-start rounded-card border-transparent bg-surface-card p-4 text-xs font-normal lg:h-11 lg:rounded-control lg:border-border-soft lg:bg-transparent lg:p-3"
+            className="h-16 w-full justify-start rounded-[14px] border-transparent bg-surface-card p-4 text-sm font-normal lg:h-11 lg:rounded-control lg:border-border-soft lg:bg-transparent lg:p-3"
           >
             <span
               aria-hidden="true"
               className="flex size-9 items-center justify-center rounded-full bg-surface-raised text-primary lg:hidden"
             >
-              {provider === 'walletconnect' ? 'W' : provider === 'metamask' ? 'M' : 'C'}
+              {provider === 'coinbase' ? (
+                <WalletIcon className="size-5" />
+              ) : provider === 'walletconnect' ? (
+                'W'
+              ) : (
+                'M'
+              )}
             </span>
             <span className="flex-1 text-left">{WALLET_PROVIDER_LABELS[provider]}</span>
             <span aria-hidden="true" className="text-primary">
-              {provider === selected.walletType ? '◉' : '○'}
+              {provider === selected.walletType ? (
+                <CircleDot className="size-4" />
+              ) : (
+                <Circle className="size-4" />
+              )}
             </span>
           </Button>
         ))}

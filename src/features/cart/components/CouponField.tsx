@@ -32,7 +32,7 @@ export function CouponField({
       }}
       className="space-y-2"
     >
-      <label htmlFor="coupon-code" className="hidden text-xs font-bold md:block">
+      <label htmlFor="coupon-code" className="hidden text-sm font-bold md:block">
         Código promocional
       </label>
       <div className="flex items-center overflow-hidden rounded-full border border-border bg-surface-card shadow-coupon md:rounded-control">

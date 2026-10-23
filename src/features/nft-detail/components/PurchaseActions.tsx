@@ -15,12 +15,17 @@ export function PurchaseActions({
 }) {
   return (
     <>
-      <Button disabled={pending || disabled} onClick={purchase} size="purchase" className="flex-1">
+      <Button
+        disabled={pending || disabled}
+        onClick={purchase}
+        size="purchase"
+        className="w-[196px] max-w-[calc(100%-72px)] lg:ml-auto lg:w-[130px] lg:max-w-none"
+      >
         <span className="lg:hidden">Comprar NFT</span>
         <span className="hidden lg:inline">COMPRAR</span>
       </Button>
       <Button
-        variant="secondary"
+        variant="basket"
         size="purchase-icon"
         aria-label="Adicionar ao carrinho"
         disabled={pending || disabled}

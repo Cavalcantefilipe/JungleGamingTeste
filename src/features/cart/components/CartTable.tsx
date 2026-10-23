@@ -16,7 +16,7 @@ export function CartTable({ cart, state }: { cart: Cart; state: ReturnType<typeo
   return (
     <table className="block w-full border-separate border-spacing-y-2 md:table">
       <caption className="sr-only">Itens no carrinho</caption>
-      <thead className="sr-only text-left text-xs md:not-sr-only md:table-header-group">
+      <thead className="sr-only text-left text-base md:not-sr-only md:table-header-group">
         <tr>
           <th className="pb-2 font-normal">NFTs</th>
           <th className="px-2 pb-2 font-normal">Preço</th>

@@ -15,7 +15,7 @@ export function CatalogToolbar({
 }) {
   const hash = useRouterState({ select: (state) => state.location.hash });
   return (
-    <div className="mb-4 space-y-4">
+    <div className="mb-2 space-y-4 md:mb-[26px]">
       <Input
         id="busca"
         type="search"
@@ -31,7 +31,7 @@ export function CatalogToolbar({
         <div
           role="tablist"
           aria-label="Catálogo"
-          className="flex gap-2 text-[11px] min-[414px]:text-xs xl:gap-4 xl:text-sm"
+          className="flex gap-2 text-xs min-[390px]:text-sm xl:gap-4"
         >
           {(
             [
@@ -44,7 +44,7 @@ export function CatalogToolbar({
               key={key}
               role="tab"
               aria-selected={search.tab === key}
-              className="min-h-11 cursor-pointer border-b-2 border-transparent py-2 whitespace-nowrap text-text-secondary hover:text-primary aria-selected:border-primary aria-selected:text-primary"
+              className="min-h-11 cursor-pointer border-b-2 border-transparent py-2 whitespace-nowrap text-foreground hover:text-primary aria-selected:border-primary aria-selected:font-bold aria-selected:text-primary md:min-h-6 md:py-0"
               onClick={() => {
                 change({ tab: key });
               }}

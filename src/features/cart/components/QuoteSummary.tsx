@@ -10,9 +10,9 @@ export function QuoteSummary({
   estimated?: boolean;
 }) {
   return (
-    <dl className="grid min-h-[128px] grid-cols-[1fr_auto] items-start gap-x-4 gap-y-3 text-sm text-text-secondary">
+    <dl className="grid min-h-[128px] grid-cols-[1fr_auto] items-start gap-x-4 gap-y-3 text-sm text-foreground">
       <dt>Subtotal</dt>
-      <dd data-testid="quote-subtotal" className="text-right text-foreground">
+      <dd data-testid="quote-subtotal" className="text-right text-[18px] leading-5">
         {formatEth(quote.subtotal)}
       </dd>
       <dt>Desconto do lançamento</dt>
@@ -21,7 +21,7 @@ export function QuoteSummary({
       </dd>
       <dt>Taxa de rede</dt>
       <dd className="text-right">
-        <span data-testid="quote-network-fee" className="block">
+        <span data-testid="quote-network-fee" className="block text-[18px] leading-5">
           {formatEth(quote.networkFee)}
         </span>
         <span className="block text-xs leading-4 text-text-accent">Taxa estimada</span>

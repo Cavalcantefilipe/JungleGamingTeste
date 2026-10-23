@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 export function HeroCopy() {
   return (
-    <div className="relative z-10 w-[58%] max-w-[190px] space-y-1 md:w-full md:max-w-[600px] md:space-y-4">
+    <div className="relative z-10 -mt-2 w-[58%] max-w-[190px] space-y-1 md:mt-10 md:w-full md:max-w-[600px] md:space-y-1 md:self-start">
       <p className="text-[11px] leading-4 text-foreground md:text-sm md:leading-6 md:font-medium md:tracking-[0.1em]">
         Bem-vindo à Kurio
       </p>
@@ -23,7 +23,7 @@ export function HeroCopy() {
           rara, apoie artistas e tenha uma parte da cultura da internet.
         </span>
       </p>
-      <div className="hidden pt-4 md:block">
+      <div className="hidden pt-7 md:block">
         <Button asChild className="w-[140px] px-0">
           <a href="#catalogo">EXPLORAR</a>
         </Button>

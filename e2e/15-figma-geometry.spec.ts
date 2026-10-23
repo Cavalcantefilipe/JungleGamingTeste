@@ -48,6 +48,13 @@ test('controles e resumo do carrinho seguem cores e formas medidas no Figma', as
     .click();
   await expect(page.getByTestId('quote-total')).toHaveText('1.206 ETH');
   const row = page.getByTestId('cart-item');
+  if (!isMobile) {
+    await expect(row.getByRole('heading')).toHaveCSS('font-size', '16px');
+    await expect(page.getByRole('heading', { name: 'Resumo da carteira' })).toHaveCSS(
+      'font-size',
+      '18px',
+    );
+  }
   const increase = row.getByRole('button', { name: 'Aumentar quantidade', exact: true });
   const circle = await increase.evaluate((element) => {
     const style = getComputedStyle(element, '::before');
@@ -203,6 +210,7 @@ test('perfil mantém controles de senha, botões e alinhamento da conta', async 
   isMobile,
 }) => {
   await login(page);
+  await expect(page.getByText('Nome de exibição', { exact: true })).toHaveCSS('font-size', '14px');
   const currentPassword = page.getByLabel('Senha atual', { exact: true });
   await currentPassword.fill('Kurio!2026');
   await page.getByRole('button', { name: 'Mostrar senha atual', exact: true }).click();
@@ -230,10 +238,16 @@ test('links do rodapé ficam inteiros dentro da faixa de fundo', async ({ page, 
   await page.goto('/');
   const panel = page.getByTestId('footer-links');
   const last = panel.getByRole('link', { name: 'Lista de interesse', exact: true });
-  const container = await panel.boundingBox();
-  const link = await last.boundingBox();
-  if (!container || !link) throw new Error('Rodapé ausente');
-  expect(link.y + link.height).toBeLessThanOrEqual(container.y + container.height - 12);
+  await expect(page.getByTestId('nft-grid').getByRole('article')).toHaveCount(9);
+  await expect(last).toBeAttached();
+  const inset = await panel.evaluate((element) => {
+    const link = Array.from(element.querySelectorAll('a')).find(
+      (candidate) => candidate.textContent.trim() === 'Lista de interesse',
+    );
+    if (!link) throw new Error('Link do rodapé ausente');
+    return element.getBoundingClientRect().bottom - link.getBoundingClientRect().bottom;
+  });
+  expect(inset).toBeGreaterThanOrEqual(12);
 });
 
 test('valor alto no carrinho mobile não encosta no controle de quantidade', async ({
@@ -254,4 +268,27 @@ test('valor alto no carrinho mobile não encosta no controle de quantidade', asy
   const control = await row.getByRole('button', { name: 'Diminuir quantidade' }).boundingBox();
   if (!amount || !control) throw new Error('Valor ou controle ausente');
   expect(amount.x + amount.width).toBeLessThanOrEqual(control.x - 2);
+});
+
+test('Home mobile preserva o desnível de 32px dos cards e botão auth tem raio de 12px', async ({
+  page,
+  isMobile,
+}) => {
+  test.skip(!isMobile, 'Composição do frame mobile');
+  await page.setViewportSize({ width: 414, height: 896 });
+  await page.goto('/');
+  const cards = page.getByTestId('nft-grid').getByRole('article');
+  await expect(cards).toHaveCount(9);
+  const first = await cards.nth(0).boundingBox();
+  const second = await cards.nth(1).boundingBox();
+  expect(first?.y).toBeCloseTo(343, -1);
+  expect(second && first && second.y - first.y).toBe(32);
+  const favorite = cards.first().getByRole('button', { name: /Favoritar/ });
+  expect((await favorite.boundingBox())?.height).toBeGreaterThanOrEqual(44);
+  const tabs = page.getByRole('tablist', { name: 'Catálogo' });
+  expect((await tabs.getByRole('tab').first().boundingBox())?.height).toBeGreaterThanOrEqual(44);
+  await page.goto('/login');
+  await expect(
+    page.getByRole('dialog').getByRole('button', { name: 'Entrar', exact: true }),
+  ).toHaveCSS('border-top-left-radius', '12px');
 });

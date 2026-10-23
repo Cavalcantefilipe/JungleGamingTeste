@@ -30,7 +30,7 @@ export function CartContent({ cart }: { cart: Cart }) {
           </Button>
         </div>
       )}
-      <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-20">
+      <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_332px] lg:gap-[86px]">
         <CartTable cart={cart} state={state} />
         <CartSummary state={state} changed={changed} />
       </div>

@@ -9,7 +9,7 @@ export function CartRecommendations({ excludedIds }: { excludedIds: string[] }) 
   if (!items.length) return null;
   return (
     <section className="mt-24 hidden md:block">
-      <h2 className="mb-6 border-b border-primary/30 pb-3 text-sm text-text-secondary">
+      <h2 className="mb-6 border-b border-primary/30 pb-3 text-base font-bold text-text-accent">
         Colecionadores também viram
       </h2>
       <div className="grid grid-cols-3 gap-6 xl:grid-cols-5">

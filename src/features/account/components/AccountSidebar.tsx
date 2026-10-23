@@ -29,7 +29,7 @@ export function AccountSidebar() {
       <nav aria-label="Menu da conta" className="flex flex-wrap gap-1 md:flex-col md:gap-0">
         <Link
           to="/account/profile"
-          className="flex min-h-11 items-center gap-3 border-l-4 px-3 text-xs hover:text-primary"
+          className="flex min-h-11 items-center gap-3 border-l-4 px-3 text-sm hover:text-primary"
           activeProps={{ className: 'border-primary text-primary' }}
           inactiveProps={{ className: 'border-transparent text-text-secondary' }}
         >
@@ -38,7 +38,7 @@ export function AccountSidebar() {
         </Link>
         <Link
           to="/account/wallets"
-          className="flex min-h-11 items-center gap-3 border-l-4 px-3 text-xs hover:text-primary"
+          className="flex min-h-11 items-center gap-3 border-l-4 px-3 text-sm hover:text-primary"
           activeProps={{ className: 'border-primary text-primary' }}
           inactiveProps={{ className: 'border-transparent text-text-secondary' }}
         >
@@ -49,7 +49,7 @@ export function AccountSidebar() {
           <Button
             key={label}
             variant="ghost"
-            className="hidden justify-start rounded-none px-4 text-xs font-normal text-text-secondary md:flex"
+            className="hidden justify-start rounded-none px-4 text-sm font-normal text-text-secondary md:flex md:min-h-[45px]"
             onClick={() => toast.info('Conteúdo indisponível nesta demonstração')}
           >
             <Icon aria-hidden="true" size={16} />
@@ -58,7 +58,7 @@ export function AccountSidebar() {
         ))}
         <Button
           variant="ghost"
-          className="justify-start rounded-none px-4 text-xs font-normal text-text-secondary md:border-t md:border-border-soft"
+          className="justify-start rounded-none px-4 text-sm font-normal text-text-secondary md:min-h-[45px] md:border-t md:border-border-soft"
           disabled={logout.isPending}
           onClick={() => {
             logout.mutate();
