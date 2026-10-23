@@ -23,10 +23,12 @@ O worker MSW está versionado em `public/mockServiceWorker.js`. Os testes usam a
 - `13`: referências visuais versionadas de Início, Detalhe, Carrinho e Pagamento em desktop/mobile.
 - `15`: cores, dimensões e alinhamentos medidos no Figma; controles circulares e taxa do carrinho.
 - `16`: texto de perfil não executa código e identidade adulterada não libera rota privada.
+- `17`: AVIF responsivo, preload local, alvos de quantidade e feedback HTML antes do JavaScript/fonte.
+- `18`: headers CSP de produção aplicados à navegação; catálogo, Socket.IO, carteira e compra sem violações.
 
 Os números identificam os cenários do plano, não indicam arquivos ausentes obrigatórios. Testes específicos de desktop/mobile têm skips explícitos no outro projeto. Não são testes ignorados por falha.
 
-Projetos: Chromium desktop **1440×900** e mobile **390×844**. O teste de layout também cobre 768px. axe cobre WCAG A/AA e falha em impactos sérios/críticos; isso complementa teclado e geometria, sem equivaler a certificação ou teste com todos os leitores de tela.
+Projetos: Chromium desktop **1440×900** e mobile **390×844**. O teste de layout também cobre 768px. axe cobre WCAG 2.0/2.1/2.2 A/AA e falha em impactos sérios/críticos; isso complementa teclado e geometria, sem equivaler a certificação ou teste com todos os leitores de tela.
 
 ## Regressão visual
 
@@ -34,7 +36,7 @@ As referências ficam em `e2e/__screenshots__/13-visual.spec.ts/`. Cenário `def
 
 ```sh
 pnpm exec playwright test e2e/13-visual.spec.ts
-pnpm exec playwright test e2e/13-visual.spec.ts --update-snapshots
+pnpm exec playwright test e2e/13-visual.spec.ts --update-snapshots=all
 pnpm exec playwright show-report reports/playwright-report
 ```
 
@@ -45,3 +47,7 @@ A referência é o [Figma do desafio](https://www.figma.com/design/Ff0SksUi7UFtP
 ## Artefatos e limites
 
 Relatório HTML em `reports/playwright-report` e traces/screenshots de falha em `test-results` são locais e ignorados pelo Git. Baselines e relatórios de segurança/performance aprovados são versionados. [SECURITY-REVIEW.md](SECURITY-REVIEW.md) descreve os testes de segurança e o limite do backend simulado; [DATA-PERFORMANCE.md](DATA-PERFORMANCE.md) contém a medição da persistência. Um browser mock não oferece garantias de banco compartilhado ou backend de produção.
+
+## Gate de Lighthouse
+
+`pnpm build && pnpm lighthouse` coleta três execuções por página/perfil e guarda HTML/JSON versionados. O comando conserva saída não zero quando uma mediana não atinge a meta. Consulte [LIGHTHOUSE.md](LIGHTHOUSE.md) para o resultado real; não trate a existência dos relatórios como aprovação. Evite concorrência de testes/build durante a coleta.
