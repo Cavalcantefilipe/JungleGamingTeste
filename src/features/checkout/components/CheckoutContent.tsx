@@ -13,7 +13,7 @@ export function CheckoutContent(props: CheckoutInput) {
         onSubmit={(event) => {
           void state.submit(event);
         }}
-        className="grid gap-8 px-1 pb-28 lg:grid-cols-[minmax(0,1fr)_408px] lg:px-0 lg:pb-0"
+        className="grid gap-8 pt-1 pb-28 lg:grid-cols-[minmax(0,1fr)_408px] lg:px-0 lg:pt-0 lg:pb-0"
       >
         <fieldset
           disabled={state.create.isPending || state.connection.connecting}

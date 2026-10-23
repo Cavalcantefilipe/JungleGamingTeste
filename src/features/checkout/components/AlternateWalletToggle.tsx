@@ -1,3 +1,4 @@
+import { RoundCheckbox } from '@/components/ui/RoundCheckbox';
 import type { Wallet } from '@/contracts/wallet';
 
 export function AlternateWalletToggle({
@@ -10,10 +11,12 @@ export function AlternateWalletToggle({
   select: (wallet: Wallet) => void;
 }) {
   return (
-    <label className="hidden min-h-11 items-center gap-2 text-sm text-foreground lg:flex">
-      <input
-        type="checkbox"
-        className="size-4 accent-primary"
+    <label
+      htmlFor="alternate-wallet"
+      className="hidden min-h-11 items-center gap-2 text-sm text-foreground lg:flex"
+    >
+      <RoundCheckbox
+        id="alternate-wallet"
         checked={wallet.role === 'secondary'}
         disabled={
           !wallets.some((entry) => entry.role === 'primary') ||

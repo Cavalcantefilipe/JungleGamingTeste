@@ -35,7 +35,7 @@ export function PageShell({ children }: { children: ReactNode }) {
         className={cn(
           'page-container min-h-[50vh] pt-10 pb-8 md:pt-8 md:pb-12',
           isDetail && 'relative isolate pt-[18px]',
-          isPurchase && 'pt-8',
+          isPurchase && 'px-7 pt-7 md:px-6 xl:px-[120px]',
           isAccount && 'pb-28 md:pb-12',
           isOrder && 'px-0 pt-0 md:px-0 md:pt-0',
         )}

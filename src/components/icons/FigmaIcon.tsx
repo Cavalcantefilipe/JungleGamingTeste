@@ -3,6 +3,8 @@ import { cn } from '@/lib/cn';
 import type { SVGProps } from 'react';
 
 export type FigmaIconName =
+  | 'wallet'
+  | 'close'
   | 'home'
   | 'user-solid'
   | 'cart-solid'

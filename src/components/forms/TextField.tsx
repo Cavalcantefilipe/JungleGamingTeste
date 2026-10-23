@@ -11,6 +11,7 @@ export function TextField<T extends FieldValues>({
   placeholder,
   appearance = 'default',
   prefix,
+  required = false,
 }: {
   name: FieldPath<T>;
   label: string;
@@ -19,6 +20,7 @@ export function TextField<T extends FieldValues>({
   placeholder?: string;
   appearance?: 'default' | 'auth';
   prefix?: string;
+  required?: boolean;
 }) {
   const { control } = useFormContext<T>();
   return (
@@ -27,12 +29,20 @@ export function TextField<T extends FieldValues>({
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel className={appearance === 'auth' ? 'sr-only' : undefined}>{label}</FormLabel>
+          <FormLabel className={appearance === 'auth' ? 'sr-only' : undefined}>
+            {label}
+            {required && (
+              <span
+                aria-hidden="true"
+                className="text-[22px] leading-4 text-text-coral after:content-['*']"
+              />
+            )}
+          </FormLabel>
           <div className="flex gap-2">
             {prefix && (
               <span
                 aria-hidden="true"
-                className="flex h-11 w-[76px] shrink-0 items-center justify-center rounded-control border border-input text-sm md:h-10"
+                className="flex h-11 w-[78px] shrink-0 items-center justify-center rounded-field border border-input text-body-sm md:h-10"
               >
                 {prefix}
               </span>
@@ -44,6 +54,7 @@ export function TextField<T extends FieldValues>({
                 autoComplete={autoComplete}
                 placeholder={placeholder}
                 variant={appearance}
+                aria-required={required}
               />
             </FormControl>
           </div>

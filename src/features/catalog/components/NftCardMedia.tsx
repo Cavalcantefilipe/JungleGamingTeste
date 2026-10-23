@@ -18,7 +18,7 @@ export function NftCardMedia({ nft, priority }: { nft: Nft; priority: boolean })
         className="aspect-square w-full rounded-[15px] object-cover"
       />
       {nft.rarity && (
-        <span className="absolute top-4 left-0 flex h-8 w-[68px] items-center bg-primary px-2 text-xs font-bold text-ink lg:w-20 lg:text-sm">
+        <span className="absolute top-4 left-0 flex h-8 w-[68px] items-center bg-primary px-2 text-caption font-medium text-ink lg:w-20 lg:text-sm">
           RARO
         </span>
       )}

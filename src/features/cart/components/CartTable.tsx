@@ -18,16 +18,16 @@ export function CartTable({ cart, state }: { cart: Cart; state: ReturnType<typeo
       <caption className="sr-only">Itens no carrinho</caption>
       <thead className="sr-only text-left text-base md:not-sr-only md:table-header-group">
         <tr>
-          <th className="pb-2 font-normal">NFTs</th>
-          <th className="px-2 pb-2 font-normal">Preço</th>
-          <th className="px-2 pb-2 font-normal">Edições</th>
-          <th className="px-2 pb-2 font-normal">Total</th>
-          <th>
+          <th className="border-b border-border-soft pb-2 font-normal">NFTs</th>
+          <th className="border-b border-border-soft px-2 pb-2 font-normal">Preço</th>
+          <th className="border-b border-border-soft px-2 pb-2 font-normal">Edições</th>
+          <th className="border-b border-border-soft px-2 pb-2 font-normal">Total</th>
+          <th className="border-b border-border-soft">
             <span className="sr-only">Ações</span>
           </th>
         </tr>
       </thead>
-      <tbody className="block space-y-4 md:table-row-group md:space-y-0">
+      <tbody className="block space-y-5 md:table-row-group md:space-y-0">
         {cart.items.map((item) => {
           const nft = state.nfts.get(item.nftId);
           const available =

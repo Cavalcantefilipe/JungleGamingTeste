@@ -7,7 +7,7 @@ export function Footer() {
       <FooterFeatures />
       <div
         data-testid="footer-brand"
-        className="grid gap-4 bg-surface-dark px-8 py-6 text-sm text-foreground md:grid-cols-4 xl:h-[88px] xl:items-center"
+        className="grid gap-4 bg-surface-dark px-8 py-6 text-sm text-foreground md:grid-cols-4 xl:h-[88px] xl:grid-cols-[repeat(4,228px)] xl:items-center xl:justify-between xl:gap-0"
       >
         <strong className="tracking-[0.1em]">KURIO</strong>
         <p>

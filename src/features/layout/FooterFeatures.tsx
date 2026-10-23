@@ -26,7 +26,7 @@ export function FooterFeatures() {
   return (
     <div
       data-testid="footer-features"
-      className="grid gap-8 bg-surface-card p-8 md:grid-cols-2 xl:h-[250px] xl:grid-cols-4 xl:gap-3"
+      className="grid gap-8 bg-surface-card p-8 md:grid-cols-2 xl:h-[250px] xl:grid-cols-[repeat(3,minmax(0,1fr))_340px] xl:gap-0"
     >
       {features.map((feature) => (
         <div key={feature.letter} className="space-y-3 xl:border-r xl:border-primary/60 xl:px-4">
@@ -37,12 +37,12 @@ export function FooterFeatures() {
           >
             {feature.letter}
           </span>
-          <h2 className="text-base leading-4 font-bold">{feature.title}</h2>
+          <h2 className="text-section leading-4 font-bold">{feature.title}</h2>
           <p className="text-sm leading-[22px] text-text-secondary">{feature.description}</p>
         </div>
       ))}
       <form
-        className="space-y-4"
+        className="space-y-4 xl:pl-4"
         onSubmit={(event) => {
           event.preventDefault();
           toast.info('Newsletter indisponível nesta demonstração');
@@ -60,11 +60,11 @@ export function FooterFeatures() {
             required
             className="min-w-0 rounded-r-none border-0 bg-surface-dark text-sm"
           />
-          <Button type="submit" className="rounded-l-none px-3">
+          <Button type="submit" className="rounded-l-none px-3 text-lg font-bold">
             Enviar
           </Button>
         </div>
-        <p className="text-sm leading-[22px] text-text-secondary">
+        <p className="text-caption leading-[22px] text-text-secondary">
           Receba lançamentos selecionados, histórias de criadores e novidades do mercado.
         </p>
       </form>

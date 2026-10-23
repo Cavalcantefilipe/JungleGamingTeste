@@ -1,5 +1,4 @@
 import type { Wallet } from '@/contracts/wallet';
-import { cn } from '@/lib/cn';
 
 import { SavedWalletOption } from './SavedWalletOption';
 import { WalletConnectionStatus } from './WalletConnectionStatus';
@@ -20,10 +19,10 @@ export function WalletNetworkPicker({
 }) {
   return (
     <section className="space-y-4" aria-label="Carteira e rede">
-      <h2 className={cn('text-base font-bold', !connection.connected && 'lg:sr-only')}>
+      <h2 className="text-base leading-4 font-bold lg:sr-only">
         {connection.connected ? 'Carteira conectada' : 'Escolha sua carteira'}
       </h2>
-      <div role="radiogroup" aria-label="Carteira cadastrada" className="space-y-3 lg:hidden">
+      <div role="radiogroup" aria-label="Carteira cadastrada" className="space-y-5 lg:hidden">
         {wallets.map((wallet) => (
           <SavedWalletOption
             key={wallet.id}
@@ -33,8 +32,10 @@ export function WalletNetworkPicker({
           />
         ))}
       </div>
-      <h3 className="text-base font-bold">Carteira e rede</h3>
-      <div role="radiogroup" aria-label="Provedor da carteira" className="space-y-3">
+      <h3 className="text-base leading-4 font-bold lg:text-center lg:text-section">
+        Carteira e rede
+      </h3>
+      <div role="radiogroup" aria-label="Provedor da carteira" className="space-y-4">
         {(['walletconnect', 'metamask', 'coinbase'] as const).map((provider) => (
           <WalletProviderOption
             key={provider}

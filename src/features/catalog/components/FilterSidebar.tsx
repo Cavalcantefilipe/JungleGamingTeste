@@ -17,19 +17,19 @@ export function FilterSidebar({
   clear: () => void;
 }) {
   return (
-    <div className="space-y-4 rounded-xl bg-surface-card p-5">
+    <div className="space-y-6 bg-surface-card p-5">
       <section>
-        <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-title font-bold">Coleções</h2>
-          <Button variant="ghost" className="px-0 text-xs" onClick={clear}>
+        <div className="mb-2 flex items-center justify-between">
+          <h2 className="text-lg leading-[22px] font-bold">Coleções</h2>
+          <Button variant="ghost" className="min-h-11 px-0 text-xs md:min-h-[22px]" onClick={clear}>
             Limpar filtros
           </Button>
         </div>
-        <div className="space-y-1">
+        <div className="space-y-0">
           {facets?.categories.map(({ key, count }) => (
             <label
               key={key}
-              className="flex min-h-11 cursor-pointer items-center gap-3 text-sm text-text-secondary sm:min-h-9"
+              className="flex min-h-11 cursor-pointer items-center gap-2 text-body-sm text-text-secondary sm:min-h-10"
             >
               <Checkbox
                 aria-label={NFT_CATEGORY_LABELS[key]}
@@ -43,7 +43,7 @@ export function FilterSidebar({
                 }}
               />
               <span>{NFT_CATEGORY_LABELS[key]}</span>
-              <span aria-hidden="true" className="ml-auto text-xs">
+              <span aria-hidden="true" className="ml-auto text-body-sm">
                 ({count})
               </span>
             </label>
@@ -55,12 +55,12 @@ export function FilterSidebar({
         search={search}
         apply={apply}
       />
-      <section className="space-y-4 border-t py-6">
-        <h3 className="text-sm font-bold">Rede</h3>
+      <section className="space-y-0">
+        <h3 className="mb-2 text-lg leading-[22px] font-bold">Rede</h3>
         {facets?.networks.map(({ key, count }) => (
           <label
             key={key}
-            className="flex min-h-11 cursor-pointer items-center gap-3 text-sm text-text-secondary sm:min-h-9"
+            className="flex min-h-11 cursor-pointer items-center gap-2 text-body-sm text-text-secondary sm:min-h-10"
           >
             <Checkbox
               aria-label={NFT_NETWORK_LABELS[key]}
@@ -74,7 +74,7 @@ export function FilterSidebar({
               }}
             />
             <span>{NFT_NETWORK_LABELS[key]}</span>
-            <span aria-hidden="true" className="ml-auto text-xs">
+            <span aria-hidden="true" className="ml-auto text-body-sm">
               ({count})
             </span>
           </label>

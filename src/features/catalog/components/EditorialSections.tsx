@@ -1,10 +1,8 @@
-import { toast } from 'sonner';
-
-import { FigmaIcon } from '@/components/icons/FigmaIcon';
-import { ArtworkImage } from '@/components/media/ArtworkImage';
-import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useContentQuery } from '@/features/catalog/useContentQuery';
+
+import { EditorialArticleCard } from './EditorialArticleCard';
+import { PromotionCard } from './PromotionCard';
 
 export function EditorialSections() {
   const query = useContentQuery();
@@ -17,66 +15,21 @@ export function EditorialSections() {
     );
   return (
     <>
-      <section aria-label="Explore as coleções" className="mt-24 grid gap-6 md:grid-cols-2">
+      <section aria-label="Explore as coleções" className="mt-24 grid gap-7 md:grid-cols-2">
         {query.data.promotions.map((promotion) => (
-          <article
-            key={promotion.title}
-            className="grid min-h-56 grid-cols-1 items-center overflow-hidden rounded-xl bg-surface-raised sm:grid-cols-2 xl:h-[250px]"
-          >
-            <ArtworkImage
-              sizes="(min-width: 1280px) 292px, (min-width: 768px) 25vw, (min-width: 640px) 50vw, calc(100vw - 48px)"
-              src={promotion.image.src}
-              alt={promotion.image.alt}
-              width={292}
-              height={250}
-              loading="lazy"
-              className="aspect-[292/250] w-full object-cover xl:h-full"
-            />
-            <div className="space-y-4 p-4 sm:p-6">
-              <h2 className="text-sm font-bold xl:text-lg">{promotion.title}</h2>
-              <p className="text-xs leading-5 text-text-secondary">{promotion.description}</p>
-              <Button asChild size="sm">
-                <a href="#catalogo">
-                  Explorar <FigmaIcon name="arrow-right" aria-hidden="true" size={16} />
-                </a>
-              </Button>
-            </div>
-          </article>
+          <PromotionCard key={promotion.title} promotion={promotion} />
         ))}
       </section>
       <section className="mt-24">
         <div className="mb-10 space-y-3 text-center">
-          <h2 className="text-heading-sm font-bold">Diário da Cunhagem</h2>
+          <h2 className="text-heading font-bold">Diário da Cunhagem</h2>
           <p className="text-sm text-text-secondary">
-            Histórias, ideias e novidades do universo da arte e da cultura digital.
+            Histórias, guias e insights para colecionadores sobre o universo da propriedade digital.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-[repeat(4,minmax(0,268px))]">
           {query.data.articles.map((article) => (
-            <article key={article.title} className="overflow-hidden rounded-xl bg-surface-card">
-              <ArtworkImage
-                sizes="(min-width: 1280px) 280px, (min-width: 640px) 50vw, calc(100vw - 48px)"
-                src={article.image.src}
-                alt={article.image.alt}
-                width={268}
-                height={195}
-                loading="lazy"
-                className="aspect-[268/195] w-full object-cover"
-              />
-              <div className="space-y-4 p-4">
-                <p className="text-[10px] text-text-secondary">
-                  {article.dateLabel} · {article.readingLabel}
-                </p>
-                <h3 className="text-sm font-bold">{article.title}</h3>
-                <p className="text-xs leading-5 text-text-secondary">{article.description}</p>
-                <button
-                  className="flex min-h-11 cursor-pointer items-center gap-2 text-xs font-bold text-primary hover:text-primary-light"
-                  onClick={() => toast.info('Conteúdo indisponível nesta demonstração')}
-                >
-                  Ler mais <FigmaIcon name="arrow-right" aria-hidden="true" size={14} />
-                </button>
-              </div>
-            </article>
+            <EditorialArticleCard key={article.title} article={article} />
           ))}
         </div>
       </section>

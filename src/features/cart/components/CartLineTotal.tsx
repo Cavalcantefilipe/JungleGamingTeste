@@ -10,7 +10,7 @@ export function CartLineTotal({ quote }: { quote: QuoteItem | undefined }) {
       <div
         className={cn(
           'text-[18px] leading-4 font-bold text-text-accent md:text-base',
-          (lineTotal?.length ?? 0) > 9 && 'text-[15px]',
+          (lineTotal?.length ?? 0) > 9 && 'text-sm',
         )}
       >
         {lineTotal ?? <Skeleton className="h-5 w-20" />}

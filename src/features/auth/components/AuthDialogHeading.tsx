@@ -20,7 +20,7 @@ export function AuthDialogHeading({ register, returnTo }: { register: boolean; r
       <DialogTitle className="mb-10 text-center text-lg leading-4 font-bold md:sr-only">
         {register ? 'Criar perfil de colecionador' : 'Entrar'}
       </DialogTitle>
-      <DialogDescription className="mx-auto mb-6 hidden max-w-[400px] text-center text-sm leading-4 text-foreground md:block">
+      <DialogDescription className="mx-auto mb-6 hidden max-w-[400px] text-center text-caption leading-4 text-foreground md:block">
         {register
           ? 'Crie seu perfil de colecionador e conecte uma carteira quando quiser.'
           : 'Entre para gerenciar sua carteira, coleção e perfil de criador.'}

@@ -6,7 +6,7 @@ export function SummarySkeleton() {
       role="status"
       aria-label="Carregando resumo"
       aria-busy="true"
-      className="h-[128px] space-y-3"
+      className="h-[128px] space-y-3 md:h-[136px]"
     >
       {[0, 1, 2, 3].map((row) => (
         <div key={row} className="flex items-center justify-between gap-6">

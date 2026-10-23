@@ -43,7 +43,7 @@ export function CollectorForm({
         Dados do colecionador
       </Button>
       <div id={id} className={cn('space-y-6', !visible && 'hidden lg:block')}>
-        <h2 className="hidden text-base leading-4 font-bold lg:block">Perfil do colecionador</h2>
+        <h2 className="hidden text-section leading-4 font-bold lg:block">Perfil do colecionador</h2>
         <CollectorFields wallet={wallet} />
         <AlternateWalletToggle wallet={wallet} wallets={wallets} select={select} />
         <CollectorNoteField />

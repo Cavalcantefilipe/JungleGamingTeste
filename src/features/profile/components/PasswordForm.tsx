@@ -42,7 +42,7 @@ export function PasswordForm() {
       aria-labelledby="password-heading"
       className="mt-8 max-w-md space-y-5 lg:w-[calc((100%_-_28px)/2)] lg:max-w-none"
     >
-      <h2 id="password-heading" className="text-sm font-bold">
+      <h2 id="password-heading" className="text-base font-medium">
         Alterar senha
       </h2>
       <Form {...form}>

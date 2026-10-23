@@ -1,15 +1,19 @@
 import { useFormContext, type FieldPath, type FieldValues } from 'react-hook-form';
 
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+
+import { SelectControl } from './SelectControl';
 
 export function SelectField<T extends FieldValues>({
   name,
   label,
   options,
+  required = false,
 }: {
   name: FieldPath<T>;
   label: string;
   options: { value: string; label: string }[];
+  required?: boolean;
 }) {
   const { control } = useFormContext<T>();
   return (
@@ -18,19 +22,16 @@ export function SelectField<T extends FieldValues>({
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel>{label}</FormLabel>
-          <FormControl>
-            <select
-              {...field}
-              className="h-11 w-full rounded-md border border-input bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:opacity-50 md:h-10"
-            >
-              {options.map((option) => (
-                <option value={option.value} key={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </FormControl>
+          <FormLabel>
+            {label}
+            {required && (
+              <span
+                aria-hidden="true"
+                className="text-[22px] leading-4 text-text-coral after:content-['*']"
+              />
+            )}
+          </FormLabel>
+          <SelectControl {...field} options={options} aria-required={required} />
           <FormMessage />
         </FormItem>
       )}

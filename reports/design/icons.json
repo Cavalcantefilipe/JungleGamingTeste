@@ -2,7 +2,7 @@
   "figma": "https://www.figma.com/design/Ff0SksUi7UFtPWUO8kyNtw/Frontend-Challenge",
   "exportedAt": "2026-10-23",
   "asset": "public/images/ui/figma-icons.svg",
-  "sha256": "7fadb81ac32878cd0caef9a1d5bb2e1c1a3d5771afb6c8fd12a5f74d6e046101",
+  "sha256": "a90b7be066e2cae414e8e2a8936a4a0b155a4c11f16c9db2656d5c7bf19414b8",
   "normalization": "Original paths retained; individual icon frames centered in viewBox; visible fill/stroke use currentColor. Heart background belongs to the button and is omitted.",
   "icons": [
     {
@@ -178,6 +178,18 @@
       "source": "desktop-detail",
       "layer": "Twitter",
       "viewBox": "981 560 16 16"
+    },
+    {
+      "name": "wallet",
+      "source": "Mobile/Pagamento.svg",
+      "layer": "Iconly/Curved/Wallet",
+      "viewBox": "50 561 24 24"
+    },
+    {
+      "name": "close",
+      "source": "Desktop/Login.svg",
+      "layer": "Vector 139 (Stroke)",
+      "viewBox": "941 172 16 16"
     }
   ],
   "backgrounds": [

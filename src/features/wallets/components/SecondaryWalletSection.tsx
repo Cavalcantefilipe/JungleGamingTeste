@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
+import { RoundCheckbox } from '@/components/ui/RoundCheckbox';
 import type { Profile } from '@/contracts/profile';
 import type { Wallets } from '@/contracts/wallet';
 import { errorMessage } from '@/lib/errors';
@@ -26,10 +27,12 @@ export function SecondaryWalletSection({
         <h2 id="secondary-heading" className="text-base font-bold">
           Carteira secundária
         </h2>
-        <label className="flex min-h-11 cursor-pointer items-center gap-2 text-xs text-text-secondary">
-          <input
-            type="checkbox"
-            className="size-4 accent-primary"
+        <label
+          htmlFor="same-primary-wallet"
+          className="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-text-secondary"
+        >
+          <RoundCheckbox
+            id="same-primary-wallet"
             checked={(wallets.sameAsPrimary || copyRequested) && !editing}
             disabled={!wallets.primary || mutation.isPending}
             onChange={(event) => {
@@ -53,7 +56,7 @@ export function SecondaryWalletSection({
           Igual à carteira principal
         </label>
         <Button
-          variant="ghost"
+          variant="link"
           disabled={mutation.isPending}
           onClick={() => {
             setEditing(!editing);
@@ -77,7 +80,7 @@ export function SecondaryWalletSection({
       ) : secondary ? (
         <WalletCard wallet={secondary} />
       ) : (
-        <p className="text-xs text-text-secondary">
+        <p className="text-sm text-text-secondary">
           Você ainda não adicionou uma carteira secundária.
         </p>
       )}

@@ -35,8 +35,8 @@ export function OrderReceiptModal({ order }: { order: Order }) {
           </DialogDescription>
         </div>
         <ReceiptMetadata order={order} />
-        <div className="px-6 py-6 md:px-10">
-          <h2 className="mb-3 text-sm leading-4 font-bold">Detalhes da transação</h2>
+        <div className="px-6 py-6 md:px-11">
+          <h2 className="mb-3 text-body-sm leading-4 font-bold">Detalhes da transação</h2>
           <OrderItemsTable order={order} />
           <ReceiptTotals order={order} />
           <p className="mt-4 border-t border-primary/40 pt-4 text-center text-sm leading-[22px] text-text-secondary">
@@ -44,7 +44,7 @@ export function OrderReceiptModal({ order }: { order: Order }) {
             propriedade foi transferida para sua carteira conectada e registrada na rede simulada.
           </p>
           <div className="mt-5 text-center">
-            <Button asChild className="max-w-full whitespace-normal">
+            <Button asChild size="receipt" className="max-w-full whitespace-normal">
               <a href={order.explorerUrl} target="_blank" rel="noopener noreferrer">
                 Ver no Etherscan (simulado)
               </a>

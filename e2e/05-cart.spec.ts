@@ -83,7 +83,7 @@ test('cupom aplica desconto da API e remoção restaura total', async ({ page, i
   await addFirstNft(page, isMobile);
   await page.getByLabel('Código promocional', { exact: true }).fill('LANCAMENTO10');
   await page.getByRole('button', { name: 'Aplicar', exact: true }).click();
-  await expect(page.getByTestId('quote-discount')).toHaveText('0.119 ETH');
+  await expect(page.getByTestId('quote-discount')).toHaveText('−0.119 ETH');
   await expect(page.getByTestId('quote-total')).toHaveText('1.087 ETH');
   await page.getByRole('button', { name: 'Remover cupom', exact: true }).click();
   await expect(page.getByTestId('quote-total')).toHaveText('1.206 ETH');

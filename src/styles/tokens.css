@@ -86,6 +86,8 @@
   --text-body--line-height: 24px;
   --text-body-sm: 15px;
   --text-body-sm--line-height: 16px;
+  --text-section: 17px;
+  --text-section--line-height: 22px;
   --text-caption: 13px;
   --text-caption--line-height: 16px;
   --text-caption-sm: 12px;
@@ -94,6 +96,9 @@
   --text-tiny--line-height: 16px;
 
   --radius-control: 6px;
+  --radius-field: 3px;
+  --radius-auth: 10px;
+  --radius-social: 5px;
   --radius-card: 12px;
   --radius-media: 24px;
 

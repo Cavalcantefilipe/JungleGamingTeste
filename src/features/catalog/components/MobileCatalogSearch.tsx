@@ -22,8 +22,8 @@ export function MobileCatalogSearch({
         <FigmaIcon
           name="search-curved"
           aria-hidden="true"
-          size={18}
-          className="pointer-events-none absolute top-3 left-3 text-text-secondary"
+          size={20}
+          className="pointer-events-none absolute top-3 left-3 text-secondary"
         />
         <Input
           type="search"
@@ -33,7 +33,7 @@ export function MobileCatalogSearch({
           onChange={(event) => {
             apply({ q: event.target.value });
           }}
-          className="h-11 rounded-xl border-transparent bg-surface-card pl-10 text-xs"
+          className="h-[45px] rounded-auth border-transparent bg-surface-card pl-[42px] text-sm placeholder:font-bold"
         />
       </div>
       <FilterDrawer

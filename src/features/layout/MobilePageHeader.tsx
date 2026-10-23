@@ -16,15 +16,15 @@ export function MobilePageHeader({
   return (
     <div
       className={cn(
-        'relative mb-5 flex min-h-11 items-center justify-center md:hidden',
-        align === 'start' && 'mx-1 justify-start',
+        'relative mb-4 flex min-h-11 items-center justify-center md:hidden',
+        align === 'start' && 'justify-start',
       )}
     >
       <Button
         asChild
         size="detail-icon"
         variant="detail-round"
-        className="absolute left-0 text-text-secondary"
+        className="absolute -left-1 text-text-secondary"
       >
         <Link to={backTo} aria-label="Voltar">
           <FigmaIcon name="chevron-left" size={20} />

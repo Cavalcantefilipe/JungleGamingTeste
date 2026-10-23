@@ -15,7 +15,7 @@ export function MobileTabBar() {
   return (
     <nav
       aria-label="Navegação mobile"
-      className="fixed inset-x-0 bottom-0 isolate z-30 grid min-h-[95px] grid-cols-5 items-center px-2 pb-[env(safe-area-inset-bottom)] lg:hidden"
+      className="fixed inset-x-0 bottom-0 isolate z-30 grid min-h-[95px] grid-cols-[22.222%_12.56%_30.676%_14.734%_15.459%] items-center pt-1 pb-[env(safe-area-inset-bottom)] lg:hidden"
     >
       <img
         src="/images/ui/mobile-tab-background.svg"

@@ -11,9 +11,13 @@ const buttonVariants = cva(
       variant: {
         default: 'bg-primary text-ink hover:bg-primary-light active:bg-primary-dark',
         primary: 'bg-primary text-ink hover:bg-primary-light active:bg-primary-dark',
+        social:
+          'relative border-0 border-border text-text-secondary before:pointer-events-none before:absolute before:inset-x-0 before:top-1/2 before:h-10 before:-translate-y-1/2 before:rounded-social before:border before:border-border hover:bg-surface-raised active:bg-border',
+        pagination:
+          'border border-border bg-transparent text-foreground hover:bg-surface-raised active:bg-border aria-[current=page]:border-primary aria-[current=page]:bg-primary aria-[current=page]:font-bold aria-[current=page]:text-ink',
         filter: 'bg-filter-gradient text-ink hover:brightness-110 active:brightness-95',
         favorite:
-          'relative rounded-full bg-transparent text-primary before:pointer-events-none before:absolute before:size-7 before:rounded-full before:bg-surface-dark hover:before:bg-surface-raised active:before:bg-border [&_svg]:relative [&_svg]:size-3.5',
+          'relative rounded-full bg-transparent text-primary before:pointer-events-none before:absolute before:size-7 before:rounded-full before:border before:border-border before:bg-surface-raised hover:before:bg-border-soft active:before:bg-border [&_svg]:relative [&_svg]:size-3.5',
         'detail-round':
           'relative rounded-full bg-transparent text-text-accent before:pointer-events-none before:absolute before:size-[35px] before:rounded-full before:border before:border-border before:bg-surface-raised hover:before:bg-border-soft active:before:bg-border [&_svg]:relative',
         'favorite-label':
@@ -40,23 +44,31 @@ const buttonVariants = cva(
         link: 'text-primary underline-offset-4 hover:underline',
       },
       size: {
+        pagination: 'size-11 rounded-[4px] p-0 text-lg font-normal md:size-[35px]',
+        filter: 'h-11 rounded-control px-3 text-base font-bold md:h-9',
+        promotion: 'h-11 w-[140px] rounded-control text-sm font-medium md:h-10',
         quantity: 'size-11 p-0',
         'quantity-purchase': 'size-11 p-0 lg:h-[50px]',
         'favorite-label': 'h-10 w-[130px] gap-2 px-3 text-sm font-medium',
         header: 'h-11 gap-1 rounded-control px-2 text-base font-medium md:h-[35px] md:w-[100px]',
-        form: 'min-h-11 px-6 text-xs font-bold md:min-h-10',
+        form: 'min-h-11 rounded-field px-6 text-sm font-bold md:min-h-10',
         'footer-social': 'size-11 rounded-control p-0 text-primary md:size-8',
         edition: 'min-h-11 min-w-11 rounded-full px-2 text-sm md:min-h-7 md:min-w-0 md:px-1',
-        auth: 'h-[60px] rounded-xl px-6 text-base font-bold md:h-[45px] md:rounded-control',
-        social: 'h-11 rounded-control px-4 text-xs text-text-secondary md:h-10',
+        auth: 'h-[60px] rounded-auth px-6 text-base font-bold md:h-[45px] md:rounded-social',
+        social:
+          'relative -my-0.5 h-11 rounded-social px-4 text-caption text-text-secondary md:my-0 md:h-10',
         checkout: 'h-[60px] rounded-[40px] px-6 font-bold md:h-10 md:rounded-control',
-        coupon: 'h-12 rounded-full px-5 font-bold md:h-10 md:rounded-control',
+        coupon: 'h-12 rounded-full px-5 font-bold md:h-10 md:rounded-none',
         purchase: 'h-[60px] rounded-full px-6 text-base font-bold lg:h-10 lg:rounded-md lg:text-sm',
         'purchase-icon': 'size-[60px] rounded-full lg:size-10 lg:rounded-md',
         default: 'min-h-11 px-6 py-2 text-base font-bold sm:min-h-10 has-[>svg]:px-4',
         xs: "h-6 gap-1 rounded-md px-2 text-xs has-[>svg]:px-1.5 [&_svg:not([class*='size-'])]:size-3",
         sm: 'h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5',
         lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',
+        'header-icon': 'size-11 md:h-[35px] md:w-10',
+        confirmation:
+          'h-[60px] rounded-[40px] px-6 text-body-sm font-bold lg:h-[45px] lg:rounded-lg',
+        receipt: 'min-h-12 rounded-social px-4 text-base font-bold',
         icon: 'size-11 sm:size-10',
         'detail-icon': 'size-11',
         'icon-xs': "size-6 rounded-md [&_svg:not([class*='size-'])]:size-3",
@@ -67,7 +79,17 @@ const buttonVariants = cva(
     compoundVariants: [
       {
         variant: ['default', 'primary'],
-        size: ['purchase', 'purchase-icon', 'coupon', 'checkout'],
+        size: ['coupon', 'checkout'],
+        className: 'md:bg-primary md:bg-none md:hover:bg-primary-light md:active:bg-primary-dark',
+      },
+      {
+        variant: ['default', 'primary'],
+        size: ['purchase', 'purchase-icon', 'confirmation'],
+        className: 'lg:bg-primary lg:bg-none lg:hover:bg-primary-light lg:active:bg-primary-dark',
+      },
+      {
+        variant: ['default', 'primary'],
+        size: ['purchase', 'purchase-icon', 'coupon', 'checkout', 'confirmation'],
         className:
           'bg-transparent bg-primary-gradient hover:bg-transparent hover:brightness-105 active:bg-transparent active:brightness-95',
       },

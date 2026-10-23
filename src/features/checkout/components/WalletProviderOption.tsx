@@ -1,6 +1,6 @@
-import { Circle, CircleDot, Wallet as WalletIcon } from 'lucide-react';
-
+import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
+import { SelectionIndicator } from '@/components/ui/SelectionIndicator';
 import { WALLET_PROVIDER_LABELS, type WalletProvider } from '@/contracts/order';
 
 export function WalletProviderOption({
@@ -17,14 +17,14 @@ export function WalletProviderOption({
       role="radio"
       aria-checked={provider === selectedProvider}
       disabled={provider !== selectedProvider}
-      className="h-16 w-full justify-start rounded-[14px] border-transparent bg-surface-card p-4 text-sm font-normal lg:h-11 lg:rounded-control lg:border-border-soft lg:bg-transparent lg:p-3"
+      className="h-[65px] w-full justify-start gap-[11px] rounded-[15px] border-transparent bg-surface-card px-[13px] py-0 text-sm font-normal lg:h-[45px] lg:rounded-field lg:border-border lg:bg-transparent lg:p-3 lg:text-body-sm lg:aria-checked:border-primary"
     >
       <span
         aria-hidden="true"
-        className="flex size-9 items-center justify-center rounded-full bg-surface-raised text-primary lg:hidden"
+        className="flex size-10 items-center justify-center rounded-full border border-border bg-surface-raised font-bold text-text-accent lg:hidden"
       >
         {provider === 'coinbase' ? (
-          <WalletIcon className="size-5" />
+          <FigmaIcon name="wallet" size={24} />
         ) : provider === 'walletconnect' ? (
           'W'
         ) : (
@@ -32,13 +32,7 @@ export function WalletProviderOption({
         )}
       </span>
       <span className="flex-1 text-left">{WALLET_PROVIDER_LABELS[provider]}</span>
-      <span aria-hidden="true" className="text-primary">
-        {provider === selectedProvider ? (
-          <CircleDot className="size-4" />
-        ) : (
-          <Circle className="size-4" />
-        )}
-      </span>
+      <SelectionIndicator selected={provider === selectedProvider} className="lg:-order-1" />
     </Button>
   );
 }

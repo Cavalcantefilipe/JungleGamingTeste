@@ -1,9 +1,7 @@
-import { Circle, CircleDot } from 'lucide-react';
-
 import { Button } from '@/components/ui/button';
+import { SelectionIndicator } from '@/components/ui/SelectionIndicator';
 import { NFT_NETWORK_LABELS } from '@/contracts/nft';
 import type { Wallet } from '@/contracts/wallet';
-import { cn } from '@/lib/cn';
 
 export function SavedWalletOption({
   wallet,
@@ -23,21 +21,12 @@ export function SavedWalletOption({
       onClick={() => {
         select(wallet);
       }}
-      className={cn(
-        'h-auto min-h-20 w-full justify-start rounded-[14px] border-transparent bg-surface-card p-4 text-left text-sm font-normal whitespace-normal',
-        wallet.id === selectedId && 'border-primary',
-      )}
+      className="h-auto min-h-[93px] w-full justify-start gap-[19px] rounded-[14px] border-transparent bg-surface-card px-[18px] py-[11px] text-left text-sm font-normal whitespace-normal"
     >
-      <span aria-hidden="true" className="text-primary">
-        {wallet.id === selectedId ? (
-          <CircleDot className="size-4" />
-        ) : (
-          <Circle className="size-4" />
-        )}
-      </span>
-      <span className="grid min-w-0 gap-1 wrap-anywhere">
+      <SelectionIndicator selected={wallet.id === selectedId} />
+      <span className="grid min-w-0 leading-[22px] wrap-anywhere">
         <strong className="text-base">{wallet.walletNickname}</strong>
-        <span className="wrap-anywhere">
+        <span className="wrap-anywhere text-text-secondary">
           {wallet.ensName ? `${wallet.ensName}.eth` : wallet.address}
         </span>
         <span className="text-text-secondary">Rede {NFT_NETWORK_LABELS[wallet.network]}</span>

@@ -7,23 +7,23 @@ export function HeaderNavigation({ marketActive }: { marketActive: boolean }) {
   return (
     <nav
       aria-label="Menu principal"
-      className="hidden items-center gap-10 text-base leading-4 lg:flex xl:-translate-x-6"
+      className="hidden h-[45px] items-start gap-10 pt-[3px] text-base leading-4 lg:flex xl:-translate-x-6"
     >
       <Link
         to="/"
         activeOptions={{ exact: true }}
         activeProps={{
           className:
-            'font-bold text-text-accent underline decoration-primary decoration-[3px] underline-offset-[20px]',
+            'font-bold text-text-accent underline decoration-primary decoration-[3px] underline-offset-[26px]',
         }}
       >
         Início
       </Link>
       <a
         className={cn(
-          'py-3 hover:text-primary',
+          'hover:text-primary',
           marketActive &&
-            'font-bold text-text-accent underline decoration-primary decoration-[3px] underline-offset-[20px]',
+            'font-bold text-text-accent underline decoration-primary decoration-[3px] underline-offset-[26px]',
         )}
         aria-current={marketActive ? 'page' : undefined}
         href="/#catalogo"
@@ -34,7 +34,7 @@ export function HeaderNavigation({ marketActive }: { marketActive: boolean }) {
         <button
           key={label}
           onClick={() => toast.info('Conteúdo indisponível nesta demonstração')}
-          className="cursor-pointer py-3 hover:text-primary"
+          className="cursor-pointer hover:text-primary"
         >
           {label}
         </button>

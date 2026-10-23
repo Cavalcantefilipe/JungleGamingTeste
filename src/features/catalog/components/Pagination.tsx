@@ -14,11 +14,11 @@ export function Pagination({
   return (
     <nav
       aria-label="Paginação do catálogo"
-      className="mt-10 flex flex-wrap items-center justify-end gap-1"
+      className="mt-10 flex flex-wrap items-center justify-end gap-2"
     >
       <Button
-        variant="ghost"
-        size="icon"
+        variant="pagination"
+        size="pagination"
         aria-label="Página anterior"
         onClick={() => {
           change(page - 1);
@@ -30,8 +30,8 @@ export function Pagination({
       {Array.from({ length: totalPages }, (_, index) => index + 1).map((number) => (
         <Button
           key={number}
-          variant={page === number ? 'primary' : 'ghost'}
-          size="icon"
+          variant="pagination"
+          size="pagination"
           aria-label={`Página ${number}`}
           aria-current={page === number ? 'page' : undefined}
           onClick={() => {
@@ -42,8 +42,8 @@ export function Pagination({
         </Button>
       ))}
       <Button
-        variant="ghost"
-        size="icon"
+        variant="pagination"
+        size="pagination"
         aria-label="Próxima página"
         onClick={() => {
           change(page + 1);

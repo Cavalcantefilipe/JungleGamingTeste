@@ -45,16 +45,19 @@ export function ProfileForm({ profile }: { profile: Profile }) {
         <div className="grid items-start gap-x-7 gap-y-6 lg:grid-cols-2">
           <TextField<UpdateProfileInput>
             name="displayName"
+            required
             label="Nome de exibição"
             autoComplete="name"
           />
           <TextField<UpdateProfileInput>
             name="username"
+            required
             label="Nome de usuário"
             autoComplete="username"
           />
           <TextField<UpdateProfileInput>
             name="email"
+            required
             label="E-mail"
             type="email"
             autoComplete="email"

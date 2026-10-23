@@ -33,7 +33,7 @@ export function CartSummary({
       <CartCheckoutAction disabled={disabled} />
       <Link
         to="/"
-        className="hidden min-h-11 items-center justify-center text-sm text-primary hover:text-primary md:flex"
+        className="hidden min-h-11 items-center justify-center text-sm text-text-accent hover:text-primary md:mt-0 md:flex"
       >
         Continuar explorando
       </Link>

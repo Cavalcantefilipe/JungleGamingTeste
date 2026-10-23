@@ -10,17 +10,17 @@ export function OrderItemsTable({ order }: { order: Order }) {
     >
       <caption className="sr-only">NFTs comprados</caption>
       <thead>
-        <tr className="border-b border-border-soft text-text-secondary">
-          <th scope="col" className="w-[48%] pt-0 pb-3 font-normal md:w-auto">
+        <tr className="border-b border-border-soft text-foreground">
+          <th scope="col" className="w-[48%] pt-0 pb-3 font-bold md:w-auto">
             NFTs
           </th>
           <th
             scope="col"
-            className="w-[20%] px-1 pt-0 pb-3 text-center font-normal md:w-auto md:px-2"
+            className="w-[20%] px-1 pt-0 pb-3 text-center font-bold md:w-auto md:px-2"
           >
             Edições
           </th>
-          <th scope="col" className="pt-0 pb-3 text-right font-normal">
+          <th scope="col" className="pt-0 pb-3 text-right font-bold">
             Subtotal
           </th>
         </tr>
@@ -48,7 +48,9 @@ export function OrderItemsTable({ order }: { order: Order }) {
                 </span>
               </div>
             </td>
-            <td className="px-2 text-center">{item.quantity}</td>
+            <td className="px-2 text-center text-xs text-text-secondary md:text-sm">
+              (x {item.quantity})
+            </td>
             <td className="text-right text-sm leading-4 font-bold wrap-anywhere text-text-accent min-[390px]:text-base md:text-lg">
               {formatEth(item.lineTotal)}
             </td>

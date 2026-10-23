@@ -42,17 +42,17 @@
     @apply mx-auto w-full max-w-[1440px] px-6 xl:px-[120px];
   }
   .mobile-tab {
-    @apply flex min-h-16 flex-col items-center justify-center gap-1 px-1 text-[10px] text-text-secondary transition-colors hover:text-primary active:text-primary-light;
+    @apply flex min-h-16 min-w-11 flex-col items-center justify-center gap-1 px-1 text-[10px] text-text-secondary transition-colors hover:text-primary active:text-primary-light;
   }
   .footer-links {
-    @apply flex min-w-0 flex-col items-start text-sm text-foreground;
+    @apply flex min-w-0 flex-col items-start text-sm text-foreground md:gap-2;
   }
   .footer-links h2 {
-    @apply mb-2 text-base leading-4 font-bold text-foreground;
+    @apply mb-2 text-lg leading-4 font-bold text-foreground md:mb-1.5;
   }
   .footer-links a,
   .footer-links button {
-    @apply min-h-11 cursor-pointer py-2 text-left hover:text-primary active:text-primary-light sm:min-h-8 sm:py-1;
+    @apply min-h-11 cursor-pointer py-2 text-left hover:text-primary active:text-primary-light md:min-h-[22px] md:py-0 md:leading-[22px];
   }
   .skeleton {
     background-image: var(--background-image-skeleton-gradient);

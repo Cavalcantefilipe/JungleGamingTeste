@@ -88,7 +88,7 @@ test('controles e resumo do carrinho seguem cores e formas medidas no Figma', as
   const checkout = page.getByRole('link', { name: 'Conectar e finalizar', exact: true });
   await expect(checkout).toHaveCSS(
     'background-image',
-    /linear-gradient\(108\.86deg, rgb\(210, 138, 76\)/,
+    isMobile ? /linear-gradient\(108\.86deg, rgb\(210, 138, 76\)/ : 'none',
   );
   if (isMobile) {
     await expect(checkout).toHaveCSS('height', '60px');
@@ -213,7 +213,7 @@ test('perfil mantém controles de senha, botões e alinhamento da conta', async 
   isMobile,
 }) => {
   await login(page);
-  await expect(page.getByText('Nome de exibição', { exact: true })).toHaveCSS('font-size', '14px');
+  await expect(page.getByText('Nome de exibição', { exact: true })).toHaveCSS('font-size', '15px');
   const currentPassword = page.getByLabel('Senha atual', { exact: true });
   await currentPassword.fill('Kurio!2026');
   await page.getByRole('button', { name: 'Mostrar senha atual', exact: true }).click();
@@ -222,7 +222,7 @@ test('perfil mantém controles de senha, botões e alinhamento da conta', async 
   await expect(currentPassword).toHaveAttribute('type', 'password');
   await expect(page.getByRole('button', { name: 'Salvar perfil', exact: true })).toHaveCSS(
     'font-size',
-    '12px',
+    '14px',
   );
   if (!isMobile) {
     const profile = await page.getByLabel('Nome de exibição', { exact: true }).boundingBox();
@@ -273,7 +273,7 @@ test('valor alto no carrinho mobile não encosta no controle de quantidade', asy
   expect(amount.x + amount.width).toBeLessThanOrEqual(control.x - 2);
 });
 
-test('Home mobile preserva o desnível de 32px dos cards e botão auth tem raio de 12px', async ({
+test('Home mobile preserva o desnível de 32px dos cards e botão auth tem raio de 10px', async ({
   page,
   isMobile,
 }) => {
@@ -293,5 +293,5 @@ test('Home mobile preserva o desnível de 32px dos cards e botão auth tem raio 
   await page.goto('/login');
   await expect(
     page.getByRole('dialog').getByRole('button', { name: 'Entrar', exact: true }),
-  ).toHaveCSS('border-top-left-radius', '12px');
+  ).toHaveCSS('border-top-left-radius', '10px');
 });

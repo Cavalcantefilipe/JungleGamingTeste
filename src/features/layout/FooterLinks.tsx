@@ -26,7 +26,7 @@ export function FooterLinks() {
   return (
     <div
       data-testid="footer-links"
-      className="grid grid-cols-1 gap-8 bg-surface-card p-8 min-[390px]:grid-cols-2 md:grid-cols-4 xl:h-[236px] xl:gap-4 xl:py-6"
+      className="grid grid-cols-1 gap-8 bg-surface-card p-8 min-[390px]:grid-cols-2 md:grid-cols-4 xl:h-[236px] xl:grid-cols-[repeat(4,228px)] xl:justify-between xl:gap-0"
     >
       <div className="footer-links">
         <h2>Meu perfil</h2>
@@ -50,7 +50,7 @@ export function FooterLinks() {
       ))}
       <div className="space-y-5">
         <div>
-          <h2 className="mb-3 text-base font-bold">Redes sociais</h2>
+          <h2 className="mb-3 text-lg leading-4 font-bold">Redes sociais</h2>
           <div className="flex flex-wrap gap-2">
             {socialLinks.map((label) => (
               <Button
@@ -72,8 +72,8 @@ export function FooterLinks() {
           </div>
         </div>
         <div>
-          <h2 className="mb-2 text-base font-bold">Carteiras compatíveis</h2>
-          <p className="rounded-control border border-border bg-surface-raised px-2 py-1 text-[8px] text-primary">
+          <h2 className="mb-2 text-lg leading-4 font-bold">Carteiras compatíveis</h2>
+          <p className="w-fit rounded-control border border-border-soft bg-surface-dark px-2.5 py-1.5 text-[9px] leading-3 font-bold text-text-accent">
             METAMASK · WALLETCONNECT · COINBASE
           </p>
         </div>

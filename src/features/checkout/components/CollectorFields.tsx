@@ -10,17 +10,20 @@ export function CollectorFields({ wallet }: { wallet: Wallet }) {
     <div className="grid gap-x-7 gap-y-6 md:grid-cols-2">
       <TextField<CollectorFormInput>
         name="displayName"
+        required
         label="Nome de exibição"
         autoComplete="name"
       />
       <TextField<CollectorFormInput>
         name="username"
+        required
         label="Nome de usuário"
         autoComplete="username"
       />
       <CollectorWalletFields wallet={wallet} />
       <TextField<CollectorFormInput>
         name="email"
+        required
         label="E-mail"
         type="email"
         autoComplete="email"

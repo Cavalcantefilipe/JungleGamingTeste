@@ -17,11 +17,11 @@ export function LoginFields() {
         appearance="auth"
       />
       <PasswordField<LoginInput> name="password" label="Senha" autoComplete="current-password" />
-      <div className="flex justify-end">
+      <div className="relative flex h-8 justify-end">
         <Button
           type="button"
           variant="link"
-          className="min-h-11 px-0 text-sm font-normal md:min-h-8"
+          className="absolute -top-3.5 min-h-11 px-0 text-sm font-normal text-text-accent md:top-0 md:min-h-8"
           onClick={() => toast.info('Recuperação de senha indisponível nesta demonstração')}
         >
           Esqueceu a senha?

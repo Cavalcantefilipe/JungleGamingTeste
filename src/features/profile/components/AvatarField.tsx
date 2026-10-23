@@ -16,18 +16,18 @@ export function AvatarField({ profile }: { profile: Profile }) {
   return (
     <div className="space-y-2">
       <p className="text-sm">Avatar</p>
-      <div className="flex min-h-11 items-center gap-3">
+      <div className="flex min-h-11 flex-wrap items-center gap-3 md:gap-6">
         {profile.avatarUrl ? (
           <img
             src={profile.avatarUrl}
             alt="Avatar do colecionador"
-            width={48}
-            height={48}
-            className="size-12 rounded-full object-cover"
+            width={50}
+            height={50}
+            className="size-[50px] rounded-full object-cover"
           />
         ) : (
-          <div className="flex size-12 items-center justify-center rounded-full bg-surface-card text-primary">
-            <FigmaIcon name="image" aria-hidden="true" size={20} />
+          <div className="flex size-[50px] items-center justify-center rounded-full border border-border bg-surface-raised text-primary">
+            <FigmaIcon name="image" aria-hidden="true" size={24} />
           </div>
         )}
         <input

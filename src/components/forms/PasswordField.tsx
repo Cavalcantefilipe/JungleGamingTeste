@@ -35,7 +35,7 @@ export function PasswordField<T extends FieldValues>({
                 variant={appearance}
                 type={visible ? 'text' : 'password'}
                 autoComplete={autoComplete}
-                placeholder={label}
+                placeholder={appearance === 'auth' ? label : undefined}
                 className="pr-12"
               />
             </FormControl>
@@ -50,7 +50,7 @@ export function PasswordField<T extends FieldValues>({
                 setVisible(!visible);
               }}
             >
-              {visible ? <Eye /> : <FigmaIcon name="hide" />}
+              {visible ? <Eye className="size-5" /> : <FigmaIcon name="hide" size={20} />}
             </Button>
           </div>
           <FormMessage />
