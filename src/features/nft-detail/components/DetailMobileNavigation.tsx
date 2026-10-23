@@ -7,17 +7,13 @@ import { FavoriteButton } from '@/features/favorites/components/FavoriteButton';
 
 export function DetailMobileNavigation({ nft }: { nft: Nft }) {
   return (
-    <div className="mb-2 flex items-center justify-between md:hidden">
-      <Button asChild variant="secondary" size="icon" className="rounded-full">
+    <div className="-mr-1 mb-1 flex items-center justify-between lg:hidden">
+      <Button asChild variant="detail-round" size="detail-icon" className="text-text-secondary">
         <Link to="/" aria-label="Voltar para o catálogo">
-          <FigmaIcon name="chevron-left" aria-hidden="true" />
+          <FigmaIcon name="chevron-left" size={20} />
         </Link>
       </Button>
-      <FavoriteButton
-        nftId={nft.id}
-        name={nft.name}
-        className="border border-border-soft bg-transparent"
-      />
+      <FavoriteButton nftId={nft.id} name={nft.name} context="detail" />
     </div>
   );
 }

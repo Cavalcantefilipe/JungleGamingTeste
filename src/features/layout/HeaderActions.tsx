@@ -11,7 +11,7 @@ export function HeaderActions({ pathname }: { pathname: string }) {
   const cart = useCartQuery();
   const cartQuantity = cart.data?.items.reduce((sum, item) => sum + item.quantity, 0) ?? 0;
   return (
-    <div className="flex items-center justify-end gap-2 sm:gap-4">
+    <div className="flex items-center justify-end gap-2 sm:gap-[18px]">
       <Button asChild variant="ghost" size="icon">
         <a href={pathname === '/' ? '#busca' : '/#busca'} aria-label="Buscar NFTs">
           <FigmaIcon name="search" aria-hidden="true" className="size-6" />

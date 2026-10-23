@@ -25,7 +25,8 @@ export default defineConfig({
         manualChunks(id) {
           if (
             id.endsWith('/src/components/media/ArtworkImage.tsx') ||
-            id.endsWith('/src/features/catalog/components/NftCard.tsx')
+            id.endsWith('/src/features/catalog/components/NftCard.tsx') ||
+            id.endsWith('/src/features/catalog/components/NftCardMedia.tsx')
           )
             return 'nft-media';
           return undefined;

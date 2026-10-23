@@ -150,3 +150,7 @@ A matriz usa Chromium e dados da simulação. Safari/Firefox não foram validado
 ## Gradientes e favorito — revisão complementar
 
 A [revisão do frontend](FRONTEND-REVIEW.md) registra os tokens adicionados para filtros, cards mobile, detalhe, navegação, oferta lateral e CTAs. Os fundos sólidos indevidos foram corrigidos usando os stops/direções dos SVGs exportados. A posição do favorito acompanha a imagem e seu comportamento distingue mouse/teclado de toque. No celular o controle permanece disponível sem hover. `e2e/22-design-tokens.spec.ts` verifica gradientes renderizados, alinhamento, alvo de toque, revelação por hover/foco e navegação para login.
+
+## Correção após o apontamento em `/nfts/nft-002`
+
+A [revisão detalhada](DETAIL-REVIEW.md) documenta os erros restantes nas estrelas, favoritos, tipografia, galeria, abas e componentes compartilhados. Ela substitui as medidas anteriores de24px para o preço e do controle desktop do carrinho, que estavam incorretas. Inclui os limites de fidelidade, evidências do Figma e regressões novas.

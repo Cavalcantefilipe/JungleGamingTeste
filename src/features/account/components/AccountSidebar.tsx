@@ -6,9 +6,9 @@ import { Button } from '@/components/ui/button';
 import { useLogout } from '@/features/auth/mutations';
 
 const unavailable: { label: string; icon: FigmaIconName }[] = [
-  { label: 'Atividade', icon: 'activity' },
+  { label: 'Atividade', icon: 'cart' },
   { label: 'Lista de interesse', icon: 'heart' },
-  { label: 'Ofertas', icon: 'cart' },
+  { label: 'Ofertas', icon: 'activity' },
   { label: 'Arquivos baixados', icon: 'download' },
   { label: 'Suporte', icon: 'warning' },
 ];

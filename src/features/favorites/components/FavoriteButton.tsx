@@ -9,30 +9,31 @@ export function FavoriteButton({
   name,
   className,
   showLabel = false,
+  context = 'card',
 }: {
   nftId: string;
   name: string;
   className?: string;
   showLabel?: boolean;
+  context?: 'card' | 'detail';
 }) {
   const { selected, pending, disabled, toggle } = useFavoriteControl(nftId);
   return (
     <Button
-      variant={showLabel ? 'secondary' : 'favorite'}
-      size={showLabel ? 'form' : 'icon'}
+      variant={showLabel ? 'favorite-label' : context === 'detail' ? 'detail-round' : 'favorite'}
+      size={showLabel ? 'favorite-label' : context === 'detail' ? 'detail-icon' : 'icon'}
       aria-label={`Favoritar ${name}`}
       aria-pressed={selected}
       aria-busy={pending}
       disabled={disabled}
       onClick={toggle}
-      className={cn(
-        'text-text-accent hover:text-primary',
-        selected && 'text-primary',
-        showLabel && 'rounded-control bg-transparent px-3 text-xs text-text-accent',
-        className,
-      )}
+      className={cn('text-text-accent hover:text-primary', selected && 'text-primary', className)}
     >
-      <FigmaIcon name={selected ? 'heart-solid' : 'heart'} size={18} />
+      <FigmaIcon
+        name={selected ? 'heart-solid' : showLabel ? 'heart-detail' : 'heart'}
+        size={showLabel ? 20 : 16}
+        className={showLabel ? 'text-primary' : undefined}
+      />
       {showLabel && 'Favoritar'}
     </Button>
   );

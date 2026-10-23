@@ -13,7 +13,7 @@ export function Header() {
   return (
     <header className={cn('pt-6', hideOnMobile && 'hidden md:block')}>
       <div className="page-container">
-        <div className="flex min-h-[45px] items-center justify-between gap-4 border-b border-primary/30 xl:grid xl:grid-cols-[1fr_auto_1fr]">
+        <div className="flex min-h-[45px] items-center justify-between gap-4 xl:grid xl:grid-cols-[1fr_auto_1fr]">
           <Link
             to="/"
             aria-label="Kurio — Início"

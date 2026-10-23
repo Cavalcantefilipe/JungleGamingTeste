@@ -1,37 +1,33 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { NFT_NETWORK_LABELS, type Nft } from '@/contracts/nft';
+import { Tabs, TabsContent, TabsList } from '@/components/ui/tabs';
+import type { Nft } from '@/contracts/nft';
+
+import { DetailFacts } from './DetailFacts';
+import { DetailTabTrigger } from './DetailTabTrigger';
+import { RatingStars } from './RatingStars';
 
 export function DetailTabs({ nft }: { nft: Nft }) {
   return (
-    <Tabs defaultValue="details" className="mt-16">
-      <TabsList className="h-auto flex-wrap bg-transparent p-0">
-        <TabsTrigger value="details" className="min-h-11">
-          Detalhes do NFT
-        </TabsTrigger>
-        <TabsTrigger value="reviews" className="min-h-11">
-          Avaliações ({nft.rating.count})
-        </TabsTrigger>
-      </TabsList>
-      <TabsContent
-        value="details"
-        className="space-y-6 border-t py-6 text-sm leading-7 text-text-secondary"
+    <Tabs defaultValue="details" className="mt-section">
+      <TabsList
+        variant="line"
+        className="h-auto w-full flex-wrap justify-start gap-x-8 rounded-none border-b border-border p-0 group-data-[orientation=horizontal]/tabs:h-auto"
       >
-        <p>{nft.description}</p>
-        <dl className="grid grid-cols-2 gap-4 md:grid-cols-3">
-          <div className="rounded-lg bg-surface-card p-4">
-            <dt className="text-xs">Rede</dt>
-            <dd className="mt-2 font-bold text-foreground">{NFT_NETWORK_LABELS[nft.network]}</dd>
-          </div>
-          {nft.attributes.map((attribute) => (
-            <div key={attribute.label} className="rounded-lg bg-surface-card p-4">
-              <dt className="text-xs">{attribute.label}</dt>
-              <dd className="mt-2 font-bold text-foreground">{attribute.value}</dd>
-            </div>
-          ))}
-        </dl>
+        <DetailTabTrigger value="details">Detalhes do NFT</DetailTabTrigger>
+        <DetailTabTrigger value="reviews">
+          <span className="md:hidden">Avaliações ({nft.rating.count})</span>
+          <span className="hidden md:inline">
+            Avaliações de colecionadores ({nft.rating.count})
+          </span>
+        </DetailTabTrigger>
+      </TabsList>
+      <TabsContent value="details">
+        <DetailFacts nft={nft} />
       </TabsContent>
-      <TabsContent value="reviews" className="space-y-3 border-t py-6">
-        <p className="text-title">★ {nft.rating.average} de 5</p>
+      <TabsContent value="reviews" className="space-y-3 py-6">
+        <div className="flex items-center gap-3">
+          <RatingStars rating={nft.rating} />
+          <p className="text-title">{nft.rating.average} de 5</p>
+        </div>
         <p className="text-sm text-text-secondary">
           {nft.rating.count} avaliações. Avaliações individuais indisponíveis nesta demonstração.
         </p>

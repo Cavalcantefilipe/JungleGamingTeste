@@ -15,7 +15,7 @@ export function NftDetailPage({ nft }: { nft: Nft }) {
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[506px] bg-detail-gradient md:hidden"
       />
       <DetailMobileNavigation nft={nft} />
-      <p className="mb-8 hidden text-xs text-text-secondary md:block">Início / Mercado</p>
+      <p className="mb-3 hidden text-body-sm font-bold md:block">Início / Mercado</p>
       <div className="grid items-start gap-0 lg:grid-cols-[573px_minmax(0,1fr)] lg:gap-8">
         <Gallery key={nft.id} images={nft.images} />
         <DetailSummary nft={nft} />

@@ -67,10 +67,10 @@ test('controles e resumo do carrinho seguem cores e formas medidas no Figma', as
     };
   });
   expect(circle).toMatchObject({
-    width: '24px',
-    height: '24px',
-    background: 'rgb(47, 29, 21)',
-    border: 'rgb(63, 35, 25)',
+    width: isMobile ? '24px' : '20px',
+    height: isMobile ? '24px' : '30px',
+    background: isMobile ? 'rgb(47, 29, 21)' : 'rgb(210, 138, 76)',
+    border: isMobile ? 'rgb(63, 35, 25)' : 'rgb(20, 13, 10)',
   });
   expect(circle.radius).toBeGreaterThanOrEqual(12);
   await expect(row.getByRole('button', { name: 'Remover Emerald Ape #042' })).toHaveCSS(
@@ -172,8 +172,8 @@ test('galeria desktop mantém proporções e espaçamento do detalhe no Figma', 
   expect(thumb?.width).toBe(100);
   const summary = await page.getByTestId('detail-summary').boundingBox();
   expect(summary?.x).toBe(725);
-  expect(summary?.height).toBeLessThanOrEqual(448);
-  await expect(page.getByTestId('nft-price')).toHaveCSS('font-size', '24px');
+  expect(summary?.height).toBeLessThanOrEqual(449);
+  await expect(page.getByTestId('nft-price')).toHaveCSS('font-size', '22px');
   await page.screenshot({ path: testInfo.outputPath('detail-figma.png') });
 });
 

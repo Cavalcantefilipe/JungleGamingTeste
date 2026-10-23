@@ -14,14 +14,19 @@ const buttonVariants = cva(
         filter: 'bg-filter-gradient text-ink hover:brightness-110 active:brightness-95',
         favorite:
           'relative rounded-full bg-transparent text-primary before:pointer-events-none before:absolute before:size-7 before:rounded-full before:bg-surface-dark hover:before:bg-surface-raised active:before:bg-border [&_svg]:relative [&_svg]:size-3.5',
+        'detail-round':
+          'relative rounded-full bg-transparent text-text-accent before:pointer-events-none before:absolute before:size-[35px] before:rounded-full before:border before:border-border before:bg-surface-raised hover:before:bg-border-soft active:before:bg-border [&_svg]:relative',
+        'favorite-label':
+          'rounded-control border border-primary bg-transparent text-text-accent hover:bg-surface-raised active:bg-border aria-pressed:bg-surface-raised',
+        zoom: 'relative rounded-full text-foreground before:pointer-events-none before:absolute before:size-[30px] before:rounded-full before:border before:border-border before:bg-surface-raised hover:before:bg-border-soft active:before:bg-border [&_svg]:relative',
         quantity:
-          'relative rounded-full text-ink before:pointer-events-none before:absolute before:size-6 before:rounded-full before:bg-primary hover:before:bg-primary-light active:before:bg-primary-dark',
+          'relative rounded-full text-ink before:pointer-events-none before:absolute before:h-[30px] before:w-5 before:rounded-full before:border before:border-ink before:bg-primary lg:before:h-[50px] lg:before:w-[33px] hover:before:bg-primary-light active:before:bg-primary-dark',
         'quantity-cart':
-          'relative rounded-full text-foreground before:pointer-events-none before:absolute before:size-6 before:rounded-full before:border before:border-border before:bg-surface-raised hover:before:bg-border-soft active:before:bg-border',
+          'relative rounded-full text-foreground before:pointer-events-none before:absolute before:size-6 before:rounded-full before:border before:border-border before:bg-surface-raised hover:before:bg-border-soft active:before:bg-border md:text-ink md:before:h-[30px] md:before:w-5 md:before:border-ink md:before:bg-primary md:hover:before:bg-primary-light md:active:before:bg-primary-dark',
         remove:
           'rounded-full text-primary md:text-secondary hover:bg-surface-raised hover:text-primary-light active:bg-border active:text-primary-dark',
         edition:
-          'rounded-full border border-border bg-transparent text-text-secondary hover:border-primary-light active:bg-surface-raised aria-pressed:border-primary aria-pressed:text-text-accent',
+          'relative rounded-full bg-transparent font-normal text-text-secondary before:pointer-events-none before:absolute before:inset-x-1 before:h-7 before:rounded-[50%] before:border before:border-border hover:before:border-primary-light active:before:bg-surface-raised aria-pressed:font-medium aria-pressed:text-text-accent aria-pressed:before:border-primary md:before:inset-x-0',
         basket:
           'rounded-full border border-border bg-surface-raised text-text-secondary hover:bg-border-soft active:bg-border',
         danger: 'bg-error text-white hover:bg-error/80 active:bg-error/70',
@@ -36,9 +41,12 @@ const buttonVariants = cva(
       },
       size: {
         quantity: 'size-11 p-0',
+        'quantity-purchase': 'size-11 p-0 lg:h-[50px]',
+        'favorite-label': 'h-10 w-[130px] gap-2 px-3 text-sm font-medium',
+        header: 'h-11 gap-1 rounded-control px-2 text-base font-medium md:h-[35px] md:w-[100px]',
         form: 'min-h-11 px-6 text-xs font-bold md:min-h-10',
         'footer-social': 'size-11 rounded-control p-0 text-primary md:size-8',
-        edition: 'min-h-11 rounded-full px-3 text-xs md:min-h-7 md:px-2',
+        edition: 'min-h-11 min-w-11 rounded-full px-2 text-sm md:min-h-7 md:min-w-0 md:px-1',
         auth: 'h-[60px] rounded-xl px-6 text-base font-bold md:h-[45px] md:rounded-control',
         social: 'h-11 rounded-control px-4 text-xs text-text-secondary md:h-10',
         checkout: 'h-[60px] rounded-[40px] px-6 font-bold md:h-10 md:rounded-control',
@@ -50,6 +58,7 @@ const buttonVariants = cva(
         sm: 'h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5',
         lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',
         icon: 'size-11 sm:size-10',
+        'detail-icon': 'size-11',
         'icon-xs': "size-6 rounded-md [&_svg:not([class*='size-'])]:size-3",
         'icon-sm': 'size-8',
         'icon-lg': 'size-10',

@@ -12,8 +12,8 @@ export function EditionPicker({
 }) {
   return (
     <fieldset>
-      <legend className="mb-2 text-sm leading-4 font-bold">Edição:</legend>
-      <div className="flex flex-wrap gap-2">
+      <legend className="mb-0 text-body-sm font-bold md:mb-2">Edição:</legend>
+      <div className="flex flex-wrap gap-1 md:gap-1.5">
         {editions.map((edition) => (
           <Button
             key={edition.id}

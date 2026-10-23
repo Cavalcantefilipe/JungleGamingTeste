@@ -24,9 +24,9 @@ export function HeaderAccount() {
           <AccountMenu session={session} />
         </Suspense>
       ) : (
-        <Button asChild>
+        <Button asChild size="header">
           <Link to="/login" search={{ returnTo: '/' }}>
-            <FigmaIcon name="logout" size={24} aria-hidden="true" />
+            <FigmaIcon name="logout" size={20} aria-hidden="true" />
             <span>Entrar</span>
           </Link>
         </Button>

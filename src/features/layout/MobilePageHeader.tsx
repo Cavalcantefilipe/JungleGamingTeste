@@ -20,9 +20,14 @@ export function MobilePageHeader({
         align === 'start' && 'mx-1 justify-start',
       )}
     >
-      <Button asChild size="icon" variant="secondary" className="absolute left-0 rounded-full">
+      <Button
+        asChild
+        size="detail-icon"
+        variant="detail-round"
+        className="absolute left-0 text-text-secondary"
+      >
         <Link to={backTo} aria-label="Voltar">
-          <FigmaIcon name="chevron-left" aria-hidden="true" />
+          <FigmaIcon name="chevron-left" size={20} />
         </Link>
       </Button>
       <h1

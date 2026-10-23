@@ -7,19 +7,23 @@ export function HeaderNavigation({ marketActive }: { marketActive: boolean }) {
   return (
     <nav
       aria-label="Menu principal"
-      className="hidden items-center gap-10 text-base leading-4 lg:flex"
+      className="hidden items-center gap-10 text-base leading-4 lg:flex xl:-translate-x-6"
     >
       <Link
         to="/"
         activeOptions={{ exact: true }}
-        activeProps={{ className: 'text-primary underline underline-offset-[14px]' }}
+        activeProps={{
+          className:
+            'font-bold text-text-accent underline decoration-primary decoration-[3px] underline-offset-[20px]',
+        }}
       >
         Início
       </Link>
       <a
         className={cn(
           'py-3 hover:text-primary',
-          marketActive && 'text-primary underline underline-offset-[14px]',
+          marketActive &&
+            'font-bold text-text-accent underline decoration-primary decoration-[3px] underline-offset-[20px]',
         )}
         aria-current={marketActive ? 'page' : undefined}
         href="/#catalogo"

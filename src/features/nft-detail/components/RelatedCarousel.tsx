@@ -19,8 +19,8 @@ export function RelatedCarousel({ nft }: { nft: Nft }) {
   if (!related.length) return null;
   return (
     <section className="mt-16">
-      <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-title font-bold">Mais desta coleção</h2>
+      <div className="mb-8 flex items-center justify-between border-b border-border">
+        <h2 className="text-[17px] font-bold text-text-accent">Mais desta coleção</h2>
         <div className="flex gap-2">
           <Button
             variant="ghost"

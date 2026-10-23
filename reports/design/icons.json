@@ -2,7 +2,7 @@
   "figma": "https://www.figma.com/design/Ff0SksUi7UFtPWUO8kyNtw/Frontend-Challenge",
   "exportedAt": "2026-10-23",
   "asset": "public/images/ui/figma-icons.svg",
-  "sha256": "8d18fdfac6a74874795d88d10b534dfe2915c99599aa05cdb4f9c82f44b1e50d",
+  "sha256": "7fadb81ac32878cd0caef9a1d5bb2e1c1a3d5771afb6c8fd12a5f74d6e046101",
   "normalization": "Original paths retained; individual icon frames centered in viewBox; visible fill/stroke use currentColor. Heart background belongs to the button and is omitted.",
   "icons": [
     {
@@ -148,6 +148,36 @@
       "source": "desktop-cart",
       "layer": "Iconly/Curved/Delete",
       "viewBox": "854.5 192 24 24"
+    },
+    {
+      "name": "star-desktop",
+      "source": "desktop-detail",
+      "layer": "Iconly/Bold/Star",
+      "viewBox": "945 180.5 15 15"
+    },
+    {
+      "name": "heart-detail",
+      "source": "desktop-detail",
+      "layer": "heart 1",
+      "viewBox": "1203 410 20 20"
+    },
+    {
+      "name": "linkedin",
+      "source": "desktop-detail",
+      "layer": "Linkedin",
+      "viewBox": "932 560.5 15 15"
+    },
+    {
+      "name": "mail",
+      "source": "desktop-detail",
+      "layer": "Message",
+      "viewBox": "956.5 560.5 15 15"
+    },
+    {
+      "name": "twitter",
+      "source": "desktop-detail",
+      "layer": "Twitter",
+      "viewBox": "981 560 16 16"
     }
   ],
   "backgrounds": [

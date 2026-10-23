@@ -54,21 +54,23 @@ export function PurchasePanel({ nft }: { nft: Nft }) {
       <p className="sr-only">
         {available > 0 ? `${available} disponíveis nesta edição` : 'Esta edição está esgotada'}
       </p>
-      <div className="hidden items-center gap-2 lg:flex">
+      <div className="hidden flex-wrap items-center gap-2 lg:flex">
         <QuantityStepper value={quantity} max={available} onChange={setQuantity} />
         <PurchaseActions {...actions} />
         <FavoriteButton nftId={nft.id} name={nft.name} showLabel />
       </div>
       <div
         data-testid="mobile-purchase-bar"
-        className="fixed inset-x-0 bottom-0 z-40 space-y-4 rounded-t-[32px] bg-surface-card p-6 pb-[max(24px,env(safe-area-inset-bottom))] lg:hidden"
+        className="fixed inset-x-0 bottom-0 z-40 space-y-3 rounded-t-[32px] bg-surface-card p-6 pt-3.5 pb-[max(34px,env(safe-area-inset-bottom))] lg:hidden"
       >
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-1">
             <span className="text-sm text-text-secondary">Qtd.</span>
             <QuantityStepper value={quantity} max={available} onChange={setQuantity} />
           </div>
-          <span className="text-lg font-bold text-text-accent">{formatEth(nft.price)}</span>
+          <span className="text-lg font-bold whitespace-nowrap text-text-accent">
+            {formatEth(nft.price)}
+          </span>
         </div>
         <div className="flex gap-3">
           <PurchaseActions {...actions} />

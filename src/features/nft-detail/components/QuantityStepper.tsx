@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { cn } from '@/lib/cn';
 
 export function QuantityStepper({
   value,
@@ -18,7 +19,7 @@ export function QuantityStepper({
     <div className="inline-flex items-center">
       <Button
         variant={tone === 'cart' ? 'quantity-cart' : 'quantity'}
-        size="quantity"
+        size={tone === 'cart' ? 'quantity' : 'quantity-purchase'}
         aria-label="Diminuir quantidade"
         disabled={disabled || value <= 1}
         onClick={() => {
@@ -40,11 +41,14 @@ export function QuantityStepper({
         onChange={(event) => {
           onChange(Math.max(1, Math.min(max, Number(event.target.value) || 1)));
         }}
-        className="h-11 w-11 [appearance:textfield] rounded-none border-0 px-0 text-center text-sm shadow-none md:h-11 md:w-6 md:text-sm [&::-webkit-inner-spin-button]:appearance-none"
+        className={cn(
+          'h-11 w-11 [appearance:textfield] rounded-none border-0 px-0 text-center text-sm shadow-none md:h-11 md:w-6 md:text-sm [&::-webkit-inner-spin-button]:appearance-none',
+          tone === 'purchase' && 'text-xl md:text-xl',
+        )}
       />
       <Button
         variant={tone === 'cart' ? 'quantity-cart' : 'quantity'}
-        size="quantity"
+        size={tone === 'cart' ? 'quantity' : 'quantity-purchase'}
         aria-label="Aumentar quantidade"
         disabled={disabled || value >= max}
         onClick={() => {

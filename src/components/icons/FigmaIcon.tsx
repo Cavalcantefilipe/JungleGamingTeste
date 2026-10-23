@@ -19,6 +19,11 @@ export type FigmaIconName =
   | 'chevron-left'
   | 'heart'
   | 'star'
+  | 'star-desktop'
+  | 'heart-detail'
+  | 'linkedin'
+  | 'mail'
+  | 'twitter'
   | 'user'
   | 'location'
   | 'activity'
@@ -29,6 +34,8 @@ export type FigmaIconName =
   | 'delete';
 
 const iconSizes = {
+  12: 'size-3',
+  15: 'size-[15px]',
   14: 'size-3.5',
   16: 'size-4',
   18: 'size-4.5',
