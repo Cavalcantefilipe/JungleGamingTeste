@@ -1,5 +1,15 @@
 # Revisão de segurança e regras de negócio
 
+Estado vigente e gates consolidados: [QUALITY-REVIEW.md](QUALITY-REVIEW.md). Os achados abaixo preservam o histórico das correções; não representam uma nova certificação de segurança a cada atualização documental.
+
+## Dependências — conferência final de 23/10/2026
+
+Uma nova consulta retornou **1 alerta alto de desenvolvimento**: [GHSA-mrhx-c7xc-m3w5](https://github.com/advisories/GHSA-mrhx-c7xc-m3w5), na cadeia `lighthouse → puppeteer-core → chromium-bidi → zod@3.25.76`. A aplicação já usava Zod 4.6.7 e o audit de produção estava zerado. O advisory foi atualizado em 23/10; o resultado zero registrado anteriormente era pontual.
+
+O driver Puppeteer passou de 25.9.0 para 25.13.0, dentro da faixa declarada pelo Lighthouse 13.5.0. Essa versão usa chromium-bidi 157.0.8090-0 com Zod 4.6.7 resolvido pelo lockfile. Não houve override de Zod 3 para 4, exclusão de advisory ou redução de severidade. Os audits completo e de produção passaram a **zero alertas**. [Antes](../reports/quality/audit-before.json), [depois](../reports/quality/audit.json), [produção](../reports/quality/audit-production.json). A validação do driver e seus relatórios estão em [LIGHTHOUSE.md](LIGHTHOUSE.md).
+
+## Histórico da revisão de código
+
 Data: **23/10/2026**. Escopo: branch `feat/kurio-execucao`, código da aplicação e testes locais. Referências: [OWASP Top 10:2025](https://top10.owasp.org/2025/0x00_2025-Introduction/) e [API1:2023 — BOLA](https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/). Nenhum ativo externo foi atacado.
 
 ## Conclusão e limite principal

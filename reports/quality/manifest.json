@@ -1,0 +1,86 @@
+{
+  "createdAt": "2026-10-23T23:45:04.036278+00:00",
+  "codeCommit": "f5dd2fda1ca9e6fd53902710b00232070ea9720a",
+  "applicationCommit": "c222cd0",
+  "refactorCommit": "514d0fc",
+  "manualZoom": {
+    "baseCommit": "514d0fc",
+    "uncommittedAtCapture": [
+      "sm:max-w-none in AuthDialog.tsx",
+      "sm:max-w-none in OrderReceiptModal.tsx"
+    ],
+    "capturedBeforeFocusFix": true,
+    "browser": "Chrome",
+    "zoomPercent": 200,
+    "nativeZoom": true,
+    "viewportCssWidth": 756,
+    "captures": {
+      "zoom-cart.png": "298e5949efaf8456f5ca2b0545170823ec02a173f62603967f0ad1946717fddc",
+      "zoom-checkout.png": "a998df34be67c6ee8ffd937296e81e418d3a55820d5ea3da97532bc756389362",
+      "zoom-detail.png": "5f7a8196055c6e689b506d72f5a431579a6fa0c0a6c0688024ae5fdabd248f18",
+      "zoom-home.png": "83cafcafa7ca88d8807553843019d065a1518678a58c833e6939f485bff8f12f",
+      "zoom-login.png": "fee7d6288c7528364813ecca26fdc4e9007cd68e1d3bba99ce5b652166ffaa3f",
+      "zoom-profile.png": "94c07d74fd0a03217f9229c185a2fad0b81230dafc97716e1b03a7d61ad9b433",
+      "zoom-receipt.png": "2cb906a1087e1b8530e438e7b9b7a40a063ffb06eba1114ad2ecd0aecd0150e2",
+      "zoom-register.png": "def5d8260a1bdfc097c7444bbc9f1b6ecd19f59f3e22c2258559f4c0699c0691",
+      "zoom-wallets.png": "516b1a87f5fe859b8eb14bfdae031ced999064cf69ce41bef04e9da0fa42cff5"
+    }
+  },
+  "sourceSha256": {
+    "src/features/auth/components/AuthDialog.tsx": "d081594734338ae013eea0b2f632cc2d9b6f8abc29c4468a3cf8567ac94a2759",
+    "src/features/orders/components/OrderReceiptModal.tsx": "faaa62a0201e0c4e55bf396f093f7b3d388899560be656c91c5de2b7b7a267b9",
+    "src/lib/focusClickedElement.ts": "4a9083fa1ad594ead2f9b8e82bcad4e764c47307936a6c42be52b8a067089286",
+    "src/mocks/shared/stock-reservations.test.ts": "601ecf710132233055ff601f97a6f5864141c2a89cb2b61b8e1a4a408fc4ab17",
+    "playwright.compat.config.ts": "aa36f1ab20e00765ffe5523d88b19368c62ba958c2e2d64e3223677a5da6534a",
+    "e2e/25-dialog-reflow.spec.ts": "ca7fa3db2d8b10670dafcc85a7c0ee6430afd44091bfd4b8929c36e6a7e30677",
+    "e2e/11-a11y-keyboard.spec.ts": "9cfe35526b7c3c10328bddcded92ac24393274f7e406a15b6b852b34d86903f6",
+    "pnpm-lock.yaml": "62ba68991e7aa34e81be41198d07bc9782a2c346ea5d334a9060b1d4bae09dea",
+    "pnpm-workspace.yaml": "52a34cab5a4c26b0eb919cfd05cb7ea2545f61182c8bb951975b477c09e7ba30"
+  },
+  "baselineLighthouse": {
+    "deploymentId": "22a2d53d-bb1a-4d78-a29c-d5384cc664cb",
+    "commit": "c3b52547294db5fcccb7f6f1b0cb855634ee1d74",
+    "summary": "../lighthouse-final-baseline/summary.json",
+    "puppeteerCore": "25.9.0"
+  },
+  "driverSmoke": {
+    "lighthouse": "13.5.0",
+    "puppeteerCore": "25.13.0",
+    "runtimeError": null,
+    "exitCode": 0,
+    "purpose": "Validação técnica do driver; uma execução não representa mediana nem resultado final de performance."
+  },
+  "independentReview": "Leitura de código aprovada; execuções realizadas pelo executor. Favoritos incluídos na suíte de compatibilidade após recomendação.",
+  "limitations": [
+    "VoiceOver inconclusivo; fala não validada.",
+    "WebKit emulado, sem certificação em iPhone físico.",
+    "MSW no mesmo runtime; sem garantias de banco compartilhado.",
+    "Baselines de Figma preservam o checkpoint 242294b."
+  ],
+  "deployment": {
+    "checkedAt": "2026-10-23T23:49:49.275Z",
+    "origin": "https://kurio-production-8274.up.railway.app",
+    "commit": "f5dd2fda1ca9e6fd53902710b00232070ea9720a",
+    "deploymentId": "2b5f6e07-fb05-4cea-ba08-6eb70f08e0ff",
+    "status": "SUCCESS",
+    "remoteHtmlSha256": "67c2da3d87b26ccd43a1203c099df2e17bf6d11dd1e7be01a6fc7df9d88543a8",
+    "localHtmlSha256": "67c2da3d87b26ccd43a1203c099df2e17bf6d11dd1e7be01a6fc7df9d88543a8",
+    "identicalHtml": true
+  },
+  "finalLighthouse": {
+    "summary": "../lighthouse-final/summary.json",
+    "measuredAt": "2026-10-23T23:53:47.578Z",
+    "puppeteerCore": "25.13.0",
+    "exitCode": 0,
+    "runs": 12
+  },
+  "evidenceSha256": {
+    "audit.json": "e18b703db28f8f02358cd007bc2adcc31508d4ea113e09941e35aef2a49fabd0",
+    "manual-zoom.json": "485e934eaaae21863df90eeaae99ff6051d715fdda1bd39556c511921fbc034e",
+    "deployment.json": "01df6ed2cd83f71d053dfcb946172e9ede23c4c69297665972edd6024a1caabe",
+    "audit-production.json": "4c1c348bc96c800504ba039171587409bcccad587d931804d98472937d604499",
+    "test-runs.json": "864cb46dadfd0e9c37a9dd61c847ae7a08efab6c650b747f73e62f92cb17c581",
+    "driver-smoke.report.json": "380c96e8dd7c3950e195d8c278c71458b4aa706de8740ba42848c8b5b5610d68",
+    "audit-before.json": "3240b664be087352a3a70b4cb93c61b9cda7724ce9aab1945e8bb89f6a14416e"
+  }
+}

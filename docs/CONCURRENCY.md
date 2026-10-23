@@ -31,6 +31,18 @@ A troca de senha compara novamente o hash observado antes da gravação. Duas al
 
 `src/mocks/shared/concurrency.test.ts` cobre vinte chamadas simultâneas por chave, disputa de estoque, conflito de corpos, expiração, indisponibilidade durante pagamento, liberação de reserva, confirmação repetida e falhas de gravação/merge. `auth-concurrency.test.ts` cobre rajada de login e cadastros concorrentes. Os testes de handlers verificam a troca simultânea de senha pela API REST real do MSW.
 
+## Disputa explícita: 5 + 7 unidades, estoque 10
+
+`src/mocks/shared/stock-reservations.test.ts` acrescenta quatro testes com sessões/carteiras distintas de Ana e Bruno. Gates na etapa assíncrona de hash mantêm ambas as requisições pendentes antes de liberar os commits em cada ordem.
+
+- Se 5 reserva primeiro, 7 recebe `409 UNAVAILABLE`; se 7 reserva primeiro, 5 recebe o mesmo conflito.
+- Há somente um pedido pendente. O estoque físico continua em 10 até a confirmação, enquanto a disponibilidade considera a reserva.
+- Confirmar reduz para 5 ou 3; repetir a confirmação não debita novamente.
+- Recusar libera as 10 unidades; o outro usuário consegue repetir a intenção e confirmar.
+- A mesma UUID em duas contas continua escopada pelo usuário, sem recuperar o pedido alheio.
+
+Esses testes demonstram as invariantes no mesmo store MSW. Não simulam dois dispositivos compartilhando banco externo.
+
 ## Alcance
 
 Esta implementação não coordena processos, máquinas ou abas diferentes. Isso acompanha o escopo de simulação do desafio. Um backend externo precisaria transferir essas invariantes para transações do banco, restrições únicas e bloqueios/controle de versão no armazenamento compartilhado; um mutex isolado por processo não ofereceria essa garantia.

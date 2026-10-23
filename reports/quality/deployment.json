@@ -1,0 +1,10 @@
+{
+  "checkedAt": "2026-10-23T23:49:49.275Z",
+  "origin": "https://kurio-production-8274.up.railway.app",
+  "commit": "f5dd2fda1ca9e6fd53902710b00232070ea9720a",
+  "deploymentId": "2b5f6e07-fb05-4cea-ba08-6eb70f08e0ff",
+  "status": "SUCCESS",
+  "remoteHtmlSha256": "67c2da3d87b26ccd43a1203c099df2e17bf6d11dd1e7be01a6fc7df9d88543a8",
+  "localHtmlSha256": "67c2da3d87b26ccd43a1203c099df2e17bf6d11dd1e7be01a6fc7df9d88543a8",
+  "identicalHtml": true
+}

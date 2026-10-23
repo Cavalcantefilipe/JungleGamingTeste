@@ -1,5 +1,7 @@
 # Revisão final do código
 
+Este documento preserva revisões históricas e seus limites na data de cada checkpoint. Publicação, Lighthouse, lint, compatibilidade e zoom vigentes estão consolidados em [QUALITY-REVIEW.md](QUALITY-REVIEW.md). Referências antigas a publicação pendente ou alertas abertos descrevem aquele checkpoint.
+
 Revisão por outro agente com contexto novo, somente leitura, da implementação completa `a8846d1..e365f97`, em 23/10/2026. O revisor examinou enunciado, plano, decisões, contratos, fluxos, mocks, cache/socket, configuração e testes; não executou testes nem acessou alvos externos. Uma única rodada de correção foi realizada pelo executor com regressões antes/depois.
 
 ## Achados e tratamento

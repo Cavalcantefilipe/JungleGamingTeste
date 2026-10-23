@@ -1,0 +1,102 @@
+{
+  "browser": "Chrome",
+  "zoomPercent": 200,
+  "method": "Zoom nativo do navegador, confirmado no controle Zoom: 200%; sem CSS zoom ou emulação de viewport.",
+  "screens": [
+    {
+      "name": "checkout",
+      "clientWidth": 748,
+      "devicePixelRatio": 4,
+      "dialog": null,
+      "path": "/checkout",
+      "scrollWidth": 748,
+      "width": 756
+    },
+    {
+      "name": "receipt",
+      "clientWidth": 756,
+      "devicePixelRatio": 4,
+      "dialog": {
+        "left": 0,
+        "width": 756
+      },
+      "path": "/orders/d82c3f67-a35e-4b60-9928-b2017719b9de",
+      "scrollWidth": 756,
+      "width": 756
+    },
+    {
+      "name": "profile",
+      "clientWidth": 748,
+      "devicePixelRatio": 4,
+      "dialog": null,
+      "path": "/account/profile",
+      "scrollWidth": 748,
+      "width": 756
+    },
+    {
+      "name": "wallets",
+      "clientWidth": 748,
+      "devicePixelRatio": 4,
+      "dialog": null,
+      "path": "/account/wallets",
+      "scrollWidth": 748,
+      "width": 756
+    },
+    {
+      "name": "register",
+      "clientWidth": 756,
+      "devicePixelRatio": 4,
+      "dialog": {
+        "left": 0,
+        "width": 756
+      },
+      "path": "/register",
+      "scrollWidth": 756,
+      "width": 756
+    },
+    {
+      "name": "login",
+      "clientWidth": 756,
+      "devicePixelRatio": 4,
+      "dialog": {
+        "left": 0,
+        "width": 756
+      },
+      "path": "/login",
+      "scrollWidth": 756,
+      "width": 756
+    },
+    {
+      "name": "home",
+      "clientWidth": 748,
+      "devicePixelRatio": 4,
+      "dialog": null,
+      "path": "/",
+      "scrollWidth": 748,
+      "width": 756
+    },
+    {
+      "name": "detail",
+      "clientWidth": 748,
+      "devicePixelRatio": 4,
+      "dialog": null,
+      "path": "/nfts/nft-002",
+      "scrollWidth": 748,
+      "width": 756
+    },
+    {
+      "name": "cart",
+      "clientWidth": 748,
+      "devicePixelRatio": 4,
+      "dialog": null,
+      "path": "/cart",
+      "scrollWidth": 748,
+      "width": 756
+    }
+  ],
+  "screenReader": {
+    "status": "inconclusivo",
+    "reason": "VoiceOver não se manteve ativo após a abertura pelo macOS; fala não validada.",
+    "restoredOff": true
+  }
+}

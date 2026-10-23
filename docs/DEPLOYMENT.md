@@ -1,5 +1,7 @@
 # Publicação na Railway
 
+O deployment e o commit vigentes, com as verificações finais, estão em [QUALITY-REVIEW.md](QUALITY-REVIEW.md). Os IDs abaixo preservam o histórico da publicação e as instruções de reprodução.
+
 Railway foi escolhida pelo usuário em 23/10/2026. O GitHub público usa a branch `main`. A aplicação continua sendo a demonstração MSW descrita no README: não exige banco, volume nem servidor Socket.IO remoto.
 
 ## Aplicação publicada

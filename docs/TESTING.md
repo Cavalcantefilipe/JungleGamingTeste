@@ -1,24 +1,29 @@
 # Testes e verificações
 
-## Resultado atual — revisão de performance e Figma
-
-23/10/2026: `pnpm check` passou com **109 unitários em 28 arquivos e 6 testes Node de ferramentas**, além de tipos, lint sem erros e formatação. Build válido. Suíte Playwright completa: **210 aprovados/10 skips explícitos por viewport**, em 4,6 minutos, sem retries. Capturas de conferência separadas: **2/2**, cobrindo 18 estados em 1440 e 414 px; [15 referências originais e capturas](../reports/design/README.md).
-
-`pnpm test:tooling` valida mediana/assertions (resultado abaixo da meta falha, coleta incompleta/runtime error não gera aprovação), integridade Brotli, negociação HTTP, fallback sem compressão, cache do worker, arquivos de um build novo e limpeza apenas dos relatórios gerados. O teste de geometria mobile também usa o tamanho original 414 px, verifica desnível de 32 px e conserva alvos de 44 px. O teste do rodapé mede contêiner/link no mesmo frame para evitar que uma mudança de altura da página entre duas leituras produza um diagnóstico falso.
-
-O clone do código de aplicação `8b314b1` também passou instalação frozen, check (109 + 5 naquele checkpoint), build e 210 E2E/10 skips em 4,8 minutos. A revisão `87e20f0` modifica apenas o driver da auditoria e a retenção dos arquivos de relatório; tem seis testes Node e conserva a mesma aplicação. O hash do HTML foi idêntico ao worktree. As seções de checkpoints anteriores identificam os commits históricos; estes números não são uma alegação de nova certificação de segurança. [Resultado Lighthouse](LIGHTHOUSE.md).
+O resultado vigente, os commits publicados e as limitações estão em [QUALITY-REVIEW.md](QUALITY-REVIEW.md). As contagens de rodadas anteriores foram preservadas em [TESTING-HISTORY.md](TESTING-HISTORY.md), com os respectivos checkpoints.
 
 ## Executar
 
 ```sh
 pnpm install --frozen-lockfile
-pnpm exec playwright install chromium
+pnpm exec playwright install chromium firefox webkit
 pnpm check
 pnpm build
 pnpm e2e
+pnpm e2e:compat
 ```
 
-O worker MSW está versionado em `public/mockServiceWorker.js`. Os testes usam as APIs e o transporte Socket.IO interceptados; não dependem de uma blockchain ou servidor externo. Use Node 24 e pnpm 11. O Playwright inicia o preview em 4175, ou reutiliza um preview existente fora da CI. Não rode duas suítes Playwright simultâneas no mesmo checkout: elas compartilham relatório e artefatos.
+Node 24 e pnpm 11. O worker MSW está versionado. REST e Socket.IO são interceptados; não dependem de API, blockchain ou banco externos. `pnpm lint` usa `--max-warnings=0`: avisos também reprovam o gate. `pnpm check` inclui tipos, lint, formatação, Vitest e testes Node das ferramentas.
+
+O preview usa 4175. Fora da CI, o Playwright pode reutilizar o preview existente; em CI ele inicia o próprio servidor. `E2E_BASE_URL` permite verificar um deploy existente. Rode uma única suíte Playwright por vez no checkout e faça build após mudar a aplicação.
+
+## Projetos
+
+- `pnpm e2e`: Chromium desktop 1440×900 e mobile 390×844, suíte completa com baselines.
+- `pnpm e2e:compat`: Firefox desktop 1440×900 e WebKit mobile 390×844; cenários `00`–`11` e `25`, incluindo favoritos. Baselines de Chromium não são reutilizados entre engines.
+- WebKit automatizado não equivale a um teste em iPhone físico/Safari instalado.
+
+As fixtures aguardam o destino renderizado após login/compra; mudança da URL sozinha pode preceder o commit visual da navegação SPA. Não há espera fixa nem retry automático para encobrir falhas. O teste de pedido pendente controla o relógio e a confirmação autoritativa. No WebKit/macOS, o percurso completo de teclado usa Option+Tab, preservando as preferências do sistema ([comportamento documentado no projeto Playwright](https://github.com/microsoft/playwright/issues/41808)).
 
 ## Cobertura
 
@@ -56,67 +61,26 @@ Atualize referências somente após conferir a alteração no Figma e inspeciona
 
 A referência é o [Figma do desafio](https://www.figma.com/design/Ff0SksUi7UFtPWUO8kyNtw/Frontend-Challenge). Medidas, assets originais e adaptações funcionais estão em [DESIGN-REVIEW.md](DESIGN-REVIEW.md). Não se gera baseline para simplesmente aceitar uma diferença desconhecida.
 
+## Cobertura acrescentada na conferência final
+
+- `22`: tokens/gradientes e favoritos por hover, foco e toque.
+- `23`–`24`: conferência de detalhes por tela e captura dos estados de referência.
+- `25`: login/cadastro em 640, 720 e 767 px e recibo em 720 px; largura total, ação final alcançável e erros visíveis.
+- `stock-reservations.test.ts`: quatro cenários de dois usuários comprando 5 e 7 de estoque 10, com ambas as ordens de chegada, confirmação única e liberação após recusa.
+- Zoom nativo de 200% no Chrome: nove telas/estados, medições e PNGs em `reports/quality/`. O teste `25` é reflow por viewport; não substitui essa verificação manual.
+
 ## Artefatos e limites
 
-Relatório HTML em `reports/playwright-report` e traces/screenshots de falha em `test-results` são locais e ignorados pelo Git. Baselines e relatórios de segurança/performance aprovados são versionados. [SECURITY-REVIEW.md](SECURITY-REVIEW.md) descreve os testes de segurança e o limite do backend simulado; [DATA-PERFORMANCE.md](DATA-PERFORMANCE.md) contém a medição da persistência. Um browser mock não oferece garantias de banco compartilhado ou backend de produção.
+Relatórios locais HTML: `reports/playwright-report` e `reports/playwright-compat`. Traces/screenshots de falha ficam em `test-results` ou no diretório escolhido por `--output`. Esses artefatos temporários são ignorados pelo Git; baselines, resumos e evidências selecionadas são versionados.
 
-## Gate de Lighthouse
+Axe, teclado, geometria e zoom complementam-se. A tentativa de VoiceOver ficou inconclusiva e não é contada como aprovação de leitor de tela. Veja [QUALITY-REVIEW.md](QUALITY-REVIEW.md). Os testes de sessão/compra exercitam a simulação: não certificam banco compartilhado ou backend de produção.
 
-`pnpm build && pnpm lighthouse` coleta três execuções por página/perfil e guarda HTML/JSON versionados. O comando conserva saída não zero quando uma mediana não atinge a meta. Consulte [LIGHTHOUSE.md](LIGHTHOUSE.md) para o resultado real; não trate a existência dos relatórios como aprovação. Evite concorrência de testes/build durante a coleta.
+## Lighthouse e dependências
 
-## Resultado da revisão final local
+```sh
+pnpm lighthouse
+pnpm audit
+pnpm audit --prod
+```
 
-Depois da rodada única de correção: `pnpm check` com 106 unitários em 27 arquivos, build válido e Playwright com 203 aprovados/9 skips explícitos. O teste de teclado aguarda o conteúdo autoritativo da página 2 antes de navegar pelos novos cards: a URL muda antes dos dados por causa de keepPreviousData. Nenhuma espera fixa ou retry automático foi adicionado para encobrir falhas.
-
-## Clone limpo verificado
-
-Em 23/10/2026, um novo clone de `52bdb86cd91562a26530e69a1cbd66db67256ce3` passou `pnpm install --frozen-lockfile`, `pnpm check` (106), `pnpm build` e `CI=true pnpm e2e` (203/9 skips). A porta 4175 foi servida pelo próprio clone, com reuse desativado; o preview anterior foi restaurado ao terminar. `pnpm lighthouse` executou 12 auditorias e retornou 1 para Performance mobile 89/88, com as outras categorias em 100. Veja [LIGHTHOUSE.md](LIGHTHOUSE.md) para a limitação quantitativa; essa etapa não foi registrada como Lighthouse verde.
-
-## Atualização de comportamento posterior ao clone
-
-A revisão solicitada pelo usuário acrescentou o cadastro válido com merge/refresh/logout/login e a vinculação da compra ao endereço revisado. O teste `20` aguarda a latência registrada pelo MSW antes de editar a carteira por API autenticada; não depende apenas do evento de início de request nem usa sleep. A validação de domínio anterior criou um pedido para endereço diferente mesmo após reconectar: duas regressões falharam antes e passaram depois da correção. O terceiro unitário preserva replay de pedido antigo sem endereço no payload. Resultados atuais e limites em [BEHAVIOR-REVIEW.md](BEHAVIOR-REVIEW.md); os registros acima continuam identificando o commit histórico realmente auditado.
-
-Verificação desta atualização: `pnpm check` com **109 unitários em 28 arquivos**, build válido e suíte completa Playwright com **209 aprovados/9 skips explícitos**. O novo cadastro mobile navega ao perfil para acessar logout, pois o carrinho mobile não apresenta o header. A primeira rodada registrou essa falha de seletor; após correção do teste, o caso focado e a suíte completa passaram.
-
-## Checkpoint final em clone limpo — 87e20f0
-
-Depois da fixação do driver e do teste de retenção de relatórios, o clone atualizado passou instalação frozen, `pnpm check` (**109 unitários + 6 testes Node**), build, `CI=true pnpm e2e` (**210 aprovados/10 skips, 4,7 minutos**) e Lighthouse (**12 execuções válidas, saída 0**). Aplicação e HTML mantêm o mesmo hash do checkpoint de UI `8b314b1`. Somente arquivos de relatório foram alterados pelos comandos; nenhuma mudança de código ocorreu no clone. O runtime do servidor de E2E foi verificado nesse diretório e o preview do worktree foi restaurado ao concluir.
-
-A primeira coleta do clone com Puppeteer 25.16.0 falhou no cleanup da 12ª execução, após 11 runs completos. A coleta inteira foi refeita com 25.9.0, base declarada do Lighthouse; [histórico](../reports/lighthouse/checkpoints/history.json). Não houve retry automático ou seleção de runs por nota. O ajuste da ferramenta não alterou os limites.
-
-## Publicação Railway — 23/10/2026
-
-O mesmo `Caddyfile` usado pelo Railpack foi validado com Caddy 2.11.7 local: **210 E2E aprovados/10 skips explícitos, em 4,6 minutos**. `E2E_BASE_URL` permite executar a suíte contra outro origin sem iniciar o preview; as asserções de retorno à Home agora respeitam essa base.
-
-No domínio [kurio-production-8274.up.railway.app](https://kurio-production-8274.up.railway.app), o build do commit `45cd7e1` passou **16 testes em 1,2 minuto**, oito em cada viewport: cadastro com carrinho, login com refresh, compra até o recibo, preço pelo socket sem novo REST, skeletons de catálogo/detalhe em rede lenta, CSP e recuperação isolada após logout. São contextos independentes com dados simulados. O caso CSP reaplica a política versionada; o script HTTP confere separadamente que a resposta pública já contém esses mesmos headers.
-
-`pnpm verify:deployment https://kurio-production-8274.up.railway.app` passou: navegação direta nas rotas SPA, HTML, headers reais, cache, integridade Brotli versus identity, worker, healthcheck e 404 sem HTML indevido. O build remoto usou Node 24.21.0, pnpm 11.18.0, Railpack 0.43.0 e Caddy 2.11.7 em Linux/amd64; as auditorias de navegador foram executadas no Mac local. [Publicação](DEPLOYMENT.md) e [Lighthouse público](LIGHTHOUSE.md).
-
-## Revisão de ícones, enquadramentos e textos mobile — 23/10/2026
-
-Suíte completa: **219 aprovados/15 skips explícitos, 4,7 minutos**; `pnpm check`: **109 unitários + 6 testes Node**, typecheck, lint sem erros e formatação válidos. Depois dos últimos ajustes decorativos de tamanho dos ícones e fundo adaptável do hero, os cenários visuais, geometria, imagens e matriz mobile foram reexecutados: **40 aprovados/10 skips explícitos**. As capturas atualizadas incluem 1440 × 900, 414 × 896 e 320 × 844. Os baselines foram comparados às referências e revistos visualmente.
-
-A regressão de recorte foi reproduzida primeiro em 320 px: nomes dos NFTs e título do rodapé. A navegação completa também revelou o recibo transbordando nessa largura. A revisão independente encontrou um indicador do hero coberto pelo bloco de texto; o teste agora clica nos três indicadores em cada largura.
-
-O lint passa a ignorar `test-results`, diretório de artefatos temporários já ignorado pelo Git. Isso evita tentar ler arquivos de trace enquanto o Playwright os remove, sem excluir testes ou código-fonte da análise. Esta rodada usa Chromium; não comprova renderização em Safari/Firefox nem pontuações Lighthouse do novo build.
-
-### Verificação pública da revisão mobile
-
-A aplicação de `cf36ac1`, publicada pelo deploy `529ec4be-9b97-48c4-86a9-0be6f31fbbe6` do commit documental `c1ce70f`, passou **10 testes de imagens/ícones em desktop e mobile** e **5 fluxos completos mobile em 320/360/375/390/414 px**. O script HTTP também passou; o HTML e os três SVGs conferidos têm bytes idênticos aos arquivos locais validados.
-
-Na primeira coleta pública a nova análise geométrica contou cartões fora da janela de um carrossel com rolagem horizontal como recortes. O teste foi corrigido para reconhecer contêineres roláveis, aguardar a coleção relacionada e clicar em “Próximos NFTs” até verificar cada título inteiro. Usar `scrollIntoViewIfNeeded` nesse caso disputava com `scroll-snap`; o fluxo final usa os controles reais e aguarda a posição visível. As cinco larguras passaram em 51,9 segundos, sem espera fixa nem retry automático. Essa correção altera apenas o teste, sem relaxar a verificação de textos truncados dentro dos cartões.
-
-## Tokens e refatoração do frontend — 23/10/2026
-
-Código da aplicação: `1b4551c`, incluindo o ajuste visual `e7b453d` e a refatoração do checkout `59a121a`.
-
-- `pnpm check`: aprovado; 109 unitários, 6 testes de ferramentas, zero erros de lint e 41 avisos anteriores restantes (58 antes da refatoração).
-- `pnpm build`: aprovado.
-- `pnpm e2e`: **222 aprovados, 16 ignorados por viewport, 4,7 minutos**. Inclui a suíte completa, os oito baselines visuais e os percursos de nove telas nas cinco larguras mobile.
-- `e2e/22-design-tokens.spec.ts`: verifica gradientes renderizados, posição do coração relativa à imagem, alvo de 44 px, hover, foco e uso por toque. Antes da correção, os três casos aplicáveis falharam; após o ajuste, passaram.
-- Capturas finais: três percursos concluídos, 27 PNGs atualizados. Hashes e commit em `reports/design/manifest.json`.
-- Revisão de código independente: nenhum achado acionável; sessão, cotação, carteira e recuperação idempotente preservadas.
-
-A extração dos componentes manteve a composição visual: os baselines aprovados após o ajuste dos gradientes passaram novamente na suíte completa, sem atualização de screenshots durante a refatoração. Os testes de rascunho após expiração de sessão passaram com a assinatura `subscribe`.
-
-No domínio público da Railway, sobre o mesmo código `1b4551c`, passaram **18 testes E2E**, com 6 ignorados por viewport, em 1 minuto: dez de imagens/ícones/alvos, cinco percursos mobile e três de gradientes/favoritos. `pnpm verify:deployment` também passou; o SHA-256 do HTML publicado coincide com o build local. Esses resultados não são uma nova auditoria Lighthouse.
+Lighthouse coleta três execuções por página/perfil, conserva falha abaixo das metas e interrompe em erro técnico. Não execute builds, testes ou navegação simultâneos à coleta. Configurações, medição final pública e histórico: [LIGHTHOUSE.md](LIGHTHOUSE.md). Auditorias de dependências são consultas pontuais ao registro; o resultado é preservado em `reports/quality/`.

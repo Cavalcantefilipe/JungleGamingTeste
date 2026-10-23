@@ -1,0 +1,62 @@
+{
+  "baselineChromium": {
+    "passed": 244,
+    "skipped": 22,
+    "failed": 0
+  },
+  "compatibilityFirst": {
+    "passed": 140,
+    "skipped": 10,
+    "failed": 14
+  },
+  "compatibilitySecond": {
+    "passed": 152,
+    "skipped": 10,
+    "failed": 2,
+    "remainingFailure": "O relógio pausava os timers do axe no cenário de pedido pendente; substituído por data fixa."
+  },
+  "compatibilityA11yRevalidation": {
+    "passed": 15,
+    "skipped": 3,
+    "failed": 0
+  },
+  "dialogBefore": {
+    "failed": 4
+  },
+  "dialogAfter": {
+    "passed": 4
+  },
+  "manualZoom": {
+    "percent": 200,
+    "states": 9
+  },
+  "unit": {
+    "passed": 115
+  },
+  "tooling": {
+    "passed": 6
+  },
+  "eslint": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "chromiumFinalFull": {
+    "passed": 247,
+    "skipped": 26,
+    "failed": 1,
+    "remainingFailure": "Axe capturou a transição de opacidade do botão Aplicar após habilitar; teste passou a aguardar opacity=1, preservando cores e regra de contraste."
+  },
+  "chromiumA11yRevalidation": {
+    "passed": 15,
+    "skipped": 3,
+    "failed": 0
+  },
+  "publicSmoke": {
+    "passed": 8,
+    "skipped": 4,
+    "failed": 0
+  },
+  "publicHttp": {
+    "passed": true
+  }
+}

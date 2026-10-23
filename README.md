@@ -73,6 +73,7 @@ Para reinício completamente limpo da demonstração neste origin, use DevTools 
 | `pnpm format` / `pnpm format:check` | Prettier                                                      |
 | `pnpm test` / `pnpm test:watch`     | Vitest                                                        |
 | `pnpm e2e` / `pnpm e2e:ui`          | Playwright; exige build prévio e Chromium                     |
+| `pnpm e2e:compat`                   | Firefox desktop e WebKit mobile; exige instalar os motores    |
 | `pnpm lighthouse`                   | 3 execuções por página/perfil; mantém falha se abaixo da meta |
 | `pnpm test:tooling`                 | mediana/assertions Lighthouse e negociação/integridade Brotli |
 | `pnpm check`                        | tipos, lint, formato, unitários e testes de ferramentas       |
@@ -108,8 +109,8 @@ reports          relatórios versionados de segurança/performance
 - [Validação dos comportamentos](docs/BEHAVIOR-REVIEW.md) e [pendências de entrega/estimativa de avaliação](docs/DELIVERY-ASSESSMENT.md).
 - [Configuração e verificação da Railway](docs/DEPLOYMENT.md).
 
-A revisão de performance do checkpoint `87e20f0` passou as metas do Lighthouse: **Performance desktop 99/99 e mobile 91/92**, com Acessibilidade/Boas práticas/SEO em 100. Os dois advisories altos foram resolvidos pela troca da ferramenta Lighthouse; **audits completo e de produção com zero alertas**. Na revisão mobile posterior, os gates locais passaram com **109 unitários + 6 testes Node e 219 E2E aprovados/15 skips explícitos por viewport**. A matriz cobre nove telas em 320, 360, 375, 390 e 414 px; os resultados de Lighthouse permanecem vinculados aos builds anteriores. Os [15 frames originais e 30 capturas](reports/design/README.md) documentam a conferência visual e as adaptações, sem alegar igualdade absoluta de pixels. Não há banco real para certificar otimização SQL.
+**Conferência final:** 115 testes unitários, lint sem avisos e auditorias de dependências zeradas. Lighthouse público: desktop **96/98** e mobile **93/94** (início/detalhe), com as demais categorias em 100.
 
-**Publicação concluída na Railway em 23/10/2026.** Deploy automático da branch `main`, com Railpack e Caddy. Headers, rotas, Brotli, cache, worker e healthcheck passaram na URL pública; **16 E2E em desktop/mobile** validaram cadastro, login, compra, preço via Socket.IO, rede lenta e recuperação por usuário. Lighthouse público: **97/99 desktop e 94/88 mobile**; o detalhe mobile ficou abaixo de 90, com as outras categorias em 100. A [documentação do deploy](docs/DEPLOYMENT.md) registra o commit e as evidências. `vercel.json` permanece disponível como alternativa.
+O estado vigente está consolidado no [relatório final de qualidade](docs/QUALITY-REVIEW.md): refatoração React, lint sem avisos, disputa de estoque, zoom real de 200%, compatibilidade entre motores, dependências, publicação e Lighthouse. Cada resultado identifica o código e as condições verificados. As rodadas antigas ficam explicitamente preservadas como histórico.
 
-Na revisão tela por tela de 23/10 (`242294b`), foram corrigidos tokens compartilhados, formulários, navegação, carrinho, pagamento e detalhes das demais telas. A validação passou com **111 unitários, 6 testes de ferramentas e 244 E2E**, com 22 exclusões explícitas por viewport. A versão publicada passou nos 12 testes da nova conferência e nos checks HTTP; as 30 capturas e a proveniência dos 15 SVGs estão no [relatório atualizado](docs/SCREEN-REVIEW.md). Os 40 avisos de lint remanescentes estão registrados no manifesto.
+As [referências do Figma e capturas](reports/design/README.md) documentam a conferência visual e as adaptações, sem alegar igualdade absoluta de pixels. A tentativa de VoiceOver ficou inconclusiva. Não há banco real para certificar otimização SQL ou concorrência entre dispositivos.

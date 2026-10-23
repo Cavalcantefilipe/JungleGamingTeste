@@ -1,0 +1,73 @@
+{
+  "measuredAt": "2026-10-23T23:53:47.578Z",
+  "environment": {
+    "node": "v24.12.0",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "lighthouse": "13.5.0",
+    "puppeteerCore": "25.13.0",
+    "runner": "lighthouse/run.mjs (CLI nativa, mediana de três execuções)",
+    "buildHtmlSha256": null,
+    "baseUrl": "https://kurio-production-8274.up.railway.app"
+  },
+  "thresholds": {
+    "performance": 90,
+    "accessibility": 95,
+    "bestPractices": 95,
+    "seo": 90
+  },
+  "rows": [
+    {
+      "profile": "desktop",
+      "page": "home",
+      "runs": 3,
+      "performance": 96,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 750.957,
+      "cls": 0.08404255319148936,
+      "tbtMs": 0,
+      "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+    },
+    {
+      "profile": "desktop",
+      "page": "detail",
+      "runs": 3,
+      "performance": 98,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 726.19,
+      "cls": 0.08334770200812813,
+      "tbtMs": 0,
+      "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+    },
+    {
+      "profile": "mobile",
+      "page": "home",
+      "runs": 3,
+      "performance": 93,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 2785.934,
+      "cls": 0,
+      "tbtMs": 36.00000000000023,
+      "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+    },
+    {
+      "profile": "mobile",
+      "page": "detail",
+      "runs": 3,
+      "performance": 94,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcpMs": 2838.6,
+      "cls": 0,
+      "tbtMs": 47,
+      "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+    }
+  ]
+}
