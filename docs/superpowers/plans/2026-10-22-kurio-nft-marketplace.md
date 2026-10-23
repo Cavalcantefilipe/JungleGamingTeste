@@ -541,8 +541,8 @@ Linha de corte se atrasar (nesta ordem): blog estático vira 1 card por tipo; ca
 - Modify: `OrderReceiptModal.tsx` (mobile: página cheia), `src/components/feedback/*`, todas as rotas (garantir `pendingComponent` com skeleton e `errorComponent` com `ErrorState`)
 - Create: `e2e/12-loading-and-recovery.spec.ts`
 
-- [ ] **Passo 1:** `e2e/12`: `catálogo, detalhe e resumo mostram skeleton em rede lenta e o layout não desloca (bounding box antes/depois)`, `falha transitória mostra erro e nova tentativa recupera`, `reduced-motion desativa shimmer`. → FAIL.
-- [ ] **Passo 2:** implementar/ajustar. → PASS. Commit `feat: estados de carregamento, erro e recuperação consistentes`.
+- [x] **Passo 1:** `e2e/12`: `catálogo, detalhe e resumo mostram skeleton em rede lenta e o layout não desloca (bounding box antes/depois)`, `falha transitória mostra erro e nova tentativa recupera`, `reduced-motion desativa shimmer`. → FAIL.
+- [x] **Passo 2:** implementar/ajustar. → PASS. Commit `feat: estados de carregamento, erro e recuperação consistentes`.
 
 ### Task 15: Perfil e carteiras
 

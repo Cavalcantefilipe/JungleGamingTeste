@@ -1,6 +1,8 @@
 import { createRouter } from '@tanstack/react-router';
 
 import { queryClient } from '@/app/query-client';
+import { PagePending } from '@/components/feedback/PagePending';
+import { RouteError } from '@/components/feedback/RouteError';
 import { returnToSchema } from '@/features/auth/route-guard';
 import { sessionStore } from '@/features/auth/session-store';
 import { onUnauthorized } from '@/lib/http';
@@ -13,6 +15,9 @@ export const router = createRouter({
   stringifySearch,
   context: { queryClient },
   defaultPreload: 'intent',
+  defaultPendingComponent: PagePending,
+  defaultErrorComponent: RouteError,
+  defaultPendingMs: 150,
   scrollRestoration: true,
 });
 declare module '@tanstack/react-router' {

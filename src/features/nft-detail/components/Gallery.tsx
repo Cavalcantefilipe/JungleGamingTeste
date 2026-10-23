@@ -8,7 +8,7 @@ export function Gallery({ images }: { images: NftImage[] }) {
   const image = images[selected] ?? images[0];
   return (
     <div className="flex items-center lg:gap-[29px]">
-      <div className="hidden w-[100px] shrink-0 space-y-4 lg:block">
+      <div className="hidden w-[100px] shrink-0 flex-col gap-4 lg:flex">
         {images.map((thumbnail, index) => (
           <button
             key={`${thumbnail.src}-${index}`}
