@@ -5,12 +5,11 @@ import {
   changePasswordInputSchema,
   updateProfileInputSchema,
 } from '@/contracts/profile';
-import { isValidImage } from '@/lib/avatar';
 import { withNetwork } from '@/mocks/scenarios/network';
 import { changePassword } from '@/mocks/shared/change-password';
 import { updateProfile } from '@/mocks/shared/profile';
-import { MockError } from '@/mocks/shared/respond';
 import { requireSession } from '@/mocks/shared/session';
+import { validateAvatar } from '@/mocks/shared/validateAvatar';
 
 export const profileHandlers = [
   http.get(
@@ -29,15 +28,7 @@ export const profileHandlers = [
     withNetwork(async ({ request }) => {
       const { dataUrl } = avatarInputSchema.parse(await request.json());
       const { user } = requireSession(request);
-      const [prefix, base64 = ''] = dataUrl.split(',');
-      const mime = prefix?.split(':')[1]?.split(';')[0] ?? '';
-      if (
-        !isValidImage(
-          Uint8Array.from(atob(base64), (character) => character.charCodeAt(0)),
-          mime,
-        )
-      )
-        throw new MockError(422, 'INVALID_IMAGE');
+      validateAvatar(dataUrl);
       return HttpResponse.json(updateProfile(user.id, { avatarUrl: dataUrl }));
     }),
   ),

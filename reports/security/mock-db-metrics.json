@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-23",
+  "environment": "Node24/jsdom, 48 NFTs, persistência local, sem rede; execução junto da suíte unitária",
+  "nfts": 48,
+  "expiredQuotes": 1000,
+  "samples": 100,
+  "beforeBytes": 504422,
+  "afterBytes": 61152,
+  "meanMs": 1.7256604399999946,
+  "p95Ms": 6.305667000000085,
+  "maxMs": 22.841125000000147
+}

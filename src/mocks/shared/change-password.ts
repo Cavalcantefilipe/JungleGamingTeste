@@ -24,10 +24,21 @@ export async function changePassword(
       throw new MockError(422, 'WRONG_PASSWORD', {
         currentPassword: 'A senha já foi alterada. Informe a senha atual.',
       });
+    const revokedTokens = new Set(
+      db.sessions
+        .filter((entry) => entry.userId === userId && entry.token !== token)
+        .map((entry) => entry.token),
+    );
     return {
       state: {
         ...db,
         users: db.users.map((entry) => (entry.user.id === userId ? { ...entry, password } : entry)),
+        sessions: db.sessions.filter((entry) => !revokedTokens.has(entry.token)),
+        walletConnections: Object.fromEntries(
+          Object.entries(db.walletConnections).filter(
+            ([connectionToken]) => !revokedTokens.has(connectionToken),
+          ),
+        ),
       },
       result: undefined,
     };

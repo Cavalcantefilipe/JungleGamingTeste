@@ -3,6 +3,7 @@ import { toast } from 'sonner';
 
 import type { AddCartItemInput } from '@/contracts/cart';
 import { useSession } from '@/features/auth/session-store';
+import { ApiError } from '@/lib/errors';
 import { queryKeys } from '@/lib/query-keys';
 
 import { addCartItem } from './api';
@@ -16,7 +17,10 @@ export function useAddToCart() {
   const client = useQueryClient();
   return useMutation({
     mutationKey: cartMutationKey(scope),
-    mutationFn: (input: AddCartItemInput) => addCartItem(scope, input),
+    mutationFn: (input: AddCartItemInput) => {
+      if (!isCurrentCartScope(scope, session?.token)) throw new ApiError('UNAUTHENTICATED', 401);
+      return addCartItem(scope, input);
+    },
     onSuccess: async (cart) => {
       if (!isCurrentCartScope(scope, session?.token)) return;
       client.setQueryData(queryKeys.cart(scope), cart);

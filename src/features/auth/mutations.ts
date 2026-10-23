@@ -6,7 +6,7 @@ import { queryClient } from '@/app/query-client';
 import type { Session } from '@/contracts/auth';
 import { transferGuestCoupon } from '@/features/cart/coupon-store';
 import { waitForCartMutations } from '@/features/cart/mutation-state';
-import { errorMessage } from '@/lib/errors';
+import { ApiError, errorMessage } from '@/lib/errors';
 
 import * as api from './api';
 import { sessionStore } from './session-store';
@@ -32,10 +32,16 @@ export function useRegister() {
   return useMutation({ mutationFn: api.register, onSuccess: acceptSession });
 }
 export function useLogout() {
+  const session = sessionStore.getSnapshot();
+  const current = () => sessionStore.getSnapshot()?.token === session?.token;
   const navigate = useNavigate();
   return useMutation({
-    mutationFn: api.logout,
+    mutationFn: () => {
+      if (!current()) throw new ApiError('UNAUTHENTICATED', 401);
+      return api.logout();
+    },
     onSettled: (_data, error) => {
+      if (!current()) return;
       if (error) toast.error(errorMessage(error));
       sessionStore.clear();
       void navigate({ to: '/' });

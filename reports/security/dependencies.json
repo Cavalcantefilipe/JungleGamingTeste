@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-23",
+  "scope": "Dependências locais; sem teste de ativos externos",
+  "production": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0
+  },
+  "allDependencies": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 2,
+    "critical": 0
+  },
+  "remaining": [
+    {
+      "package": "extract-zip",
+      "severity": "high",
+      "advisory": "GHSA-jmr9-qjv8-65gv",
+      "url": "https://github.com/advisories/GHSA-jmr9-qjv8-65gv",
+      "installed": [
+        "2.0.1"
+      ],
+      "scope": "somente ferramenta de desenvolvimento Lighthouse / download de navegador",
+      "status": "Pendente: versão corrigida indicada pelo advisory ainda não publicada no npm consultado"
+    },
+    {
+      "package": "extract-zip",
+      "severity": "high",
+      "advisory": "GHSA-7pqw-9j4j-h8q3",
+      "url": "https://github.com/advisories/GHSA-7pqw-9j4j-h8q3",
+      "installed": [
+        "2.0.1"
+      ],
+      "scope": "somente ferramenta de desenvolvimento Lighthouse / download de navegador",
+      "status": "Pendente: versão corrigida indicada pelo advisory ainda não publicada no npm consultado"
+    }
+  ]
+}

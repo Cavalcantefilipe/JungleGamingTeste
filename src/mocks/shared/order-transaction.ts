@@ -27,6 +27,7 @@ export function commitOrder(
     if (previous.hash !== hash) throw new MockError(409, 'IDEMPOTENCY_CONFLICT');
     const order = db.orders.find((entry) => entry.id === previous.orderId);
     if (!order) throw new MockError(404, 'NOT_FOUND');
+    if (order.userId !== userId) throw new MockError(403, 'FORBIDDEN');
     return { result: { order, repeated: true } };
   }
   const wallet = validateOrderWallet(db, input, userId, token, timestamp);

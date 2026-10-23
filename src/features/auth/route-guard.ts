@@ -28,9 +28,12 @@ export async function requireAuth({ location }: { location: { href: string } }):
     return;
   }
   try {
-    await fetchSession();
+    const verified = await fetchSession();
+    if (verified.user.id !== session.user.id) throw new ApiError('UNAUTHENTICATED', 401);
   } catch (error) {
     if (!(error instanceof ApiError) || error.status !== 401) throw error;
+    if (sessionStore.getSnapshot()?.token !== session.token) return;
+    sessionStore.clear(true);
     redirect({
       throw: true,
       to: '/login',

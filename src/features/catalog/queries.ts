@@ -9,7 +9,7 @@ import { fetchNft, fetchNfts } from './api';
 export function nftListQueryOptions(search: NftListQuery, userId?: string) {
   return queryOptions({
     queryKey: queryKeys.nfts.list(search, search.favorites ? userId : undefined),
-    queryFn: ({ signal }) => fetchNfts(search, signal),
+    queryFn: ({ signal }) => fetchNfts(search, signal, userId),
     placeholderData: keepPreviousData,
     staleTime: 30_000,
   });

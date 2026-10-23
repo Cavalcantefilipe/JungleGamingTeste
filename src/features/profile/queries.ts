@@ -8,7 +8,7 @@ import { getProfile } from './api';
 export function profileQueryOptions(userId: string) {
   return queryOptions({
     queryKey: queryKeys.profile(userId),
-    queryFn: ({ signal }) => getProfile(signal),
+    queryFn: ({ signal }) => getProfile(userId, signal),
     enabled: Boolean(userId),
   });
 }

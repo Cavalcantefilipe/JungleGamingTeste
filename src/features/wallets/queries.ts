@@ -8,7 +8,7 @@ import { getWallets } from './api';
 export function walletsQueryOptions(userId: string) {
   return queryOptions({
     queryKey: queryKeys.wallets(userId),
-    queryFn: ({ signal }) => getWallets(signal),
+    queryFn: ({ signal }) => getWallets(userId, signal),
     enabled: Boolean(userId),
   });
 }

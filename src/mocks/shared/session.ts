@@ -6,12 +6,12 @@ import { getScenario, setScenario } from '@/mocks/scenarios/current';
 import { MockError } from './respond';
 
 export function requireSession(request: Request) {
-  const token = request.headers.get('Authorization')?.replace(/^Bearer /, '');
+  const token = request.headers.get('Authorization')?.match(/^Bearer ([^\s]+)$/i)?.[1];
   if (!token) throw new MockError(401, 'UNAUTHENTICATED');
   const db = mockStore.read();
   const session = db.sessions.find((entry) => entry.token === token);
   if (!session) throw new MockError(401, 'UNAUTHENTICATED');
-  if (Date.parse(session.expiresAt) <= Date.now() || getScenario().name === 'session-expired') {
+  if (!isSessionUnexpired(session.expiresAt) || getScenario().name === 'session-expired') {
     if (getScenario().name === 'session-expired') setScenario('default');
     mockStore.write((state) => ({
       ...state,
@@ -40,5 +40,10 @@ export function assertActiveSession(
 ): void {
   const session = db.sessions.find((entry) => entry.token === token && entry.userId === userId);
   if (!session) throw new MockError(401, 'UNAUTHENTICATED');
-  if (Date.parse(session.expiresAt) <= now) throw new MockError(401, 'SESSION_EXPIRED');
+  if (!isSessionUnexpired(session.expiresAt, now)) throw new MockError(401, 'SESSION_EXPIRED');
+}
+
+export function isSessionUnexpired(expiresAt: string, now = Date.now()): boolean {
+  const expiration = Date.parse(expiresAt);
+  return Number.isFinite(expiration) && expiration > now;
 }

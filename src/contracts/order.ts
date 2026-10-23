@@ -59,7 +59,10 @@ export const orderSchema = z.object({
   coupon: quoteCouponSchema.optional(),
   wallet: orderWalletSchema,
   transactionRef: z.string().min(1),
-  explorerUrl: z.string().min(1),
+  explorerUrl: z.union([
+    z.literal('pending'),
+    z.string().regex(/^https:\/\/etherscan\.io\/tx\/0x[a-fA-F0-9]{64}$/),
+  ]),
   createdAt: isoDateSchema,
   updatedAt: isoDateSchema,
   version: z.number().int().min(0),

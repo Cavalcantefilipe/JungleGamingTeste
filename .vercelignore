@@ -1,0 +1,8 @@
+.superpowers
+.git
+e2e
+reports
+test-results
+node_modules
+docs
+*.log

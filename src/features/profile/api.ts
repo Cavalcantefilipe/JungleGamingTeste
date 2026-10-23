@@ -5,10 +5,18 @@ import {
   type UpdateProfileInput,
   type ChangePasswordInput,
 } from '@/contracts/profile';
+import { ApiError } from '@/lib/errors';
 import { apiRequest } from '@/lib/http';
 
-export const getProfile = (signal?: AbortSignal) =>
-  apiRequest(profileSchema, { url: '/profile', ...(signal ? { signal } : {}) });
+export async function getProfile(userId: string, signal?: AbortSignal) {
+  const profile = await apiRequest(profileSchema, {
+    url: '/profile',
+    userId,
+    ...(signal ? { signal } : {}),
+  });
+  if (profile.id !== userId) throw new ApiError('FORBIDDEN', 403);
+  return profile;
+}
 export const updateProfile = (input: UpdateProfileInput) =>
   apiRequest(profileSchema, { method: 'PATCH', url: '/profile', data: input });
 export const updateAvatar = (dataUrl: string) =>

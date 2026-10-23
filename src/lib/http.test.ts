@@ -60,3 +60,31 @@ describe('isolamento de respostas HTTP', () => {
     expect(unauthorized).not.toHaveBeenCalled();
   });
 });
+
+it('sucesso atrasado de Ana é descartado após login de Bruno', async () => {
+  let release: () => void = () => {
+    throw new Error('Gate não iniciado');
+  };
+  let observed: () => void = () => {
+    throw new Error('Listener não iniciado');
+  };
+  const started = new Promise<void>((resolve) => {
+    observed = resolve;
+  });
+  const gate = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  server.use(
+    mswHttp.get('http://localhost/api/private', async () => {
+      observed();
+      await gate;
+      return HttpResponse.json({ id: 'ana', secret: 'dado privado' });
+    }),
+  );
+  saveSession('ana');
+  const response = http.get('http://localhost/api/private').catch((error: unknown) => error);
+  await started;
+  saveSession('bruno');
+  release();
+  await expect(response).resolves.toMatchObject({ code: 'UNAUTHENTICATED', status: 401 });
+});

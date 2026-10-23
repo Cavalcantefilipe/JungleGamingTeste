@@ -20,6 +20,7 @@ export function quoteQueryOptions(input: QuoteInput, scope?: CartScope, source?:
         url: '/quote',
         data: input,
         signal,
+        ...(scope ? { userId: scope.kind === 'user' ? scope.id : null } : {}),
         ...(source ? { headers: { 'X-Quote-Context': source } } : {}),
       }),
     staleTime: 0,

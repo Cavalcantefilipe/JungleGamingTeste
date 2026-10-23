@@ -13,13 +13,23 @@ export function onUnauthorized(listener: () => void): void {
   unauthorized = listener;
 }
 export const http = axios.create({ baseURL: env.apiBaseUrl, timeout: 6000 });
-http.interceptors.request.use((config) => {
+function activeAuthorization() {
   const session = sessionStorage.read();
-  if (session) config.headers.set('Authorization', `Bearer ${session.token}`);
+  return session ? `Bearer ${session.token}` : false;
+}
+http.interceptors.request.use((config) => {
+  const authorization = activeAuthorization();
+  if (config.headers.has('Authorization') && config.headers.get('Authorization') !== authorization)
+    throw new ApiError('UNAUTHENTICATED', 401);
+  config.headers.set('Authorization', authorization);
   return config;
 });
 http.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    if (response.config.headers.get('Authorization') !== activeAuthorization())
+      throw new ApiError('UNAUTHENTICATED', 401);
+    return response;
+  },
   (error: unknown) => {
     if (!axios.isAxiosError(error))
       return Promise.reject(error instanceof Error ? error : new Error('Falha HTTP'));
@@ -46,7 +56,20 @@ http.interceptors.response.use(
     return Promise.reject(normalized);
   },
 );
-export async function apiRequest<T>(schema: z.ZodType<T>, config: AxiosRequestConfig): Promise<T> {
-  const response = await http.request<unknown>(config);
+export type ApiRequestConfig = AxiosRequestConfig & { userId?: string | null };
+
+export async function apiRequest<T>(schema: z.ZodType<T>, options: ApiRequestConfig): Promise<T> {
+  const { userId, ...config } = options;
+  const session = sessionStorage.read();
+  if (userId !== undefined && (session?.user.id ?? null) !== userId)
+    throw new ApiError('UNAUTHENTICATED', 401);
+  const bound = axios.mergeConfig(config, {
+    ...config,
+    headers: { Authorization: session ? `Bearer ${session.token}` : false },
+  });
+  const response = await http.request<unknown>(bound);
+  const active = sessionStorage.read();
+  if (active?.token !== session?.token || active?.user.id !== session?.user.id)
+    throw new ApiError('UNAUTHENTICATED', 401);
   return schema.parse(response.status === 204 ? undefined : response.data);
 }

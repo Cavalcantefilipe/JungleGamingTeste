@@ -2,6 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
 import { useSession } from '@/features/auth/session-store';
+import { ApiError } from '@/lib/errors';
 import { queryKeys } from '@/lib/query-keys';
 
 import { removeCartItem } from './api';
@@ -15,7 +16,10 @@ export function useRemoveCartItem() {
   const client = useQueryClient();
   return useMutation({
     mutationKey: cartMutationKey(scope),
-    mutationFn: (id: string) => removeCartItem(scope, id),
+    mutationFn: (id: string) => {
+      if (!isCurrentCartScope(scope, session?.token)) throw new ApiError('UNAUTHENTICATED', 401);
+      return removeCartItem(scope, id);
+    },
     onSuccess: async (cart) => {
       if (!isCurrentCartScope(scope, session?.token)) return;
       client.setQueryData(queryKeys.cart(scope), cart);

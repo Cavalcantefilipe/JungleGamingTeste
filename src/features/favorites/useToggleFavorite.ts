@@ -10,11 +10,13 @@ import { setFavorite } from './api';
 import { favoriteMessages } from './messages';
 
 export function useToggleFavorite() {
-  const userId = useSession()?.user.id ?? '';
+  const session = useSession();
+  const userId = session?.user.id ?? '';
   const client = useQueryClient();
   const key = queryKeys.favorites(userId);
   const mutationKey = ['favorite-mutation', userId];
-  const isCurrentUser = () => sessionStore.getSnapshot()?.user.id === userId;
+  const isCurrentUser = () =>
+    Boolean(session && sessionStore.getSnapshot()?.token === session.token);
   const update = (nftId: string, remove: boolean) => {
     client.setQueryData<Favorites>(key, (data) => ({
       nftIds: remove
@@ -25,7 +27,7 @@ export function useToggleFavorite() {
   const mutation = useMutation({
     mutationKey,
     mutationFn: ({ nftId, remove }: { nftId: string; remove: boolean }) => {
-      if (!userId) throw new ApiError('UNAUTHENTICATED', 401);
+      if (!isCurrentUser()) throw new ApiError('UNAUTHENTICATED', 401);
       return setFavorite(nftId, remove);
     },
     onMutate: async ({ nftId, remove }) => {

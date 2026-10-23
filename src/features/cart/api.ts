@@ -1,23 +1,28 @@
 import { cartSchema, type AddCartItemInput, type CartScope } from '@/contracts/cart';
-import { apiRequest } from '@/lib/http';
+import { ApiError } from '@/lib/errors';
+import { apiRequest, type ApiRequestConfig } from '@/lib/http';
 
 import { cartHeaders } from './cart-scope';
 
+async function requestCart(scope: CartScope, config: ApiRequestConfig) {
+  const cart = await apiRequest(cartSchema, {
+    ...config,
+    headers: cartHeaders(scope),
+    userId: scope.kind === 'user' ? scope.id : null,
+  });
+  if (cart.scope.kind !== scope.kind || cart.scope.id !== scope.id)
+    throw new ApiError('FORBIDDEN', 403);
+  return cart;
+}
 export const fetchCart = (scope: CartScope, signal: AbortSignal) =>
-  apiRequest(cartSchema, { url: '/cart', headers: cartHeaders(scope), signal });
+  requestCart(scope, { url: '/cart', signal });
 export const addCartItem = (scope: CartScope, data: AddCartItemInput) =>
-  apiRequest(cartSchema, { method: 'POST', url: '/cart/items', headers: cartHeaders(scope), data });
-
+  requestCart(scope, { method: 'POST', url: '/cart/items', data });
 export const updateCartItem = (scope: CartScope, id: string, quantity: number) =>
-  apiRequest(cartSchema, {
+  requestCart(scope, {
     method: 'PATCH',
     url: `/cart/items/${encodeURIComponent(id)}`,
-    headers: cartHeaders(scope),
     data: { quantity },
   });
 export const removeCartItem = (scope: CartScope, id: string) =>
-  apiRequest(cartSchema, {
-    method: 'DELETE',
-    url: `/cart/items/${encodeURIComponent(id)}`,
-    headers: cartHeaders(scope),
-  });
+  requestCart(scope, { method: 'DELETE', url: `/cart/items/${encodeURIComponent(id)}` });

@@ -5,6 +5,7 @@ import type { RealtimeEvent } from '@/contracts/realtime';
 import { env } from '@/lib/env';
 import { mockStore } from '@/mocks/db/store';
 import { getScenario } from '@/mocks/scenarios/current';
+import { isSessionUnexpired } from '@/mocks/shared/session';
 
 export function createRealtimeServer(link: WebSocketLink) {
   const connections = new Set<{ io: ReturnType<typeof toSocketIo>; token: string }>();
@@ -12,9 +13,8 @@ export function createRealtimeServer(link: WebSocketLink) {
   const findUser = (token: string) =>
     mockStore
       .read()
-      .sessions.find(
-        (session) => session.token === token && Date.parse(session.expiresAt) > Date.now(),
-      )?.userId;
+      .sessions.find((session) => session.token === token && isSessionUnexpired(session.expiresAt))
+      ?.userId;
   const handler = link.addEventListener('connection', (connection) => {
     const io = toSocketIo(connection);
     if (!enabled || getScenario().network.offline) {

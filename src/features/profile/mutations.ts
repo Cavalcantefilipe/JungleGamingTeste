@@ -26,8 +26,14 @@ function useProfileContext() {
   return { current, accept };
 }
 export function useUpdateProfile() {
-  const { accept } = useProfileContext();
-  return useMutation({ mutationFn: api.updateProfile, onSuccess: accept });
+  const { accept, current } = useProfileContext();
+  return useMutation({
+    mutationFn: (input: Parameters<typeof api.updateProfile>[0]) => {
+      if (!current()) throw new ApiError('UNAUTHENTICATED', 401);
+      return api.updateProfile(input);
+    },
+    onSuccess: accept,
+  });
 }
 export function useUpdateAvatar() {
   const { accept, current } = useProfileContext();
@@ -41,5 +47,11 @@ export function useUpdateAvatar() {
   });
 }
 export function useChangePassword() {
-  return useMutation({ mutationFn: api.changePassword });
+  const { current } = useProfileContext();
+  return useMutation({
+    mutationFn: (input: Parameters<typeof api.changePassword>[0]) => {
+      if (!current()) throw new ApiError('UNAUTHENTICATED', 401);
+      return api.changePassword(input);
+    },
+  });
 }
