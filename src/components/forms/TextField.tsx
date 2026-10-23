@@ -1,8 +1,21 @@
 import { useFormContext, type FieldPath, type FieldValues } from 'react-hook-form';
 
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 
+import { FieldLabel } from './FieldLabel';
+import { FieldPrefix } from './FieldPrefix';
+
+interface TextFieldProps<T extends FieldValues> {
+  name: FieldPath<T>;
+  label: string;
+  type?: string;
+  autoComplete?: string;
+  placeholder?: string;
+  appearance?: 'default' | 'auth';
+  prefix?: string;
+  required?: boolean;
+}
 export function TextField<T extends FieldValues>({
   name,
   label,
@@ -12,16 +25,7 @@ export function TextField<T extends FieldValues>({
   appearance = 'default',
   prefix,
   required = false,
-}: {
-  name: FieldPath<T>;
-  label: string;
-  type?: string;
-  autoComplete?: string;
-  placeholder?: string;
-  appearance?: 'default' | 'auth';
-  prefix?: string;
-  required?: boolean;
-}) {
+}: TextFieldProps<T>) {
   const { control } = useFormContext<T>();
   return (
     <FormField
@@ -29,24 +33,9 @@ export function TextField<T extends FieldValues>({
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel className={appearance === 'auth' ? 'sr-only' : undefined}>
-            {label}
-            {required && (
-              <span
-                aria-hidden="true"
-                className="text-[22px] leading-4 text-text-coral after:content-['*']"
-              />
-            )}
-          </FormLabel>
+          <FieldLabel label={label} appearance={appearance} required={required} />
           <div className="flex gap-2">
-            {prefix && (
-              <span
-                aria-hidden="true"
-                className="flex h-11 w-[78px] shrink-0 items-center justify-center rounded-field border border-input text-body-sm md:h-10"
-              >
-                {prefix}
-              </span>
-            )}
+            <FieldPrefix value={prefix} />
             <FormControl>
               <Input
                 {...field}

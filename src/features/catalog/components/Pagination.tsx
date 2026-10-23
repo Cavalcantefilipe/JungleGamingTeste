@@ -1,32 +1,26 @@
-import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
 
-export function Pagination({
-  page,
-  totalPages,
-  change,
-}: {
+import { PaginationArrow } from './PaginationArrow';
+
+interface PaginationProps {
   page: number;
   totalPages: number;
   change: (page: number) => void;
-}) {
+}
+export function Pagination({ page, totalPages, change }: PaginationProps) {
   if (totalPages < 2) return null;
   return (
     <nav
       aria-label="Paginação do catálogo"
       className="mt-10 flex flex-wrap items-center justify-end gap-2"
     >
-      <Button
-        variant="pagination"
-        size="pagination"
-        aria-label="Página anterior"
-        onClick={() => {
+      <PaginationArrow
+        previous
+        disabled={page === 1}
+        go={() => {
           change(page - 1);
         }}
-        disabled={page === 1}
-      >
-        <FigmaIcon name="chevron-left" aria-hidden="true" />
-      </Button>
+      />
       {Array.from({ length: totalPages }, (_, index) => index + 1).map((number) => (
         <Button
           key={number}
@@ -41,17 +35,12 @@ export function Pagination({
           {number}
         </Button>
       ))}
-      <Button
-        variant="pagination"
-        size="pagination"
-        aria-label="Próxima página"
-        onClick={() => {
+      <PaginationArrow
+        disabled={page >= totalPages}
+        go={() => {
           change(page + 1);
         }}
-        disabled={page >= totalPages}
-      >
-        <FigmaIcon name="chevron-right" aria-hidden="true" />
-      </Button>
+      />
     </nav>
   );
 }

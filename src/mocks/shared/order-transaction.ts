@@ -2,6 +2,7 @@ import type { CreateOrderInput, Order } from '@/contracts/order';
 import type { MockDb } from '@/mocks/db/schema';
 import { getScenario } from '@/mocks/scenarios/current';
 
+import { createPendingOrder } from './createPendingOrder';
 import { validateOrderQuote, validateOrderWallet } from './order-validation';
 import { MockError } from './respond';
 import { assertActiveSession } from './session';
@@ -33,24 +34,7 @@ export function commitOrder(
   const wallet = validateOrderWallet(db, input, userId, token, timestamp);
   if (getScenario().name === 'wallet-disconnected') throw new MockError(409, 'WALLET_DISCONNECTED');
   const quote = validateOrderQuote(db, input, timestamp);
-  const now = new Date(timestamp).toISOString();
-  const order: Order = {
-    id: crypto.randomUUID(),
-    userId,
-    status: 'pending',
-    items: quote.items,
-    subtotal: quote.subtotal,
-    discount: quote.discount,
-    networkFee: quote.networkFee,
-    total: quote.total,
-    ...(quote.coupon ? { coupon: quote.coupon } : {}),
-    wallet: { provider: input.wallet.provider, address: wallet.address, network: wallet.network },
-    transactionRef: 'pending',
-    explorerUrl: 'pending',
-    createdAt: now,
-    updatedAt: now,
-    version: 1,
-  };
+  const order = createPendingOrder(input, userId, quote, wallet, timestamp);
   const state = scheduleOrderTransition(
     {
       ...db,

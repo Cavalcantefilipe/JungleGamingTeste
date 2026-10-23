@@ -1,12 +1,12 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
-import type { Favorites } from '@/contracts/favorites';
 import { sessionStore, useSession } from '@/features/auth/session-store';
 import { ApiError } from '@/lib/errors';
 import { queryKeys } from '@/lib/query-keys';
 
 import { setFavorite } from './api';
+import { getFavoriteToggle, invalidateFavoriteLists, updateFavoriteCache } from './favorite-cache';
 import { favoriteMessages } from './messages';
 
 export function useToggleFavorite() {
@@ -18,11 +18,7 @@ export function useToggleFavorite() {
   const isCurrentUser = () =>
     Boolean(session && sessionStore.getSnapshot()?.token === session.token);
   const update = (nftId: string, remove: boolean) => {
-    client.setQueryData<Favorites>(key, (data) => ({
-      nftIds: remove
-        ? (data?.nftIds ?? []).filter((id) => id !== nftId)
-        : [...new Set([...(data?.nftIds ?? []), nftId])],
-    }));
+    updateFavoriteCache(client, userId, nftId, remove);
   };
   const mutation = useMutation({
     mutationKey,
@@ -42,19 +38,13 @@ export function useToggleFavorite() {
     },
     onSettled: async () => {
       if (!isCurrentUser() || client.isMutating({ mutationKey }) !== 1) return;
-      await Promise.all([
-        client.invalidateQueries({ queryKey: key }),
-        client.invalidateQueries({ queryKey: queryKeys.nfts.lists() }),
-      ]);
+      await invalidateFavoriteLists(client, userId);
     },
   });
   return {
     ...mutation,
     mutate: (nftId: string) => {
-      mutation.mutate({
-        nftId,
-        remove: client.getQueryData<Favorites>(key)?.nftIds.includes(nftId) ?? false,
-      });
+      mutation.mutate(getFavoriteToggle(client, userId, nftId));
     },
   };
 }

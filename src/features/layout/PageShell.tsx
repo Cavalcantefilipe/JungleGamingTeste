@@ -9,18 +9,11 @@ import { MobileTabBar } from './MobileTabBar';
 import type { ReactNode } from 'react';
 
 export function PageShell({ children }: { children: ReactNode }) {
-  const isOrder = useRouterState({
-    select: (state) => state.location.pathname.startsWith('/orders/'),
-  });
-  const isDetail = useRouterState({
-    select: (state) => state.location.pathname.startsWith('/nfts/'),
-  });
-  const isPurchase = useRouterState({
-    select: (state) => ['/cart', '/checkout'].includes(state.location.pathname),
-  });
-  const isAccount = useRouterState({
-    select: (state) => state.location.pathname.startsWith('/account/'),
-  });
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const isOrder = pathname.startsWith('/orders/');
+  const isDetail = pathname.startsWith('/nfts/');
+  const isPurchase = ['/cart', '/checkout'].includes(pathname);
+  const isAccount = pathname.startsWith('/account/');
   return (
     <>
       <a

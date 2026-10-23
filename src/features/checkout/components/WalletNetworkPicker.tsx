@@ -6,17 +6,18 @@ import { WalletProviderOption } from './WalletProviderOption';
 
 import type { useWalletConnection } from '../useWalletConnection';
 
+interface WalletNetworkPickerProps {
+  wallets: Wallet[];
+  selected: Wallet;
+  select: (wallet: Wallet) => void;
+  connection: ReturnType<typeof useWalletConnection>;
+}
 export function WalletNetworkPicker({
   wallets,
   selected,
   select,
   connection,
-}: {
-  wallets: Wallet[];
-  selected: Wallet;
-  select: (wallet: Wallet) => void;
-  connection: ReturnType<typeof useWalletConnection>;
-}) {
+}: WalletNetworkPickerProps) {
   return (
     <section className="space-y-4" aria-label="Carteira e rede">
       <h2 className="text-base leading-4 font-bold lg:sr-only">

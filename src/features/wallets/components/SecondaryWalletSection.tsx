@@ -1,70 +1,31 @@
-import { useState } from 'react';
-
-import { Button } from '@/components/ui/button';
-import { RoundCheckbox } from '@/components/ui/RoundCheckbox';
 import type { Profile } from '@/contracts/profile';
 import type { Wallets } from '@/contracts/wallet';
 import { errorMessage } from '@/lib/errors';
 
-import { useSaveWallet } from '../mutations';
+import { useSecondaryWallet } from '../useSecondaryWallet';
+import { SecondaryWalletControls } from './SecondaryWalletControls';
 import { WalletCard } from './WalletCard';
 import { WalletForm } from './WalletForm';
 
-export function SecondaryWalletSection({
-  profile,
-  wallets,
-}: {
+interface SecondaryWalletSectionProps {
   profile: Profile;
   wallets: Wallets;
-}) {
-  const mutation = useSaveWallet('secondary');
-  const [editing, setEditing] = useState(false);
-  const [copyRequested, setCopyRequested] = useState(false);
+}
+export function SecondaryWalletSection({ profile, wallets }: SecondaryWalletSectionProps) {
+  const { mutation, editing, copyRequested, setEditing, copyPrimary } = useSecondaryWallet();
   const secondary = wallets.secondary;
   return (
     <section aria-labelledby="secondary-heading" className="mt-8 space-y-5">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <h2 id="secondary-heading" className="text-base font-bold">
-          Carteira secundária
-        </h2>
-        <label
-          htmlFor="same-primary-wallet"
-          className="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-text-secondary"
-        >
-          <RoundCheckbox
-            id="same-primary-wallet"
-            checked={(wallets.sameAsPrimary || copyRequested) && !editing}
-            disabled={!wallets.primary || mutation.isPending}
-            onChange={(event) => {
-              if (event.currentTarget.checked) {
-                setEditing(false);
-                setCopyRequested(true);
-                mutation.mutate(
-                  { sameAsPrimary: true },
-                  {
-                    onSettled: () => {
-                      setCopyRequested(false);
-                    },
-                  },
-                );
-              } else {
-                setCopyRequested(false);
-                setEditing(true);
-              }
-            }}
-          />
-          Igual à carteira principal
-        </label>
-        <Button
-          variant="link"
-          disabled={mutation.isPending}
-          onClick={() => {
-            setEditing(!editing);
-          }}
-        >
-          {editing ? 'Cancelar' : secondary ? 'Editar secundária' : 'Adicionar secundária'}
-        </Button>
-      </div>
+      <SecondaryWalletControls
+        wallets={wallets}
+        editing={editing}
+        copyRequested={copyRequested}
+        pending={mutation.isPending}
+        copyPrimary={copyPrimary}
+        toggleEditing={() => {
+          setEditing(!editing);
+        }}
+      />
       {mutation.isError && (
         <p role="alert" className="text-sm text-text-coral">
           {errorMessage(mutation.error)}

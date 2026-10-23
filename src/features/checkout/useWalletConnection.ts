@@ -6,20 +6,14 @@ import { sessionStore } from '@/features/auth/session-store';
 import { ApiError } from '@/lib/errors';
 import { queryKeys } from '@/lib/query-keys';
 
-import { connectWallet } from './api';
+import { connectReviewedWallet } from './connectReviewedWallet';
 
 export function useWalletConnection(token: string, identity: string) {
   const client = useQueryClient();
   const [connectedId, setConnectedId] = useState<string | null>(null);
   const mutation = useMutation({
-    mutationFn: async (input: WalletConnectInput & { identity: string }) => {
-      if (sessionStore.getSnapshot()?.token !== token) throw new ApiError('SESSION_EXPIRED', 401);
-      const { identity: reviewedIdentity, ...wallet } = input;
-      const result = await connectWallet(wallet);
-      if (sessionStore.getSnapshot()?.token !== token) throw new ApiError('SESSION_EXPIRED', 401);
-      if (result.address !== input.address) throw new ApiError('WALLET_CHANGED', 409);
-      return { ...result, identity: reviewedIdentity };
-    },
+    mutationFn: (input: WalletConnectInput & { identity: string }) =>
+      connectReviewedWallet(token, input),
     onSuccess: (result) => {
       setConnectedId(result.identity);
     },

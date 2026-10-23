@@ -9,17 +9,13 @@ import { createSocket } from './socket';
 
 import type { QueryClient } from '@tanstack/react-query';
 
-export function startRealtime({
-  client,
-  token,
-  userId,
-  onStatus,
-}: {
+interface RealtimeOptions {
   client: QueryClient;
   token: string | undefined;
   userId: string | undefined;
   onStatus: (status: RealtimeStatus) => void;
-}) {
+}
+export function startRealtime({ client, token, userId, onStatus }: RealtimeOptions) {
   const socket = createSocket(token);
   const gate = createEventGate();
   let active = true;

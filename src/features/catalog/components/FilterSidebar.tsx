@@ -1,21 +1,12 @@
 import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
-import { NFT_CATEGORY_LABELS, NFT_NETWORK_LABELS, type NftFacets } from '@/contracts/nft';
-import type { CatalogSearch } from '@/features/catalog/search-params';
+import { NFT_CATEGORY_LABELS, NFT_NETWORK_LABELS } from '@/contracts/nft';
 
+import { FilterChecklist } from './FilterChecklist';
 import { PriceRangeFilter } from './PriceRangeFilter';
 
-export function FilterSidebar({
-  search,
-  facets,
-  apply,
-  clear,
-}: {
-  search: CatalogSearch;
-  facets?: NftFacets;
-  apply: (value: Partial<CatalogSearch>) => void;
-  clear: () => void;
-}) {
+import type { FilterProps } from '../filter-props';
+
+export function FilterSidebar({ search, facets, apply, clear }: FilterProps) {
   return (
     <div className="space-y-6 bg-surface-card p-5">
       <section>
@@ -26,28 +17,14 @@ export function FilterSidebar({
           </Button>
         </div>
         <div className="space-y-0">
-          {facets?.categories.map(({ key, count }) => (
-            <label
-              key={key}
-              className="flex min-h-11 cursor-pointer items-center gap-2 text-body-sm text-text-secondary sm:min-h-10"
-            >
-              <Checkbox
-                aria-label={NFT_CATEGORY_LABELS[key]}
-                checked={search.category.includes(key)}
-                onCheckedChange={(checked) => {
-                  apply({
-                    category: checked
-                      ? [...search.category, key]
-                      : search.category.filter((category) => category !== key),
-                  });
-                }}
-              />
-              <span>{NFT_CATEGORY_LABELS[key]}</span>
-              <span aria-hidden="true" className="ml-auto text-body-sm">
-                ({count})
-              </span>
-            </label>
-          ))}
+          <FilterChecklist
+            options={facets?.categories ?? []}
+            selected={search.category}
+            labels={NFT_CATEGORY_LABELS}
+            change={(category) => {
+              apply({ category });
+            }}
+          />
         </div>
       </section>
       <PriceRangeFilter
@@ -57,28 +34,14 @@ export function FilterSidebar({
       />
       <section className="space-y-0">
         <h3 className="mb-2 text-lg leading-[22px] font-bold">Rede</h3>
-        {facets?.networks.map(({ key, count }) => (
-          <label
-            key={key}
-            className="flex min-h-11 cursor-pointer items-center gap-2 text-body-sm text-text-secondary sm:min-h-10"
-          >
-            <Checkbox
-              aria-label={NFT_NETWORK_LABELS[key]}
-              checked={search.network.includes(key)}
-              onCheckedChange={(checked) => {
-                apply({
-                  network: checked
-                    ? [...search.network, key]
-                    : search.network.filter((network) => network !== key),
-                });
-              }}
-            />
-            <span>{NFT_NETWORK_LABELS[key]}</span>
-            <span aria-hidden="true" className="ml-auto text-body-sm">
-              ({count})
-            </span>
-          </label>
-        ))}
+        <FilterChecklist
+          options={facets?.networks ?? []}
+          selected={search.network}
+          labels={NFT_NETWORK_LABELS}
+          change={(network) => {
+            apply({ network });
+          }}
+        />
       </section>
     </div>
   );

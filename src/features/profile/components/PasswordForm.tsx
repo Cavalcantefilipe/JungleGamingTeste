@@ -1,42 +1,13 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-
-import { applyFormError } from '@/components/forms/applyFormError';
-import { PasswordField } from '@/components/forms/PasswordField';
 import { RootFormError } from '@/components/forms/RootFormError';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
-import { changePasswordInputSchema } from '@/contracts/profile';
 
+import { PasswordFields } from './PasswordFields';
 import { profileMessages } from '../messages';
-import { useChangePassword } from '../mutations';
+import { usePasswordForm } from '../usePasswordForm';
 
-const passwordFormSchema = changePasswordInputSchema
-  .extend({ confirmPassword: z.string() })
-  .refine((values) => values.newPassword === values.confirmPassword, {
-    path: ['confirmPassword'],
-    message: 'As senhas precisam ser iguais',
-  });
-type PasswordFormInput = z.infer<typeof passwordFormSchema>;
 export function PasswordForm() {
-  const form = useForm<PasswordFormInput>({
-    resolver: zodResolver(passwordFormSchema),
-    defaultValues: { currentPassword: '', newPassword: '', confirmPassword: '' },
-  });
-  const mutation = useChangePassword();
-  const [saved, setSaved] = useState(false);
-  const submit = form.handleSubmit(async ({ currentPassword, newPassword }) => {
-    setSaved(false);
-    try {
-      await mutation.mutateAsync({ currentPassword, newPassword });
-      form.reset();
-      setSaved(true);
-    } catch (error) {
-      applyFormError(error, form.setError);
-    }
-  });
+  const { form, mutation, saved, submit } = usePasswordForm();
   return (
     <section
       aria-labelledby="password-heading"
@@ -53,24 +24,7 @@ export function PasswordForm() {
             void submit(event);
           }}
         >
-          <PasswordField<PasswordFormInput>
-            name="currentPassword"
-            label="Senha atual"
-            appearance="default"
-            autoComplete="current-password"
-          />
-          <PasswordField<PasswordFormInput>
-            name="newPassword"
-            label="Nova senha"
-            appearance="default"
-            autoComplete="new-password"
-          />
-          <PasswordField<PasswordFormInput>
-            name="confirmPassword"
-            label="Confirmar nova senha"
-            appearance="default"
-            autoComplete="new-password"
-          />
+          <PasswordFields />
           <RootFormError />
           <Button size="form" type="submit" disabled={mutation.isPending}>
             Alterar senha

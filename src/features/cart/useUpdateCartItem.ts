@@ -10,6 +10,7 @@ import { updateCartItem } from './api';
 import { getCartScope } from './cart-scope';
 import { cartErrorMessage } from './messages';
 import { cartMutationKey, isCurrentCartScope } from './mutation-state';
+import { replaceCartItem } from './replaceCartItem';
 
 export function useUpdateCartItem() {
   const session = useSession();
@@ -27,14 +28,7 @@ export function useUpdateCartItem() {
       await client.cancelQueries({ queryKey: key });
       if (!current()) return;
       const previous = client.getQueryData<Cart>(key)?.items.find((item) => item.id === id);
-      client.setQueryData<Cart>(key, (cart) =>
-        cart
-          ? {
-              ...cart,
-              items: cart.items.map((item) => (item.id === id ? { ...item, quantity } : item)),
-            }
-          : cart,
-      );
+      client.setQueryData<Cart>(key, (cart) => replaceCartItem(cart, id, { quantity }));
       return previous;
     },
     onSuccess: (cart) => {
@@ -43,14 +37,7 @@ export function useUpdateCartItem() {
     onError: async (error, _input, previous) => {
       if (!current()) return;
       if (previous)
-        client.setQueryData<Cart>(key, (cart) =>
-          cart
-            ? {
-                ...cart,
-                items: cart.items.map((item) => (item.id === previous.id ? previous : item)),
-              }
-            : cart,
-        );
+        client.setQueryData<Cart>(key, (cart) => replaceCartItem(cart, previous.id, previous));
       toast.error(cartErrorMessage(error));
       await Promise.all([
         client.invalidateQueries({ queryKey: key }),

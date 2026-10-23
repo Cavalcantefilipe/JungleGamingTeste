@@ -1,22 +1,19 @@
 import { useQuery } from '@tanstack/react-query';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import type { Cart } from '@/contracts/cart';
 import type { Quote } from '@/contracts/quote';
 import type { Wallet } from '@/contracts/wallet';
+import { useCurrentTime } from '@/lib/useCurrentTime';
 
+import { getWalletIdentity } from './getWalletIdentity';
 import { quoteQueryOptions } from './quote';
 
 export function useQuoteReview(cart: Cart, wallet: Wallet, couponCode?: string) {
-  const walletIdentity = JSON.stringify([
-    wallet.id,
-    wallet.address,
-    wallet.network,
-    wallet.walletType,
-  ]);
+  const walletIdentity = getWalletIdentity(wallet);
   const [review, setReview] = useState<{ quote: Quote; walletIdentity: string } | null>(null);
   const reviewed = review?.quote ?? null;
-  const [now, setNow] = useState(Date.now);
+  const now = useCurrentTime();
   const query = useQuery(
     quoteQueryOptions(
       {
@@ -28,14 +25,6 @@ export function useQuoteReview(cart: Cart, wallet: Wallet, couponCode?: string) 
       'checkout',
     ),
   );
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setNow(Date.now());
-    }, 1000);
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
   const current = query.data;
   const stale = Boolean(
     reviewed &&

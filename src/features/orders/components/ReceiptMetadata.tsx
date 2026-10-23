@@ -2,15 +2,10 @@ import type { Order } from '@/contracts/order';
 import { WALLET_PROVIDER_LABELS } from '@/contracts/order';
 import { formatEth } from '@/lib/money';
 
+import { formatReceiptDate } from '../formatReceiptDate';
+
 export function ReceiptMetadata({ order }: { order: Order }) {
-  const parts = new Intl.DateTimeFormat('pt-BR', {
-    day: '2-digit',
-    month: 'short',
-    year: 'numeric',
-  }).formatToParts(new Date(order.createdAt));
-  const part = (type: Intl.DateTimeFormatPartTypes) =>
-    parts.find((entry) => entry.type === type)?.value ?? '';
-  const date = `${part('day')} ${part('month').replace('.', '')}, ${part('year')}`;
+  const date = formatReceiptDate(order.createdAt);
   const reference =
     order.transactionRef.length > 14
       ? `${order.transactionRef.slice(0, 6)}…${order.transactionRef.slice(-4)}`

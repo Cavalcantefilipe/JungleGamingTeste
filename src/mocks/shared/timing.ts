@@ -74,31 +74,38 @@ export function applyDueTransitions(db: MockDb, now = Date.now()): MockDb {
       const unavailable = transition.status === 'confirmed' && !hasStock(state, order);
       const status = unavailable ? 'declined' : transition.status;
       const next = status === 'confirmed' ? confirmPurchase(state, order) : state;
-      const transactionRef = `0x${order.id.replaceAll('-', '').padEnd(64, '0')}`;
       return {
         ...next,
         orders: next.orders.map((entry) =>
-          entry.id !== order.id
-            ? entry
-            : {
-                ...entry,
-                status,
-                version: entry.version + 1,
-                updatedAt: new Date(now).toISOString(),
-                transactionRef,
-                explorerUrl: `https://etherscan.io/tx/${transactionRef}`,
-                ...(status === 'declined'
-                  ? {
-                      declineReason: unavailable
-                        ? 'A edição não está mais disponível. Nenhum item foi comprado.'
-                        : 'A transação foi recusada pela rede simulada.',
-                    }
-                  : {}),
-              },
+          entry.id === order.id ? settleOrder(entry, status, unavailable, now) : entry,
         ),
         scheduledTransitions: next.scheduledTransitions.filter(
           (entry) => entry.orderId !== order.id,
         ),
       };
     }, db);
+}
+
+function settleOrder(
+  order: Order,
+  status: 'confirmed' | 'declined',
+  unavailable: boolean,
+  now: number,
+): Order {
+  const transactionRef = `0x${order.id.replaceAll('-', '').padEnd(64, '0')}`;
+  return {
+    ...order,
+    status,
+    version: order.version + 1,
+    updatedAt: new Date(now).toISOString(),
+    transactionRef,
+    explorerUrl: `https://etherscan.io/tx/${transactionRef}`,
+    ...(status === 'declined'
+      ? {
+          declineReason: unavailable
+            ? 'A edição não está mais disponível. Nenhum item foi comprado.'
+            : 'A transação foi recusada pela rede simulada.',
+        }
+      : {}),
+  };
 }

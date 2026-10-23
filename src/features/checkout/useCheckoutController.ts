@@ -7,6 +7,7 @@ import type { Wallet, Wallets } from '@/contracts/wallet';
 import { readCartCoupon } from '@/features/cart/coupon-store';
 import { readPendingOrder } from '@/features/orders/pending-order';
 
+import { getWalletIdentity } from './getWalletIdentity';
 import { useCheckoutSubmission } from './useCheckoutSubmission';
 import { useCheckoutWallet } from './useCheckoutWallet';
 import { useCreateOrder } from './useCreateOrder';
@@ -32,10 +33,7 @@ export function useCheckoutController({
   const { selected, form, storageError } = walletForm;
   const [couponCode] = useState(() => readCartCoupon(cart.scope));
   const review = useQuoteReview(cart, selected, couponCode);
-  const connection = useWalletConnection(
-    session.token,
-    JSON.stringify([selected.id, selected.address, selected.network, selected.walletType]),
-  );
+  const connection = useWalletConnection(session.token, getWalletIdentity(selected));
   const create = useCreateOrder(session);
   const pending = readPendingOrder(session.user.id);
   const submit = useCheckoutSubmission({

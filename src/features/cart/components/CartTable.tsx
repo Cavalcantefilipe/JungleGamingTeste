@@ -1,18 +1,10 @@
-import { Fragment } from 'react';
-
 import type { Cart } from '@/contracts/cart';
-import { compareEth } from '@/lib/money';
 
-import { useRemoveCartItem } from '../useRemoveCartItem';
-import { useUpdateCartItem } from '../useUpdateCartItem';
-import { CartItemRow } from './CartItemRow';
-import { PriceChangedNotice } from './PriceChangedNotice';
+import { CartTableItem } from './CartTableItem';
 
 import type { useCartState } from '../useCartState';
 
 export function CartTable({ cart, state }: { cart: Cart; state: ReturnType<typeof useCartState> }) {
-  const update = useUpdateCartItem();
-  const remove = useRemoveCartItem();
   return (
     <table className="block w-full border-separate border-spacing-y-2 md:table">
       <caption className="sr-only">Itens no carrinho</caption>
@@ -28,49 +20,9 @@ export function CartTable({ cart, state }: { cart: Cart; state: ReturnType<typeo
         </tr>
       </thead>
       <tbody className="block space-y-5 md:table-row-group md:space-y-0">
-        {cart.items.map((item) => {
-          const nft = state.nfts.get(item.nftId);
-          const available =
-            nft?.editions.find((edition) => edition.id === item.editionId)?.available ??
-            item.quantity;
-          const changed = Boolean(
-            nft && (compareEth(item.unitPrice, nft.price) !== 0 || available < item.quantity),
-          );
-          return (
-            <Fragment key={item.id}>
-              <CartItemRow
-                item={item}
-                nft={nft}
-                quote={state.summary?.items.find(
-                  (entry) => entry.nftId === item.nftId && entry.editionId === item.editionId,
-                )}
-                busy={state.busy}
-                update={(quantity) => {
-                  update.mutate({ id: item.id, quantity });
-                }}
-                remove={() => {
-                  remove.mutate(item.id);
-                }}
-              />
-              {changed && (
-                <tr className="block md:table-row">
-                  <td colSpan={5} className="block md:table-cell">
-                    <PriceChangedNotice
-                      available={available}
-                      disabled={state.busy}
-                      refresh={() => {
-                        update.mutate({
-                          id: item.id,
-                          quantity: Math.min(item.quantity, available),
-                        });
-                      }}
-                    />
-                  </td>
-                </tr>
-              )}
-            </Fragment>
-          );
-        })}
+        {cart.items.map((item) => (
+          <CartTableItem key={item.id} item={item} state={state} />
+        ))}
       </tbody>
     </table>
   );

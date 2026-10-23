@@ -1,19 +1,19 @@
-import Big from 'big.js';
+import Decimal from 'big.js';
 
 import { ethAmountSchema, type EthAmount } from '@/contracts/money';
 
 const ETH_DECIMALS = 6;
 const MIN_DISPLAY_DECIMALS = 2;
 
-Big.DP = ETH_DECIMALS;
-Big.RM = Big.roundDown;
+Decimal.DP = ETH_DECIMALS;
+Decimal.RM = Decimal.roundDown;
 
-function toBig(amount: EthAmount): Big {
-  return new Big(ethAmountSchema.parse(amount));
+function toBig(amount: EthAmount): Decimal {
+  return new Decimal(ethAmountSchema.parse(amount));
 }
 
-function normalize(value: Big): EthAmount {
-  const fixed = value.round(ETH_DECIMALS, Big.roundDown).toFixed(ETH_DECIMALS);
+function normalize(value: Decimal): EthAmount {
+  const fixed = value.round(ETH_DECIMALS, Decimal.roundDown).toFixed(ETH_DECIMALS);
   return fixed.replace(/\.?0+$/, '');
 }
 

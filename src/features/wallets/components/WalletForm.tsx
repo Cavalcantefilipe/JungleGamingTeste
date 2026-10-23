@@ -18,15 +18,12 @@ import { useSaveWallet } from '../mutations';
 import { walletDefaults, type WalletFormInput } from '../walletDefaults';
 import { WalletFields } from './WalletFields';
 
-export function WalletForm({
-  profile,
-  wallet,
-  walletRole,
-}: {
+interface WalletFormProps {
   profile: Profile;
   wallet: Wallet | null;
   walletRole: WalletRole;
-}) {
+}
+export function WalletForm({ profile, wallet, walletRole }: WalletFormProps) {
   const form = useForm<WalletFormInput, unknown, WalletInput>({
     resolver: zodResolver(walletInputSchema),
     defaultValues: walletDefaults(profile, wallet),

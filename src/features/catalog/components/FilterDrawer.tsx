@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -8,13 +7,13 @@ import {
   SheetDescription,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
 } from '@/components/ui/sheet';
-import type { NftFacets } from '@/contracts/nft';
-import type { CatalogSearch } from '@/features/catalog/search-params';
 
 import { CatalogSortSelect } from './CatalogSortSelect';
+import { FilterDrawerTrigger } from './FilterDrawerTrigger';
 import { FilterSidebar } from './FilterSidebar';
+
+import type { FilterProps } from '../filter-props';
 
 export function FilterDrawer({
   search,
@@ -22,27 +21,14 @@ export function FilterDrawer({
   facets,
   apply,
   clear,
-}: {
-  search: CatalogSearch;
-  compact?: boolean;
-  facets?: NftFacets;
-  apply: (value: Partial<CatalogSearch>) => void;
-  clear: () => void;
-}) {
+}: FilterProps & { compact?: boolean }) {
   const [open, setOpen] = useState(false);
+  const close = () => {
+    setOpen(false);
+  };
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger asChild>
-        <Button
-          variant={compact ? 'filter' : 'secondary'}
-          size={compact ? 'icon' : 'default'}
-          aria-label="Filtros"
-          className="rounded-xl lg:hidden"
-        >
-          <FigmaIcon name="filter" aria-hidden="true" size={20} />
-          <span className={compact ? 'sr-only' : ''}>Filtros</span>
-        </Button>
-      </SheetTrigger>
+      <FilterDrawerTrigger compact={compact} />
       <SheetContent side="left" className="w-[min(360px,100vw)] overflow-y-auto bg-ink p-6">
         <SheetHeader className="px-0">
           <SheetTitle>Filtrar NFTs</SheetTitle>
@@ -62,12 +48,7 @@ export function FilterDrawer({
             }}
           />
         </div>
-        <Button
-          className="w-full"
-          onClick={() => {
-            setOpen(false);
-          }}
-        >
+        <Button className="w-full" onClick={close}>
           Aplicar filtros
         </Button>
       </SheetContent>

@@ -1,21 +1,11 @@
 import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Input } from '@/components/ui/input';
-import type { NftFacets } from '@/contracts/nft';
-import type { CatalogSearch } from '@/features/catalog/search-params';
 
 import { FilterDrawer } from './FilterDrawer';
 
-export function MobileCatalogSearch({
-  search,
-  facets,
-  apply,
-  clear,
-}: {
-  search: CatalogSearch;
-  facets?: NftFacets;
-  apply: (value: Partial<CatalogSearch>) => void;
-  clear: () => void;
-}) {
+import type { FilterProps } from '../filter-props';
+
+export function MobileCatalogSearch({ search, facets, apply, clear }: FilterProps) {
   return (
     <div className="mb-4 flex items-center gap-2 md:hidden">
       <div className="relative min-w-0 flex-1">
