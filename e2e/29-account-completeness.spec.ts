@@ -8,6 +8,7 @@ test('autenticação adapta os espaços para manter todas as ações na tela', a
     ? [
         { width: 414, height: 896 },
         { width: 390, height: 844 },
+        { width: 320, height: 844 },
         { width: 360, height: 740 },
       ]
     : [

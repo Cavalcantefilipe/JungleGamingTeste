@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router';
 
 import { DialogDescription, DialogTitle } from '@/components/ui/dialog';
+import { cn } from '@/lib/cn';
 
 import { AuthTabs } from './AuthTabs';
 
@@ -17,7 +18,12 @@ export function AuthDialogHeading({ register, returnTo }: { register: boolean; r
         </Link>
       </div>
       <AuthTabs register={register} returnTo={returnTo} />
-      <DialogTitle className="mb-10 text-center text-lg leading-4 font-bold md:sr-only">
+      <DialogTitle
+        className={cn(
+          'mb-10 text-center text-lg leading-4 font-bold md:sr-only',
+          register && 'max-[359px]:mb-6',
+        )}
+      >
         {register ? 'Criar perfil de colecionador' : 'Entrar'}
       </DialogTitle>
       <DialogDescription className="mx-auto mb-6 hidden max-w-[400px] text-center text-caption leading-4 text-foreground md:block md:[@media(max-height:700px)]:mb-3">
