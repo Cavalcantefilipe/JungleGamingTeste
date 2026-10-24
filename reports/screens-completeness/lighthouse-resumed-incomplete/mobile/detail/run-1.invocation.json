@@ -1,0 +1,16 @@
+{
+  "startedAt": "2026-10-24T06:53:45.483Z",
+  "args": [
+    "exec",
+    "lighthouse",
+    "https://kurio-production-8274.up.railway.app/nfts/nft-001",
+    "--output=json",
+    "--output=html",
+    "--output-path=reports/screens-completeness/lighthouse/mobile/detail/run-1",
+    "--only-categories=performance,accessibility,best-practices,seo",
+    "--chrome-flags=--headless=new --disable-dev-shm-usage",
+    "--no-enable-error-reporting",
+    "--quiet"
+  ],
+  "chromePath": "/Users/filipecavalcante/Library/Caches/ms-playwright/chromium-1248/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"
+}

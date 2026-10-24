@@ -1,0 +1,48 @@
+
+Running 28 tests using 2 workers
+
+(node:60277) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:60278) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/28] [desktop-chromium] › e2e/08-account.spec.ts:20:1 › username em conflito mostra erro associado ao campo
+[2/28] [desktop-chromium] › e2e/08-account.spec.ts:5:1 › editar nome e e-mail persiste após refresh
+[3/28] [desktop-chromium] › e2e/08-account.spec.ts:29:1 › avatar rejeita pdf e tamanho excessivo; válido aparece no header e pode ser removido
+[4/28] [desktop-chromium] › e2e/08-account.spec.ts:66:1 › senha atual errada mostra erro; troca válida permite novo login
+[5/28] [desktop-chromium] › e2e/08-account.spec.ts:89:1 › carteira principal valida endereço e persiste; secundária igual espelha alterações
+[6/28] [desktop-chromium] › e2e/08-account.spec.ts:113:1 › perfil e carteiras respeitam viewport e navegação da conta
+[7/28] [desktop-chromium] › e2e/08-account.spec.ts:137:1 › alterações de carteira na fila não atingem o próximo usuário após logout
+[8/28] [desktop-chromium] › e2e/29-account-completeness.spec.ts:3:1 › autenticação adapta os espaços para manter todas as ações na tela
+[9/28] [desktop-chromium] › e2e/29-account-completeness.spec.ts:44:1 › erros de autenticação continuam acessíveis em uma tela baixa
+[10/28] [desktop-chromium] › e2e/29-account-completeness.spec.ts:67:1 › perfil não confirma alterações que ainda não foram salvas
+[11/28] [desktop-chromium] › e2e/29-account-completeness.spec.ts:79:1 › remover avatar não impede a confirmação de dados do perfil salvos depois
+[12/28] [desktop-chromium] › e2e/29-account-completeness.spec.ts:100:1 › carteiras não misturam confirmação anterior com alterações inválidas
+[13/28] [desktop-chromium] › e2e/29-account-completeness.spec.ts:116:1 › nova edição de senha remove a confirmação da operação anterior
+[14/28] [desktop-chromium] › e2e/29-account-completeness.spec.ts:127:1 › fechar autenticação preserva o contexto público e evita voltar para rotas protegidas
+(node:60364) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[15/28] [mobile-chromium] › e2e/08-account.spec.ts:5:1 › editar nome e e-mail persiste após refresh
+(node:60369) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[16/28] [mobile-chromium] › e2e/08-account.spec.ts:20:1 › username em conflito mostra erro associado ao campo
+[17/28] [mobile-chromium] › e2e/08-account.spec.ts:29:1 › avatar rejeita pdf e tamanho excessivo; válido aparece no header e pode ser removido
+[18/28] [mobile-chromium] › e2e/08-account.spec.ts:66:1 › senha atual errada mostra erro; troca válida permite novo login
+[19/28] [mobile-chromium] › e2e/08-account.spec.ts:89:1 › carteira principal valida endereço e persiste; secundária igual espelha alterações
+[20/28] [mobile-chromium] › e2e/08-account.spec.ts:113:1 › perfil e carteiras respeitam viewport e navegação da conta
+[21/28] [mobile-chromium] › e2e/08-account.spec.ts:137:1 › alterações de carteira na fila não atingem o próximo usuário após logout
+[22/28] [mobile-chromium] › e2e/29-account-completeness.spec.ts:3:1 › autenticação adapta os espaços para manter todas as ações na tela
+[23/28] [mobile-chromium] › e2e/29-account-completeness.spec.ts:44:1 › erros de autenticação continuam acessíveis em uma tela baixa
+[24/28] [mobile-chromium] › e2e/29-account-completeness.spec.ts:67:1 › perfil não confirma alterações que ainda não foram salvas
+[25/28] [mobile-chromium] › e2e/29-account-completeness.spec.ts:79:1 › remover avatar não impede a confirmação de dados do perfil salvos depois
+[26/28] [mobile-chromium] › e2e/29-account-completeness.spec.ts:100:1 › carteiras não misturam confirmação anterior com alterações inválidas
+[27/28] [mobile-chromium] › e2e/29-account-completeness.spec.ts:116:1 › nova edição de senha remove a confirmação da operação anterior
+[28/28] [mobile-chromium] › e2e/29-account-completeness.spec.ts:127:1 › fechar autenticação preserva o contexto público e evita voltar para rotas protegidas
+  28 passed (53.9s)

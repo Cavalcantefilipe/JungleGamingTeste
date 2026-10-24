@@ -1,0 +1,22 @@
+{
+  "startedAt": "2026-10-24T06:56:21.204Z",
+  "binary": "/Users/filipecavalcante/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell",
+  "version": "Google Chrome for Testing 156.0.8078.4",
+  "node": "v24.12.0",
+  "lighthouse": "13.5.0",
+  "puppeteer": "25.13.0",
+  "args": [
+    "exec",
+    "lighthouse",
+    "https://kurio-production-8274.up.railway.app/nfts/nft-001",
+    "--output=json",
+    "--output=html",
+    "--output-path=/tmp/kurio-lighthouse-headless-shell-smoke/report",
+    "--only-categories=performance,accessibility,best-practices,seo",
+    "--chrome-flags=--headless=new --disable-dev-shm-usage",
+    "--no-enable-error-reporting",
+    "--quiet"
+  ],
+  "diagnosticOnly": true,
+  "excludedFromMedians": true
+}

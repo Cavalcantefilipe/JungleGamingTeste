@@ -1,0 +1,34 @@
+
+Running 20 tests using 2 workers
+
+(node:60426) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:60425) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop-chromium] › e2e/31-image-resilience.spec.ts:55:3 › recuperação de falhas de arquivos › Home recupera cards e libera AVIF ao trocar o destaque para outra foto (1.9s)
+  ✓   2 [desktop-chromium] › e2e/31-image-resilience.spec.ts:22:3 › recuperação de falhas de arquivos › falha AVIF recupera galeria e carrossel com o mesmo artwork WebP (1.9s)
+  ✓   4 [desktop-chromium] › e2e/31-image-resilience.spec.ts:105:3 › recuperação de falhas de arquivos › indisponibilidade preserva espaço e recupera imagens quando a conexão volta (1.9s)
+  ✓   3 [desktop-chromium] › e2e/31-image-resilience.spec.ts:84:3 › recuperação de falhas de arquivos › falha transitória nos dois formatos tenta novamente o arquivo original (2.0s)
+  ✓   5 [desktop-chromium] › e2e/31-image-resilience.spec.ts:127:5 › recuperação de falhas de arquivos › Home recupera foto indisponível ao retornar por visibilitychange (1.4s)
+  ✓   6 [desktop-chromium] › e2e/31-image-resilience.spec.ts:127:5 › recuperação de falhas de arquivos › Home recupera foto indisponível ao retornar por focus (1.6s)
+  ✓   8 [desktop-chromium] › e2e/31-image-resilience.spec.ts:174:3 › recuperação de falhas de arquivos › imagem indisponível mantém a área de visualização do zoom (1.3s)
+  ✓   7 [desktop-chromium] › e2e/31-image-resilience.spec.ts:156:3 › recuperação de falhas de arquivos › voltar ao destaque que falhou tenta a imagem novamente (1.5s)
+  ✓  10 [desktop-chromium] › e2e/31-image-resilience.spec.ts:228:1 › Home preserva foto carregada ao alternar offline e online com retorno à aba (1.2s)
+(node:60456) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [desktop-chromium] › e2e/31-image-resilience.spec.ts:190:3 › recuperação de falhas de arquivos › trocar foto na galeria não reaproveita o erro da imagem anterior (2.2s)
+(node:60463) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  11 [mobile-chromium] › e2e/31-image-resilience.spec.ts:22:3 › recuperação de falhas de arquivos › falha AVIF recupera galeria e carrossel com o mesmo artwork WebP (1.2s)
+  ✓  12 [mobile-chromium] › e2e/31-image-resilience.spec.ts:55:3 › recuperação de falhas de arquivos › Home recupera cards e libera AVIF ao trocar o destaque para outra foto (1.2s)
+  ✓  13 [mobile-chromium] › e2e/31-image-resilience.spec.ts:84:3 › recuperação de falhas de arquivos › falha transitória nos dois formatos tenta novamente o arquivo original (1.1s)
+  ✓  14 [mobile-chromium] › e2e/31-image-resilience.spec.ts:105:3 › recuperação de falhas de arquivos › indisponibilidade preserva espaço e recupera imagens quando a conexão volta (1.2s)
+  ✓  15 [mobile-chromium] › e2e/31-image-resilience.spec.ts:127:5 › recuperação de falhas de arquivos › Home recupera foto indisponível ao retornar por visibilitychange (1.2s)
+  ✓  16 [mobile-chromium] › e2e/31-image-resilience.spec.ts:127:5 › recuperação de falhas de arquivos › Home recupera foto indisponível ao retornar por focus (1.3s)
+  -  18 [mobile-chromium] › e2e/31-image-resilience.spec.ts:174:3 › recuperação de falhas de arquivos › imagem indisponível mantém a área de visualização do zoom
+  -  19 [mobile-chromium] › e2e/31-image-resilience.spec.ts:190:3 › recuperação de falhas de arquivos › trocar foto na galeria não reaproveita o erro da imagem anterior
+  ✓  17 [mobile-chromium] › e2e/31-image-resilience.spec.ts:156:3 › recuperação de falhas de arquivos › voltar ao destaque que falhou tenta a imagem novamente (1.6s)
+  ✓  20 [mobile-chromium] › e2e/31-image-resilience.spec.ts:228:1 › Home preserva foto carregada ao alternar offline e online com retorno à aba (1.2s)
+
+  2 skipped
+  18 passed (15.1s)

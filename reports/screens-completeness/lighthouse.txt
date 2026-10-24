@@ -1,0 +1,67 @@
+$ node lighthouse/run.mjs
+desktop/home 1/3: 99
+desktop/home 2/3: 99
+desktop/home 3/3: 93
+desktop/detail 1/3: 100
+desktop/detail 2/3: 99
+desktop/detail 3/3: 100
+mobile/home 1/3: 93
+mobile/home 2/3: 89
+mobile/home 3/3: 93
+mobile/detail 1/3: 90
+mobile/detail 2/3: 92
+mobile/detail 3/3: 92
+[
+  {
+    "profile": "desktop",
+    "page": "home",
+    "runs": 3,
+    "performance": 99,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100,
+    "lcpMs": 774.668,
+    "cls": 0.008240810629075597,
+    "tbtMs": 0,
+    "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36"
+  },
+  {
+    "profile": "desktop",
+    "page": "detail",
+    "runs": 3,
+    "performance": 100,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100,
+    "lcpMs": 755.779,
+    "cls": 0,
+    "tbtMs": 0,
+    "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36"
+  },
+  {
+    "profile": "mobile",
+    "page": "home",
+    "runs": 3,
+    "performance": 93,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100,
+    "lcpMs": 2813.138,
+    "cls": 0,
+    "tbtMs": 25.5,
+    "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36"
+  },
+  {
+    "profile": "mobile",
+    "page": "detail",
+    "runs": 3,
+    "performance": 92,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100,
+    "lcpMs": 2874.0074999999997,
+    "cls": 0,
+    "tbtMs": 29,
+    "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36"
+  }
+]

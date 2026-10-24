@@ -1,0 +1,869 @@
+{
+  "capturedAt": "2026-10-24T05:22:19.780Z",
+  "baseURL": "https://kurio-production-8274.up.railway.app",
+  "deployment": {
+    "id": "bf146579-0177-4d75-a003-d235e6099231",
+    "status": "SUCCESS",
+    "commit": "0063435584c8a0a7a95b4a0cb438ba01f20646a4"
+  },
+  "conditions": "Isolated contexts, default MSW, reduced motion, real clock; fonts/images/network ready. Checkout reviewed and connected. Auth screenshots use viewport, others full page. PNG converted to lossless WebP at original dimensions.",
+  "observations": [
+    {
+      "screen": "home",
+      "url": "https://kurio-production-8274.up.railway.app/",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "detail",
+      "url": "https://kurio-production-8274.up.railway.app/nfts/nft-004",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "cart",
+      "url": "https://kurio-production-8274.up.railway.app/cart",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "login",
+      "url": "https://kurio-production-8274.up.railway.app/login?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "dialogs": [
+        {
+          "height": 600,
+          "internalOverflow": 0,
+          "overlayOverflow": 0
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "screen": "register",
+      "url": "https://kurio-production-8274.up.railway.app/register?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "dialogs": [
+        {
+          "height": 656,
+          "internalOverflow": 0,
+          "overlayOverflow": 0
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "screen": "profile",
+      "url": "https://kurio-production-8274.up.railway.app/account/profile",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "wallets",
+      "url": "https://kurio-production-8274.up.railway.app/account/wallets",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "payment",
+      "url": "https://kurio-production-8274.up.railway.app/checkout",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "receipt",
+      "url": "https://kurio-production-8274.up.railway.app/orders/78b3bead-fad3-4a89-b5ff-8e5d2176b146",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "dialogs": [
+        {
+          "height": 658,
+          "internalOverflow": 0,
+          "overlayOverflow": 0
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "screen": "home",
+      "url": "https://kurio-production-8274.up.railway.app/",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 768,
+      "scrollWidth": 768,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "detail",
+      "url": "https://kurio-production-8274.up.railway.app/nfts/nft-004",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 768,
+      "scrollWidth": 768,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "cart",
+      "url": "https://kurio-production-8274.up.railway.app/cart",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 768,
+      "scrollWidth": 768,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "login",
+      "url": "https://kurio-production-8274.up.railway.app/login?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 768,
+      "scrollWidth": 768,
+      "dialogs": [
+        {
+          "height": 600,
+          "internalOverflow": 0,
+          "overlayOverflow": 0
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "screen": "register",
+      "url": "https://kurio-production-8274.up.railway.app/register?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 768,
+      "scrollWidth": 768,
+      "dialogs": [
+        {
+          "height": 656,
+          "internalOverflow": 0,
+          "overlayOverflow": 0
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "screen": "profile",
+      "url": "https://kurio-production-8274.up.railway.app/account/profile",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 768,
+      "scrollWidth": 768,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "wallets",
+      "url": "https://kurio-production-8274.up.railway.app/account/wallets",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 768,
+      "scrollWidth": 768,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "payment",
+      "url": "https://kurio-production-8274.up.railway.app/checkout",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 768,
+      "scrollWidth": 768,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "receipt",
+      "url": "https://kurio-production-8274.up.railway.app/orders/73105a06-0468-4b7d-a8ec-a242318a36a4",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 768,
+      "scrollWidth": 768,
+      "dialogs": [
+        {
+          "height": 658,
+          "internalOverflow": 0,
+          "overlayOverflow": 0
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "screen": "home",
+      "url": "https://kurio-production-8274.up.railway.app/",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 414,
+      "scrollWidth": 414,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "detail",
+      "url": "https://kurio-production-8274.up.railway.app/nfts/nft-004",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 414,
+      "scrollWidth": 414,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "cart",
+      "url": "https://kurio-production-8274.up.railway.app/cart",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 414,
+      "scrollWidth": 414,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "login",
+      "url": "https://kurio-production-8274.up.railway.app/login?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 414,
+      "scrollWidth": 414,
+      "dialogs": [
+        {
+          "height": 896,
+          "internalOverflow": 0,
+          "overlayOverflow": 0
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "screen": "register",
+      "url": "https://kurio-production-8274.up.railway.app/register?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 414,
+      "scrollWidth": 414,
+      "dialogs": [
+        {
+          "height": 896,
+          "internalOverflow": 0,
+          "overlayOverflow": 0
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "screen": "profile",
+      "url": "https://kurio-production-8274.up.railway.app/account/profile",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 414,
+      "scrollWidth": 414,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "wallets",
+      "url": "https://kurio-production-8274.up.railway.app/account/wallets",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 414,
+      "scrollWidth": 414,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "payment",
+      "url": "https://kurio-production-8274.up.railway.app/checkout",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 414,
+      "scrollWidth": 414,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "receipt",
+      "url": "https://kurio-production-8274.up.railway.app/orders/7075baf7-fc5c-4efe-b78f-f04958d9cde0",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 414,
+      "scrollWidth": 414,
+      "dialogs": [
+        {
+          "height": 896,
+          "internalOverflow": 0,
+          "overlayOverflow": 0
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "screen": "home",
+      "url": "https://kurio-production-8274.up.railway.app/",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 390,
+      "scrollWidth": 390,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "detail",
+      "url": "https://kurio-production-8274.up.railway.app/nfts/nft-004",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 390,
+      "scrollWidth": 390,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "cart",
+      "url": "https://kurio-production-8274.up.railway.app/cart",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 390,
+      "scrollWidth": 390,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "login",
+      "url": "https://kurio-production-8274.up.railway.app/login?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 390,
+      "scrollWidth": 390,
+      "dialogs": [
+        {
+          "height": 844,
+          "internalOverflow": 0,
+          "overlayOverflow": 0
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "screen": "register",
+      "url": "https://kurio-production-8274.up.railway.app/register?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 390,
+      "scrollWidth": 390,
+      "dialogs": [
+        {
+          "height": 844,
+          "internalOverflow": 0,
+          "overlayOverflow": 0
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "screen": "profile",
+      "url": "https://kurio-production-8274.up.railway.app/account/profile",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 390,
+      "scrollWidth": 390,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "wallets",
+      "url": "https://kurio-production-8274.up.railway.app/account/wallets",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 390,
+      "scrollWidth": 390,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "payment",
+      "url": "https://kurio-production-8274.up.railway.app/checkout",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 390,
+      "scrollWidth": 390,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "receipt",
+      "url": "https://kurio-production-8274.up.railway.app/orders/6e53b24e-d3d8-427c-a276-c8e00a457632",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 390,
+      "scrollWidth": 390,
+      "dialogs": [
+        {
+          "height": 844,
+          "internalOverflow": 0,
+          "overlayOverflow": 0
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "screen": "home",
+      "url": "https://kurio-production-8274.up.railway.app/",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 320,
+      "scrollWidth": 320,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "detail",
+      "url": "https://kurio-production-8274.up.railway.app/nfts/nft-004",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 320,
+      "scrollWidth": 320,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "cart",
+      "url": "https://kurio-production-8274.up.railway.app/cart",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 320,
+      "scrollWidth": 320,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "login",
+      "url": "https://kurio-production-8274.up.railway.app/login?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 320,
+      "scrollWidth": 320,
+      "dialogs": [
+        {
+          "height": 844,
+          "internalOverflow": 0,
+          "overlayOverflow": 0
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "screen": "register",
+      "url": "https://kurio-production-8274.up.railway.app/register?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 320,
+      "scrollWidth": 320,
+      "dialogs": [
+        {
+          "height": 844,
+          "internalOverflow": 0,
+          "overlayOverflow": 0
+        }
+      ],
+      "brokenImages": []
+    },
+    {
+      "screen": "profile",
+      "url": "https://kurio-production-8274.up.railway.app/account/profile",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 320,
+      "scrollWidth": 320,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "wallets",
+      "url": "https://kurio-production-8274.up.railway.app/account/wallets",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 320,
+      "scrollWidth": 320,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "payment",
+      "url": "https://kurio-production-8274.up.railway.app/checkout",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 320,
+      "scrollWidth": 320,
+      "dialogs": [],
+      "brokenImages": []
+    },
+    {
+      "screen": "receipt",
+      "url": "https://kurio-production-8274.up.railway.app/orders/740397f4-7663-439a-8225-521dfd10840d",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 320,
+      "scrollWidth": 320,
+      "dialogs": [
+        {
+          "height": 844,
+          "internalOverflow": 0,
+          "overlayOverflow": 0
+        }
+      ],
+      "brokenImages": []
+    }
+  ],
+  "captures": [
+    {
+      "screen": "home",
+      "viewportWidth": 1440,
+      "width": 1440,
+      "height": 3695,
+      "file": "public/1440/home.webp",
+      "sha256": "cb8acccd17e38d302e1e8a055a2fc31ac4ca3590230904eceae352301b34ba0b"
+    },
+    {
+      "screen": "detail",
+      "viewportWidth": 1440,
+      "width": 1440,
+      "height": 2458,
+      "file": "public/1440/detail.webp",
+      "sha256": "4a6daae1353dd3203cea7d12fdbb293e20ff2fc2bab369c9d3f434a619417532"
+    },
+    {
+      "screen": "cart",
+      "viewportWidth": 1440,
+      "width": 1440,
+      "height": 1866,
+      "file": "public/1440/cart.webp",
+      "sha256": "035382b04c30caed0b8bed5bab6ce5e1e404b4d18fb89526a7e91095ce5bab49"
+    },
+    {
+      "screen": "login",
+      "viewportWidth": 1440,
+      "width": 1440,
+      "height": 900,
+      "file": "public/1440/login.webp",
+      "sha256": "5bbd3d858442b00a6a586beb639aa0a49fbb53fd7d2ebca224124c8519ed5854"
+    },
+    {
+      "screen": "register",
+      "viewportWidth": 1440,
+      "width": 1440,
+      "height": 900,
+      "file": "public/1440/register.webp",
+      "sha256": "e18d6714bbedd48ebce53a6f25f0ff568d9810f8f78e549ea2998d65eae23586"
+    },
+    {
+      "screen": "profile",
+      "viewportWidth": 1440,
+      "width": 1440,
+      "height": 916,
+      "file": "public/1440/profile.webp",
+      "sha256": "0757512be5ca8278575b251a9f78f4933f6c36018d25d5f9d9e5de844288d4b6"
+    },
+    {
+      "screen": "wallets",
+      "viewportWidth": 1440,
+      "width": 1440,
+      "height": 903,
+      "file": "public/1440/wallets.webp",
+      "sha256": "330288b23e6e39e84dd3a78b9905d1d455cdec14ddb1f818fc596fffb2520f96"
+    },
+    {
+      "screen": "payment",
+      "viewportWidth": 1440,
+      "width": 1440,
+      "height": 1712,
+      "file": "public/1440/payment.webp",
+      "sha256": "3958a1c761caaae61574b3be01f80bdec8b587eab5cfc874f895e187570e8fda"
+    },
+    {
+      "screen": "receipt",
+      "viewportWidth": 1440,
+      "width": 1440,
+      "height": 900,
+      "file": "public/1440/receipt.webp",
+      "sha256": "08ce91011bb13e58f52abf2a5d5d69471979d2a98bde44f8773d9c9fb72d7cc7"
+    },
+    {
+      "screen": "home",
+      "viewportWidth": 768,
+      "width": 768,
+      "height": 5912,
+      "file": "public/768/home.webp",
+      "sha256": "62c6c49d8e431aba75944d402145af22096e7a0296bb254048f1e1ebec7229dd"
+    },
+    {
+      "screen": "detail",
+      "viewportWidth": 768,
+      "width": 768,
+      "height": 3794,
+      "file": "public/768/detail.webp",
+      "sha256": "e0778306cff311f5fefeed3d0769c83bd6e4c94ea1fdcd05f62a13f84a042e38"
+    },
+    {
+      "screen": "cart",
+      "viewportWidth": 768,
+      "width": 768,
+      "height": 2436,
+      "file": "public/768/cart.webp",
+      "sha256": "3337848a70d5856ecd0a93a0fe6c1c21c735036d9f50829daf6fffce33496222"
+    },
+    {
+      "screen": "login",
+      "viewportWidth": 768,
+      "width": 768,
+      "height": 900,
+      "file": "public/768/login.webp",
+      "sha256": "30457cec5ce6b6f33916dca70855c0f88739b228021d8173025d3e935595ae20"
+    },
+    {
+      "screen": "register",
+      "viewportWidth": 768,
+      "width": 768,
+      "height": 900,
+      "file": "public/768/register.webp",
+      "sha256": "783bf47bb064852d250b3c7357096d3bb5b10d5f5f88143ef1e38b619d6bbf65"
+    },
+    {
+      "screen": "profile",
+      "viewportWidth": 768,
+      "width": 768,
+      "height": 1180,
+      "file": "public/768/profile.webp",
+      "sha256": "3f51bf120e3feddf2d91a5380f2de711d94c299d5a7812d874512c7770004a25"
+    },
+    {
+      "screen": "wallets",
+      "viewportWidth": 768,
+      "width": 768,
+      "height": 1411,
+      "file": "public/768/wallets.webp",
+      "sha256": "a59e087402db66b545ae9094d2acafe0d37a944fe80e154f5a67aa4fd94ccf5c"
+    },
+    {
+      "screen": "payment",
+      "viewportWidth": 768,
+      "width": 768,
+      "height": 2322,
+      "file": "public/768/payment.webp",
+      "sha256": "a59161d5cea61a71dc30e69e0b5ca66a1a54b6c0949e19621ada2fc26bbf85d3"
+    },
+    {
+      "screen": "receipt",
+      "viewportWidth": 768,
+      "width": 768,
+      "height": 900,
+      "file": "public/768/receipt.webp",
+      "sha256": "27063051df13bab3cae86179d073b025afcd6c16643ecacc72673eeaf4653724"
+    },
+    {
+      "screen": "home",
+      "viewportWidth": 414,
+      "width": 414,
+      "height": 7276,
+      "file": "public/414/home.webp",
+      "sha256": "c7bcf5f2ac110ddc16baffd51ec678cee0881249895b03632e822a0d74b7be5f"
+    },
+    {
+      "screen": "detail",
+      "viewportWidth": 414,
+      "width": 414,
+      "height": 4416,
+      "file": "public/414/detail.webp",
+      "sha256": "26d9f813e0ee9f7f5d7b7aa79299eb37c52522885e4c1eeef80f5d3759e8d75b"
+    },
+    {
+      "screen": "cart",
+      "viewportWidth": 414,
+      "width": 414,
+      "height": 896,
+      "file": "public/414/cart.webp",
+      "sha256": "d73d6474376aa000f6fadac03eeeda9d779d47bc1ffa2b0fb01d82be6d735071"
+    },
+    {
+      "screen": "login",
+      "viewportWidth": 414,
+      "width": 414,
+      "height": 896,
+      "file": "public/414/login.webp",
+      "sha256": "2daa47eb14f91e0925bc9577984999fe367f203dd24c465c106d746e4a5cf806"
+    },
+    {
+      "screen": "register",
+      "viewportWidth": 414,
+      "width": 414,
+      "height": 896,
+      "file": "public/414/register.webp",
+      "sha256": "a98b5aff40069024cad4d438c1f1ef91b56ce661d944946284b6300bfed9dcef"
+    },
+    {
+      "screen": "profile",
+      "viewportWidth": 414,
+      "width": 414,
+      "height": 1452,
+      "file": "public/414/profile.webp",
+      "sha256": "e922a151610a319da65d1007e1dae57f21b8e0ce52675a87cabd7015e060259f"
+    },
+    {
+      "screen": "wallets",
+      "viewportWidth": 414,
+      "width": 414,
+      "height": 1727,
+      "file": "public/414/wallets.webp",
+      "sha256": "719b5b6bf5db14958248dc36cc3d771d1f9418982a1fdbe59ebe79296c9d5b21"
+    },
+    {
+      "screen": "payment",
+      "viewportWidth": 414,
+      "width": 414,
+      "height": 1103,
+      "file": "public/414/payment.webp",
+      "sha256": "803c6449462d263e27daea59be049b035a6b37ebebac4bd25394242893f0241b"
+    },
+    {
+      "screen": "receipt",
+      "viewportWidth": 414,
+      "width": 414,
+      "height": 896,
+      "file": "public/414/receipt.webp",
+      "sha256": "eda87bad500d75a5b95e46534047f6db7863e3688754bd8a7e1fa8ae960191c0"
+    },
+    {
+      "screen": "home",
+      "viewportWidth": 390,
+      "width": 390,
+      "height": 7161,
+      "file": "public/390/home.webp",
+      "sha256": "4a9460b5d8aa79afdeb0902c36bcbeda376de0dae3edf83e76e8f809b1eea0d8"
+    },
+    {
+      "screen": "detail",
+      "viewportWidth": 390,
+      "width": 390,
+      "height": 4466,
+      "file": "public/390/detail.webp",
+      "sha256": "0fe4428e06fa5003097dc9108b671f9a73a6fdcdfb86b42fa22ea54fc189b43c"
+    },
+    {
+      "screen": "cart",
+      "viewportWidth": 390,
+      "width": 390,
+      "height": 844,
+      "file": "public/390/cart.webp",
+      "sha256": "48f6831c32d6698f2c037e4b64696911afb54b9eca8bb7b2a13d2e2c15872f1a"
+    },
+    {
+      "screen": "login",
+      "viewportWidth": 390,
+      "width": 390,
+      "height": 844,
+      "file": "public/390/login.webp",
+      "sha256": "94a0ab92bfd637a202d130e0abcfe5c06bc8d20703ee4e44cb4095d11b40d504"
+    },
+    {
+      "screen": "register",
+      "viewportWidth": 390,
+      "width": 390,
+      "height": 844,
+      "file": "public/390/register.webp",
+      "sha256": "16a07b014afeb4f2aa21bb74d83f58cfafd6c69622e0785f60da6580e24c4ee8"
+    },
+    {
+      "screen": "profile",
+      "viewportWidth": 390,
+      "width": 390,
+      "height": 1452,
+      "file": "public/390/profile.webp",
+      "sha256": "590118aec22da002e015d0493ef481cd3056af3aa95f6356a9f507154ab1df4c"
+    },
+    {
+      "screen": "wallets",
+      "viewportWidth": 390,
+      "width": 390,
+      "height": 1727,
+      "file": "public/390/wallets.webp",
+      "sha256": "c7b6e2620ab4b6fff7c5b94c0df82720967a388eccafaec524c4f89f2430ecdd"
+    },
+    {
+      "screen": "payment",
+      "viewportWidth": 390,
+      "width": 390,
+      "height": 1103,
+      "file": "public/390/payment.webp",
+      "sha256": "c1684b07ffc195314742a2b1c234645334ce6dc72f9a0e1e1991189dcd62a89b"
+    },
+    {
+      "screen": "receipt",
+      "viewportWidth": 390,
+      "width": 390,
+      "height": 844,
+      "file": "public/390/receipt.webp",
+      "sha256": "b01ee654c1e04efbfbbff512a8446dd4b102160cb7035a754a1254110327e28e"
+    },
+    {
+      "screen": "home",
+      "viewportWidth": 320,
+      "width": 320,
+      "height": 7458,
+      "file": "public/320/home.webp",
+      "sha256": "e3f8c4eafcf35d084d2c35f003e31a0fc4a43065f86b7a87e51fb8986a476706"
+    },
+    {
+      "screen": "detail",
+      "viewportWidth": 320,
+      "width": 320,
+      "height": 5204,
+      "file": "public/320/detail.webp",
+      "sha256": "4e244041029019a19c6c6f4afb09d6ab684bc4d95aacfee2e752443451d6c36f"
+    },
+    {
+      "screen": "cart",
+      "viewportWidth": 320,
+      "width": 320,
+      "height": 844,
+      "file": "public/320/cart.webp",
+      "sha256": "c2fa42951f82dc42b23c2e019d2266498d558e7e154a0d99ba120a2251976602"
+    },
+    {
+      "screen": "login",
+      "viewportWidth": 320,
+      "width": 320,
+      "height": 844,
+      "file": "public/320/login.webp",
+      "sha256": "cd7ad35377830d5e8da49630d2003b49680867526c7f7da67349a529539b3d5a"
+    },
+    {
+      "screen": "register",
+      "viewportWidth": 320,
+      "width": 320,
+      "height": 844,
+      "file": "public/320/register.webp",
+      "sha256": "1308f9877fa823988774500b88c81aeb5b48354482857e804560a29698815a7c"
+    },
+    {
+      "screen": "profile",
+      "viewportWidth": 320,
+      "width": 320,
+      "height": 1508,
+      "file": "public/320/profile.webp",
+      "sha256": "96d19b26598410df8861c08a221d86b9e16b4a9aaae74174cbcc392b852dd658"
+    },
+    {
+      "screen": "wallets",
+      "viewportWidth": 320,
+      "width": 320,
+      "height": 1759,
+      "file": "public/320/wallets.webp",
+      "sha256": "1f59063cba2d18daeab00a72d75852293a62144eec5e39644d5b1a87eeac74b7"
+    },
+    {
+      "screen": "payment",
+      "viewportWidth": 320,
+      "width": 320,
+      "height": 1115,
+      "file": "public/320/payment.webp",
+      "sha256": "c80b3f081e35a4fb8ce7baaf33d7954799471b438903d2097825da5e98b25e0d"
+    },
+    {
+      "screen": "receipt",
+      "viewportWidth": 320,
+      "width": 320,
+      "height": 844,
+      "file": "public/320/receipt.webp",
+      "sha256": "cfa702929c212b07edd1bcafce230e1a99ddbf55bb00a2b5e5ee306457b5047d"
+    }
+  ]
+}

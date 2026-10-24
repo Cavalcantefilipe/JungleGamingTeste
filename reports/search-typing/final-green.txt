@@ -1,0 +1,24 @@
+
+Running 4 tests using 2 workers
+
+(node:63597) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:63596) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/4] [desktop-chromium] › e2e/01-catalog.spec.ts:3:1 › digitação sequencial preserva espaços entre palavras na busca
+[2/4] [desktop-chromium] › e2e/01-catalog.spec.ts:21:1 › substituir consultas durante a digitação não anuncia uma falha
+(node:63606) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[3/4] [mobile-chromium] › e2e/01-catalog.spec.ts:3:1 › digitação sequencial preserva espaços entre palavras na busca
+(node:63612) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[4/4] [mobile-chromium] › e2e/01-catalog.spec.ts:21:1 › substituir consultas durante a digitação não anuncia uma falha
+  4 passed (6.7s)

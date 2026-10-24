@@ -1,0 +1,31 @@
+
+ RUN  v5.0.5 /Users/filipecavalcante/Documents/JungleGamingTeste
+
+ ❯ src/features/catalog/search-params.test.ts (4 tests | 1 failed) 21ms
+   ❯ parâmetros do catálogo (4)
+     × preserva espaços da edição na URL e normaliza somente na consulta da API 14ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/catalog/search-params.test.ts > parâmetros do catálogo > preserva espaços da edição na URL e normaliza somente na consulta da API
+AssertionError: expected 'Cosmic' to be ' Cosmic ' // Object.is equality
+
+Expected: " Cosmic "
+Received: "Cosmic"
+
+ ❯ src/features/catalog/search-params.test.ts:10:22
+      8|   it('preserva espaços da edição na URL e normaliza somente na consult…
+      9|     const search = parse({ q: ' Cosmic ' });
+     10|     expect(search.q).toBe(' Cosmic ');
+       |                      ^
+     11|     expect(nftListQuerySchema.parse(search).q).toBe('Cosmic');
+     12|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  03:28:07
+   Duration  1.46s (environment 87%, import 6%, transform 3%, tests 2%, setup 1%)
+

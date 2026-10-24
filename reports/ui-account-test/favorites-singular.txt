@@ -1,0 +1,194 @@
+Browser tab: 466327895, Title: "Kurio — Marketplace de NFTs", URL: "https://kurio-production-8274.up.railway.app/?favorites=true".
+1 AXWebArea Kurio — Marketplace de NFTs, URL: kurio-production-8274.up.railway.app/?favorites=true
+	2 container root
+		3 link Description: Pular para o conteúdo, Value: kurio-production-8274.up.railway.app/?favorites=true#main-content
+		4 container
+			5 link Description: Kurio — Início, Value: kurio-production-8274.up.railway.app/
+			6 container Menu principal
+				7 link Description: Início, Value: kurio-production-8274.up.railway.app/
+				8 link Description: Mercado, Value: kurio-production-8274.up.railway.app/#catalogo
+				9 button Criadores
+				10 button Aprenda
+			11 link Description: Buscar NFTs, Value: kurio-production-8274.up.railway.app/?favorites=true#busca
+			12 link Description: Carrinho, 0 itens, Value: kurio-production-8274.up.railway.app/cart
+			13 pop up button (collapsed) Description: Abrir menu da conta, ID: radix-_r_8_, Secondary Actions: Expand
+		14 container main-content
+			15 container
+				16 text Bem-vindo à Kurio
+				17 heading SEJA DONO DO FUTURO DA ARTE DIGITAL, Value: 1
+					18 text SEJA DONO DO FUTURO
+					19 text DA ARTE DIGITAL
+				20 text Descubra NFTs selecionados de criadores emergentes e consagrados. Colecione arte digital rara, apoie artistas e tenha uma parte da cultura da internet.
+				21 link Description: EXPLORAR, Value: kurio-production-8274.up.railway.app/?favorites=true#catalogo
+				22 image Ilustração de Emerald Ape #042
+				23 checkbox Description: Mostrar destaque 1, Value: 1
+				24 checkbox Description: Mostrar destaque 2, Value: 0
+				25 checkbox Description: Mostrar destaque 3, Value: 0
+			26 container catalogo
+				27 heading Catálogo de NFTs, Value: 2
+					28 text Catálogo de NFTs
+				29 container
+					30 heading Coleções, Value: 2
+						31 text Coleções
+					32 button Limpar filtros
+					33 container
+						34 checkbox Description: Arte digital, Value: 0
+						35 text Arte digital
+					36 container
+						37 checkbox Description: Fotografia, Value: 0
+						38 text Fotografia
+					39 container
+						40 checkbox Description: Música, Value: 0
+						41 text Música
+					42 container
+						43 checkbox Description: Arte 3D, Value: 0
+						44 text Arte 3D
+					45 container
+						46 checkbox Description: Colecionáveis, Value: 0
+						47 text Colecionáveis
+					48 container
+						49 checkbox Description: Generativo, Value: 0
+						50 text Generativo
+					51 container
+						52 checkbox Description: Jogos, Value: 0
+						53 text Jogos
+					54 container
+						55 checkbox Description: Assinaturas, Value: 0
+						56 text Assinaturas
+					57 container
+						58 checkbox Description: Utilidade, Value: 0
+						59 text Utilidade
+					60 heading Faixa de preço, Value: 3
+						61 text Faixa de preço
+					62 container
+						63 slider Description: Preço mínimo, Value: 0.019999999552965164
+						64 slider Description: Preço máximo, Value: 12.300000190734863
+					65 container
+						66 text Preço:  0,02  –  12,30 ETH
+					67 button Aplicar
+					68 heading Rede, Value: 3
+						69 text Rede
+					70 container
+						71 checkbox Description: Ethereum, Value: 0
+						72 text Ethereum
+					73 container
+						74 checkbox Description: Polygon, Value: 0
+						75 text Polygon
+					76 container
+						77 checkbox Description: Solana, Value: 0
+						78 text Solana
+					79 link Description: NFT EM DESTAQUE OFERTA LIMITADA Ilustração de Sage Nomad #009, Value: kurio-production-8274.up.railway.app/nfts/nft-002
+				80 tab group Catálogo
+					81 tab (selected, settable, boolean) Todos os NFTs, Value: 1, ID: catalog-tab-all
+					82 tab (selectable, settable, boolean) Novos lançamentos, Value: 0, ID: catalog-tab-new
+					83 tab (selectable, settable, boolean) Em alta, Value: 0, ID: catalog-tab-trending
+				84 container
+					85 text Ordenar por
+					86 pop up button (collapsed, settable) Description: Ordenar por, Value: Listados recentemente, Secondary Actions: Expand
+						87 menu
+							88 (selected) Listados recentemente
+							89 Menor preço
+							90 Maior preço
+							91 Melhor avaliação
+				92 text 1 NFT encontrado
+				93 container Description: Todos os NFTs, ID: catalog-results
+					94 container
+						95 link Description: Ilustração de Cosmic Bloom #118 Cosmic Bloom #118 1.29 ETH, Value: kurio-production-8274.up.railway.app/nfts/nft-004
+						96 checkbox Description: Favoritar Cosmic Bloom #118, Value: 1
+			97 container Explore as coleções
+				98 container
+					99 image Arte da coleção Kurio Apes
+					100 heading Lançamentos gênesis de edição limitada, Value: 2
+						101 text Lançamentos gênesis de edição limitada
+					102 text Colecione edições escassas diretamente dos criadores antes da revelação pública.
+					103 link Description: Explorar, Value: kurio-production-8274.up.railway.app/?favorites=true#catalogo
+				104 container
+					105 image Arte da coleção Kurio Apes
+					106 heading Arte digital selecionada e muito mais, Value: 2
+						107 text Arte digital selecionada e muito mais
+					108 text Explore novos artistas, coleções verificadas e obras digitais que definem a cena.
+					109 link Description: Explorar, Value: kurio-production-8274.up.railway.app/?favorites=true#catalogo
+			110 container
+				111 heading Diário da Cunhagem, Value: 2
+					112 text Diário da Cunhagem
+				113 text Histórias, guias e insights para colecionadores sobre o universo da propriedade digital.
+				114 image Arte da coleção Kurio Apes
+				115 container
+					116 text 12 de setembro  |  Leitura de 6 min
+				117 heading Como funciona a propriedade de NFTs, Value: 3
+					118 text Como funciona a propriedade de NFTs
+				119 text Aprenda a colecionar, negociar e verificar ativos digitais.
+				120 button Ler mais
+				121 image Arte da coleção Kurio Apes
+				122 container
+					123 text 13 de setembro  |  Leitura de 2 min
+				124 heading 10 artistas digitais para acompanhar, Value: 3
+					125 text 10 artistas digitais para acompanhar
+				126 text Conheça criadores que moldam a cultura digital.
+				127 button Ler mais
+				128 image Arte da coleção Kurio Apes
+				129 container
+					130 text 15 de setembro  |  Leitura de 3 min
+				131 heading Raridade, atributos e procedência, Value: 3
+					132 text Raridade, atributos e procedência
+				133 text Entenda raridade, procedência, direitos autorais e utilidade.
+				134 button Ler mais
+				135 image Arte da coleção Kurio Apes
+				136 container
+					137 text 15 de setembro  |  Leitura de 2 min
+				138 heading Como proteger sua carteira, Value: 3
+					139 text Como proteger sua carteira
+				140 text Proteja sua carteira, seus ativos e sua identidade.
+				141 button Ler mais
+		142 container
+			143 heading Segurança da carteira, Value: 2
+				144 text Segurança da carteira
+			145 text Proteja sua carteira e colecione arte digital verificada com confiança.
+			146 heading Criadores em destaque, Value: 2
+				147 text Criadores em destaque
+			148 text Conheça artistas, estúdios e comunidades que moldam a cultura digital na rede.
+			149 heading Alertas de lançamentos, Value: 2
+				150 text Alertas de lançamentos
+			151 text Receba calendários de cunhagem, novidades de listas de acesso e análises de mercado.
+			152 text Antecipe-se ao próximo lançamento
+			153 text field (settable) E-mail para newsletter
+			154 button Enviar
+			155 text Receba lançamentos selecionados, histórias de criadores e novidades do mercado.
+			156 text KURIO Feito para colecionadores,
+			157 text criadores e cultura contato@email.com +55 11 4002 8922
+			158 heading Meu perfil, Value: 2
+				159 text Meu perfil
+			160 link Description: Meu perfil, Value: kurio-production-8274.up.railway.app/account/profile
+			161 link Description: Minhas carteiras, Value: kurio-production-8274.up.railway.app/account/wallets
+			162 button Minha coleção
+			163 button Atividade
+			164 link Description: Lista de interesse, Value: kurio-production-8274.up.railway.app/?favorites=true
+			165 heading Central de ajuda, Value: 2
+				166 text Central de ajuda
+			167 button Central de ajuda
+			168 button Como comprar NFTs
+			169 button Carteira e segurança
+			170 button Política do mercado
+			171 button Denunciar item
+			172 heading Coleções, Value: 2
+				173 text Coleções
+			174 link Description: Arte digital, Value: kurio-production-8274.up.railway.app/?category=arte-digital#catalogo
+			175 link Description: Fotografia, Value: kurio-production-8274.up.railway.app/?category=fotografia#catalogo
+			176 link Description: Música, Value: kurio-production-8274.up.railway.app/?category=musica#catalogo
+			177 link Description: Arte 3D, Value: kurio-production-8274.up.railway.app/?category=arte-3d#catalogo
+			178 link Description: Utilidade, Value: kurio-production-8274.up.railway.app/?category=utilidade#catalogo
+			179 heading Redes sociais, Value: 2
+				180 text Redes sociais
+			181 button Facebook
+			182 button Instagram
+			183 button Twitter
+			184 button LinkedIn
+			185 button YouTube
+			186 heading Carteiras compatíveis, Value: 2
+				187 text Carteiras compatíveis
+			188 text METAMASK · WALLETCONNECT · COINBASE © 2026 Kurio. Propriedade digital para todos.
+		189 container Notifications alt+T
+	190 container grammarly-integration
+		191 text {"mode":"full","isActive":true,"isUserDisabled":false}
+
+The focused UI element is 1 AXWebArea Kurio — Marketplace de NFTs, URL: kurio-production-8274.up.railway.app/?favorites=true

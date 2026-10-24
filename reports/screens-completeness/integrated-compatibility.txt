@@ -1,0 +1,48 @@
+
+Running 34 tests using 2 workers
+
+(node:61647) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:61646) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop-firefox] › e2e/12-loading-and-recovery.spec.ts:17:1 › catálogo reserva exatamente o espaço dos cards em rede lenta (3.3s)
+  ✓   2 [desktop-firefox] › e2e/12-loading-and-recovery.spec.ts:27:1 › detalhe reserva posição e tamanho da galeria em rede lenta (3.2s)
+  ✓   3 [desktop-firefox] › e2e/12-loading-and-recovery.spec.ts:36:1 › detalhe reserva as seções inferiores e não desloca um rodapé visível ao carregar (4.4s)
+  ✓   4 [desktop-firefox] › e2e/12-loading-and-recovery.spec.ts:52:1 › resumo reserva altura e posição durante cálculo lento (5.0s)
+  ✓   6 [desktop-firefox] › e2e/12-loading-and-recovery.spec.ts:77:1 › reduced-motion desativa a animação dos skeletons (810ms)
+  ✓   5 [desktop-firefox] › e2e/12-loading-and-recovery.spec.ts:65:1 › falha transitória mostra erro e nova tentativa recupera o catálogo (3.1s)
+  -   8 [desktop-firefox] › e2e/31-image-resilience.spec.ts:22:3 › recuperação de falhas de arquivos › falha AVIF recupera galeria e carrossel com o mesmo artwork WebP
+  -   9 [desktop-firefox] › e2e/31-image-resilience.spec.ts:55:3 › recuperação de falhas de arquivos › Home recupera cards e libera AVIF ao trocar o destaque para outra foto
+  -  10 [desktop-firefox] › e2e/31-image-resilience.spec.ts:84:3 › recuperação de falhas de arquivos › falha transitória nos dois formatos tenta novamente o arquivo original
+  -  11 [desktop-firefox] › e2e/31-image-resilience.spec.ts:105:3 › recuperação de falhas de arquivos › indisponibilidade preserva espaço e recupera imagens quando a conexão volta
+  -  12 [desktop-firefox] › e2e/31-image-resilience.spec.ts:127:5 › recuperação de falhas de arquivos › Home recupera foto indisponível ao retornar por visibilitychange
+  -  13 [desktop-firefox] › e2e/31-image-resilience.spec.ts:127:5 › recuperação de falhas de arquivos › Home recupera foto indisponível ao retornar por focus
+  -  14 [desktop-firefox] › e2e/31-image-resilience.spec.ts:156:3 › recuperação de falhas de arquivos › voltar ao destaque que falhou tenta a imagem novamente
+  -  15 [desktop-firefox] › e2e/31-image-resilience.spec.ts:174:3 › recuperação de falhas de arquivos › imagem indisponível mantém a área de visualização do zoom
+  -  16 [desktop-firefox] › e2e/31-image-resilience.spec.ts:190:3 › recuperação de falhas de arquivos › trocar foto na galeria não reaproveita o erro da imagem anterior
+  ✓  17 [desktop-firefox] › e2e/31-image-resilience.spec.ts:228:1 › Home preserva foto carregada ao alternar offline e online com retorno à aba (626ms)
+(node:61686) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [desktop-firefox] › e2e/12-loading-and-recovery.spec.ts:85:1 › validação lenta da sessão mantém feedback de rota privada (3.6s)
+  ✓  18 [mobile-webkit] › e2e/12-loading-and-recovery.spec.ts:17:1 › catálogo reserva exatamente o espaço dos cards em rede lenta (2.9s)
+  -  19 [mobile-webkit] › e2e/12-loading-and-recovery.spec.ts:36:1 › detalhe reserva as seções inferiores e não desloca um rodapé visível ao carregar
+  ✓  20 [mobile-webkit] › e2e/12-loading-and-recovery.spec.ts:52:1 › resumo reserva altura e posição durante cálculo lento (4.9s)
+  ✓  21 [mobile-webkit] › e2e/12-loading-and-recovery.spec.ts:65:1 › falha transitória mostra erro e nova tentativa recupera o catálogo (3.0s)
+(node:61707) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  22 [mobile-webkit] › e2e/12-loading-and-recovery.spec.ts:77:1 › reduced-motion desativa a animação dos skeletons (506ms)
+  ✓  23 [mobile-webkit] › e2e/12-loading-and-recovery.spec.ts:27:1 › detalhe reserva posição e tamanho da galeria em rede lenta (2.5s)
+  -  25 [mobile-webkit] › e2e/31-image-resilience.spec.ts:22:3 › recuperação de falhas de arquivos › falha AVIF recupera galeria e carrossel com o mesmo artwork WebP
+  -  26 [mobile-webkit] › e2e/31-image-resilience.spec.ts:55:3 › recuperação de falhas de arquivos › Home recupera cards e libera AVIF ao trocar o destaque para outra foto
+  -  27 [mobile-webkit] › e2e/31-image-resilience.spec.ts:84:3 › recuperação de falhas de arquivos › falha transitória nos dois formatos tenta novamente o arquivo original
+  -  28 [mobile-webkit] › e2e/31-image-resilience.spec.ts:105:3 › recuperação de falhas de arquivos › indisponibilidade preserva espaço e recupera imagens quando a conexão volta
+  -  29 [mobile-webkit] › e2e/31-image-resilience.spec.ts:127:5 › recuperação de falhas de arquivos › Home recupera foto indisponível ao retornar por visibilitychange
+  -  30 [mobile-webkit] › e2e/31-image-resilience.spec.ts:127:5 › recuperação de falhas de arquivos › Home recupera foto indisponível ao retornar por focus
+  -  31 [mobile-webkit] › e2e/31-image-resilience.spec.ts:156:3 › recuperação de falhas de arquivos › voltar ao destaque que falhou tenta a imagem novamente
+  -  32 [mobile-webkit] › e2e/31-image-resilience.spec.ts:174:3 › recuperação de falhas de arquivos › imagem indisponível mantém a área de visualização do zoom
+  -  33 [mobile-webkit] › e2e/31-image-resilience.spec.ts:190:3 › recuperação de falhas de arquivos › trocar foto na galeria não reaproveita o erro da imagem anterior
+  ✓  34 [mobile-webkit] › e2e/31-image-resilience.spec.ts:228:1 › Home preserva foto carregada ao alternar offline e online com retorno à aba (764ms)
+  ✓  24 [mobile-webkit] › e2e/12-loading-and-recovery.spec.ts:85:1 › validação lenta da sessão mantém feedback de rota privada (3.3s)
+
+  19 skipped
+  15 passed (28.2s)

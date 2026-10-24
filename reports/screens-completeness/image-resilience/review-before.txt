@@ -1,0 +1,78 @@
+
+Running 2 tests using 2 workers
+
+(node:59958) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:59959) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › e2e/31-image-resilience.spec.ts:174:3 › recuperação de falhas de arquivos › imagem indisponível mantém a área de visualização do zoom (1.5s)
+  ✘  2 [desktop-chromium] › e2e/31-image-resilience.spec.ts:156:3 › recuperação de falhas de arquivos › voltar ao destaque que falhou tenta a imagem novamente (9.7s)
+
+
+  1) [desktop-chromium] › e2e/31-image-resilience.spec.ts:156:3 › recuperação de falhas de arquivos › voltar ao destaque que falhou tenta a imagem novamente 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    Call Log:
+    - Timeout 8000ms exceeded while waiting on the predicate
+
+      11 |       ),
+      12 |     )
+    > 13 |     .toBe(true);
+         |      ^
+      14 | }
+      15 |
+      16 | test.describe('recuperação de falhas de arquivos', () => {
+        at expectLoaded (/Users/filipecavalcante/Documents/JungleGamingTeste/e2e/31-image-resilience.spec.ts:13:6)
+        at /Users/filipecavalcante/Documents/JungleGamingTeste/e2e/31-image-resilience.spec.ts:171:11
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-account-audit/images-review-red/31-image-resilience-recupe-deec7-ou-tenta-a-imagem-novamente-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../tmp/kurio-account-audit/images-review-red/31-image-resilience-recupe-deec7-ou-tenta-a-imagem-novamente-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-account-audit/images-review-red/31-image-resilience-recupe-deec7-ou-tenta-a-imagem-novamente-desktop-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../../../../tmp/kurio-account-audit/images-review-red/31-image-resilience-recupe-deec7-ou-tenta-a-imagem-novamente-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › e2e/31-image-resilience.spec.ts:174:3 › recuperação de falhas de arquivos › imagem indisponível mantém a área de visualização do zoom 
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 600
+    Received:   24
+
+      185 |     const box = await image.boundingBox();
+      186 |     expect(box?.width).toBeGreaterThan(600);
+    > 187 |     expect(box?.height).toBeGreaterThan(600);
+          |                         ^
+      188 |   });
+      189 |
+      190 |   test('trocar foto na galeria não reaproveita o erro da imagem anterior', async ({
+        at /Users/filipecavalcante/Documents/JungleGamingTeste/e2e/31-image-resilience.spec.ts:187:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-account-audit/images-review-red/31-image-resilience-recupe-f4324-rea-de-visualização-do-zoom-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../tmp/kurio-account-audit/images-review-red/31-image-resilience-recupe-f4324-rea-de-visualização-do-zoom-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-account-audit/images-review-red/31-image-resilience-recupe-f4324-rea-de-visualização-do-zoom-desktop-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../../../../tmp/kurio-account-audit/images-review-red/31-image-resilience-recupe-f4324-rea-de-visualização-do-zoom-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop-chromium] › e2e/31-image-resilience.spec.ts:156:3 › recuperação de falhas de arquivos › voltar ao destaque que falhou tenta a imagem novamente 
+    [desktop-chromium] › e2e/31-image-resilience.spec.ts:174:3 › recuperação de falhas de arquivos › imagem indisponível mantém a área de visualização do zoom 

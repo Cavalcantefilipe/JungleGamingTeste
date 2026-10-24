@@ -1,0 +1,27 @@
+
+Running 14 tests using 2 workers
+
+(node:50868) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:50867) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [desktop-firefox] › e2e/29-account-completeness.spec.ts:44:1 › erros de autenticação continuam acessíveis em uma tela baixa (1.5s)
+  ✓   1 [desktop-firefox] › e2e/29-account-completeness.spec.ts:3:1 › autenticação adapta os espaços para manter todas as ações na tela (2.6s)
+  ✓   3 [desktop-firefox] › e2e/29-account-completeness.spec.ts:67:1 › perfil não confirma alterações que ainda não foram salvas (2.4s)
+  ✓   4 [desktop-firefox] › e2e/29-account-completeness.spec.ts:79:1 › remover avatar não impede a confirmação de dados do perfil salvos depois (4.7s)
+  ✓   5 [desktop-firefox] › e2e/29-account-completeness.spec.ts:100:1 › carteiras não misturam confirmação anterior com alterações inválidas (3.0s)
+  ✓   7 [desktop-firefox] › e2e/29-account-completeness.spec.ts:127:1 › fechar autenticação preserva o contexto público e evita voltar para rotas protegidas (1.5s)
+  ✓   6 [desktop-firefox] › e2e/29-account-completeness.spec.ts:116:1 › nova edição de senha remove a confirmação da operação anterior (2.0s)
+(node:50911) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:50919) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [mobile-webkit] › e2e/29-account-completeness.spec.ts:44:1 › erros de autenticação continuam acessíveis em uma tela baixa (1.3s)
+  ✓   8 [mobile-webkit] › e2e/29-account-completeness.spec.ts:3:1 › autenticação adapta os espaços para manter todas as ações na tela (2.9s)
+  ✓  10 [mobile-webkit] › e2e/29-account-completeness.spec.ts:67:1 › perfil não confirma alterações que ainda não foram salvas (2.2s)
+  ✓  12 [mobile-webkit] › e2e/29-account-completeness.spec.ts:100:1 › carteiras não misturam confirmação anterior com alterações inválidas (2.2s)
+  ✓  11 [mobile-webkit] › e2e/29-account-completeness.spec.ts:79:1 › remover avatar não impede a confirmação de dados do perfil salvos depois (3.7s)
+  ✓  13 [mobile-webkit] › e2e/29-account-completeness.spec.ts:116:1 › nova edição de senha remove a confirmação da operação anterior (1.4s)
+  ✓  14 [mobile-webkit] › e2e/29-account-completeness.spec.ts:127:1 › fechar autenticação preserva o contexto público e evita voltar para rotas protegidas (1.2s)
+
+  14 passed (28.7s)

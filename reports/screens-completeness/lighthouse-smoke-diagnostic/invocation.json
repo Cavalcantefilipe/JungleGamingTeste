@@ -1,0 +1,19 @@
+{
+  "startedAt": "2026-10-24T06:49:41.017Z",
+  "node": "v24.12.0",
+  "chrome": "/Users/filipecavalcante/Library/Caches/ms-playwright/chromium-1248/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+  "args": [
+    "exec",
+    "lighthouse",
+    "https://kurio-production-8274.up.railway.app/",
+    "--output=json",
+    "--output=html",
+    "--output-path=/tmp/kurio-lighthouse-smoke-connection/report",
+    "--only-categories=performance,accessibility,best-practices,seo",
+    "--chrome-flags=--headless=new --disable-dev-shm-usage",
+    "--no-enable-error-reporting",
+    "--verbose"
+  ],
+  "pid": 66683,
+  "diagnosticOnly": true
+}

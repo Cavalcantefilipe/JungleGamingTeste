@@ -1,0 +1,1874 @@
+[
+  {
+    "profile": "latency",
+    "name": "before",
+    "port": 4196,
+    "mode": "cold",
+    "markers": {
+      "main": 1514,
+      "catalog": 2038
+    },
+    "visibleImages": 2384.800000011921,
+    "responseEnd": 207.59999999403954,
+    "resources": [
+      {
+        "path": "/images/ui/mobile-hero-background.svg",
+        "start": 214,
+        "end": 417.30000001192093,
+        "transfer": 706
+      },
+      {
+        "path": "/assets/index-CJfj_1qG.js",
+        "start": 214.80000001192093,
+        "end": 421.09999999403954,
+        "transfer": 1912
+      },
+      {
+        "path": "/assets/index-wGDlz5H0.css",
+        "start": 214.90000000596046,
+        "end": 421,
+        "transfer": 14267
+      },
+      {
+        "path": "/assets/index-CXRujiCy.js",
+        "start": 214.90000000596046,
+        "end": 421.19999998807907,
+        "transfer": 3366
+      },
+      {
+        "path": "/assets/client-DCX4T5PW.js",
+        "start": 449.5,
+        "end": 657.4000000059605,
+        "transfer": 56814
+      },
+      {
+        "path": "/assets/index-BXC7D3TY.js",
+        "start": 449.59999999403954,
+        "end": 654.8000000119209,
+        "transfer": 1554
+      },
+      {
+        "path": "/assets/money-Ci3M6179.js",
+        "start": 449.90000000596046,
+        "end": 655.9000000059605,
+        "transfer": 1301
+      },
+      {
+        "path": "/assets/Providers-B3tbhmh9.js",
+        "start": 449.90000000596046,
+        "end": 656.4000000059605,
+        "transfer": 14385
+      },
+      {
+        "path": "/assets/createLucideIcon-B38P-RFw.js",
+        "start": 449.90000000596046,
+        "end": 657.5,
+        "transfer": 68623
+      },
+      {
+        "path": "/assets/env-DskC3_S-.js",
+        "start": 450,
+        "end": 657.1999999880791,
+        "transfer": 24503
+      },
+      {
+        "path": "/assets/idempotency-pFfmSrrs.js",
+        "start": 450.09999999403954,
+        "end": 859.5999999940395,
+        "transfer": 2302
+      },
+      {
+        "path": "/assets/profile-DfN0_Jnt.js",
+        "start": 663.1999999880791,
+        "end": 866.9000000059605,
+        "transfer": 824
+      },
+      {
+        "path": "/assets/browser-DUubAAc-.js",
+        "start": 663.1999999880791,
+        "end": 869,
+        "transfer": 91274
+      },
+      {
+        "path": "/assets/wallet-BjEpB5fK.js",
+        "start": 663.3000000119209,
+        "end": 866.9000000059605,
+        "transfer": 1074
+      },
+      {
+        "path": "/assets/money-BPfvscUc.js",
+        "start": 663.4000000059605,
+        "end": 868.0999999940395,
+        "transfer": 3259
+      },
+      {
+        "path": "/assets/index-DtziPWr8.js",
+        "start": 663.4000000059605,
+        "end": 869.1999999880791,
+        "transfer": 4115
+      },
+      {
+        "path": "/assets/review-B8XLBxw6.js",
+        "start": 663.4000000059605,
+        "end": 1062.699999988079,
+        "transfer": 530
+      },
+      {
+        "path": "/assets/avatar-Bz09S68S.js",
+        "start": 663.5,
+        "end": 1069.699999988079,
+        "transfer": 874
+      },
+      {
+        "path": "/assets/index-DuzSWMJK.js",
+        "start": 1343.699999988079,
+        "end": 1566.800000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/CatalogPage-yFHEQp_U.js",
+        "start": 1344.300000011921,
+        "end": 1567.199999988079,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/EmptyState-CPt2MkZ8.js",
+        "start": 1344.5,
+        "end": 1568.4000000059605,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/nft-media-DkDogDnY.js",
+        "start": 1344.5,
+        "end": 1570,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/useMutation-cTls8tgi.js",
+        "start": 1344.5999999940395,
+        "end": 1573.0999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/useArtworkSource-B-wYlm3G.js",
+        "start": 1344.5999999940395,
+        "end": 1573.0999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-Ceo8b0Vn.js",
+        "start": 1344.699999988079,
+        "end": 1772.699999988079,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-BCmgijkz.js",
+        "start": 1344.699999988079,
+        "end": 1772.9000000059605,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-DWioyQAQ.js",
+        "start": 1344.800000011921,
+        "end": 1778.4000000059605,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-CsHVlOO5.js",
+        "start": 1344.800000011921,
+        "end": 1778.699999988079,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-CKr1z-iu.js",
+        "start": 1344.9000000059605,
+        "end": 1972.9000000059605,
+        "transfer": 0
+      },
+      {
+        "path": "/api/nfts",
+        "start": 1349.800000011921,
+        "end": 1527.5,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/startRealtime-D7RAWdDi.js",
+        "start": 1351.699999988079,
+        "end": 1973,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/figma-icons.svg",
+        "start": 1506.5999999940395,
+        "end": 1975.699999988079,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-facebook.svg",
+        "start": 1514.0999999940395,
+        "end": 1975.800000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-instagram.svg",
+        "start": 1514.199999988079,
+        "end": 1981,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-twitter.svg",
+        "start": 1514.199999988079,
+        "end": 1981,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-linkedin.svg",
+        "start": 1514.199999988079,
+        "end": 2175.5,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-youtube.svg",
+        "start": 1514.199999988079,
+        "end": 2175.5999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/mobile-tab-background.svg",
+        "start": 1514.300000011921,
+        "end": 2176.4000000059605,
+        "transfer": 0
+      },
+      {
+        "path": "/api/cart",
+        "start": 1514.5999999940395,
+        "end": 1659.5,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/roboto-mono-latin-700-normal-foxDnrFi.woff2",
+        "start": 1516.699999988079,
+        "end": 1769.800000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/roboto-mono-latin-400-normal-GekRknry.woff2",
+        "start": 1516.699999988079,
+        "end": 1770.300000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/api/cart",
+        "start": 1982.199999988079,
+        "end": 2114.300000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/figma-icons.svg",
+        "start": 2016.699999988079,
+        "end": 2247.300000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/roboto-mono-latin-500-normal-pxIOXZmA.woff2",
+        "start": 2035.300000011921,
+        "end": 2247.5999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/emerald-400.avif",
+        "start": 2038.199999988079,
+        "end": 2247.9000000059605,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/sage-400.avif",
+        "start": 2038.300000011921,
+        "end": 2378.800000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/neon-400.avif",
+        "start": 2038.4000000059605,
+        "end": 2378.800000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/api/content",
+        "start": 2039,
+        "end": 2170.300000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/api/nfts",
+        "start": 2039.199999988079,
+        "end": 2170.300000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/golden-400.avif",
+        "start": 2043,
+        "end": 2378.699999988079,
+        "transfer": 0
+      }
+    ],
+    "workerReady": true,
+    "nfts": 48
+  },
+  {
+    "profile": "latency",
+    "name": "before",
+    "port": 4196,
+    "mode": "returning",
+    "markers": {
+      "main": 263.60000002384186,
+      "catalog": 399
+    },
+    "visibleImages": 687.4000000059605,
+    "responseEnd": 204.5,
+    "resources": [
+      {
+        "path": "/images/ui/mobile-hero-background.svg",
+        "start": 214.90000000596046,
+        "end": 417.90000000596046,
+        "transfer": 300
+      },
+      {
+        "path": "/assets/index-CJfj_1qG.js",
+        "start": 215,
+        "end": 215.60000002384186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-wGDlz5H0.css",
+        "start": 215.10000002384186,
+        "end": 216.2000000178814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-CXRujiCy.js",
+        "start": 215.10000002384186,
+        "end": 215.80000001192093,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-BXC7D3TY.js",
+        "start": 220.2000000178814,
+        "end": 221.30000001192093,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/client-DCX4T5PW.js",
+        "start": 220.2000000178814,
+        "end": 221.80000001192093,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/Providers-B3tbhmh9.js",
+        "start": 220.30000001192093,
+        "end": 222.10000002384186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/createLucideIcon-B38P-RFw.js",
+        "start": 220.40000000596046,
+        "end": 223.40000000596046,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/money-Ci3M6179.js",
+        "start": 220.5,
+        "end": 223.7000000178814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/env-DskC3_S-.js",
+        "start": 220.5,
+        "end": 224.2000000178814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/idempotency-pFfmSrrs.js",
+        "start": 220.60000002384186,
+        "end": 224.30000001192093,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/profile-DfN0_Jnt.js",
+        "start": 232.5,
+        "end": 233.7000000178814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/browser-DUubAAc-.js",
+        "start": 232.5,
+        "end": 234.60000002384186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/wallet-BjEpB5fK.js",
+        "start": 232.60000002384186,
+        "end": 234.7000000178814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-DtziPWr8.js",
+        "start": 232.7000000178814,
+        "end": 235,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/review-B8XLBxw6.js",
+        "start": 232.7000000178814,
+        "end": 235.40000000596046,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/money-BPfvscUc.js",
+        "start": 232.7000000178814,
+        "end": 235.2000000178814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/avatar-Bz09S68S.js",
+        "start": 232.80000001192093,
+        "end": 235.7000000178814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-DuzSWMJK.js",
+        "start": 249.30000001192093,
+        "end": 249.30000001192093,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/CatalogPage-yFHEQp_U.js",
+        "start": 249.40000000596046,
+        "end": 249.40000000596046,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/EmptyState-CPt2MkZ8.js",
+        "start": 249.5,
+        "end": 249.5,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/nft-media-DkDogDnY.js",
+        "start": 249.5,
+        "end": 249.5,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/useArtworkSource-B-wYlm3G.js",
+        "start": 249.60000002384186,
+        "end": 249.60000002384186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/useMutation-cTls8tgi.js",
+        "start": 249.60000002384186,
+        "end": 249.60000002384186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-Ceo8b0Vn.js",
+        "start": 249.7000000178814,
+        "end": 249.7000000178814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-BCmgijkz.js",
+        "start": 249.80000001192093,
+        "end": 249.80000001192093,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-DWioyQAQ.js",
+        "start": 249.80000001192093,
+        "end": 249.80000001192093,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-CsHVlOO5.js",
+        "start": 249.90000000596046,
+        "end": 249.90000000596046,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-CKr1z-iu.js",
+        "start": 249.90000000596046,
+        "end": 249.90000000596046,
+        "transfer": 0
+      },
+      {
+        "path": "/api/nfts",
+        "start": 250.7000000178814,
+        "end": 392.80000001192093,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/startRealtime-D7RAWdDi.js",
+        "start": 251.40000000596046,
+        "end": 251.40000000596046,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/figma-icons.svg",
+        "start": 254.30000001192093,
+        "end": 473.7000000178814,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-facebook.svg",
+        "start": 258,
+        "end": 473.7000000178814,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-instagram.svg",
+        "start": 258.2000000178814,
+        "end": 473.80000001192093,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-twitter.svg",
+        "start": 258.30000001192093,
+        "end": 474.10000002384186,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-linkedin.svg",
+        "start": 258.40000000596046,
+        "end": 474.2000000178814,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-youtube.svg",
+        "start": 258.5,
+        "end": 675.7000000178814,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/mobile-tab-background.svg",
+        "start": 258.7000000178814,
+        "end": 676.3000000119209,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/roboto-mono-latin-700-normal-foxDnrFi.woff2",
+        "start": 261.60000002384186,
+        "end": 275.60000002384186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/roboto-mono-latin-400-normal-GekRknry.woff2",
+        "start": 261.80000001192093,
+        "end": 276.5,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/roboto-mono-latin-500-normal-pxIOXZmA.woff2",
+        "start": 261.90000000596046,
+        "end": 276.90000000596046,
+        "transfer": 0
+      },
+      {
+        "path": "/api/cart",
+        "start": 264,
+        "end": 405.2000000178814,
+        "transfer": 0
+      },
+      {
+        "path": "/api/content",
+        "start": 264.10000002384186,
+        "end": 405.2000000178814,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/emerald-400.avif",
+        "start": 394.60000002384186,
+        "end": 620.4000000059605,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/sage-400.avif",
+        "start": 396.60000002384186,
+        "end": 676.4000000059605,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/neon-400.avif",
+        "start": 396.80000001192093,
+        "end": 676.5,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/golden-400.avif",
+        "start": 401.80000001192093,
+        "end": 676.7000000178814,
+        "transfer": 0
+      }
+    ],
+    "workerReady": true,
+    "nfts": 48
+  },
+  {
+    "profile": "latency",
+    "name": "stage1",
+    "port": 4197,
+    "mode": "cold",
+    "markers": {
+      "main": 1473.699999988079,
+      "catalog": 1998.5999999940395
+    },
+    "visibleImages": 2362.5,
+    "responseEnd": 203.5,
+    "resources": [
+      {
+        "path": "/images/ui/mobile-hero-background.svg",
+        "start": 205.80000001192093,
+        "end": 415,
+        "transfer": 706
+      },
+      {
+        "path": "/assets/index-D7eq5eW6.js",
+        "start": 205.90000000596046,
+        "end": 415.09999999403954,
+        "transfer": 1886
+      },
+      {
+        "path": "/assets/index-wGDlz5H0.css",
+        "start": 206,
+        "end": 414.40000000596046,
+        "transfer": 14267
+      },
+      {
+        "path": "/assets/index-CXRujiCy.js",
+        "start": 206,
+        "end": 415.09999999403954,
+        "transfer": 3366
+      },
+      {
+        "path": "/assets/client-DCX4T5PW.js",
+        "start": 437.30000001192093,
+        "end": 650.0999999940395,
+        "transfer": 56814
+      },
+      {
+        "path": "/assets/index-BXC7D3TY.js",
+        "start": 437.40000000596046,
+        "end": 647.1999999880791,
+        "transfer": 1554
+      },
+      {
+        "path": "/assets/Providers-Dsbpq4oP.js",
+        "start": 437.59999999403954,
+        "end": 648.5,
+        "transfer": 14335
+      },
+      {
+        "path": "/assets/createLucideIcon-B38P-RFw.js",
+        "start": 437.59999999403954,
+        "end": 650.1999999880791,
+        "transfer": 68623
+      },
+      {
+        "path": "/assets/money-Ci3M6179.js",
+        "start": 437.59999999403954,
+        "end": 657.8000000119209,
+        "transfer": 1301
+      },
+      {
+        "path": "/assets/env-DskC3_S-.js",
+        "start": 437.69999998807907,
+        "end": 658.4000000059605,
+        "transfer": 24503
+      },
+      {
+        "path": "/assets/idempotency-pFfmSrrs.js",
+        "start": 437.80000001192093,
+        "end": 851.5999999940395,
+        "transfer": 2302
+      },
+      {
+        "path": "/assets/profile-DfN0_Jnt.js",
+        "start": 437.90000000596046,
+        "end": 854.6999999880791,
+        "transfer": 824
+      },
+      {
+        "path": "/assets/browser-DUubAAc-.js",
+        "start": 437.90000000596046,
+        "end": 854.1999999880791,
+        "transfer": 91274
+      },
+      {
+        "path": "/assets/wallet-BjEpB5fK.js",
+        "start": 438,
+        "end": 852.5999999940395,
+        "transfer": 1074
+      },
+      {
+        "path": "/assets/money-BPfvscUc.js",
+        "start": 438.09999999403954,
+        "end": 861.5,
+        "transfer": 3259
+      },
+      {
+        "path": "/assets/index-DtziPWr8.js",
+        "start": 438.09999999403954,
+        "end": 861.8000000119209,
+        "transfer": 4115
+      },
+      {
+        "path": "/assets/review-B8XLBxw6.js",
+        "start": 438.19999998807907,
+        "end": 1057.699999988079,
+        "transfer": 530
+      },
+      {
+        "path": "/assets/avatar-Bz09S68S.js",
+        "start": 438.19999998807907,
+        "end": 1058.0999999940395,
+        "transfer": 874
+      },
+      {
+        "path": "/assets/index-C-JYq8v3.js",
+        "start": 1307.5999999940395,
+        "end": 1526.0999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/EmptyState-CPt2MkZ8.js",
+        "start": 1307.9000000059605,
+        "end": 1526.0999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/CatalogPage-Dbwparva.js",
+        "start": 1307.9000000059605,
+        "end": 1526.5999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/nft-media-DkDogDnY.js",
+        "start": 1308.0999999940395,
+        "end": 1528.4000000059605,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/useMutation-cTls8tgi.js",
+        "start": 1308.199999988079,
+        "end": 1528.199999988079,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/useArtworkSource-B-wYlm3G.js",
+        "start": 1308.199999988079,
+        "end": 1528.300000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-Ceo8b0Vn.js",
+        "start": 1308.300000011921,
+        "end": 1736,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-BCmgijkz.js",
+        "start": 1308.4000000059605,
+        "end": 1736.199999988079,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-DWioyQAQ.js",
+        "start": 1308.5,
+        "end": 1737.0999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-CsHVlOO5.js",
+        "start": 1308.5999999940395,
+        "end": 1737.0999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-CKr1z-iu.js",
+        "start": 1308.5999999940395,
+        "end": 1942.199999988079,
+        "transfer": 0
+      },
+      {
+        "path": "/api/nfts",
+        "start": 1312.5,
+        "end": 1456.0999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/startRealtime-gm3qiZbw.js",
+        "start": 1314.4000000059605,
+        "end": 1948,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/figma-icons.svg",
+        "start": 1467.5999999940395,
+        "end": 1947.5999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-facebook.svg",
+        "start": 1473.9000000059605,
+        "end": 1945,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-instagram.svg",
+        "start": 1474,
+        "end": 1947.4000000059605,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-twitter.svg",
+        "start": 1474,
+        "end": 1947.5,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-linkedin.svg",
+        "start": 1474,
+        "end": 2149.800000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-youtube.svg",
+        "start": 1474.0999999940395,
+        "end": 2149.9000000059605,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/mobile-tab-background.svg",
+        "start": 1474.199999988079,
+        "end": 2150,
+        "transfer": 0
+      },
+      {
+        "path": "/api/cart",
+        "start": 1474.5,
+        "end": 1614.5,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/roboto-mono-latin-700-normal-foxDnrFi.woff2",
+        "start": 1476.199999988079,
+        "end": 1735.9000000059605,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/roboto-mono-latin-400-normal-GekRknry.woff2",
+        "start": 1476.300000011921,
+        "end": 1736.0999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/api/cart",
+        "start": 1961.199999988079,
+        "end": 2086.5999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/figma-icons.svg",
+        "start": 1977.5999999940395,
+        "end": 2207.199999988079,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/roboto-mono-latin-500-normal-pxIOXZmA.woff2",
+        "start": 1995.5999999940395,
+        "end": 2207.5999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/emerald-400.avif",
+        "start": 1998.699999988079,
+        "end": 2207.800000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/sage-400.avif",
+        "start": 1998.9000000059605,
+        "end": 2354.800000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/neon-400.avif",
+        "start": 1998.9000000059605,
+        "end": 2354.800000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/api/content",
+        "start": 1999.699999988079,
+        "end": 2130.9000000059605,
+        "transfer": 0
+      },
+      {
+        "path": "/api/nfts",
+        "start": 2000,
+        "end": 2131,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/golden-400.avif",
+        "start": 2002.4000000059605,
+        "end": 2354.699999988079,
+        "transfer": 0
+      }
+    ],
+    "workerReady": true,
+    "nfts": 48
+  },
+  {
+    "profile": "latency",
+    "name": "stage1",
+    "port": 4197,
+    "mode": "returning",
+    "markers": {
+      "main": 277.39999997615814,
+      "catalog": 414.69999998807907
+    },
+    "visibleImages": 707.0999999940395,
+    "responseEnd": 205.69999998807907,
+    "resources": [
+      {
+        "path": "/images/ui/mobile-hero-background.svg",
+        "start": 220.2999999821186,
+        "end": 423.19999998807907,
+        "transfer": 300
+      },
+      {
+        "path": "/assets/index-D7eq5eW6.js",
+        "start": 220.5,
+        "end": 221.7999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-wGDlz5H0.css",
+        "start": 220.59999999403954,
+        "end": 222.2999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-CXRujiCy.js",
+        "start": 220.59999999403954,
+        "end": 221.89999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/client-DCX4T5PW.js",
+        "start": 226,
+        "end": 227.59999999403954,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-BXC7D3TY.js",
+        "start": 226.09999999403954,
+        "end": 227.2999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/Providers-Dsbpq4oP.js",
+        "start": 226.19999998807907,
+        "end": 228.2999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/createLucideIcon-B38P-RFw.js",
+        "start": 226.2999999821186,
+        "end": 230.09999999403954,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/money-Ci3M6179.js",
+        "start": 226.39999997615814,
+        "end": 231.09999999403954,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/idempotency-pFfmSrrs.js",
+        "start": 226.5,
+        "end": 232.09999999403954,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/env-DskC3_S-.js",
+        "start": 226.5,
+        "end": 231.7999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/profile-DfN0_Jnt.js",
+        "start": 226.59999999403954,
+        "end": 233.7999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/browser-DUubAAc-.js",
+        "start": 226.59999999403954,
+        "end": 233.59999999403954,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/wallet-BjEpB5fK.js",
+        "start": 226.7999999821186,
+        "end": 233.89999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/money-BPfvscUc.js",
+        "start": 226.89999997615814,
+        "end": 234.5,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-DtziPWr8.js",
+        "start": 226.89999997615814,
+        "end": 234.2999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/review-B8XLBxw6.js",
+        "start": 227,
+        "end": 234.59999999403954,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/avatar-Bz09S68S.js",
+        "start": 227.09999999403954,
+        "end": 234.7999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-C-JYq8v3.js",
+        "start": 262.09999999403954,
+        "end": 262.09999999403954,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/CatalogPage-Dbwparva.js",
+        "start": 262.19999998807907,
+        "end": 262.19999998807907,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/EmptyState-CPt2MkZ8.js",
+        "start": 262.39999997615814,
+        "end": 262.39999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/nft-media-DkDogDnY.js",
+        "start": 262.39999997615814,
+        "end": 262.39999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/useArtworkSource-B-wYlm3G.js",
+        "start": 262.39999997615814,
+        "end": 262.39999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/useMutation-cTls8tgi.js",
+        "start": 262.5,
+        "end": 262.5,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-Ceo8b0Vn.js",
+        "start": 262.69999998807907,
+        "end": 262.69999998807907,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-BCmgijkz.js",
+        "start": 262.69999998807907,
+        "end": 262.69999998807907,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-DWioyQAQ.js",
+        "start": 262.7999999821186,
+        "end": 262.7999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-CsHVlOO5.js",
+        "start": 262.89999997615814,
+        "end": 262.89999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-CKr1z-iu.js",
+        "start": 262.89999997615814,
+        "end": 262.89999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/api/nfts",
+        "start": 263.89999997615814,
+        "end": 407.39999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/startRealtime-gm3qiZbw.js",
+        "start": 264.89999997615814,
+        "end": 264.89999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/figma-icons.svg",
+        "start": 268,
+        "end": 489.19999998807907,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-facebook.svg",
+        "start": 271.5,
+        "end": 489.59999999403954,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-instagram.svg",
+        "start": 271.59999999403954,
+        "end": 489.59999999403954,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-twitter.svg",
+        "start": 271.7999999821186,
+        "end": 489.7999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-linkedin.svg",
+        "start": 271.89999997615814,
+        "end": 489.89999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-youtube.svg",
+        "start": 271.89999997615814,
+        "end": 690.3999999761581,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/mobile-tab-background.svg",
+        "start": 272.19999998807907,
+        "end": 691.2999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/roboto-mono-latin-700-normal-foxDnrFi.woff2",
+        "start": 275.5,
+        "end": 289.2999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/roboto-mono-latin-400-normal-GekRknry.woff2",
+        "start": 275.69999998807907,
+        "end": 290.09999999403954,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/roboto-mono-latin-500-normal-pxIOXZmA.woff2",
+        "start": 275.7999999821186,
+        "end": 290.39999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/api/cart",
+        "start": 277.69999998807907,
+        "end": 420.7999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/api/content",
+        "start": 277.89999997615814,
+        "end": 420.89999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/emerald-400.avif",
+        "start": 409.09999999403954,
+        "end": 624.5999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/sage-400.avif",
+        "start": 411.69999998807907,
+        "end": 691.3999999761581,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/neon-400.avif",
+        "start": 411.89999997615814,
+        "end": 691.5,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/golden-400.avif",
+        "start": 417.59999999403954,
+        "end": 691.5,
+        "transfer": 0
+      }
+    ],
+    "workerReady": true,
+    "nfts": 48
+  },
+  {
+    "profile": "latency",
+    "name": "stage2",
+    "port": 4198,
+    "mode": "cold",
+    "markers": {
+      "main": 1485,
+      "catalog": 1632.2000000178814
+    },
+    "visibleImages": 2108,
+    "responseEnd": 203,
+    "resources": [
+      {
+        "path": "/images/ui/mobile-hero-background.svg",
+        "start": 205.5,
+        "end": 408.09999999403954,
+        "transfer": 706
+      },
+      {
+        "path": "/assets/index-S1WiEVG4.js",
+        "start": 205.59999999403954,
+        "end": 410.7000000178814,
+        "transfer": 2031
+      },
+      {
+        "path": "/assets/index-wGDlz5H0.css",
+        "start": 205.7000000178814,
+        "end": 410.59999999403954,
+        "transfer": 14267
+      },
+      {
+        "path": "/assets/index-CXRujiCy.js",
+        "start": 205.7000000178814,
+        "end": 410.80000001192093,
+        "transfer": 3366
+      },
+      {
+        "path": "/assets/client-DCX4T5PW.js",
+        "start": 424.7000000178814,
+        "end": 629.4000000059605,
+        "transfer": 56814
+      },
+      {
+        "path": "/assets/index-BXC7D3TY.js",
+        "start": 424.80000001192093,
+        "end": 628.3000000119209,
+        "transfer": 1554
+      },
+      {
+        "path": "/assets/Providers-Dy1hgdYY.js",
+        "start": 424.90000000596046,
+        "end": 628.4000000059605,
+        "transfer": 2258
+      },
+      {
+        "path": "/assets/query-keys-CKT3kriS.js",
+        "start": 425,
+        "end": 631.3000000119209,
+        "transfer": 67651
+      },
+      {
+        "path": "/assets/money-Ci3M6179.js",
+        "start": 425.09999999403954,
+        "end": 628.2000000178814,
+        "transfer": 1301
+      },
+      {
+        "path": "/assets/env-DskC3_S-.js",
+        "start": 425.09999999403954,
+        "end": 630.8000000119209,
+        "transfer": 24503
+      },
+      {
+        "path": "/assets/idempotency-pFfmSrrs.js",
+        "start": 425.30000001192093,
+        "end": 831.8000000119209,
+        "transfer": 2302
+      },
+      {
+        "path": "/assets/router-Ch-j4quN.js",
+        "start": 425.30000001192093,
+        "end": 832.2000000178814,
+        "transfer": 13004
+      },
+      {
+        "path": "/assets/realtime-context-Bua4YaT6.js",
+        "start": 425.30000001192093,
+        "end": 832.8000000119209,
+        "transfer": 534
+      },
+      {
+        "path": "/assets/createLucideIcon-Ci7FJ4Ch.js",
+        "start": 425.40000000596046,
+        "end": 832,
+        "transfer": 1649
+      },
+      {
+        "path": "/assets/profile-DfN0_Jnt.js",
+        "start": 425.59999999403954,
+        "end": 833.4000000059605,
+        "transfer": 824
+      },
+      {
+        "path": "/assets/browser-DUubAAc-.js",
+        "start": 425.59999999403954,
+        "end": 834.3000000119209,
+        "transfer": 91274
+      },
+      {
+        "path": "/assets/wallet-BjEpB5fK.js",
+        "start": 425.59999999403954,
+        "end": 1034,
+        "transfer": 1074
+      },
+      {
+        "path": "/assets/index-DtziPWr8.js",
+        "start": 425.7000000178814,
+        "end": 1034.800000011921,
+        "transfer": 4115
+      },
+      {
+        "path": "/assets/review-B8XLBxw6.js",
+        "start": 425.80000001192093,
+        "end": 1034.2000000178814,
+        "transfer": 530
+      },
+      {
+        "path": "/assets/money-BPfvscUc.js",
+        "start": 425.80000001192093,
+        "end": 1034.800000011921,
+        "transfer": 3259
+      },
+      {
+        "path": "/assets/avatar-Bz09S68S.js",
+        "start": 425.90000000596046,
+        "end": 1034.7000000178814,
+        "transfer": 874
+      },
+      {
+        "path": "/assets/index-B6w51bpJ.js",
+        "start": 845.8000000119209,
+        "end": 1049.2000000178814,
+        "transfer": 641
+      },
+      {
+        "path": "/assets/CatalogPage-CL6sLHq8.js",
+        "start": 845.8000000119209,
+        "end": 1236.7000000178814,
+        "transfer": 11430
+      },
+      {
+        "path": "/assets/EmptyState-CPt2MkZ8.js",
+        "start": 845.9000000059605,
+        "end": 1236.300000011921,
+        "transfer": 531
+      },
+      {
+        "path": "/assets/useMutation-CH2DCiHu.js",
+        "start": 846,
+        "end": 1236.300000011921,
+        "transfer": 1163
+      },
+      {
+        "path": "/assets/nft-media-DMnNOUZB.js",
+        "start": 846,
+        "end": 1236.5,
+        "transfer": 1198
+      },
+      {
+        "path": "/assets/useArtworkSource-CEUgqV5M.js",
+        "start": 846,
+        "end": 1236.5,
+        "transfer": 2420
+      },
+      {
+        "path": "/assets/index-DBR0tTg9.js",
+        "start": 846.0999999940395,
+        "end": 1251.2000000178814,
+        "transfer": 2025
+      },
+      {
+        "path": "/assets/index-BpA6TjU5.js",
+        "start": 846.3000000119209,
+        "end": 1440.4000000059605,
+        "transfer": 687
+      },
+      {
+        "path": "/assets/index-DPG0YV8-.js",
+        "start": 846.3000000119209,
+        "end": 1440.800000011921,
+        "transfer": 10202
+      },
+      {
+        "path": "/assets/index-CwZmWCJa.js",
+        "start": 846.4000000059605,
+        "end": 1440.300000011921,
+        "transfer": 684
+      },
+      {
+        "path": "/assets/index-DK2R1gbL.js",
+        "start": 846.4000000059605,
+        "end": 1440.5,
+        "transfer": 3161
+      },
+      {
+        "path": "/api/nfts",
+        "start": 1457.2000000178814,
+        "end": 1619.4000000059605,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/startRealtime-0tgDw4Mo.js",
+        "start": 1459,
+        "end": 1699.5999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/figma-icons.svg",
+        "start": 1466.800000011921,
+        "end": 1699.5,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/roboto-mono-latin-700-normal-foxDnrFi.woff2",
+        "start": 1478.7000000178814,
+        "end": 1700.300000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/roboto-mono-latin-400-normal-GekRknry.woff2",
+        "start": 1478.9000000059605,
+        "end": 1700.5,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/roboto-mono-latin-500-normal-pxIOXZmA.woff2",
+        "start": 1479.0999999940395,
+        "end": 1701.0999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-facebook.svg",
+        "start": 1485.0999999940395,
+        "end": 1701.0999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-instagram.svg",
+        "start": 1485.2000000178814,
+        "end": 1901.800000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-twitter.svg",
+        "start": 1485.300000011921,
+        "end": 1901.7000000178814,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-youtube.svg",
+        "start": 1485.4000000059605,
+        "end": 1902.800000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-linkedin.svg",
+        "start": 1485.4000000059605,
+        "end": 1902.800000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/mobile-tab-background.svg",
+        "start": 1485.5,
+        "end": 1902.9000000059605,
+        "transfer": 0
+      },
+      {
+        "path": "/api/cart",
+        "start": 1486.300000011921,
+        "end": 1639.2000000178814,
+        "transfer": 0
+      },
+      {
+        "path": "/api/content",
+        "start": 1486.4000000059605,
+        "end": 1642.300000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/emerald-400.avif",
+        "start": 1632.2000000178814,
+        "end": 1902.7000000178814,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/sage-400.avif",
+        "start": 1632.4000000059605,
+        "end": 2102.800000011921,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/neon-400.avif",
+        "start": 1632.5,
+        "end": 2103.4000000059605,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/golden-400.avif",
+        "start": 1636.800000011921,
+        "end": 2103.4000000059605,
+        "transfer": 0
+      },
+      {
+        "path": "/api/nfts",
+        "start": 1714.9000000059605,
+        "end": 1843,
+        "transfer": 0
+      },
+      {
+        "path": "/api/cart",
+        "start": 1715.0999999940395,
+        "end": 1844.4000000059605,
+        "transfer": 0
+      }
+    ],
+    "workerReady": true,
+    "nfts": 48
+  },
+  {
+    "profile": "latency",
+    "name": "stage2",
+    "port": 4198,
+    "mode": "returning",
+    "markers": {
+      "main": 256.89999997615814,
+      "catalog": 390
+    },
+    "visibleImages": 682.3999999761581,
+    "responseEnd": 203.09999999403954,
+    "resources": [
+      {
+        "path": "/images/ui/mobile-hero-background.svg",
+        "start": 212.59999999403954,
+        "end": 415.09999999403954,
+        "transfer": 300
+      },
+      {
+        "path": "/assets/index-S1WiEVG4.js",
+        "start": 212.7999999821186,
+        "end": 213.69999998807907,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-CXRujiCy.js",
+        "start": 212.7999999821186,
+        "end": 214,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-wGDlz5H0.css",
+        "start": 212.89999997615814,
+        "end": 214.39999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/client-DCX4T5PW.js",
+        "start": 215.7999999821186,
+        "end": 217.2999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-BXC7D3TY.js",
+        "start": 215.89999997615814,
+        "end": 217,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/Providers-Dy1hgdYY.js",
+        "start": 215.89999997615814,
+        "end": 217.5,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/money-Ci3M6179.js",
+        "start": 216,
+        "end": 218.59999999403954,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/query-keys-CKT3kriS.js",
+        "start": 216,
+        "end": 218.39999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/env-DskC3_S-.js",
+        "start": 216.09999999403954,
+        "end": 219.09999999403954,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/idempotency-pFfmSrrs.js",
+        "start": 216.19999998807907,
+        "end": 219.5,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/router-Ch-j4quN.js",
+        "start": 216.19999998807907,
+        "end": 219.39999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/realtime-context-Bua4YaT6.js",
+        "start": 216.2999999821186,
+        "end": 219.69999998807907,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/createLucideIcon-Ci7FJ4Ch.js",
+        "start": 216.2999999821186,
+        "end": 219.7999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/browser-DUubAAc-.js",
+        "start": 216.39999997615814,
+        "end": 221.5,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/profile-DfN0_Jnt.js",
+        "start": 216.5,
+        "end": 221.89999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/wallet-BjEpB5fK.js",
+        "start": 216.59999999403954,
+        "end": 222.09999999403954,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/money-BPfvscUc.js",
+        "start": 216.59999999403954,
+        "end": 222.5,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-DtziPWr8.js",
+        "start": 216.59999999403954,
+        "end": 222.2999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/review-B8XLBxw6.js",
+        "start": 216.69999998807907,
+        "end": 222.89999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/avatar-Bz09S68S.js",
+        "start": 216.69999998807907,
+        "end": 223.09999999403954,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-B6w51bpJ.js",
+        "start": 228.09999999403954,
+        "end": 229.09999999403954,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/CatalogPage-CL6sLHq8.js",
+        "start": 228.19999998807907,
+        "end": 229.09999999403954,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/EmptyState-CPt2MkZ8.js",
+        "start": 228.2999999821186,
+        "end": 229.19999998807907,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/nft-media-DMnNOUZB.js",
+        "start": 228.39999997615814,
+        "end": 229.39999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/useArtworkSource-CEUgqV5M.js",
+        "start": 228.39999997615814,
+        "end": 229.5,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/useMutation-CH2DCiHu.js",
+        "start": 228.39999997615814,
+        "end": 229.69999998807907,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-DBR0tTg9.js",
+        "start": 228.5,
+        "end": 229.7999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-DPG0YV8-.js",
+        "start": 228.5,
+        "end": 230,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-BpA6TjU5.js",
+        "start": 228.59999999403954,
+        "end": 230.19999998807907,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-CwZmWCJa.js",
+        "start": 228.69999998807907,
+        "end": 230.39999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/index-DK2R1gbL.js",
+        "start": 228.69999998807907,
+        "end": 230.59999999403954,
+        "transfer": 0
+      },
+      {
+        "path": "/api/nfts",
+        "start": 245.69999998807907,
+        "end": 383.39999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/startRealtime-0tgDw4Mo.js",
+        "start": 246.19999998807907,
+        "end": 246.19999998807907,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/figma-icons.svg",
+        "start": 248.19999998807907,
+        "end": 463.5,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-facebook.svg",
+        "start": 251.5,
+        "end": 463.69999998807907,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-instagram.svg",
+        "start": 251.59999999403954,
+        "end": 464.19999998807907,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-twitter.svg",
+        "start": 251.69999998807907,
+        "end": 464.39999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-linkedin.svg",
+        "start": 251.69999998807907,
+        "end": 464.39999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/footer-youtube.svg",
+        "start": 251.7999999821186,
+        "end": 664.6999999880791,
+        "transfer": 0
+      },
+      {
+        "path": "/images/ui/mobile-tab-background.svg",
+        "start": 252.09999999403954,
+        "end": 664.6999999880791,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/roboto-mono-latin-700-normal-foxDnrFi.woff2",
+        "start": 255.2999999821186,
+        "end": 264.7999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/roboto-mono-latin-400-normal-GekRknry.woff2",
+        "start": 255.39999997615814,
+        "end": 265.59999999403954,
+        "transfer": 0
+      },
+      {
+        "path": "/assets/roboto-mono-latin-500-normal-pxIOXZmA.woff2",
+        "start": 255.5,
+        "end": 265.89999997615814,
+        "transfer": 0
+      },
+      {
+        "path": "/api/cart",
+        "start": 257.2999999821186,
+        "end": 396.69999998807907,
+        "transfer": 0
+      },
+      {
+        "path": "/api/content",
+        "start": 257.2999999821186,
+        "end": 396.7999999821186,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/emerald-400.avif",
+        "start": 385.59999999403954,
+        "end": 617.1999999880791,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/sage-400.avif",
+        "start": 387.69999998807907,
+        "end": 664.8999999761581,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/neon-400.avif",
+        "start": 387.89999997615814,
+        "end": 665.0999999940395,
+        "transfer": 0
+      },
+      {
+        "path": "/images/nfts/golden-400.avif",
+        "start": 393.09999999403954,
+        "end": 665.1999999880791,
+        "transfer": 0
+      }
+    ],
+    "workerReady": true,
+    "nfts": 48
+  }
+]

@@ -1,0 +1,35 @@
+
+Running 14 tests using 2 workers
+
+(node:56698) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:56697) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/14] [desktop-chromium] › e2e/12-loading-and-recovery.spec.ts:27:1 › detalhe reserva posição e tamanho da galeria em rede lenta
+[2/14] [desktop-chromium] › e2e/12-loading-and-recovery.spec.ts:17:1 › catálogo reserva exatamente o espaço dos cards em rede lenta
+[3/14] [desktop-chromium] › e2e/12-loading-and-recovery.spec.ts:36:1 › detalhe reserva as seções inferiores e não desloca um rodapé visível ao carregar
+[4/14] [desktop-chromium] › e2e/12-loading-and-recovery.spec.ts:52:1 › resumo reserva altura e posição durante cálculo lento
+[5/14] [desktop-chromium] › e2e/12-loading-and-recovery.spec.ts:65:1 › falha transitória mostra erro e nova tentativa recupera o catálogo
+[6/14] [desktop-chromium] › e2e/12-loading-and-recovery.spec.ts:77:1 › reduced-motion desativa a animação dos skeletons
+[7/14] [desktop-chromium] › e2e/12-loading-and-recovery.spec.ts:85:1 › validação lenta da sessão mantém feedback de rota privada
+(node:56758) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[8/14] [mobile-chromium] › e2e/12-loading-and-recovery.spec.ts:17:1 › catálogo reserva exatamente o espaço dos cards em rede lenta
+[9/14] [mobile-chromium] › e2e/12-loading-and-recovery.spec.ts:27:1 › detalhe reserva posição e tamanho da galeria em rede lenta
+(node:56782) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[10/14] [mobile-chromium] › e2e/12-loading-and-recovery.spec.ts:36:1 › detalhe reserva as seções inferiores e não desloca um rodapé visível ao carregar
+[11/14] [mobile-chromium] › e2e/12-loading-and-recovery.spec.ts:52:1 › resumo reserva altura e posição durante cálculo lento
+[12/14] [mobile-chromium] › e2e/12-loading-and-recovery.spec.ts:65:1 › falha transitória mostra erro e nova tentativa recupera o catálogo
+[13/14] [mobile-chromium] › e2e/12-loading-and-recovery.spec.ts:77:1 › reduced-motion desativa a animação dos skeletons
+[14/14] [mobile-chromium] › e2e/12-loading-and-recovery.spec.ts:85:1 › validação lenta da sessão mantém feedback de rota privada
+  1 skipped
+  13 passed (32.1s)

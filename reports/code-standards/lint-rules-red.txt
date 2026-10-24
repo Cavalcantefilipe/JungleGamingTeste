@@ -1,0 +1,46 @@
+Multiple projects found, consider using a single `tsconfig` with `references` to speed up, or use `noWarnOnMultipleProjects` to suppress this warning
+✖ lint rejects type assertions that bypass checking through unknown (2836.642709ms)
+✖ lint rejects dynamic mock imports outside bootstrap and tests (91.6345ms)
+✔ lint continues to reject static mock imports outside bootstrap and tests (92.783625ms)
+✔ lint permits dynamic mock imports in bootstrap, mocks and tests (234.506875ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 2
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3557.649709
+
+✖ failing tests:
+
+test at scripts/codeRules.test.mjs:13:1
+✖ lint rejects type assertions that bypass checking through unknown (2836.642709ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(rules.includes('no-restricted-syntax'))
+  
+      at TestContext.<anonymous> (file:///Users/filipecavalcante/Documents/JungleGamingTeste/scripts/codeRules.test.mjs:15:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at scripts/codeRules.test.mjs:18:1
+✖ lint rejects dynamic mock imports outside bootstrap and tests (91.6345ms)
+  AssertionError [ERR_ASSERTION]: @/mocks/control
+      at TestContext.<anonymous> (file:///Users/filipecavalcante/Documents/JungleGamingTeste/scripts/codeRules.test.mjs:21:12)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

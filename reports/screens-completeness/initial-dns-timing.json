@@ -1,0 +1,39 @@
+{
+  "recordedAt": "2026-10-24T05:57:51.665Z",
+  "url": "https://kurio-production-8274.up.railway.app",
+  "conditions": "Three sequential curl processes using the system resolver. Timing fields are cumulative from request start. Values transcribed from the diagnostic command output; not Lighthouse metrics.",
+  "observations": [
+    {
+      "run": 1,
+      "status": 200,
+      "dnsSeconds": 3.072499,
+      "connectSeconds": 3.082761,
+      "tlsSeconds": 3.102399,
+      "firstByteSeconds": 3.301264,
+      "totalSeconds": 3.301542
+    },
+    {
+      "run": 2,
+      "status": 200,
+      "dnsSeconds": 0.002536,
+      "connectSeconds": 0.013827,
+      "tlsSeconds": 0.030815,
+      "firstByteSeconds": 0.249064,
+      "totalSeconds": 0.249456
+    },
+    {
+      "run": 3,
+      "status": 200,
+      "dnsSeconds": 0.00252,
+      "connectSeconds": 0.011928,
+      "tlsSeconds": 0.028102,
+      "firstByteSeconds": 0.234069,
+      "totalSeconds": 0.234253
+    }
+  ],
+  "railway": {
+    "region": "us-west2",
+    "replicas": 1,
+    "sleepApplication": false
+  }
+}

@@ -1,0 +1,17 @@
+
+Running 6 tests using 2 workers
+
+(node:61782) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:61781) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop-firefox] › e2e/19-final-regressions.spec.ts:17:1 › falha ao registrar worker mostra erro acessível e permite tentar novamente (1.4s)
+  ✓  1 [desktop-firefox] › e2e/19-final-regressions.spec.ts:12:1 › cenário desconhecido usa padrão sem prender inicialização (1.4s)
+(node:61802) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [mobile-webkit] › e2e/19-final-regressions.spec.ts:12:1 › cenário desconhecido usa padrão sem prender inicialização (925ms)
+  ✓  5 [mobile-webkit] › e2e/19-final-regressions.spec.ts:17:1 › falha ao registrar worker mostra erro acessível e permite tentar novamente (597ms)
+  ✓  3 [desktop-firefox] › e2e/19-final-regressions.spec.ts:35:1 › logout preserva recuperação por usuário sem mostrar compra de Ana para Bruno (10.4s)
+  ✓  6 [mobile-webkit] › e2e/19-final-regressions.spec.ts:35:1 › logout preserva recuperação por usuário sem mostrar compra de Ana para Bruno (10.0s)
+
+  6 passed (15.2s)

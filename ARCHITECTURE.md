@@ -16,7 +16,11 @@ Dinheiro usa string decimal e big.js; o front exibe estimativas imediatas. Preç
 
 React 19, Vite 7/ES2022, Router com divisão automática de rotas e Query 5. MSW fica em 2.x porque o binding Socket.IO utilizado não suporta 3.x. Renderer, providers e registro dos mocks carregam em paralelo; React só monta depois do worker. O SDK Socket.IO é importado no efeito após montar, pois Engine.IO captura `globalThis.WebSocket` ao avaliar o módulo. Cleanup e token capturado impedem início de conexão antiga após desmontagem/troca de sessão. [MOCKS.md](docs/MOCKS.md).
 
+A inicialização antecipa também os componentes da rota correspondente à URL enquanto o worker inicia. Esse preload não executa guards, loaders nem consultas REST; o registro do MSW e a validação de ambiente continuam obrigatórios antes de renderizar. O download dos mocks começa junto da configuração e não espera um frame de animação. Falhas de configuração, código ou worker continuam oferecendo recuperação no HTML inicial.
+
 Zod é configurado com `jitless: true` antes da validação de ambiente e contratos. Isso evita o probe de avaliação dinâmica bloqueado pela CSP; não exige `unsafe-eval`. Fontes e assets ficam no mesmo origin, com AVIF/WebP responsivo e dimensões explícitas. Devtools não integram os providers de produção; os controles de demonstração estão em `window.__kurio` quando mocks estão habilitados.
+
+`ArtworkImage` compartilha a recuperação das artes da Home, galeria e cards. Erro no AVIF tenta o WebP da mesma arte; falha transitória admite uma tentativa do arquivo original. Se continuar indisponível, um placeholder acessível conserva as dimensões. Somente imagens com erro são tentadas novamente ao voltar a conexão, o foco ou a visibilidade da aba. Trocar a foto descarta o erro anterior; imagens saudáveis não são substituídas durante refetch. Essa recuperação cobre downloads interrompidos, sem afirmar que reproduz todos os efeitos de standby do sistema operacional.
 
 O build produz variantes Brotli de HTML/JS/CSS/SVG. O preview Vite negocia `Accept-Encoding` por `sirv`, preserva o conteúdo sem compressão para clientes sem suporte e reconhece arquivos de um novo build. O worker e HTML usam revalidação. Isso reduz bytes transferidos sem remover schemas, mocks, autenticação ou Socket.IO. Na Railway, Caddy serve os arquivos Brotli gerados pelo build, com gzip como alternativa. A negociação e a integridade foram verificadas no domínio público.
 
@@ -49,6 +53,8 @@ Estados ausentes do desenho usam o mesmo sistema visual: skeleton com espaço re
 
 Texto secundário `#CFB28C` sobre card `#241612` tem contraste aproximado de 8,68:1, acima de 4,5:1; o fundo foi preservado. Foco visível, labels, alerts de campo, retorno de foco dos modais, teclado, reduced motion, axe e reflow complementam baselines visuais. Testes automáticos não equivalem a certificação de acessibilidade.
 
+A [revisão complementar das nove telas](docs/SCREENS-COMPLETENESS.md) registra a tipografia distinta entre catálogo e carrosséis, textos editoriais originais, IDs compartilhados entre carrinho/resumo/recibo e adaptações da autenticação. A modal ajusta espaços à altura; abaixo de 360 px, o cadastro reduz a margem do título que quebra linha. Em telas muito baixas ou com muitos erros, a rolagem externa mantém acesso aos campos. Fechar a autenticação preserva o contexto público; uma exigência do checkout retorna ao carrinho. Perfil, carteiras e recibo mobile são adaptações porque o arquivo não contém esses três frames.
+
 ## Entrega e pendências
 
 A publicação na Railway usa `railpack.json` e `Caddyfile`: headers de segurança, fallback SPA, `/healthz`, cache imutável para assets com hash e `no-store` para worker/erros. `vercel.json` preserva a mesma política como alternativa. O teste HTTP verifica os headers reais; o E2E percorre compra/socket sob a CSP. O serviço acompanha a branch `main` do GitHub público. [DEPLOYMENT.md](docs/DEPLOYMENT.md) registra URL, runtime e verificações. [LIGHTHOUSE.md](docs/LIGHTHOUSE.md) distingue as coletas locais e públicas; os audits completo/de produção retornaram zero após a remoção dos dois advisories altos.
@@ -58,6 +64,8 @@ A publicação na Railway usa `railpack.json` e `Caddyfile`: headers de seguran�
 As páginas de catálogo, detalhe, autenticação e checkout compõem seções com responsabilidades específicas. `useCheckoutController` coordena seleção de carteira, formulário, cotação, conexão e envio; `useCheckoutSubmission` mantém as validações e `createOrderRequest` prepara apenas os campos aceitos pelo contrato. A persistência do rascunho fica em `useCheckoutDraftPersistence`, com `subscribe`, cleanup e guarda de sessão. Componentes de campos, opções e resumos recebem dados e ações dos respectivos controladores.
 
 A paleta e os gradientes reutilizáveis ficam no `@theme` de `src/styles/tokens.css` (Tailwind 4). Variantes comuns são definidas em `components/ui/button.tsx`. [Revisão do frontend](docs/FRONTEND-REVIEW.md) registra os problemas corrigidos, referências do Figma, redução dos componentes e limites da validação.
+
+A [revisão dos padrões](docs/CODE-STANDARDS-REVIEW.md) uniformizou os imports de `src` pelo alias `@/` e acrescentou regressões das regras de lint. Perfil, carteiras, pedido, detalhe e conexão delegam estado e efeitos a hooks da feature. As exceções existentes para primitives shadcn, testes e arquivos gerados estão documentadas; as regras de negócio e as proteções de sessão foram preservadas.
 
 ## Carrosséis e avaliações do detalhe
 

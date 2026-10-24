@@ -1,0 +1,29 @@
+
+Running 16 tests using 2 workers
+
+(node:64922) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:64921) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop-chromium] › e2e/01-catalog.spec.ts:21:1 › substituir consultas durante a digitação não anuncia uma falha (2.1s)
+  ✓   2 [desktop-chromium] › e2e/01-catalog.spec.ts:3:1 › digitação sequencial preserva espaços entre palavras na busca (3.2s)
+  ✓   3 [desktop-chromium] › e2e/01-catalog.spec.ts:37:1 › busca, filtros e ordenação refletem API e URL (2.1s)
+  ✓   4 [desktop-chromium] › e2e/01-catalog.spec.ts:52:1 › paginação, refresh e histórico preservam parâmetros (2.0s)
+  ✓   5 [desktop-chromium] › e2e/01-catalog.spec.ts:67:1 › vazio oferece limpar filtros e URL inválida não quebra página (1.8s)
+  ✓   6 [desktop-chromium] › e2e/01-catalog.spec.ts:81:1 › falha 500 mostra erro e nova tentativa recupera (3.8s)
+  ✓   7 [desktop-chromium] › e2e/01-catalog.spec.ts:90:1 › rede lenta mostra skeletons com dimensões e reduced motion (3.2s)
+(node:64940) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   8 [desktop-chromium] › e2e/01-catalog.spec.ts:95:1 › respostas fora de ordem mantêm a busca mais recente (2.3s)
+(node:64945) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [mobile-chromium] › e2e/01-catalog.spec.ts:3:1 › digitação sequencial preserva espaços entre palavras na busca (2.8s)
+  ✓  10 [mobile-chromium] › e2e/01-catalog.spec.ts:21:1 › substituir consultas durante a digitação não anuncia uma falha (1.8s)
+  ✓  11 [mobile-chromium] › e2e/01-catalog.spec.ts:37:1 › busca, filtros e ordenação refletem API e URL (1.6s)
+  ✓  12 [mobile-chromium] › e2e/01-catalog.spec.ts:52:1 › paginação, refresh e histórico preservam parâmetros (2.0s)
+  ✓  13 [mobile-chromium] › e2e/01-catalog.spec.ts:67:1 › vazio oferece limpar filtros e URL inválida não quebra página (4.7s)
+  ✓  14 [mobile-chromium] › e2e/01-catalog.spec.ts:81:1 › falha 500 mostra erro e nova tentativa recupera (5.2s)
+  ✓  15 [mobile-chromium] › e2e/01-catalog.spec.ts:90:1 › rede lenta mostra skeletons com dimensões e reduced motion (3.2s)
+  ✓  16 [mobile-chromium] › e2e/01-catalog.spec.ts:95:1 › respostas fora de ordem mantêm a busca mais recente (2.2s)
+
+  16 passed (23.6s)

@@ -1,0 +1,36 @@
+
+Running 16 tests using 2 workers
+
+(node:63453) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:63456) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/16] [desktop-chromium] › e2e/01-catalog.spec.ts:21:1 › substituir consultas durante a digitação não anuncia uma falha
+[2/16] [desktop-chromium] › e2e/01-catalog.spec.ts:3:1 › digitação sequencial preserva espaços entre palavras na busca
+[3/16] [desktop-chromium] › e2e/01-catalog.spec.ts:37:1 › busca, filtros e ordenação refletem API e URL
+[4/16] [desktop-chromium] › e2e/01-catalog.spec.ts:52:1 › paginação, refresh e histórico preservam parâmetros
+[5/16] [desktop-chromium] › e2e/01-catalog.spec.ts:67:1 › vazio oferece limpar filtros e URL inválida não quebra página
+[6/16] [desktop-chromium] › e2e/01-catalog.spec.ts:81:1 › falha 500 mostra erro e nova tentativa recupera
+[7/16] [desktop-chromium] › e2e/01-catalog.spec.ts:90:1 › rede lenta mostra skeletons com dimensões e reduced motion
+[8/16] [desktop-chromium] › e2e/01-catalog.spec.ts:95:1 › respostas fora de ordem mantêm a busca mais recente
+(node:63490) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[9/16] [mobile-chromium] › e2e/01-catalog.spec.ts:3:1 › digitação sequencial preserva espaços entre palavras na busca
+(node:63495) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[10/16] [mobile-chromium] › e2e/01-catalog.spec.ts:21:1 › substituir consultas durante a digitação não anuncia uma falha
+[11/16] [mobile-chromium] › e2e/01-catalog.spec.ts:37:1 › busca, filtros e ordenação refletem API e URL
+[12/16] [mobile-chromium] › e2e/01-catalog.spec.ts:52:1 › paginação, refresh e histórico preservam parâmetros
+[13/16] [mobile-chromium] › e2e/01-catalog.spec.ts:67:1 › vazio oferece limpar filtros e URL inválida não quebra página
+[14/16] [mobile-chromium] › e2e/01-catalog.spec.ts:81:1 › falha 500 mostra erro e nova tentativa recupera
+[15/16] [mobile-chromium] › e2e/01-catalog.spec.ts:90:1 › rede lenta mostra skeletons com dimensões e reduced motion
+[16/16] [mobile-chromium] › e2e/01-catalog.spec.ts:95:1 › respostas fora de ordem mantêm a busca mais recente
+  16 passed (21.8s)

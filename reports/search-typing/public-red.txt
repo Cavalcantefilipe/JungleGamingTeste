@@ -1,0 +1,188 @@
+
+Running 4 tests using 2 workers
+
+(node:63337) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:63338) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/4] [desktop-chromium] › e2e/01-catalog.spec.ts:21:1 › substituir consultas durante a digitação não anuncia uma falha
+[2/4] [desktop-chromium] › e2e/01-catalog.spec.ts:3:1 › digitação sequencial preserva espaços entre palavras na busca
+  1) [desktop-chromium] › e2e/01-catalog.spec.ts:21:1 › substituir consultas durante a digitação não anuncia uma falha 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByText('Não foi possível concluir. Tente novamente.', { exact: true })
+    Expected: 0
+    Received: 1
+    Timeout:  8000ms
+
+    Call log:
+      - Expect "toHaveCount" getByText('Não foi possível concluir. Tente novamente.', { exact: true }) with timeout 8000ms
+      - waiting for getByText('Não foi possível concluir. Tente novamente.', { exact: true })
+        20 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      31 |   await expect(
+      32 |     page.getByText('Não foi possível concluir. Tente novamente.', { exact: true }),
+    > 33 |   ).toHaveCount(0);
+         |     ^
+      34 |   await expect(page.locator('[data-sonner-toast]')).toHaveCount(0);
+      35 | });
+      36 |
+        at /Users/filipecavalcante/Documents/JungleGamingTeste/e2e/01-catalog.spec.ts:33:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-search-public-red/01-catalog-substituir-cons-a853e-tação-não-anuncia-uma-falha-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../tmp/kurio-search-public-red/01-catalog-substituir-cons-a853e-tação-não-anuncia-uma-falha-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-search-public-red/01-catalog-substituir-cons-a853e-tação-não-anuncia-uma-falha-desktop-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../../../../tmp/kurio-search-public-red/01-catalog-substituir-cons-a853e-tação-não-anuncia-uma-falha-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:63366) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[3/4] [mobile-chromium] › e2e/01-catalog.spec.ts:3:1 › digitação sequencial preserva espaços entre palavras na busca
+  2) [desktop-chromium] › e2e/01-catalog.spec.ts:3:1 › digitação sequencial preserva espaços entre palavras na busca 
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator:  getByRole('searchbox', { name: 'Buscar NFTs', exact: true })
+    Expected: "Cosmic Bloom"
+    Received: "CosmicBloom"
+    Timeout:  8000ms
+
+    Call log:
+      - Expect "toHaveValue" getByRole('searchbox', { name: 'Buscar NFTs', exact: true }) with timeout 8000ms
+      - waiting for getByRole('searchbox', { name: 'Buscar NFTs', exact: true })
+        20 × locator resolved to <input id="busca" type="search" data-slot="input" value="CosmicBloom" aria-label="Buscar NFTs" placeholder="Buscar NFTs, coleções e criadores..." class="w-full min-w-0 rounded-field border border-input bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-secondary disabled:pointer-event…/>
+           - unexpected value "CosmicBloom"
+
+
+      10 |   await search.pressSequentially('Cosmic Bloom', { delay: 80 });
+      11 |   await search.press('Enter');
+    > 12 |   await expect(search).toHaveValue('Cosmic Bloom');
+         |                        ^
+      13 |   await expect(page).toHaveURL((url) => url.searchParams.get('q') === 'Cosmic Bloom');
+      14 |   await expect(page.getByTestId('nft-grid').getByRole('link').first()).toContainText(
+      15 |     'Cosmic Bloom',
+        at /Users/filipecavalcante/Documents/JungleGamingTeste/e2e/01-catalog.spec.ts:12:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-search-public-red/01-catalog-digitação-seque-dad4c-ços-entre-palavras-na-busca-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../tmp/kurio-search-public-red/01-catalog-digitação-seque-dad4c-ços-entre-palavras-na-busca-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-search-public-red/01-catalog-digitação-seque-dad4c-ços-entre-palavras-na-busca-desktop-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../../../../tmp/kurio-search-public-red/01-catalog-digitação-seque-dad4c-ços-entre-palavras-na-busca-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:63372) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[4/4] [mobile-chromium] › e2e/01-catalog.spec.ts:21:1 › substituir consultas durante a digitação não anuncia uma falha
+  3) [mobile-chromium] › e2e/01-catalog.spec.ts:21:1 › substituir consultas durante a digitação não anuncia uma falha 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByText('Não foi possível concluir. Tente novamente.', { exact: true })
+    Expected: 0
+    Received: 1
+    Timeout:  8000ms
+
+    Call log:
+      - Expect "toHaveCount" getByText('Não foi possível concluir. Tente novamente.', { exact: true }) with timeout 8000ms
+      - waiting for getByText('Não foi possível concluir. Tente novamente.', { exact: true })
+        20 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      31 |   await expect(
+      32 |     page.getByText('Não foi possível concluir. Tente novamente.', { exact: true }),
+    > 33 |   ).toHaveCount(0);
+         |     ^
+      34 |   await expect(page.locator('[data-sonner-toast]')).toHaveCount(0);
+      35 | });
+      36 |
+        at /Users/filipecavalcante/Documents/JungleGamingTeste/e2e/01-catalog.spec.ts:33:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-search-public-red/01-catalog-substituir-cons-a853e-tação-não-anuncia-uma-falha-mobile-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../tmp/kurio-search-public-red/01-catalog-substituir-cons-a853e-tação-não-anuncia-uma-falha-mobile-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-search-public-red/01-catalog-substituir-cons-a853e-tação-não-anuncia-uma-falha-mobile-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../../../../tmp/kurio-search-public-red/01-catalog-substituir-cons-a853e-tação-não-anuncia-uma-falha-mobile-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  4) [mobile-chromium] › e2e/01-catalog.spec.ts:3:1 › digitação sequencial preserva espaços entre palavras na busca 
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator:  getByRole('searchbox', { name: 'Buscar NFTs', exact: true })
+    Expected: "Cosmic Bloom"
+    Received: "CosmicBloom"
+    Timeout:  8000ms
+
+    Call log:
+      - Expect "toHaveValue" getByRole('searchbox', { name: 'Buscar NFTs', exact: true }) with timeout 8000ms
+      - waiting for getByRole('searchbox', { name: 'Buscar NFTs', exact: true })
+        20 × locator resolved to <input type="search" data-slot="input" value="CosmicBloom" aria-label="Buscar NFTs" placeholder="Explorar coleções" class="w-full min-w-0 border px-3 py-1 shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-secondary disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:h-10 md:text-sm dark:bg-…/>
+           - unexpected value "CosmicBloom"
+
+
+      10 |   await search.pressSequentially('Cosmic Bloom', { delay: 80 });
+      11 |   await search.press('Enter');
+    > 12 |   await expect(search).toHaveValue('Cosmic Bloom');
+         |                        ^
+      13 |   await expect(page).toHaveURL((url) => url.searchParams.get('q') === 'Cosmic Bloom');
+      14 |   await expect(page.getByTestId('nft-grid').getByRole('link').first()).toContainText(
+      15 |     'Cosmic Bloom',
+        at /Users/filipecavalcante/Documents/JungleGamingTeste/e2e/01-catalog.spec.ts:12:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-search-public-red/01-catalog-digitação-seque-dad4c-ços-entre-palavras-na-busca-mobile-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../tmp/kurio-search-public-red/01-catalog-digitação-seque-dad4c-ços-entre-palavras-na-busca-mobile-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-search-public-red/01-catalog-digitação-seque-dad4c-ços-entre-palavras-na-busca-mobile-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../../../../tmp/kurio-search-public-red/01-catalog-digitação-seque-dad4c-ços-entre-palavras-na-busca-mobile-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  4 failed
+    [desktop-chromium] › e2e/01-catalog.spec.ts:3:1 › digitação sequencial preserva espaços entre palavras na busca 
+    [desktop-chromium] › e2e/01-catalog.spec.ts:21:1 › substituir consultas durante a digitação não anuncia uma falha 
+    [mobile-chromium] › e2e/01-catalog.spec.ts:3:1 › digitação sequencial preserva espaços entre palavras na busca 
+    [mobile-chromium] › e2e/01-catalog.spec.ts:21:1 › substituir consultas durante a digitação não anuncia uma falha 

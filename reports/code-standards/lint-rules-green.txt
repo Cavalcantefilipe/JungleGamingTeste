@@ -1,0 +1,19 @@
+Multiple projects found, consider using a single `tsconfig` with `references` to speed up, or use `noWarnOnMultipleProjects` to suppress this warning
+✔ lint rejects type assertions that bypass checking through unknown (2410.879ms)
+✔ lint rejects dynamic mock imports outside bootstrap and tests (231.352875ms)
+✔ lint rejects static template imports that bypass source restrictions (140.792875ms)
+✔ lint requires absolute paths in import types (24.0485ms)
+✔ lint rejects mock dependencies through import types (127.52175ms)
+✔ HTTP client exception only permits axios, not mock imports (96.503417ms)
+✔ lint continues to reject static mock imports outside bootstrap and tests (72.168334ms)
+✔ lint permits dynamic mock imports in bootstrap, mocks and tests (225.978166ms)
+✔ lint requires absolute imports and re-exports inside src (171.289875ms)
+✔ lint allows absolute source imports (65.537208ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3843.311458

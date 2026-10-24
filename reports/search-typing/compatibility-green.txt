@@ -1,0 +1,29 @@
+
+Running 16 tests using 2 workers
+
+(node:64979) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:64980) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop-firefox] › e2e/01-catalog.spec.ts:21:1 › substituir consultas durante a digitação não anuncia uma falha (2.6s)
+  ✓   2 [desktop-firefox] › e2e/01-catalog.spec.ts:3:1 › digitação sequencial preserva espaços entre palavras na busca (4.2s)
+  ✓   3 [desktop-firefox] › e2e/01-catalog.spec.ts:37:1 › busca, filtros e ordenação refletem API e URL (1.8s)
+  ✓   5 [desktop-firefox] › e2e/01-catalog.spec.ts:67:1 › vazio oferece limpar filtros e URL inválida não quebra página (1.9s)
+  ✓   4 [desktop-firefox] › e2e/01-catalog.spec.ts:52:1 › paginação, refresh e histórico preservam parâmetros (2.9s)
+  ✓   7 [desktop-firefox] › e2e/01-catalog.spec.ts:90:1 › rede lenta mostra skeletons com dimensões e reduced motion (3.5s)
+  ✓   6 [desktop-firefox] › e2e/01-catalog.spec.ts:81:1 › falha 500 mostra erro e nova tentativa recupera (3.7s)
+  ✓   8 [desktop-firefox] › e2e/01-catalog.spec.ts:95:1 › respostas fora de ordem mantêm a busca mais recente (2.5s)
+(node:65015) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [mobile-webkit] › e2e/01-catalog.spec.ts:21:1 › substituir consultas durante a digitação não anuncia uma falha (2.3s)
+  ✓  10 [mobile-webkit] › e2e/01-catalog.spec.ts:37:1 › busca, filtros e ordenação refletem API e URL (2.2s)
+(node:65037) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  11 [mobile-webkit] › e2e/01-catalog.spec.ts:52:1 › paginação, refresh e histórico preservam parâmetros (3.6s)
+  ✓  13 [mobile-webkit] › e2e/01-catalog.spec.ts:67:1 › vazio oferece limpar filtros e URL inválida não quebra página (1.7s)
+  ✓  12 [mobile-webkit] › e2e/01-catalog.spec.ts:3:1 › digitação sequencial preserva espaços entre palavras na busca (4.0s)
+  ✓  14 [mobile-webkit] › e2e/01-catalog.spec.ts:81:1 › falha 500 mostra erro e nova tentativa recupera (3.5s)
+  ✓  15 [mobile-webkit] › e2e/01-catalog.spec.ts:90:1 › rede lenta mostra skeletons com dimensões e reduced motion (3.2s)
+  ✓  16 [mobile-webkit] › e2e/01-catalog.spec.ts:95:1 › respostas fora de ordem mantêm a busca mais recente (2.3s)
+
+  16 passed (31.0s)

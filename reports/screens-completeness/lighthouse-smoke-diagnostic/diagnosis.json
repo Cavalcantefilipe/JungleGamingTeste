@@ -1,0 +1,55 @@
+{
+  "purpose": "Single diagnostic smoke, excluded from formal medians",
+  "exit": {
+    "code": 0,
+    "signal": null,
+    "finishedAt": "2026-10-24T06:50:00.225Z"
+  },
+  "lighthouseVersion": "13.5.0",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+  "environment": {
+    "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+    "hostUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+    "benchmarkIndex": 2579.5,
+    "credits": {
+      "axe-core": "4.14.0"
+    }
+  },
+  "requestedUrl": "https://kurio-production-8274.up.railway.app/",
+  "finalDisplayedUrl": "https://kurio-production-8274.up.railway.app/",
+  "runtimeError": null,
+  "runWarnings": [],
+  "settings": {
+    "formFactor": "mobile",
+    "throttlingMethod": "simulate",
+    "throttling": {
+      "rttMs": 150,
+      "throughputKbps": 1638.4,
+      "requestLatencyMs": 562.5,
+      "downloadThroughputKbps": 1474.5600000000002,
+      "uploadThroughputKbps": 675,
+      "cpuSlowdownMultiplier": 4
+    },
+    "screenEmulation": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    },
+    "disableStorageReset": false,
+    "onlyCategories": [
+      "performance",
+      "accessibility",
+      "best-practices",
+      "seo"
+    ],
+    "maxWaitForLoad": 45000
+  },
+  "conclusion": "Identical mobile settings completed once. Previous ConnectionClosedError coincides with native browser crashes; no deterministic cause or fatal assertion was reproduced by this smoke.",
+  "limits": [
+    "Only one authorized smoke was run. No formal median was computed.",
+    "No source or configuration changed. Native crash dumps were not copied.",
+    "ChromeLauncher removed its temporary profile and browser stderr after normal completion."
+  ]
+}

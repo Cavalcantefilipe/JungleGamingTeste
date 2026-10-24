@@ -1,0 +1,82 @@
+
+Running 2 tests using 2 workers
+
+(node:59008) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:59007) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › e2e/31-image-resilience.spec.ts:119:3 › Home recupera foto indisponível ao retornar por visibilitychange (9.4s)
+  ✘  2 [desktop-chromium] › e2e/31-image-resilience.spec.ts:119:3 › Home recupera foto indisponível ao retornar por focus (9.4s)
+
+
+  1) [desktop-chromium] › e2e/31-image-resilience.spec.ts:119:3 › Home recupera foto indisponível ao retornar por visibilitychange 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    Call Log:
+    - Timeout 8000ms exceeded while waiting on the predicate
+
+      11 |       ),
+      12 |     )
+    > 13 |     .toBe(true);
+         |      ^
+      14 | }
+      15 |
+      16 | test('falha AVIF recupera galeria e carrossel com o mesmo artwork WebP', async ({
+        at expectLoaded (/Users/filipecavalcante/Documents/JungleGamingTeste/e2e/31-image-resilience.spec.ts:13:6)
+        at /Users/filipecavalcante/Documents/JungleGamingTeste/e2e/31-image-resilience.spec.ts:141:11
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-account-audit/images-resume-red/31-image-resilience-Home-r-ccafb-tornar-por-visibilitychange-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../tmp/kurio-account-audit/images-resume-red/31-image-resilience-Home-r-ccafb-tornar-por-visibilitychange-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-account-audit/images-resume-red/31-image-resilience-Home-r-ccafb-tornar-por-visibilitychange-desktop-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../../../../tmp/kurio-account-audit/images-resume-red/31-image-resilience-Home-r-ccafb-tornar-por-visibilitychange-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › e2e/31-image-resilience.spec.ts:119:3 › Home recupera foto indisponível ao retornar por focus 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    Call Log:
+    - Timeout 8000ms exceeded while waiting on the predicate
+
+      11 |       ),
+      12 |     )
+    > 13 |     .toBe(true);
+         |      ^
+      14 | }
+      15 |
+      16 | test('falha AVIF recupera galeria e carrossel com o mesmo artwork WebP', async ({
+        at expectLoaded (/Users/filipecavalcante/Documents/JungleGamingTeste/e2e/31-image-resilience.spec.ts:13:6)
+        at /Users/filipecavalcante/Documents/JungleGamingTeste/e2e/31-image-resilience.spec.ts:141:11
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-account-audit/images-resume-red/31-image-resilience-Home-r-52494-nível-ao-retornar-por-focus-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../tmp/kurio-account-audit/images-resume-red/31-image-resilience-Home-r-52494-nível-ao-retornar-por-focus-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-account-audit/images-resume-red/31-image-resilience-Home-r-52494-nível-ao-retornar-por-focus-desktop-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../../../../tmp/kurio-account-audit/images-resume-red/31-image-resilience-Home-r-52494-nível-ao-retornar-por-focus-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop-chromium] › e2e/31-image-resilience.spec.ts:119:3 › Home recupera foto indisponível ao retornar por visibilitychange 
+    [desktop-chromium] › e2e/31-image-resilience.spec.ts:119:3 › Home recupera foto indisponível ao retornar por focus 

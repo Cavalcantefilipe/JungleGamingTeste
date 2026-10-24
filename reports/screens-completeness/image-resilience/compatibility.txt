@@ -1,0 +1,32 @@
+
+Running 20 tests using 2 workers
+
+(node:60226) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:60227) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  -   1 [desktop-firefox] › e2e/31-image-resilience.spec.ts:55:3 › recuperação de falhas de arquivos › Home recupera cards e libera AVIF ao trocar o destaque para outra foto
+  -   2 [desktop-firefox] › e2e/31-image-resilience.spec.ts:22:3 › recuperação de falhas de arquivos › falha AVIF recupera galeria e carrossel com o mesmo artwork WebP
+  -   4 [desktop-firefox] › e2e/31-image-resilience.spec.ts:84:3 › recuperação de falhas de arquivos › falha transitória nos dois formatos tenta novamente o arquivo original
+  -   3 [desktop-firefox] › e2e/31-image-resilience.spec.ts:105:3 › recuperação de falhas de arquivos › indisponibilidade preserva espaço e recupera imagens quando a conexão volta
+  -   5 [desktop-firefox] › e2e/31-image-resilience.spec.ts:127:5 › recuperação de falhas de arquivos › Home recupera foto indisponível ao retornar por visibilitychange
+  -   6 [desktop-firefox] › e2e/31-image-resilience.spec.ts:127:5 › recuperação de falhas de arquivos › Home recupera foto indisponível ao retornar por focus
+  -   7 [desktop-firefox] › e2e/31-image-resilience.spec.ts:156:3 › recuperação de falhas de arquivos › voltar ao destaque que falhou tenta a imagem novamente
+  -   8 [desktop-firefox] › e2e/31-image-resilience.spec.ts:174:3 › recuperação de falhas de arquivos › imagem indisponível mantém a área de visualização do zoom
+  -   9 [desktop-firefox] › e2e/31-image-resilience.spec.ts:190:3 › recuperação de falhas de arquivos › trocar foto na galeria não reaproveita o erro da imagem anterior
+(node:60231) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  -  11 [mobile-webkit] › e2e/31-image-resilience.spec.ts:22:3 › recuperação de falhas de arquivos › falha AVIF recupera galeria e carrossel com o mesmo artwork WebP
+  -  12 [mobile-webkit] › e2e/31-image-resilience.spec.ts:55:3 › recuperação de falhas de arquivos › Home recupera cards e libera AVIF ao trocar o destaque para outra foto
+  -  13 [mobile-webkit] › e2e/31-image-resilience.spec.ts:84:3 › recuperação de falhas de arquivos › falha transitória nos dois formatos tenta novamente o arquivo original
+  -  14 [mobile-webkit] › e2e/31-image-resilience.spec.ts:105:3 › recuperação de falhas de arquivos › indisponibilidade preserva espaço e recupera imagens quando a conexão volta
+  -  15 [mobile-webkit] › e2e/31-image-resilience.spec.ts:127:5 › recuperação de falhas de arquivos › Home recupera foto indisponível ao retornar por visibilitychange
+  -  16 [mobile-webkit] › e2e/31-image-resilience.spec.ts:127:5 › recuperação de falhas de arquivos › Home recupera foto indisponível ao retornar por focus
+  -  17 [mobile-webkit] › e2e/31-image-resilience.spec.ts:156:3 › recuperação de falhas de arquivos › voltar ao destaque que falhou tenta a imagem novamente
+  -  18 [mobile-webkit] › e2e/31-image-resilience.spec.ts:174:3 › recuperação de falhas de arquivos › imagem indisponível mantém a área de visualização do zoom
+  -  19 [mobile-webkit] › e2e/31-image-resilience.spec.ts:190:3 › recuperação de falhas de arquivos › trocar foto na galeria não reaproveita o erro da imagem anterior
+  ✓  20 [mobile-webkit] › e2e/31-image-resilience.spec.ts:228:1 › Home preserva foto carregada ao alternar offline e online com retorno à aba (2.3s)
+  ✓  10 [desktop-firefox] › e2e/31-image-resilience.spec.ts:228:1 › Home preserva foto carregada ao alternar offline e online com retorno à aba (3.6s)
+
+  18 skipped
+  2 passed (15.2s)

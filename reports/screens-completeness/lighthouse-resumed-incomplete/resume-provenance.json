@@ -1,0 +1,207 @@
+{
+  "resumedAfterNativeChromeCrash": true,
+  "startedAt": "2026-10-24T06:53:09.839Z",
+  "originalSource": "reports/screens-completeness/lighthouse-incomplete-connection",
+  "excludedFromMedians": [
+    {
+      "source": "reports/screens-completeness/lighthouse-incomplete-connection-2",
+      "reason": "Second incomplete attempt; none of its results are selected."
+    },
+    {
+      "source": "reports/screens-completeness/lighthouse-smoke-diagnostic",
+      "reason": "Single technical diagnosis smoke; excluded from all medians."
+    }
+  ],
+  "policy": "Preserve all seven valid original results, including lower scores. Run each of the five missing slots once; stop on any technical error. No automatic retry or best-run selection.",
+  "preservedRuns": [
+    {
+      "profile": "desktop",
+      "page": "home",
+      "run": 1
+    },
+    {
+      "profile": "desktop",
+      "page": "home",
+      "run": 2
+    },
+    {
+      "profile": "desktop",
+      "page": "home",
+      "run": 3
+    },
+    {
+      "profile": "desktop",
+      "page": "detail",
+      "run": 1
+    },
+    {
+      "profile": "desktop",
+      "page": "detail",
+      "run": 2
+    },
+    {
+      "profile": "desktop",
+      "page": "detail",
+      "run": 3
+    },
+    {
+      "profile": "mobile",
+      "page": "home",
+      "run": 1
+    }
+  ],
+  "plannedResumedRuns": [
+    {
+      "profile": "mobile",
+      "page": "home",
+      "run": 2
+    },
+    {
+      "profile": "mobile",
+      "page": "home",
+      "run": 3
+    },
+    {
+      "profile": "mobile",
+      "page": "detail",
+      "run": 1
+    },
+    {
+      "profile": "mobile",
+      "page": "detail",
+      "run": 2
+    },
+    {
+      "profile": "mobile",
+      "page": "detail",
+      "run": 3
+    }
+  ],
+  "sources": [
+    {
+      "profile": "desktop",
+      "page": "home",
+      "run": 1,
+      "kind": "preserved",
+      "jsonPath": "reports/screens-completeness/lighthouse-incomplete-connection/desktop/home/run-1.json",
+      "htmlPath": "reports/screens-completeness/lighthouse-incomplete-connection/desktop/home/run-1.html",
+      "jsonSha256": "c233ddc2481f9600b0771928e173773e80610cf56fe74bd55a5692b9d03fdd03",
+      "htmlSha256": "6152a589841058f8d862dc562ee009f2665c2e85e77dca1e1896d3c7d011dbc4",
+      "fetchTime": "2026-10-24T06:42:50.365Z",
+      "performance": 99,
+      "copiedTo": "reports/screens-completeness/lighthouse-resumed-incomplete/desktop/home/run-1.json"
+    },
+    {
+      "profile": "desktop",
+      "page": "home",
+      "run": 2,
+      "kind": "preserved",
+      "jsonPath": "reports/screens-completeness/lighthouse-incomplete-connection/desktop/home/run-2.json",
+      "htmlPath": "reports/screens-completeness/lighthouse-incomplete-connection/desktop/home/run-2.html",
+      "jsonSha256": "86eb4eb547a95ecf005fbe4ad0f262076e6c12055d9b56730941494d0e8fa91d",
+      "htmlSha256": "c4f29282e46b5eca49f5b9d4213f2f705abb5402ec631e60e90305b9df0c423b",
+      "fetchTime": "2026-10-24T06:43:06.599Z",
+      "performance": 99,
+      "copiedTo": "reports/screens-completeness/lighthouse-resumed-incomplete/desktop/home/run-2.json"
+    },
+    {
+      "profile": "desktop",
+      "page": "home",
+      "run": 3,
+      "kind": "preserved",
+      "jsonPath": "reports/screens-completeness/lighthouse-incomplete-connection/desktop/home/run-3.json",
+      "htmlPath": "reports/screens-completeness/lighthouse-incomplete-connection/desktop/home/run-3.html",
+      "jsonSha256": "02bc0f8a72073f0ba36ff7d2594c46811777487f820297f187fca57e403bae72",
+      "htmlSha256": "9209a6075c12aea39398f089d8ca6bc5c4b0462cf1144efb4f648087b7376d77",
+      "fetchTime": "2026-10-24T06:43:22.605Z",
+      "performance": 99,
+      "copiedTo": "reports/screens-completeness/lighthouse-resumed-incomplete/desktop/home/run-3.json"
+    },
+    {
+      "profile": "desktop",
+      "page": "detail",
+      "run": 1,
+      "kind": "preserved",
+      "jsonPath": "reports/screens-completeness/lighthouse-incomplete-connection/desktop/detail/run-1.json",
+      "htmlPath": "reports/screens-completeness/lighthouse-incomplete-connection/desktop/detail/run-1.html",
+      "jsonSha256": "ca785e05050ed9bb48d7f75f2df965fe594a965e340601638ec1355809bbf1a6",
+      "htmlSha256": "5f7e84ed34bc7bc7c06a23df2e6cb8e065da83aa7893dbbf1263f46caf4149f3",
+      "fetchTime": "2026-10-24T06:43:38.641Z",
+      "performance": 99,
+      "copiedTo": "reports/screens-completeness/lighthouse-resumed-incomplete/desktop/detail/run-1.json"
+    },
+    {
+      "profile": "desktop",
+      "page": "detail",
+      "run": 2,
+      "kind": "preserved",
+      "jsonPath": "reports/screens-completeness/lighthouse-incomplete-connection/desktop/detail/run-2.json",
+      "htmlPath": "reports/screens-completeness/lighthouse-incomplete-connection/desktop/detail/run-2.html",
+      "jsonSha256": "cafe002629c7050a9984509a99c1fe513ef41320dec72c37644e38efe2fca537",
+      "htmlSha256": "9bd594b9841dc68ceb3aabd50cf655286adfd87af30bb7d5145e6b7385ed3801",
+      "fetchTime": "2026-10-24T06:43:55.243Z",
+      "performance": 99,
+      "copiedTo": "reports/screens-completeness/lighthouse-resumed-incomplete/desktop/detail/run-2.json"
+    },
+    {
+      "profile": "desktop",
+      "page": "detail",
+      "run": 3,
+      "kind": "preserved",
+      "jsonPath": "reports/screens-completeness/lighthouse-incomplete-connection/desktop/detail/run-3.json",
+      "htmlPath": "reports/screens-completeness/lighthouse-incomplete-connection/desktop/detail/run-3.html",
+      "jsonSha256": "3afa3c4441de89e7e040e7da0e691ef1498ccc49ab5aac851ea58fa877f82627",
+      "htmlSha256": "0199d1a0e6274233fb1ec22f6f678a07f07a54db4761b76cbe111b02393168f3",
+      "fetchTime": "2026-10-24T06:44:11.963Z",
+      "performance": 94,
+      "copiedTo": "reports/screens-completeness/lighthouse-resumed-incomplete/desktop/detail/run-3.json"
+    },
+    {
+      "profile": "mobile",
+      "page": "home",
+      "run": 1,
+      "kind": "preserved",
+      "jsonPath": "reports/screens-completeness/lighthouse-incomplete-connection/mobile/home/run-1.json",
+      "htmlPath": "reports/screens-completeness/lighthouse-incomplete-connection/mobile/home/run-1.html",
+      "jsonSha256": "3d380b582eeb3aa12a71517b1adbcfb461ad3d18ad04c56da4336e1ad6328629",
+      "htmlSha256": "306fc8d9f6fb8241b95e8f46d2783692cc5a56efd8c82e9e5d446d3a0c4bb2a3",
+      "fetchTime": "2026-10-24T06:44:31.376Z",
+      "performance": 93,
+      "copiedTo": "reports/screens-completeness/lighthouse-resumed-incomplete/mobile/home/run-1.json"
+    },
+    {
+      "profile": "mobile",
+      "page": "home",
+      "run": 2,
+      "kind": "resumed",
+      "jsonPath": "reports/screens-completeness/lighthouse-resumed-incomplete/mobile/home/run-2.json",
+      "htmlPath": "reports/screens-completeness/lighthouse-resumed-incomplete/mobile/home/run-2.html",
+      "jsonSha256": "29178e8dbbaddf02fe7cd65af951513eaf8fc7160b6e60417aa9f1c945c1d5f3",
+      "htmlSha256": "d135523fcbadb05e0bb5073dc977cb437fda92229ee1e8c799e2c2d605bbe17e",
+      "fetchTime": "2026-10-24T06:53:13.466Z",
+      "performance": 88
+    },
+    {
+      "profile": "mobile",
+      "page": "home",
+      "run": 3,
+      "kind": "resumed",
+      "jsonPath": "reports/screens-completeness/lighthouse-resumed-incomplete/mobile/home/run-3.json",
+      "htmlPath": "reports/screens-completeness/lighthouse-resumed-incomplete/mobile/home/run-3.html",
+      "jsonSha256": "945244cf966d6fedf862a05e36a5003231c004026711f7e550d2188b1739a9e6",
+      "htmlSha256": "bb5aad8198ac8893b69393b7b8d75c24408b3f95a3a13739c4c5ea86286442e9",
+      "fetchTime": "2026-10-24T06:53:32.598Z",
+      "performance": 93
+    }
+  ],
+  "status": "technical-failure",
+  "preservedCount": 7,
+  "resumedCount": 2,
+  "error": "Technical failure mobile/detail/run-1: {\"code\":1,\"signal\":null}; see reports/screens-completeness/lighthouse/mobile/detail/run-1.log",
+  "archive": {
+    "originalDirectory": "reports/screens-completeness/lighthouse",
+    "currentDirectory": "reports/screens-completeness/lighthouse-resumed-incomplete",
+    "excludedFromFinalMedians": true,
+    "note": "Paths updated after archiving this incomplete collection; final lighthouse/ contains a separate new Headless Shell collection."
+  }
+}

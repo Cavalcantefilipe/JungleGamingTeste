@@ -22,6 +22,28 @@ Revisão feita após os apontamentos sobre carrosséis e avaliações. A referê
 
 Os campos acrescentados aos contratos aceitam a ausência nos dados legados. Pedidos, carrinhos, contas e tentativas anteriores não são apagados. O replay de tentativas antigas preserva chave e hash. [Contratos](CONTRACTS.md).
 
+O README também foi corrigido: o reinício completo exige limpar Local storage e Session storage, porque o rascunho do checkout é armazenado por sessão da aba. Limpar apenas Local storage deixava esse rascunho intacto.
+
+A primeira coleta Lighthouse desta revisão cumpriu as metas, mas revelou CLS de 0,1797 no detalhe desktop. O skeleton reservava somente galeria e resumo, omitindo as seções inferiores. Com rede lenta, o rodapé aparecia em `y=721` na tela de 940 px e saltava quando os dados chegavam. O commit `d77c09a` acrescenta placeholders das abas, descrição/metadados e coleção, com os mesmos breakpoints e movimento reduzido. A regressão reproduziu a falha; os testes de carregamento passaram (13 aprovados, uma exclusão por viewport), e uma observação local de layout registrou CLS zero. A coleta Lighthouse pública posterior identifica a medição final, sem substituir o histórico. [Teste local](../reports/screens-completeness/loading-local.txt), [observação local](../reports/screens-completeness/loading-observation.json), [primeira coleta](../reports/screens-completeness/lighthouse-before-loading-fix/summary.json).
+
+## Imagens e abertura inicial
+
+O relato posterior sobre a foto principal da Home levou a uma reprodução controlada de download interrompido: o AVIF falhava e a imagem permanecia quebrada sem tentar o WebP. Foi acrescentada recuperação compartilhada para Home, galeria e cards: formato alternativo da mesma arte, uma nova tentativa limitada, placeholder com dimensões preservadas e retomada quando a conexão, o foco ou a aba voltam. A revisão também reproduziu e corrigiu reaproveitamento de erro ao navegar A→B→A e perda de proporção no zoom.
+
+Os dez casos de `31-image-resilience` tiveram 18 aprovações e duas exclusões por viewport no Chromium. Em Firefox/WebKit, dois casos verificam a preservação de foto saudável ao alternar offline/online e foco; os 18 casos que dependem de abortar recursos via `context.route` são explicitamente excluídos, pois nessas engines o worker impede essa injeção. Esse limite não é contado como recuperação de falha aprovada. [Falhas e resultados](../reports/screens-completeness/image-resilience/).
+
+Não foi reproduzido o desaparecimento de uma imagem saudável durante a simulação de aba oculta/retorno/refetch. Foi reproduzida a falta de recuperação de uma imagem que já havia falhado. A simulação de visibilidade e rede não equivale a suspender fisicamente o computador.
+
+Na abertura, configuração e mocks passam a ser baixados em paralelo, e os componentes da rota atual são antecipados enquanto o worker inicia. Guards, loaders e consultas não são executados por esse preload. A validação de ambiente e o worker continuam obrigatórios antes da montagem; falhas mantêm a ação de recuperação.
+
+O diagnóstico público também separou um atraso de DNS: uma chamada fria gastou 3,07 s na resolução, enquanto as duas seguintes completaram em 0,25/0,23 s. O serviço tinha suspensão automática desativada; configuração de infraestrutura não foi alterada com base nessa amostra. [Tempos DNS/HTTP](../reports/screens-completeness/initial-dns-timing.json). As medições Lighthouse finais são apresentadas separadamente das observações pontuais.
+
+## Digitação da busca
+
+A conferência manual posterior revelou duas falhas no catálogo: o espaço final era removido a cada atualização da URL, impedindo digitar normalmente “Cosmic Bloom”, e consultas substituídas durante a digitação anunciavam `CancelledError` como falha. O commit `9fd3739` preserva o texto em edição na URL, mantendo a normalização no contrato da API, e suprime apenas o anúncio de cancelamentos esperados. Erros reais continuam com feedback.
+
+Os dois cenários falharam em desktop e mobile na publicação anterior: **quatro falhas reproduzidas**. Após a correção, o arquivo de catálogo passou com **16 testes locais**, os quatro testes unitários de parâmetros passaram e a repetição focal terminou com quatro aprovações. [Falha pública](../reports/search-typing/public-red.txt), [E2E local](../reports/search-typing/local-green.txt), [unitários](../reports/search-typing/unit-green.txt), [repetição focal](../reports/search-typing/final-green.txt).
+
 ## Matriz de conferência
 
 | Tela        | Conferência visual                                                              | Comportamentos exercitados                                                                                                          |
@@ -49,7 +71,9 @@ Os campos acrescentados aos contratos aceitam a ausência nos dados legados. Ped
 
 As regressões novas estão em `28-home-completeness`, `29-account-completeness` e `30-checkout-completeness`. Foram observadas falhas antes das correções. A revisão independente encontrou ainda a comparação indevida de avatar no formulário de perfil; o caso foi reproduzido e corrigido antes da integração final.
 
-As baselines visuais foram inspecionadas contra as referências antes de atualizar os resultados de Início, Detalhe, Carrinho e Pagamento. A tolerância dos testes não foi ampliada. Resultados locais do build corrigido:
+A inspeção das capturas públicas identificou mais 16 px de rolagem no cadastro em 320×844, decorrentes da quebra do título. A margem desse título foi reduzida somente abaixo de 360 px, mantendo os controles de toque. O caso reproduziu a falha na publicação anterior e foi acrescentado à matriz de regressão. Favoritos mobile foram reconferidos em tamanho real: o coração está visível e seu alvo mede 44×44 px.
+
+As baselines visuais foram inspecionadas contra as referências antes de atualizar os resultados de Início, Detalhe, Carrinho e Pagamento. A tolerância dos testes não foi ampliada. Resultados locais históricos da etapa de completude, anteriores às correções de startup e busca:
 
 | Verificação                                    | Resultado                                                                        |
 | ---------------------------------------------- | -------------------------------------------------------------------------------- |
@@ -59,10 +83,38 @@ As baselines visuais foram inspecionadas contra as referências antes de atualiz
 | Novas regressões em Firefox/WebKit (`28`–`30`) | 35 aprovadas; 1 exclusão do cabeçalho desktop no mobile.                         |
 | Revisão independente do código                 | Nenhum bloqueador restante após corrigir o caso de avatar.                       |
 
-[Check](../reports/screens-completeness/check.txt), [Chromium](../reports/screens-completeness/chromium.txt), [Firefox/WebKit](../reports/screens-completeness/compatibility.txt).
+Os logs de [Chromium](../reports/screens-completeness/chromium.txt) e [Firefox/WebKit](../reports/screens-completeness/compatibility.txt) preservam essa etapa. O [check consolidado](../reports/screens-completeness/check.txt) foi atualizado após os deltas `9fd3739` e `4185cbb`: **138 testes unitários e 16 de ferramentas**, com tipos, lint e formato aprovados; o [build](../reports/code-standards/build.txt) também passou.
+
+Após o ajuste de 320 px, `pnpm check` e build passaram novamente; os 14 testes de autenticação/conta passaram em Chromium e os mesmos 14 em Firefox/WebKit. [Falha reproduzida](../reports/screens-completeness/compact-red.txt), [Chromium](../reports/screens-completeness/compact-local.txt), [compatibilidade](../reports/screens-completeness/compact-compatibility.txt).
 
 ### Railway
 
-A rodada inicial confirmou o deployment `98666a1d-43b2-4339-a51a-0b3c4e48f0ce`, commit `6668148cdb30f22657468683657c035cb3de7913`. As 45 capturas não apresentaram overflow horizontal, imagens visíveis quebradas ou exceções de página. Os problemas de comportamento acima foram reproduzidos nessa publicação. A nova publicação será identificada após a verificação dos fluxos corrigidos.
+A rodada inicial confirmou o deployment `98666a1d-43b2-4339-a51a-0b3c4e48f0ce`, commit `6668148cdb30f22657468683657c035cb3de7913`. Os problemas de comportamento acima foram reproduzidos nessa publicação.
+
+As correções principais foram publicadas em `f78805c`, deployment `d33d9e78-af1a-4177-960f-3659afa85f18`. Nessa rodada, a suíte pública terminou com 313 testes aprovados, 34 exclusões por viewport e uma falha: o novo caso de cadastro em 320×844. O [log dessa falha foi preservado](../reports/screens-completeness/public-before-compact-fix.txt).
+
+O ajuste do cadastro está no commit `0063435584c8a0a7a95b4a0cb438ba01f20646a4`, deployment `bf146579-0177-4d75-a003-d235e6099231`, estado `SUCCESS`. As 45 capturas foram refeitas nessa versão: sem overflow horizontal, imagens visíveis quebradas ou exceções de página. As dez capturas de login/cadastro também têm overflow interno e externo zero. [Imagens por tela e largura](../reports/screens-completeness/README.md), [manifesto](../reports/screens-completeness/public-after.json), [deployment capturado e hash do HTML](../reports/screens-completeness/captured-deployment.json).
+
+Verificações HTTP de acesso direto/refresh, healthcheck, headers, compressão, cache, worker e recursos ausentes passaram. [Log](../reports/screens-completeness/deployment-http.txt).
+
+A suíte completa foi repetida na URL pública após o ajuste do cadastro (`0063435`): **314 testes aprovados, 34 exclusões explícitas por viewport, nenhuma falha**, em 7 min. Inclui regressão visual, teclado/axe, sessão/conta, compra/recuperação, Socket.IO, carrosséis, avaliações e os novos casos desta revisão. [Log completo dessa rodada](../reports/screens-completeness/public-chromium-before-loading-fix.txt).
+
+O checkpoint `d77c09af1ef419288ec8d69c80b40121a3f1b8a0`, deployment `db439b2a-b7bb-4264-a1c4-cd251d067c2e`, estado `SUCCESS`, acrescentou a reserva do loading. A observação pública com rede lenta registrou CLS zero: o rodapé permaneceu abaixo do viewport antes/depois. [Captura do loading](../reports/screens-completeness/loading-public/loading.png), [tela carregada](../reports/screens-completeness/loading-public/loaded.png), [medição](../reports/screens-completeness/loading-public/observation.json).
+
+A suíte pública desse checkpoint teve 314 aprovações, 35 exclusões por viewport e uma falha no helper que media o skeleton. O trace mostrou que o elemento foi trocado entre a espera de visibilidade e `boundingBox()`. A medição passou a localizar e ler `getBoundingClientRect()` numa única avaliação, mantendo a tolerância e exigindo dimensões positivas. O arquivo de testes foi reexecutado: 13 aprovações e uma exclusão. A falha foi preservada, sem contar essa rodada como aprovação completa. [Log da falha](../reports/screens-completeness/public-loading-helper-failure.txt), [trace](../reports/screens-completeness/loading-helper-failure/trace.zip), [reteste](../reports/screens-completeness/loading-helper-retest.txt).
+
+O commit `369f9eeed2bac4d3ad2d3127d16b4479117908d3`, deployment `7f10ea98-553d-4c5b-8cbc-9e114bf7b64a`, estado `SUCCESS`, integrou startup, recuperação das imagens e padronização. A suíte completa na URL pública terminou com **333 aprovações e 37 exclusões explícitas, nenhuma falha**, em 12,5 min. [Log público](../reports/screens-completeness/public-chromium.txt), [identificação desse deploy](../reports/screens-completeness/full-suite-deployment.json). Os casos novos de busca foram acrescentados depois dessa rodada; esse total não deve ser atribuído ao delta `9fd3739`, publicado e validado também com 32 E2E na URL pública (16 Chromium e 16 Firefox/WebKit), sem falhas ou exclusões. [Logs da busca](../reports/search-typing/). O ajuste `4185cbb` centraliza a mensagem e corrige o singular de um único resultado no catálogo/favoritos, com três unitários aprovados.
+
+### Conferência manual concluída
+
+Foi criada pela interface a conta fictícia `qa.interface.2410@kurio.test`. Cadastro e seus erros, login/logout, perfil/avatar, carteiras, favoritos, zoom, avaliações, carrinho, cupons e compra simulada foram exercitados. O recibo persistiu após recarregar e o carrinho foi esvaziado após a compra. A busca com duas palavras foi repetida com sucesso após a publicação. [Percurso completo, screenshots e limites](../reports/ui-account-test/README.md).
 
 Leitor de tela VoiceOver e dispositivos físicos não foram revalidados nesta rodada. Os testes de teclado/axe e Firefox/WebKit automatizados não substituem essa avaliação. A aplicação permanece uma demonstração MSW em um navegador, sem certificar operações de blockchain ou concorrência entre dispositivos.
+
+### Última publicação do código
+
+O commit `4185cbbdd0a2d88a592b67cab5ecafc773ed4137`, deployment `e4b238a6-0bed-45d7-8769-a4187b3c23de`, foi confirmado como `SUCCESS`. A verificação HTTP passou para navegação SPA, arquivos comprimidos, cache, worker, cabeçalhos e health check. A conferência pela interface confirmou o anúncio “1 NFT encontrado”. [Identificação e hash do HTML](../reports/screens-completeness/deployment.json), [verificação HTTP](../reports/screens-completeness/deployment-http.txt).
+
+### Desempenho final
+
+A coleta pública final de `4185cbb` concluiu 12 execuções válidas, saída 0: performance 99/100 desktop e 93/92 mobile (Home/detalhe), acessibilidade/boas práticas/SEO 100. CLS mediano do detalhe: zero. LCP mobile continua próximo de 2,8 s. Depois de crashes nativos do Chrome for Testing, foi usada uma coleta inteira separada no Headless Shell 156.0.8078.4; os resultados das tentativas interrompidas e dos smokes não foram misturados. [Método, resultados e limites](LIGHTHOUSE.md).

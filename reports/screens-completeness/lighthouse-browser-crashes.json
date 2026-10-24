@@ -1,0 +1,74 @@
+{
+  "scope": "Only Chrome for Testing crashes matching this collection; full OS reports not copied.",
+  "crashes": [
+    {
+      "file": "Google Chrome for Testing-2026-10-24-034458.ips",
+      "process": "Google Chrome for Testing",
+      "captureTime": "2026-10-24 03:44:57.1644 -0300",
+      "exception": {
+        "codes": "0x0000000000000001, 0x000000011d1124f0",
+        "rawCodes": [
+          1,
+          4782630128
+        ],
+        "type": "EXC_BREAKPOINT",
+        "signal": "SIGTRAP"
+      },
+      "termination": {
+        "flags": 0,
+        "code": 5,
+        "namespace": "SIGNAL",
+        "indicator": "Trace/BPT trap: 5",
+        "byProc": "exc handler",
+        "byPid": 66083
+      },
+      "faultingThread": 0
+    },
+    {
+      "file": "Google Chrome for Testing-2026-10-24-034730.ips",
+      "process": "Google Chrome for Testing",
+      "captureTime": "2026-10-24 03:47:28.4840 -0300",
+      "exception": {
+        "codes": "0x0000000000000001, 0x0000000123dc24f0",
+        "rawCodes": [
+          1,
+          4896597232
+        ],
+        "type": "EXC_BREAKPOINT",
+        "signal": "SIGTRAP"
+      },
+      "termination": {
+        "flags": 0,
+        "code": 5,
+        "namespace": "SIGNAL",
+        "indicator": "Trace/BPT trap: 5",
+        "byProc": "exc handler",
+        "byPid": 66502
+      },
+      "faultingThread": 0
+    },
+    {
+      "file": "Google Chrome for Testing-2026-10-24-035359.ips",
+      "process": "Google Chrome for Testing",
+      "captureTime": "2026-10-24 03:53:58.0897 -0300",
+      "exception": {
+        "codes": "0x0000000000000001, 0x000000011f0ee4f0",
+        "rawCodes": [
+          1,
+          4816037104
+        ],
+        "type": "EXC_BREAKPOINT",
+        "signal": "SIGTRAP"
+      },
+      "termination": {
+        "flags": 0,
+        "code": 5,
+        "namespace": "SIGNAL",
+        "indicator": "Trace/BPT trap: 5",
+        "byProc": "exc handler",
+        "byPid": 67009
+      },
+      "faultingThread": 0
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+Multiple projects found, consider using a single `tsconfig` with `references` to speed up, or use `noWarnOnMultipleProjects` to suppress this warning
+✔ lint rejects type assertions that bypass checking through unknown (2749.836334ms)
+✔ lint rejects dynamic mock imports outside bootstrap and tests (231.853834ms)
+✖ lint rejects static template imports that bypass source restrictions (76.593417ms)
+✖ lint requires absolute paths in import types (66.564959ms)
+✔ HTTP client exception only permits axios, not mock imports (105.419708ms)
+✔ lint continues to reject static mock imports outside bootstrap and tests (66.216917ms)
+✔ lint permits dynamic mock imports in bootstrap, mocks and tests (229.002458ms)
+✔ lint requires absolute imports and re-exports inside src (174.687917ms)
+✔ lint allows absolute source imports (65.172541ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 7
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4056.732667
+
+✖ failing tests:
+
+test at scripts/codeRules.test.mjs:29:1
+✖ lint rejects static template imports that bypass source restrictions (76.593417ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(mockMessages.some(({ message }) => message.includes('Mocks só entram')))
+  
+      at TestContext.<anonymous> (file:///Users/filipecavalcante/Documents/JungleGamingTeste/scripts/codeRules.test.mjs:31:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at scripts/codeRules.test.mjs:36:1
+✖ lint requires absolute paths in import types (66.564959ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(messages.some(({ message }) => message.includes('imports absolutos')))
+  
+      at TestContext.<anonymous> (file:///Users/filipecavalcante/Documents/JungleGamingTeste/scripts/codeRules.test.mjs:38:10)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

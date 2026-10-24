@@ -1,0 +1,30 @@
+
+ RUN  v5.0.5 /Users/filipecavalcante/Documents/JungleGamingTeste
+
+ ❯ src/features/catalog/messages.test.ts (3 tests | 1 failed) 6ms
+   × anuncia a contagem 1 com concordância correta 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/catalog/messages.test.ts > anuncia a contagem 1 com concordância correta
+AssertionError: expected '1 NFTs encontrados' to be '1 NFT encontrado' // Object.is equality
+
+Expected: "1 NFT encontrado"
+Received: "1 NFTs encontrados"
+
+ ❯ src/features/catalog/messages.test.ts:10:47
+      8|   [2, '2 NFTs encontrados'],
+      9| ])('anuncia a contagem %i com concordância correta', (count, expected)…
+     10|   expect(catalogMessages.resultsFound(count)).toBe(expected);
+       |                                               ^
+     11| });
+     12|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  03:38:45
+   Duration  709ms (environment 93%, transform 4%, tests 1%, setup 1%, import 1%, worker 1%)
+

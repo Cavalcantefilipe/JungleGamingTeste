@@ -1,0 +1,49 @@
+{
+  "measuredAt": "2026-10-24T05:54:40.747Z",
+  "url": "https://kurio-production-8274.up.railway.app",
+  "conditions": "Node fetch sequential requests; first includes connection setup, following requests may reuse it. This is HTTP timing, not browser/Lighthouse timing.",
+  "observations": [
+    {
+      "run": 1,
+      "status": 200,
+      "headersMs": 2669,
+      "completeMs": 2672,
+      "bytes": 1754
+    },
+    {
+      "run": 2,
+      "status": 200,
+      "headersMs": 198,
+      "completeMs": 198,
+      "bytes": 1754
+    },
+    {
+      "run": 3,
+      "status": 200,
+      "headersMs": 200,
+      "completeMs": 201,
+      "bytes": 1754
+    },
+    {
+      "run": 4,
+      "status": 200,
+      "headersMs": 197,
+      "completeMs": 198,
+      "bytes": 1754
+    },
+    {
+      "run": 5,
+      "status": 200,
+      "headersMs": 200,
+      "completeMs": 201,
+      "bytes": 1754
+    },
+    {
+      "run": 6,
+      "status": 200,
+      "headersMs": 198,
+      "completeMs": 199,
+      "bytes": 1754
+    }
+  ]
+}

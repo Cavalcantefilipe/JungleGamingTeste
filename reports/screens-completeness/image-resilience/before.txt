@@ -1,0 +1,163 @@
+
+Running 4 tests using 2 workers
+
+(node:57386) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:57385) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [desktop-chromium] › e2e/31-image-resilience.spec.ts:44:1 › falha transitória nos dois formatos tenta novamente o arquivo original (8.0s)
+  ✘  1 [desktop-chromium] › e2e/31-image-resilience.spec.ts:16:1 › falha AVIF recupera galeria e carrossel com o mesmo artwork WebP (8.0s)
+(node:57517) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:57518) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 [desktop-chromium] › e2e/31-image-resilience.spec.ts:86:1 › trocar foto na galeria não reaproveita o erro da imagem anterior (8.1s)
+  ✘  4 [desktop-chromium] › e2e/31-image-resilience.spec.ts:65:1 › indisponibilidade preserva espaço e recupera imagens quando a conexão volta (8.2s)
+
+
+  1) [desktop-chromium] › e2e/31-image-resilience.spec.ts:16:1 › falha AVIF recupera galeria e carrossel com o mesmo artwork WebP 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    Call Log:
+    - Timeout 8000ms exceeded while waiting on the predicate
+
+      11 |       ),
+      12 |     )
+    > 13 |     .toBe(true);
+         |      ^
+      14 | }
+      15 |
+      16 | test('falha AVIF recupera galeria e carrossel com o mesmo artwork WebP', async ({
+        at expectLoaded (/Users/filipecavalcante/Documents/JungleGamingTeste/e2e/31-image-resilience.spec.ts:13:6)
+        at /Users/filipecavalcante/Documents/JungleGamingTeste/e2e/31-image-resilience.spec.ts:23:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-account-audit/images-red/31-image-resilience-falha--764be-el-com-o-mesmo-artwork-WebP-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../tmp/kurio-account-audit/images-red/31-image-resilience-falha--764be-el-com-o-mesmo-artwork-WebP-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-account-audit/images-red/31-image-resilience-falha--764be-el-com-o-mesmo-artwork-WebP-desktop-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../../../../tmp/kurio-account-audit/images-red/31-image-resilience-falha--764be-el-com-o-mesmo-artwork-WebP-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › e2e/31-image-resilience.spec.ts:44:1 › falha transitória nos dois formatos tenta novamente o arquivo original 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    Call Log:
+    - Timeout 8000ms exceeded while waiting on the predicate
+
+      11 |       ),
+      12 |     )
+    > 13 |     .toBe(true);
+         |      ^
+      14 | }
+      15 |
+      16 | test('falha AVIF recupera galeria e carrossel com o mesmo artwork WebP', async ({
+        at expectLoaded (/Users/filipecavalcante/Documents/JungleGamingTeste/e2e/31-image-resilience.spec.ts:13:6)
+        at /Users/filipecavalcante/Documents/JungleGamingTeste/e2e/31-image-resilience.spec.ts:55:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-account-audit/images-red/31-image-resilience-falha--648bb-ovamente-o-arquivo-original-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../tmp/kurio-account-audit/images-red/31-image-resilience-falha--648bb-ovamente-o-arquivo-original-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-account-audit/images-red/31-image-resilience-falha--648bb-ovamente-o-arquivo-original-desktop-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../../../../tmp/kurio-account-audit/images-red/31-image-resilience-falha--648bb-ovamente-o-arquivo-original-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [desktop-chromium] › e2e/31-image-resilience.spec.ts:65:1 › indisponibilidade preserva espaço e recupera imagens quando a conexão volta 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByTestId('gallery-image')
+    Expected: "unavailable"
+    Received: ""
+    Timeout:  8000ms
+
+    Call log:
+      - Expect "toHaveAttribute" getByTestId('gallery-image') with timeout 8000ms
+      - waiting for getByTestId('gallery-image')
+        15 × locator resolved to <img width="404" height="404" loading="eager" fetchpriority="high" data-testid="gallery-image" src="/images/nfts/sage-800.webp" alt="Ilustração de Cosmic Bloom #118" srcset="/images/nfts/sage-400.webp 400w, /images/nfts/sage-800.webp 800w" class="aspect-[361/356] w-full rounded-3xl object-cover md:aspect-square lg:size-[404px]" sizes="(min-width: 1024px) 404px, (min-width: 768px) calc(100vw - 48px), calc(100vw - 48px)"/>
+           - unexpected value "null"
+
+
+      73 |   await page.goto('/nfts/nft-004');
+      74 |   const gallery = page.getByTestId('gallery-image');
+    > 75 |   await expect(gallery).toHaveAttribute('data-artwork-state', 'unavailable');
+         |                         ^
+      76 |   await expect(gallery).toHaveAccessibleName(/Imagem indisponível/);
+      77 |   const before = await page.getByTestId('gallery-frame').boundingBox();
+      78 |   unavailable = false;
+        at /Users/filipecavalcante/Documents/JungleGamingTeste/e2e/31-image-resilience.spec.ts:75:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-account-audit/images-red/31-image-resilience-indisp-e8282-gens-quando-a-conexão-volta-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../tmp/kurio-account-audit/images-red/31-image-resilience-indisp-e8282-gens-quando-a-conexão-volta-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-account-audit/images-red/31-image-resilience-indisp-e8282-gens-quando-a-conexão-volta-desktop-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../../../../tmp/kurio-account-audit/images-red/31-image-resilience-indisp-e8282-gens-quando-a-conexão-volta-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [desktop-chromium] › e2e/31-image-resilience.spec.ts:86:1 › trocar foto na galeria não reaproveita o erro da imagem anterior 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    Call Log:
+    - Timeout 8000ms exceeded while waiting on the predicate
+
+      11 |       ),
+      12 |     )
+    > 13 |     .toBe(true);
+         |      ^
+      14 | }
+      15 |
+      16 | test('falha AVIF recupera galeria e carrossel com o mesmo artwork WebP', async ({
+        at expectLoaded (/Users/filipecavalcante/Documents/JungleGamingTeste/e2e/31-image-resilience.spec.ts:13:6)
+        at /Users/filipecavalcante/Documents/JungleGamingTeste/e2e/31-image-resilience.spec.ts:94:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-account-audit/images-red/31-image-resilience-trocar-4f82b-a-o-erro-da-imagem-anterior-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../tmp/kurio-account-audit/images-red/31-image-resilience-trocar-4f82b-a-o-erro-da-imagem-anterior-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-account-audit/images-red/31-image-resilience-trocar-4f82b-a-o-erro-da-imagem-anterior-desktop-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../../../../tmp/kurio-account-audit/images-red/31-image-resilience-trocar-4f82b-a-o-erro-da-imagem-anterior-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    [desktop-chromium] › e2e/31-image-resilience.spec.ts:16:1 › falha AVIF recupera galeria e carrossel com o mesmo artwork WebP 
+    [desktop-chromium] › e2e/31-image-resilience.spec.ts:44:1 › falha transitória nos dois formatos tenta novamente o arquivo original 
+    [desktop-chromium] › e2e/31-image-resilience.spec.ts:65:1 › indisponibilidade preserva espaço e recupera imagens quando a conexão volta 
+    [desktop-chromium] › e2e/31-image-resilience.spec.ts:86:1 › trocar foto na galeria não reaproveita o erro da imagem anterior 

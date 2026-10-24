@@ -1,0 +1,9 @@
+
+ RUN  v5.0.5 /Users/filipecavalcante/Documents/JungleGamingTeste
+
+
+ Test Files  3 passed (3)
+      Tests  11 passed (11)
+   Start at  03:08:24
+   Duration  1.65s (environment 77%, tests 16%, import 4%, transform 1%, setup 1%)
+

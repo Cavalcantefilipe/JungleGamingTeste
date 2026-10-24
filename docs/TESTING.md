@@ -2,6 +2,16 @@
 
 O resultado da conciliação de 24/10, os commits publicados e as limitações estão em [RECONCILIATION.md](RECONCILIATION.md). As contagens anteriores foram preservadas em [QUALITY-REVIEW.md](QUALITY-REVIEW.md) e [TESTING-HISTORY.md](TESTING-HISTORY.md), com os respectivos checkpoints.
 
+## Últimos resultados confirmados — 24/10
+
+| Escopo                                 | Código verificado            | Resultado e evidência                                                                                                                                                         |
+| -------------------------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Suíte completa na URL Railway          | `369f9ee`                    | 333 aprovados, 37 exclusões explícitas, nenhuma falha. [Log](../reports/screens-completeness/public-chromium.txt).                                                            |
+| Check e build após a correção de busca | Deltas `9fd3739` e `4185cbb` | 138 unitários e 16 testes de ferramentas; tipos, lint, formato e build aprovados. [Check](../reports/code-standards/check.txt), [build](../reports/code-standards/build.txt). |
+| Regressão de digitação                 | Antes/depois de `9fd3739`    | Quatro falhas públicas reproduzidas; 16 E2E locais, 32 públicos em Chromium/Firefox/WebKit e quatro unitários aprovados. [Evidências](../reports/search-typing/).             |
+
+A suíte pública completa acima antecede o delta de busca. As 45 capturas públicas continuam identificadas como `0063435`; o histórico daquela etapa conserva 126 testes unitários e seis testes de ferramentas. A [conferência manual com uma conta nova](../reports/ui-account-test/README.md) foi concluída, incluindo compra simulada e persistência. [Estado e limites](SCREENS-COMPLETENESS.md).
+
 ## Executar
 
 ```sh
@@ -20,7 +30,7 @@ O preview usa 4175. Fora da CI, o Playwright pode reutilizar o preview existente
 ## Projetos
 
 - `pnpm e2e`: Chromium desktop 1440×900 e mobile 390×844, suíte completa com baselines.
-- `pnpm e2e:compat`: Firefox desktop 1440×900 e WebKit mobile 390×844; cenários `00`–`11` e `25`–`30`, incluindo favoritos, conciliação e as revisões de completude. Baselines de Chromium não são reutilizados entre engines.
+- `pnpm e2e:compat`: Firefox desktop 1440×900 e WebKit mobile 390×844; cenários `00`–`12`, `19` e `25`–`31`, incluindo favoritos, conciliação, inicialização e as revisões de completude. Baselines de Chromium não são reutilizados entre engines.
 - WebKit automatizado não equivale a um teste em iPhone físico/Safari instalado.
 
 As fixtures aguardam o destino renderizado após login/compra; mudança da URL sozinha pode preceder o commit visual da navegação SPA. Não há espera fixa nem retry automático para encobrir falhas. O teste de pedido pendente controla o relógio e a confirmação autoritativa. No WebKit/macOS, o percurso completo de teclado usa Option+Tab, preservando as preferências do sistema ([comportamento documentado no projeto Playwright](https://github.com/microsoft/playwright/issues/41808)).
@@ -28,7 +38,7 @@ As fixtures aguardam o destino renderizado após login/compra; mudança da URL s
 ## Cobertura
 
 - Vitest: contratos, dinheiro decimal, idempotência, estoque/concorrência, falhas de persistência, autenticação, isolamento HTTP, corpo adulterado, carteiras e eventos.
-- `00`–`05`: shell, catálogo, detalhe, autenticação, favoritos, carrinho/cupom/merge.
+- `00`–`05`: shell, catálogo, detalhe, autenticação, favoritos, carrinho/cupom/merge. O arquivo `01` também cobre digitação sequencial de “Cosmic Bloom”, persistência dos espaços na URL/refresh e ausência de anúncio de erro quando uma consulta é cancelada por outra busca.
 - `06`–`07`: compra, formulário, carteira, cotação, recusa, cliques repetidos, timeout e recuperação.
 - `08`–`10`: conta, avatar/senha/carteiras, socket, reconciliação e troca de usuário no mesmo runtime.
 - `11`: teclado, foco de login/drawer, anúncio de erro, axe, overflow e largura de 720px como aproximação de reflow a zoom 200% em desktop.
@@ -43,7 +53,7 @@ As fixtures aguardam o destino renderizado após login/compra; mudança da URL s
 - `21`: nove telas em 320/360/375/390/414 px; leitura de textos, ausência de recortes, separação de ações e cliques nos três destaques do hero.
 - Unitários de reconciliação: filtro, ordenação/composição da página e evento antes da primeira resposta REST.
 
-Os números identificam os cenários do plano, não indicam arquivos ausentes obrigatórios. Testes específicos de desktop/mobile têm skips explícitos no outro projeto. Não são testes ignorados por falha.
+Os números identificam os cenários do plano, não indicam arquivos ausentes obrigatórios. Testes específicos de desktop/mobile têm skips explícitos no outro projeto. Outros skips registram limitações da injeção de falhas de imagens em Firefox/WebKit com MSW, conforme descrito abaixo; não são contados como cenários aprovados.
 
 Projetos: Chromium desktop **1440×900** e mobile **390×844**. O teste de layout também cobre 768px. axe cobre WCAG 2.0/2.1/2.2 A/AA e falha em impactos sérios/críticos; isso complementa teclado e geometria, sem equivaler a certificação ou teste com todos os leitores de tela.
 
@@ -95,6 +105,11 @@ Lighthouse coleta três execuções por página/perfil, conserva falha abaixo da
 - `28`: busca por criador, página fora do intervalo, retorno após login, teclado nas abas, tipografia dos cards, falha editorial e filtros pelo rodapé.
 - `29`: autenticação sem rolagem nas alturas usuais, acesso aos erros em telas baixas, retorno ao fechar e mensagens de sucesso coerentes com os dados salvos em perfil/carteira/senha.
 - `30`: nome de usuário persistido no rascunho e pedido, atalho de cupom com retorno ao pagamento e token imutável no recibo.
+- `31`: recuperação AVIF/WebP, nova tentativa limitada, retorno de conexão/foco/aba, proporção do placeholder e troca de foto sem reaproveitar erro. A rodada focal Chromium teve 18 aprovações e duas exclusões por viewport. Os casos de injeção de falha por `context.route` ficam restritos ao Chromium devido à intermediação do MSW em Firefox/WebKit: nesses motores, foram 18 exclusões explícitas e duas aprovações do caso de preservação da foto saudável ao alternar offline/online. Preservar uma foto carregada não comprova a recuperação de uma foto que falhou. [Logs](../reports/screens-completeness/image-resilience/).
 - Contratos e tentativas antigas: pedidos sem os novos campos continuam legíveis, com replay da chave/hash original.
 
 Os novos casos foram reproduzidos antes da correção. A conferência das nove telas no Railway também percorre 320, 390, 414, 768 e 1440 px; as capturas aguardam fontes, imagens e consultas.
+
+## Inicialização e padrões de código
+
+Testes unitários cobrem bootstrap imediato, paralelismo de ambiente/mocks, worker antes da montagem, mocks desabilitados, recuperação de configuração inválida e preload somente dos componentes da rota atual. `scripts/codeRules.test.mjs` testa as restrições de tipagem e imports, incluindo templates estáticos e tipos importados. As cinco extrações de hooks preservam os fluxos de conta, pedido e conexão; as evidências estão em [CODE-STANDARDS-REVIEW.md](CODE-STANDARDS-REVIEW.md).

@@ -1,0 +1,850 @@
+{
+  "references": 464,
+  "files": 211,
+  "changed": [
+    {
+      "file": "src/app/main.test.ts",
+      "imports": 7
+    },
+    {
+      "file": "src/app/preloadInitialRoute.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/components/feedback/DetailSectionsSkeleton.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/components/feedback/DetailSkeleton.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/components/feedback/LiveRegion.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/components/feedback/RouteError.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/components/forms/PasswordField.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/components/forms/SelectField.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/components/forms/TextField.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/components/media/NftTokenLabel.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/contracts/auth.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/contracts/cart.ts",
+      "imports": 3
+    },
+    {
+      "file": "src/contracts/contracts.test.ts",
+      "imports": 4
+    },
+    {
+      "file": "src/contracts/favorites.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/contracts/index.ts",
+      "imports": 10
+    },
+    {
+      "file": "src/contracts/nft.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/contracts/order-compatibility.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/contracts/order.ts",
+      "imports": 5
+    },
+    {
+      "file": "src/contracts/profile.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/contracts/quote.ts",
+      "imports": 4
+    },
+    {
+      "file": "src/contracts/realtime.ts",
+      "imports": 3
+    },
+    {
+      "file": "src/contracts/review.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/contracts/security.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/contracts/wallet.ts",
+      "imports": 5
+    },
+    {
+      "file": "src/features/account/components/AccountLayout.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/account/components/AccountSidebar.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/auth/components/AuthDialog.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/auth/components/AuthDialogHeading.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/auth/components/AuthFormPanel.tsx",
+      "imports": 3
+    },
+    {
+      "file": "src/features/auth/components/LoginForm.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/auth/components/RegisterFields.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/auth/components/RegisterForm.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/auth/mutations.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/features/auth/resolveAuthDismissal.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/auth/route-guard.test.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/features/auth/route-guard.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/features/auth/useLoginForm.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/auth/useRegisterForm.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/features/cart/api.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/cart/components/CartContent.tsx",
+      "imports": 3
+    },
+    {
+      "file": "src/features/cart/components/CartItemRow.tsx",
+      "imports": 3
+    },
+    {
+      "file": "src/features/cart/components/CartPage.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/cart/components/CartQuote.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/cart/components/CartQuoteSection.tsx",
+      "imports": 3
+    },
+    {
+      "file": "src/features/cart/components/CartSummary.tsx",
+      "imports": 3
+    },
+    {
+      "file": "src/features/cart/components/CartTable.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/cart/components/CartTableItem.tsx",
+      "imports": 6
+    },
+    {
+      "file": "src/features/cart/components/CouponField.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/cart/components/QuoteSummary.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/cart/estimateCart.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/cart/mutation-state.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/cart/queries.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/features/cart/useAddToCart.ts",
+      "imports": 4
+    },
+    {
+      "file": "src/features/cart/useCartState.ts",
+      "imports": 3
+    },
+    {
+      "file": "src/features/cart/useRemoveCartItem.ts",
+      "imports": 4
+    },
+    {
+      "file": "src/features/cart/useUpdateCartItem.ts",
+      "imports": 5
+    },
+    {
+      "file": "src/features/catalog/components/CarouselDots.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/catalog/components/CarouselNavigation.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/catalog/components/CarouselTrack.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/catalog/components/CatalogItems.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/catalog/components/CatalogPage.tsx",
+      "imports": 4
+    },
+    {
+      "file": "src/features/catalog/components/CatalogResults.tsx",
+      "imports": 5
+    },
+    {
+      "file": "src/features/catalog/components/CatalogSection.tsx",
+      "imports": 6
+    },
+    {
+      "file": "src/features/catalog/components/CatalogTabs.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/catalog/components/CatalogToolbar.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/catalog/components/EditorialContent.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/catalog/components/EditorialSections.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/catalog/components/FilterDrawer.tsx",
+      "imports": 4
+    },
+    {
+      "file": "src/features/catalog/components/FilterSidebar.tsx",
+      "imports": 3
+    },
+    {
+      "file": "src/features/catalog/components/HeroSection.tsx",
+      "imports": 3
+    },
+    {
+      "file": "src/features/catalog/components/MobileCatalogSearch.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/catalog/components/NftCard.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/catalog/components/NftCarousel.tsx",
+      "imports": 6
+    },
+    {
+      "file": "src/features/catalog/components/NftGrid.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/catalog/components/Pagination.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/catalog/filter-props.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/catalog/queries.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/catalog/search-params.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/catalog/useCarouselAutoplay.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/catalog/useCatalogNavigation.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/checkout/checkout-draft.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/checkout/components/CheckoutBody.tsx",
+      "imports": 4
+    },
+    {
+      "file": "src/features/checkout/components/CheckoutContent.tsx",
+      "imports": 3
+    },
+    {
+      "file": "src/features/checkout/components/CheckoutFeedback.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/checkout/components/CheckoutPage.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/checkout/components/CheckoutReviewPanel.tsx",
+      "imports": 5
+    },
+    {
+      "file": "src/features/checkout/components/CheckoutSubmit.tsx",
+      "imports": 3
+    },
+    {
+      "file": "src/features/checkout/components/CollectorFields.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/checkout/components/CollectorForm.tsx",
+      "imports": 4
+    },
+    {
+      "file": "src/features/checkout/components/CollectorNoteField.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/checkout/components/OrderReview.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/checkout/components/OrderReviewDetails.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/checkout/components/PendingOrderRecovery.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/checkout/components/StaleQuoteBanner.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/checkout/components/WalletConnectionStatus.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/checkout/components/WalletNetworkPicker.tsx",
+      "imports": 4
+    },
+    {
+      "file": "src/features/checkout/connectReviewedWallet.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/checkout/createOrderRequest.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/checkout/submitOrderAttempt.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/checkout/useCheckoutController.ts",
+      "imports": 6
+    },
+    {
+      "file": "src/features/checkout/useCheckoutDraftPersistence.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/features/checkout/useCheckoutForm.ts",
+      "imports": 4
+    },
+    {
+      "file": "src/features/checkout/useCheckoutSubmission.ts",
+      "imports": 5
+    },
+    {
+      "file": "src/features/checkout/useCheckoutWallet.ts",
+      "imports": 3
+    },
+    {
+      "file": "src/features/checkout/useCreateOrder.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/checkout/useQuoteReview.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/features/checkout/useWalletConnection.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/favorites/components/FavoriteButton.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/favorites/queries.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/favorites/useFavoriteControl.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/features/favorites/useToggleFavorite.ts",
+      "imports": 3
+    },
+    {
+      "file": "src/features/layout/Footer.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/layout/FooterFeatures.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/layout/FooterLinks.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/layout/Header.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/layout/HeaderAccount.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/layout/HeaderActions.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/layout/MobileNavigationLinks.tsx",
+      "imports": 3
+    },
+    {
+      "file": "src/features/layout/MobileTabBar.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/layout/PageShell.tsx",
+      "imports": 3
+    },
+    {
+      "file": "src/features/nft-detail/components/BuyerReviews.tsx",
+      "imports": 6
+    },
+    {
+      "file": "src/features/nft-detail/components/DetailHeading.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/nft-detail/components/DetailSummary.tsx",
+      "imports": 4
+    },
+    {
+      "file": "src/features/nft-detail/components/DetailTabs.tsx",
+      "imports": 4
+    },
+    {
+      "file": "src/features/nft-detail/components/Gallery.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/nft-detail/components/MobilePurchaseBar.tsx",
+      "imports": 3
+    },
+    {
+      "file": "src/features/nft-detail/components/NftDetailPage.tsx",
+      "imports": 5
+    },
+    {
+      "file": "src/features/nft-detail/components/PurchasePanel.tsx",
+      "imports": 5
+    },
+    {
+      "file": "src/features/nft-detail/components/QuantityInput.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/nft-detail/components/QuantityStepper.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/nft-detail/components/RelatedCarousel.tsx",
+      "imports": 3
+    },
+    {
+      "file": "src/features/nft-detail/components/RelatedSkeleton.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/nft-detail/components/ReviewCard.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/nft-detail/components/ReviewsSummary.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/nft-detail/useReviews.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/features/orders/components/OrderItemsTable.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/orders/components/OrderReceiptModal.tsx",
+      "imports": 4
+    },
+    {
+      "file": "src/features/orders/components/ReceiptMetadata.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/orders/pending-order.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/orders/pending-order.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/orders/queries.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/orders/selectOrderResponse.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/orders/usePendingOrder.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/profile/components/AvatarField.tsx",
+      "imports": 5
+    },
+    {
+      "file": "src/features/profile/components/PasswordFields.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/profile/components/PasswordForm.tsx",
+      "imports": 3
+    },
+    {
+      "file": "src/features/profile/components/ProfileFields.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/profile/components/ProfilePage.tsx",
+      "imports": 3
+    },
+    {
+      "file": "src/features/profile/mutations.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/profile/queries.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/profile/usePasswordForm.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/realtime/apply-event.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/realtime/apply-event.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/realtime/catalog-reconciliation.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/realtime/event-gate.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/realtime/reconcile-cache.test.ts",
+      "imports": 3
+    },
+    {
+      "file": "src/features/realtime/reconcile.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/realtime/startRealtime.ts",
+      "imports": 5
+    },
+    {
+      "file": "src/features/wallets/components/SecondaryWalletSection.tsx",
+      "imports": 4
+    },
+    {
+      "file": "src/features/wallets/components/WalletFields.tsx",
+      "imports": 1
+    },
+    {
+      "file": "src/features/wallets/components/WalletSections.tsx",
+      "imports": 3
+    },
+    {
+      "file": "src/features/wallets/components/WalletsPage.tsx",
+      "imports": 2
+    },
+    {
+      "file": "src/features/wallets/mutations.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/wallets/queries.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/features/wallets/useSecondaryWallet.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/lib/cn.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/lib/env.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/lib/http.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/lib/idempotency.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/lib/money.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/lib/request-identity.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/lib/storage.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/mocks/browser.ts",
+      "imports": 5
+    },
+    {
+      "file": "src/mocks/control.ts",
+      "imports": 6
+    },
+    {
+      "file": "src/mocks/db/detail-migration.test.ts",
+      "imports": 3
+    },
+    {
+      "file": "src/mocks/db/fixtures/content.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/mocks/db/fixtures/nfts.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/mocks/db/fixtures/nfts.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/mocks/db/migrateCatalog.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/mocks/db/seed.ts",
+      "imports": 3
+    },
+    {
+      "file": "src/mocks/db/store.test.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/mocks/db/store.ts",
+      "imports": 3
+    },
+    {
+      "file": "src/mocks/handlers/handlers.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/mocks/handlers/index.ts",
+      "imports": 10
+    },
+    {
+      "file": "src/mocks/handlers/security.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/mocks/scenarios/current.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/mocks/scenarios/network.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/mocks/shared/auth-concurrency.test.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/mocks/shared/auth.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/mocks/shared/cart-merge.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/mocks/shared/cart.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/mocks/shared/change-password.ts",
+      "imports": 3
+    },
+    {
+      "file": "src/mocks/shared/concurrency.test.ts",
+      "imports": 4
+    },
+    {
+      "file": "src/mocks/shared/order-transaction.ts",
+      "imports": 5
+    },
+    {
+      "file": "src/mocks/shared/order-validation.ts",
+      "imports": 3
+    },
+    {
+      "file": "src/mocks/shared/orders.ts",
+      "imports": 3
+    },
+    {
+      "file": "src/mocks/shared/password.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/mocks/shared/pricing.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/mocks/shared/pricing.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/mocks/shared/profile.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/mocks/shared/reviews.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/mocks/shared/session.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/mocks/shared/stock-reservations.test.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/mocks/shared/storeQuote.test.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/mocks/shared/storeQuote.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/mocks/shared/timing.test.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/mocks/shared/validateAvatar.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/mocks/shared/wallet-intent.test.ts",
+      "imports": 3
+    },
+    {
+      "file": "src/mocks/shared/wallets.test.ts",
+      "imports": 1
+    },
+    {
+      "file": "src/mocks/shared/wallets.ts",
+      "imports": 2
+    },
+    {
+      "file": "src/mocks/socket/events.ts",
+      "imports": 1
+    }
+  ]
+}
