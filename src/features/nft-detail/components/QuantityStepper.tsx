@@ -7,6 +7,7 @@ export interface QuantityStepperProps {
   disabled?: boolean;
   tone?: 'purchase' | 'cart';
   onChange: (quantity: number) => void;
+  onRemove?: () => void;
 }
 export function QuantityStepper({
   value,
@@ -14,15 +15,17 @@ export function QuantityStepper({
   onChange,
   disabled = false,
   tone = 'purchase',
+  onRemove,
 }: QuantityStepperProps) {
   return (
     <div className="inline-flex items-center">
       <QuantityButton
         decrease
         tone={tone}
-        disabled={disabled || value <= 1}
+        disabled={disabled || (value <= 1 && !onRemove)}
         change={() => {
-          onChange(value - 1);
+          if (value <= 1 && onRemove) onRemove();
+          else onChange(value - 1);
         }}
       />
       <QuantityInput value={value} max={max} disabled={disabled} tone={tone} onChange={onChange} />

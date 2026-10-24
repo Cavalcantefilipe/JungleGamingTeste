@@ -1,0 +1,37 @@
+$ pnpm typecheck && pnpm lint && pnpm format:check && pnpm test && pnpm test:tooling
+$ tsc -b
+$ eslint . --max-warnings=0
+Multiple projects found, consider using a single `tsconfig` with `references` to speed up, or use `noWarnOnMultipleProjects` to suppress this warning
+$ prettier --check .
+Checking formatting...
+All matched files use Prettier code style!
+$ vitest run
+
+ RUN  v5.0.5 /Users/filipecavalcante/Documents/JungleGamingTeste
+
+MOCK_DB_BENCHMARK {"nfts":48,"expiredQuotes":1000,"samples":100,"beforeBytes":504422,"afterBytes":61152,"meanMs":2.0287054599999896,"p95Ms":8.05316599999992,"maxMs":17.0318749999999}
+
+ Test Files  32 passed (32)
+      Tests  120 passed (120)
+   Start at  00:43:15
+   Duration  3.55s (environment 76%, import 14%, tests 6%, transform 3%)
+
+Environment  jsdom was created 32 times · 25.67s total, 76% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments
+
+$ node --test lighthouse/*.test.mjs scripts/compressedAssets.test.mjs
+✔ renovar coleta remove apenas arquivos gerados e preserva outros arquivos (8.3275ms)
+✔ medianas independentes preservam resultado ruim, sem escolher o melhor run (0.461083ms)
+✔ meta exata passa, categoria ausente ou inválida não passa silenciosamente (0.377417ms)
+✔ coleta incompleta e erro de runtime impedem resumo aprovado (0.113292ms)
+✔ agregação diferente da mediana é recusada (0.405833ms)
+✔ build produz Brotli íntegro e preview negocia sem mudar conteúdo nem cache do worker (3032.894416ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3114.353375

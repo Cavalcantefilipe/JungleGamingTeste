@@ -1,0 +1,46 @@
+{
+  "recordedAt": "2026-10-24T03:49:25.369Z",
+  "base": "cd31f63",
+  "snapshot": "d78072e",
+  "localOrigin": "http://127.0.0.1:4189",
+  "regressionBeforeFix": {
+    "unit": {
+      "failed": 5
+    },
+    "e2e": {
+      "failed": 10,
+      "skipped": 6
+    }
+  },
+  "firstFullChromium": {
+    "passed": 253,
+    "failed": 5,
+    "skipped": 32,
+    "reasons": [
+      "two expectations for the old discount text",
+      "two intentionally changed visual baselines",
+      "carousel scroll snap alignment"
+    ]
+  },
+  "final": {
+    "check": {
+      "exitCode": 0,
+      "unitTests": 120,
+      "toolingTests": 6,
+      "eslintWarnings": 0
+    },
+    "chromium": {
+      "passed": 260,
+      "failed": 0,
+      "skipped": 32
+    },
+    "compatibility": {
+      "passed": 166,
+      "failed": 0,
+      "skipped": 16
+    },
+    "dependencyAudit": {
+      "advisories": 0
+    }
+  }
+}

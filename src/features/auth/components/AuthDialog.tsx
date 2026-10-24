@@ -30,9 +30,11 @@ export function AuthDialog({
         <DialogContent
           onCloseAutoFocus={restoreFocus}
           overlayClassName="bg-transparent"
+          scrollableOverlay
           className={cn(
-            'flex max-h-dvh flex-col gap-0 overflow-y-auto rounded-none border-0 bg-ink px-7 pt-20 pb-6 max-md:inset-0 max-md:max-w-none max-md:translate-0 sm:max-w-none md:top-40 md:h-[600px] md:max-h-[calc(100dvh-176px)] md:w-[500px] md:max-w-[500px] md:translate-y-0 md:border-b-[10px] md:border-primary md:bg-surface-card md:px-0 md:pt-12 md:pb-10',
-            register && 'md:h-[656px] md:rounded-lg',
+            'relative inset-auto mx-auto flex min-h-dvh max-w-none translate-0 flex-col gap-0 rounded-none border-0 bg-ink px-7 pt-20 pb-6 sm:max-w-none md:mt-[clamp(1rem,calc(100dvh-616px),10rem)] md:min-h-[min(600px,calc(100dvh-32px))] md:w-[500px] md:max-w-[500px] md:border-b-[10px] md:border-primary md:bg-surface-card md:px-0 md:pt-12 md:pb-10',
+            register &&
+              'md:mt-[clamp(1rem,calc(100dvh-672px),10rem)] md:min-h-[min(656px,calc(100dvh-32px))] md:rounded-lg',
           )}
         >
           <AuthDialogHeading register={register} returnTo={returnTo} />

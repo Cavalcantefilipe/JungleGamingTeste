@@ -17,7 +17,7 @@ export function QuoteSummary({
       </dd>
       <dt>Desconto do lançamento</dt>
       <dd data-testid="quote-discount" className="text-right">
-        −{formatEth(quote.discount)}
+        (-) {formatEth(quote.discount)}
       </dd>
       <dt>Taxa de rede</dt>
       <dd className="text-right">

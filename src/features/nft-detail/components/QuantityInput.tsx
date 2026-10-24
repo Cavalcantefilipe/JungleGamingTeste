@@ -9,7 +9,7 @@ export function QuantityInput({
   disabled,
   tone,
   onChange,
-}: Required<QuantityStepperProps>) {
+}: Required<Omit<QuantityStepperProps, 'onRemove'>>) {
   return (
     <Input
       disabled={disabled || max === 0}

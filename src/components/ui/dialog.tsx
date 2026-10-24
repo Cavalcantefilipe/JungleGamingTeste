@@ -42,33 +42,46 @@ function DialogContent({
   children,
   showCloseButton = true,
   overlayClassName,
+  scrollableOverlay = false,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Content> & {
   showCloseButton?: boolean;
   overlayClassName?: string;
+  scrollableOverlay?: boolean;
 }) {
+  const content = (
+    <DialogPrimitive.Content
+      data-slot="dialog-content"
+      className={cn(
+        'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border bg-background p-6 shadow-lg duration-200 outline-none sm:max-w-lg',
+        className,
+      )}
+      {...props}
+    >
+      {children}
+      {showCloseButton && (
+        <DialogPrimitive.Close
+          data-slot="dialog-close"
+          className="absolute top-0 right-0 flex size-11 items-center justify-center rounded-xs text-primary ring-offset-background transition-opacity hover:bg-surface-raised focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-hidden active:bg-border disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+        >
+          <FigmaIcon name="close" size={16} />
+          <span className="sr-only">Fechar</span>
+        </DialogPrimitive.Close>
+      )}
+    </DialogPrimitive.Content>
+  );
   return (
     <DialogPortal data-slot="dialog-portal">
-      <DialogOverlay className={overlayClassName} />
-      <DialogPrimitive.Content
-        data-slot="dialog-content"
-        className={cn(
-          'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border bg-background p-6 shadow-lg duration-200 outline-none sm:max-w-lg',
-          className,
-        )}
-        {...props}
-      >
-        {children}
-        {showCloseButton && (
-          <DialogPrimitive.Close
-            data-slot="dialog-close"
-            className="absolute top-0 right-0 flex size-11 items-center justify-center rounded-xs text-primary ring-offset-background transition-opacity hover:bg-surface-raised focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-hidden active:bg-border disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
-          >
-            <FigmaIcon name="close" size={16} />
-            <span className="sr-only">Fechar</span>
-          </DialogPrimitive.Close>
-        )}
-      </DialogPrimitive.Content>
+      {scrollableOverlay ? (
+        <DialogOverlay className={cn('overflow-y-auto md:pb-4', overlayClassName)}>
+          {content}
+        </DialogOverlay>
+      ) : (
+        <>
+          <DialogOverlay className={overlayClassName} />
+          {content}
+        </>
+      )}
     </DialogPortal>
   );
 }

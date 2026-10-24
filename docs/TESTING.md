@@ -1,6 +1,6 @@
 # Testes e verificações
 
-O resultado vigente, os commits publicados e as limitações estão em [QUALITY-REVIEW.md](QUALITY-REVIEW.md). As contagens de rodadas anteriores foram preservadas em [TESTING-HISTORY.md](TESTING-HISTORY.md), com os respectivos checkpoints.
+O resultado da conciliação de 24/10, os commits publicados e as limitações estão em [RECONCILIATION.md](RECONCILIATION.md). As contagens anteriores foram preservadas em [QUALITY-REVIEW.md](QUALITY-REVIEW.md) e [TESTING-HISTORY.md](TESTING-HISTORY.md), com os respectivos checkpoints.
 
 ## Executar
 
@@ -15,12 +15,12 @@ pnpm e2e:compat
 
 Node 24 e pnpm 11. O worker MSW está versionado. REST e Socket.IO são interceptados; não dependem de API, blockchain ou banco externos. `pnpm lint` usa `--max-warnings=0`: avisos também reprovam o gate. `pnpm check` inclui tipos, lint, formatação, Vitest e testes Node das ferramentas.
 
-O preview usa 4175. Fora da CI, o Playwright pode reutilizar o preview existente; em CI ele inicia o próprio servidor. `E2E_BASE_URL` permite verificar um deploy existente. Rode uma única suíte Playwright por vez no checkout e faça build após mudar a aplicação.
+O preview usa 4175. Fora da CI, o Playwright pode reutilizar o preview existente; em CI ele inicia o próprio servidor. Confira se o servidor pertence ao checkout testado. `E2E_BASE_URL` permite verificar um deploy existente ou um preview dedicado (a conciliação usa `http://127.0.0.1:4189`). Rode uma única suíte Playwright por vez no checkout e faça build após mudar a aplicação.
 
 ## Projetos
 
 - `pnpm e2e`: Chromium desktop 1440×900 e mobile 390×844, suíte completa com baselines.
-- `pnpm e2e:compat`: Firefox desktop 1440×900 e WebKit mobile 390×844; cenários `00`–`11` e `25`, incluindo favoritos. Baselines de Chromium não são reutilizados entre engines.
+- `pnpm e2e:compat`: Firefox desktop 1440×900 e WebKit mobile 390×844; cenários `00`–`11`, `25` e `26`, incluindo favoritos e conciliação. Baselines de Chromium não são reutilizados entre engines.
 - WebKit automatizado não equivale a um teste em iPhone físico/Safari instalado.
 
 As fixtures aguardam o destino renderizado após login/compra; mudança da URL sozinha pode preceder o commit visual da navegação SPA. Não há espera fixa nem retry automático para encobrir falhas. O teste de pedido pendente controla o relógio e a confirmação autoritativa. No WebKit/macOS, o percurso completo de teclado usa Option+Tab, preservando as preferências do sistema ([comportamento documentado no projeto Playwright](https://github.com/microsoft/playwright/issues/41808)).
@@ -66,6 +66,7 @@ A referência é o [Figma do desafio](https://www.figma.com/design/Ff0SksUi7UFtP
 - `22`: tokens/gradientes e favoritos por hover, foco e toque.
 - `23`–`24`: conferência de detalhes por tela e captura dos estados de referência.
 - `25`: login/cadastro em 640, 720 e 767 px e recibo em 720 px; largura total, ação final alcançável e erros visíveis.
+- `26`: remoção pelo “−”, formato do desconto, carrossel, autenticação sem rolagem interna, expansão segura do resumo mobile e aviso de ajuste no login.
 - `stock-reservations.test.ts`: quatro cenários de dois usuários comprando 5 e 7 de estoque 10, com ambas as ordens de chegada, confirmação única e liberação após recusa.
 - Zoom nativo de 200% no Chrome: nove telas/estados, medições e PNGs em `reports/quality/`. O teste `25` é reflow por viewport; não substitui essa verificação manual.
 

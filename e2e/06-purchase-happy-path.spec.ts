@@ -10,7 +10,7 @@ test('do catálogo ao recibo confirmado preserva itens adicionados após o pedid
   await addNft(page, isMobile, 'nft-002');
   await page.getByLabel('Código promocional', { exact: true }).fill('LANCAMENTO10');
   await page.getByRole('button', { name: 'Aplicar', exact: true }).click();
-  await expect(page.getByTestId('quote-discount')).toHaveText('−0.288 ETH');
+  await expect(page.getByTestId('quote-discount')).toHaveText('(-) 0.288 ETH');
   await page.getByRole('link', { name: 'Conectar e finalizar', exact: true }).click();
   await openCollector(page, isMobile);
   await page.getByLabel('Nome de exibição', { exact: true }).fill('Ana Colecionadora');

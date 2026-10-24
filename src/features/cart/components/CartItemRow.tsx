@@ -37,6 +37,7 @@ export function CartItemRow({ item, nft, quote, busy, update, remove }: CartItem
           value={item.quantity}
           max={available}
           onChange={update}
+          onRemove={remove}
           disabled={busy || !nft}
         />
       </td>

@@ -17,7 +17,11 @@ async function acceptSession(session: Session): Promise<void> {
   sessionStore.set(session);
   if (guestId) {
     try {
-      await api.mergeGuestCart(guestId);
+      const cart = await api.mergeGuestCart(guestId);
+      if (cart.adjusted)
+        toast.info(
+          'Ajustamos as quantidades do carrinho ao estoque disponível e ao limite de 99 unidades por item.',
+        );
       transferGuestCoupon(guestId, session.user.id);
       await queryClient.invalidateQueries({ queryKey: ['cart'] });
     } catch (error) {

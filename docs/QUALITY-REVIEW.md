@@ -1,6 +1,6 @@
 # Conferência final de qualidade
 
-23/10/2026. Este é o ponto de entrada para o estado vigente; os demais relatórios preservam checkpoints históricos. Stack: **React 19, TypeScript, Vite 7 e Tailwind 4**, com API/Socket.IO simulados por MSW no navegador.
+Checkpoint de 23/10/2026. A revisão posterior está em [RECONCILIATION.md](RECONCILIATION.md); os resultados abaixo preservam as condições deste checkpoint. Stack: **React 19, TypeScript, Vite 7 e Tailwind 4**, com API/Socket.IO simulados por MSW no navegador.
 
 ## Alterações concluídas
 

@@ -1,35 +1,44 @@
+import { useId, useState } from 'react';
+
 import { SummarySkeleton } from '@/components/feedback/SummarySkeleton';
+import { Button } from '@/components/ui/button';
 import type { Quote } from '@/contracts/quote';
-import { QuoteSummary } from '@/features/cart/components/QuoteSummary';
+import { cn } from '@/lib/cn';
 import { formatEth } from '@/lib/money';
 
-import { OrderReviewItem } from './OrderReviewItem';
+import { OrderReviewDetails } from './OrderReviewDetails';
 
 export function OrderReview({ quote, loading }: { quote: Quote | undefined; loading: boolean }) {
+  const [expanded, setExpanded] = useState(false);
+  const detailsId = useId();
   return (
     <section aria-label="Resumo do pedido" className="space-y-3">
       <h2 className="hidden text-section leading-4 font-bold lg:block">Seus NFTs</h2>
-      {quote && (
-        <div className="hidden lg:block">
-          <div className="mb-3 flex justify-between border-b border-border-soft pb-2 text-base font-medium">
-            <span>NFTs</span>
-            <span>Subtotal</span>
-          </div>
-          <ul className="space-y-3">
-            {quote.items.map((item) => (
-              <OrderReviewItem key={`${item.nftId}:${item.editionId}`} item={item} />
-            ))}
-          </ul>
-        </div>
-      )}
       {loading || !quote ? (
         <SummarySkeleton />
       ) : (
         <>
-          <div className="hidden lg:block">
-            <QuoteSummary quote={quote} />
+          <Button
+            type="button"
+            variant="ghost"
+            className="w-full justify-between lg:hidden"
+            aria-expanded={expanded}
+            aria-controls={detailsId}
+            onClick={() => {
+              setExpanded(!expanded);
+            }}
+          >
+            Detalhes do pedido <span aria-hidden="true">{expanded ? '−' : '+'}</span>
+          </Button>
+          <div id={detailsId} className={cn(!expanded && 'hidden lg:block')}>
+            <OrderReviewDetails quote={quote} />
           </div>
-          <p className="flex justify-end gap-5 text-base font-bold lg:hidden">
+          <p
+            className={cn(
+              'flex justify-end gap-5 text-base font-bold lg:hidden',
+              expanded && 'hidden',
+            )}
+          >
             Total: <span className="text-lg text-text-accent">{formatEth(quote.total)}</span>
           </p>
         </>

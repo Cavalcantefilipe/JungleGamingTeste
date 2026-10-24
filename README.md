@@ -109,8 +109,8 @@ reports          relatórios versionados de segurança/performance
 - [Validação dos comportamentos](docs/BEHAVIOR-REVIEW.md) e [pendências de entrega/estimativa de avaliação](docs/DELIVERY-ASSESSMENT.md).
 - [Configuração e verificação da Railway](docs/DEPLOYMENT.md).
 
-**Conferência final:** 115 testes unitários, lint sem avisos e auditorias de dependências zeradas. Lighthouse público: desktop **96/98** e mobile **93/94** (início/detalhe), com as demais categorias em 100.
+**Reconciliação de 24/10:** correções locais incorporadas sobre a `main` publicada, preservando imagens responsivas, checkout, concorrência e deploy. 120 testes unitários, 6 testes de ferramentas e lint sem avisos. Decisões, verificações e publicação estão em [RECONCILIATION.md](docs/RECONCILIATION.md).
 
-O estado vigente está consolidado no [relatório final de qualidade](docs/QUALITY-REVIEW.md): refatoração React, lint sem avisos, disputa de estoque, zoom real de 200%, compatibilidade entre motores, dependências, publicação e Lighthouse. Cada resultado identifica o código e as condições verificados. As rodadas antigas ficam explicitamente preservadas como histórico.
+O [checkpoint de qualidade de 23/10](docs/QUALITY-REVIEW.md) preserva o histórico da refatoração React, disputa de estoque, zoom real de 200%, compatibilidade entre motores e Lighthouse público (desktop 96/98 e mobile 93/94 naquela versão). Cada resultado identifica o código e as condições verificados; medições antigas não representam automaticamente um novo deploy.
 
 As [referências do Figma e capturas](reports/design/README.md) documentam a conferência visual e as adaptações, sem alegar igualdade absoluta de pixels. A tentativa de VoiceOver ficou inconclusiva. Não há banco real para certificar otimização SQL ou concorrência entre dispositivos.

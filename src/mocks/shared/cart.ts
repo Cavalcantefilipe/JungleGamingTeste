@@ -1,4 +1,10 @@
-import type { AddCartItemInput, Cart, CartItem, CartScope } from '@/contracts/cart';
+import type {
+  AddCartItemInput,
+  Cart,
+  CartItem,
+  CartScope,
+  MergeCartResponse,
+} from '@/contracts/cart';
 import type { MockDb } from '@/mocks/db/schema';
 import { mockStore } from '@/mocks/db/store';
 
@@ -81,7 +87,8 @@ function mergeGuestItem(db: MockDb, cart: Cart, item: CartItem): Cart {
       .find((nft) => nft.id === item.nftId)
       ?.editions.find((edition) => edition.id === item.editionId)?.available ?? 0;
   const quantity = Math.min(item.quantity + (current?.quantity ?? 0), available, 99);
-  if (quantity <= 0) return cart;
+  if (quantity <= 0)
+    return { ...cart, items: cart.items.filter((entry) => entry.id !== current?.id) };
   return {
     ...cart,
     items: [
@@ -90,11 +97,11 @@ function mergeGuestItem(db: MockDb, cart: Cart, item: CartItem): Cart {
     ],
   };
 }
-export function mergeCart(userId: string, guestId: string): Cart {
+export function mergeCart(userId: string, guestId: string): MergeCartResponse {
   return mockStore.transaction((db) => {
     const guest = readCart(db, { kind: 'guest', id: guestId });
     const user = readCart(db, { kind: 'user', id: userId });
-    if (!guest.items.length) return { result: user };
+    if (!guest.items.length) return { result: { ...user, adjusted: false } };
     const merged = guest.items.reduce((cart, item) => mergeGuestItem(db, cart, item), user);
     const next = commitCart(db, merged);
     return {
@@ -105,7 +112,14 @@ export function mergeCart(userId: string, guestId: string): Cart {
           [cartKey(guest.scope)]: { ...guest, items: [], updatedAt: next.result.updatedAt },
         },
       },
-      result: next.result,
+      result: {
+        ...next.result,
+        adjusted: countUnits(merged) !== countUnits(user) + countUnits(guest),
+      },
     };
   });
+}
+
+function countUnits(cart: Cart): number {
+  return cart.items.reduce((total, item) => total + item.quantity, 0);
 }

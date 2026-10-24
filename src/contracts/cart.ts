@@ -31,6 +31,8 @@ export const cartSchema = z.object({
   updatedAt: isoDateSchema,
 });
 export type Cart = z.infer<typeof cartSchema>;
+export const mergeCartResponseSchema = cartSchema.extend({ adjusted: z.boolean() });
+export type MergeCartResponse = z.infer<typeof mergeCartResponseSchema>;
 
 export const quantitySchema = z.number().int().min(1).max(MAX_ITEM_QUANTITY);
 
