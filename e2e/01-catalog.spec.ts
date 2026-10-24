@@ -1,5 +1,39 @@
 import { test, expect } from './fixtures/kurio';
 
+test('digitação sequencial preserva espaços entre palavras na busca', async ({
+  page,
+  isMobile,
+}) => {
+  await page.goto('/');
+  if (!isMobile) await page.getByRole('link', { name: 'Buscar NFTs', exact: true }).click();
+  const search = page.getByRole('searchbox', { name: 'Buscar NFTs', exact: true });
+  await search.pressSequentially('Cosmic Bloom', { delay: 80 });
+  await search.press('Enter');
+  await expect(search).toHaveValue('Cosmic Bloom');
+  await expect(page).toHaveURL((url) => url.searchParams.get('q') === 'Cosmic Bloom');
+  await expect(page.getByTestId('nft-grid').getByRole('link').first()).toContainText(
+    'Cosmic Bloom',
+  );
+  await page.reload();
+  await expect(search).toHaveValue('Cosmic Bloom');
+});
+
+test('substituir consultas durante a digitação não anuncia uma falha', async ({
+  page,
+  isMobile,
+}) => {
+  await page.goto('/');
+  if (!isMobile) await page.getByRole('link', { name: 'Buscar NFTs', exact: true }).click();
+  const search = page.getByRole('searchbox', { name: 'Buscar NFTs', exact: true });
+  await search.pressSequentially('Emerald', { delay: 40 });
+  await search.press('Enter');
+  await expect(page.getByTestId('nft-grid').getByRole('link').first()).toContainText('Emerald');
+  await expect(
+    page.getByText('Não foi possível concluir. Tente novamente.', { exact: true }),
+  ).toHaveCount(0);
+  await expect(page.locator('[data-sonner-toast]')).toHaveCount(0);
+});
+
 test('busca, filtros e ordenação refletem API e URL', async ({ page, isMobile }) => {
   await page.goto('/');
   if (!isMobile) await page.getByRole('link', { name: 'Buscar NFTs', exact: true }).click();

@@ -5,7 +5,7 @@ import { nftCategorySchema, nftNetworkSchema, nftSortSchema, nftTabSchema } from
 
 const arrayParam = (value: unknown) => (typeof value === 'string' ? [value] : value);
 export const catalogSearchSchema = z.object({
-  q: z.string().trim().max(80).catch(''),
+  q: z.string().max(80).catch(''),
   category: z.preprocess(arrayParam, z.array(nftCategorySchema).catch([])),
   network: z.preprocess(arrayParam, z.array(nftNetworkSchema).catch([])),
   minPrice: ethAmountSchema.optional().catch(undefined),

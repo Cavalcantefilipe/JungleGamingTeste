@@ -1,3 +1,4 @@
+import { CancelledError } from '@tanstack/react-query';
 import { createFileRoute, type SearchSchemaInput } from '@tanstack/react-router';
 
 import { announce } from '@/components/feedback/announce';
@@ -20,7 +21,7 @@ export const Route = createFileRoute('/')({
     void context.queryClient
       .query(nftListQueryOptions(deps, sessionStore.getSnapshot()?.user.id))
       .catch((error: unknown) => {
-        announce(errorMessage(error));
+        if (!(error instanceof CancelledError)) announce(errorMessage(error));
       });
   },
   errorComponent: ({ error, reset }) => <ErrorState error={error} retry={reset} />,
