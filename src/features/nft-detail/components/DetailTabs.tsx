@@ -13,16 +13,16 @@ const CONTRACT_BY_NETWORK: Record<Nft['network'], string> = {
 export function DetailTabs({ nft }: { nft: Nft }) {
   return (
     <Tabs defaultValue="details" className="gap-6">
-      <TabsList className="h-auto w-full justify-start gap-6 rounded-none border-b border-border bg-transparent p-0">
+      <TabsList className="h-auto w-full justify-start gap-4 rounded-none border-b border-border bg-transparent p-0 md:gap-6">
         <TabsTrigger
           value="details"
-          className="rounded-none border-b-2 border-transparent px-0 pb-2 text-body-lg data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary"
+          className="min-h-11 min-w-0 rounded-none border-b-2 border-transparent px-0 pb-2 text-caption whitespace-normal data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary md:text-body-lg"
         >
           {detailMessages.tabDetails}
         </TabsTrigger>
         <TabsTrigger
           value="reviews"
-          className="rounded-none border-b-2 border-transparent px-0 pb-2 text-body-lg data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary"
+          className="min-h-11 min-w-0 rounded-none border-b-2 border-transparent px-0 pb-2 text-caption whitespace-normal data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary md:text-body-lg"
         >
           {detailMessages.tabReviews(nft.rating.count)}
         </TabsTrigger>

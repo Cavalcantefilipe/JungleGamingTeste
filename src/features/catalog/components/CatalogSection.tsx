@@ -116,7 +116,7 @@ export function CatalogSection() {
       <h2 id="catalogo-heading" className="sr-only">
         Catálogo de NFTs
       </h2>
-      <div className="md:grid md:grid-cols-[280px_1fr] md:gap-12">
+      <div className="md:grid md:grid-cols-[216px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-12">
         <aside aria-label={catalogMessages.filters} className="hidden md:block">
           <FilterPanel facets={facets} featured={featured} />
         </aside>

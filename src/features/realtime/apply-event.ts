@@ -35,45 +35,38 @@ function definedEntries<T extends object>(value: T): WithoutUndefined<T> {
   ) as WithoutUndefined<T>;
 }
 
-function isNftInCart(queryClient: QueryClient, nftId: string): boolean {
-  return queryClient
-    .getQueriesData<Cart>({ queryKey: ['cart'] })
-    .some(([, cart]) => cart?.items.some((item) => item.nftId === nftId));
+function patchNftCaches(queryClient: QueryClient, event: NftUpdatedEvent): string | undefined {
+  let name: string | undefined;
+  const update = (current: Nft): Nft => {
+    if (current.id !== event.resource.id || current.version >= event.version) return current;
+    name = current.name;
+    return { ...current, ...definedEntries(event.payload), version: event.version };
+  };
+  queryClient.setQueryData<Nft>(queryKeys.nfts.detail(event.resource.id), (current) =>
+    current ? update(current) : current,
+  );
+  queryClient.setQueriesData<NftListResponse>({ queryKey: queryKeys.nfts.lists() }, (current) =>
+    current ? { ...current, items: current.items.map(update) } : current,
+  );
+  return name;
 }
 
 function applyNftUpdated(queryClient: QueryClient, event: NftUpdatedEvent): ApplyResult {
-  const { id } = event.resource;
-  const patch = definedEntries(event.payload);
-  let name: string | undefined;
-
-  queryClient.setQueryData<Nft>(queryKeys.nfts.detail(id), (current) => {
-    if (!current) return current;
-    name = current.name;
-    return { ...current, ...patch };
-  });
-  queryClient.setQueriesData<NftListResponse>({ queryKey: queryKeys.nfts.lists() }, (current) => {
-    if (!current) return current;
-    return {
-      ...current,
-      items: current.items.map((item) => {
-        if (item.id !== id) return item;
-        name ??= item.name;
-        return { ...item, ...patch };
-      }),
-    };
-  });
-  if (isNftInCart(queryClient, id)) {
+  const updatedName = patchNftCaches(queryClient, event);
+  const cartItem = queryClient
+    .getQueriesData<Cart>({ queryKey: ['cart'] })
+    .flatMap(([, cart]) => cart?.items ?? [])
+    .find((item) => item.nftId === event.resource.id && item.nftVersion < event.version);
+  if (cartItem) {
     void queryClient.invalidateQueries({ queryKey: ['cart'] });
     void queryClient.invalidateQueries({ queryKey: ['quote'] });
   }
-
-  const announcement =
-    name === undefined
-      ? undefined
-      : patch.price
-        ? `Preço de ${name} atualizado para ${formatEth(patch.price)}.`
-        : `${name} foi atualizado.`;
-  return announcement ? { applied: true, announcement } : { applied: true };
+  const name = updatedName ?? cartItem?.snapshot.name;
+  if (!name) return { applied: false };
+  const announcement = event.payload.price
+    ? `Preço de ${name} atualizado para ${formatEth(event.payload.price)}.`
+    : `${name} foi atualizado.`;
+  return { applied: true, announcement };
 }
 
 function applyOrderUpdated(
@@ -84,8 +77,15 @@ function applyOrderUpdated(
   if (!context.currentUserId) return { applied: false };
   const key = queryKeys.orders.detail(context.currentUserId, event.resource.id);
   const current = queryClient.getQueryData<Order>(key);
-  if (!current) return { applied: false };
-  queryClient.setQueryData<Order>(key, { ...current, ...definedEntries(event.payload) });
+  if (current?.userId !== context.currentUserId || event.version <= current.version) {
+    return { applied: false };
+  }
+  if (current.status !== 'pending') return { applied: false };
+  queryClient.setQueryData<Order>(key, {
+    ...current,
+    ...definedEntries(event.payload),
+    version: event.version,
+  });
   if (event.payload.status === 'confirmed') {
     void queryClient.invalidateQueries({ queryKey: ['cart'] });
     void queryClient.invalidateQueries({ queryKey: queryKeys.nfts.all });

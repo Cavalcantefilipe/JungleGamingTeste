@@ -15,16 +15,19 @@ import {
 import { Input } from '@/components/ui/input';
 import { PasswordInput } from '@/components/ui/password-input';
 import { loginInputSchema, type LoginInput } from '@/contracts';
+import { ERROR_MESSAGES } from '@/lib/errors';
 import { applyApiError } from '@/lib/forms';
 
 import { authMessages } from '../messages';
 import { useLogin } from '../mutations';
+import { useSession } from '../session-store';
 
 interface LoginFormProps {
   onSuccess: () => void;
 }
 
 export function LoginForm({ onSuccess }: LoginFormProps) {
+  const { expiredAt } = useSession();
   const form = useForm<LoginInput>({
     resolver: zodResolver(loginInputSchema),
     defaultValues: { email: '', password: '' },
@@ -49,6 +52,7 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
         noValidate
         className="flex flex-col gap-4"
       >
+        <FormAlert message={expiredAt === null ? undefined : ERROR_MESSAGES.SESSION_EXPIRED} />
         <FormField
           control={form.control}
           name="email"

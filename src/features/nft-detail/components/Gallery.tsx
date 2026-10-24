@@ -9,9 +9,9 @@ export function Gallery({ images }: { images: NftImage[] }) {
   const current = images[index] ?? images[0];
   if (!current) return null;
   return (
-    <div className="grid gap-4 md:grid-cols-[96px_1fr]">
+    <div className="grid min-w-0 gap-4 md:grid-cols-[96px_minmax(0,1fr)]">
       <ul
-        className="order-last flex gap-3 overflow-x-auto md:order-none md:flex-col"
+        className="order-last flex min-w-0 gap-3 overflow-x-auto md:order-none md:flex-col"
         aria-label="Miniaturas"
       >
         {images.map((image, position) => (

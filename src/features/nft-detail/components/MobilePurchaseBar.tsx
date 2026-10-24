@@ -22,7 +22,7 @@ export function MobilePurchaseBar({ nft, selection }: MobilePurchaseBarProps) {
   return (
     <div
       data-testid="mobile-purchase-bar"
-      className="fixed inset-x-0 bottom-16 z-30 flex flex-col gap-3 border-t border-border bg-surface-card px-6 py-3 md:hidden"
+      className="fixed inset-x-0 bottom-0 z-30 flex flex-col gap-3 border-t border-border bg-surface-card px-6 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:hidden"
     >
       <div className="flex items-center justify-between">
         <QuantityStepper
@@ -37,7 +37,7 @@ export function MobilePurchaseBar({ nft, selection }: MobilePurchaseBarProps) {
         <Button
           type="button"
           size="lg"
-          className="flex-1"
+          className="h-11 flex-1"
           disabled={!canBuy || isPending}
           onClick={() => {
             buy().catch(() => undefined);

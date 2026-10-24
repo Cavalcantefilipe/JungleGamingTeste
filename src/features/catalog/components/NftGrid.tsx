@@ -4,7 +4,7 @@ import { NFT_PAGE_SIZE, type Nft } from '@/contracts';
 import { NftCard } from './NftCard';
 
 const PRIORITY_CARDS = 3;
-const gridClass = 'grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6';
+const gridClass = 'grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-3';
 
 export function NftGrid({ nfts }: { nfts: Nft[] }) {
   return (

@@ -57,7 +57,7 @@ test.describe('layout global', () => {
     await page.goto('/account/profile');
 
     await expect(page).toHaveURL(/\/login\?returnTo=%2Faccount%2Fprofile/);
-    await expect(page.getByText('Sua sessão expirou')).toBeVisible();
+    await expect(page.getByRole('alert').filter({ hasText: 'Sua sessão expirou' })).toBeVisible();
   });
 
   test('usuário autenticado vê o próprio nome no header e consegue sair', async ({

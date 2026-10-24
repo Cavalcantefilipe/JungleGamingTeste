@@ -41,6 +41,72 @@ function order(userId: string): Order {
 }
 
 describe('applyRealtimeEvent', () => {
+  it('atualiza uma lista antiga mesmo quando o detalhe REST já recebeu a mesma versão', () => {
+    const queryClient = new QueryClient();
+    queryClient.setQueryData(queryKeys.nfts.detail('nft_001'), {
+      ...nft,
+      price: '2.50',
+      version: 2,
+    });
+    const listKey = queryKeys.nfts.list({ page: 1 });
+    queryClient.setQueryData(listKey, listResponse());
+    applyRealtimeEvent(
+      queryClient,
+      {
+        id: crypto.randomUUID(),
+        type: 'nft.updated',
+        resource: { kind: 'nft', id: nft.id },
+        version: 2,
+        occurredAt: '2026-07-29T12:00:05.000Z',
+        payload: { price: '2.50' },
+      },
+      { currentUserId: null },
+    );
+    expect(queryClient.getQueryData<NftListResponse>(listKey)?.items[0]?.price).toBe('2.50');
+  });
+
+  it('preserva a versão mais recente recebida por REST', () => {
+    const queryClient = new QueryClient();
+    queryClient.setQueryData(queryKeys.nfts.detail('nft_001'), { ...nft, version: 5 });
+    const result = applyRealtimeEvent(
+      queryClient,
+      {
+        id: crypto.randomUUID(),
+        type: 'nft.updated',
+        resource: { kind: 'nft', id: 'nft_001' },
+        version: 4,
+        occurredAt: '2026-07-29T12:00:05.000Z',
+        payload: { price: '9.99' },
+      },
+      { currentUserId: null },
+    );
+    expect(result.applied).toBe(false);
+    expect(queryClient.getQueryData(queryKeys.nfts.detail('nft_001'))).toMatchObject({
+      price: '1.19',
+      version: 5,
+    });
+  });
+
+  it.each(['confirmed', 'declined'] as const)('não reabre um pedido %s', (status) => {
+    const queryClient = new QueryClient();
+    const key = queryKeys.orders.detail('usr_ana', 'ord_1');
+    queryClient.setQueryData(key, { ...order('usr_ana'), status, version: 2 });
+    const result = applyRealtimeEvent(
+      queryClient,
+      {
+        id: crypto.randomUUID(),
+        type: 'order.updated',
+        resource: { kind: 'order', id: 'ord_1' },
+        version: 3,
+        occurredAt: '2026-07-29T12:00:05.000Z',
+        payload: { status: 'pending' },
+      },
+      { currentUserId: 'usr_ana' },
+    );
+    expect(result.applied).toBe(false);
+    expect(queryClient.getQueryData(key)).toMatchObject({ status, version: 2 });
+  });
+
   it('nft.updated atualiza o detalhe e o item da lista', () => {
     const queryClient = new QueryClient();
     queryClient.setQueryData(queryKeys.nfts.detail('nft_001'), nft);

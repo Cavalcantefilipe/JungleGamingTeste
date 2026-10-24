@@ -4,6 +4,7 @@ import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
+import { FooterLink } from './FooterLink';
 import { layoutMessages } from './messages';
 import { OutOfScopeLink } from './OutOfScopeLink';
 import {
@@ -35,7 +36,7 @@ const FEATURES = [
 const LINK_COLUMNS = [
   {
     title: 'Meu perfil',
-    links: ['Meu perfil', 'Minha coleção', 'Atividade', 'Estúdio do criador', 'Lista de interesse'],
+    links: ['Meu perfil', 'Minhas carteiras', 'Minha coleção', 'Atividade', 'Lista de interesse'],
   },
   {
     title: 'Central de ajuda',
@@ -69,7 +70,7 @@ function Newsletter() {
         toast.info(layoutMessages.newsletterUnavailable);
       }}
     >
-      <h3 className="text-body-lg font-bold text-foreground">Antecipe-se ao próximo lançamento</h3>
+      <h2 className="text-body-lg font-bold text-foreground">Antecipe-se ao próximo lançamento</h2>
       <div className="flex gap-2">
         <label htmlFor="newsletter-email" className="sr-only">
           E-mail para novidades
@@ -96,26 +97,26 @@ export function Footer() {
   return (
     <footer className="mt-24 bg-ink pb-20 md:pb-0">
       <div className="mx-auto w-full max-w-[1200px] px-6 xl:px-0">
-        <div className="grid gap-8 border-t border-border py-10 md:grid-cols-4 md:divide-x md:divide-border">
+        <div className="grid gap-8 border-t border-border py-10 md:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-border">
           {FEATURES.map((feature) => (
-            <div key={feature.title} className="flex flex-col gap-3 md:pr-6">
+            <div key={feature.title} className="flex flex-col gap-3 lg:pr-6">
               <span
                 aria-hidden
                 className="grid size-16 place-items-center rounded-full bg-amber text-heading-sm font-bold text-ink"
               >
                 {feature.letter}
               </span>
-              <h3 className="text-body-lg font-bold text-foreground">{feature.title}</h3>
+              <h2 className="text-body-lg font-bold text-foreground">{feature.title}</h2>
               <p className="text-body text-text-secondary">{feature.text}</p>
             </div>
           ))}
-          <div className="md:pl-6">
+          <div className="lg:pl-6">
             <Newsletter />
           </div>
         </div>
       </div>
       <div className="bg-surface-dark">
-        <div className="mx-auto grid max-w-[1200px] gap-4 px-6 py-8 text-body text-foreground md:grid-cols-4 md:items-center xl:px-0">
+        <div className="mx-auto grid max-w-[1200px] gap-4 px-6 py-8 text-body text-foreground md:grid-cols-2 md:items-center lg:grid-cols-4 xl:px-0">
           <span className="text-body-lg font-bold tracking-[0.25em]">KURIO</span>
           <p className="text-text-secondary">{layoutMessages.brandTagline}</p>
           <a href="mailto:contato@email.com" className="hover:text-primary">
@@ -126,14 +127,14 @@ export function Footer() {
           </a>
         </div>
       </div>
-      <div className="mx-auto grid max-w-[1200px] gap-8 px-6 py-10 md:grid-cols-4 xl:px-0">
+      <div className="mx-auto grid max-w-[1200px] gap-8 px-6 py-10 md:grid-cols-2 lg:grid-cols-4 xl:px-0">
         {LINK_COLUMNS.map((column) => (
           <div key={column.title} className="flex flex-col gap-3">
-            <h3 className="text-body-lg font-bold text-foreground">{column.title}</h3>
+            <h2 className="text-body-lg font-bold text-foreground">{column.title}</h2>
             <ul className="flex flex-col gap-2 text-body text-text-secondary">
               {column.links.map((link) => (
                 <li key={link}>
-                  <OutOfScopeLink className="hover:text-foreground">{link}</OutOfScopeLink>
+                  <FooterLink label={link} />
                 </li>
               ))}
             </ul>
@@ -141,11 +142,11 @@ export function Footer() {
         ))}
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-3">
-            <h3 className="text-body-lg font-bold text-foreground">Redes sociais</h3>
+            <h2 className="text-body-lg font-bold text-foreground">Redes sociais</h2>
             <ul className="flex gap-2">
               {SOCIAL.map(({ label, Icon }) => (
                 <li key={label}>
-                  <OutOfScopeLink className="grid size-9 place-items-center rounded-control border border-border-soft text-foreground hover:border-primary">
+                  <OutOfScopeLink className="grid size-11 place-items-center rounded-control border border-border-soft text-foreground hover:border-primary">
                     <Icon className="size-4" />
                     <span className="sr-only">{label}</span>
                   </OutOfScopeLink>
@@ -154,7 +155,7 @@ export function Footer() {
             </ul>
           </div>
           <div className="flex flex-col gap-3">
-            <h3 className="text-body-lg font-bold text-foreground">Carteiras compatíveis</h3>
+            <h2 className="text-body-lg font-bold text-foreground">Carteiras compatíveis</h2>
             <p className="rounded-control border border-border-soft px-3 py-2 text-tiny font-medium tracking-wider text-text-secondary">
               METAMASK · WALLETCONNECT · COINBASE
             </p>

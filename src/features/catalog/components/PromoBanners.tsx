@@ -8,11 +8,11 @@ import { CATALOG_ANCHOR_ID } from '../useCatalogNavigation';
 export function PromoBanners() {
   return (
     <section aria-label="Destaques" className="mx-auto w-full max-w-[1200px] px-6 xl:px-0">
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-6 lg:grid-cols-2">
         {PROMOS.map((promo) => (
           <article
             key={promo.title}
-            className="grid grid-cols-[120px_1fr] items-center gap-4 overflow-hidden rounded-card bg-surface-card md:grid-cols-[250px_1fr] md:gap-6"
+            className="grid grid-cols-[120px_1fr] items-center gap-4 overflow-hidden rounded-card bg-surface-card md:grid-cols-[200px_minmax(0,1fr)] md:gap-6 xl:grid-cols-[250px_minmax(0,1fr)]"
           >
             <img
               src={promo.image}

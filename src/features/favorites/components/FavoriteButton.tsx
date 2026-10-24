@@ -44,7 +44,7 @@ export function FavoriteButton({ nftId, variant = 'icon', className }: FavoriteB
         toggle(nftId, !pressed);
       }}
       className={cn(
-        'grid size-9 place-items-center rounded-full bg-ink/70 text-foreground backdrop-blur transition-opacity hover:text-primary focus-visible:opacity-100',
+        'grid size-11 place-items-center rounded-full bg-ink/70 text-foreground backdrop-blur transition-opacity hover:text-primary focus-visible:opacity-100 md:size-9',
         pressed
           ? 'opacity-100'
           : 'opacity-100 md:opacity-0 md:group-focus-within:opacity-100 md:group-hover:opacity-100',

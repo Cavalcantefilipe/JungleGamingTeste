@@ -2,6 +2,7 @@ import { delay, http, HttpResponse } from 'msw';
 
 import {
   createOrderInputSchema,
+  isValidWalletAddress,
   type CreateOrderInput,
   type Order,
   type Quote,
@@ -35,12 +36,19 @@ import type { AuthenticatedContext } from '../shared/session';
 const IDEMPOTENCY_HEADER = 'idempotency-key';
 
 function quoteMatches(stored: Quote, fresh: Quote): boolean {
-  if (stored.total !== fresh.total || stored.items.length !== fresh.items.length) return false;
+  if (
+    stored.total !== fresh.total ||
+    stored.network !== fresh.network ||
+    stored.items.length !== fresh.items.length
+  )
+    return false;
   return stored.items.every((item, index) => {
     const current = fresh.items[index];
     if (!current) return false;
     return (
       current.nftId === item.nftId &&
+      current.editionId === item.editionId &&
+      current.quantity === item.quantity &&
       current.unitPrice === item.unitPrice &&
       current.available >= item.quantity
     );
@@ -114,7 +122,10 @@ function persistOrder(
       {
         ...reserveStock(db, order.items),
         orders: [...db.orders, order],
-        idempotency: { ...db.idempotency, [idempotencyKey]: { payloadHash, orderId: order.id } },
+        idempotency: {
+          ...db.idempotency,
+          [`${order.userId}:${idempotencyKey}`]: { payloadHash, orderId: order.id },
+        },
       },
       settlementFor(order, now),
     ),
@@ -129,7 +140,8 @@ async function createOrder(
 ) {
   const payloadHash = await hashPayload(input);
   const now = context.clock();
-  const existing = context.store.read().idempotency[idempotencyKey];
+  const records = context.store.read().idempotency;
+  const existing = records[`${auth.user.id}:${idempotencyKey}`] ?? records[idempotencyKey];
   if (existing) {
     if (existing.payloadHash !== payloadHash) {
       return respondError(409, 'IDEMPOTENCY_CONFLICT', 'Chave reutilizada com conteúdo diferente');
@@ -138,11 +150,17 @@ async function createOrder(
     const order = context.store
       .read()
       .orders.find((candidate) => candidate.id === existing.orderId);
+    if (order && order.userId !== auth.user.id) {
+      return respondError(403, 'FORBIDDEN', 'Você não tem acesso a este pedido');
+    }
     if (order) return HttpResponse.json(order, { status: 200 });
   }
 
   const wallet = findWallet(context, auth, input.wallet.walletId);
   if (!wallet.ok) return respondFailure(wallet);
+  if (!isValidWalletAddress(wallet.value.address, input.wallet.network)) {
+    return respondError(422, 'VALIDATION', 'Carteira incompatível com a rede selecionada');
+  }
 
   const db = context.store.read();
   const fresh = computeQuote(

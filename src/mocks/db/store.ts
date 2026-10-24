@@ -1,3 +1,4 @@
+import { migrateArtwork } from './migrate-artwork';
 import { buildSeed } from './seed';
 
 import type { MockDb, SeedName } from './schema';
@@ -74,7 +75,7 @@ export function createMockStore(options: MockStoreOptions = {}): MockStore {
   return {
     async init() {
       const persisted = persistence === 'local' ? readPersisted(persistKey) : null;
-      current = persisted ?? (await load(seedName));
+      current = persisted ? migrateArtwork(persisted) : await load(seedName);
       return current;
     },
     read,

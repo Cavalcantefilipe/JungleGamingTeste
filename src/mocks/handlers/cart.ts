@@ -17,13 +17,15 @@ import {
   updateCartItem,
 } from '../shared/carts';
 import { failure, readJsonBody, respondFailure, type MockResult } from '../shared/respond';
-import { optionalSession } from '../shared/session';
 
 export const GUEST_ID_HEADER = 'x-guest-id';
 
 function resolveScope(request: Request, context: HandlerContext): MockResult<CartScope> {
-  const session = optionalSession(request, context.store.read(), context.clock());
-  if (session) return { ok: true, value: { kind: 'user', id: session.user.id } };
+  if (request.headers.has('authorization')) {
+    const session = authenticate(request, context);
+    if (!session.ok) return session;
+    return { ok: true, value: { kind: 'user', id: session.value.user.id } };
+  }
   const guestId = request.headers.get(GUEST_ID_HEADER);
   if (guestId) return { ok: true, value: { kind: 'guest', id: guestId } };
   return failure(400, { code: 'VALIDATION', message: 'Identificação do carrinho ausente' });
@@ -102,7 +104,7 @@ export function cartHandlers(context: HandlerContext) {
           context.clock(),
         );
         context.store.write(() => merged.db);
-        return HttpResponse.json(merged.cart);
+        return HttpResponse.json({ ...merged.cart, adjusted: merged.adjusted });
       }),
     ),
   ];

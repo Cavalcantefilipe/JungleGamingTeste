@@ -1,5 +1,6 @@
 export const STORAGE_KEYS = {
   session: 'kurio.session',
+  sessionExpiredAt: 'kurio.sessionExpiredAt',
   guestId: 'kurio.guestId',
   pendingOrder: 'kurio.pendingOrder',
   checkoutDraftPrefix: 'kurio.checkoutDraft.',

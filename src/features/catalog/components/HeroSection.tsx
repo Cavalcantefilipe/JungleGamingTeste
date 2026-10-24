@@ -9,12 +9,12 @@ export function HeroSection() {
       aria-labelledby="hero-heading"
       className="mx-auto w-full max-w-[1200px] px-6 pt-6 md:pt-12 xl:px-0"
     >
-      <div className="grid items-center gap-6 rounded-media bg-surface-card p-5 md:grid-cols-[1fr_450px] md:gap-10 md:bg-transparent md:p-0">
+      <div className="grid items-center gap-6 rounded-media bg-surface-card p-5 md:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] md:gap-10 md:bg-transparent md:p-0 lg:grid-cols-[minmax(0,1fr)_450px]">
         <div className="flex flex-col gap-4 md:gap-6">
           <p className="text-caption text-foreground md:text-body">{HERO.eyebrow}</p>
           <h1
             id="hero-heading"
-            className="text-heading-sm font-bold text-foreground uppercase md:text-display"
+            className="text-heading-sm font-bold text-foreground uppercase md:text-heading lg:text-display"
           >
             {HERO.title}
           </h1>

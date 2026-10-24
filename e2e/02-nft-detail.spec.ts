@@ -67,6 +67,6 @@ test.describe('detalhe do NFT', () => {
 
     await expect(page).toHaveURL(/\/cart$/);
     await expect(page.getByText('Emerald Ape #042')).toBeVisible();
-    await expect(page.getByRole('banner').getByLabel(/Carrinho com 2 itens/)).toBeVisible();
+    await expect(page.getByLabel('2 unidades', { exact: true })).toBeVisible();
   });
 });

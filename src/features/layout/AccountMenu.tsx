@@ -50,7 +50,9 @@ export function AccountMenu() {
               {initialsOf(user.displayName)}
             </span>
           )}
-          <span className="max-w-32 truncate text-body-lg font-medium">{user.displayName}</span>
+          <span className="max-w-24 truncate text-body-lg font-medium xl:max-w-32">
+            {user.displayName}
+          </span>
           <ChevronDownIcon aria-hidden className="size-4 text-text-secondary" />
         </Button>
       </DropdownMenuTrigger>

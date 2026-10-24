@@ -27,7 +27,9 @@ export function PurchasePanel({ nft, selection }: PurchasePanelProps) {
       <div className="flex flex-col gap-2">
         <h1 className="text-heading font-bold text-foreground">{nft.name}</h1>
         <p className="text-title font-bold text-text-accent">{formatEth(nft.price)}</p>
-        <RatingStars average={nft.rating.average} count={nft.rating.count} />
+        <div className="hidden md:block">
+          <RatingStars average={nft.rating.average} count={nft.rating.count} />
+        </div>
       </div>
       <div className="flex flex-col gap-1">
         <p className="text-body font-bold text-foreground">{detailMessages.about}</p>

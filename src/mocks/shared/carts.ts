@@ -1,7 +1,15 @@
+import {
+  MAX_ITEM_QUANTITY,
+  type AddCartItemInput,
+  type Cart,
+  type CartItem,
+  type CartScope,
+  type Nft,
+} from '@/contracts';
+
 import { failure, type MockResult } from './respond';
 
 import type { MockDb } from '../db/schema';
-import type { AddCartItemInput, Cart, CartItem, CartScope, Nft } from '@/contracts';
 
 interface CartChange {
   db: MockDb;
@@ -76,7 +84,8 @@ export function addCartItem(
     (item) => item.nftId === input.nftId && item.editionId === input.editionId,
   );
   const requested = (existing?.quantity ?? 0) + input.quantity;
-  if (requested > edition.available) return unavailable(nft, edition.available);
+  const limit = Math.min(MAX_ITEM_QUANTITY, edition.available);
+  if (requested > limit) return unavailable(nft, limit);
 
   const built = existing ? null : buildItem(nft, input);
   if (built && !built.ok) return built;
@@ -99,7 +108,8 @@ export function updateCartItem(
   const nft = db.nfts.find((candidate) => candidate.id === item.nftId);
   const edition = nft?.editions.find((candidate) => candidate.id === item.editionId);
   if (!nft || !edition) return failure(404, { code: 'NOT_FOUND', message: 'NFT não encontrado' });
-  if (quantity > edition.available) return unavailable(nft, edition.available);
+  const limit = Math.min(MAX_ITEM_QUANTITY, edition.available);
+  if (quantity > limit) return unavailable(nft, limit);
   const items = cart.items.map((candidate) =>
     candidate.id === itemId ? { ...candidate, quantity } : candidate,
   );
@@ -123,10 +133,11 @@ export function mergeGuestCart(
   guestId: string,
   userScope: CartScope,
   now: Date,
-): CartChange {
+): CartChange & { adjusted: boolean } {
   const guestCart = findCart(db, { kind: 'guest', id: guestId });
   const { db: withUserCart, cart: userCart } = ensureCart(db, userScope, now);
-  if (!guestCart || guestCart.items.length === 0) return { db: withUserCart, cart: userCart };
+  if (!guestCart || guestCart.items.length === 0)
+    return { db: withUserCart, cart: userCart, adjusted: false };
 
   const merged = [...userCart.items];
   for (const guestItem of guestCart.items) {
@@ -142,14 +153,24 @@ export function mergeGuestCart(
       merged.push(guestItem);
     }
   }
+  const limited = merged.map((item) => {
+    const nft = db.nfts.find((candidate) => candidate.id === item.nftId);
+    const edition = nft?.editions.find((candidate) => candidate.id === item.editionId);
+    return {
+      ...item,
+      quantity: Math.min(item.quantity, MAX_ITEM_QUANTITY, edition?.available ?? 0),
+    };
+  });
+  const adjusted = limited.some((item, index) => item.quantity !== merged[index]?.quantity);
   const saved = saveCart(withUserCart, {
     ...userCart,
-    items: merged,
+    items: limited.filter((item) => item.quantity > 0),
     updatedAt: now.toISOString(),
   });
   return {
     db: { ...saved.db, carts: saved.db.carts.filter((cart) => cart.id !== guestCart.id) },
     cart: saved.cart,
+    adjusted,
   };
 }
 

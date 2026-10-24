@@ -2,11 +2,10 @@ import { createFileRoute } from '@tanstack/react-router';
 
 import { AuthDialog } from '@/features/auth/components/AuthDialog';
 import { authSearchSchema, redirectIfAuthenticated } from '@/features/auth/route-guard';
-import { HomePage } from '@/features/catalog/components/HomePage';
 
 export const Route = createFileRoute('/register')({
   validateSearch: authSearchSchema,
-  staticData: { hideFooter: true },
+  staticData: { hideFooter: true, mobileFlow: true },
   beforeLoad: ({ search }) => {
     redirectIfAuthenticated(search);
   },
@@ -15,10 +14,5 @@ export const Route = createFileRoute('/register')({
 
 function RegisterRoute() {
   const { returnTo } = Route.useSearch();
-  return (
-    <>
-      <HomePage />
-      <AuthDialog mode="register" returnTo={returnTo} />
-    </>
-  );
+  return <AuthDialog mode="register" returnTo={returnTo} />;
 }

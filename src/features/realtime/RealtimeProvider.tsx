@@ -8,14 +8,13 @@ import { env } from '@/lib/env';
 import { queryKeys } from '@/lib/query-keys';
 
 import { applyRealtimeEvent } from './apply-event';
-import { createEventGate, type EventGate } from './event-gate';
+import { createEventGate } from './event-gate';
 import { RealtimeContext, type RealtimeStatus } from './realtime-context';
 import { createRealtimeSocket, REALTIME_SESSION_EVENT } from './socket';
 
 const RECONCILED_QUERY_KEYS = [queryKeys.nfts.all, ['cart'], ['quote'], ['orders']] as const;
 
-function reconcileWithRest(queryClient: QueryClient, gate: EventGate): void {
-  gate.reset();
+function reconcileWithRest(queryClient: QueryClient): void {
   RECONCILED_QUERY_KEYS.forEach((queryKey) => {
     void queryClient.invalidateQueries({ queryKey });
   });
@@ -42,7 +41,7 @@ export function RealtimeProvider({ children }: { children: React.ReactNode }) {
     socket.on('connect', () => {
       setStatus('connected');
       if (token) socket.emit(REALTIME_SESSION_EVENT, token);
-      if (hasConnectedBefore) reconcileWithRest(queryClient, gate);
+      if (hasConnectedBefore) reconcileWithRest(queryClient);
       hasConnectedBefore = true;
     });
     socket.on('disconnect', () => {

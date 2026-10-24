@@ -2,6 +2,7 @@ import { Link } from '@tanstack/react-router';
 
 import { Badge } from '@/components/ui/badge';
 import { FavoriteButton } from '@/features/favorites/components/FavoriteButton';
+import { cn } from '@/lib/cn';
 import { formatEth } from '@/lib/money';
 
 import type { Nft } from '@/contracts';
@@ -9,12 +10,13 @@ import type { Nft } from '@/contracts';
 interface NftCardProps {
   nft: Nft;
   priority?: boolean;
+  className?: string;
 }
 
-export function NftCard({ nft, priority = false }: NftCardProps) {
+export function NftCard({ nft, priority = false, className }: NftCardProps) {
   const image = nft.images[0];
   return (
-    <li data-testid="nft-card" className="group relative flex flex-col gap-2">
+    <li data-testid="nft-card" className={cn('group relative flex flex-col gap-2', className)}>
       <Link
         to="/nfts/$nftId"
         params={{ nftId: nft.id }}
@@ -44,7 +46,7 @@ export function NftCard({ nft, priority = false }: NftCardProps) {
           {nft.name}
         </Link>
       </h3>
-      <p className="flex items-baseline gap-2">
+      <p className="flex flex-wrap items-baseline gap-x-2">
         <span className="text-body font-bold text-text-accent">{formatEth(nft.price)}</span>
         {nft.compareAtPrice && (
           <s className="text-caption text-text-secondary">{formatEth(nft.compareAtPrice)}</s>

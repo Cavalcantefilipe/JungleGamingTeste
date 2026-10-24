@@ -121,6 +121,14 @@ describe('sessão e conta', () => {
     expect(status).toBe(401);
     expect(body.error).toMatchObject({ code: 'UNAUTHENTICATED' });
   });
+
+  it('carrinho com sessão expirada devolve 401 para permitir novo login', async () => {
+    const token = await login('ana@kurio.test');
+    setScenario('session-expired');
+    const { status, body } = await api<ErrorBody>('/cart', {}, token);
+    expect(status).toBe(401);
+    expect(body.error.code).toBe('SESSION_EXPIRED');
+  });
 });
 
 describe('pedidos', () => {
@@ -167,6 +175,9 @@ describe('pedidos', () => {
     expect(second.status).toBe(200);
     expect(second.body.id).toBe(first.body.id);
     expect(store.read().orders).toHaveLength(1);
+    expect(Object.keys(store.read().idempotency)).toEqual([
+      `${String(first.body.userId)}:${headers['Idempotency-Key']}`,
+    ]);
   });
 
   it('mesma chave com corpo diferente responde 409 IDEMPOTENCY_CONFLICT', async () => {

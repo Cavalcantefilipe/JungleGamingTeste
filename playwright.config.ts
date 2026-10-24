@@ -29,6 +29,11 @@ export default defineConfig({
       name: 'mobile-chromium',
       use: { ...devices['iPhone 13'], defaultBrowserType: 'chromium' },
     },
+    {
+      name: 'tablet-chromium',
+      testMatch: '**/08-visual.spec.ts',
+      use: { ...devices['Desktop Chrome'], viewport: { width: 768, height: 1024 } },
+    },
   ],
   webServer: {
     command: 'pnpm build && pnpm preview',

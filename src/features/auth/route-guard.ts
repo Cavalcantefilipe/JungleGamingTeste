@@ -28,5 +28,6 @@ declare module '@tanstack/react-router' {
   interface StaticDataRouteOption {
     requiresAuth?: boolean;
     hideFooter?: boolean;
+    mobileFlow?: boolean;
   }
 }

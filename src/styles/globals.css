@@ -8,7 +8,7 @@
   --color-popover: var(--color-surface-raised);
   --color-popover-foreground: var(--color-foreground);
   --color-primary-foreground: var(--color-ink);
-  --color-secondary-foreground: var(--color-foreground);
+  --color-secondary-foreground: var(--color-ink);
   --color-muted: var(--color-surface-raised);
   --color-muted-foreground: var(--color-text-secondary);
   --color-accent: var(--color-surface-raised);

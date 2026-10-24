@@ -1,6 +1,7 @@
 import { Link, useNavigate, useRouter } from '@tanstack/react-router';
 
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
+import { HomePage } from '@/features/catalog/components/HomePage';
 import { DESKTOP_MEDIA_QUERY, useMediaQuery } from '@/hooks/useMediaQuery';
 import { cn } from '@/lib/cn';
 
@@ -73,7 +74,7 @@ function AuthMobilePage({ mode, returnTo }: AuthDialogProps) {
   const { search, onSuccess } = useAuthNavigation(returnTo);
   const isLogin = mode === 'login';
   return (
-    <section className="mx-auto flex min-h-dvh w-full max-w-md flex-col gap-10 px-7 pt-20 pb-6">
+    <section className="mx-auto flex min-h-dvh w-full max-w-md flex-col justify-center gap-6 px-7 py-8 md:min-h-[calc(100dvh-5rem)]">
       <p className="text-center text-heading font-bold tracking-[0.3em] text-foreground">KURIO</p>
       <h1 className="text-center text-title font-bold text-foreground">
         {isLogin ? authMessages.loginTitle : authMessages.registerMobileTitle}
@@ -95,29 +96,34 @@ function AuthMobilePage({ mode, returnTo }: AuthDialogProps) {
 }
 
 export function AuthDialog({ mode, returnTo }: AuthDialogProps) {
-  const isDesktop = useMediaQuery(DESKTOP_MEDIA_QUERY);
+  const isWide = useMediaQuery(DESKTOP_MEDIA_QUERY);
+  const hasRoom = useMediaQuery(mode === 'login' ? '(min-height: 650px)' : '(min-height: 760px)');
+  const isDesktop = isWide && hasRoom;
   const { search, onSuccess, close } = useAuthNavigation(returnTo);
   if (!isDesktop) return <AuthMobilePage mode={mode} returnTo={returnTo} />;
 
   const isLogin = mode === 'login';
   return (
-    <Dialog
-      open
-      onOpenChange={(open) => {
-        if (!open) close();
-      }}
-    >
-      <DialogContent className="w-[360px] max-w-[calc(100vw-2rem)] gap-6 border-border-soft bg-surface-card p-8">
-        <DialogTitle className="sr-only">
-          {isLogin ? authMessages.loginTitle : authMessages.registerTitle}
-        </DialogTitle>
-        <AuthTabs mode={mode} search={search} />
-        <DialogDescription className="text-center text-caption text-text-secondary">
-          {isLogin ? authMessages.loginSubtitle : authMessages.registerSubtitle}
-        </DialogDescription>
-        <AuthBody mode={mode} onSuccess={onSuccess} submitLabel="Criar conta" />
-        <SocialButtons />
-      </DialogContent>
-    </Dialog>
+    <>
+      <HomePage />
+      <Dialog
+        open
+        onOpenChange={(open) => {
+          if (!open) close();
+        }}
+      >
+        <DialogContent className="w-[360px] max-w-[calc(100vw-2rem)] gap-5 border-border-soft bg-surface-card p-7">
+          <DialogTitle className="sr-only">
+            {isLogin ? authMessages.loginTitle : authMessages.registerTitle}
+          </DialogTitle>
+          <AuthTabs mode={mode} search={search} />
+          <DialogDescription className="text-center text-caption text-text-secondary">
+            {isLogin ? authMessages.loginSubtitle : authMessages.registerSubtitle}
+          </DialogDescription>
+          <AuthBody mode={mode} onSuccess={onSuccess} submitLabel="Criar conta" />
+          <SocialButtons />
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }

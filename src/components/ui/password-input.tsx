@@ -10,7 +10,7 @@ export function PasswordInput({ className, ...props }: PasswordInputProps) {
   const [visible, setVisible] = useState(false);
   return (
     <div className="relative">
-      <Input type={visible ? 'text' : 'password'} className={cn('pr-10', className)} {...props} />
+      <Input type={visible ? 'text' : 'password'} className={cn('pr-12', className)} {...props} />
       <button
         type="button"
         aria-label={visible ? 'Ocultar senha' : 'Mostrar senha'}
@@ -18,7 +18,7 @@ export function PasswordInput({ className, ...props }: PasswordInputProps) {
         onClick={() => {
           setVisible((current) => !current);
         }}
-        className="absolute top-1/2 right-2 -translate-y-1/2 rounded-sm p-1 text-text-secondary hover:text-foreground"
+        className="absolute top-1/2 right-0 grid size-11 -translate-y-1/2 place-items-center rounded-sm text-text-secondary hover:text-foreground"
       >
         {visible ? <EyeOffIcon className="size-4" /> : <EyeIcon className="size-4" />}
       </button>

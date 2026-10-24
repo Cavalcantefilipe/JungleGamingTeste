@@ -16,14 +16,23 @@ export function PageShell({ children, variant = 'default' }: PageShellProps) {
   const hideFooter = useRouterState({
     select: (state) => state.matches.some((match) => match.staticData.hideFooter),
   });
+  const mobileFlow = useRouterState({
+    select: (state) => state.matches.some((match) => match.staticData.mobileFlow),
+  });
   return (
     <div className="flex min-h-dvh flex-col bg-ink text-foreground">
-      <Header />
+      <div className={cn(mobileFlow && 'hidden md:block')}>
+        <Header />
+      </div>
       <main id="main" className={cn('flex-1', variant === 'auth' && 'pb-0')}>
         {children}
       </main>
-      {variant !== 'auth' && !hideFooter && <Footer />}
-      <MobileTabBar />
+      {variant !== 'auth' && !hideFooter && (
+        <div className={cn(mobileFlow && 'hidden md:block')}>
+          <Footer />
+        </div>
+      )}
+      {!mobileFlow && <MobileTabBar />}
       <LiveRegion />
     </div>
   );

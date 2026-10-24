@@ -27,10 +27,14 @@ export const orderWalletSchema = z.object({
 export type OrderWallet = z.infer<typeof orderWalletSchema>;
 
 export const orderCollectorSchema = z.object({
-  displayName: z.string().trim().min(2, 'Informe o nome de exibição').max(60),
+  displayName: z
+    .string()
+    .trim()
+    .min(2, 'Informe o nome de exibição')
+    .max(60, 'Use no máximo 60 caracteres'),
   email: z.email('Informe um e-mail válido'),
-  ensName: z.string().trim().max(63).optional(),
-  note: z.string().trim().max(500, 'Observação muito longa').optional(),
+  ensName: z.string().trim().max(63, 'Use no máximo 63 caracteres').optional(),
+  note: z.string().trim().max(500, 'Use no máximo 500 caracteres na observação').optional(),
 });
 export type OrderCollector = z.infer<typeof orderCollectorSchema>;
 

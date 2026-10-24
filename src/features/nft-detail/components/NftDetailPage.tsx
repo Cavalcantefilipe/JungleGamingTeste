@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router';
 import { ArrowLeftIcon } from 'lucide-react';
 
 import { usePurchaseSelection } from '../usePurchaseSelection';
@@ -18,16 +19,14 @@ export function NftDetailPage({ nft }: { nft: Nft }) {
       <div className="hidden md:block">
         <Breadcrumb current={nft.name} />
       </div>
-      <button
-        type="button"
+      <Link
+        to="/"
+        hash="catalogo"
         aria-label="Voltar"
-        onClick={() => {
-          window.history.back();
-        }}
-        className="grid size-10 place-items-center rounded-full border border-border-soft text-foreground md:hidden"
+        className="grid size-11 place-items-center rounded-full border border-border-soft text-foreground md:hidden"
       >
         <ArrowLeftIcon aria-hidden className="size-5" />
-      </button>
+      </Link>
       <div className="grid gap-8 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:gap-12">
         <Gallery images={nft.images} />
         <div className="flex flex-col gap-3">

@@ -46,3 +46,5 @@ export type UpdateCartItemInput = z.infer<typeof updateCartItemInputSchema>;
 
 export const mergeCartInputSchema = z.object({ guestId: idSchema });
 export type MergeCartInput = z.infer<typeof mergeCartInputSchema>;
+
+export const mergeCartResponseSchema = cartSchema.extend({ adjusted: z.boolean() });

@@ -37,7 +37,23 @@ export function useToggleFavorite() {
       if (context) queryClient.setQueryData<string[]>(queryKey, context.previous);
       toast.error(FAILURE_MESSAGE);
     },
-    onSettled: () => queryClient.invalidateQueries({ queryKey }),
+    onSettled: async () => {
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey }),
+        queryClient.invalidateQueries({
+          queryKey: queryKeys.nfts.lists(),
+          predicate: (query) => {
+            const search = query.queryKey[2];
+            return (
+              typeof search === 'object' &&
+              search !== null &&
+              'favorites' in search &&
+              search.favorites === true
+            );
+          },
+        }),
+      ]);
+    },
   });
 
   return {

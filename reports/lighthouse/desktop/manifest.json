@@ -1,0 +1,74 @@
+[
+  {
+    "url": "http://localhost:4173/",
+    "isRepresentativeRun": false,
+    "htmlPath": "/Users/filipecavalcante/Documents/JungleGamingTeste/reports/lighthouse/desktop/localhost--2026_10_24_03_10_46.report.html",
+    "jsonPath": "/Users/filipecavalcante/Documents/JungleGamingTeste/reports/lighthouse/desktop/localhost--2026_10_24_03_10_46.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/",
+    "isRepresentativeRun": false,
+    "htmlPath": "/Users/filipecavalcante/Documents/JungleGamingTeste/reports/lighthouse/desktop/localhost--2026_10_24_03_10_57.report.html",
+    "jsonPath": "/Users/filipecavalcante/Documents/JungleGamingTeste/reports/lighthouse/desktop/localhost--2026_10_24_03_10_57.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/nfts/nft_001",
+    "isRepresentativeRun": false,
+    "htmlPath": "/Users/filipecavalcante/Documents/JungleGamingTeste/reports/lighthouse/desktop/localhost-nfts_nft_001-2026_10_24_03_11_08.report.html",
+    "jsonPath": "/Users/filipecavalcante/Documents/JungleGamingTeste/reports/lighthouse/desktop/localhost-nfts_nft_001-2026_10_24_03_11_08.report.json",
+    "summary": {
+      "performance": 0.99,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/nfts/nft_001",
+    "isRepresentativeRun": false,
+    "htmlPath": "/Users/filipecavalcante/Documents/JungleGamingTeste/reports/lighthouse/desktop/localhost-nfts_nft_001-2026_10_24_03_11_30.report.html",
+    "jsonPath": "/Users/filipecavalcante/Documents/JungleGamingTeste/reports/lighthouse/desktop/localhost-nfts_nft_001-2026_10_24_03_11_30.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/Users/filipecavalcante/Documents/JungleGamingTeste/reports/lighthouse/desktop/localhost--2026_10_24_03_10_35.report.html",
+    "jsonPath": "/Users/filipecavalcante/Documents/JungleGamingTeste/reports/lighthouse/desktop/localhost--2026_10_24_03_10_35.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:4173/nfts/nft_001",
+    "isRepresentativeRun": true,
+    "htmlPath": "/Users/filipecavalcante/Documents/JungleGamingTeste/reports/lighthouse/desktop/localhost-nfts_nft_001-2026_10_24_03_11_19.report.html",
+    "jsonPath": "/Users/filipecavalcante/Documents/JungleGamingTeste/reports/lighthouse/desktop/localhost-nfts_nft_001-2026_10_24_03_11_19.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  }
+]

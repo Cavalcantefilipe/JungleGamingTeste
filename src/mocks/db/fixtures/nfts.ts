@@ -139,7 +139,7 @@ export function buildNft(index: number): Nft {
       label: ['Acessório', 'Pedra', 'Estilo'][position] ?? 'Atributo',
       value,
     })),
-    images: [0, 5, 8, 3].map((offset) => artImage(index + offset, `${name}, vista ${offset + 1}`)),
+    images: [0, 1, 2, 3].map((position) => artImage(index, `${name}, vista ${position + 1}`)),
     editions,
     badges: badgesFor(index),
     listedAt: new Date(LISTED_AT_START - index * DAY_MS).toISOString(),

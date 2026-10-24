@@ -18,6 +18,26 @@ export interface SessionSnapshot {
 const storage = createStorage(STORAGE_KEYS.session, sessionSchema);
 const listeners = new Set<() => void>();
 
+function readExpiredAt(): number | null {
+  try {
+    const raw = sessionStorage.getItem(STORAGE_KEYS.sessionExpiredAt);
+    if (raw === null) return null;
+    const value = Number(raw);
+    return Number.isFinite(value) && value > 0 ? value : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeExpiredAt(value: number | null): void {
+  try {
+    if (value === null) sessionStorage.removeItem(STORAGE_KEYS.sessionExpiredAt);
+    else sessionStorage.setItem(STORAGE_KEYS.sessionExpiredAt, String(value));
+  } catch {
+    // O aviso continua disponível em memória quando o armazenamento está bloqueado.
+  }
+}
+
 function isExpired(session: Session): boolean {
   return new Date(session.expiresAt).getTime() <= Date.now();
 }
@@ -33,7 +53,7 @@ function buildSnapshot(session: Session | null, expiredAt: number | null): Sessi
   };
 }
 
-let snapshot = buildSnapshot(storage.read(), null);
+let snapshot = buildSnapshot(storage.read(), readExpiredAt());
 
 function publish(next: SessionSnapshot): void {
   snapshot = next;
@@ -52,16 +72,29 @@ export const sessionStore = {
   },
   setSession: (session: Session): void => {
     storage.write(session);
+    writeExpiredAt(null);
     publish(buildSnapshot(session, null));
+  },
+  updateUser: (
+    patch: Partial<Pick<User, 'displayName' | 'username' | 'email' | 'avatarUrl'>>,
+  ): void => {
+    const current = snapshot.session;
+    if (!current) return;
+    const updated = { ...current, user: { ...current.user, ...patch } };
+    storage.write(updated);
+    publish(buildSnapshot(updated, null));
   },
   clear: (): void => {
     storage.clear();
+    writeExpiredAt(null);
     publish(buildSnapshot(null, null));
   },
   expire: (): void => {
     if (snapshot.status === 'anonymous') return;
     storage.clear();
-    publish(buildSnapshot(null, Date.now()));
+    const expiredAt = Date.now();
+    writeExpiredAt(expiredAt);
+    publish(buildSnapshot(null, expiredAt));
   },
   getToken: (): string | null => snapshot.token,
 };

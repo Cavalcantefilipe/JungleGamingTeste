@@ -3,8 +3,9 @@ import { expect, test, type KurioHelpers } from './fixtures/kurio';
 import type { Page } from '@playwright/test';
 
 async function openFilters(page: Page): Promise<void> {
-  const trigger = page.getByRole('button', { name: 'Filtros' });
-  if (await trigger.isVisible()) await trigger.click();
+  if ((page.viewportSize()?.width ?? 1440) < 768) {
+    await page.getByRole('button', { name: 'Filtros' }).click();
+  }
 }
 
 function cardNames(page: Page) {

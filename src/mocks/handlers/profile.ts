@@ -115,6 +115,18 @@ export function profileHandlers(context: HandlerContext) {
           : respondError(404, 'NOT_FOUND', 'Perfil não encontrado');
       }),
     ),
+    http.delete(
+      route(context, '/profile/avatar'),
+      withNetwork(({ request }) => {
+        const auth = authenticate(request, context);
+        if (!auth.ok) return respondFailure(auth);
+        context.store.write((db) => updateUser(db, auth.value.user.id, { avatarUrl: null }));
+        const user = currentUser(auth.value.user.id);
+        return user
+          ? HttpResponse.json(toProfile(user))
+          : respondError(404, 'NOT_FOUND', 'Perfil não encontrado');
+      }),
+    ),
     http.post(
       route(context, '/profile/password'),
       withNetwork(async ({ request }) => {

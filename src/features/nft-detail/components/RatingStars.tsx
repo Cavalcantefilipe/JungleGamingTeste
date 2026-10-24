@@ -16,6 +16,7 @@ export function RatingStars({ average, count, compact = false }: RatingStarsProp
   if (compact) {
     return (
       <span
+        role="img"
         aria-label={label}
         className="inline-flex items-center gap-1 rounded-control border border-border-soft px-2 py-1 text-caption text-foreground"
       >
@@ -25,7 +26,11 @@ export function RatingStars({ average, count, compact = false }: RatingStarsProp
     );
   }
   return (
-    <p className="flex items-center gap-2 text-caption text-text-secondary" aria-label={label}>
+    <p
+      role="img"
+      className="flex items-center gap-2 text-caption text-text-secondary"
+      aria-label={label}
+    >
       <span aria-hidden className="flex gap-0.5">
         {[1, 2, 3, 4, 5].map((star) => (
           <StarIcon

@@ -8,7 +8,7 @@ import { CartLink } from './CartLink';
 import { OutOfScopeLink } from './OutOfScopeLink';
 
 const navLinkClass =
-  'inline-block border-b-2 border-transparent pb-1 text-body-lg font-medium text-foreground transition-colors hover:text-primary';
+  'inline-block border-b-2 border-transparent pb-1 text-body font-medium lg:text-body-lg text-foreground transition-colors hover:text-primary';
 const activeNavClass = 'border-primary text-primary';
 
 export function Logo({ className }: { className?: string }) {
@@ -26,10 +26,10 @@ export function Logo({ className }: { className?: string }) {
 export function Header() {
   return (
     <header className="bg-ink">
-      <div className="mx-auto flex h-20 max-w-[1200px] items-center justify-between px-6 xl:px-0">
+      <div className="mx-auto flex h-20 max-w-[1200px] items-center justify-between gap-4 px-6 xl:px-0">
         <Logo />
         <nav aria-label="Principal" className="hidden md:block">
-          <ul className="flex items-center gap-10">
+          <ul className="flex items-center gap-5 lg:gap-10">
             <li>
               <Link
                 to="/"

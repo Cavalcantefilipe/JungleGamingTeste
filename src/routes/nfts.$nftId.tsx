@@ -10,6 +10,7 @@ import { nftDetailQueryOptions } from '@/features/nft-detail/queries';
 import { errorMessage, isApiError } from '@/lib/errors';
 
 export const Route = createFileRoute('/nfts/$nftId')({
+  staticData: { mobileFlow: true },
   loader: ({ context, params }) =>
     context.queryClient.query({ ...nftDetailQueryOptions(params.nftId), staleTime: 'static' }),
   pendingComponent: DetailPending,
