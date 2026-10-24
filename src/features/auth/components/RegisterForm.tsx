@@ -1,9 +1,8 @@
 import { RootFormError } from '@/components/forms/RootFormError';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
-
-import { useRegisterForm } from '../useRegisterForm';
-import { RegisterFields } from './RegisterFields';
+import { RegisterFields } from '@/features/auth/components/RegisterFields';
+import { useRegisterForm } from '@/features/auth/useRegisterForm';
 
 export function RegisterForm({ returnTo }: { returnTo: string }) {
   const { form, submit, pending } = useRegisterForm(returnTo);

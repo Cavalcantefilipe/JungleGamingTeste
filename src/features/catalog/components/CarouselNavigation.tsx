@@ -1,7 +1,6 @@
 import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
-
-import type { CarouselNavigationState } from '../useCarousel';
+import type { CarouselNavigationState } from '@/features/catalog/useCarousel';
 
 export function CarouselNavigation({ page, pages, goTo }: CarouselNavigationState) {
   return (

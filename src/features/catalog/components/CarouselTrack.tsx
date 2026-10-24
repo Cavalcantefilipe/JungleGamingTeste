@@ -1,6 +1,5 @@
 import type { Nft } from '@/contracts/nft';
-
-import { NftCard } from './NftCard';
+import { NftCard } from '@/features/catalog/components/NftCard';
 
 import type { RefObject } from 'react';
 

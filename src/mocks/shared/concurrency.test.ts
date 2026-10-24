@@ -3,11 +3,10 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { CreateOrderInput } from '@/contracts/order';
 import { mockStore } from '@/mocks/db/store';
 import { setScenario } from '@/mocks/scenarios/current';
-
-import { addCartItem, mergeCart } from './cart';
-import { createOrder, reconcileOrders } from './orders';
-import { computeQuote } from './pricing';
-import { MockError } from './respond';
+import { addCartItem, mergeCart } from '@/mocks/shared/cart';
+import { createOrder, reconcileOrders } from '@/mocks/shared/orders';
+import { computeQuote } from '@/mocks/shared/pricing';
+import { MockError } from '@/mocks/shared/respond';
 
 const token = 'concurrency-session';
 const item = { nftId: 'nft-001', editionId: 'nft-001-10', quantity: 6 };

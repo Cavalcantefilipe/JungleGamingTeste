@@ -1,10 +1,8 @@
 import { EmptyState } from '@/components/feedback/EmptyState';
 import { ErrorState } from '@/components/feedback/ErrorState';
 import { Button } from '@/components/ui/button';
-
-import { NftGrid } from './NftGrid';
-
-import type { useCatalogQuery } from '../queries';
+import { NftGrid } from '@/features/catalog/components/NftGrid';
+import type { useCatalogQuery } from '@/features/catalog/queries';
 
 export function CatalogItems({
   query,

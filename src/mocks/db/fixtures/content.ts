@@ -1,6 +1,5 @@
 import type { Content } from '@/contracts/content';
-
-import { createArtwork } from './images';
+import { createArtwork } from '@/mocks/db/fixtures/images';
 
 const image = (index: number) => ({
   src: createArtwork(index),

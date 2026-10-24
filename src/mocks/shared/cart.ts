@@ -7,9 +7,8 @@ import type {
 } from '@/contracts/cart';
 import type { MockDb } from '@/mocks/db/schema';
 import { mockStore } from '@/mocks/db/store';
-
-import { priceItem } from './pricing';
-import { MockError } from './respond';
+import { priceItem } from '@/mocks/shared/pricing';
+import { MockError } from '@/mocks/shared/respond';
 
 export function cartKey(scope: CartScope): string {
   return `${scope.kind}:${scope.id}`;

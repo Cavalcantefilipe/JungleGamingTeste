@@ -1,6 +1,5 @@
 import type { NftFacets } from '@/contracts/nft';
-
-import type { CatalogSearch } from './search-params';
+import type { CatalogSearch } from '@/features/catalog/search-params';
 
 export interface FilterProps {
   search: CatalogSearch;

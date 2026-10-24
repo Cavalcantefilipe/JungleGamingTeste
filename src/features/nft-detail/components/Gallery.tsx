@@ -2,9 +2,8 @@ import { useState } from 'react';
 
 import { ArtworkImage } from '@/components/media/ArtworkImage';
 import type { NftImage } from '@/contracts/nft';
-
-import { GalleryThumbnails } from './GalleryThumbnails';
-import { GalleryZoom } from './GalleryZoom';
+import { GalleryThumbnails } from '@/features/nft-detail/components/GalleryThumbnails';
+import { GalleryZoom } from '@/features/nft-detail/components/GalleryZoom';
 
 export function Gallery({ images }: { images: NftImage[] }) {
   const [selected, setSelected] = useState(0);

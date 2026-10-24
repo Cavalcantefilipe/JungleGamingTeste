@@ -1,7 +1,6 @@
-import { createNfts } from './fixtures/nfts';
-import { createUsers, createWallets } from './fixtures/users';
-
-import type { MockDb } from './schema';
+import { createNfts } from '@/mocks/db/fixtures/nfts';
+import { createUsers, createWallets } from '@/mocks/db/fixtures/users';
+import type { MockDb } from '@/mocks/db/schema';
 
 export function createSeed(name = 'default'): MockDb {
   const wallets = createWallets();

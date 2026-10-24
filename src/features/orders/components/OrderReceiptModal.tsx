@@ -4,11 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { NFT_NETWORK_LABELS } from '@/contracts/nft';
 import type { Order } from '@/contracts/order';
-
-import { OrderItemsTable } from './OrderItemsTable';
-import { ReceiptHeading } from './ReceiptHeading';
-import { ReceiptMetadata } from './ReceiptMetadata';
-import { ReceiptTotals } from './ReceiptTotals';
+import { OrderItemsTable } from '@/features/orders/components/OrderItemsTable';
+import { ReceiptHeading } from '@/features/orders/components/ReceiptHeading';
+import { ReceiptMetadata } from '@/features/orders/components/ReceiptMetadata';
+import { ReceiptTotals } from '@/features/orders/components/ReceiptTotals';
 
 export function OrderReceiptModal({ order }: { order: Order }) {
   const navigate = useNavigate();

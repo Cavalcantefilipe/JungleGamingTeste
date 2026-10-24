@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useFormContext, type FieldPath, type FieldValues } from 'react-hook-form';
 
+import { PasswordVisibilityToggle } from '@/components/forms/PasswordVisibilityToggle';
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 
@@ -10,8 +11,6 @@ interface PasswordFieldProps<T extends FieldValues> {
   autoComplete: string;
   appearance?: 'default' | 'auth';
 }
-import { PasswordVisibilityToggle } from './PasswordVisibilityToggle';
-
 export function PasswordField<T extends FieldValues>({
   name,
   label,

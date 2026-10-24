@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
-import { emailSchema, passwordSchema, usernameSchema } from './auth';
-import { idSchema } from './common';
+import { emailSchema, passwordSchema, usernameSchema } from '@/contracts/auth';
+import { idSchema } from '@/contracts/common';
 
 export const ensLabelSchema = z
   .string()

@@ -2,8 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import { NFT_CATEGORIES, NFT_NETWORKS, nftSchema } from '@/contracts';
 import { compareEth } from '@/lib/money';
-
-import { createNfts } from './nfts';
+import { createNfts } from '@/mocks/db/fixtures/nfts';
 
 const nfts = createNfts();
 

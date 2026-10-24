@@ -1,8 +1,7 @@
 import type { Profile, UpdateProfileInput } from '@/contracts/profile';
 import type { MockDb } from '@/mocks/db/schema';
 import { mockStore } from '@/mocks/db/store';
-
-import { MockError } from './respond';
+import { MockError } from '@/mocks/shared/respond';
 
 export function updateProfile(
   userId: string,

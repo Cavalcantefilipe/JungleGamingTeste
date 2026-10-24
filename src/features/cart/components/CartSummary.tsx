@@ -1,11 +1,9 @@
 import { Link } from '@tanstack/react-router';
 
+import { CartCheckoutAction } from '@/features/cart/components/CartCheckoutAction';
+import { CartQuoteSection } from '@/features/cart/components/CartQuoteSection';
+import type { useCartState } from '@/features/cart/useCartState';
 import { ApiError, errorMessage } from '@/lib/errors';
-
-import { CartCheckoutAction } from './CartCheckoutAction';
-import { CartQuoteSection } from './CartQuoteSection';
-
-import type { useCartState } from '../useCartState';
 
 export function CartSummary({
   state,

@@ -3,13 +3,11 @@ import { useFormContext } from 'react-hook-form';
 
 import { Button } from '@/components/ui/button';
 import type { Wallet } from '@/contracts/wallet';
+import type { CollectorFormInput } from '@/features/checkout/collector-schema';
+import { AlternateWalletToggle } from '@/features/checkout/components/AlternateWalletToggle';
+import { CollectorFields } from '@/features/checkout/components/CollectorFields';
+import { CollectorNoteField } from '@/features/checkout/components/CollectorNoteField';
 import { cn } from '@/lib/cn';
-
-import { AlternateWalletToggle } from './AlternateWalletToggle';
-import { CollectorFields } from './CollectorFields';
-import { CollectorNoteField } from './CollectorNoteField';
-
-import type { CollectorFormInput } from '../collector-schema';
 
 export function CollectorForm({
   wallet,

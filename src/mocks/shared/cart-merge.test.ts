@@ -1,8 +1,7 @@
 import { beforeEach, expect, it } from 'vitest';
 
 import { mockStore } from '@/mocks/db/store';
-
-import { addCartItem, mergeCart, readCart } from './cart';
+import { addCartItem, mergeCart, readCart } from '@/mocks/shared/cart';
 
 const user = { kind: 'user' as const, id: 'user-ana' };
 const guest = { kind: 'guest' as const, id: 'guest-merge-review' };

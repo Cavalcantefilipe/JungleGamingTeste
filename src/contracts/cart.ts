@@ -1,8 +1,8 @@
 import { z } from 'zod';
 
-import { idSchema, isoDateSchema } from './common';
-import { ethAmountSchema } from './money';
-import { nftEditionLabelSchema, nftImageSchema } from './nft';
+import { idSchema, isoDateSchema } from '@/contracts/common';
+import { ethAmountSchema } from '@/contracts/money';
+import { nftEditionLabelSchema, nftImageSchema } from '@/contracts/nft';
 
 export const MAX_ITEM_QUANTITY = 99;
 

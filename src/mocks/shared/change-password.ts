@@ -1,9 +1,8 @@
 import { changePasswordInputSchema, type ChangePasswordInput } from '@/contracts/profile';
 import { mockStore } from '@/mocks/db/store';
-
-import { hashPassword, verifyPassword } from './password';
-import { MockError } from './respond';
-import { assertActiveSession } from './session';
+import { hashPassword, verifyPassword } from '@/mocks/shared/password';
+import { MockError } from '@/mocks/shared/respond';
+import { assertActiveSession } from '@/mocks/shared/session';
 
 export async function changePassword(
   userId: string,

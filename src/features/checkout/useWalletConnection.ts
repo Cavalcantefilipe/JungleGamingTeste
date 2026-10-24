@@ -3,10 +3,9 @@ import { useState } from 'react';
 
 import type { WalletConnectInput } from '@/contracts/wallet';
 import { sessionStore } from '@/features/auth/session-store';
+import { connectReviewedWallet } from '@/features/checkout/connectReviewedWallet';
 import { ApiError } from '@/lib/errors';
 import { queryKeys } from '@/lib/query-keys';
-
-import { connectReviewedWallet } from './connectReviewedWallet';
 
 export function useWalletConnection(token: string, identity: string) {
   const client = useQueryClient();

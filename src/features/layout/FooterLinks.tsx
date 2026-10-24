@@ -1,8 +1,8 @@
 import { Link } from '@tanstack/react-router';
 import { toast } from 'sonner';
 
-import { FooterCollectionLinks } from './FooterCollectionLinks';
-import { FooterSocialLinks } from './FooterSocialLinks';
+import { FooterCollectionLinks } from '@/features/layout/FooterCollectionLinks';
+import { FooterSocialLinks } from '@/features/layout/FooterSocialLinks';
 
 const sections = [
   {

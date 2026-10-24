@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { catalogSearchSchema } from './search-params';
+import { catalogSearchSchema } from '@/features/catalog/search-params';
 
 const parse = (params: Record<string, unknown>) => catalogSearchSchema.parse(params);
 describe('parâmetros do catálogo', () => {

@@ -1,4 +1,4 @@
-import { NewsletterForm } from './NewsletterForm';
+import { NewsletterForm } from '@/features/layout/NewsletterForm';
 
 const features = [
   {

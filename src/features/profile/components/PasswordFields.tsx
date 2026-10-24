@@ -1,6 +1,5 @@
 import { PasswordField } from '@/components/forms/PasswordField';
-
-import type { PasswordFormInput } from '../usePasswordForm';
+import type { PasswordFormInput } from '@/features/profile/usePasswordForm';
 
 export function PasswordFields() {
   return (

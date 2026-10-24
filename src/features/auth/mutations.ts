@@ -4,12 +4,11 @@ import { toast } from 'sonner';
 
 import { queryClient } from '@/app/query-client';
 import type { Session } from '@/contracts/auth';
+import * as api from '@/features/auth/api';
+import { sessionStore } from '@/features/auth/session-store';
 import { transferGuestCoupon } from '@/features/cart/coupon-store';
 import { waitForCartMutations } from '@/features/cart/mutation-state';
 import { ApiError, errorMessage } from '@/lib/errors';
-
-import * as api from './api';
-import { sessionStore } from './session-store';
 
 async function acceptSession(session: Session): Promise<void> {
   const guestId = localStorage.getItem('kurio.guestId');

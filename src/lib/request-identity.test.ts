@@ -3,7 +3,7 @@ import { setupServer } from 'msw/node';
 import { afterAll, beforeAll, beforeEach, expect, it } from 'vitest';
 import { z } from 'zod';
 
-import { apiRequest } from './http';
+import { apiRequest } from '@/lib/http';
 
 const server = setupServer();
 function saveSession(id: string) {

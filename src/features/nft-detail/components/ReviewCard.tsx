@@ -1,6 +1,5 @@
 import type { Review } from '@/contracts/review';
-
-import { RatingStars } from './RatingStars';
+import { RatingStars } from '@/features/nft-detail/components/RatingStars';
 
 export function ReviewCard({ review }: { review: Review }) {
   const date = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'medium', timeZone: 'UTC' }).format(

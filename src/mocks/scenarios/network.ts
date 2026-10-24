@@ -1,9 +1,8 @@
 import { delay, HttpResponse, type HttpResponseResolver } from 'msw';
 import { ZodError } from 'zod';
 
+import { getScenario } from '@/mocks/scenarios/current';
 import { MockError, respondError } from '@/mocks/shared/respond';
-
-import { getScenario } from './current';
 
 let sequence = 0;
 

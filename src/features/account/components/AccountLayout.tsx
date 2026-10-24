@@ -1,4 +1,4 @@
-import { AccountSidebar } from './AccountSidebar';
+import { AccountSidebar } from '@/features/account/components/AccountSidebar';
 
 import type { ReactNode } from 'react';
 

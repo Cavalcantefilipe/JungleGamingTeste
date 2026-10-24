@@ -1,10 +1,9 @@
 import { Tabs, TabsContent, TabsList } from '@/components/ui/tabs';
 import type { Nft } from '@/contracts/nft';
-
-import { useDetailNavigation } from '../useDetailNavigation';
-import { BuyerReviews } from './BuyerReviews';
-import { DetailFacts } from './DetailFacts';
-import { DetailTabTrigger } from './DetailTabTrigger';
+import { BuyerReviews } from '@/features/nft-detail/components/BuyerReviews';
+import { DetailFacts } from '@/features/nft-detail/components/DetailFacts';
+import { DetailTabTrigger } from '@/features/nft-detail/components/DetailTabTrigger';
+import { useDetailNavigation } from '@/features/nft-detail/useDetailNavigation';
 
 export function DetailTabs({ nft }: { nft: Nft }) {
   const { tab, setTab } = useDetailNavigation();

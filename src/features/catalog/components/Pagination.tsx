@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
-
-import { PaginationArrow } from './PaginationArrow';
+import { PaginationArrow } from '@/features/catalog/components/PaginationArrow';
 
 interface PaginationProps {
   page: number;

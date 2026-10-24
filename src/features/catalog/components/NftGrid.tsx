@@ -1,7 +1,6 @@
 import { NftCardSkeleton } from '@/components/feedback/NftCardSkeleton';
 import type { Nft } from '@/contracts/nft';
-
-import { NftCard } from './NftCard';
+import { NftCard } from '@/features/catalog/components/NftCard';
 
 export function NftGrid({ items, loading = false }: { items?: Nft[]; loading?: boolean }) {
   return (

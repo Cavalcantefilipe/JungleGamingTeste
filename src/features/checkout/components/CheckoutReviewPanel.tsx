@@ -1,9 +1,8 @@
-import { CheckoutSubmit } from './CheckoutSubmit';
-import { OrderReview } from './OrderReview';
-import { StaleQuoteBanner } from './StaleQuoteBanner';
-import { WalletNetworkPicker } from './WalletNetworkPicker';
-
-import type { useCheckoutController } from '../useCheckoutController';
+import { CheckoutSubmit } from '@/features/checkout/components/CheckoutSubmit';
+import { OrderReview } from '@/features/checkout/components/OrderReview';
+import { StaleQuoteBanner } from '@/features/checkout/components/StaleQuoteBanner';
+import { WalletNetworkPicker } from '@/features/checkout/components/WalletNetworkPicker';
+import type { useCheckoutController } from '@/features/checkout/useCheckoutController';
 
 export function CheckoutReviewPanel({
   state,

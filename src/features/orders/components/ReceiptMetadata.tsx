@@ -1,8 +1,7 @@
 import type { Order } from '@/contracts/order';
 import { WALLET_PROVIDER_LABELS } from '@/contracts/order';
+import { formatReceiptDate } from '@/features/orders/formatReceiptDate';
 import { formatEth } from '@/lib/money';
-
-import { formatReceiptDate } from '../formatReceiptDate';
 
 export function ReceiptMetadata({ order }: { order: Order }) {
   const date = formatReceiptDate(order.createdAt);

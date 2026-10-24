@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
 
-import { createIdempotencyKey, hashPayload } from './idempotency';
+import { createIdempotencyKey, hashPayload } from '@/lib/idempotency';
 
 describe('idempotência', () => {
   it('mesmo objeto com chaves em ordens diferentes gera o mesmo hash', async () => {

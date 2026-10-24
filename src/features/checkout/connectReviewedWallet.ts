@@ -1,8 +1,7 @@
 import type { WalletConnectInput } from '@/contracts/wallet';
 import { sessionStore } from '@/features/auth/session-store';
+import { connectWallet } from '@/features/checkout/api';
 import { ApiError } from '@/lib/errors';
-
-import { connectWallet } from './api';
 
 export async function connectReviewedWallet(
   token: string,

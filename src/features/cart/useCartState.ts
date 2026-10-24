@@ -2,12 +2,11 @@ import { useIsMutating, useQueries, useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 
 import type { Cart } from '@/contracts/cart';
+import { readCartCoupon, saveCartCoupon } from '@/features/cart/coupon-store';
+import { estimateCart } from '@/features/cart/estimateCart';
+import { cartMutationKey } from '@/features/cart/mutation-state';
 import { nftDetailQueryOptions } from '@/features/catalog/queries';
 import { quoteQueryOptions } from '@/features/checkout/quote';
-
-import { readCartCoupon, saveCartCoupon } from './coupon-store';
-import { estimateCart } from './estimateCart';
-import { cartMutationKey } from './mutation-state';
 
 export function useCartState(cart: Cart) {
   const [couponCode, setCode] = useState(() => readCartCoupon(cart.scope));

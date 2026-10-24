@@ -1,9 +1,8 @@
 import { queryOptions, useQuery } from '@tanstack/react-query';
 
 import { useSession } from '@/features/auth/session-store';
+import { getWallets } from '@/features/wallets/api';
 import { queryKeys } from '@/lib/query-keys';
-
-import { getWallets } from './api';
 
 export function walletsQueryOptions(userId: string) {
   return queryOptions({

@@ -1,9 +1,7 @@
 import { ErrorState } from '@/components/feedback/ErrorState';
 import { SummarySkeleton } from '@/components/feedback/SummarySkeleton';
-
-import { QuoteSummary } from './QuoteSummary';
-
-import type { useCartState } from '../useCartState';
+import { QuoteSummary } from '@/features/cart/components/QuoteSummary';
+import type { useCartState } from '@/features/cart/useCartState';
 
 export function CartQuote({
   state,

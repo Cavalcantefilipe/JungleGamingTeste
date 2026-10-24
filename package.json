@@ -23,7 +23,7 @@
     "e2e:ui": "playwright test --ui",
     "lighthouse": "node lighthouse/run.mjs",
     "check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test && pnpm test:tooling",
-    "test:tooling": "node --test lighthouse/*.test.mjs scripts/compressedAssets.test.mjs",
+    "test:tooling": "node --test lighthouse/*.test.mjs scripts/compressedAssets.test.mjs scripts/codeRules.test.mjs",
     "verify:deployment": "node scripts/verifyDeployment.mjs"
   },
   "dependencies": {

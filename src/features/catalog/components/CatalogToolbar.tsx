@@ -1,11 +1,10 @@
 import { useRouterState } from '@tanstack/react-router';
 
 import { Input } from '@/components/ui/input';
+import { CatalogSortSelect } from '@/features/catalog/components/CatalogSortSelect';
+import { CatalogTabs } from '@/features/catalog/components/CatalogTabs';
 import type { CatalogSearch } from '@/features/catalog/search-params';
 import { cn } from '@/lib/cn';
-
-import { CatalogSortSelect } from './CatalogSortSelect';
-import { CatalogTabs } from './CatalogTabs';
 
 export function CatalogToolbar({
   search,

@@ -1,8 +1,7 @@
+import { DetailFactsSkeleton } from '@/components/feedback/DetailFactsSkeleton';
+import { NftCardSkeleton } from '@/components/feedback/NftCardSkeleton';
 import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/cn';
-
-import { DetailFactsSkeleton } from './DetailFactsSkeleton';
-import { NftCardSkeleton } from './NftCardSkeleton';
 
 export function DetailSectionsSkeleton() {
   return (

@@ -1,11 +1,10 @@
 import { realtimeEventSchema } from '@/contracts/realtime';
 import { sessionStore } from '@/features/auth/session-store';
-
-import { applyRealtimeEvent } from './apply-event';
-import { createEventGate } from './event-gate';
-import { type RealtimeStatus } from './realtime-context';
-import { reconcileRealtime, syncCacheVersions } from './reconcile';
-import { createSocket } from './socket';
+import { applyRealtimeEvent } from '@/features/realtime/apply-event';
+import { createEventGate } from '@/features/realtime/event-gate';
+import { type RealtimeStatus } from '@/features/realtime/realtime-context';
+import { reconcileRealtime, syncCacheVersions } from '@/features/realtime/reconcile';
+import { createSocket } from '@/features/realtime/socket';
 
 import type { QueryClient } from '@tanstack/react-query';
 

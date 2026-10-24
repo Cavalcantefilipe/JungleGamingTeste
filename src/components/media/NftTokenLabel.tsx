@@ -1,6 +1,5 @@
+import { nftIdentityMessages } from '@/components/media/messages';
 import { cn } from '@/lib/cn';
-
-import { nftIdentityMessages } from './messages';
 
 export function NftTokenLabel({
   tokenId,

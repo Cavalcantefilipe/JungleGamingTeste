@@ -1,9 +1,7 @@
 import { Button } from '@/components/ui/button';
+import { checkoutMessages } from '@/features/checkout/messages';
+import type { useQuoteReview } from '@/features/checkout/useQuoteReview';
 import { ApiError, errorMessage } from '@/lib/errors';
-
-import { checkoutMessages } from '../messages';
-
-import type { useQuoteReview } from '../useQuoteReview';
 
 export function StaleQuoteBanner({ state }: { state: ReturnType<typeof useQuoteReview> }) {
   const unavailable =

@@ -1,14 +1,13 @@
 import { useNavigate } from '@tanstack/react-router';
 
 import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { AuthDialogHeading } from '@/features/auth/components/AuthDialogHeading';
+import { AuthFormPanel } from '@/features/auth/components/AuthFormPanel';
 import { resolveAuthDismissal } from '@/features/auth/resolveAuthDismissal';
 import { useReturnFocus } from '@/features/auth/useReturnFocus';
 import { CatalogPage } from '@/features/catalog/components/CatalogPage';
 import { defaultCatalogSearch } from '@/features/catalog/search-params';
 import { cn } from '@/lib/cn';
-
-import { AuthDialogHeading } from './AuthDialogHeading';
-import { AuthFormPanel } from './AuthFormPanel';
 
 export function AuthDialog({
   register = false,

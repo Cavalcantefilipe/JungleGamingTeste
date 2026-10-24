@@ -1,13 +1,11 @@
 import { applyFormError } from '@/components/forms/applyFormError';
 import type { Wallet } from '@/contracts/wallet';
+import { createOrderRequest } from '@/features/checkout/createOrderRequest';
+import type { useCheckoutForm } from '@/features/checkout/useCheckoutForm';
+import type { useCreateOrder } from '@/features/checkout/useCreateOrder';
+import type { useQuoteReview } from '@/features/checkout/useQuoteReview';
+import type { useWalletConnection } from '@/features/checkout/useWalletConnection';
 import { ApiError } from '@/lib/errors';
-
-import { createOrderRequest } from './createOrderRequest';
-
-import type { useCheckoutForm } from './useCheckoutForm';
-import type { useCreateOrder } from './useCreateOrder';
-import type { useQuoteReview } from './useQuoteReview';
-import type { useWalletConnection } from './useWalletConnection';
 
 interface SubmissionOptions {
   form: ReturnType<typeof useCheckoutForm>['form'];

@@ -3,10 +3,9 @@ import { useId, useState } from 'react';
 import { SummarySkeleton } from '@/components/feedback/SummarySkeleton';
 import { Button } from '@/components/ui/button';
 import type { Quote } from '@/contracts/quote';
+import { OrderReviewDetails } from '@/features/checkout/components/OrderReviewDetails';
 import { cn } from '@/lib/cn';
 import { formatEth } from '@/lib/money';
-
-import { OrderReviewDetails } from './OrderReviewDetails';
 
 export function OrderReview({ quote, loading }: { quote: Quote | undefined; loading: boolean }) {
   const [expanded, setExpanded] = useState(false);

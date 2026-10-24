@@ -5,11 +5,10 @@ import { useForm } from 'react-hook-form';
 import type { Session } from '@/contracts/auth';
 import type { Profile } from '@/contracts/profile';
 import type { Wallet } from '@/contracts/wallet';
-
-import { readCheckoutDraft } from './checkout-draft';
-import { collectorFormSchema, type CollectorFormInput } from './collector-schema';
-import { getWalletFormValues } from './getWalletFormValues';
-import { useCheckoutDraftPersistence } from './useCheckoutDraftPersistence';
+import { readCheckoutDraft } from '@/features/checkout/checkout-draft';
+import { collectorFormSchema, type CollectorFormInput } from '@/features/checkout/collector-schema';
+import { getWalletFormValues } from '@/features/checkout/getWalletFormValues';
+import { useCheckoutDraftPersistence } from '@/features/checkout/useCheckoutDraftPersistence';
 
 export function useCheckoutForm(session: Session, profile: Profile, wallet: Wallet) {
   const [draft] = useState(() => readCheckoutDraft(session.user.id));

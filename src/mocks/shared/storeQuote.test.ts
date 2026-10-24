@@ -4,9 +4,8 @@ import { stdout } from 'node:process';
 import { beforeEach, expect, it } from 'vitest';
 
 import { mockStore } from '@/mocks/db/store';
-
-import { computeQuote } from './pricing';
-import { storeQuote } from './storeQuote';
+import { computeQuote } from '@/mocks/shared/pricing';
+import { storeQuote } from '@/mocks/shared/storeQuote';
 
 const input = {
   items: [{ nftId: 'nft-001', editionId: 'nft-001-10', quantity: 1 }],

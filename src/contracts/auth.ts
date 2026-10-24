@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { idSchema, isoDateSchema } from './common';
+import { idSchema, isoDateSchema } from '@/contracts/common';
 
 export const emailSchema = z.email('Informe um e-mail válido').max(254);
 

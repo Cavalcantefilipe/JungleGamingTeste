@@ -1,9 +1,8 @@
 import { Link } from '@tanstack/react-router';
 
 import { DialogDescription, DialogTitle } from '@/components/ui/dialog';
+import { AuthTabs } from '@/features/auth/components/AuthTabs';
 import { cn } from '@/lib/cn';
-
-import { AuthTabs } from './AuthTabs';
 
 export function AuthDialogHeading({ register, returnTo }: { register: boolean; returnTo: string }) {
   return (

@@ -1,8 +1,7 @@
 import { ErrorState } from '@/components/feedback/ErrorState';
 import { Skeleton } from '@/components/ui/skeleton';
+import { EditorialContent } from '@/features/catalog/components/EditorialContent';
 import { useContentQuery } from '@/features/catalog/useContentQuery';
-
-import { EditorialContent } from './EditorialContent';
 
 export function EditorialSections() {
   const query = useContentQuery();

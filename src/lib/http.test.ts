@@ -2,7 +2,7 @@ import { http as mswHttp, HttpResponse } from 'msw';
 import { setupServer } from 'msw/node';
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { http, onUnauthorized } from './http';
+import { http, onUnauthorized } from '@/lib/http';
 
 const server = setupServer();
 beforeAll(() => {

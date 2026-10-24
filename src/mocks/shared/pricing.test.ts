@@ -1,8 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { createSeed } from '@/mocks/db/seed';
-
-import { computeQuote } from './pricing';
+import { computeQuote } from '@/mocks/shared/pricing';
 
 const items = [
   { nftId: 'nft-001', editionId: 'nft-001-10', quantity: 2 },

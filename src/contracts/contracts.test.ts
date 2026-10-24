@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
 
-import { nftSchema } from './nft';
-import { orderSchema } from './order';
-import { realtimeEventSchema } from './realtime';
-import { walletInputSchema } from './wallet';
+import { nftSchema } from '@/contracts/nft';
+import { orderSchema } from '@/contracts/order';
+import { realtimeEventSchema } from '@/contracts/realtime';
+import { walletInputSchema } from '@/contracts/wallet';
 
 const validNft = {
   id: 'nft_001',

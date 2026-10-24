@@ -1,8 +1,8 @@
 import { Link } from '@tanstack/react-router';
 
-import { LoginForm } from './LoginForm';
-import { RegisterForm } from './RegisterForm';
-import { SocialButtons } from './SocialButtons';
+import { LoginForm } from '@/features/auth/components/LoginForm';
+import { RegisterForm } from '@/features/auth/components/RegisterForm';
+import { SocialButtons } from '@/features/auth/components/SocialButtons';
 
 export function AuthFormPanel({ register, returnTo }: { register: boolean; returnTo: string }) {
   return (

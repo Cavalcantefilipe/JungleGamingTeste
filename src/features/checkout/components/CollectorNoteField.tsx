@@ -2,8 +2,7 @@ import { useFormContext } from 'react-hook-form';
 
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';
-
-import type { CollectorFormInput } from '../collector-schema';
+import type { CollectorFormInput } from '@/features/checkout/collector-schema';
 
 export function CollectorNoteField() {
   const { control } = useFormContext<CollectorFormInput>();

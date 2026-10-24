@@ -2,9 +2,8 @@ import { keepPreviousData, queryOptions, useQuery } from '@tanstack/react-query'
 
 import type { NftListQuery } from '@/contracts/nft';
 import { useSession } from '@/features/auth/session-store';
+import { fetchNft, fetchNfts } from '@/features/catalog/api';
 import { queryKeys } from '@/lib/query-keys';
-
-import { fetchNft, fetchNfts } from './api';
 
 export function nftListQueryOptions(search: NftListQuery, userId?: string) {
   return queryOptions({

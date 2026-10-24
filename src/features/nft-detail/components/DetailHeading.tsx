@@ -1,8 +1,7 @@
 import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import type { Nft } from '@/contracts/nft';
+import { RatingStars } from '@/features/nft-detail/components/RatingStars';
 import { formatEth } from '@/lib/money';
-
-import { RatingStars } from './RatingStars';
 
 export function DetailHeading({ nft }: { nft: Nft }) {
   return (

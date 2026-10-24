@@ -3,14 +3,13 @@ import { toast } from 'sonner';
 
 import type { Cart } from '@/contracts/cart';
 import { useSession } from '@/features/auth/session-store';
+import { updateCartItem } from '@/features/cart/api';
+import { getCartScope } from '@/features/cart/cart-scope';
+import { cartErrorMessage } from '@/features/cart/messages';
+import { cartMutationKey, isCurrentCartScope } from '@/features/cart/mutation-state';
+import { replaceCartItem } from '@/features/cart/replaceCartItem';
 import { ApiError } from '@/lib/errors';
 import { queryKeys } from '@/lib/query-keys';
-
-import { updateCartItem } from './api';
-import { getCartScope } from './cart-scope';
-import { cartErrorMessage } from './messages';
-import { cartMutationKey, isCurrentCartScope } from './mutation-state';
-import { replaceCartItem } from './replaceCartItem';
 
 export function useUpdateCartItem() {
   const session = useSession();

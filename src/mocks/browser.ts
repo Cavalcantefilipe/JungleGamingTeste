@@ -1,12 +1,11 @@
 import { setupWorker } from 'msw/browser';
 
 import { env } from '@/lib/env';
-
-import { mockControl } from './control';
-import { mockStore } from './db/store';
-import { handlers } from './handlers';
-import { getScenario, setScenario } from './scenarios/current';
-import { SCENARIO_NAMES } from './scenarios/registry';
+import { mockControl } from '@/mocks/control';
+import { mockStore } from '@/mocks/db/store';
+import { handlers } from '@/mocks/handlers';
+import { getScenario, setScenario } from '@/mocks/scenarios/current';
+import { SCENARIO_NAMES } from '@/mocks/scenarios/registry';
 
 export async function startMocks(): Promise<void> {
   const name =

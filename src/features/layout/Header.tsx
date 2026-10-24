@@ -1,9 +1,8 @@
 import { Link, useRouterState } from '@tanstack/react-router';
 
+import { HeaderActions } from '@/features/layout/HeaderActions';
+import { HeaderNavigation } from '@/features/layout/HeaderNavigation';
 import { cn } from '@/lib/cn';
-
-import { HeaderActions } from './HeaderActions';
-import { HeaderNavigation } from './HeaderNavigation';
 
 export function Header() {
   const pathname = useRouterState({ select: (state) => state.location.pathname });

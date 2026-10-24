@@ -1,10 +1,9 @@
 import { Button } from '@/components/ui/button';
 import type { Cart } from '@/contracts/cart';
+import { CartSummary } from '@/features/cart/components/CartSummary';
+import { CartTable } from '@/features/cart/components/CartTable';
+import { useCartState } from '@/features/cart/useCartState';
 import { compareEth } from '@/lib/money';
-
-import { useCartState } from '../useCartState';
-import { CartSummary } from './CartSummary';
-import { CartTable } from './CartTable';
 
 export function CartContent({ cart }: { cart: Cart }) {
   const state = useCartState(cart);

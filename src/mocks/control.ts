@@ -1,13 +1,13 @@
-import { mockStore } from './db/store';
+import { mockStore } from '@/mocks/db/store';
 import {
   getScenario,
   setNetwork as configureNetwork,
   setScenario as selectScenario,
-} from './scenarios/current';
-import { reconcileOrders } from './shared/orders';
-import { scheduleOrderTransition } from './shared/timing';
-import { emitMockEvent } from './socket/events';
-import { realtimeServer } from './socket/server';
+} from '@/mocks/scenarios/current';
+import { reconcileOrders } from '@/mocks/shared/orders';
+import { scheduleOrderTransition } from '@/mocks/shared/timing';
+import { emitMockEvent } from '@/mocks/socket/events';
+import { realtimeServer } from '@/mocks/socket/server';
 
 export const mockControl = {
   reset(seed = 'default') {

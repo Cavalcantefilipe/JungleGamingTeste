@@ -1,9 +1,8 @@
 import type { Profile } from '@/contracts/profile';
 import type { Wallets } from '@/contracts/wallet';
-
-import { walletMessages } from '../messages';
-import { SecondaryWalletSection } from './SecondaryWalletSection';
-import { WalletForm } from './WalletForm';
+import { SecondaryWalletSection } from '@/features/wallets/components/SecondaryWalletSection';
+import { WalletForm } from '@/features/wallets/components/WalletForm';
+import { walletMessages } from '@/features/wallets/messages';
 
 export function WalletSections({ profile, wallets }: { profile: Profile; wallets: Wallets }) {
   return (

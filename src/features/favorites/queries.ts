@@ -1,8 +1,7 @@
 import { queryOptions } from '@tanstack/react-query';
 
+import { fetchFavorites } from '@/features/favorites/api';
 import { queryKeys } from '@/lib/query-keys';
-
-import { fetchFavorites } from './api';
 
 export function favoritesQueryOptions(userId: string) {
   return queryOptions({

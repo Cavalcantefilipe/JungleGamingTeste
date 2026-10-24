@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
 import type { Nft } from '@/contracts/nft';
-
-import { HeroArtwork } from './HeroArtwork';
-import { HeroCopy } from './HeroCopy';
-import { HeroPagination } from './HeroPagination';
+import { HeroArtwork } from '@/features/catalog/components/HeroArtwork';
+import { HeroCopy } from '@/features/catalog/components/HeroCopy';
+import { HeroPagination } from '@/features/catalog/components/HeroPagination';
 
 export function HeroSection({ items, loading = false }: { items: Nft[]; loading?: boolean }) {
   const [selected, setSelected] = useState(0);

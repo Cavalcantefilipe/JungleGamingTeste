@@ -7,7 +7,7 @@ import { useSession } from '@/features/auth/session-store';
 import { focusClickedElement } from '@/lib/focusClickedElement';
 
 const AccountMenu = lazy(() =>
-  import('./AccountMenu').then((module) => ({ default: module.AccountMenu })),
+  import('@/features/layout/AccountMenu').then((module) => ({ default: module.AccountMenu })),
 );
 
 export function HeaderAccount() {

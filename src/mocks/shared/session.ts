@@ -2,8 +2,7 @@ import type { CartScope } from '@/contracts/cart';
 import type { MockDb } from '@/mocks/db/schema';
 import { mockStore } from '@/mocks/db/store';
 import { getScenario, setScenario } from '@/mocks/scenarios/current';
-
-import { MockError } from './respond';
+import { MockError } from '@/mocks/shared/respond';
 
 export function requireSession(request: Request) {
   const token = request.headers.get('Authorization')?.match(/^Bearer ([^\s]+)$/i)?.[1];

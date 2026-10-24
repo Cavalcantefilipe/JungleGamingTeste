@@ -1,10 +1,9 @@
 import { Button } from '@/components/ui/button';
 import type { Session } from '@/contracts/auth';
+import { useCreateOrder } from '@/features/checkout/useCreateOrder';
 import { orderMessages } from '@/features/orders/messages';
 import type { PendingOrder } from '@/features/orders/pending-order';
 import { errorMessage } from '@/lib/errors';
-
-import { useCreateOrder } from '../useCreateOrder';
 
 export function PendingOrderRecovery({
   session,

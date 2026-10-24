@@ -1,8 +1,10 @@
 import { Form } from '@/components/ui/form';
-
-import { useCheckoutController, type CheckoutInput } from '../useCheckoutController';
-import { CheckoutReviewPanel } from './CheckoutReviewPanel';
-import { CollectorForm } from './CollectorForm';
+import { CheckoutReviewPanel } from '@/features/checkout/components/CheckoutReviewPanel';
+import { CollectorForm } from '@/features/checkout/components/CollectorForm';
+import {
+  useCheckoutController,
+  type CheckoutInput,
+} from '@/features/checkout/useCheckoutController';
 
 export function CheckoutContent(props: CheckoutInput) {
   const state = useCheckoutController(props);

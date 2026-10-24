@@ -1,10 +1,9 @@
 import { Link } from '@tanstack/react-router';
 
 import { FigmaIcon } from '@/components/icons/FigmaIcon';
-
-import { CartBadge } from './CartBadge';
-import { MobileFavoritesLink } from './MobileFavoritesLink';
-import { MobileProfileLink } from './MobileProfileLink';
+import { CartBadge } from '@/features/layout/CartBadge';
+import { MobileFavoritesLink } from '@/features/layout/MobileFavoritesLink';
+import { MobileProfileLink } from '@/features/layout/MobileProfileLink';
 
 export function MobileNavigationLinks({
   authenticated,

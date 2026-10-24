@@ -1,6 +1,5 @@
+import { DetailSectionsSkeleton } from '@/components/feedback/DetailSectionsSkeleton';
 import { Skeleton } from '@/components/ui/skeleton';
-
-import { DetailSectionsSkeleton } from './DetailSectionsSkeleton';
 
 export function DetailSkeleton() {
   return (

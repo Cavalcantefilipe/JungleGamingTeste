@@ -1,11 +1,10 @@
 import type { Nft } from '@/contracts/nft';
 import { FavoriteButton } from '@/features/favorites/components/FavoriteButton';
-
-import { usePurchaseSelection } from '../usePurchaseSelection';
-import { EditionPicker } from './EditionPicker';
-import { MobilePurchaseBar } from './MobilePurchaseBar';
-import { PurchaseActions } from './PurchaseActions';
-import { QuantityStepper } from './QuantityStepper';
+import { EditionPicker } from '@/features/nft-detail/components/EditionPicker';
+import { MobilePurchaseBar } from '@/features/nft-detail/components/MobilePurchaseBar';
+import { PurchaseActions } from '@/features/nft-detail/components/PurchaseActions';
+import { QuantityStepper } from '@/features/nft-detail/components/QuantityStepper';
+import { usePurchaseSelection } from '@/features/nft-detail/usePurchaseSelection';
 
 export function PurchasePanel({ nft }: { nft: Nft }) {
   const { editionId, setEditionId, quantity, setQuantity, available, actions } =

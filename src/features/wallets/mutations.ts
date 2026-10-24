@@ -2,10 +2,9 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import type { SaveWalletInput, WalletRole } from '@/contracts/wallet';
 import { sessionStore, useSession } from '@/features/auth/session-store';
+import { saveWallet } from '@/features/wallets/api';
 import { ApiError } from '@/lib/errors';
 import { queryKeys } from '@/lib/query-keys';
-
-import { saveWallet } from './api';
 
 export function useSaveWallet(role: WalletRole) {
   const client = useQueryClient();

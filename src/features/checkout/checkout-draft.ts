@@ -1,4 +1,4 @@
-import { checkoutDraftSchema, type CheckoutDraft } from './collector-schema';
+import { checkoutDraftSchema, type CheckoutDraft } from '@/features/checkout/collector-schema';
 
 const key = (userId: string) => `kurio.checkoutDraft.${userId}`;
 export function readCheckoutDraft(userId: string): CheckoutDraft | null {

@@ -1,10 +1,9 @@
 import { useFormContext, type FieldPath, type FieldValues } from 'react-hook-form';
 
+import { FieldLabel } from '@/components/forms/FieldLabel';
+import { FieldPrefix } from '@/components/forms/FieldPrefix';
 import { FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-
-import { FieldLabel } from './FieldLabel';
-import { FieldPrefix } from './FieldPrefix';
 
 interface TextFieldProps<T extends FieldValues> {
   name: FieldPath<T>;

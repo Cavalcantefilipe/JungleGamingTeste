@@ -1,11 +1,10 @@
 import { QueryClient, QueryObserver } from '@tanstack/react-query';
 import { describe, expect, it } from 'vitest';
 
+import { estimateCart } from '@/features/cart/estimateCart';
 import { quoteQueryOptions } from '@/features/checkout/quote';
 import { createSeed } from '@/mocks/db/seed';
 import { computeQuote } from '@/mocks/shared/pricing';
-
-import { estimateCart } from './estimateCart';
 
 const items = [{ nftId: 'nft-001', editionId: 'nft-001-10', quantity: 1 }];
 const input = { items, network: 'ethereum' as const, couponCode: 'LANCAMENTO10' };

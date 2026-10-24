@@ -1,6 +1,5 @@
-import { useCatalogTabs } from '../useCatalogTabs';
-
-import type { CatalogSearch } from '../search-params';
+import type { CatalogSearch } from '@/features/catalog/search-params';
+import { useCatalogTabs } from '@/features/catalog/useCatalogTabs';
 
 const tabs = [
   { key: 'all', label: 'Todos os NFTs' },

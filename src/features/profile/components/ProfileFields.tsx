@@ -1,7 +1,6 @@
 import { TextField } from '@/components/forms/TextField';
 import type { Profile, UpdateProfileInput } from '@/contracts/profile';
-
-import { AvatarField } from './AvatarField';
+import { AvatarField } from '@/features/profile/components/AvatarField';
 
 export function ProfileFields({ profile }: { profile: Profile }) {
   return (

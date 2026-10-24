@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 
 import type { Session } from '@/contracts/auth';
 import { sessionStore } from '@/features/auth/session-store';
+import { saveCheckoutDraft } from '@/features/checkout/checkout-draft';
+import type { CollectorFormInput } from '@/features/checkout/collector-schema';
 
-import { saveCheckoutDraft } from './checkout-draft';
-
-import type { CollectorFormInput } from './collector-schema';
 import type { UseFormSubscribe } from 'react-hook-form';
 
 export function useCheckoutDraftPersistence(

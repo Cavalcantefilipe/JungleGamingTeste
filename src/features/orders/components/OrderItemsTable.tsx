@@ -1,6 +1,5 @@
 import type { Order } from '@/contracts/order';
-
-import { OrderItemRow } from './OrderItemRow';
+import { OrderItemRow } from '@/features/orders/components/OrderItemRow';
 
 export function OrderItemsTable({ order }: { order: Order }) {
   return (

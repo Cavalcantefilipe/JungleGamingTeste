@@ -1,7 +1,6 @@
 import type { QuoteInput } from '@/contracts/quote';
 import { mockStore } from '@/mocks/db/store';
-
-import { computeQuote } from './pricing';
+import { computeQuote } from '@/mocks/shared/pricing';
 
 export function storeQuote(input: QuoteInput) {
   return mockStore.transaction((db) => {

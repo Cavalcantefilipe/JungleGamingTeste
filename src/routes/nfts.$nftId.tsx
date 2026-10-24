@@ -1,4 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
 import {
   createFileRoute,
   Link,
@@ -14,6 +13,7 @@ import { Button } from '@/components/ui/button';
 import { nftDetailQueryOptions } from '@/features/catalog/queries';
 import { NftDetailPage } from '@/features/nft-detail/components/NftDetailPage';
 import { detailSearchSchema } from '@/features/nft-detail/search-params';
+import { useNftDetailQuery } from '@/features/nft-detail/useNftDetailQuery';
 import { ApiError, errorMessage } from '@/lib/errors';
 
 export const Route = createFileRoute('/nfts/$nftId')({
@@ -31,7 +31,7 @@ export const Route = createFileRoute('/nfts/$nftId')({
 });
 function Detail() {
   const { nftId } = Route.useParams();
-  const query = useQuery(nftDetailQueryOptions(nftId));
+  const query = useNftDetailQuery(nftId);
   if (query.isPending) return <DetailSkeleton />;
   if (query.error instanceof ApiError && query.error.status === 404)
     return (

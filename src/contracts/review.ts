@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { idSchema, isoDateSchema, paginatedSchema } from './common';
+import { idSchema, isoDateSchema, paginatedSchema } from '@/contracts/common';
 
 export const reviewSchema = z.object({
   id: idSchema,

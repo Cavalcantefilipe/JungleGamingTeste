@@ -1,6 +1,6 @@
 import { useRouter } from '@tanstack/react-router';
 
-import { ErrorState } from './ErrorState';
+import { ErrorState } from '@/components/feedback/ErrorState';
 
 import type { ErrorComponentProps } from '@tanstack/react-router';
 

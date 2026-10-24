@@ -4,9 +4,8 @@ import type { CreateOrderInput } from '@/contracts/order';
 import * as idempotency from '@/lib/idempotency';
 import { mockStore } from '@/mocks/db/store';
 import { setScenario } from '@/mocks/scenarios/current';
-
-import { createOrder, reconcileOrders } from './orders';
-import { computeQuote } from './pricing';
+import { createOrder, reconcileOrders } from '@/mocks/shared/orders';
+import { computeQuote } from '@/mocks/shared/pricing';
 
 function prepareBuyer(userId: string, quantity: number): CreateOrderInput {
   const db = mockStore.read();

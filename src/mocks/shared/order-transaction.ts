@@ -1,12 +1,11 @@
 import type { CreateOrderInput, Order } from '@/contracts/order';
 import type { MockDb } from '@/mocks/db/schema';
 import { getScenario } from '@/mocks/scenarios/current';
-
-import { createPendingOrder } from './createPendingOrder';
-import { validateOrderQuote, validateOrderWallet } from './order-validation';
-import { MockError } from './respond';
-import { assertActiveSession } from './session';
-import { scheduleOrderTransition } from './timing';
+import { createPendingOrder } from '@/mocks/shared/createPendingOrder';
+import { validateOrderQuote, validateOrderWallet } from '@/mocks/shared/order-validation';
+import { MockError } from '@/mocks/shared/respond';
+import { assertActiveSession } from '@/mocks/shared/session';
+import { scheduleOrderTransition } from '@/mocks/shared/timing';
 
 export interface OrderResult {
   order: Order;

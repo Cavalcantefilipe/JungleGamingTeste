@@ -1,6 +1,6 @@
 import { useEffect, useEffectEvent, useRef, useState } from 'react';
 
-import type { CarouselNavigationState } from './useCarousel';
+import type { CarouselNavigationState } from '@/features/catalog/useCarousel';
 
 export function useCarouselAutoplay({ page, pages, goTo }: CarouselNavigationState) {
   const container = useRef<HTMLElement>(null);

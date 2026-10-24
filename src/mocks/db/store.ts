@@ -1,9 +1,8 @@
 import { createStorage } from '@/lib/storage';
+import { migrateCatalog } from '@/mocks/db/migrateCatalog';
+import { mockDbSchema, type MockDb } from '@/mocks/db/schema';
+import { createSeed } from '@/mocks/db/seed';
 import { MockError } from '@/mocks/shared/respond';
-
-import { migrateCatalog } from './migrateCatalog';
-import { mockDbSchema, type MockDb } from './schema';
-import { createSeed } from './seed';
 
 export function createMockStore(options: { seed: MockDb; persistKey?: string }) {
   const storage = createStorage(options.persistKey ?? 'kurio.mockdb.v1', mockDbSchema, {

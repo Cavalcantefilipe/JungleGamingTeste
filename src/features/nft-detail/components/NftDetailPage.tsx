@@ -1,10 +1,9 @@
 import type { Nft } from '@/contracts/nft';
-
-import { DetailMobileNavigation } from './DetailMobileNavigation';
-import { DetailSummary } from './DetailSummary';
-import { DetailTabs } from './DetailTabs';
-import { Gallery } from './Gallery';
-import { RelatedCarousel } from './RelatedCarousel';
+import { DetailMobileNavigation } from '@/features/nft-detail/components/DetailMobileNavigation';
+import { DetailSummary } from '@/features/nft-detail/components/DetailSummary';
+import { DetailTabs } from '@/features/nft-detail/components/DetailTabs';
+import { Gallery } from '@/features/nft-detail/components/Gallery';
+import { RelatedCarousel } from '@/features/nft-detail/components/RelatedCarousel';
 
 export function NftDetailPage({ nft }: { nft: Nft }) {
   return (

@@ -1,9 +1,8 @@
 import type { Session } from '@/contracts/auth';
 import type { CreateOrderInput, Order } from '@/contracts/order';
+import { createOrder } from '@/features/checkout/api';
 import { discardUnsubmittedAttempt, prepareOrderAttempt } from '@/features/orders/pending-order';
 import { ApiError } from '@/lib/errors';
-
-import { createOrder } from './api';
 
 export async function submitOrderAttempt(
   session: Session,

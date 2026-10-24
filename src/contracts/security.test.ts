@@ -1,6 +1,6 @@
 import { expect, it } from 'vitest';
 
-import { orderSchema } from './order';
+import { orderSchema } from '@/contracts/order';
 
 it('link de recibo só aceita Etherscan HTTPS ou marcador pending', () => {
   const explorer = orderSchema.shape.explorerUrl;

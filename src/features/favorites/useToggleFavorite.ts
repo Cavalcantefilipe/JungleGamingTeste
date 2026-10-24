@@ -2,12 +2,15 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
 import { sessionStore, useSession } from '@/features/auth/session-store';
+import { setFavorite } from '@/features/favorites/api';
+import {
+  getFavoriteToggle,
+  invalidateFavoriteLists,
+  updateFavoriteCache,
+} from '@/features/favorites/favorite-cache';
+import { favoriteMessages } from '@/features/favorites/messages';
 import { ApiError } from '@/lib/errors';
 import { queryKeys } from '@/lib/query-keys';
-
-import { setFavorite } from './api';
-import { getFavoriteToggle, invalidateFavoriteLists, updateFavoriteCache } from './favorite-cache';
-import { favoriteMessages } from './messages';
 
 export function useToggleFavorite() {
   const session = useSession();

@@ -1,10 +1,9 @@
 import { redirect } from '@tanstack/react-router';
 import { z } from 'zod';
 
+import { fetchSession } from '@/features/auth/api';
+import { sessionStore } from '@/features/auth/session-store';
 import { ApiError } from '@/lib/errors';
-
-import { fetchSession } from './api';
-import { sessionStore } from './session-store';
 
 export const returnToSchema = z
   .string()

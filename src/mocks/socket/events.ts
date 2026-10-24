@@ -3,8 +3,7 @@ import { orderSchema, type Order } from '@/contracts/order';
 import { realtimeEventSchema, type RealtimeEvent } from '@/contracts/realtime';
 import { mockStore } from '@/mocks/db/store';
 import { getScenario } from '@/mocks/scenarios/current';
-
-import { realtimeServer } from './server';
+import { realtimeServer } from '@/mocks/socket/server';
 
 function dispatch(event: RealtimeEvent, userId?: string): void {
   const send = (update: RealtimeEvent) => {

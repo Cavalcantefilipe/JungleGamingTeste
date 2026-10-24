@@ -2,8 +2,7 @@ import { useRouterState } from '@tanstack/react-router';
 
 import { useSession } from '@/features/auth/session-store';
 import { useCartQuery } from '@/features/cart/queries';
-
-import { MobileNavigationLinks } from './MobileNavigationLinks';
+import { MobileNavigationLinks } from '@/features/layout/MobileNavigationLinks';
 
 export function MobileTabBar() {
   const pathname = useRouterState({ select: (state) => state.location.pathname });

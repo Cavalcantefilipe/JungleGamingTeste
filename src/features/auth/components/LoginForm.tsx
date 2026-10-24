@@ -1,9 +1,8 @@
 import { RootFormError } from '@/components/forms/RootFormError';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
-
-import { useLoginForm } from '../useLoginForm';
-import { LoginFields } from './LoginFields';
+import { LoginFields } from '@/features/auth/components/LoginFields';
+import { useLoginForm } from '@/features/auth/useLoginForm';
 
 export function LoginForm({ returnTo }: { returnTo: string }) {
   const { form, submit, pending } = useLoginForm(returnTo);

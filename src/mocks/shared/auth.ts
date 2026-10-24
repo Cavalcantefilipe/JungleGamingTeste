@@ -2,9 +2,8 @@ import type { LoginInput, RegisterInput, Session, User } from '@/contracts/auth'
 import type { MockDb, MockUser } from '@/mocks/db/schema';
 import { mockStore } from '@/mocks/db/store';
 import { getScenario } from '@/mocks/scenarios/current';
-
-import { hashPassword, verifyPassword } from './password';
-import { MockError } from './respond';
+import { hashPassword, verifyPassword } from '@/mocks/shared/password';
+import { MockError } from '@/mocks/shared/respond';
 
 function buildSession(user: User): Session {
   const token = Array.from(crypto.getRandomValues(new Uint8Array(32)), (byte) =>

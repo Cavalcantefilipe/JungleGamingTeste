@@ -1,11 +1,10 @@
 import type { Profile } from '@/contracts/profile';
 import type { Wallets } from '@/contracts/wallet';
+import { SecondaryWalletControls } from '@/features/wallets/components/SecondaryWalletControls';
+import { WalletCard } from '@/features/wallets/components/WalletCard';
+import { WalletForm } from '@/features/wallets/components/WalletForm';
+import { useSecondaryWallet } from '@/features/wallets/useSecondaryWallet';
 import { errorMessage } from '@/lib/errors';
-
-import { useSecondaryWallet } from '../useSecondaryWallet';
-import { SecondaryWalletControls } from './SecondaryWalletControls';
-import { WalletCard } from './WalletCard';
-import { WalletForm } from './WalletForm';
 
 interface SecondaryWalletSectionProps {
   profile: Profile;

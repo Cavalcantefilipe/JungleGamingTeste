@@ -4,11 +4,10 @@ import { describe, expect, it } from 'vitest';
 import { nftListQuerySchema, type Nft, type NftListResponse } from '@/contracts/nft';
 import type { Order } from '@/contracts/order';
 import type { NftUpdatedEvent } from '@/contracts/realtime';
+import { applyRealtimeEvent } from '@/features/realtime/apply-event';
 import { queryKeys } from '@/lib/query-keys';
 import { createSeed } from '@/mocks/db/seed';
 import { computeQuote } from '@/mocks/shared/pricing';
-
-import { applyRealtimeEvent } from './apply-event';
 
 function createEvent(): NftUpdatedEvent {
   return {

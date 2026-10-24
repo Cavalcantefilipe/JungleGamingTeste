@@ -1,8 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { ethAmountSchema } from '@/contracts/money';
-
-import { addEth, compareEth, formatEth, mulEth, percentOf, subEth } from './money';
+import { addEth, compareEth, formatEth, mulEth, percentOf, subEth } from '@/lib/money';
 
 describe('aritmética em ETH como string decimal', () => {
   it('soma 26.83 + 0.016 = 26.846', () => {

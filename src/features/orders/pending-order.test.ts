@@ -1,16 +1,15 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import type { CreateOrderInput } from '@/contracts/order';
-import * as idempotency from '@/lib/idempotency';
-import { createSeed } from '@/mocks/db/seed';
-import { computeQuote } from '@/mocks/shared/pricing';
-
 import {
   clearPendingOrder,
   prepareOrderAttempt,
   readPendingOrder,
   savePendingOrder,
-} from './pending-order';
+} from '@/features/orders/pending-order';
+import * as idempotency from '@/lib/idempotency';
+import { createSeed } from '@/mocks/db/seed';
+import { computeQuote } from '@/mocks/shared/pricing';
 
 function input(): CreateOrderInput {
   const seed = createSeed();

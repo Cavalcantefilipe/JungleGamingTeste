@@ -1,9 +1,8 @@
 import type { CreateOrderInput } from '@/contracts/order';
 import type { MockDb } from '@/mocks/db/schema';
-
-import { computeQuote } from './pricing';
-import { MockError } from './respond';
-import { assertActiveSession } from './session';
+import { computeQuote } from '@/mocks/shared/pricing';
+import { MockError } from '@/mocks/shared/respond';
+import { assertActiveSession } from '@/mocks/shared/session';
 
 export function validateOrderWallet(
   db: MockDb,

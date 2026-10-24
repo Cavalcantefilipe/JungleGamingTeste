@@ -4,8 +4,7 @@ import { useForm } from 'react-hook-form';
 
 import { applyFormError } from '@/components/forms/applyFormError';
 import { loginInputSchema, type LoginInput } from '@/contracts/auth';
-
-import { useLogin } from './mutations';
+import { useLogin } from '@/features/auth/mutations';
 
 export function useLoginForm(returnTo: string) {
   const form = useForm<LoginInput>({

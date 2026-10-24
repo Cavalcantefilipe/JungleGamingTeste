@@ -1,10 +1,10 @@
 import { z } from 'zod';
 
-import { usernameSchema } from './auth';
-import { idSchema, isoDateSchema } from './common';
-import { ethAmountSchema } from './money';
-import { nftNetworkSchema } from './nft';
-import { quoteCouponSchema, quoteItemsInputSchema, quoteItemSchema } from './quote';
+import { usernameSchema } from '@/contracts/auth';
+import { idSchema, isoDateSchema } from '@/contracts/common';
+import { ethAmountSchema } from '@/contracts/money';
+import { nftNetworkSchema } from '@/contracts/nft';
+import { quoteCouponSchema, quoteItemsInputSchema, quoteItemSchema } from '@/contracts/quote';
 
 export const ORDER_STATUSES = ['pending', 'confirmed', 'declined'] as const;
 export const orderStatusSchema = z.enum(ORDER_STATUSES);

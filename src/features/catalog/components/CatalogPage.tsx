@@ -1,13 +1,12 @@
 import { Navigate, useRouterState } from '@tanstack/react-router';
 
+import { CatalogSection } from '@/features/catalog/components/CatalogSection';
+import { EditorialSections } from '@/features/catalog/components/EditorialSections';
+import { HeroSection } from '@/features/catalog/components/HeroSection';
+import { MobileCatalogSearch } from '@/features/catalog/components/MobileCatalogSearch';
 import { useCatalogQuery } from '@/features/catalog/queries';
 import { defaultCatalogSearch, type CatalogSearch } from '@/features/catalog/search-params';
 import { useCatalogNavigation } from '@/features/catalog/useCatalogNavigation';
-
-import { CatalogSection } from './CatalogSection';
-import { EditorialSections } from './EditorialSections';
-import { HeroSection } from './HeroSection';
-import { MobileCatalogSearch } from './MobileCatalogSearch';
 
 export function CatalogPage({ search }: { search: CatalogSearch }) {
   const hash = useRouterState({ select: (state) => state.location.hash });

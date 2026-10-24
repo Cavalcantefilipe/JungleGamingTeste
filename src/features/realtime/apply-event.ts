@@ -2,9 +2,8 @@ import type { Cart } from '@/contracts/cart';
 import { nftListResponseSchema, nftSchema, type Nft, type NftListResponse } from '@/contracts/nft';
 import { orderSchema, type Order } from '@/contracts/order';
 import type { NftUpdatedEvent, RealtimeEvent } from '@/contracts/realtime';
+import { reconcileNftEvent } from '@/features/realtime/reconcileNftEvent';
 import { queryKeys } from '@/lib/query-keys';
-
-import { reconcileNftEvent } from './reconcileNftEvent';
 
 import type { QueryClient } from '@tanstack/react-query';
 

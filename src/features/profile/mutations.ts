@@ -2,11 +2,10 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import type { Profile } from '@/contracts/profile';
 import { sessionStore, useSession } from '@/features/auth/session-store';
+import * as api from '@/features/profile/api';
 import { readAvatar } from '@/lib/avatar';
 import { ApiError } from '@/lib/errors';
 import { queryKeys } from '@/lib/query-keys';
-
-import * as api from './api';
 
 function useProfileContext() {
   const client = useQueryClient();

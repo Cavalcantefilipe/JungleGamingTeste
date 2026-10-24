@@ -1,10 +1,9 @@
 import { Link } from '@tanstack/react-router';
 
 import type { Nft } from '@/contracts/nft';
+import { NftCardInfo, type NftCardVariant } from '@/features/catalog/components/NftCardInfo';
+import { NftCardMedia } from '@/features/catalog/components/NftCardMedia';
 import { FavoriteButton } from '@/features/favorites/components/FavoriteButton';
-
-import { NftCardInfo, type NftCardVariant } from './NftCardInfo';
-import { NftCardMedia } from './NftCardMedia';
 
 export function NftCard({
   nft,

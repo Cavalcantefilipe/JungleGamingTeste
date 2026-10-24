@@ -1,4 +1,4 @@
-import { registry } from './registry';
+import { registry } from '@/mocks/scenarios/registry';
 
 let currentName = 'default';
 let revision = 0;

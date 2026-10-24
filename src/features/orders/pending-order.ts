@@ -2,10 +2,9 @@ import { z } from 'zod';
 
 import { createOrderInputSchema } from '@/contracts/order';
 import { checkoutMessages } from '@/features/checkout/messages';
+import { orderMessages } from '@/features/orders/messages';
 import { ApiError } from '@/lib/errors';
 import { createIdempotencyKey, hashPayload } from '@/lib/idempotency';
-
-import { orderMessages } from './messages';
 
 const pendingOrderSchema = z.object({
   userId: z.string(),

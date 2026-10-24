@@ -1,5 +1,5 @@
-import { QuantityButton } from './QuantityButton';
-import { QuantityInput } from './QuantityInput';
+import { QuantityButton } from '@/features/nft-detail/components/QuantityButton';
+import { QuantityInput } from '@/features/nft-detail/components/QuantityInput';
 
 export interface QuantityStepperProps {
   value: number;

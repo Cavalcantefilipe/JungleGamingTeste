@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from 'react';
 
-import { pendingOrderStore, type PendingOrder } from './pending-order';
+import { pendingOrderStore, type PendingOrder } from '@/features/orders/pending-order';
 
 export function usePendingOrder(userId: string): PendingOrder | null {
   const raw = useSyncExternalStore(

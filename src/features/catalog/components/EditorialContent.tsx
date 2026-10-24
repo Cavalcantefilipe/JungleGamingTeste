@@ -1,7 +1,6 @@
 import type { Content } from '@/contracts/content';
-
-import { EditorialArticleCard } from './EditorialArticleCard';
-import { PromotionCard } from './PromotionCard';
+import { EditorialArticleCard } from '@/features/catalog/components/EditorialArticleCard';
+import { PromotionCard } from '@/features/catalog/components/PromotionCard';
 
 export function EditorialContent({ content }: { content: Content }) {
   return (

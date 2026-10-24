@@ -1,10 +1,9 @@
 import { ErrorState } from '@/components/feedback/ErrorState';
 import type { Nft } from '@/contracts/nft';
 import { NftCarousel } from '@/features/catalog/components/NftCarousel';
-
-import { detailMessages } from '../messages';
-import { useRelatedNfts } from '../useRelatedNfts';
-import { RelatedSkeleton } from './RelatedSkeleton';
+import { RelatedSkeleton } from '@/features/nft-detail/components/RelatedSkeleton';
+import { detailMessages } from '@/features/nft-detail/messages';
+import { useRelatedNfts } from '@/features/nft-detail/useRelatedNfts';
 
 export function RelatedCarousel({ nft }: { nft: Nft }) {
   const { items, query } = useRelatedNfts(nft);

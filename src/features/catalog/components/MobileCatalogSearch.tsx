@@ -1,9 +1,7 @@
 import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Input } from '@/components/ui/input';
-
-import { FilterDrawer } from './FilterDrawer';
-
-import type { FilterProps } from '../filter-props';
+import { FilterDrawer } from '@/features/catalog/components/FilterDrawer';
+import type { FilterProps } from '@/features/catalog/filter-props';
 
 export function MobileCatalogSearch({ search, facets, apply, clear }: FilterProps) {
   return (

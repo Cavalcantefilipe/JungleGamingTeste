@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { z } from 'zod';
 
-import { createStorage } from './storage';
+import { createStorage } from '@/lib/storage';
 
 const settingsSchema = z.object({ theme: z.enum(['dark']), count: z.number() });
 const storage = createStorage('test.settings', settingsSchema);

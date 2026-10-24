@@ -12,6 +12,22 @@ import tseslint from 'typescript-eslint';
 const MAX_FILE_LINES = 300;
 const MAX_FUNCTION_LINES = 40;
 const MAX_NESTING_DEPTH = 3;
+const unsafeUnknownAssertion = {
+  selector:
+    "TSAsExpression[expression.type='TSAsExpression'][expression.typeAnnotation.type='TSUnknownKeyword']",
+  message: 'Não contorne a verificação de tipos com as unknown as; valide o valor.',
+};
+const mockImportRestriction = {
+  group: ['@/mocks/*', '**/mocks/*'],
+  message: 'Mocks só entram em main.tsx e testes.',
+};
+const relativeSourceImport = {
+  selector: [
+    ':matches(ImportDeclaration, ExportNamedDeclaration, ExportAllDeclaration, ImportExpression, TSImportType)[source.value=/^\\./]',
+    'ImportExpression[source.type="TemplateLiteral"][source.expressions.length=0][source.quasis.0.value.cooked=/^\\./]',
+  ].join(', '),
+  message: 'Use imports absolutos @/ em src para manter os caminhos padronizados.',
+};
 
 const mockImportsAllowedIn = [
   'src/app/main.tsx',
@@ -69,6 +85,7 @@ export default defineConfig([
       'no-warning-comments': ['error', { terms: ['todo', 'fixme'], location: 'anywhere' }],
       '@typescript-eslint/no-non-null-assertion': 'error',
       '@typescript-eslint/no-explicit-any': 'error',
+      'no-restricted-syntax': ['error', unsafeUnknownAssertion],
       '@typescript-eslint/consistent-type-imports': ['error', { fixStyle: 'inline-type-imports' }],
       '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
       'import-x/order': [
@@ -90,20 +107,41 @@ export default defineConfig([
   },
   {
     files: ['src/**/*.{ts,tsx}'],
-    ignores: ['src/lib/http.ts', ...mockImportsAllowedIn],
     rules: {
+      'no-restricted-syntax': ['error', unsafeUnknownAssertion, relativeSourceImport],
+    },
+  },
+  {
+    files: ['src/**/*.{ts,tsx}'],
+    ignores: mockImportsAllowedIn,
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        unsafeUnknownAssertion,
+        relativeSourceImport,
+        {
+          selector: [
+            ':matches(ImportExpression, TSImportType)[source.value=/^(?:@|\\.{1,2})\\u002f(?:.*\\u002f)?mocks(?:\\u002f|$)/]',
+            'ImportExpression[source.type="TemplateLiteral"][source.expressions.length=0][source.quasis.0.value.cooked=/^(?:@|\\.{1,2})\\u002f(?:.*\\u002f)?mocks(?:\\u002f|$)/]',
+          ].join(', '),
+          message: mockImportRestriction.message,
+        },
+      ],
       'no-restricted-imports': [
         'error',
         {
           patterns: [
             { group: ['axios'], message: 'Use o cliente de src/lib/http.ts.' },
-            {
-              group: ['@/mocks/*', '**/mocks/*'],
-              message: 'Mocks só entram em main.tsx e testes.',
-            },
+            mockImportRestriction,
           ],
         },
       ],
+    },
+  },
+  {
+    files: ['src/lib/http.ts'],
+    rules: {
+      'no-restricted-imports': ['error', { patterns: [mockImportRestriction] }],
     },
   },
   {

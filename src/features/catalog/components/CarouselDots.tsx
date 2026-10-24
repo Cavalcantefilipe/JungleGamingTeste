@@ -1,6 +1,5 @@
+import type { CarouselNavigationState } from '@/features/catalog/useCarousel';
 import { cn } from '@/lib/cn';
-
-import type { CarouselNavigationState } from '../useCarousel';
 
 export function CarouselDots({ page, pages, goTo }: CarouselNavigationState) {
   return (

@@ -1,7 +1,6 @@
 import type { CartScope } from '@/contracts/cart';
 import { sessionStore } from '@/features/auth/session-store';
-
-import { getCartScope } from './cart-scope';
+import { getCartScope } from '@/features/cart/cart-scope';
 
 import type { QueryClient } from '@tanstack/react-query';
 

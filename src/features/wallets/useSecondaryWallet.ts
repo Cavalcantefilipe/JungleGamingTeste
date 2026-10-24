@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { useSaveWallet } from './mutations';
+import { useSaveWallet } from '@/features/wallets/mutations';
 
 export function useSecondaryWallet() {
   const mutation = useSaveWallet('secondary');

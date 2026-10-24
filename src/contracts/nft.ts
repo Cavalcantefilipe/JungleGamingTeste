@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
-import { idSchema, isoDateSchema, paginatedSchema } from './common';
-import { ethAmountSchema } from './money';
+import { idSchema, isoDateSchema, paginatedSchema } from '@/contracts/common';
+import { ethAmountSchema } from '@/contracts/money';
 
 export const NFT_NETWORKS = ['ethereum', 'polygon', 'solana'] as const;
 export const nftNetworkSchema = z.enum(NFT_NETWORKS);

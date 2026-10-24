@@ -1,12 +1,11 @@
 import type { CartItem } from '@/contracts/cart';
 import type { Nft } from '@/contracts/nft';
 import type { QuoteItem } from '@/contracts/quote';
+import { CartItemIdentity } from '@/features/cart/components/CartItemIdentity';
+import { CartLineTotal } from '@/features/cart/components/CartLineTotal';
+import { CartRemoveAction } from '@/features/cart/components/CartRemoveAction';
 import { QuantityStepper } from '@/features/nft-detail/components/QuantityStepper';
 import { formatEth } from '@/lib/money';
-
-import { CartItemIdentity } from './CartItemIdentity';
-import { CartLineTotal } from './CartLineTotal';
-import { CartRemoveAction } from './CartRemoveAction';
 
 interface CartItemRowProps {
   item: CartItem;

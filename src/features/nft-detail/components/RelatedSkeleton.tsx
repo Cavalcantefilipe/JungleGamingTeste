@@ -1,6 +1,5 @@
 import { Skeleton } from '@/components/ui/skeleton';
-
-import { detailMessages } from '../messages';
+import { detailMessages } from '@/features/nft-detail/messages';
 
 export function RelatedSkeleton() {
   return (

@@ -1,8 +1,7 @@
 import type { Quote } from '@/contracts/quote';
 import { QuoteSummary } from '@/features/cart/components/QuoteSummary';
-
-import { CheckoutCouponLink } from './CheckoutCouponLink';
-import { OrderReviewItem } from './OrderReviewItem';
+import { CheckoutCouponLink } from '@/features/checkout/components/CheckoutCouponLink';
+import { OrderReviewItem } from '@/features/checkout/components/OrderReviewItem';
 
 export function OrderReviewDetails({ quote }: { quote: Quote }) {
   return (

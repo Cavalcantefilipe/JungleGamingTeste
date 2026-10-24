@@ -1,6 +1,5 @@
 import type { Nft } from '@/contracts/nft';
-
-import type { MockDb } from './schema';
+import type { MockDb } from '@/mocks/db/schema';
 
 export function migrateCatalog(database: MockDb, catalog: Nft[]): MockDb {
   if (database.catalogRevision >= 3) return database;

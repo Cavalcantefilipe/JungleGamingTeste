@@ -1,6 +1,6 @@
 import { useNavigate, useRouterState } from '@tanstack/react-router';
 
-import { defaultCatalogSearch, type CatalogSearch } from './search-params';
+import { defaultCatalogSearch, type CatalogSearch } from '@/features/catalog/search-params';
 
 export function useCatalogNavigation(search: CatalogSearch) {
   const hash = useRouterState({ select: (state) => state.location.hash });

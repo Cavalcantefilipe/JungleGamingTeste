@@ -2,8 +2,7 @@ import { beforeEach, expect, it } from 'vitest';
 
 import { walletInputSchema } from '@/contracts/wallet';
 import { mockStore } from '@/mocks/db/store';
-
-import { saveWallet } from './wallets';
+import { saveWallet } from '@/mocks/shared/wallets';
 
 const token = 'wallet-save-session';
 beforeEach(() => {

@@ -1,10 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { NFT_CATEGORY_LABELS, NFT_NETWORK_LABELS } from '@/contracts/nft';
-
-import { FilterChecklist } from './FilterChecklist';
-import { PriceRangeFilter } from './PriceRangeFilter';
-
-import type { FilterProps } from '../filter-props';
+import { FilterChecklist } from '@/features/catalog/components/FilterChecklist';
+import { PriceRangeFilter } from '@/features/catalog/components/PriceRangeFilter';
+import type { FilterProps } from '@/features/catalog/filter-props';
 
 export function FilterSidebar({ search, facets, apply, clear }: FilterProps) {
   return (

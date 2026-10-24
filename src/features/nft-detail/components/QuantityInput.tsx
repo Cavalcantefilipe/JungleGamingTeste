@@ -1,7 +1,6 @@
 import { Input } from '@/components/ui/input';
+import type { QuantityStepperProps } from '@/features/nft-detail/components/QuantityStepper';
 import { cn } from '@/lib/cn';
-
-import type { QuantityStepperProps } from './QuantityStepper';
 
 export function QuantityInput({
   value,

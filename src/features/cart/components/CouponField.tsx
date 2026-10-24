@@ -3,10 +3,10 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { couponCodeSchema } from '@/contracts/quote';
+import { AppliedCoupon } from '@/features/cart/components/AppliedCoupon';
+import { CouponInput } from '@/features/cart/components/CouponInput';
 
 const schema = z.object({ couponCode: couponCodeSchema });
-import { AppliedCoupon } from './AppliedCoupon';
-import { CouponInput } from './CouponInput';
 
 interface CouponFieldProps {
   code: string | undefined;

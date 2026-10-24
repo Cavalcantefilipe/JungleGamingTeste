@@ -1,10 +1,8 @@
 import type { Nft } from '@/contracts/nft';
+import { PurchaseActions } from '@/features/nft-detail/components/PurchaseActions';
+import { QuantityStepper } from '@/features/nft-detail/components/QuantityStepper';
+import type { usePurchaseSelection } from '@/features/nft-detail/usePurchaseSelection';
 import { formatEth } from '@/lib/money';
-
-import { PurchaseActions } from './PurchaseActions';
-import { QuantityStepper } from './QuantityStepper';
-
-import type { usePurchaseSelection } from '../usePurchaseSelection';
 
 type MobilePurchaseBarProps = Pick<
   ReturnType<typeof usePurchaseSelection>,

@@ -2,9 +2,8 @@ import { beforeEach, describe, expect, it } from 'vitest';
 
 import { mockStore } from '@/mocks/db/store';
 import { setScenario } from '@/mocks/scenarios/current';
-
-import { login, register } from './auth';
-import { MockError } from './respond';
+import { login, register } from '@/mocks/shared/auth';
+import { MockError } from '@/mocks/shared/respond';
 
 beforeEach(() => {
   mockStore.reset();

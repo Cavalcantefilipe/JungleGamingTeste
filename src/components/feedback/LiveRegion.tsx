@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from 'react';
 
-import { liveAnnouncement } from './announce';
+import { liveAnnouncement } from '@/components/feedback/announce';
 
 export function LiveRegion() {
   const message = useSyncExternalStore(liveAnnouncement.subscribe, liveAnnouncement.getSnapshot);

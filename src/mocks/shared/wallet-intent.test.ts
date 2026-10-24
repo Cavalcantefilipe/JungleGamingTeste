@@ -5,10 +5,9 @@ import { walletInputSchema } from '@/contracts/wallet';
 import { hashPayload } from '@/lib/idempotency';
 import { mockStore } from '@/mocks/db/store';
 import { setScenario } from '@/mocks/scenarios/current';
-
-import { createOrder } from './orders';
-import { computeQuote } from './pricing';
-import { saveWallet } from './wallets';
+import { createOrder } from '@/mocks/shared/orders';
+import { computeQuote } from '@/mocks/shared/pricing';
+import { saveWallet } from '@/mocks/shared/wallets';
 
 const userId = 'user-ana';
 const token = 'wallet-intent-session';

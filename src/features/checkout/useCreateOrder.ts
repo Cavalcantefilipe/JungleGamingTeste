@@ -4,12 +4,11 @@ import { useNavigate } from '@tanstack/react-router';
 import type { Session } from '@/contracts/auth';
 import type { CreateOrderInput, Order } from '@/contracts/order';
 import { sessionStore } from '@/features/auth/session-store';
+import { submitOrderAttempt } from '@/features/checkout/submitOrderAttempt';
 import { readPendingOrder, savePendingOrder } from '@/features/orders/pending-order';
 import { selectOrderResponse } from '@/features/orders/selectOrderResponse';
 import { ApiError } from '@/lib/errors';
 import { queryKeys } from '@/lib/query-keys';
-
-import { submitOrderAttempt } from './submitOrderAttempt';
 
 export function useCreateOrder(session: Session) {
   const client = useQueryClient();

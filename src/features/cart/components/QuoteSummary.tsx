@@ -1,6 +1,5 @@
+import type { CartEstimate } from '@/features/cart/estimateCart';
 import { formatEth } from '@/lib/money';
-
-import type { CartEstimate } from '../estimateCart';
 
 export function QuoteSummary({
   quote,

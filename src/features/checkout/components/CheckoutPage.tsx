@@ -1,7 +1,6 @@
+import { CheckoutBody } from '@/features/checkout/components/CheckoutBody';
+import { useCheckoutPageState } from '@/features/checkout/useCheckoutPageState';
 import { MobilePageHeader } from '@/features/layout/MobilePageHeader';
-
-import { useCheckoutPageState } from '../useCheckoutPageState';
-import { CheckoutBody } from './CheckoutBody';
 
 export function CheckoutPage() {
   const state = useCheckoutPageState();

@@ -4,11 +4,10 @@ import { EmptyState } from '@/components/feedback/EmptyState';
 import { ErrorState } from '@/components/feedback/ErrorState';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
+import { CartContent } from '@/features/cart/components/CartContent';
+import { CartRecommendations } from '@/features/cart/components/CartRecommendations';
 import { useCartQuery } from '@/features/cart/queries';
 import { MobilePageHeader } from '@/features/layout/MobilePageHeader';
-
-import { CartContent } from './CartContent';
-import { CartRecommendations } from './CartRecommendations';
 
 export function CartPage() {
   const query = useCartQuery();

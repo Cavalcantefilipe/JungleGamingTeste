@@ -1,10 +1,9 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 
 import type { Nft } from '@/contracts/nft';
+import { fetchReviews } from '@/features/nft-detail/api';
+import { useDetailNavigation } from '@/features/nft-detail/useDetailNavigation';
 import { queryKeys } from '@/lib/query-keys';
-
-import { fetchReviews } from './api';
-import { useDetailNavigation } from './useDetailNavigation';
 
 export function useReviews(nft: Nft) {
   const { reviewPage, setPage } = useDetailNavigation();

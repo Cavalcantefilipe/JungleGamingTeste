@@ -1,9 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { WALLET_PROVIDER_LABELS } from '@/contracts/order';
 import type { Wallet } from '@/contracts/wallet';
+import type { useWalletConnection } from '@/features/checkout/useWalletConnection';
 import { errorMessage } from '@/lib/errors';
-
-import type { useWalletConnection } from '../useWalletConnection';
 
 export function WalletConnectionStatus({
   selected,

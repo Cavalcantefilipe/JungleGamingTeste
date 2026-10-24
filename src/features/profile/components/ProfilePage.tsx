@@ -1,10 +1,9 @@
 import { ErrorState } from '@/components/feedback/ErrorState';
 import { Skeleton } from '@/components/ui/skeleton';
 import { AccountLayout } from '@/features/account/components/AccountLayout';
-
-import { useProfileQuery } from '../queries';
-import { PasswordForm } from './PasswordForm';
-import { ProfileForm } from './ProfileForm';
+import { PasswordForm } from '@/features/profile/components/PasswordForm';
+import { ProfileForm } from '@/features/profile/components/ProfileForm';
+import { useProfileQuery } from '@/features/profile/queries';
 
 export function ProfilePage() {
   const query = useProfileQuery();

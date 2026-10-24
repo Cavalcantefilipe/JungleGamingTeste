@@ -1,12 +1,10 @@
+import { CatalogResults } from '@/features/catalog/components/CatalogResults';
+import { FeaturedCard } from '@/features/catalog/components/FeaturedCard';
+import { FilterDrawer } from '@/features/catalog/components/FilterDrawer';
+import { FilterSidebar } from '@/features/catalog/components/FilterSidebar';
+import type { useCatalogQuery } from '@/features/catalog/queries';
 import type { CatalogSearch } from '@/features/catalog/search-params';
-
-import { CatalogResults } from './CatalogResults';
-import { FeaturedCard } from './FeaturedCard';
-import { FilterDrawer } from './FilterDrawer';
-import { FilterSidebar } from './FilterSidebar';
-
-import type { useCatalogQuery } from '../queries';
-import type { useCatalogNavigation } from '../useCatalogNavigation';
+import type { useCatalogNavigation } from '@/features/catalog/useCatalogNavigation';
 
 export function CatalogSection({
   search,

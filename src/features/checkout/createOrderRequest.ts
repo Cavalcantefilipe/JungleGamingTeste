@@ -1,8 +1,7 @@
 import type { CreateOrderInput } from '@/contracts/order';
 import type { Quote } from '@/contracts/quote';
 import type { Wallet } from '@/contracts/wallet';
-
-import type { CollectorFormInput } from './collector-schema';
+import type { CollectorFormInput } from '@/features/checkout/collector-schema';
 
 export function createOrderRequest(
   quote: Quote,

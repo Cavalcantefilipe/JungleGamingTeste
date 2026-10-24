@@ -1,9 +1,9 @@
 import { z } from 'zod';
 
-import { quantitySchema } from './cart';
-import { idSchema, isoDateSchema } from './common';
-import { ethAmountSchema } from './money';
-import { nftEditionLabelSchema, nftImageSchema, nftNetworkSchema } from './nft';
+import { quantitySchema } from '@/contracts/cart';
+import { idSchema, isoDateSchema } from '@/contracts/common';
+import { ethAmountSchema } from '@/contracts/money';
+import { nftEditionLabelSchema, nftImageSchema, nftNetworkSchema } from '@/contracts/nft';
 
 export const quoteItemInputSchema = z.object({
   nftId: idSchema,

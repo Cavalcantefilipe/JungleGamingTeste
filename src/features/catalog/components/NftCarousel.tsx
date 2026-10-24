@@ -1,13 +1,12 @@
 import { useId } from 'react';
 
 import type { Nft } from '@/contracts/nft';
-
-import { useCarousel } from '../useCarousel';
-import { useCarouselAutoplay } from '../useCarouselAutoplay';
-import { CarouselDots } from './CarouselDots';
-import { CarouselNavigation } from './CarouselNavigation';
-import { CarouselPlayback } from './CarouselPlayback';
-import { CarouselTrack } from './CarouselTrack';
+import { CarouselDots } from '@/features/catalog/components/CarouselDots';
+import { CarouselNavigation } from '@/features/catalog/components/CarouselNavigation';
+import { CarouselPlayback } from '@/features/catalog/components/CarouselPlayback';
+import { CarouselTrack } from '@/features/catalog/components/CarouselTrack';
+import { useCarousel } from '@/features/catalog/useCarousel';
+import { useCarouselAutoplay } from '@/features/catalog/useCarouselAutoplay';
 
 export function NftCarousel({ title, items }: { title: string; items: Nft[] }) {
   const headingId = useId();

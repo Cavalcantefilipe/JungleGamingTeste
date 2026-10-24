@@ -1,4 +1,4 @@
-import { returnToSchema } from './route-guard';
+import { returnToSchema } from '@/features/auth/route-guard';
 
 export function resolveAuthDismissal(returnTo: string): string {
   const destination = new URL(returnToSchema.parse(returnTo), 'https://kurio.invalid');

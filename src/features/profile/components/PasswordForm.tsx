@@ -1,10 +1,9 @@
 import { RootFormError } from '@/components/forms/RootFormError';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
-
-import { PasswordFields } from './PasswordFields';
-import { profileMessages } from '../messages';
-import { usePasswordForm } from '../usePasswordForm';
+import { PasswordFields } from '@/features/profile/components/PasswordFields';
+import { profileMessages } from '@/features/profile/messages';
+import { usePasswordForm } from '@/features/profile/usePasswordForm';
 
 export function PasswordForm() {
   const { form, mutation, saved, submit } = usePasswordForm();

@@ -3,10 +3,9 @@ import { useState } from 'react';
 import type { Session } from '@/contracts/auth';
 import type { Profile } from '@/contracts/profile';
 import type { Wallet, Wallets } from '@/contracts/wallet';
-
-import { readCheckoutDraft } from './checkout-draft';
-import { getWalletFormValues } from './getWalletFormValues';
-import { useCheckoutForm } from './useCheckoutForm';
+import { readCheckoutDraft } from '@/features/checkout/checkout-draft';
+import { getWalletFormValues } from '@/features/checkout/getWalletFormValues';
+import { useCheckoutForm } from '@/features/checkout/useCheckoutForm';
 
 export function useCheckoutWallet(
   session: Session,

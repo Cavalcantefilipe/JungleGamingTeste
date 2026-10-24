@@ -1,7 +1,6 @@
 import { NFT_CATEGORIES, NFT_NETWORKS, type Nft } from '@/contracts/nft';
-
-import { createArtwork } from './images';
-import { createNftDetails } from './nftDetails';
+import { createArtwork } from '@/mocks/db/fixtures/images';
+import { createNftDetails } from '@/mocks/db/fixtures/nftDetails';
 
 const names = [
   'Emerald Ape #042',

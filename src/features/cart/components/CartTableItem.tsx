@@ -1,12 +1,10 @@
 import type { Cart } from '@/contracts/cart';
-
-import { getCartItemAvailability } from '../getCartItemAvailability';
-import { useRemoveCartItem } from '../useRemoveCartItem';
-import { useUpdateCartItem } from '../useUpdateCartItem';
-import { CartItemRow } from './CartItemRow';
-import { PriceChangedNotice } from './PriceChangedNotice';
-
-import type { useCartState } from '../useCartState';
+import { CartItemRow } from '@/features/cart/components/CartItemRow';
+import { PriceChangedNotice } from '@/features/cart/components/PriceChangedNotice';
+import { getCartItemAvailability } from '@/features/cart/getCartItemAvailability';
+import type { useCartState } from '@/features/cart/useCartState';
+import { useRemoveCartItem } from '@/features/cart/useRemoveCartItem';
+import { useUpdateCartItem } from '@/features/cart/useUpdateCartItem';
 
 interface CartTableItemProps {
   item: Cart['items'][number];

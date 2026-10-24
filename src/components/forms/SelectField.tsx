@@ -1,8 +1,7 @@
 import { useFormContext, type FieldPath, type FieldValues } from 'react-hook-form';
 
+import { SelectControl } from '@/components/forms/SelectControl';
 import { FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-
-import { SelectControl } from './SelectControl';
 
 export function SelectField<T extends FieldValues>({
   name,

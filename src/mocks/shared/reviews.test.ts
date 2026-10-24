@@ -2,8 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import { reviewListSchema } from '@/contracts/review';
 import { createNfts } from '@/mocks/db/fixtures/nfts';
-
-import { listReviews } from './reviews';
+import { listReviews } from '@/mocks/shared/reviews';
 
 const nft = createNfts()[3];
 if (!nft) throw new Error('Fixture nft-004 ausente');

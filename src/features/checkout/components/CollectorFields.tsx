@@ -1,9 +1,7 @@
 import { TextField } from '@/components/forms/TextField';
 import type { Wallet } from '@/contracts/wallet';
-
-import { CollectorWalletFields } from './CollectorWalletFields';
-
-import type { CollectorFormInput } from '../collector-schema';
+import type { CollectorFormInput } from '@/features/checkout/collector-schema';
+import { CollectorWalletFields } from '@/features/checkout/components/CollectorWalletFields';
 
 export function CollectorFields({ wallet }: { wallet: Wallet }) {
   return (

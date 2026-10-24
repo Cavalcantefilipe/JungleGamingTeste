@@ -5,8 +5,7 @@ import { z } from 'zod';
 
 import { applyFormError } from '@/components/forms/applyFormError';
 import { changePasswordInputSchema } from '@/contracts/profile';
-
-import { useChangePassword } from './mutations';
+import { useChangePassword } from '@/features/profile/mutations';
 
 const passwordFormSchema = changePasswordInputSchema
   .extend({ confirmPassword: z.string() })

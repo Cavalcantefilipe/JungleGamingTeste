@@ -2,13 +2,12 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
 import { useSession } from '@/features/auth/session-store';
+import { removeCartItem } from '@/features/cart/api';
+import { getCartScope } from '@/features/cart/cart-scope';
+import { cartErrorMessage } from '@/features/cart/messages';
+import { cartMutationKey, isCurrentCartScope } from '@/features/cart/mutation-state';
 import { ApiError } from '@/lib/errors';
 import { queryKeys } from '@/lib/query-keys';
-
-import { removeCartItem } from './api';
-import { getCartScope } from './cart-scope';
-import { cartErrorMessage } from './messages';
-import { cartMutationKey, isCurrentCartScope } from './mutation-state';
 
 export function useRemoveCartItem() {
   const session = useSession();

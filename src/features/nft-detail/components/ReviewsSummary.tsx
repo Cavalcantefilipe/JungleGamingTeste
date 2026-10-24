@@ -1,7 +1,6 @@
 import type { Nft } from '@/contracts/nft';
-
-import { detailMessages } from '../messages';
-import { RatingStars } from './RatingStars';
+import { RatingStars } from '@/features/nft-detail/components/RatingStars';
+import { detailMessages } from '@/features/nft-detail/messages';
 
 export function ReviewsSummary({ rating }: { rating: Nft['rating'] }) {
   return (

@@ -1,8 +1,7 @@
 import { cartSchema, type AddCartItemInput, type CartScope } from '@/contracts/cart';
+import { cartHeaders } from '@/features/cart/cart-scope';
 import { ApiError } from '@/lib/errors';
 import { apiRequest, type ApiRequestConfig } from '@/lib/http';
-
-import { cartHeaders } from './cart-scope';
 
 async function requestCart(scope: CartScope, config: ApiRequestConfig) {
   const cart = await apiRequest(cartSchema, {

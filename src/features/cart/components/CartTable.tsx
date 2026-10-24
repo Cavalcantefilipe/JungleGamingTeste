@@ -1,8 +1,6 @@
 import type { Cart } from '@/contracts/cart';
-
-import { CartTableItem } from './CartTableItem';
-
-import type { useCartState } from '../useCartState';
+import { CartTableItem } from '@/features/cart/components/CartTableItem';
+import type { useCartState } from '@/features/cart/useCartState';
 
 export function CartTable({ cart, state }: { cart: Cart; state: ReturnType<typeof useCartState> }) {
   return (

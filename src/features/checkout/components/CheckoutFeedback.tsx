@@ -1,9 +1,7 @@
 import { RootFormError } from '@/components/forms/RootFormError';
+import { checkoutMessages } from '@/features/checkout/messages';
+import type { useCheckoutController } from '@/features/checkout/useCheckoutController';
 import { ApiError, errorMessage } from '@/lib/errors';
-
-import { checkoutMessages } from '../messages';
-
-import type { useCheckoutController } from '../useCheckoutController';
 
 export function CheckoutFeedback({ state }: { state: ReturnType<typeof useCheckoutController> }) {
   const { storageError, create } = state;

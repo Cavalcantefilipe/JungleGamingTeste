@@ -1,8 +1,7 @@
 import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
+import { useFavoriteControl } from '@/features/favorites/useFavoriteControl';
 import { cn } from '@/lib/cn';
-
-import { useFavoriteControl } from '../useFavoriteControl';
 
 export function FavoriteButton({
   nftId,

@@ -1,8 +1,8 @@
 import { z } from 'zod';
 
-import { idSchema, isoDateSchema } from './common';
-import { nftSchema } from './nft';
-import { orderSchema } from './order';
+import { idSchema, isoDateSchema } from '@/contracts/common';
+import { nftSchema } from '@/contracts/nft';
+import { orderSchema } from '@/contracts/order';
 
 export const REALTIME_EVENT_TYPES = {
   nftUpdated: 'nft.updated',

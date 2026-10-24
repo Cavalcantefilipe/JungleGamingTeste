@@ -8,9 +8,8 @@ import {
 } from '@/contracts/wallet';
 import type { MockDb } from '@/mocks/db/schema';
 import { mockStore } from '@/mocks/db/store';
-
-import { MockError } from './respond';
-import { assertActiveSession } from './session';
+import { MockError } from '@/mocks/shared/respond';
+import { assertActiveSession } from '@/mocks/shared/session';
 
 function updateWallets(wallets: Wallets, role: WalletRole, input: SaveWalletInput): Wallets {
   const now = new Date().toISOString();

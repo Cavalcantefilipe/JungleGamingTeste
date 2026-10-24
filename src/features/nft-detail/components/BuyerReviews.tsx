@@ -1,12 +1,11 @@
 import { ErrorState } from '@/components/feedback/ErrorState';
 import type { Nft } from '@/contracts/nft';
-
-import { detailMessages } from '../messages';
-import { useReviews } from '../useReviews';
-import { ReviewCard } from './ReviewCard';
-import { ReviewsPagination } from './ReviewsPagination';
-import { ReviewsSkeleton } from './ReviewsSkeleton';
-import { ReviewsSummary } from './ReviewsSummary';
+import { ReviewCard } from '@/features/nft-detail/components/ReviewCard';
+import { ReviewsPagination } from '@/features/nft-detail/components/ReviewsPagination';
+import { ReviewsSkeleton } from '@/features/nft-detail/components/ReviewsSkeleton';
+import { ReviewsSummary } from '@/features/nft-detail/components/ReviewsSummary';
+import { detailMessages } from '@/features/nft-detail/messages';
+import { useReviews } from '@/features/nft-detail/useReviews';
 
 export function BuyerReviews({ nft }: { nft: Nft }) {
   const { query, setPage } = useReviews(nft);

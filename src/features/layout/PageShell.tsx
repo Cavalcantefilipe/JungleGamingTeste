@@ -1,10 +1,9 @@
 import { useRouterState } from '@tanstack/react-router';
 
+import { Footer } from '@/features/layout/Footer';
+import { Header } from '@/features/layout/Header';
+import { MobileTabBar } from '@/features/layout/MobileTabBar';
 import { cn } from '@/lib/cn';
-
-import { Footer } from './Footer';
-import { Header } from './Header';
-import { MobileTabBar } from './MobileTabBar';
 
 import type { ReactNode } from 'react';
 

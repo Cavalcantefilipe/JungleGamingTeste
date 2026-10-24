@@ -1,8 +1,7 @@
 import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
+import { AccountNavigationLinks } from '@/features/account/components/AccountNavigationLinks';
 import { useLogout } from '@/features/auth/mutations';
-
-import { AccountNavigationLinks } from './AccountNavigationLinks';
 
 export function AccountSidebar() {
   const logout = useLogout();

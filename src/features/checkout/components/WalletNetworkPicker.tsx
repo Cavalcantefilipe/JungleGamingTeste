@@ -1,10 +1,8 @@
 import type { Wallet } from '@/contracts/wallet';
-
-import { SavedWalletOption } from './SavedWalletOption';
-import { WalletConnectionStatus } from './WalletConnectionStatus';
-import { WalletProviderOption } from './WalletProviderOption';
-
-import type { useWalletConnection } from '../useWalletConnection';
+import { SavedWalletOption } from '@/features/checkout/components/SavedWalletOption';
+import { WalletConnectionStatus } from '@/features/checkout/components/WalletConnectionStatus';
+import { WalletProviderOption } from '@/features/checkout/components/WalletProviderOption';
+import type { useWalletConnection } from '@/features/checkout/useWalletConnection';
 
 interface WalletNetworkPickerProps {
   wallets: Wallet[];

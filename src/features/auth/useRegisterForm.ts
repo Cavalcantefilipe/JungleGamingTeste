@@ -4,9 +4,8 @@ import { useForm } from 'react-hook-form';
 
 import { applyFormError } from '@/components/forms/applyFormError';
 import { registerInputSchema } from '@/contracts/auth';
-
-import { useRegister } from './mutations';
-import { registerFormSchema, type RegisterFormInput } from './register-form-schema';
+import { useRegister } from '@/features/auth/mutations';
+import { registerFormSchema, type RegisterFormInput } from '@/features/auth/register-form-schema';
 
 export function useRegisterForm(returnTo: string) {
   const form = useForm<RegisterFormInput>({

@@ -2,8 +2,7 @@ import { SelectField } from '@/components/forms/SelectField';
 import { TextField } from '@/components/forms/TextField';
 import { NFT_NETWORK_LABELS, NFT_NETWORKS } from '@/contracts/nft';
 import { WALLET_PROVIDER_LABELS, WALLET_PROVIDERS } from '@/contracts/order';
-
-import type { WalletFormInput } from '../walletDefaults';
+import type { WalletFormInput } from '@/features/wallets/walletDefaults';
 
 const networkOptions = NFT_NETWORKS.map((network) => ({
   value: network,

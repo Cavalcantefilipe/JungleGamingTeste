@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { hashPassword, verifyPassword } from './password';
+import { hashPassword, verifyPassword } from '@/mocks/shared/password';
 
 describe('senhas do mock', () => {
   it('nunca armazena a senha em claro e usa salt diferente a cada hash', async () => {

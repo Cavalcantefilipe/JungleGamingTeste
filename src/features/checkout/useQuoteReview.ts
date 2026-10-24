@@ -4,10 +4,9 @@ import { useState } from 'react';
 import type { Cart } from '@/contracts/cart';
 import type { Quote } from '@/contracts/quote';
 import type { Wallet } from '@/contracts/wallet';
+import { getWalletIdentity } from '@/features/checkout/getWalletIdentity';
+import { quoteQueryOptions } from '@/features/checkout/quote';
 import { useCurrentTime } from '@/lib/useCurrentTime';
-
-import { getWalletIdentity } from './getWalletIdentity';
-import { quoteQueryOptions } from './quote';
 
 export function useQuoteReview(cart: Cart, wallet: Wallet, couponCode?: string) {
   const walletIdentity = getWalletIdentity(wallet);

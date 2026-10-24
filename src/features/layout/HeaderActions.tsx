@@ -3,9 +3,8 @@ import { Link } from '@tanstack/react-router';
 import { FigmaIcon } from '@/components/icons/FigmaIcon';
 import { Button } from '@/components/ui/button';
 import { useCartQuery } from '@/features/cart/queries';
-
-import { CartBadge } from './CartBadge';
-import { HeaderAccount } from './HeaderAccount';
+import { CartBadge } from '@/features/layout/CartBadge';
+import { HeaderAccount } from '@/features/layout/HeaderAccount';
 
 export function HeaderActions({ pathname }: { pathname: string }) {
   const cart = useCartQuery();

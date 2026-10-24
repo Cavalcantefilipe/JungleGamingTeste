@@ -1,13 +1,12 @@
 import { setupServer } from 'msw/node';
 import { afterAll, afterEach, beforeAll, beforeEach, expect, it } from 'vitest';
 
+import { requireAuth } from '@/features/auth/route-guard';
+import { sessionStore } from '@/features/auth/session-store';
 import { mockStore } from '@/mocks/db/store';
 import { handlers } from '@/mocks/handlers';
 import { setNetwork, setScenario } from '@/mocks/scenarios/current';
 import { login } from '@/mocks/shared/auth';
-
-import { requireAuth } from './route-guard';
-import { sessionStore } from './session-store';
 
 const server = setupServer(...handlers);
 beforeAll(() => {

@@ -1,10 +1,9 @@
 import { expect, it } from 'vitest';
 
 import { NFT_NETWORK_LABELS } from '@/contracts/nft';
-
-import { createNfts } from './fixtures/nfts';
-import { migrateCatalog } from './migrateCatalog';
-import { createSeed } from './seed';
+import { createNfts } from '@/mocks/db/fixtures/nfts';
+import { migrateCatalog } from '@/mocks/db/migrateCatalog';
+import { createSeed } from '@/mocks/db/seed';
 
 it('mantém rede e coleção coerentes no resumo e inclui os fatos do desenho', () => {
   for (const nft of createNfts()) {

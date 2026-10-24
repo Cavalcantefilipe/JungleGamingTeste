@@ -5,14 +5,13 @@ import type { Cart } from '@/contracts/cart';
 import type { Profile } from '@/contracts/profile';
 import type { Wallet, Wallets } from '@/contracts/wallet';
 import { readCartCoupon } from '@/features/cart/coupon-store';
+import { getWalletIdentity } from '@/features/checkout/getWalletIdentity';
+import { useCheckoutSubmission } from '@/features/checkout/useCheckoutSubmission';
+import { useCheckoutWallet } from '@/features/checkout/useCheckoutWallet';
+import { useCreateOrder } from '@/features/checkout/useCreateOrder';
+import { useQuoteReview } from '@/features/checkout/useQuoteReview';
+import { useWalletConnection } from '@/features/checkout/useWalletConnection';
 import { readPendingOrder } from '@/features/orders/pending-order';
-
-import { getWalletIdentity } from './getWalletIdentity';
-import { useCheckoutSubmission } from './useCheckoutSubmission';
-import { useCheckoutWallet } from './useCheckoutWallet';
-import { useCreateOrder } from './useCreateOrder';
-import { useQuoteReview } from './useQuoteReview';
-import { useWalletConnection } from './useWalletConnection';
 
 export interface CheckoutInput {
   session: Session;

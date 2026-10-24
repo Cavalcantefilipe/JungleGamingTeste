@@ -1,11 +1,9 @@
 import { ErrorState } from '@/components/feedback/ErrorState';
 import { Skeleton } from '@/components/ui/skeleton';
-
-import { CheckoutContent } from './CheckoutContent';
-import { CheckoutRequirement } from './CheckoutRequirement';
-import { PendingOrderRecovery } from './PendingOrderRecovery';
-
-import type { useCheckoutPageState } from '../useCheckoutPageState';
+import { CheckoutContent } from '@/features/checkout/components/CheckoutContent';
+import { CheckoutRequirement } from '@/features/checkout/components/CheckoutRequirement';
+import { PendingOrderRecovery } from '@/features/checkout/components/PendingOrderRecovery';
+import type { useCheckoutPageState } from '@/features/checkout/useCheckoutPageState';
 
 export function CheckoutBody({ state }: { state: ReturnType<typeof useCheckoutPageState> }) {
   const { session, pending, recovering, cart, profile, wallets, error, initialWallet } = state;

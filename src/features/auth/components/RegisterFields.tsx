@@ -1,7 +1,6 @@
 import { PasswordField } from '@/components/forms/PasswordField';
 import { TextField } from '@/components/forms/TextField';
-
-import type { RegisterFormInput } from '../register-form-schema';
+import type { RegisterFormInput } from '@/features/auth/register-form-schema';
 
 export function RegisterFields() {
   return (

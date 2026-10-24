@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { cn } from './cn';
+import { cn } from '@/lib/cn';
 
 describe('classes dos tokens do design', () => {
   it('substitui tamanhos e raios sem remover a cor', () => {

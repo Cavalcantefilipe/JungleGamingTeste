@@ -1,13 +1,12 @@
 import { useRef } from 'react';
 
 import type { Profile } from '@/contracts/profile';
+import { AvatarActions } from '@/features/profile/components/AvatarActions';
+import { AvatarFileInput } from '@/features/profile/components/AvatarFileInput';
+import { AvatarPreview } from '@/features/profile/components/AvatarPreview';
+import { profileMessages } from '@/features/profile/messages';
+import { useUpdateAvatar } from '@/features/profile/mutations';
 import { ApiError, errorMessage } from '@/lib/errors';
-
-import { AvatarActions } from './AvatarActions';
-import { AvatarFileInput } from './AvatarFileInput';
-import { AvatarPreview } from './AvatarPreview';
-import { profileMessages } from '../messages';
-import { useUpdateAvatar } from '../mutations';
 
 export function AvatarField({ profile }: { profile: Profile }) {
   const input = useRef<HTMLInputElement>(null);

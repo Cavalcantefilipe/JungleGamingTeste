@@ -1,7 +1,6 @@
-import { CartQuote } from './CartQuote';
-import { CouponField } from './CouponField';
-
-import type { useCartState } from '../useCartState';
+import { CartQuote } from '@/features/cart/components/CartQuote';
+import { CouponField } from '@/features/cart/components/CouponField';
+import type { useCartState } from '@/features/cart/useCartState';
 
 interface CartQuoteSectionProps {
   state: ReturnType<typeof useCartState>;

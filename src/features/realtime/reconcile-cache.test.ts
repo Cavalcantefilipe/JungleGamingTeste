@@ -3,16 +3,15 @@ import { expect, it } from 'vitest';
 
 import { nftListQuerySchema, type Nft, type NftListResponse } from '@/contracts/nft';
 import type { NftUpdatedEvent } from '@/contracts/realtime';
+import { applyRealtimeEvent } from '@/features/realtime/apply-event';
+import { createEventGate } from '@/features/realtime/event-gate';
+import { syncCacheVersions } from '@/features/realtime/reconcile';
 import { queryKeys } from '@/lib/query-keys';
 import { createSeed } from '@/mocks/db/seed';
 import { mockStore } from '@/mocks/db/store';
 import { addCartItem } from '@/mocks/shared/cart';
 import { listNfts } from '@/mocks/shared/catalog';
 import { computeQuote } from '@/mocks/shared/pricing';
-
-import { applyRealtimeEvent } from './apply-event';
-import { createEventGate } from './event-gate';
-import { syncCacheVersions } from './reconcile';
 
 it('detalhe REST mais novo não impede evento de atualizar lista atrasada', () => {
   const client = new QueryClient();

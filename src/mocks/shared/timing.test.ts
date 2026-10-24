@@ -2,9 +2,8 @@ import { describe, expect, it } from 'vitest';
 
 import type { Order } from '@/contracts/order';
 import { createSeed } from '@/mocks/db/seed';
-
-import { computeQuote } from './pricing';
-import { applyDueTransitions, scheduleOrderTransition } from './timing';
+import { computeQuote } from '@/mocks/shared/pricing';
+import { applyDueTransitions, scheduleOrderTransition } from '@/mocks/shared/timing';
 
 function createOrder(): Order {
   const quote = computeQuote(createSeed(), {

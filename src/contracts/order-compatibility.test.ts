@@ -1,10 +1,9 @@
 import { describe, expect, it } from 'vitest';
 
+import { orderSchema } from '@/contracts/order';
 import { createSeed } from '@/mocks/db/seed';
 import { createPendingOrder } from '@/mocks/shared/createPendingOrder';
 import { computeQuote } from '@/mocks/shared/pricing';
-
-import { orderSchema } from './order';
 
 function currentOrder() {
   const seed = createSeed();

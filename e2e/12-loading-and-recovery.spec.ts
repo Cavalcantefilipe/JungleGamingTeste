@@ -5,8 +5,12 @@ import type { Locator } from '@playwright/test';
 
 async function bounds(locator: Locator) {
   await expect(locator).toBeVisible();
-  const box = await locator.boundingBox();
-  if (!box) throw new Error('Elemento sem dimensões');
+  const box = await locator.evaluate((element) => {
+    const { x, y, width, height } = element.getBoundingClientRect();
+    return { x, y, width, height };
+  });
+  expect(box.width).toBeGreaterThan(0);
+  expect(box.height).toBeGreaterThan(0);
   return box;
 }
 

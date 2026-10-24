@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { createSeed } from './seed';
-import { createMockStore } from './store';
+import { createSeed } from '@/mocks/db/seed';
+import { createMockStore } from '@/mocks/db/store';
 
 describe('mock store', () => {
   beforeEach(() => {

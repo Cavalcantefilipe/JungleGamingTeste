@@ -1,10 +1,10 @@
 import { z } from 'zod';
 
-import { emailSchema } from './auth';
-import { idSchema, isoDateSchema } from './common';
-import { nftNetworkSchema, type NftNetwork } from './nft';
-import { walletProviderSchema } from './order';
-import { ensLabelSchema } from './profile';
+import { emailSchema } from '@/contracts/auth';
+import { idSchema, isoDateSchema } from '@/contracts/common';
+import { nftNetworkSchema, type NftNetwork } from '@/contracts/nft';
+import { walletProviderSchema } from '@/contracts/order';
+import { ensLabelSchema } from '@/contracts/profile';
 
 export const WALLET_ROLES = ['primary', 'secondary'] as const;
 export const walletRoleSchema = z.enum(WALLET_ROLES);

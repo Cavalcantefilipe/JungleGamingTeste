@@ -4,9 +4,8 @@ import { afterAll, beforeAll, beforeEach, expect, it } from 'vitest';
 import { sessionSchema } from '@/contracts/auth';
 import { quoteSchema } from '@/contracts/quote';
 import { mockStore } from '@/mocks/db/store';
+import { handlers } from '@/mocks/handlers/index';
 import { setNetwork, setScenario } from '@/mocks/scenarios/current';
-
-import { handlers } from './index';
 
 const server = setupServer(...handlers);
 const base = 'http://localhost/api';

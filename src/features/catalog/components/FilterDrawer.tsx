@@ -8,12 +8,10 @@ import {
   SheetHeader,
   SheetTitle,
 } from '@/components/ui/sheet';
-
-import { CatalogSortSelect } from './CatalogSortSelect';
-import { FilterDrawerTrigger } from './FilterDrawerTrigger';
-import { FilterSidebar } from './FilterSidebar';
-
-import type { FilterProps } from '../filter-props';
+import { CatalogSortSelect } from '@/features/catalog/components/CatalogSortSelect';
+import { FilterDrawerTrigger } from '@/features/catalog/components/FilterDrawerTrigger';
+import { FilterSidebar } from '@/features/catalog/components/FilterSidebar';
+import type { FilterProps } from '@/features/catalog/filter-props';
 
 export function FilterDrawer({
   search,

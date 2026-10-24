@@ -1,8 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import type { NftUpdatedEvent } from '@/contracts/realtime';
-
-import { createEventGate } from './event-gate';
+import { createEventGate } from '@/features/realtime/event-gate';
 
 const event = (version = 2): NftUpdatedEvent => ({
   id: crypto.randomUUID(),

@@ -1,15 +1,14 @@
+import { authHandlers } from '@/mocks/handlers/auth';
+import { cartHandlers } from '@/mocks/handlers/cart';
+import { contentHandlers } from '@/mocks/handlers/content';
+import { favoriteHandlers } from '@/mocks/handlers/favorites';
+import { nftHandlers } from '@/mocks/handlers/nfts';
+import { orderHandlers } from '@/mocks/handlers/orders';
+import { profileHandlers } from '@/mocks/handlers/profile';
+import { quoteHandlers } from '@/mocks/handlers/quote';
+import { walletSessionHandlers } from '@/mocks/handlers/wallet-session';
+import { walletHandlers } from '@/mocks/handlers/wallets';
 import { realtimeHandlers } from '@/mocks/socket/server';
-
-import { authHandlers } from './auth';
-import { cartHandlers } from './cart';
-import { contentHandlers } from './content';
-import { favoriteHandlers } from './favorites';
-import { nftHandlers } from './nfts';
-import { orderHandlers } from './orders';
-import { profileHandlers } from './profile';
-import { quoteHandlers } from './quote';
-import { walletSessionHandlers } from './wallet-session';
-import { walletHandlers } from './wallets';
 
 export const handlers = [
   ...realtimeHandlers,

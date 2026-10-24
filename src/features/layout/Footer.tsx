@@ -1,5 +1,5 @@
-import { FooterFeatures } from './FooterFeatures';
-import { FooterLinks } from './FooterLinks';
+import { FooterFeatures } from '@/features/layout/FooterFeatures';
+import { FooterLinks } from '@/features/layout/FooterLinks';
 
 export function Footer() {
   return (

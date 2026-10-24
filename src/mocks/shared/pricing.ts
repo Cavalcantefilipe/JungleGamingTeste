@@ -2,8 +2,7 @@ import { quoteInputSchema, type Quote, type QuoteInput, type QuoteItem } from '@
 import { addEth, mulEth, percentOf, subEth } from '@/lib/money';
 import { coupons } from '@/mocks/db/fixtures/coupons';
 import type { MockDb } from '@/mocks/db/schema';
-
-import { MockError } from './respond';
+import { MockError } from '@/mocks/shared/respond';
 
 export function priceItem(db: MockDb, item: QuoteInput['items'][number]): QuoteItem {
   const nft = db.nfts.find((entry) => entry.id === item.nftId);

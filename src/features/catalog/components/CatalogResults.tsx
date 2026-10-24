@@ -1,11 +1,9 @@
+import { CatalogItems } from '@/features/catalog/components/CatalogItems';
+import { CatalogToolbar } from '@/features/catalog/components/CatalogToolbar';
+import { Pagination } from '@/features/catalog/components/Pagination';
+import type { useCatalogQuery } from '@/features/catalog/queries';
 import type { CatalogSearch } from '@/features/catalog/search-params';
-
-import { CatalogItems } from './CatalogItems';
-import { CatalogToolbar } from './CatalogToolbar';
-import { Pagination } from './Pagination';
-
-import type { useCatalogQuery } from '../queries';
-import type { useCatalogNavigation } from '../useCatalogNavigation';
+import type { useCatalogNavigation } from '@/features/catalog/useCatalogNavigation';
 
 export function CatalogResults({
   search,

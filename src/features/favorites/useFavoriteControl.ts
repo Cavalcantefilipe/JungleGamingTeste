@@ -2,9 +2,8 @@ import { useQuery } from '@tanstack/react-query';
 import { useNavigate, useRouterState } from '@tanstack/react-router';
 
 import { useSession } from '@/features/auth/session-store';
-
-import { favoritesQueryOptions } from './queries';
-import { useToggleFavorite } from './useToggleFavorite';
+import { favoritesQueryOptions } from '@/features/favorites/queries';
+import { useToggleFavorite } from '@/features/favorites/useToggleFavorite';
 
 export function useFavoriteControl(nftId: string) {
   const session = useSession();

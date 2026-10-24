@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { parseEnv } from './env';
+import { parseEnv } from '@/lib/env';
 
 const validRawEnv = {
   VITE_API_BASE_URL: '/api',

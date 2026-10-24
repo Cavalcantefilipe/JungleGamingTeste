@@ -3,11 +3,10 @@ import { expect, it, vi } from 'vitest';
 
 import { nftListQuerySchema, type Nft, type NftListResponse } from '@/contracts/nft';
 import type { NftUpdatedEvent } from '@/contracts/realtime';
+import { applyRealtimeEvent } from '@/features/realtime/apply-event';
 import { queryKeys } from '@/lib/query-keys';
 import { createSeed } from '@/mocks/db/seed';
 import { listNfts } from '@/mocks/shared/catalog';
-
-import { applyRealtimeEvent } from './apply-event';
 
 function priceEvent(price: string): NftUpdatedEvent {
   return {

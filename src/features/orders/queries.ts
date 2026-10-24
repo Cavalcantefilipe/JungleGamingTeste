@@ -1,8 +1,7 @@
 import { queryOptions } from '@tanstack/react-query';
 
+import { getOrder } from '@/features/orders/api';
 import { queryKeys } from '@/lib/query-keys';
-
-import { getOrder } from './api';
 
 export function orderQueryOptions(userId: string, id: string) {
   return queryOptions({

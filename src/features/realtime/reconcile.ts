@@ -1,6 +1,6 @@
 import { orderSchema } from '@/contracts/order';
+import type { createEventGate } from '@/features/realtime/event-gate';
 
-import type { createEventGate } from './event-gate';
 import type { QueryClient } from '@tanstack/react-query';
 
 export function syncCacheVersions(

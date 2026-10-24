@@ -1,9 +1,8 @@
 import type { Nft } from '@/contracts/nft';
-
-import { DetailHeading } from './DetailHeading';
-import { DetailMetadata } from './DetailMetadata';
-import { PurchasePanel } from './PurchasePanel';
-import { ShareNftAction } from './ShareNftAction';
+import { DetailHeading } from '@/features/nft-detail/components/DetailHeading';
+import { DetailMetadata } from '@/features/nft-detail/components/DetailMetadata';
+import { PurchasePanel } from '@/features/nft-detail/components/PurchasePanel';
+import { ShareNftAction } from '@/features/nft-detail/components/ShareNftAction';
 
 export function DetailSummary({ nft }: { nft: Nft }) {
   return (

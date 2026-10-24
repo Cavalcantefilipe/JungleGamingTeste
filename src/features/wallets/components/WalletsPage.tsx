@@ -5,9 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { AccountLayout } from '@/features/account/components/AccountLayout';
 import { useProfileQuery } from '@/features/profile/queries';
-
-import { useWalletsQuery } from '../queries';
-import { WalletSections } from './WalletSections';
+import { WalletSections } from '@/features/wallets/components/WalletSections';
+import { useWalletsQuery } from '@/features/wallets/queries';
 
 export function WalletsPage() {
   const { returnTo } = useSearch({ from: '/account/wallets' });

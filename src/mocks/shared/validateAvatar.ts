@@ -1,6 +1,5 @@
 import { isValidImage } from '@/lib/avatar';
-
-import { MockError } from './respond';
+import { MockError } from '@/mocks/shared/respond';
 
 export function validateAvatar(dataUrl: string): void {
   const [prefix, base64 = ''] = dataUrl.split(',');

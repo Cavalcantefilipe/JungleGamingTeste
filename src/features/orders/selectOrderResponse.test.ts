@@ -1,10 +1,9 @@
 import { describe, expect, it } from 'vitest';
 
 import { orderSchema } from '@/contracts/order';
+import { selectOrderResponse } from '@/features/orders/selectOrderResponse';
 import { createSeed } from '@/mocks/db/seed';
 import { computeQuote } from '@/mocks/shared/pricing';
-
-import { selectOrderResponse } from './selectOrderResponse';
 
 function pendingOrder() {
   const seed = createSeed();
