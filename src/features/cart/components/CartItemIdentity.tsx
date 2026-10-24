@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router';
 
 import { ArtworkImage } from '@/components/media/ArtworkImage';
+import { NftTokenLabel } from '@/components/media/NftTokenLabel';
 import type { CartItem } from '@/contracts/cart';
 import type { Nft } from '@/contracts/nft';
 
@@ -26,9 +27,7 @@ export function CartItemIdentity({ item, nft }: { item: CartItem; nft: Nft | und
         <p className="mt-[6px] text-sm leading-4 text-text-secondary md:hidden">
           Edição: {item.snapshot.editionLabel}
         </p>
-        <p className="mt-1 hidden text-sm text-text-secondary md:block">
-          ID do token: #{nft?.tokenId ?? '—'}
-        </p>
+        <NftTokenLabel tokenId={nft?.tokenId} className="mt-1 hidden text-sm md:block" />
       </div>
     </Link>
   );

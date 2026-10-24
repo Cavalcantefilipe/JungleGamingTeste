@@ -21,6 +21,7 @@ export function createPendingOrder(
     total: quote.total,
     ...(quote.coupon ? { coupon: quote.coupon } : {}),
     wallet: { provider: input.wallet.provider, address: wallet.address, network: wallet.network },
+    collector: { ...input.collector },
     transactionRef: 'pending',
     explorerUrl: 'pending',
     createdAt: now,

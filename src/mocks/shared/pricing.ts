@@ -18,6 +18,7 @@ export function priceItem(db: MockDb, item: QuoteInput['items'][number]): QuoteI
     lineTotal: mulEth(nft.price, item.quantity),
     available: edition.available,
     name: nft.name,
+    tokenId: nft.tokenId,
     editionLabel: edition.label,
     image,
   };

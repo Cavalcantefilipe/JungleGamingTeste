@@ -20,7 +20,7 @@ O preview usa 4175. Fora da CI, o Playwright pode reutilizar o preview existente
 ## Projetos
 
 - `pnpm e2e`: Chromium desktop 1440×900 e mobile 390×844, suíte completa com baselines.
-- `pnpm e2e:compat`: Firefox desktop 1440×900 e WebKit mobile 390×844; cenários `00`–`11`, `25` e `26`, incluindo favoritos e conciliação. Baselines de Chromium não são reutilizados entre engines.
+- `pnpm e2e:compat`: Firefox desktop 1440×900 e WebKit mobile 390×844; cenários `00`–`11` e `25`–`30`, incluindo favoritos, conciliação e as revisões de completude. Baselines de Chromium não são reutilizados entre engines.
 - WebKit automatizado não equivale a um teste em iPhone físico/Safari instalado.
 
 As fixtures aguardam o destino renderizado após login/compra; mudança da URL sozinha pode preceder o commit visual da navegação SPA. Não há espera fixa nem retry automático para encobrir falhas. O teste de pedido pendente controla o relógio e a confirmação autoritativa. No WebKit/macOS, o percurso completo de teclado usa Option+Tab, preservando as preferências do sistema ([comportamento documentado no projeto Playwright](https://github.com/microsoft/playwright/issues/41808)).
@@ -89,3 +89,12 @@ Lighthouse coleta três execuções por página/perfil, conserva falha abaixo da
 ## Complemento do detalhe — 24/10
 
 `27-detail-completeness.spec.ts` cobre a rota `nft-004`: avanço automático e retorno ao início, pausa, pontos, movimento reduzido, carrossel compartilhado no carrinho, avaliações REST/paginação/erro, metadados, migração com carrinho persistido, URL/histórico e evento Socket.IO durante carregamento das avaliações. Também integra Firefox/WebKit. A regressão visual inclui o painel de avaliações; movimento reduzido estabiliza os carrosséis somente nesses testes de imagem. Autoplay é testado separadamente com o relógio do Playwright. [Resultados e capturas](DETAIL-COMPLETENESS.md).
+
+## Revisão das demais telas — 24/10
+
+- `28`: busca por criador, página fora do intervalo, retorno após login, teclado nas abas, tipografia dos cards, falha editorial e filtros pelo rodapé.
+- `29`: autenticação sem rolagem nas alturas usuais, acesso aos erros em telas baixas, retorno ao fechar e mensagens de sucesso coerentes com os dados salvos em perfil/carteira/senha.
+- `30`: nome de usuário persistido no rascunho e pedido, atalho de cupom com retorno ao pagamento e token imutável no recibo.
+- Contratos e tentativas antigas: pedidos sem os novos campos continuam legíveis, com replay da chave/hash original.
+
+Os novos casos foram reproduzidos antes da correção. A conferência das nove telas no Railway também percorre 320, 390, 414, 768 e 1440 px; as capturas aguardam fontes, imagens e consultas.

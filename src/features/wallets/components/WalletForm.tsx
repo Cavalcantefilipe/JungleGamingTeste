@@ -24,11 +24,11 @@ interface WalletFormProps {
   walletRole: WalletRole;
 }
 export function WalletForm({ profile, wallet, walletRole }: WalletFormProps) {
+  const mutation = useSaveWallet(walletRole);
   const form = useForm<WalletFormInput, unknown, WalletInput>({
     resolver: zodResolver(walletInputSchema),
     defaultValues: walletDefaults(profile, wallet),
   });
-  const mutation = useSaveWallet(walletRole);
   const submit = form.handleSubmit(async (input) => {
     try {
       await mutation.mutateAsync(input);
@@ -51,11 +51,13 @@ export function WalletForm({ profile, wallet, walletRole }: WalletFormProps) {
         <Button size="form" type="submit" disabled={mutation.isPending}>
           {mutation.isPending ? 'Salvando…' : 'Salvar carteira'}
         </Button>
-        {mutation.isSuccess && (
-          <p role="status" className="text-sm text-primary">
-            {walletMessages.saved}
-          </p>
-        )}
+        {mutation.isSuccess &&
+          !form.formState.isDirty &&
+          Object.keys(form.formState.errors).length === 0 && (
+            <p role="status" className="text-sm text-primary">
+              {walletMessages.saved}
+            </p>
+          )}
       </form>
     </Form>
   );

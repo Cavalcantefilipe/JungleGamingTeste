@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router';
 import { toast } from 'sonner';
 
+import { FooterCollectionLinks } from './FooterCollectionLinks';
 import { FooterSocialLinks } from './FooterSocialLinks';
 
 const sections = [
@@ -14,7 +15,6 @@ const sections = [
       'Denunciar item',
     ],
   },
-  { title: 'Coleções', labels: ['Arte digital', 'Fotografia', 'Música', 'Arte 3D', 'Utilidade'] },
 ];
 
 function unavailable() {
@@ -47,6 +47,7 @@ export function FooterLinks() {
           ))}
         </div>
       ))}
+      <FooterCollectionLinks />
       <FooterSocialLinks />
     </div>
   );

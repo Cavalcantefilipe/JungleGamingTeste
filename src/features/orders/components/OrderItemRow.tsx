@@ -1,4 +1,5 @@
 import { ArtworkImage } from '@/components/media/ArtworkImage';
+import { NftTokenLabel } from '@/components/media/NftTokenLabel';
 import type { Order } from '@/contracts/order';
 import { formatEth } from '@/lib/money';
 
@@ -17,6 +18,7 @@ export function OrderItemRow({ item }: { item: Order['items'][number] }) {
           />
           <span className="min-w-0 wrap-anywhere">
             <strong className="block text-xs leading-4 font-bold md:text-base">{item.name}</strong>
+            <NftTokenLabel tokenId={item.tokenId} className="block text-xs md:text-sm" />
             <span className="text-xs text-text-secondary md:text-sm">
               Edição {item.editionLabel}
             </span>

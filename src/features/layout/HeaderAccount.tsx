@@ -1,4 +1,4 @@
-import { Link } from '@tanstack/react-router';
+import { Link, useRouterState } from '@tanstack/react-router';
 import { lazy, Suspense } from 'react';
 
 import { FigmaIcon } from '@/components/icons/FigmaIcon';
@@ -12,6 +12,10 @@ const AccountMenu = lazy(() =>
 
 export function HeaderAccount() {
   const session = useSession();
+  const returnTo = useRouterState({
+    select: ({ location }) =>
+      ['/login', '/register'].includes(location.pathname) ? '/' : location.href,
+  });
   return (
     <>
       {session ? (
@@ -26,7 +30,7 @@ export function HeaderAccount() {
         </Suspense>
       ) : (
         <Button asChild size="header">
-          <Link to="/login" search={{ returnTo: '/' }} onClick={focusClickedElement}>
+          <Link to="/login" search={{ returnTo }} onClick={focusClickedElement}>
             <FigmaIcon name="logout" size={20} aria-hidden="true" />
             <span>Entrar</span>
           </Link>

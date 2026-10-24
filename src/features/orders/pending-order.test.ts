@@ -40,6 +40,21 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 describe('tentativa persistida', () => {
+  it('retoma a tentativa antiga sem username, conservando o hash e a chave', async () => {
+    const payload = input();
+    const attempt = {
+      userId: 'user-ana',
+      key: crypto.randomUUID(),
+      payloadHash: await idempotency.hashPayload(payload),
+      payload,
+    };
+    localStorage.setItem('kurio.pendingOrder.user-ana', JSON.stringify(attempt));
+    const saved = readPendingOrder('user-ana');
+    if (!saved) throw new Error('Tentativa ausente');
+    const retry = await prepareOrderAttempt('user-ana', saved.payload, () => true);
+    expect(retry).toEqual(attempt);
+    expect(retry.payload.collector).not.toHaveProperty('username');
+  });
   it('retry usa o payload normalizado pelo contrato sem trocar a chave', async () => {
     const payload = input();
     const attempt = await prepareOrderAttempt(

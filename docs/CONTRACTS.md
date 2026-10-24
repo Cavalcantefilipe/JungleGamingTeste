@@ -71,7 +71,7 @@ Sessão contém token, expiresAt e user (id, username, email, displayName, avata
 }
 ```
 
-Os IDs de edição devem vir do GET do NFT; o exemplo ilustra o formato e não substitui essa consulta. Linhas repetidas para a mesma edição são recusadas. Preço/cupom/taxa são calculados pelo mock; campos extras de total não autorizam valor. A cotação devolve id, items com unitPrice/lineTotal/available, subtotal, discount, networkFee, total, coupon opcional, network, version e expiresAt.
+Os IDs de edição devem vir do GET do NFT; o exemplo ilustra o formato e não substitui essa consulta. Linhas repetidas para a mesma edição são recusadas. Preço/cupom/taxa são calculados pelo mock; campos extras de total não autorizam valor. A cotação devolve id, items com tokenId/unitPrice/lineTotal/available, subtotal, discount, networkFee, total, coupon opcional, network, version e expiresAt. O tokenId é copiado do catálogo para o snapshot; leituras de cotações e pedidos antigos ainda aceitam sua ausência.
 
 ```json
 {
@@ -84,7 +84,7 @@ Os IDs de edição devem vir do GET do NFT; o exemplo ilustra o formato e não s
     "network": "ethereum",
     "address": "<endereço revisado>"
   },
-  "collector": { "displayName": "Ana", "email": "ana@kurio.test" }
+  "collector": { "username": "ana", "displayName": "Ana", "email": "ana@kurio.test" }
 }
 ```
 
@@ -92,7 +92,7 @@ Os IDs de edição devem vir do GET do NFT; o exemplo ilustra o formato e não s
 
 Conexão e compra com endereço/rede/provedor diferentes da carteira salva retornam `WALLET_CHANGED` e exigem nova revisão. O cliente envia sempre o endereço revisado. O parser de pedido aceita endereço ausente somente para compatibilidade de leitura/replay de tentativas antigas: uma chave antiga já aceita recupera o pedido original; uma compra nova sem endereço é recusada no commit, sem gravar pedido ou chave. [Regressões de carteira](BEHAVIOR-REVIEW.md).
 
-Pedido contém id, userId, status (`pending`, `confirmed`, `declined`), itens e valores em snapshot, wallet, transactionRef, explorerUrl, datas e version. Apenas pedido confirmado permite recibo final; URL do explorer aceita o formato HTTPS exato de transação Etherscan ou marcador interno pending. Não há blockchain real.
+Pedido contém id, userId, status (`pending`, `confirmed`, `declined`), itens e valores em snapshot, collector, wallet, transactionRef, explorerUrl, datas e version. Nome de usuário, nome de exibição, e-mail, ENS e observação vêm dos dados revisados no checkout; o rascunho preserva as edições após refresh. collector/username são opcionais na leitura de dados legados, sem acrescentar valores a tentativas antigas ou mudar seu hash de idempotência. Apenas pedido confirmado permite recibo final; URL do explorer aceita o formato HTTPS exato de transação Etherscan ou marcador interno pending. Não há blockchain real.
 
 ## Eventos de tempo real
 

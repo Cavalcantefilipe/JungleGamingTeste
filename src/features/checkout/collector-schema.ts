@@ -18,6 +18,7 @@ export const collectorFormSchema = orderCollectorSchema.extend({
 });
 export type CollectorFormInput = z.infer<typeof collectorFormSchema>;
 export const checkoutDraftSchema = z.object({
+  username: z.string().optional(),
   displayName: z.string(),
   email: z.string(),
   ensName: z.string(),

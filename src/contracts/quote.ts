@@ -47,6 +47,7 @@ export const quoteItemSchema = quoteItemInputSchema.extend({
   lineTotal: ethAmountSchema,
   available: z.number().int().min(0),
   name: z.string().min(1),
+  tokenId: z.string().min(1).optional(),
   editionLabel: nftEditionLabelSchema,
   image: nftImageSchema,
 });

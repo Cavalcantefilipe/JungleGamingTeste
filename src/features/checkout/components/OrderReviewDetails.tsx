@@ -1,6 +1,7 @@
 import type { Quote } from '@/contracts/quote';
 import { QuoteSummary } from '@/features/cart/components/QuoteSummary';
 
+import { CheckoutCouponLink } from './CheckoutCouponLink';
 import { OrderReviewItem } from './OrderReviewItem';
 
 export function OrderReviewDetails({ quote }: { quote: Quote }) {
@@ -15,6 +16,7 @@ export function OrderReviewDetails({ quote }: { quote: Quote }) {
           <OrderReviewItem key={`${item.nftId}:${item.editionId}`} item={item} />
         ))}
       </ul>
+      <CheckoutCouponLink />
       <QuoteSummary quote={quote} />
     </>
   );

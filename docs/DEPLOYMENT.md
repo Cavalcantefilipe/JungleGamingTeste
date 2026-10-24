@@ -1,5 +1,7 @@
 # Publicação na Railway
 
+A [conferência complementar de 24/10](SCREENS-COMPLETENESS.md) registra a publicação das correções das demais telas e sua verificação. Os deployments abaixo preservam o histórico.
+
 O deployment e o commit da conciliação de 24/10, com as verificações finais, estão em [RECONCILIATION.md](RECONCILIATION.md). Os IDs abaixo e [QUALITY-REVIEW.md](QUALITY-REVIEW.md) preservam o histórico da publicação e as instruções de reprodução.
 
 Railway foi escolhida pelo usuário em 23/10/2026. O GitHub público usa a branch `main`. A aplicação continua sendo a demonstração MSW descrita no README: não exige banco, volume nem servidor Socket.IO remoto.

@@ -1,0 +1,50 @@
+
+Running 36 tests using 2 workers
+
+(node:47245) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:47244) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop-firefox] › e2e/28-home-completeness.spec.ts:13:1 › página fora do intervalo recupera última página e URL sem perder filtros (2.9s)
+  ✓   2 [desktop-firefox] › e2e/28-home-completeness.spec.ts:3:1 › busca inclui o criador anunciado na interface (2.6s)
+  ✓   4 [desktop-firefox] › e2e/28-home-completeness.spec.ts:48:1 › abas do catálogo aceitam setas, Home e End com foco único (832ms)
+  ✓   3 [desktop-firefox] › e2e/28-home-completeness.spec.ts:32:1 › Entrar no cabeçalho preserva filtros e retorna ao catálogo após autenticar (1.8s)
+  ✓   5 [desktop-firefox] › e2e/28-home-completeness.spec.ts:66:1 › cards preservam tipografia desktop e mobile do Figma (1.6s)
+  ✓   6 [desktop-firefox] › e2e/28-home-completeness.spec.ts:79:1 › página fora do intervalo sem resultados exibe estado vazio recuperável (909ms)
+  ✓   8 [desktop-firefox] › e2e/28-home-completeness.spec.ts:115:1 › coleções do rodapé usam o filtro disponível no catálogo (808ms)
+  ✓   7 [desktop-firefox] › e2e/28-home-completeness.spec.ts:92:1 › falha editorial oferece nova tentativa e recupera conteúdo original do Figma (4.8s)
+  ✓  10 [desktop-firefox] › e2e/29-account-completeness.spec.ts:43:1 › erros de autenticação continuam acessíveis em uma tela baixa (4.0s)
+  ✓   9 [desktop-firefox] › e2e/29-account-completeness.spec.ts:3:1 › autenticação adapta os espaços para manter todas as ações na tela (8.4s)
+  ✓  11 [desktop-firefox] › e2e/29-account-completeness.spec.ts:66:1 › perfil não confirma alterações que ainda não foram salvas (4.5s)
+  ✓  12 [desktop-firefox] › e2e/29-account-completeness.spec.ts:78:1 › remover avatar não impede a confirmação de dados do perfil salvos depois (5.6s)
+  ✓  14 [desktop-firefox] › e2e/29-account-completeness.spec.ts:115:1 › nova edição de senha remove a confirmação da operação anterior (2.2s)
+  ✓  13 [desktop-firefox] › e2e/29-account-completeness.spec.ts:99:1 › carteiras não misturam confirmação anterior com alterações inválidas (4.1s)
+  ✓  15 [desktop-firefox] › e2e/29-account-completeness.spec.ts:126:1 › fechar autenticação preserva o contexto público e evita voltar para rotas protegidas (2.5s)
+  ✓  16 [desktop-firefox] › e2e/30-checkout-completeness.spec.ts:5:1 › nome de usuário permanece no rascunho e no snapshot enviado do pedido (5.7s)
+  ✓  17 [desktop-firefox] › e2e/30-checkout-completeness.spec.ts:30:1 › atalho de cupom volta ao carrinho e retorna ao pagamento com o rascunho (4.6s)
+  ✓  18 [desktop-firefox] › e2e/30-checkout-completeness.spec.ts:50:1 › token real aparece no resumo e permanece imutável no recibo (8.4s)
+(node:47398) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  19 [mobile-webkit] › e2e/28-home-completeness.spec.ts:3:1 › busca inclui o criador anunciado na interface (1.5s)
+  -  20 [mobile-webkit] › e2e/28-home-completeness.spec.ts:32:1 › Entrar no cabeçalho preserva filtros e retorna ao catálogo após autenticar
+  ✓  21 [mobile-webkit] › e2e/28-home-completeness.spec.ts:48:1 › abas do catálogo aceitam setas, Home e End com foco único (767ms)
+  ✓  22 [mobile-webkit] › e2e/28-home-completeness.spec.ts:66:1 › cards preservam tipografia desktop e mobile do Figma (1.6s)
+  ✓  23 [mobile-webkit] › e2e/28-home-completeness.spec.ts:79:1 › página fora do intervalo sem resultados exibe estado vazio recuperável (1.7s)
+(node:47453) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  24 [mobile-webkit] › e2e/28-home-completeness.spec.ts:92:1 › falha editorial oferece nova tentativa e recupera conteúdo original do Figma (3.3s)
+  ✓  25 [mobile-webkit] › e2e/28-home-completeness.spec.ts:13:1 › página fora do intervalo recupera última página e URL sem perder filtros (2.0s)
+  ✓  26 [mobile-webkit] › e2e/28-home-completeness.spec.ts:115:1 › coleções do rodapé usam o filtro disponível no catálogo (1.2s)
+  ✓  28 [mobile-webkit] › e2e/29-account-completeness.spec.ts:43:1 › erros de autenticação continuam acessíveis em uma tela baixa (1.9s)
+  ✓  27 [mobile-webkit] › e2e/29-account-completeness.spec.ts:3:1 › autenticação adapta os espaços para manter todas as ações na tela (3.9s)
+  ✓  29 [mobile-webkit] › e2e/29-account-completeness.spec.ts:66:1 › perfil não confirma alterações que ainda não foram salvas (3.9s)
+  ✓  31 [mobile-webkit] › e2e/29-account-completeness.spec.ts:99:1 › carteiras não misturam confirmação anterior com alterações inválidas (4.4s)
+  ✓  30 [mobile-webkit] › e2e/29-account-completeness.spec.ts:78:1 › remover avatar não impede a confirmação de dados do perfil salvos depois (8.0s)
+  ✓  32 [mobile-webkit] › e2e/29-account-completeness.spec.ts:115:1 › nova edição de senha remove a confirmação da operação anterior (3.0s)
+  ✓  33 [mobile-webkit] › e2e/29-account-completeness.spec.ts:126:1 › fechar autenticação preserva o contexto público e evita voltar para rotas protegidas (3.3s)
+  ✓  35 [mobile-webkit] › e2e/30-checkout-completeness.spec.ts:30:1 › atalho de cupom volta ao carrinho e retorna ao pagamento com o rascunho (4.7s)
+  ✓  34 [mobile-webkit] › e2e/30-checkout-completeness.spec.ts:5:1 › nome de usuário permanece no rascunho e no snapshot enviado do pedido (6.3s)
+  ✓  36 [mobile-webkit] › e2e/30-checkout-completeness.spec.ts:50:1 › token real aparece no resumo e permanece imutável no recibo (8.1s)
+
+  1 skipped
+  35 passed (1.4m)

@@ -4,7 +4,7 @@ import { cn } from '@/lib/cn';
 
 export function AuthTabs({ register, returnTo }: { register: boolean; returnTo: string }) {
   return (
-    <div className="mb-9 hidden items-center justify-center gap-2 text-xl font-bold md:flex">
+    <div className="mb-9 hidden items-center justify-center gap-2 text-xl font-bold md:flex md:[@media(max-height:700px)]:mb-6">
       <Link
         to="/login"
         search={{ returnTo }}

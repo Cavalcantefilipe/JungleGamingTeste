@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+import { usernameSchema } from './auth';
 import { idSchema, isoDateSchema } from './common';
 import { ethAmountSchema } from './money';
 import { nftNetworkSchema } from './nft';
@@ -27,6 +28,7 @@ export const orderWalletSchema = z.object({
 export type OrderWallet = z.infer<typeof orderWalletSchema>;
 
 export const orderCollectorSchema = z.object({
+  username: usernameSchema.optional(),
   displayName: z.string().trim().min(2, 'Informe o nome de exibição').max(60),
   email: z.email('Informe um e-mail válido'),
   ensName: z.string().trim().max(63).optional(),
@@ -59,6 +61,7 @@ export const orderSchema = z.object({
   total: ethAmountSchema,
   coupon: quoteCouponSchema.optional(),
   wallet: orderWalletSchema,
+  collector: orderCollectorSchema.optional(),
   transactionRef: z.string().min(1),
   explorerUrl: z.union([
     z.literal('pending'),

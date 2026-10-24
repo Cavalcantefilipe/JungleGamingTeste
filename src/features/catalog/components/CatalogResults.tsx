@@ -24,7 +24,14 @@ export function CatalogResults({
           ? 'Atualizando…'
           : `${query.data?.total ?? 0} NFTs encontrados`}
       </div>
-      <CatalogItems query={query} clear={navigation.clear} />
+      <div
+        id="catalog-results"
+        role="tabpanel"
+        aria-labelledby={`catalog-tab-${search.tab}`}
+        tabIndex={0}
+      >
+        <CatalogItems query={query} clear={navigation.clear} />
+      </div>
       {query.data && (
         <Pagination
           page={search.page}

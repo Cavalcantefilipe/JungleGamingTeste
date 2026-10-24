@@ -1,4 +1,5 @@
 import { ArtworkImage } from '@/components/media/ArtworkImage';
+import { NftTokenLabel } from '@/components/media/NftTokenLabel';
 import type { QuoteItem } from '@/contracts/quote';
 import { formatEth } from '@/lib/money';
 
@@ -15,6 +16,7 @@ export function OrderReviewItem({ item }: { item: QuoteItem }) {
       />
       <div className="min-w-0 flex-1 text-sm">
         <strong className="block text-base wrap-anywhere">{item.name}</strong>
+        <NftTokenLabel tokenId={item.tokenId} className="block text-sm wrap-anywhere" />
         <span className="text-text-secondary">
           Edição {item.editionLabel} · {item.quantity} un.
         </span>

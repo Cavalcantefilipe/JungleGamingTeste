@@ -111,6 +111,8 @@ reports          relatórios versionados de segurança/performance
 
 **Complemento da revisão de 24/10:** carrossel compartilhado com avanço automático no detalhe e carrinho, avaliações paginadas e metadados completos. [Escopo e evidências](docs/DETAIL-COMPLETENESS.md).
 
+**Nova conferência das demais telas, 24/10:** corrigidos paginação/busca, retorno da autenticação, altura do cadastro, feedback de dados salvos, tipografia, conteúdo editorial, filtros pelo rodapé e omissões no pagamento/recibo. [Comparação com Figma, matriz das nove telas e verificação no Railway](docs/SCREENS-COMPLETENESS.md).
+
 **Reconciliação anterior de 24/10 publicada:** 120 testes unitários, 6 de ferramentas, 260 E2E Chromium, 166 de compatibilidade Firefox/WebKit e 84 na URL pública aprovados; lint sem avisos. Lighthouse público: performance 97/98 desktop e 93/92 mobile, demais categorias 100. Decisões, exclusões por viewport, evidências e deployment estão em [RECONCILIATION.md](docs/RECONCILIATION.md).
 
 O [checkpoint de qualidade de 23/10](docs/QUALITY-REVIEW.md) preserva o histórico da refatoração React, disputa de estoque, zoom real de 200%, compatibilidade entre motores e Lighthouse público (desktop 96/98 e mobile 93/94 naquela versão). Cada resultado identifica o código e as condições verificados; medições antigas não representam automaticamente um novo deploy.

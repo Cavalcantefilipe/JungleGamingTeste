@@ -27,7 +27,7 @@ export function CarouselTrack({
           key={nft.id}
           className="relative w-[calc((100%-1.25rem)/2)] shrink-0 snap-start transition-transform duration-200 focus-within:z-10 focus-within:scale-[1.04] hover:z-10 hover:scale-[1.04] motion-reduce:transition-none md:w-[calc((100%-2.5rem)/3)] xl:w-[calc((100%-5rem)/5)]"
         >
-          <NftCard nft={nft} />
+          <NftCard nft={nft} variant="carousel" />
         </li>
       ))}
     </ul>

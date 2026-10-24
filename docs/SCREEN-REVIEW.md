@@ -1,5 +1,7 @@
 # Revisão tela por tela — 23/10/2026
 
+Este registro preserva a conferência de 23/10. A [nova revisão das nove telas em 24/10](SCREENS-COMPLETENESS.md) encontrou e corrigiu omissões adicionais, com novas verificações no Railway.
+
 Esta é a conferência visual do checkpoint `242294b`, com assets/capturas originais preservados. A refatoração posterior manteve os baselines; os ajustes adicionais de zoom/foco e os gates atuais estão em [QUALITY-REVIEW.md](QUALITY-REVIEW.md).
 
 Revisão posterior às correções do detalhe (`544acda`). Foram encontrados e corrigidos outros desvios reais; os relatórios anteriores não significavam igualdade visual completa.

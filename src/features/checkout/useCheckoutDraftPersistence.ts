@@ -21,6 +21,7 @@ export function useCheckoutDraftPersistence(
           if (sessionStore.getSnapshot()?.token !== session.token) return;
           try {
             saveCheckoutDraft(session.user.id, {
+              username: values.username,
               displayName: values.displayName,
               email: values.email,
               ensName: values.ensName,

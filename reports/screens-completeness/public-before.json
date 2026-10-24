@@ -1,0 +1,367 @@
+{
+  "capturedAt": "2026-10-24T04:49:52.530Z",
+  "baseURL": "https://kurio-production-8274.up.railway.app",
+  "observations": [
+    {
+      "screen": "home",
+      "url": "https://kurio-production-8274.up.railway.app/",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": []
+    },
+    {
+      "screen": "detail",
+      "url": "https://kurio-production-8274.up.railway.app/nfts/nft-004",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": []
+    },
+    {
+      "screen": "cart",
+      "url": "https://kurio-production-8274.up.railway.app/cart",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": []
+    },
+    {
+      "screen": "login",
+      "url": "https://kurio-production-8274.up.railway.app/login?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": []
+    },
+    {
+      "screen": "register",
+      "url": "https://kurio-production-8274.up.railway.app/register?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": []
+    },
+    {
+      "screen": "profile",
+      "url": "https://kurio-production-8274.up.railway.app/account/profile",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": []
+    },
+    {
+      "screen": "wallets",
+      "url": "https://kurio-production-8274.up.railway.app/account/wallets",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": []
+    },
+    {
+      "screen": "payment",
+      "url": "https://kurio-production-8274.up.railway.app/checkout",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": []
+    },
+    {
+      "screen": "receipt",
+      "url": "https://kurio-production-8274.up.railway.app/orders/db20ff5f-e313-478f-a168-5878e8c6744c",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": []
+    },
+    {
+      "screen": "home",
+      "url": "https://kurio-production-8274.up.railway.app/",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 768,
+      "scrollWidth": 768,
+      "brokenImages": []
+    },
+    {
+      "screen": "detail",
+      "url": "https://kurio-production-8274.up.railway.app/nfts/nft-004",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 768,
+      "scrollWidth": 768,
+      "brokenImages": []
+    },
+    {
+      "screen": "cart",
+      "url": "https://kurio-production-8274.up.railway.app/cart",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 768,
+      "scrollWidth": 768,
+      "brokenImages": []
+    },
+    {
+      "screen": "login",
+      "url": "https://kurio-production-8274.up.railway.app/login?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 768,
+      "scrollWidth": 768,
+      "brokenImages": []
+    },
+    {
+      "screen": "register",
+      "url": "https://kurio-production-8274.up.railway.app/register?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 768,
+      "scrollWidth": 768,
+      "brokenImages": []
+    },
+    {
+      "screen": "profile",
+      "url": "https://kurio-production-8274.up.railway.app/account/profile",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 768,
+      "scrollWidth": 768,
+      "brokenImages": []
+    },
+    {
+      "screen": "wallets",
+      "url": "https://kurio-production-8274.up.railway.app/account/wallets",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 768,
+      "scrollWidth": 768,
+      "brokenImages": []
+    },
+    {
+      "screen": "payment",
+      "url": "https://kurio-production-8274.up.railway.app/checkout",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 768,
+      "scrollWidth": 768,
+      "brokenImages": []
+    },
+    {
+      "screen": "receipt",
+      "url": "https://kurio-production-8274.up.railway.app/orders/575872fd-bfcd-4970-9435-cdacd5c3bbce",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 768,
+      "scrollWidth": 768,
+      "brokenImages": []
+    },
+    {
+      "screen": "home",
+      "url": "https://kurio-production-8274.up.railway.app/",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 414,
+      "scrollWidth": 414,
+      "brokenImages": []
+    },
+    {
+      "screen": "detail",
+      "url": "https://kurio-production-8274.up.railway.app/nfts/nft-004",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 414,
+      "scrollWidth": 414,
+      "brokenImages": []
+    },
+    {
+      "screen": "cart",
+      "url": "https://kurio-production-8274.up.railway.app/cart",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 414,
+      "scrollWidth": 414,
+      "brokenImages": []
+    },
+    {
+      "screen": "login",
+      "url": "https://kurio-production-8274.up.railway.app/login?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 414,
+      "scrollWidth": 414,
+      "brokenImages": []
+    },
+    {
+      "screen": "register",
+      "url": "https://kurio-production-8274.up.railway.app/register?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 414,
+      "scrollWidth": 414,
+      "brokenImages": []
+    },
+    {
+      "screen": "profile",
+      "url": "https://kurio-production-8274.up.railway.app/account/profile",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 414,
+      "scrollWidth": 414,
+      "brokenImages": []
+    },
+    {
+      "screen": "wallets",
+      "url": "https://kurio-production-8274.up.railway.app/account/wallets",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 414,
+      "scrollWidth": 414,
+      "brokenImages": []
+    },
+    {
+      "screen": "payment",
+      "url": "https://kurio-production-8274.up.railway.app/checkout",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 414,
+      "scrollWidth": 414,
+      "brokenImages": []
+    },
+    {
+      "screen": "receipt",
+      "url": "https://kurio-production-8274.up.railway.app/orders/a0cb1a6a-b35b-46b9-9a75-1805a6ddb3aa",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 414,
+      "scrollWidth": 414,
+      "brokenImages": []
+    },
+    {
+      "screen": "home",
+      "url": "https://kurio-production-8274.up.railway.app/",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 390,
+      "scrollWidth": 390,
+      "brokenImages": []
+    },
+    {
+      "screen": "detail",
+      "url": "https://kurio-production-8274.up.railway.app/nfts/nft-004",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 390,
+      "scrollWidth": 390,
+      "brokenImages": []
+    },
+    {
+      "screen": "cart",
+      "url": "https://kurio-production-8274.up.railway.app/cart",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 390,
+      "scrollWidth": 390,
+      "brokenImages": []
+    },
+    {
+      "screen": "login",
+      "url": "https://kurio-production-8274.up.railway.app/login?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 390,
+      "scrollWidth": 390,
+      "brokenImages": []
+    },
+    {
+      "screen": "register",
+      "url": "https://kurio-production-8274.up.railway.app/register?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 390,
+      "scrollWidth": 390,
+      "brokenImages": []
+    },
+    {
+      "screen": "profile",
+      "url": "https://kurio-production-8274.up.railway.app/account/profile",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 390,
+      "scrollWidth": 390,
+      "brokenImages": []
+    },
+    {
+      "screen": "wallets",
+      "url": "https://kurio-production-8274.up.railway.app/account/wallets",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 390,
+      "scrollWidth": 390,
+      "brokenImages": []
+    },
+    {
+      "screen": "payment",
+      "url": "https://kurio-production-8274.up.railway.app/checkout",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 390,
+      "scrollWidth": 390,
+      "brokenImages": []
+    },
+    {
+      "screen": "receipt",
+      "url": "https://kurio-production-8274.up.railway.app/orders/711d7c9f-5e69-48fc-93f1-4a3acd881e5d",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 390,
+      "scrollWidth": 390,
+      "brokenImages": []
+    },
+    {
+      "screen": "home",
+      "url": "https://kurio-production-8274.up.railway.app/",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 320,
+      "scrollWidth": 320,
+      "brokenImages": []
+    },
+    {
+      "screen": "detail",
+      "url": "https://kurio-production-8274.up.railway.app/nfts/nft-004",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 320,
+      "scrollWidth": 320,
+      "brokenImages": []
+    },
+    {
+      "screen": "cart",
+      "url": "https://kurio-production-8274.up.railway.app/cart",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 320,
+      "scrollWidth": 320,
+      "brokenImages": []
+    },
+    {
+      "screen": "login",
+      "url": "https://kurio-production-8274.up.railway.app/login?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 320,
+      "scrollWidth": 320,
+      "brokenImages": []
+    },
+    {
+      "screen": "register",
+      "url": "https://kurio-production-8274.up.railway.app/register?returnTo=%2F",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 320,
+      "scrollWidth": 320,
+      "brokenImages": []
+    },
+    {
+      "screen": "profile",
+      "url": "https://kurio-production-8274.up.railway.app/account/profile",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 320,
+      "scrollWidth": 320,
+      "brokenImages": []
+    },
+    {
+      "screen": "wallets",
+      "url": "https://kurio-production-8274.up.railway.app/account/wallets",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 320,
+      "scrollWidth": 320,
+      "brokenImages": []
+    },
+    {
+      "screen": "payment",
+      "url": "https://kurio-production-8274.up.railway.app/checkout",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 320,
+      "scrollWidth": 320,
+      "brokenImages": []
+    },
+    {
+      "screen": "receipt",
+      "url": "https://kurio-production-8274.up.railway.app/orders/6d2d0b98-6c97-455e-965f-b90a15f84270",
+      "title": "Kurio — Marketplace de NFTs",
+      "width": 320,
+      "scrollWidth": 320,
+      "brokenImages": []
+    }
+  ],
+  "commit": "6668148cdb30f22657468683657c035cb3de7913"
+}

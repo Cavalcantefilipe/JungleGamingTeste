@@ -17,7 +17,7 @@ export function useCheckoutForm(session: Session, profile: Profile, wallet: Wall
     resolver: zodResolver(collectorFormSchema),
     defaultValues: {
       displayName: draft?.displayName ?? profile.displayName,
-      username: profile.username,
+      username: draft?.username ?? profile.username,
       email: draft?.email ?? profile.email,
       ensName: draft?.ensName ?? profile.ensName,
       note: draft?.note ?? '',

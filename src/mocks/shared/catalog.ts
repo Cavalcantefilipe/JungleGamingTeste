@@ -9,8 +9,10 @@ import { compareEth } from '@/lib/money';
 import type { MockDb } from '@/mocks/db/schema';
 
 function matchesFilters(nft: Nft, query: NftListQuery, favoriteIds: string[]): boolean {
+  const searchableText =
+    `${nft.name} ${nft.collection} ${nft.details?.creator ?? ''}`.toLowerCase();
   return (
-    (!query.q || `${nft.name} ${nft.collection}`.toLowerCase().includes(query.q.toLowerCase())) &&
+    (!query.q || searchableText.includes(query.q.toLowerCase())) &&
     (!query.category.length || query.category.includes(nft.category)) &&
     (!query.network.length || query.network.includes(nft.network)) &&
     (!query.minPrice || compareEth(nft.price, query.minPrice) >= 0) &&
@@ -30,12 +32,14 @@ export function listNfts(db: MockDb, query: NftListQuery, userId?: string): NftL
     if (query.sort === 'rating') return right.rating.average - left.rating.average;
     return Date.parse(right.listedAt) - Date.parse(left.listedAt);
   });
+  const totalPages = Math.ceil(filtered.length / query.pageSize);
+  const page = Math.min(query.page, Math.max(1, totalPages));
   return {
-    items: sorted.slice((query.page - 1) * query.pageSize, query.page * query.pageSize),
-    page: query.page,
+    items: sorted.slice((page - 1) * query.pageSize, page * query.pageSize),
+    page,
     pageSize: query.pageSize,
     total: filtered.length,
-    totalPages: Math.ceil(filtered.length / query.pageSize),
+    totalPages,
     facets: {
       categories: NFT_CATEGORIES.map((key) => ({
         key,

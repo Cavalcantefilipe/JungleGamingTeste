@@ -21,6 +21,7 @@ export function createOrderRequest(
       address: wallet.address,
     },
     collector: {
+      username: values.username,
       displayName: values.displayName,
       email: values.email,
       ensName: values.ensName,
