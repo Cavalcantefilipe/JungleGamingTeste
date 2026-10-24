@@ -1,5 +1,7 @@
 import { Skeleton } from '@/components/ui/skeleton';
 
+import { DetailSectionsSkeleton } from './DetailSectionsSkeleton';
+
 export function DetailSkeleton() {
   return (
     <div role="status" aria-label="Carregando detalhes" aria-busy="true">
@@ -27,6 +29,8 @@ export function DetailSkeleton() {
           <Skeleton className="h-11 w-full" />
         </div>
       </div>
+      <DetailSectionsSkeleton />
+      <div className="h-44 lg:hidden" />
     </div>
   );
 }

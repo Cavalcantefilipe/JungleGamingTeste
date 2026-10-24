@@ -29,6 +29,22 @@ test('detalhe reserva posição e tamanho da galeria em rede lenta', async ({ pa
     expect(Math.abs(after[dimension] - before[dimension]), dimension).toBeLessThanOrEqual(2);
 });
 
+test('detalhe reserva as seções inferiores e não desloca um rodapé visível ao carregar', async ({
+  page,
+  isMobile,
+}) => {
+  test.skip(isMobile, 'Viewport desktop da auditoria Lighthouse');
+  await page.setViewportSize({ width: 1335, height: 940 });
+  await page.goto('/nfts/nft-001?scenario=slow-network');
+  await expect(page.getByLabel('Carregando detalhes', { exact: true })).toBeVisible();
+  const before = await bounds(page.getByRole('contentinfo'));
+  expect(before.y).toBeGreaterThanOrEqual(940);
+  await expect(page.getByTestId('gallery-image')).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Mais desta coleção', exact: true })).toBeVisible();
+  const after = await bounds(page.getByRole('contentinfo'));
+  expect(after.y).toBeGreaterThanOrEqual(940);
+});
+
 test('resumo reserva altura e posição durante cálculo lento', async ({ page, isMobile }) => {
   await addNft(page, isMobile);
   await page.evaluate(() => {
