@@ -42,5 +42,23 @@
     "dependencyAudit": {
       "advisories": 0
     }
+  },
+  "public": {
+    "sourceCommit": "af09da8c7df530fe4606d92b6a8c7b7756d17f71",
+    "origin": "https://kurio-production-8274.up.railway.app",
+    "httpExitCode": 0,
+    "chromium": {
+      "passed": 84,
+      "failed": 0,
+      "skipped": 6
+    },
+    "scenarios": [
+      "auth",
+      "cart",
+      "checkout",
+      "payment recovery",
+      "realtime",
+      "reconciliation"
+    ]
   }
 }

@@ -109,7 +109,7 @@ reports          relatórios versionados de segurança/performance
 - [Validação dos comportamentos](docs/BEHAVIOR-REVIEW.md) e [pendências de entrega/estimativa de avaliação](docs/DELIVERY-ASSESSMENT.md).
 - [Configuração e verificação da Railway](docs/DEPLOYMENT.md).
 
-**Reconciliação de 24/10:** correções locais incorporadas sobre a `main` publicada, preservando imagens responsivas, checkout, concorrência e deploy. 120 testes unitários, 6 testes de ferramentas e lint sem avisos. Decisões, verificações e publicação estão em [RECONCILIATION.md](docs/RECONCILIATION.md).
+**Reconciliação de 24/10 publicada:** 120 testes unitários, 6 de ferramentas, 260 E2E Chromium, 166 de compatibilidade Firefox/WebKit e 84 na URL pública aprovados; lint sem avisos. Lighthouse público: performance 97/98 desktop e 93/92 mobile, demais categorias 100. Decisões, exclusões por viewport, evidências e deployment estão em [RECONCILIATION.md](docs/RECONCILIATION.md).
 
 O [checkpoint de qualidade de 23/10](docs/QUALITY-REVIEW.md) preserva o histórico da refatoração React, disputa de estoque, zoom real de 200%, compatibilidade entre motores e Lighthouse público (desktop 96/98 e mobile 93/94 naquela versão). Cada resultado identifica o código e as condições verificados; medições antigas não representam automaticamente um novo deploy.
 

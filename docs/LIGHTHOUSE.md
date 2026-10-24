@@ -1,6 +1,10 @@
 # Lighthouse e desempenho
 
-## Resultado vigente — versão pública final
+## Resultado vigente — conciliação de 24/10
+
+Versão pública `af09da8`: performance **97/98 desktop e 93/92 mobile** (início/detalhe), demais categorias **100**. Doze execuções válidas, mediana de três por combinação, saída 0. [Resumo e ambiente](../reports/reconciliation/lighthouse/summary.json), [publicação e verificação](RECONCILIATION.md#publicação-verificada).
+
+## Checkpoint público anterior — 23/10
 
 Coleta concluída em `2026-10-23T23:53:47.578Z` na [Railway](https://kurio-production-8274.up.railway.app), commit `f5dd2fd`, deployment `2b5f6e07-fb05-4cea-ba08-6eb70f08e0ff`. [Proveniência e hash](../reports/quality/deployment.json).
 

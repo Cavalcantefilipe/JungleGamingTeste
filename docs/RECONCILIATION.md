@@ -42,6 +42,30 @@ O preview de validação usa uma porta dedicada, 4189, para evitar reutilizar o 
 
 A primeira rodada integral encontrou cinco falhas: duas expectativas do texto antigo do desconto, duas baselines alteradas intencionalmente e o alinhamento do retorno do carrossel. Elas foram corrigidas antes das rodadas finais completas acima. [Histórico das execuções](../reports/reconciliation/test-runs.json), [Chromium](../reports/reconciliation/chromium.txt), [compatibilidade](../reports/reconciliation/compatibility.txt), [check](../reports/reconciliation/check.txt) e [audit](../reports/reconciliation/dependency-audit.json). O relatório de [qualidade de 23/10](QUALITY-REVIEW.md) permanece como histórico da base anterior.
 
+## Publicação verificada
+
+Correções em `2ed7033`; merge que preserva os dois históricos em [`af09da8`](https://github.com/Cavalcantefilipe/JungleGamingTeste/commit/af09da8c7df530fe4606d92b6a8c7b7756d17f71). A `main` foi atualizada por push normal. Railway publicou esse commit no deployment `8ffac3df-b830-4c8a-a351-23e9802036af`, status **SUCCESS**.
+
+- [Aplicação pública](https://kurio-production-8274.up.railway.app/).
+- [Verificação HTTP](../reports/reconciliation/public-http.txt): healthcheck, rotas SPA, headers, Brotli, cache, worker e erros 404 aprovados.
+- [E2E público](../reports/reconciliation/public-e2e.txt): **84 aprovados, 6 exclusões por viewport, zero falhas**, cobrindo autenticação, carrinho/cupom/merge, compra, recuperação, socket e todos os novos cenários da conciliação.
+- [Proveniência do deploy](../reports/reconciliation/deployment.json): commit, deployment, imagem e hashes. O HTML público difere do local nos nomes dos arquivos JS/CSS gerados; os HTMLs normalizados coincidem. Não se alega identidade binária entre ambientes diferentes.
+
+### Performance pública
+
+Lighthouse 13.5.0, Puppeteer 25.13.0, Chromium 156 e Node 24.12.0 em macOS/arm64. Três execuções por página/perfil, medianas independentes; coleta sem builds ou suítes simultâneas. As metas 90/95/95/90 foram atendidas, com saída 0.
+
+| Perfil  | Página  | Performance | Acessibilidade | Boas práticas | SEO |
+| ------- | ------- | ----------: | -------------: | ------------: | --: |
+| desktop | Início  |          97 |            100 |           100 | 100 |
+| desktop | Detalhe |          98 |            100 |           100 | 100 |
+| mobile  | Início  |          93 |            100 |           100 | 100 |
+| mobile  | Detalhe |          92 |            100 |           100 | 100 |
+
+[Resumo e ambiente](../reports/reconciliation/lighthouse/summary.json); os 12 relatórios HTML e JSON estão em `reports/reconciliation/lighthouse/{desktop,mobile}/{home,detail}/`.
+
+Os commits posteriores de documentação preservam o código funcional validado; a formatação regenerada da árvore de rotas não muda rotas ou comportamento. A confirmação da publicação também verifica o commit servido após atualizar a documentação.
+
 ## Limites
 
 As compras, contas e carteiras são simuladas por MSW. Os testes públicos usam contextos isolados e não alteram dados de outros visitantes. WebKit automatizado não equivale a Safari em aparelho físico. A revisão não certifica igualdade de pixels em todas as telas nem substitui testes com leitores de tela. Medições de performance são específicas da versão e do ambiente registrados.

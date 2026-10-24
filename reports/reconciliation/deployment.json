@@ -1,0 +1,14 @@
+{
+  "verifiedAt": "2026-10-24T03:54:46.617Z",
+  "url": "https://kurio-production-8274.up.railway.app/",
+  "deploymentId": "8ffac3df-b830-4c8a-a351-23e9802036af",
+  "status": "SUCCESS",
+  "sourceCommit": "af09da8c7df530fe4606d92b6a8c7b7756d17f71",
+  "repository": "Cavalcantefilipe/JungleGamingTeste",
+  "branch": "main",
+  "imageDigest": "sha256:cfa67dd8a1dcbacfe11f443124a43ac21c034d6b2e5d9f45bdd3d4d0c1986fce",
+  "localHtmlSha256": "c47c485ca9a6da6f1b8255441f272c408f083f75962a46026c73e7d3b77d5421",
+  "publicHtmlSha256": "e31fc7faeba4c6715753d81ed082fff1f37a95fe27e017e5bb5fb83e0b35f565",
+  "identicalHtml": false,
+  "htmlDifference": "Only generated JavaScript/CSS asset filenames differ after normalization; no claim of binary equivalence across build environments."
+}
