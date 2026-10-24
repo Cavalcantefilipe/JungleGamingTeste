@@ -1,6 +1,6 @@
 # Teste pela interface com uma conta nova
 
-Executado em 24/10/2026 no Chrome, na [aplicação Railway](https://kurio-production-8274.up.railway.app), usando cliques, digitação e o seletor de arquivos do navegador. O percurso começou em `369f9ee`; a busca foi repetida após a publicação de `9fd3739` e a concordância de Favoritos foi conferida em `4185cbb`. Nenhuma conta foi inserida diretamente no armazenamento e nenhuma chamada de API substituiu os passos do usuário.
+Executado em 24/10/2026 no Chrome, na [aplicação Railway](https://kurio-production-8274.up.railway.app), usando cliques, digitação e o seletor de arquivos do navegador. O percurso começou em `369f9ee`; a busca foi repetida após a publicação de `9fd3739` e a concordância de Favoritos foi conferida em `4185cbb`. Em `11f0820`, após a publicação do ajuste de CSS, um novo login confirmou a persistência do perfil e o carrinho vazio; `account-final.png` registra essa última conferência. Os demais percursos mantêm a proveniência das versões anteriores. Nenhuma conta foi inserida diretamente no armazenamento e nenhuma chamada de API substituiu os passos do usuário.
 
 ## Conta de demonstração
 

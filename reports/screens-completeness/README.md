@@ -6,13 +6,15 @@ O [manifesto das capturas finais](public-after.json) registra o endereço, a dat
 
 ## Estado das verificações
 
+- **Código atual `11f0820`, Railway `SUCCESS`:** detecção do Tailwind restrita a `src` e `index.html`; relatórios não acrescentam CSS à aplicação. Check com 138 unitários e 17 testes de ferramentas, build e dez regressões visuais aprovados. [Evidências](../tailwind-source-scope/), [deployment e hashes](deployment.json).
+
 - **Railway `369f9ee`:** suíte Chromium completa com 333 aprovações, 37 exclusões explícitas e nenhuma falha. O [deployment dessa suíte](full-suite-deployment.json) e o [log público](public-chromium.txt) identificam essa rodada.
 - **Delta de busca `9fd3739`, enviado à `main`:** `pnpm check` e build aprovados, com 138 unitários e 16 testes de ferramentas. Corrige espaços apagados em “Cosmic Bloom” e anúncio indevido de `CancelledError`; quatro falhas públicas reproduzidas, 16 E2E locais, 32 E2E públicos e quatro unitários aprovados. O check consolidado inclui ainda o ajuste de concordância `4185cbb`, com três testes de mensagem. [Evidências da busca](../search-typing/).
 - **Histórico das capturas `0063435`:** 45 imagens preservadas; a etapa correspondente registrou 126 unitários, seis testes de ferramentas e 314 testes públicos aprovados, com 34 exclusões por viewport. As imagens não foram recapturadas para os commits posteriores.
 - **Limite de imagens em Firefox/WebKit:** 18 casos de falha injetada via `context.route` foram excluídos por intermediação do MSW; dois casos verificaram a preservação de foto saudável offline/online. No Chromium, a rodada focal de recuperação teve 18 aprovações e duas exclusões por viewport. [Logs](image-resilience/).
 - **Conferência manual concluída:** conta criada, validações, perfil/avatar, carteiras, favoritos, avaliações, login/logout, carrinho, cupons, checkout e recibo persistente. [Percurso, screenshots e limites](../ui-account-test/README.md).
 
-- **Lighthouse final `4185cbb`:** 99/100 desktop e 93/92 mobile; demais categorias 100. Doze execuções válidas no Headless Shell 156.0.8078.4, após tentativas interrompidas por crashes do Chrome for Testing. [Método e limites](../../docs/LIGHTHOUSE.md).
+- **Lighthouse final `11f0820`:** 99/99 desktop e 93/92 mobile; demais categorias 100. Doze execuções válidas no Headless Shell 156.0.8078.4. A coleta anterior de `4185cbb` e as tentativas interrompidas por crashes do Chrome for Testing foram preservadas separadamente. [Método e limites](../../docs/LIGHTHOUSE.md).
 
 A suíte pública completa de `369f9ee` antecede o delta de busca. Os resultados e as capturas devem ser lidos com seus respectivos commits.
 
@@ -55,8 +57,8 @@ Cada log corresponde à sua execução. A auditoria inicial e parte das validaç
 | --- | --- |
 | Observações públicas anteriores às correções | [public-before.json](public-before.json) |
 | Manifesto e observações das capturas finais | [public-after.json](public-after.json) |
-| Check após o delta de busca: 138 unitários e 16 testes de ferramentas | [check.txt](check.txt) |
-| Build após o delta de busca | [build.txt](../code-standards/build.txt) |
+| Check consolidado de `11f0820`: 138 unitários e 17 testes de ferramentas | [check.txt](check.txt) |
+| Build com escopo do CSS corrigido (`11f0820`) | [build.txt](../code-standards/build.txt) |
 | Falhas reproduzidas e regressões da busca | [search-typing](../search-typing/) |
 | Diagnóstico, comparação e limites de startup | [startup-analysis.md](startup-analysis.md) |
 | Recuperação de imagens e limites de compatibilidade | [image-resilience](image-resilience/) |
@@ -76,4 +78,5 @@ Cada log corresponde à sua execução. A auditoria inicial e parte das validaç
 | Deployment, commit e hash do HTML | [deployment.json](deployment.json) |
 | Deployment das 45 capturas | [captured-deployment.json](captured-deployment.json) |
 | Resumo Lighthouse final — 12 válidas, metas atendidas | [lighthouse/summary.json](lighthouse/summary.json) |
+| Lighthouse anterior ao escopo explícito do CSS (`4185cbb`) | [lighthouse-before-source-scope/summary.json](lighthouse-before-source-scope/summary.json) |
 | Lighthouse anterior à correção do loading | [lighthouse-before-loading-fix/summary.json](lighthouse-before-loading-fix/summary.json) |

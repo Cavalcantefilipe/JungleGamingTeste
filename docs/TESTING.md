@@ -4,13 +4,15 @@ O resultado da conciliação de 24/10, os commits publicados e as limitações e
 
 ## Últimos resultados confirmados — 24/10
 
-| Escopo                                 | Código verificado            | Resultado e evidência                                                                                                                                                         |
-| -------------------------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Suíte completa na URL Railway          | `369f9ee`                    | 333 aprovados, 37 exclusões explícitas, nenhuma falha. [Log](../reports/screens-completeness/public-chromium.txt).                                                            |
-| Check e build após a correção de busca | Deltas `9fd3739` e `4185cbb` | 138 unitários e 16 testes de ferramentas; tipos, lint, formato e build aprovados. [Check](../reports/code-standards/check.txt), [build](../reports/code-standards/build.txt). |
-| Regressão de digitação                 | Antes/depois de `9fd3739`    | Quatro falhas públicas reproduzidas; 16 E2E locais, 32 públicos em Chromium/Firefox/WebKit e quatro unitários aprovados. [Evidências](../reports/search-typing/).             |
+| Escopo                                      | Código verificado         | Resultado e evidência                                                                                                                                                         |
+| ------------------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Suíte completa na URL Railway               | `369f9ee`                 | 333 aprovados, 37 exclusões explícitas, nenhuma falha. [Log](../reports/screens-completeness/public-chromium.txt).                                                            |
+| Check e build com o escopo do CSS corrigido | `11f0820`                 | 138 unitários e 17 testes de ferramentas; tipos, lint, formato e build aprovados. [Check](../reports/code-standards/check.txt), [build](../reports/code-standards/build.txt). |
+| Regressão de digitação                      | Antes/depois de `9fd3739` | Quatro falhas públicas reproduzidas; 16 E2E locais, 32 públicos em Chromium/Firefox/WebKit e quatro unitários aprovados. [Evidências](../reports/search-typing/).             |
 
 A suíte pública completa acima antecede o delta de busca. As 45 capturas públicas continuam identificadas como `0063435`; o histórico daquela etapa conserva 126 testes unitários e seis testes de ferramentas. A [conferência manual com uma conta nova](../reports/ui-account-test/README.md) foi concluída, incluindo compra simulada e persistência. [Estado e limites](SCREENS-COMPLETENESS.md).
+
+A correção do Tailwind (`11f0820`) passou por dez regressões visuais antes do commit. O novo teste de ferramentas cria um relatório temporário com uma classe exclusiva e confirma que o build inclui utilitários de `src`, mas exclui essa classe. As fontes são `src` e `index.html`; o CSS passou de 100.227 para 98.866 bytes. [Evidências](../reports/tailwind-source-scope/). O Lighthouse público final de `11f0820` passou nas quatro combinações: 99/99 desktop e 93/92 mobile; demais categorias 100. A coleta de `4185cbb` foi preservada separadamente. [Método e resultados](LIGHTHOUSE.md).
 
 ## Executar
 

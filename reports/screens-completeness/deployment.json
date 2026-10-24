@@ -1,16 +1,18 @@
 {
-  "verifiedAt": "2026-10-24T06:42:42.689Z",
+  "verifiedAt": "2026-10-24T07:18:57.569Z",
   "baseURL": "https://kurio-production-8274.up.railway.app",
   "deployment": {
-    "id": "e4b238a6-0bed-45d7-8769-a4187b3c23de",
+    "id": "08c4e864-3bd1-4daa-b0ef-d80872f89a64",
     "status": "SUCCESS",
-    "commit": "4185cbbdd0a2d88a592b67cab5ecafc773ed4137"
+    "commit": "11f0820ea3b3e6708b58b740ab30326b992aecc5"
   },
-  "htmlSha256": "b853f07ddb5fe832d6233a5e1db467154e3e71bdaa3178915bee577bd0e09dc9",
+  "htmlSha256": "5eabf65e9c25de4139e56b5599be703785c028d16b1f7dce51cbdf3256438c3c",
   "assets": [
     "/assets/roboto-mono-latin-400-normal-GekRknry.woff2",
-    "/assets/index-DLpJSolW.js",
+    "/assets/index-93LRTEx6.js",
     "/assets/index-CXRujiCy.js",
-    "/assets/index-DaIfy-Dk.css"
-  ]
+    "/assets/index-C0OvZ0Zj.css"
+  ],
+  "cssBytes": 98866,
+  "cssSha256": "7c4785139fc815a227b1e4d3bcd3eebea8bb3640c74bf0991ba6efaaaeaba6f1"
 }

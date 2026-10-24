@@ -17,4 +17,4 @@ A correção `9fd3739` preserva o texto em edição no schema da URL e normaliza
 
 O ajuste `4185cbb` centraliza a mensagem compartilhada e usa “1 NFT encontrado”. A contagem também foi conferida pela interface pública. [Percurso manual](../ui-account-test/README.md).
 
-[Identificação da publicação da busca](deployment.json). O check final inclui 138 unitários e 16 testes de ferramentas; a suíte completa anterior (`369f9ee`, 333 aprovações/37 exclusões) permanece identificada separadamente em [screens-completeness](../screens-completeness/README.md).
+[Identificação da publicação da busca](deployment.json). O check consolidado, atualizado após `11f0820`, inclui 138 unitários e 17 testes de ferramentas; a suíte completa anterior (`369f9ee`, 333 aprovações/37 exclusões) permanece identificada separadamente em [screens-completeness](../screens-completeness/README.md).

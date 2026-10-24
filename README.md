@@ -75,7 +75,7 @@ Para reinício completamente limpo da demonstração neste origin, use DevTools 
 | `pnpm e2e` / `pnpm e2e:ui`          | Playwright; exige build prévio e Chromium                     |
 | `pnpm e2e:compat`                   | Firefox desktop e WebKit mobile; exige instalar os motores    |
 | `pnpm lighthouse`                   | 3 execuções por página/perfil; mantém falha se abaixo da meta |
-| `pnpm test:tooling`                 | mediana/assertions Lighthouse e negociação/integridade Brotli |
+| `pnpm test:tooling`                 | Lighthouse, regras de lint, Brotli e escopo do CSS            |
 | `pnpm check`                        | tipos, lint, formato, unitários e testes de ferramentas       |
 | `pnpm verify:deployment <URL>`      | headers, rotas, compressão, cache e healthcheck da publicação |
 
@@ -114,13 +114,15 @@ reports          relatórios versionados de segurança/performance
 
 **Nova conferência das demais telas, 24/10:** corrigidos paginação/busca, retorno da autenticação, altura do cadastro, feedback de dados salvos, tipografia, conteúdo editorial, filtros pelo rodapé e omissões no pagamento/recibo. [Comparação com Figma, matriz das nove telas e verificação no Railway](docs/SCREENS-COMPLETENESS.md).
 
-**Estado atual:** código `4185cbb` publicado no Railway. Tipos, lint, formatação e build passaram, com **138 testes unitários e 16 de ferramentas**. A suíte completa em `369f9ee` teve **333 E2E Chromium aprovados e 37 exclusões explícitas**. A correção posterior da busca (`9fd3739`) passou por **32 E2E públicos** em Chromium/Firefox/WebKit: preserva os espaços digitados e elimina o anúncio indevido de cancelamento. O ajuste final usa “1 NFT encontrado” no singular. [Resultados por versão e limites](docs/SCREENS-COMPLETENESS.md), [regressão da busca](reports/search-typing/).
+**Estado atual:** código `11f0820` na `main` e publicado no Railway (`SUCCESS`). O Tailwind detecta classes somente em `src` e `index.html`, impedindo que relatórios alterem o CSS da aplicação. Tipos, lint, formatação e build passaram, com **138 testes unitários, 17 de ferramentas e 10 regressões visuais**. O CSS passou de 100.227 para 98.866 bytes. [Evidências da correção](reports/tailwind-source-scope/).
+
+A suíte completa em `369f9ee` teve **333 E2E Chromium aprovados e 37 exclusões explícitas**. A correção posterior da busca (`9fd3739`) passou por **32 E2E públicos** em Chromium/Firefox/WebKit: preserva os espaços digitados e elimina o anúncio indevido de cancelamento. O ajuste `4185cbb` usa “1 NFT encontrado” no singular. [Resultados por versão e limites](docs/SCREENS-COMPLETENESS.md), [regressão da busca](reports/search-typing/).
 
 As **45 capturas** das nove telas em 1440/768/414/390/320 px preservam a proveniência `0063435`. Nessa etapa anterior, foram aprovados 314 testes Chromium (34 exclusões por viewport), 126 unitários e seis testes de ferramentas. [Capturas e logs por versão](reports/screens-completeness/README.md).
 
 A conferência pela interface foi concluída com a conta fictícia `qa.interface.2410@kurio.test`: cadastro, validações, login/logout, perfil/avatar, carteiras, favoritos, avaliações, carrinho, cupons, checkout e compra simulada, incluindo persistência após recarregar. [Percurso, screenshots e limites](reports/ui-account-test/README.md).
 
-Lighthouse final no Railway: **99/100 desktop e 93/92 mobile** (Home/detalhe), demais categorias **100**, com 12 execuções válidas. A coleta usou Headless Shell após crashes do Chrome for Testing; [ambiente, limites e histórico preservado](docs/LIGHTHOUSE.md).
+Lighthouse final no Railway em `11f0820`: **99/99 desktop e 93/92 mobile** (Home/detalhe), demais categorias **100**, com 12 execuções válidas. A coleta usou Headless Shell, o mesmo executável adotado após crashes do Chrome for Testing na etapa anterior; [ambiente, limites e histórico preservado](docs/LIGHTHOUSE.md).
 
 **Reconciliação anterior de 24/10 publicada:** 120 testes unitários, 6 de ferramentas, 260 E2E Chromium, 166 de compatibilidade Firefox/WebKit e 84 na URL pública aprovados; lint sem avisos. Lighthouse público: performance 97/98 desktop e 93/92 mobile, demais categorias 100. Decisões, exclusões por viewport, evidências e deployment estão em [RECONCILIATION.md](docs/RECONCILIATION.md).
 

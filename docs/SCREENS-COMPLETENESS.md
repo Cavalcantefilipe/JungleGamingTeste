@@ -44,6 +44,10 @@ A conferência manual posterior revelou duas falhas no catálogo: o espaço fina
 
 Os dois cenários falharam em desktop e mobile na publicação anterior: **quatro falhas reproduzidas**. Após a correção, o arquivo de catálogo passou com **16 testes locais**, os quatro testes unitários de parâmetros passaram e a repetição focal terminou com quatro aprovações. [Falha pública](../reports/search-typing/public-red.txt), [E2E local](../reports/search-typing/local-green.txt), [unitários](../reports/search-typing/unit-green.txt), [repetição focal](../reports/search-typing/final-green.txt).
 
+## CSS independente dos relatórios
+
+O commit de documentação `0e9cf53` alterou o CSS porque a autodetecção do Tailwind também examinava relatórios. A correção `11f0820`, na `main` e publicada no Railway, restringe as fontes a `src` e `index.html`, preservando os estilos do bootstrap. O CSS passou de 100.227 para 98.866 bytes. A regressão reproduziu a inclusão de uma classe exclusiva de relatório e confirmou sua exclusão após o ajuste; dez testes visuais passaram antes do commit. [Comparação](../reports/tailwind-source-scope/comparison.json), [regressão](../reports/tailwind-source-scope/green.txt), [visuais](../reports/tailwind-source-scope/visual.txt).
+
 ## Matriz de conferência
 
 | Tela        | Conferência visual                                                              | Comportamentos exercitados                                                                                                          |
@@ -83,7 +87,7 @@ As baselines visuais foram inspecionadas contra as referências antes de atualiz
 | Novas regressões em Firefox/WebKit (`28`–`30`) | 35 aprovadas; 1 exclusão do cabeçalho desktop no mobile.                         |
 | Revisão independente do código                 | Nenhum bloqueador restante após corrigir o caso de avatar.                       |
 
-Os logs de [Chromium](../reports/screens-completeness/chromium.txt) e [Firefox/WebKit](../reports/screens-completeness/compatibility.txt) preservam essa etapa. O [check consolidado](../reports/screens-completeness/check.txt) foi atualizado após os deltas `9fd3739` e `4185cbb`: **138 testes unitários e 16 de ferramentas**, com tipos, lint e formato aprovados; o [build](../reports/code-standards/build.txt) também passou.
+Os logs de [Chromium](../reports/screens-completeness/chromium.txt) e [Firefox/WebKit](../reports/screens-completeness/compatibility.txt) preservam essa etapa. O [check consolidado](../reports/screens-completeness/check.txt) inclui os deltas `9fd3739`, `4185cbb` e `11f0820`: **138 testes unitários e 17 de ferramentas**, com tipos, lint e formato aprovados; o [build](../reports/code-standards/build.txt) também passou.
 
 Após o ajuste de 320 px, `pnpm check` e build passaram novamente; os 14 testes de autenticação/conta passaram em Chromium e os mesmos 14 em Firefox/WebKit. [Falha reproduzida](../reports/screens-completeness/compact-red.txt), [Chromium](../reports/screens-completeness/compact-local.txt), [compatibilidade](../reports/screens-completeness/compact-compatibility.txt).
 
@@ -113,8 +117,8 @@ Leitor de tela VoiceOver e dispositivos físicos não foram revalidados nesta ro
 
 ### Última publicação do código
 
-O commit `4185cbbdd0a2d88a592b67cab5ecafc773ed4137`, deployment `e4b238a6-0bed-45d7-8769-a4187b3c23de`, foi confirmado como `SUCCESS`. A verificação HTTP passou para navegação SPA, arquivos comprimidos, cache, worker, cabeçalhos e health check. A conferência pela interface confirmou o anúncio “1 NFT encontrado”. [Identificação e hash do HTML](../reports/screens-completeness/deployment.json), [verificação HTTP](../reports/screens-completeness/deployment-http.txt).
+O commit `11f0820ea3b3e6708b58b740ab30326b992aecc5`, deployment `08c4e864-3bd1-4daa-b0ef-d80872f89a64`, foi confirmado como `SUCCESS`. A verificação HTTP passou para navegação SPA, arquivos comprimidos, cache, worker, cabeçalhos e health check. Um novo login pela interface confirmou a persistência dos dados do perfil. A conferência anterior em `4185cbb` confirmou o anúncio “1 NFT encontrado”. [Identificação e hash do HTML](../reports/screens-completeness/deployment.json), [verificação HTTP](../reports/screens-completeness/deployment-http.txt).
 
 ### Desempenho final
 
-A coleta pública final de `4185cbb` concluiu 12 execuções válidas, saída 0: performance 99/100 desktop e 93/92 mobile (Home/detalhe), acessibilidade/boas práticas/SEO 100. CLS mediano do detalhe: zero. LCP mobile continua próximo de 2,8 s. Depois de crashes nativos do Chrome for Testing, foi usada uma coleta inteira separada no Headless Shell 156.0.8078.4; os resultados das tentativas interrompidas e dos smokes não foram misturados. [Método, resultados e limites](LIGHTHOUSE.md).
+A coleta pública de `11f0820` concluiu 12 execuções válidas, saída 0: performance 99/99 desktop e 93/92 mobile (Home/detalhe), acessibilidade/boas práticas/SEO 100. CLS mediano do detalhe: zero. LCP mobile continua próximo de 2,8 s. A coleta inteira usou Headless Shell 156.0.8078.4, o mesmo executável da coleta anterior de `4185cbb`. Resultados anteriores, tentativas interrompidas e smokes foram preservados sem entrar nas medianas finais. [Método, resultados e limites](LIGHTHOUSE.md).

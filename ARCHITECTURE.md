@@ -65,6 +65,8 @@ As páginas de catálogo, detalhe, autenticação e checkout compõem seções c
 
 A paleta e os gradientes reutilizáveis ficam no `@theme` de `src/styles/tokens.css` (Tailwind 4). Variantes comuns são definidas em `components/ui/button.tsx`. [Revisão do frontend](docs/FRONTEND-REVIEW.md) registra os problemas corrigidos, referências do Figma, redução dos componentes e limites da validação.
 
+A detecção do Tailwind usa `source(none)` e fontes explícitas para `src` e `index.html`, incluindo o feedback inicial antes do React. Assim, classes presentes em relatórios ou documentação não acrescentam utilitários ao CSS de produção. Um teste de build em diretório temporário verifica esse isolamento. [Correção e evidências](reports/tailwind-source-scope/).
+
 A [revisão dos padrões](docs/CODE-STANDARDS-REVIEW.md) uniformizou os imports de `src` pelo alias `@/` e acrescentou regressões das regras de lint. Perfil, carteiras, pedido, detalhe e conexão delegam estado e efeitos a hooks da feature. As exceções existentes para primitives shadcn, testes e arquivos gerados estão documentadas; as regras de negócio e as proteções de sessão foram preservadas.
 
 ## Carrosséis e avaliações do detalhe

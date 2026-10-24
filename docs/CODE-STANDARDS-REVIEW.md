@@ -29,6 +29,12 @@ regras de negócio ou a apresentação das telas.
   e cleanup da conexão.
 - **Ordem dos imports:** a integração também corrigiu imports após declarações em
   `PasswordField` e `CouponField`.
+- **Escopo do Tailwind (`11f0820`):** a autodetecção incluía classes dos relatórios no CSS.
+  `source(none)` e fontes explícitas para `src` e `index.html` mantêm os estilos da aplicação
+  independentes das evidências. O teste acrescenta uma classe exclusiva a um relatório,
+  verifica sua ausência no build e remove os arquivos temporários. O CSS passou de
+  100.227 para 98.866 bytes; dez regressões visuais passaram antes do commit.
+  [Comparação e logs](../reports/tailwind-source-scope/).
 
 ## Verificações automatizadas
 
@@ -75,8 +81,9 @@ respostas pertencentes a uma sessão anterior.
 - Os arquivos E2E `08-account.spec.ts` e `29-account-completeness.spec.ts` passaram nos
   projetos desktop e mobile: **28 testes aprovados** após a extração dos formulários.
 - A revisão independente das cinco extrações não encontrou mudança de comportamento.
-  Após os deltas de busca e concordância `9fd3739`/`4185cbb`, a integração passou em tipos, lint sem avisos,
-  formatação, **138 testes unitários** e **16 testes das ferramentas**; o build também passou.
+  Após os deltas de busca, concordância e escopo do CSS (`9fd3739`/`4185cbb`/`11f0820`),
+  a integração passou em tipos, lint sem avisos, formatação, **138 testes unitários** e
+  **17 testes das ferramentas**; o build também passou.
   [Check](../reports/code-standards/check.txt), [build](../reports/code-standards/build.txt).
   A suíte completa no Railway verificou a versão anterior `369f9ee`: **333 aprovações,
   37 exclusões explícitas e nenhuma falha**. Esse resultado não é atribuído ao delta posterior.

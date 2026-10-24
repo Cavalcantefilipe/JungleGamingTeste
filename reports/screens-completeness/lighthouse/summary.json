@@ -1,5 +1,5 @@
 {
-  "measuredAt": "2026-10-24T07:00:28.305Z",
+  "measuredAt": "2026-10-24T07:26:18.711Z",
   "environment": {
     "node": "v24.12.0",
     "platform": "darwin",
@@ -25,7 +25,7 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "lcpMs": 774.668,
+      "lcpMs": 789.8235,
       "cls": 0.008240810629075597,
       "tbtMs": 0,
       "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36"
@@ -34,11 +34,11 @@
       "profile": "desktop",
       "page": "detail",
       "runs": 3,
-      "performance": 100,
+      "performance": 99,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "lcpMs": 755.779,
+      "lcpMs": 765.4770000000001,
       "cls": 0,
       "tbtMs": 0,
       "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36"
@@ -51,9 +51,9 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "lcpMs": 2813.138,
+      "lcpMs": 2818.371,
       "cls": 0,
-      "tbtMs": 25.5,
+      "tbtMs": 26,
       "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36"
     },
     {
@@ -64,9 +64,9 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "lcpMs": 2874.0074999999997,
+      "lcpMs": 2872.651,
       "cls": 0,
-      "tbtMs": 29,
+      "tbtMs": 20.5,
       "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36"
     }
   ]
