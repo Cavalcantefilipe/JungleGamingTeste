@@ -1,0 +1,11 @@
+✔ build produz Brotli íntegro e preview negocia sem mudar conteúdo nem cache do worker (3043.849625ms)
+✔ CSS de produção ignora classes presentes somente em relatórios (6639.111958ms)
+ℹ {"files":["index-C0OvZ0Zj.css"],"cssBytes":98866,"canaryIncluded":false}
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9904.471792

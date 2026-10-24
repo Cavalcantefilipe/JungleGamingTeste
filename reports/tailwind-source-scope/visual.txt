@@ -1,0 +1,24 @@
+$ playwright test e2e/13-visual.spec.ts
+
+Running 10 tests using 2 workers
+
+(node:68684) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:68683) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [desktop-chromium] › e2e/13-visual.spec.ts:54:1 › Detalhe mantém composição aprovada (1.5s)
+  ✓   1 [desktop-chromium] › e2e/13-visual.spec.ts:47:1 › Início mantém composição aprovada (1.7s)
+  ✓   3 [desktop-chromium] › e2e/13-visual.spec.ts:61:1 › Avaliações mantêm composição e legibilidade (1.5s)
+  ✓   4 [desktop-chromium] › e2e/13-visual.spec.ts:69:1 › Carrinho mantém composição aprovada (3.3s)
+(node:68698) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   6 [mobile-chromium] › e2e/13-visual.spec.ts:47:1 › Início mantém composição aprovada (1.2s)
+  ✓   7 [mobile-chromium] › e2e/13-visual.spec.ts:54:1 › Detalhe mantém composição aprovada (1.0s)
+  ✓   8 [mobile-chromium] › e2e/13-visual.spec.ts:61:1 › Avaliações mantêm composição e legibilidade (1.4s)
+  ✓   5 [desktop-chromium] › e2e/13-visual.spec.ts:77:1 › Pagamento mantém composição aprovada (6.2s)
+(node:68706) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [mobile-chromium] › e2e/13-visual.spec.ts:69:1 › Carrinho mantém composição aprovada (3.4s)
+  ✓  10 [mobile-chromium] › e2e/13-visual.spec.ts:77:1 › Pagamento mantém composição aprovada (6.5s)
+
+  10 passed (17.0s)

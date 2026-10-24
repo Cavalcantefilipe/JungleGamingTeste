@@ -1,0 +1,22 @@
+{
+  "documentation": "https://tailwindcss.com/docs/detecting-classes-in-source-files#disabling-automatic-detection",
+  "existingDist": {
+    "file": "index-wGDlz5H0.css",
+    "bytes": 100227
+  },
+  "beforeWithReportCanary": {
+    "file": "index-Bz01eIZj.css",
+    "bytes": 100256,
+    "canaryIncluded": true
+  },
+  "afterWithReportCanary": {
+    "file": "index-C0OvZ0Zj.css",
+    "bytes": 98866,
+    "canaryIncluded": false
+  },
+  "sourceRoots": [
+    "src",
+    "index.html"
+  ],
+  "buildIsolation": "Vite outDir temporary; dist unchanged; report canary and output cleaned in finally"
+}

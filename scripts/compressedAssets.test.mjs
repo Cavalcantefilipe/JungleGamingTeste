@@ -1,10 +1,12 @@
 import assert from 'node:assert/strict';
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { createServer } from 'node:http';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { test } from 'node:test';
 import { brotliDecompressSync } from 'node:zlib';
+
+import { build } from 'vite';
 
 import { compressedAssets } from './compressedAssets.ts';
 
@@ -64,3 +66,27 @@ async function assertDelivery(origin, source) {
   assert.match(worker.headers.get('cache-control'), /no-cache/);
   assert.equal((await fetch(`${origin}/does-not-exist.js`)).status, 404);
 }
+
+test('CSS de produção ignora classes presentes somente em relatórios', async (context) => {
+  const directory = await mkdtemp(path.join(tmpdir(), 'kurio-css-sources-'));
+  const report = path.join('reports', `${path.basename(directory)}.html`);
+  const canaryValue = 271828;
+  const canaryClass = ['z', `[${canaryValue}]`].join('-');
+  try {
+    await mkdir('reports', { recursive: true });
+    await writeFile(report, `<div class="${canaryClass}">Relatório de teste</div>`);
+    await build({ logLevel: 'silent', build: { outDir: directory, emptyOutDir: true } });
+    const assets = path.join(directory, 'assets');
+    const files = (await readdir(assets)).filter((file) => file.endsWith('.css'));
+    const css = (
+      await Promise.all(files.map((file) => readFile(path.join(assets, file), 'utf8')))
+    ).join('');
+    const canaryIncluded = css.includes(`z-index:${canaryValue}`);
+    context.diagnostic(JSON.stringify({ files, cssBytes: Buffer.byteLength(css), canaryIncluded }));
+    assert.match(css, /\.grid-cols-2\{/);
+    assert.equal(canaryIncluded, false, 'O relatório não pode acrescentar utilitários ao CSS');
+  } finally {
+    await rm(report, { force: true });
+    await rm(directory, { recursive: true, force: true });
+  }
+});
