@@ -1,0 +1,96 @@
+
+Running 2 tests using 2 workers
+
+(node:94221) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:94222) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/2] [desktop-chromium] › e2e/32-catalog-announcement.spec.ts:51:1 › normalização automática de página inicial não anuncia a contagem
+[2/2] [mobile-chromium] › e2e/32-catalog-announcement.spec.ts:51:1 › normalização automática de página inicial não anuncia a contagem
+  1) [mobile-chromium] › e2e/32-catalog-announcement.spec.ts:51:1 › normalização automática de página inicial não anuncia a contagem 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('[aria-live="polite"]').filter({ hasText: /NFTs? encontrad/ })
+    Expected: 0
+    Received: 1
+    Timeout:  8000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('[aria-live="polite"]').filter({ hasText: /NFTs? encontrad/ }) with timeout 8000ms
+      - waiting for locator('[aria-live="polite"]').filter({ hasText: /NFTs? encontrad/ })
+        20 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      53 |   await expect(page).toHaveURL(/page=6/);
+      54 |   await expect(page.getByText('48 NFTs encontrados', { exact: true })).toHaveCount(1);
+    > 55 |   await expect(resultAnnouncement(page)).toHaveCount(0);
+         |                                          ^
+      56 |   await page.getByRole('button', { name: 'Página 5', exact: true }).click();
+      57 |   await expect(page).toHaveURL(/page=5/);
+      58 |   await expect(resultAnnouncement(page)).toHaveText('48 NFTs encontrados');
+        at /Users/filipecavalcante/Documents/JungleGamingTeste/e2e/32-catalog-announcement.spec.ts:55:42
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-catalog-normalization-red/32-catalog-announcement-no-397bd-cial-não-anuncia-a-contagem-mobile-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../tmp/kurio-catalog-normalization-red/32-catalog-announcement-no-397bd-cial-não-anuncia-a-contagem-mobile-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-catalog-normalization-red/32-catalog-announcement-no-397bd-cial-não-anuncia-a-contagem-mobile-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../../../../tmp/kurio-catalog-normalization-red/32-catalog-announcement-no-397bd-cial-não-anuncia-a-contagem-mobile-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  2) [desktop-chromium] › e2e/32-catalog-announcement.spec.ts:51:1 › normalização automática de página inicial não anuncia a contagem 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('[aria-live="polite"]').filter({ hasText: /NFTs? encontrad/ })
+    Expected: 0
+    Received: 1
+    Timeout:  8000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('[aria-live="polite"]').filter({ hasText: /NFTs? encontrad/ }) with timeout 8000ms
+      - waiting for locator('[aria-live="polite"]').filter({ hasText: /NFTs? encontrad/ })
+        20 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      53 |   await expect(page).toHaveURL(/page=6/);
+      54 |   await expect(page.getByText('48 NFTs encontrados', { exact: true })).toHaveCount(1);
+    > 55 |   await expect(resultAnnouncement(page)).toHaveCount(0);
+         |                                          ^
+      56 |   await page.getByRole('button', { name: 'Página 5', exact: true }).click();
+      57 |   await expect(page).toHaveURL(/page=5/);
+      58 |   await expect(resultAnnouncement(page)).toHaveText('48 NFTs encontrados');
+        at /Users/filipecavalcante/Documents/JungleGamingTeste/e2e/32-catalog-announcement.spec.ts:55:42
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-catalog-normalization-red/32-catalog-announcement-no-397bd-cial-não-anuncia-a-contagem-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../tmp/kurio-catalog-normalization-red/32-catalog-announcement-no-397bd-cial-não-anuncia-a-contagem-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-catalog-normalization-red/32-catalog-announcement-no-397bd-cial-não-anuncia-a-contagem-desktop-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../../../../tmp/kurio-catalog-normalization-red/32-catalog-announcement-no-397bd-cial-não-anuncia-a-contagem-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  2 failed
+    [desktop-chromium] › e2e/32-catalog-announcement.spec.ts:51:1 › normalização automática de página inicial não anuncia a contagem 
+    [mobile-chromium] › e2e/32-catalog-announcement.spec.ts:51:1 › normalização automática de página inicial não anuncia a contagem 

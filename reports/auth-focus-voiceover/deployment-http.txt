@@ -1,0 +1,2 @@
+$ node scripts/verifyDeployment.mjs https://kurio-production-8274.up.railway.app
+Deployment HTTP checks passed: https://kurio-production-8274.up.railway.app

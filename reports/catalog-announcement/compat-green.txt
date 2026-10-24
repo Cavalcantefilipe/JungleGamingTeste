@@ -1,0 +1,33 @@
+$ playwright test --config playwright.compat.config.ts e2e/32-catalog-announcement.spec.ts --reporter=line --output=.superpowers/catalog-announcement-final-compat
+
+Running 12 tests using 2 workers
+
+(node:96355) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:96354) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/12] [desktop-firefox] › e2e/32-catalog-announcement.spec.ts:8:1 › abrir e recarregar catálogo com filtros não anuncia contagem inicial
+[2/12] [desktop-firefox] › e2e/32-catalog-announcement.spec.ts:20:1 › busca e retorno aos filtros iniciais anunciam resultados sem duplicar a contagem
+[3/12] [desktop-firefox] › e2e/32-catalog-announcement.spec.ts:40:1 › filtro acionado pelo rodapé também anuncia o resultado
+[4/12] [desktop-firefox] › e2e/32-catalog-announcement.spec.ts:51:1 › normalização automática de página inicial não anuncia a contagem
+[5/12] [desktop-firefox] › e2e/32-catalog-announcement.spec.ts:61:1 › catálogo retomado do cache mantém contagem acessível sem anúncio inicial
+[6/12] [desktop-firefox] › e2e/32-catalog-announcement.spec.ts:74:1 › erro inicial não informa zero resultados e mantém recuperação acessível
+(node:96418) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[7/12] [mobile-webkit] › e2e/32-catalog-announcement.spec.ts:8:1 › abrir e recarregar catálogo com filtros não anuncia contagem inicial
+[8/12] [mobile-webkit] › e2e/32-catalog-announcement.spec.ts:40:1 › filtro acionado pelo rodapé também anuncia o resultado
+[9/12] [mobile-webkit] › e2e/32-catalog-announcement.spec.ts:51:1 › normalização automática de página inicial não anuncia a contagem
+[10/12] [mobile-webkit] › e2e/32-catalog-announcement.spec.ts:61:1 › catálogo retomado do cache mantém contagem acessível sem anúncio inicial
+[11/12] [mobile-webkit] › e2e/32-catalog-announcement.spec.ts:74:1 › erro inicial não informa zero resultados e mantém recuperação acessível
+(node:96444) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[12/12] [mobile-webkit] › e2e/32-catalog-announcement.spec.ts:20:1 › busca e retorno aos filtros iniciais anunciam resultados sem duplicar a contagem
+  12 passed (22.7s)

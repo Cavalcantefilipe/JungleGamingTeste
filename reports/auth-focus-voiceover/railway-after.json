@@ -1,0 +1,19 @@
+{
+  "recordedAt": "2026-10-24T14:02:03.660Z",
+  "commit": "4716d46eb6a9f397cc889433aed5846a5a3b0395",
+  "steps": [
+    "Entrar",
+    "Criar conta",
+    "Entrar",
+    "Escape"
+  ],
+  "observation": {
+    "focus": {
+      "href": "/login?returnTo=%2F",
+      "id": "",
+      "tag": "A",
+      "text": "Entrar"
+    },
+    "url": "https://kurio-production-8274.up.railway.app/"
+  }
+}

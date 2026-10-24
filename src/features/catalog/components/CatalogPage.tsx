@@ -12,7 +12,10 @@ export function CatalogPage({ search }: { search: CatalogSearch }) {
   const hash = useRouterState({ select: (state) => state.location.hash });
   const query = useCatalogQuery(search);
   const hero = useCatalogQuery(defaultCatalogSearch);
-  const navigation = useCatalogNavigation(search);
+  const navigation = useCatalogNavigation(
+    search,
+    query.isPlaceholderData ? undefined : query.data?.page,
+  );
   if (!query.isPlaceholderData && query.data && query.data.page !== search.page)
     return (
       <Navigate

@@ -1,7 +1,7 @@
+import { CatalogAnnouncement } from '@/features/catalog/components/CatalogAnnouncement';
 import { CatalogItems } from '@/features/catalog/components/CatalogItems';
 import { CatalogToolbar } from '@/features/catalog/components/CatalogToolbar';
 import { Pagination } from '@/features/catalog/components/Pagination';
-import { catalogMessages } from '@/features/catalog/messages';
 import type { useCatalogQuery } from '@/features/catalog/queries';
 import type { CatalogSearch } from '@/features/catalog/search-params';
 import type { useCatalogNavigation } from '@/features/catalog/useCatalogNavigation';
@@ -18,11 +18,7 @@ export function CatalogResults({
   return (
     <div className="min-w-0">
       <CatalogToolbar search={search} change={navigation.setFilter} />
-      <div aria-live="polite" className="sr-only">
-        {query.isFetching && !query.isPending
-          ? catalogMessages.updating
-          : catalogMessages.resultsFound(query.data?.total ?? 0)}
-      </div>
+      <CatalogAnnouncement query={query} announcement={navigation.announcement} />
       <div
         id="catalog-results"
         role="tabpanel"

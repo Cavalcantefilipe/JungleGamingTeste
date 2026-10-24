@@ -1,0 +1,6 @@
+$ pnpm typecheck && pnpm lint && pnpm format:check && pnpm test && pnpm test:tooling
+$ tsc -b
+src/features/catalog/useCatalogAnnouncement.ts(16,40): error TS2339: Property 'page' does not exist on type '{}'.
+src/features/catalog/useCatalogAnnouncement.ts(17,38): error TS2339: Property 'page' does not exist on type '{}'.
+[ELIFECYCLE] Command failed with exit code 2.
+[ELIFECYCLE] Command failed with exit code 2.

@@ -1,0 +1,50 @@
+$ pnpm typecheck && pnpm lint && pnpm format:check && pnpm test && pnpm test:tooling
+$ tsc -b
+$ eslint . --max-warnings=0
+Multiple projects found, consider using a single `tsconfig` with `references` to speed up, or use `noWarnOnMultipleProjects` to suppress this warning
+$ prettier --check .
+Checking formatting...
+All matched files use Prettier code style!
+$ vitest run
+
+ RUN  v5.0.5 /Users/filipecavalcante/Documents/JungleGamingTeste
+
+MOCK_DB_BENCHMARK {"nfts":48,"expiredQuotes":1000,"samples":100,"beforeBytes":553418,"afterBytes":95163,"meanMs":3.881514200000022,"p95Ms":10.434124999999995,"maxMs":17.329083000000082}
+
+ Test Files  38 passed (38)
+      Tests  138 passed (138)
+   Start at  11:17:41
+   Duration  7.02s (environment 76%, import 14%, tests 7%, transform 2%)
+
+Environment  jsdom was created 38 times · 50.85s total, 76% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments
+
+$ node --test lighthouse/*.test.mjs scripts/compressedAssets.test.mjs scripts/codeRules.test.mjs
+✔ renovar coleta remove apenas arquivos gerados e preserva outros arquivos (10.60325ms)
+✔ medianas independentes preservam resultado ruim, sem escolher o melhor run (0.717834ms)
+✔ meta exata passa, categoria ausente ou inválida não passa silenciosamente (0.548291ms)
+✔ coleta incompleta e erro de runtime impedem resumo aprovado (0.103625ms)
+✔ agregação diferente da mediana é recusada (0.532958ms)
+Multiple projects found, consider using a single `tsconfig` with `references` to speed up, or use `noWarnOnMultipleProjects` to suppress this warning
+✔ lint rejects type assertions that bypass checking through unknown (2646.825ms)
+✔ lint rejects dynamic mock imports outside bootstrap and tests (231.77575ms)
+✔ lint rejects static template imports that bypass source restrictions (137.849917ms)
+✔ lint requires absolute paths in import types (21.22ms)
+✔ lint rejects mock dependencies through import types (129.216ms)
+✔ HTTP client exception only permits axios, not mock imports (97.589375ms)
+✔ lint continues to reject static mock imports outside bootstrap and tests (67.720917ms)
+✔ lint permits dynamic mock imports in bootstrap, mocks and tests (245.309167ms)
+✔ lint requires absolute imports and re-exports inside src (174.064708ms)
+✔ lint allows absolute source imports (64.811792ms)
+✔ build produz Brotli íntegro e preview negocia sem mudar conteúdo nem cache do worker (3041.655125ms)
+✔ CSS de produção ignora classes presentes somente em relatórios (6679.35675ms)
+ℹ {"files":["index-C0OvZ0Zj.css"],"cssBytes":98866,"canaryIncluded":false}
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9967.904584

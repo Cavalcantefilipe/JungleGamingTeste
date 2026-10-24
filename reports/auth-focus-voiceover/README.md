@@ -31,4 +31,10 @@ E2E_BASE_URL=http://127.0.0.1:4192 pnpm exec playwright test e2e/11-a11y-keyboar
 
 Os caminhos `.superpowers/auth-focus-regression/red` impressos no log original correspondem à execução inicial; os artefatos foram preservados na pasta `red/` deste relatório.
 
-Esta evidência comprova navegação e foco no DOM. Não mede a fala do VoiceOver. A mudança não altera campos, mensagens de erro ou atributos ARIA de senha. A verificação pública posterior é registrada separadamente, depois da publicação.
+## Publicação e conferência pública
+
+O commit `4716d46` foi publicado na `main`; o deployment `31fa792f-3447-417f-85df-ad0e95452e4d` terminou como `SUCCESS`. O HTML público é idêntico ao build local testado. [Identificação e hashes](deployment.json), [verificação HTTP](deployment-http.txt).
+
+O percurso **Entrar → Criar conta → Entrar → Escape** foi repetido pela interface pública: o foco voltou ao link “Entrar” do cabeçalho. [Observação](railway-after.json), [captura](focus-after.png).
+
+Esta evidência comprova navegação e foco no DOM. Não mede a fala do VoiceOver. A mudança não altera campos, mensagens de erro ou atributos ARIA de senha.

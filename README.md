@@ -114,7 +114,7 @@ reports          relatórios versionados de segurança/performance
 
 **Nova conferência das demais telas, 24/10:** corrigidos paginação/busca, retorno da autenticação, altura do cadastro, feedback de dados salvos, tipografia, conteúdo editorial, filtros pelo rodapé e omissões no pagamento/recibo. [Comparação com Figma, matriz das nove telas e verificação no Railway](docs/SCREENS-COMPLETENESS.md).
 
-**Complemento de acessibilidade, 24/10:** corrigido o retorno do foco ao fechar a autenticação depois de alternar entre login e cadastro. O usuário confirmou a leitura geral pelo VoiceOver e o anúncio do campo “Senha”; os caracteres protegidos não foram lidos. A fala dos erros e o rotor permanecem sem confirmação. [Verificação e limites](docs/VOICEOVER-REVIEW.md).
+**Complemento de acessibilidade, 24/10:** corrigido o retorno do foco ao fechar a autenticação depois de alternar entre login e cadastro. O catálogo também mantém a contagem silenciosa na abertura e anuncia mudanças após busca, filtros ou paginação. O usuário confirmou a leitura geral pelo VoiceOver e o anúncio do campo “Senha”; os caracteres protegidos não foram lidos. A fala dos erros e o rotor permanecem sem confirmação. [Verificação e limites](docs/VOICEOVER-REVIEW.md).
 
 **Checkpoint do CSS:** código `11f0820` publicado no Railway (`SUCCESS`). O Tailwind detecta classes somente em `src` e `index.html`, impedindo que relatórios alterem o CSS da aplicação. Tipos, lint, formatação e build passaram, com **138 testes unitários, 17 de ferramentas e 10 regressões visuais**. O CSS passou de 100.227 para 98.866 bytes. [Evidências da correção](reports/tailwind-source-scope/).
 

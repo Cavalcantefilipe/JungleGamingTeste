@@ -4,6 +4,8 @@ O resultado da conciliação de 24/10, os commits publicados e as limitações e
 
 ## Últimos resultados confirmados — 24/10
 
+A rodada posterior de acessibilidade corrigiu o retorno de foco entre login/cadastro e o anúncio automático da contagem na abertura do catálogo. A integração final passou com **353 E2E Chromium, 37 exclusões explícitas, 138 unitários e 17 testes de ferramentas**, além de tipos, lint, formato e build. [Evidências do anúncio](../reports/catalog-announcement/README.md), [foco publicado e conferido na interface](../reports/auth-focus-voiceover/README.md), [validação parcial de VoiceOver](VOICEOVER-REVIEW.md).
+
 | Escopo                                      | Código verificado         | Resultado e evidência                                                                                                                                                         |
 | ------------------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Suíte completa na URL Railway               | `369f9ee`                 | 333 aprovados, 37 exclusões explícitas, nenhuma falha. [Log](../reports/screens-completeness/public-chromium.txt).                                                            |

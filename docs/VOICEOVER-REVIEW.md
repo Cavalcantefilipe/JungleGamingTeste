@@ -23,7 +23,11 @@ Na integração, `pnpm check` passou com 138 testes unitários e 17 de ferrament
 
 O usuário relatou que a leitura começava pelo conteúdo ao abrir ou recarregar a página. Na inspeção da Home pública, o foco do DOM permaneceu no `body`; a ordem observada foi o link “Pular para o conteúdo”, o cabeçalho e depois o conteúdo principal. As duas primeiras teclas Tab alcançaram o link de salto e o logo “Kurio — Início”. Não foi encontrado código que direcione o foco inicial para o conteúdo.
 
-O catálogo atualiza uma região `aria-live` de “0 NFTs encontrados” para a contagem retornada pela consulta, o que pode gerar um anúncio sem mudar o foco. Essa é uma hipótese para o relato, ainda sem confirmação da primeira frase ouvida. A ordem de foco observada não comprova a posição do cursor virtual do VoiceOver. Nenhum foco automático foi adicionado ao cabeçalho.
+Na versão do relato, o catálogo atualizava uma região `aria-live` de “0 NFTs encontrados” para a contagem retornada pela consulta, gerando um anúncio sem mudar o foco. Ao ser perguntado se a primeira fala era “48 NFTs encontrados”, o usuário confirmou.
+
+O ajuste mantém a região de anúncios vazia durante a abertura. A contagem continua disponível para leitura na página, sem anúncio automático. Depois de uma navegação de busca, filtros ou paginação, os avisos passam a ser emitidos; isso inclui os filtros do rodapé e a volta aos filtros padrão. O estado de carregamento e os erros não produzem uma contagem falsa de zero. Alterar somente o hash para abrir a busca não ativa os anúncios.
+
+A ordem de foco observada não comprova a posição do cursor virtual do VoiceOver. Nenhum foco automático foi adicionado ao cabeçalho. A integração dessa alteração passou com **353 E2E Chromium e 37 exclusões explícitas**, além dos 138 unitários, 17 testes de ferramentas, tipos, lint, formato e build. Os resultados e as regressões estão em [catalog-announcement](../reports/catalog-announcement/README.md).
 
 ## Limites
 

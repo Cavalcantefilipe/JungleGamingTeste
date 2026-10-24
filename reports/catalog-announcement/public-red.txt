@@ -1,0 +1,96 @@
+
+Running 2 tests using 2 workers
+
+(node:93537) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:93536) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/2] [mobile-chromium] › e2e/32-catalog-announcement.spec.ts:6:1 › abrir e recarregar catálogo com filtros não anuncia contagem inicial
+[2/2] [desktop-chromium] › e2e/32-catalog-announcement.spec.ts:6:1 › abrir e recarregar catálogo com filtros não anuncia contagem inicial
+  1) [mobile-chromium] › e2e/32-catalog-announcement.spec.ts:6:1 › abrir e recarregar catálogo com filtros não anuncia contagem inicial 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('[aria-live="polite"]').filter({ hasText: /NFTs? encontrad/ })
+    Expected: 0
+    Received: 1
+    Timeout:  8000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('[aria-live="polite"]').filter({ hasText: /NFTs? encontrad/ }) with timeout 8000ms
+      - waiting for locator('[aria-live="polite"]').filter({ hasText: /NFTs? encontrad/ })
+        20 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+       7 |   await page.goto('/?q=Cosmic&scenario=slow-network');
+       8 |   await expect(page.getByLabel('Carregando NFT').first()).toBeVisible();
+    >  9 |   await expect(resultAnnouncement(page)).toHaveCount(0);
+         |                                          ^
+      10 |   await expect(page.getByTestId('nft-grid').getByRole('link').first()).toContainText('Cosmic');
+      11 |   await expect(resultAnnouncement(page)).toHaveCount(0);
+      12 |   await page.reload();
+        at /Users/filipecavalcante/Documents/JungleGamingTeste/e2e/32-catalog-announcement.spec.ts:9:42
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-catalog-announcement-red/32-catalog-announcement-ab-6740f-ão-anuncia-contagem-inicial-mobile-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../tmp/kurio-catalog-announcement-red/32-catalog-announcement-ab-6740f-ão-anuncia-contagem-inicial-mobile-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-catalog-announcement-red/32-catalog-announcement-ab-6740f-ão-anuncia-contagem-inicial-mobile-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../../../../tmp/kurio-catalog-announcement-red/32-catalog-announcement-ab-6740f-ão-anuncia-contagem-inicial-mobile-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  2) [desktop-chromium] › e2e/32-catalog-announcement.spec.ts:6:1 › abrir e recarregar catálogo com filtros não anuncia contagem inicial 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('[aria-live="polite"]').filter({ hasText: /NFTs? encontrad/ })
+    Expected: 0
+    Received: 1
+    Timeout:  8000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('[aria-live="polite"]').filter({ hasText: /NFTs? encontrad/ }) with timeout 8000ms
+      - waiting for locator('[aria-live="polite"]').filter({ hasText: /NFTs? encontrad/ })
+        20 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+       7 |   await page.goto('/?q=Cosmic&scenario=slow-network');
+       8 |   await expect(page.getByLabel('Carregando NFT').first()).toBeVisible();
+    >  9 |   await expect(resultAnnouncement(page)).toHaveCount(0);
+         |                                          ^
+      10 |   await expect(page.getByTestId('nft-grid').getByRole('link').first()).toContainText('Cosmic');
+      11 |   await expect(resultAnnouncement(page)).toHaveCount(0);
+      12 |   await page.reload();
+        at /Users/filipecavalcante/Documents/JungleGamingTeste/e2e/32-catalog-announcement.spec.ts:9:42
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-catalog-announcement-red/32-catalog-announcement-ab-6740f-ão-anuncia-contagem-inicial-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../tmp/kurio-catalog-announcement-red/32-catalog-announcement-ab-6740f-ão-anuncia-contagem-inicial-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../tmp/kurio-catalog-announcement-red/32-catalog-announcement-ab-6740f-ão-anuncia-contagem-inicial-desktop-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../../../../tmp/kurio-catalog-announcement-red/32-catalog-announcement-ab-6740f-ão-anuncia-contagem-inicial-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  2 failed
+    [desktop-chromium] › e2e/32-catalog-announcement.spec.ts:6:1 › abrir e recarregar catálogo com filtros não anuncia contagem inicial 
+    [mobile-chromium] › e2e/32-catalog-announcement.spec.ts:6:1 › abrir e recarregar catálogo com filtros não anuncia contagem inicial 
