@@ -6,7 +6,7 @@ import type { MockDb } from './schema';
 export function createSeed(name = 'default'): MockDb {
   const wallets = createWallets();
   return {
-    catalogRevision: 2,
+    catalogRevision: 3,
     users: createUsers(),
     sessions: [],
     nfts: name === 'empty' ? [] : createNfts(),

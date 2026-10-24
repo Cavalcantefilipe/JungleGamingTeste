@@ -155,3 +155,7 @@ A [revisão do frontend](FRONTEND-REVIEW.md) registra os tokens adicionados para
 ## Correção após o apontamento em `/nfts/nft-002`
 
 A [revisão detalhada](DETAIL-REVIEW.md) documenta os erros restantes nas estrelas, favoritos, tipografia, galeria, abas e componentes compartilhados. Ela substitui as medidas anteriores de24px para o preço e do controle desktop do carrinho, que estavam incorretas. Inclui os limites de fidelidade, evidências do Figma e regressões novas.
+
+## Complemento de 24/10: detalhe e carrossel compartilhado
+
+A [revisão complementar](DETAIL-COMPLETENESS.md) substitui as limitações anteriores de texto do detalhe, avaliações individuais e navegação por pontos. A referência segue sendo o Figma; as capturas internas são testes de regressão, não prova isolada de fidelidade.

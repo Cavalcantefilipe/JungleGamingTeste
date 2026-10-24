@@ -4,7 +4,7 @@ import type { CarouselNavigationState } from '../useCarousel';
 
 export function CarouselDots({ page, pages, goTo }: CarouselNavigationState) {
   return (
-    <div className="flex justify-center" aria-label="Páginas das recomendações">
+    <div className="flex flex-wrap justify-center" aria-label="Páginas das recomendações">
       {Array.from({ length: pages }, (_, index) => (
         <button
           key={index}
@@ -17,7 +17,10 @@ export function CarouselDots({ page, pages, goTo }: CarouselNavigationState) {
           className="grid size-11 place-items-center rounded-control hover:bg-surface-card active:bg-surface-raised"
         >
           <span
-            className={cn('size-2 rounded-full', page === index ? 'bg-primary' : 'bg-primary/40')}
+            className={cn(
+              'size-3 rounded-full border-2 border-primary',
+              page === index && 'bg-primary',
+            )}
           />
         </button>
       ))}

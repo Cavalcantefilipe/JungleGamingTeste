@@ -85,3 +85,7 @@ pnpm audit --prod
 ```
 
 Lighthouse coleta três execuções por página/perfil, conserva falha abaixo das metas e interrompe em erro técnico. Não execute builds, testes ou navegação simultâneos à coleta. Configurações, medição final pública e histórico: [LIGHTHOUSE.md](LIGHTHOUSE.md). Auditorias de dependências são consultas pontuais ao registro; o resultado é preservado em `reports/quality/`.
+
+## Complemento do detalhe — 24/10
+
+`27-detail-completeness.spec.ts` cobre a rota `nft-004`: avanço automático e retorno ao início, pausa, pontos, movimento reduzido, carrossel compartilhado no carrinho, avaliações REST/paginação/erro, metadados, migração com carrinho persistido, URL/histórico e evento Socket.IO durante carregamento das avaliações. Também integra Firefox/WebKit. A regressão visual inclui o painel de avaliações; movimento reduzido estabiliza os carrosséis somente nesses testes de imagem. Autoplay é testado separadamente com o relógio do Playwright. [Resultados e capturas](DETAIL-COMPLETENESS.md).

@@ -27,18 +27,21 @@ export function useCarousel(itemCount: number) {
       observer.disconnect();
     };
   }, [syncPosition]);
-  const goTo = (requestedPage: number) => {
-    const element = track.current;
-    const { pages, pageSize } = readPosition(element, itemCount);
-    const page = Math.max(0, Math.min(requestedPage, pages - 1));
-    const target = element?.children.item(page * pageSize);
-    const first = element?.firstElementChild;
-    if (!(target instanceof HTMLElement) || !(first instanceof HTMLElement)) return;
-    element?.scrollTo({
-      left: target.offsetLeft - first.offsetLeft,
-      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
-    });
-  };
+  const goTo = useCallback(
+    (requestedPage: number) => {
+      const element = track.current;
+      const { pages, pageSize } = readPosition(element, itemCount);
+      const page = Math.max(0, Math.min(requestedPage, pages - 1));
+      const target = element?.children.item(page * pageSize);
+      const first = element?.firstElementChild;
+      if (!(target instanceof HTMLElement) || !(first instanceof HTMLElement)) return;
+      element?.scrollTo({
+        left: target.offsetLeft - first.offsetLeft,
+        behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+      });
+    },
+    [itemCount],
+  );
   return { track, ...position, goTo, onScroll: syncPosition };
 }
 

@@ -58,3 +58,9 @@ A publicação na Railway usa `railpack.json` e `Caddyfile`: headers de seguran�
 As páginas de catálogo, detalhe, autenticação e checkout compõem seções com responsabilidades específicas. `useCheckoutController` coordena seleção de carteira, formulário, cotação, conexão e envio; `useCheckoutSubmission` mantém as validações e `createOrderRequest` prepara apenas os campos aceitos pelo contrato. A persistência do rascunho fica em `useCheckoutDraftPersistence`, com `subscribe`, cleanup e guarda de sessão. Componentes de campos, opções e resumos recebem dados e ações dos respectivos controladores.
 
 A paleta e os gradientes reutilizáveis ficam no `@theme` de `src/styles/tokens.css` (Tailwind 4). Variantes comuns são definidas em `components/ui/button.tsx`. [Revisão do frontend](docs/FRONTEND-REVIEW.md) registra os problemas corrigidos, referências do Figma, redução dos componentes e limites da validação.
+
+## Carrosséis e avaliações do detalhe
+
+`NftCarousel` é o componente usado por “Mais desta coleção” e “Colecionadores também viram”. Compartilha cartões, setas, pontos, paginação por largura e avanço a cada cinco segundos. Pausa fora da tela, com a aba oculta, no hover, durante foco no conteúdo ou pelo controle de pausa; respeita movimento reduzido. A ampliação dos cartões também é compartilhada. O carrinho conserva a visibilidade desktop do frame; o detalhe adapta a navegação ao celular.
+
+Avaliações são consultas REST independentes, com skeleton, erro/retry, estado vazio e paginação. O namespace `nft-reviews` impede que eventos de preço cancelem comentários em carregamento. `tab` e `reviewPage` ficam na URL, validados pelo Router, preservando compartilhamento, atualização e histórico. O painel de avaliações não tem conteúdo aberto no frame exportado: sua composição usa os tokens e componentes do projeto. Os comentários e metadados de blockchain são explicitamente simulados. [Conferência complementar](docs/DETAIL-COMPLETENESS.md).

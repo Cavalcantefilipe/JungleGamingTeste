@@ -9,6 +9,7 @@ export const queryKeys = {
     list: (search: NftListQuery, userId?: string) =>
       ['nfts', 'list', search, userId ?? 'public'] as const,
     detail: (id: string) => ['nfts', 'detail', id] as const,
+    reviews: (id: string, page: number) => ['nft-reviews', id, page] as const,
   },
   favorites: (userId: string) => ['favorites', userId] as const,
   cart: (scope: CartScope) => ['cart', scope.kind, scope.id] as const,

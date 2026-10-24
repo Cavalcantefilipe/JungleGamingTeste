@@ -35,6 +35,7 @@ async function stabilize(page: Page) {
 }
 
 test.beforeEach(async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.clock.setFixedTime(new Date('2026-07-29T12:00:00Z'));
   await page.goto('/');
   await expect(page.getByTestId('nft-grid').locator('article')).toHaveCount(9);
@@ -55,6 +56,14 @@ test('Detalhe mantém composição aprovada', async ({ page }) => {
   await expect(page.getByTestId('gallery-image')).toBeVisible();
   await stabilize(page);
   await expect(page).toHaveScreenshot('detail.png', { fullPage: true, animations: 'disabled' });
+});
+
+test('Avaliações mantêm composição e legibilidade', async ({ page }) => {
+  await page.goto('/nfts/nft-004?tab=reviews&reviewPage=1');
+  const panel = page.getByRole('tabpanel');
+  await expect(panel.getByRole('article')).toHaveCount(4);
+  await stabilize(page);
+  await expect(panel).toHaveScreenshot('reviews.png', { animations: 'disabled' });
 });
 
 test('Carrinho mantém composição aprovada', async ({ page, isMobile }) => {

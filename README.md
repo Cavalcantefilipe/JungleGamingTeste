@@ -1,6 +1,6 @@
 # Kurio — Marketplace de NFTs
 
-Implementação do desafio frontend da Jungle Gaming: catálogo, filtros e favoritos, detalhe com edições, carrinho, checkout, recuperação de pagamento, perfil e carteiras. Layout conferido com os assets originais do [Figma](https://www.figma.com/design/Ff0SksUi7UFtPWUO8kyNtw/Frontend-Challenge).
+Implementação do desafio frontend da Jungle Gaming: catálogo, filtros e favoritos, detalhe com edições e avaliações de compradores, carrinho, checkout, recuperação de pagamento, perfil e carteiras. Layout conferido com os assets originais do [Figma](https://www.figma.com/design/Ff0SksUi7UFtPWUO8kyNtw/Frontend-Challenge).
 
 **Aplicação publicada:** [Kurio na Railway](https://kurio-production-8274.up.railway.app).
 
@@ -109,7 +109,9 @@ reports          relatórios versionados de segurança/performance
 - [Validação dos comportamentos](docs/BEHAVIOR-REVIEW.md) e [pendências de entrega/estimativa de avaliação](docs/DELIVERY-ASSESSMENT.md).
 - [Configuração e verificação da Railway](docs/DEPLOYMENT.md).
 
-**Reconciliação de 24/10 publicada:** 120 testes unitários, 6 de ferramentas, 260 E2E Chromium, 166 de compatibilidade Firefox/WebKit e 84 na URL pública aprovados; lint sem avisos. Lighthouse público: performance 97/98 desktop e 93/92 mobile, demais categorias 100. Decisões, exclusões por viewport, evidências e deployment estão em [RECONCILIATION.md](docs/RECONCILIATION.md).
+**Complemento da revisão de 24/10:** carrossel compartilhado com avanço automático no detalhe e carrinho, avaliações paginadas e metadados completos. [Escopo e evidências](docs/DETAIL-COMPLETENESS.md).
+
+**Reconciliação anterior de 24/10 publicada:** 120 testes unitários, 6 de ferramentas, 260 E2E Chromium, 166 de compatibilidade Firefox/WebKit e 84 na URL pública aprovados; lint sem avisos. Lighthouse público: performance 97/98 desktop e 93/92 mobile, demais categorias 100. Decisões, exclusões por viewport, evidências e deployment estão em [RECONCILIATION.md](docs/RECONCILIATION.md).
 
 O [checkpoint de qualidade de 23/10](docs/QUALITY-REVIEW.md) preserva o histórico da refatoração React, disputa de estoque, zoom real de 200%, compatibilidade entre motores e Lighthouse público (desktop 96/98 e mobile 93/94 naquela versão). Cada resultado identifica o código e as condições verificados; medições antigas não representam automaticamente um novo deploy.
 

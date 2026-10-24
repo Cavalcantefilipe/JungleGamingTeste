@@ -1,5 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import { createFileRoute, Link } from '@tanstack/react-router';
+import {
+  createFileRoute,
+  Link,
+  stripSearchParams,
+  type SearchSchemaInput,
+} from '@tanstack/react-router';
 
 import { announce } from '@/components/feedback/announce';
 import { DetailSkeleton } from '@/components/feedback/DetailSkeleton';
@@ -8,9 +13,13 @@ import { ErrorState } from '@/components/feedback/ErrorState';
 import { Button } from '@/components/ui/button';
 import { nftDetailQueryOptions } from '@/features/catalog/queries';
 import { NftDetailPage } from '@/features/nft-detail/components/NftDetailPage';
+import { detailSearchSchema } from '@/features/nft-detail/search-params';
 import { ApiError, errorMessage } from '@/lib/errors';
 
 export const Route = createFileRoute('/nfts/$nftId')({
+  validateSearch: (input: Record<string, unknown> & SearchSchemaInput) =>
+    detailSearchSchema.parse(input),
+  search: { middlewares: [stripSearchParams({ tab: 'details', reviewPage: 1 })] },
   loader: ({ context, params }) => {
     void context.queryClient.query(nftDetailQueryOptions(params.nftId)).catch((error: unknown) => {
       announce(errorMessage(error));

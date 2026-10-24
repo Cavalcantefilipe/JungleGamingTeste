@@ -1,47 +1,29 @@
-import { useRef } from 'react';
-
-import { FigmaIcon } from '@/components/icons/FigmaIcon';
-import { Button } from '@/components/ui/button';
+import { ErrorState } from '@/components/feedback/ErrorState';
 import type { Nft } from '@/contracts/nft';
-import { NftCard } from '@/features/catalog/components/NftCard';
-import { useCatalogQuery } from '@/features/catalog/queries';
-import { defaultCatalogSearch } from '@/features/catalog/search-params';
+import { NftCarousel } from '@/features/catalog/components/NftCarousel';
+
+import { detailMessages } from '../messages';
+import { useRelatedNfts } from '../useRelatedNfts';
+import { RelatedSkeleton } from './RelatedSkeleton';
 
 export function RelatedCarousel({ nft }: { nft: Nft }) {
-  const query = useCatalogQuery({ ...defaultCatalogSearch, q: nft.collection, pageSize: 6 });
-  const container = useRef<HTMLDivElement>(null);
-  const scroll = (direction: number) =>
-    container.current?.scrollBy({
-      left: direction * 260,
-      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
-    });
-  const related = query.data?.items.filter((item) => item.id !== nft.id).slice(0, 5) ?? [];
-  if (!related.length) return null;
+  const { items, query } = useRelatedNfts(nft);
   return (
-    <section className="mt-16">
-      <div className="mb-8 flex items-center justify-between border-b border-border">
-        <h2 className="text-[17px] font-bold text-text-accent">Mais desta coleção</h2>
-        <div className="flex gap-2">
-          <Button
-            variant="ghost"
-            size="icon"
-            aria-label="NFTs anteriores"
-            onClick={() => scroll(-1)}
-          >
-            <FigmaIcon name="chevron-left" aria-hidden="true" />
-          </Button>
-          <Button variant="ghost" size="icon" aria-label="Próximos NFTs" onClick={() => scroll(1)}>
-            <FigmaIcon name="chevron-right" aria-hidden="true" />
-          </Button>
-        </div>
-      </div>
-      <div ref={container} className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4">
-        {related.map((item) => (
-          <div className="min-w-52 flex-1 snap-start" key={item.id}>
-            <NftCard nft={item} />
-          </div>
-        ))}
-      </div>
-    </section>
+    <div className="mt-section">
+      {query.isPending ? (
+        <RelatedSkeleton />
+      ) : query.isError ? (
+        <section aria-label={detailMessages.related}>
+          <ErrorState
+            error={query.error}
+            retry={() => {
+              void query.refetch();
+            }}
+          />
+        </section>
+      ) : items.length > 0 ? (
+        <NftCarousel key={nft.id} title={detailMessages.related} items={items} />
+      ) : null}
+    </div>
   );
 }

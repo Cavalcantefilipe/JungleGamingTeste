@@ -56,16 +56,18 @@ async function expectReadableText(page: Page) {
 }
 
 async function expectRelatedCardsReadable(page: Page) {
-  const heading = page.getByRole('heading', { name: 'Mais desta coleção', exact: true });
-  await expect(heading).toBeVisible();
-  const section = heading.locator('..').locator('..');
+  const section = page.getByRole('region', { name: 'Mais desta coleção', exact: true });
+  await expect(section).toBeVisible();
   const cards = section.getByRole('article');
-  await expect(cards).toHaveCount(5);
+  await expect(cards).toHaveCount(11);
   await section.scrollIntoViewIfNeeded();
-  for (const [index, card] of (await cards.all()).entries()) {
-    if (index > 0)
-      await section.getByRole('button', { name: 'Próximos NFTs', exact: true }).click();
-    await expect(card.getByRole('heading')).toBeInViewport({ ratio: 1 });
+  await section.getByRole('button', { name: 'Pausar carrossel' }).click();
+  for (const [index, dot] of (
+    await section.getByRole('button', { name: /Ir para página/ }).all()
+  ).entries()) {
+    await dot.click();
+    await expect(dot).toHaveAttribute('aria-current', 'page');
+    await expect(cards.nth(index * 2).getByRole('heading')).toBeInViewport({ ratio: 1 });
     await expectReadableText(page);
   }
 }

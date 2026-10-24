@@ -1,6 +1,7 @@
 import { NFT_CATEGORIES, NFT_NETWORKS, type Nft } from '@/contracts/nft';
 
 import { createArtwork } from './images';
+import { createNftDetails } from './nftDetails';
 
 const names = [
   'Emerald Ape #042',
@@ -27,24 +28,30 @@ const prices = [
   '12.3',
 ];
 
+function createNftName(index: number) {
+  const baseName = names[index % names.length] ?? 'Kurio Ape';
+  return index < 9 ? baseName : `${baseName.split(' #')[0] ?? baseName} #${String(100 + index)}`;
+}
+
 function createNft(index: number): Nft {
   const id = `nft-${String(index + 1).padStart(3, '0')}`;
-  const name = names[index % names.length] ?? 'Kurio Ape';
+  const name = createNftName(index);
+  const collection = index % 4 === 0 ? 'Kurio Editions' : 'Kurio Apes';
+  const network = NFT_NETWORKS[Math.floor(index / 3) % 3] ?? 'ethereum';
   return {
     id,
     slug: id,
-    name: index < 9 ? name : `${name.split(' #')[0] ?? name} #${String(100 + index)}`,
+    name,
     tokenId: String(42 + index),
-    collection: index % 4 === 0 ? 'Kurio Editions' : 'Kurio Apes',
+    collection,
     category: NFT_CATEGORIES[index % 9] ?? 'arte-digital',
-    network: NFT_NETWORKS[Math.floor(index / 3) % 3] ?? 'ethereum',
+    network,
     price: prices[index % prices.length] ?? '1.19',
     ...(index % 9 === 2 ? { compareAtPrice: '2.29', rarity: 'raro' as const } : {}),
     rating: { average: 4.8, count: 19 + index },
-    description:
-      'Um colecionável digital 1/50 finalizado à mão da coleção Kurio Editions, verificado na Ethereum.',
+    ...createNftDetails(name, collection, network, index),
     attributes: [
-      { label: 'Coleção', value: 'Kurio Apes' },
+      { label: 'Coleção', value: collection },
       { label: 'Estilo', value: index % 2 === 0 ? 'Óculos vintage' : 'Explorador' },
       { label: 'Origem', value: 'Arte digital' },
     ],

@@ -9,6 +9,7 @@ dist-ssr/
 node_modules/.cache/
 reports/playwright-report/
 reports/playwright-compat/
+reports/playwright-compat-artifacts/
 test-results/
 e2e/.auth/
 .superpowers/

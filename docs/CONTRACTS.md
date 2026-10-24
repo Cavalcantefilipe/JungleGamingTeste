@@ -30,33 +30,34 @@ Códigos e mensagens ficam em `src/contracts/common.ts` e `src/lib/errors.ts`. A
 
 ## Endpoints
 
-| Método e caminho               | Entrada principal                                                    | Resposta                                               | Acesso                          |
-| ------------------------------ | -------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------- |
-| GET `/content`                 | —                                                                    | conteúdo editorial do cenário                          | público                         |
-| GET `/nfts`                    | filtros, categorias/redes repetidas, sort, page, pageSize, favorites | `{items,page,pageSize,total,totalPages}`               | público; favorites exige sessão |
-| GET `/nfts/:id`                | ID NFT                                                               | NFT, preço, imagens, edições, disponibilidade e versão | público                         |
-| POST `/auth/register`          | username, email, password                                            | sessão, 201                                            | público                         |
-| POST `/auth/login`             | email, password                                                      | sessão                                                 | público                         |
-| GET `/auth/session`            | —                                                                    | `{user,expiresAt}`                                     | sessão                          |
-| POST `/auth/logout`            | —                                                                    | 204; revoga token/conexão                              | sessão                          |
-| GET `/favorites`               | —                                                                    | `{nftIds}`                                             | sessão                          |
-| PUT/DELETE `/favorites/:id`    | ID NFT                                                               | 204                                                    | sessão                          |
-| GET `/cart`                    | —                                                                    | carrinho com scope e snapshots                         | visitante/sessão                |
-| POST `/cart/items`             | nftId, editionId, quantity                                           | carrinho atualizado                                    | visitante/sessão                |
-| PATCH `/cart/items/:id`        | quantity                                                             | carrinho atualizado                                    | mesmo scope                     |
-| DELETE `/cart/items/:id`       | —                                                                    | carrinho atualizado                                    | mesmo scope                     |
-| POST `/cart/merge`             | guestId                                                              | carrinho do usuário com merge                          | sessão                          |
-| POST `/quote`                  | items, couponCode opcional, network                                  | cotação válida por 60s                                 | público                         |
-| POST `/wallet-session/connect` | walletId, provider, address, network                                 | `{status:"connected",address}`                         | dono e identidade da carteira   |
-| POST `/orders`                 | cotação, itens, carteira e coletor; header Idempotency-Key           | pedido pendente, 201; repetição 200                    | sessão                          |
-| GET `/orders/:id`              | —                                                                    | pedido/snapshot/status                                 | dono do pedido                  |
-| GET `/profile`                 | —                                                                    | perfil                                                 | sessão                          |
-| PATCH `/profile`               | campos permitidos do perfil                                          | perfil atualizado                                      | sessão                          |
-| POST `/profile/avatar`         | dataUrl                                                              | perfil atualizado                                      | sessão                          |
-| DELETE `/profile/avatar`       | —                                                                    | perfil atualizado                                      | sessão                          |
-| POST `/profile/password`       | currentPassword, newPassword                                         | 204                                                    | sessão/senha atual              |
-| GET `/wallets`                 | —                                                                    | `{primary,secondary,sameAsPrimary}`                    | sessão                          |
-| PUT `/wallets/:role`           | dados da carteira ou sameAsPrimary para secundária                   | carteiras atualizadas                                  | sessão                          |
+| Método e caminho               | Entrada principal                                                    | Resposta                                                                     | Acesso                          |
+| ------------------------------ | -------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------- |
+| GET `/content`                 | —                                                                    | conteúdo editorial do cenário                                                | público                         |
+| GET `/nfts`                    | filtros, categorias/redes repetidas, sort, page, pageSize, favorites | `{items,page,pageSize,total,totalPages}`                                     | público; favorites exige sessão |
+| GET `/nfts/:id`                | ID NFT                                                               | NFT, preço, imagens, edições, disponibilidade e versão                       | público                         |
+| GET `/nfts/:id/reviews`        | page, pageSize (padrão 4; máximo 20)                                 | avaliações paginadas: id, nftId, author, rating, comment, createdAt, edition | público                         |
+| POST `/auth/register`          | username, email, password                                            | sessão, 201                                                                  | público                         |
+| POST `/auth/login`             | email, password                                                      | sessão                                                                       | público                         |
+| GET `/auth/session`            | —                                                                    | `{user,expiresAt}`                                                           | sessão                          |
+| POST `/auth/logout`            | —                                                                    | 204; revoga token/conexão                                                    | sessão                          |
+| GET `/favorites`               | —                                                                    | `{nftIds}`                                                                   | sessão                          |
+| PUT/DELETE `/favorites/:id`    | ID NFT                                                               | 204                                                                          | sessão                          |
+| GET `/cart`                    | —                                                                    | carrinho com scope e snapshots                                               | visitante/sessão                |
+| POST `/cart/items`             | nftId, editionId, quantity                                           | carrinho atualizado                                                          | visitante/sessão                |
+| PATCH `/cart/items/:id`        | quantity                                                             | carrinho atualizado                                                          | mesmo scope                     |
+| DELETE `/cart/items/:id`       | —                                                                    | carrinho atualizado                                                          | mesmo scope                     |
+| POST `/cart/merge`             | guestId                                                              | carrinho do usuário com merge                                                | sessão                          |
+| POST `/quote`                  | items, couponCode opcional, network                                  | cotação válida por 60s                                                       | público                         |
+| POST `/wallet-session/connect` | walletId, provider, address, network                                 | `{status:"connected",address}`                                               | dono e identidade da carteira   |
+| POST `/orders`                 | cotação, itens, carteira e coletor; header Idempotency-Key           | pedido pendente, 201; repetição 200                                          | sessão                          |
+| GET `/orders/:id`              | —                                                                    | pedido/snapshot/status                                                       | dono do pedido                  |
+| GET `/profile`                 | —                                                                    | perfil                                                                       | sessão                          |
+| PATCH `/profile`               | campos permitidos do perfil                                          | perfil atualizado                                                            | sessão                          |
+| POST `/profile/avatar`         | dataUrl                                                              | perfil atualizado                                                            | sessão                          |
+| DELETE `/profile/avatar`       | —                                                                    | perfil atualizado                                                            | sessão                          |
+| POST `/profile/password`       | currentPassword, newPassword                                         | 204                                                                          | sessão/senha atual              |
+| GET `/wallets`                 | —                                                                    | `{primary,secondary,sameAsPrimary}`                                          | sessão                          |
+| PUT `/wallets/:role`           | dados da carteira ou sameAsPrimary para secundária                   | carteiras atualizadas                                                        | sessão                          |
 
 Sessão contém token, expiresAt e user (id, username, email, displayName, avatarUrl). Nenhuma resposta de perfil inclui senha/hash/salt. Avatar: PNG/JPEG/WebP, limite 2MB, MIME/assinatura/base64 válidos; SVG e HTML não são aceitos. Endereços EVM exigem 0x + 40 caracteres hex; Solana aceita base58 de 32 a 44 caracteres. Isso valida formato, não posse de carteira.
 
@@ -114,3 +115,9 @@ O cliente usa `socket.io-client`, WebSocket apenas. Após connect emite `session
 ```
 
 Zod valida o evento. O gate descarta UUID repetido e versão antiga/igual à conhecida por REST; eventos privados só atualizam pedidos conhecidos do usuário atual. Reconexão concilia com REST, pedido terminal não regride e o recibo não muda com o catálogo. [MOCKS.md](MOCKS.md) documenta controles; [CONCURRENCY.md](CONCURRENCY.md) descreve transações e recuperação.
+
+## Avaliações e metadados do detalhe
+
+`NFT.details` fornece parágrafos, procedência, contrato, padrão, criador e percentual de direitos autorais. O campo é opcional na leitura para aceitar armazenamento de versões anteriores; o catálogo atual o fornece para todos os itens. A revisão editorial 3 migra esses campos sem alterar contas, carrinhos, pedidos, estoque ou preços já atualizados.
+
+Avaliações são fixtures determinísticas em `src/mocks`, servidas por REST/MSW e validadas com Zod. A contagem e a média arredondada correspondem ao resumo do NFT. O endpoint devolve 404 para NFT inexistente e 422 para paginação inválida. Não há submissão de comentários ou avaliações reais nesta demonstração.

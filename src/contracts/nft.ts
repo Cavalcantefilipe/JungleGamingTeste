@@ -61,6 +61,15 @@ export const nftImageSchema = z.object({
 });
 export type NftImage = z.infer<typeof nftImageSchema>;
 
+export const nftDetailsSchema = z.object({
+  paragraphs: z.array(z.string().min(1)).min(1),
+  provenance: z.string().min(1),
+  contract: z.string().min(1),
+  standard: z.string().min(1),
+  creator: z.string().min(1),
+  royaltyPercent: z.number().min(0).max(100),
+});
+
 export const nftSchema = z.object({
   id: idSchema,
   slug: z.string().min(1),
@@ -74,6 +83,7 @@ export const nftSchema = z.object({
   rarity: z.enum(['raro']).optional(),
   rating: z.object({ average: z.number().min(0).max(5), count: z.number().int().min(0) }),
   description: z.string(),
+  details: nftDetailsSchema.optional(),
   attributes: z.array(z.object({ label: z.string(), value: z.string() })),
   images: z.array(nftImageSchema).min(1),
   editions: z.array(nftEditionSchema).min(1),
