@@ -77,6 +77,37 @@ test('diálogo de login prende foco e devolve ao controle após Esc', async ({ p
   await expect(trigger).toBeFocused();
 });
 
+for (const transitions of [1, 2]) {
+  test(`troca entre login e cadastro devolve foco ao gatilho após ${transitions} transições`, async ({
+    page,
+    isMobile,
+  }) => {
+    await page.goto('/');
+    const trigger = isMobile
+      ? page.getByRole('link', { name: 'Perfil', exact: true })
+      : page.getByRole('banner').getByRole('link', { name: 'Entrar', exact: true });
+    await trigger.click();
+    const dialog = page.getByRole('dialog');
+    for (let transition = 0; transition < transitions; transition++) {
+      const register = transition % 2 === 0;
+      const name = register
+        ? isMobile
+          ? 'Crie uma conta'
+          : 'Criar conta'
+        : isMobile
+          ? 'Entre'
+          : 'Entrar';
+      await tabUntil(page, dialog.getByRole('link', { name, exact: true }));
+      await page.keyboard.press('Enter');
+      await expect(page).toHaveURL(register ? /\/register/ : /\/login/);
+      await expect(dialog).toBeVisible();
+    }
+    await page.keyboard.press('Escape');
+    await expect(dialog).toHaveCount(0);
+    await expect(trigger).toBeFocused();
+  });
+}
+
 test('drawer mobile prende foco e devolve ao gatilho após Esc', async ({ page, isMobile }) => {
   test.skip(!isMobile, 'Drawer do frame mobile');
   await page.goto('/');

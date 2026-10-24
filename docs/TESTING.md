@@ -86,7 +86,7 @@ A referência é o [Figma do desafio](https://www.figma.com/design/Ff0SksUi7UFtP
 
 Relatórios locais HTML: `reports/playwright-report` e `reports/playwright-compat`. Traces/screenshots de falha ficam em `test-results` ou no diretório escolhido por `--output`. Esses artefatos temporários são ignorados pelo Git; baselines, resumos e evidências selecionadas são versionados.
 
-Axe, teclado, geometria e zoom complementam-se. A tentativa de VoiceOver ficou inconclusiva e não é contada como aprovação de leitor de tela. Veja [QUALITY-REVIEW.md](QUALITY-REVIEW.md). Os testes de sessão/compra exercitam a simulação: não certificam banco compartilhado ou backend de produção.
+Axe, teclado, geometria e zoom complementam-se. A tentativa anterior de VoiceOver em [QUALITY-REVIEW.md](QUALITY-REVIEW.md) ficou inconclusiva. Na nova sessão de 24/10, o usuário confirmou a leitura geral e o nome do campo “Senha”; a fala dos erros e o rotor não foram confirmados. A regressão de retorno do foco após alternar login/cadastro foi reproduzida e corrigida. Veja [VOICEOVER-REVIEW.md](VOICEOVER-REVIEW.md), com os limites da validação parcial. Os testes de sessão/compra exercitam a simulação: não certificam banco compartilhado ou backend de produção.
 
 ## Lighthouse e dependências
 

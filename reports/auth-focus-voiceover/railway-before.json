@@ -1,0 +1,19 @@
+{
+  "recordedAt": "2026-10-24T13:43:06.367Z",
+  "sourceCommit": "fb6ac6a6360d8db70617aa75d852a75a9501baf5",
+  "steps": [
+    "Entrar",
+    "Criar conta",
+    "Entrar",
+    "Escape"
+  ],
+  "expectedFocus": "Entrar no cabeçalho",
+  "observation": {
+    "focus": {
+      "href": null,
+      "id": "",
+      "tag": "BODY"
+    },
+    "url": "https://kurio-production-8274.up.railway.app/"
+  }
+}

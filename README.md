@@ -114,7 +114,9 @@ reports          relatórios versionados de segurança/performance
 
 **Nova conferência das demais telas, 24/10:** corrigidos paginação/busca, retorno da autenticação, altura do cadastro, feedback de dados salvos, tipografia, conteúdo editorial, filtros pelo rodapé e omissões no pagamento/recibo. [Comparação com Figma, matriz das nove telas e verificação no Railway](docs/SCREENS-COMPLETENESS.md).
 
-**Estado atual:** código `11f0820` na `main` e publicado no Railway (`SUCCESS`). O Tailwind detecta classes somente em `src` e `index.html`, impedindo que relatórios alterem o CSS da aplicação. Tipos, lint, formatação e build passaram, com **138 testes unitários, 17 de ferramentas e 10 regressões visuais**. O CSS passou de 100.227 para 98.866 bytes. [Evidências da correção](reports/tailwind-source-scope/).
+**Complemento de acessibilidade, 24/10:** corrigido o retorno do foco ao fechar a autenticação depois de alternar entre login e cadastro. O usuário confirmou a leitura geral pelo VoiceOver e o anúncio do campo “Senha”; os caracteres protegidos não foram lidos. A fala dos erros e o rotor permanecem sem confirmação. [Verificação e limites](docs/VOICEOVER-REVIEW.md).
+
+**Checkpoint do CSS:** código `11f0820` publicado no Railway (`SUCCESS`). O Tailwind detecta classes somente em `src` e `index.html`, impedindo que relatórios alterem o CSS da aplicação. Tipos, lint, formatação e build passaram, com **138 testes unitários, 17 de ferramentas e 10 regressões visuais**. O CSS passou de 100.227 para 98.866 bytes. [Evidências da correção](reports/tailwind-source-scope/).
 
 A suíte completa em `369f9ee` teve **333 E2E Chromium aprovados e 37 exclusões explícitas**. A correção posterior da busca (`9fd3739`) passou por **32 E2E públicos** em Chromium/Firefox/WebKit: preserva os espaços digitados e elimina o anúncio indevido de cancelamento. O ajuste `4185cbb` usa “1 NFT encontrado” no singular. [Resultados por versão e limites](docs/SCREENS-COMPLETENESS.md), [regressão da busca](reports/search-typing/).
 
@@ -128,4 +130,4 @@ Lighthouse final no Railway em `11f0820`: **99/99 desktop e 93/92 mobile** (Home
 
 O [checkpoint de qualidade de 23/10](docs/QUALITY-REVIEW.md) preserva o histórico da refatoração React, disputa de estoque, zoom real de 200%, compatibilidade entre motores e Lighthouse público (desktop 96/98 e mobile 93/94 naquela versão). Cada resultado identifica o código e as condições verificados; medições antigas não representam automaticamente um novo deploy.
 
-As [referências do Figma e capturas](reports/design/README.md) documentam a conferência visual e as adaptações, sem alegar igualdade absoluta de pixels. A tentativa de VoiceOver ficou inconclusiva. Não há banco real para certificar otimização SQL ou concorrência entre dispositivos.
+As [referências do Figma e capturas](reports/design/README.md) documentam a conferência visual e as adaptações, sem alegar igualdade absoluta de pixels. A verificação de VoiceOver é parcial, conforme o relatório acima. Não há banco real para certificar otimização SQL ou concorrência entre dispositivos.

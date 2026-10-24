@@ -1,0 +1,101 @@
+
+Running 6 tests using 1 worker
+
+(node:82656) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/6] [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:66:1 › diálogo de login prende foco e devolve ao controle após Esc
+[2/6] [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:81:3 › troca entre login e cadastro devolve foco ao gatilho após 1 transições
+[3/6] [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:81:3 › troca entre login e cadastro devolve foco ao gatilho após 2 transições
+  1) [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:81:3 › troca entre login e cadastro devolve foco ao gatilho após 2 transições 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('banner').getByRole('link', { name: 'Entrar', exact: true })
+    Expected: focused
+    Received: inactive
+    Timeout:  8000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('banner').getByRole('link', { name: 'Entrar', exact: true }) with timeout 8000ms
+      - waiting for getByRole('banner').getByRole('link', { name: 'Entrar', exact: true })
+        20 × locator resolved to <a data-slot="button" data-size="header" data-variant="default" href="/login?returnTo=%2F" class="inline-flex shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:siz…>…</a>
+           - unexpected value "inactive"
+
+
+      105 |     await page.keyboard.press('Escape');
+      106 |     await expect(dialog).toHaveCount(0);
+    > 107 |     await expect(trigger).toBeFocused();
+          |                           ^
+      108 |   });
+      109 | }
+      110 |
+        at /Users/filipecavalcante/Documents/JungleGamingTeste/e2e/11-a11y-keyboard.spec.ts:107:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .superpowers/auth-focus-regression/red/11-a11y-keyboard-troca-ent-1b788-o-gatilho-após-2-transições-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .superpowers/auth-focus-regression/red/11-a11y-keyboard-troca-ent-1b788-o-gatilho-após-2-transições-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    .superpowers/auth-focus-regression/red/11-a11y-keyboard-troca-ent-1b788-o-gatilho-após-2-transições-desktop-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace .superpowers/auth-focus-regression/red/11-a11y-keyboard-troca-ent-1b788-o-gatilho-após-2-transições-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:82667) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[4/6] [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:66:1 › diálogo de login prende foco e devolve ao controle após Esc
+[5/6] [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:81:3 › troca entre login e cadastro devolve foco ao gatilho após 1 transições
+[6/6] [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:81:3 › troca entre login e cadastro devolve foco ao gatilho após 2 transições
+  2) [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:81:3 › troca entre login e cadastro devolve foco ao gatilho após 2 transições 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('link', { name: 'Perfil', exact: true })
+    Expected: focused
+    Received: inactive
+    Timeout:  8000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('link', { name: 'Perfil', exact: true }) with timeout 8000ms
+      - waiting for getByRole('link', { name: 'Perfil', exact: true })
+        20 × locator resolved to <a class="mobile-tab" aria-label="Perfil" href="/account/profile">…</a>
+           - unexpected value "inactive"
+
+
+      105 |     await page.keyboard.press('Escape');
+      106 |     await expect(dialog).toHaveCount(0);
+    > 107 |     await expect(trigger).toBeFocused();
+          |                           ^
+      108 |   });
+      109 | }
+      110 |
+        at /Users/filipecavalcante/Documents/JungleGamingTeste/e2e/11-a11y-keyboard.spec.ts:107:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .superpowers/auth-focus-regression/red/11-a11y-keyboard-troca-ent-1b788-o-gatilho-após-2-transições-mobile-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .superpowers/auth-focus-regression/red/11-a11y-keyboard-troca-ent-1b788-o-gatilho-após-2-transições-mobile-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    .superpowers/auth-focus-regression/red/11-a11y-keyboard-troca-ent-1b788-o-gatilho-após-2-transições-mobile-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace .superpowers/auth-focus-regression/red/11-a11y-keyboard-troca-ent-1b788-o-gatilho-após-2-transições-mobile-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  2 failed
+    [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:81:3 › troca entre login e cadastro devolve foco ao gatilho após 2 transições 
+    [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:81:3 › troca entre login e cadastro devolve foco ao gatilho após 2 transições 
+  4 passed (22.3s)

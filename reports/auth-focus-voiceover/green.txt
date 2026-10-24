@@ -1,0 +1,18 @@
+
+Running 6 tests using 1 worker
+
+(node:82980) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/6] [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:66:1 › diálogo de login prende foco e devolve ao controle após Esc
+[2/6] [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:81:3 › troca entre login e cadastro devolve foco ao gatilho após 1 transições
+[3/6] [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:81:3 › troca entre login e cadastro devolve foco ao gatilho após 2 transições
+(node:83718) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[4/6] [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:66:1 › diálogo de login prende foco e devolve ao controle após Esc
+[5/6] [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:81:3 › troca entre login e cadastro devolve foco ao gatilho após 1 transições
+[6/6] [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:81:3 › troca entre login e cadastro devolve foco ao gatilho após 2 transições
+  6 passed (11.0s)

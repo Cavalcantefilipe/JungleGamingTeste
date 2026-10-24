@@ -1,0 +1,400 @@
+$ playwright test --reporter=line --output=reports/auth-focus-voiceover/integration-artifacts
+
+Running 378 tests using 2 workers
+
+(node:86706) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:86705) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/378] [desktop-chromium] › e2e/00-layout.spec.ts:11:1 › ações editoriais e newsletter informam indisponibilidade
+[2/378] [desktop-chromium] › e2e/00-layout.spec.ts:3:1 › header, navegação, main e footer têm landmarks
+[3/378] [desktop-chromium] › e2e/00-layout.spec.ts:28:1 › rota inexistente mostra 404 e volta para início
+[4/378] [desktop-chromium] › e2e/00-layout.spec.ts:34:1 › tab bar aparece somente no mobile
+[5/378] [desktop-chromium] › e2e/00-layout.spec.ts:45:1 › catálogo não transborda em 390, 768 e 1440 pixels
+[6/378] [desktop-chromium] › e2e/01-catalog.spec.ts:3:1 › digitação sequencial preserva espaços entre palavras na busca
+[7/378] [desktop-chromium] › e2e/01-catalog.spec.ts:21:1 › substituir consultas durante a digitação não anuncia uma falha
+[8/378] [desktop-chromium] › e2e/01-catalog.spec.ts:37:1 › busca, filtros e ordenação refletem API e URL
+[9/378] [desktop-chromium] › e2e/01-catalog.spec.ts:52:1 › paginação, refresh e histórico preservam parâmetros
+[10/378] [desktop-chromium] › e2e/01-catalog.spec.ts:67:1 › vazio oferece limpar filtros e URL inválida não quebra página
+[11/378] [desktop-chromium] › e2e/01-catalog.spec.ts:81:1 › falha 500 mostra erro e nova tentativa recupera
+[12/378] [desktop-chromium] › e2e/01-catalog.spec.ts:90:1 › rede lenta mostra skeletons com dimensões e reduced motion
+[13/378] [desktop-chromium] › e2e/01-catalog.spec.ts:95:1 › respostas fora de ordem mantêm a busca mais recente
+[14/378] [desktop-chromium] › e2e/02-nft-detail.spec.ts:3:1 › detalhe por acesso direto mostra skeleton e dados da API
+[15/378] [desktop-chromium] › e2e/02-nft-detail.spec.ts:11:1 › NFT inexistente mostra estado 404 do detalhe
+[16/378] [desktop-chromium] › e2e/02-nft-detail.spec.ts:15:1 › edição esgotada é desabilitada e quantidade respeita estoque
+[17/378] [desktop-chromium] › e2e/02-nft-detail.spec.ts:23:1 › compra adiciona ao carrinho e navega após resposta da API
+[18/378] [desktop-chromium] › e2e/02-nft-detail.spec.ts:33:1 › mobile mostra barra fixa de compra
+[19/378] [desktop-chromium] › e2e/03-auth.spec.ts:4:3 › auth › cadastro válido preserva carrinho e permite login da conta criada
+[20/378] [desktop-chromium] › e2e/03-auth.spec.ts:36:3 › auth › cadastro com e-mail existente mostra conflito no campo
+[21/378] [desktop-chromium] › e2e/03-auth.spec.ts:47:3 › auth › login inválido mostra erro acessível
+[22/378] [desktop-chromium] › e2e/03-auth.spec.ts:54:3 › auth › login válido volta para returnTo e persiste após refresh
+[23/378] [desktop-chromium] › e2e/03-auth.spec.ts:63:3 › auth › sessão expirada redireciona e preserva returnTo
+[24/378] [desktop-chromium] › e2e/03-auth.spec.ts:76:3 › auth › logout limpa dados privados e permite entrar como outro usuário
+[25/378] [desktop-chromium] › e2e/03-auth.spec.ts:89:3 › auth › returnTo externo é normalizado para início
+[26/378] [desktop-chromium] › e2e/03-auth.spec.ts:98:1 › carrinho de visitante é preservado ao entrar e não vaza para outro usuário
+[27/378] [desktop-chromium] › e2e/04-favorites.spec.ts:3:1 › favoritar persiste após refresh e aba lista apenas favoritos
+[28/378] [desktop-chromium] › e2e/04-favorites.spec.ts:19:1 › falha reverte visual otimista e avisa
+[29/378] [desktop-chromium] › e2e/04-favorites.spec.ts:37:1 › favorito de Ana não aparece para Bruno e socket troca de sessão
+[30/378] [desktop-chromium] › e2e/04-favorites.spec.ts:56:1 › visitante volta ao detalhe após login para favoritar
+[31/378] [desktop-chromium] › e2e/04-favorites.spec.ts:75:1 › falhas simultâneas revertem cada favorito sem recuperar estado antigo de outro item
+[32/378] [desktop-chromium] › e2e/05-cart.spec.ts:16:1 › adicionar, alterar e remover refletem no resumo da API
+[33/378] [desktop-chromium] › e2e/05-cart.spec.ts:27:1 › conflito de estoque reverte quantidade e apresenta disponibilidade atual
+[34/378] [desktop-chromium] › e2e/05-cart.spec.ts:59:1 › carrinho persiste após refresh
+[35/378] [desktop-chromium] › e2e/05-cart.spec.ts:69:1 › itens de visitante são preservados ao autenticar
+[36/378] [desktop-chromium] › e2e/05-cart.spec.ts:83:1 › cupom aplica desconto da API e remoção restaura total
+[37/378] [desktop-chromium] › e2e/05-cart.spec.ts:93:1 › cupom inválido e expirado mostram erro associado ao campo
+[38/378] [desktop-chromium] › e2e/05-cart.spec.ts:109:1 › preço via socket destaca item e atualiza resumo; atualizar aceita preço novo
+[39/378] [desktop-chromium] › e2e/05-cart.spec.ts:136:1 › resumo mostra skeleton em rede lenta
+[40/378] [desktop-chromium] › e2e/05-cart.spec.ts:146:1 › quantidade atualiza estimativa antes da rede e consulta a cotação uma vez
+[41/378] [desktop-chromium] › e2e/05-cart.spec.ts:185:1 › login aguarda inclusão pendente do visitante antes do merge
+[42/378] [desktop-chromium] › e2e/06-purchase-happy-path.spec.ts:4:1 › do catálogo ao recibo confirmado preserva itens adicionados após o pedido
+[43/378] [desktop-chromium] › e2e/06-purchase-happy-path.spec.ts:45:1 › validação de campos obrigatórios associa mensagem e impede criação
+[44/378] [desktop-chromium] › e2e/06-purchase-happy-path.spec.ts:62:1 › carteira recusada mostra erro e permite tentar novamente
+[45/378] [desktop-chromium] › e2e/06-purchase-happy-path.spec.ts:75:1 › carteira desconectada exige reconexão sem enviar pedido
+[46/378] [desktop-chromium] › e2e/06-purchase-happy-path.spec.ts:94:1 › cotação desatualizada bloqueia confirmação até nova revisão explícita
+[47/378] [desktop-chromium] › e2e/06-purchase-happy-path.spec.ts:111:1 › edição esgotada durante checkout impede confirmação
+[48/378] [desktop-chromium] › e2e/06-purchase-happy-path.spec.ts:121:1 › sessão expirada restaura rascunho após novo login
+[49/378] [desktop-chromium] › e2e/06-purchase-happy-path.spec.ts:138:1 › sem carteira cadastra e retorna ao pagamento pelo returnTo
+[50/378] [desktop-chromium] › e2e/06-purchase-happy-path.spec.ts:159:1 › cotação expirada exige revisão mesmo sem mudança de preço
+[51/378] [desktop-chromium] › e2e/07-payment-failures.spec.ts:10:1 › pagamento recusado mantém carrinho e permite uma nova tentativa
+[52/378] [desktop-chromium] › e2e/07-payment-failures.spec.ts:35:1 › três cliques rápidos não criam pedidos ou chaves duplicadas
+[53/378] [desktop-chromium] › e2e/07-payment-failures.spec.ts:55:1 › timeout e reload recuperam o mesmo pedido pela chave original
+[54/378] [desktop-chromium] › e2e/07-payment-failures.spec.ts:84:1 › recibo só aparece depois da confirmação autoritativa
+[55/378] [desktop-chromium] › e2e/07-payment-failures.spec.ts:107:1 › recibo preserva o snapshot quando o preço do catálogo muda
+[56/378] [desktop-chromium] › e2e/07-payment-failures.spec.ts:132:1 › mudança de preço durante envio rejeita sem compra e libera nova revisão
+[57/378] [desktop-chromium] › e2e/07-payment-failures.spec.ts:170:1 › tentativa salva corrompida bloqueia nova compra com erro compreensível
+[58/378] [desktop-chromium] › e2e/08-account.spec.ts:5:1 › editar nome e e-mail persiste após refresh
+[59/378] [desktop-chromium] › e2e/08-account.spec.ts:20:1 › username em conflito mostra erro associado ao campo
+[60/378] [desktop-chromium] › e2e/08-account.spec.ts:29:1 › avatar rejeita pdf e tamanho excessivo; válido aparece no header e pode ser removido
+[61/378] [desktop-chromium] › e2e/08-account.spec.ts:66:1 › senha atual errada mostra erro; troca válida permite novo login
+[62/378] [desktop-chromium] › e2e/08-account.spec.ts:89:1 › carteira principal valida endereço e persiste; secundária igual espelha alterações
+[63/378] [desktop-chromium] › e2e/08-account.spec.ts:113:1 › perfil e carteiras respeitam viewport e navegação da conta
+[64/378] [desktop-chromium] › e2e/08-account.spec.ts:137:1 › alterações de carteira na fila não atingem o próximo usuário após logout
+[65/378] [desktop-chromium] › e2e/09-realtime-checkout.spec.ts:3:1 › preço muda via socket no detalhe sem nova chamada REST
+[66/378] [desktop-chromium] › e2e/09-realtime-checkout.spec.ts:29:1 › eventos antigos não regridem preço e reconexão reconcilia com REST
+[67/378] [desktop-chromium] › e2e/10-realtime-resilience.spec.ts:5:3 › duplicate-events não regride pedido confirmado
+[68/378] [desktop-chromium] › e2e/10-realtime-resilience.spec.ts:5:3 › stale-events não regride pedido confirmado
+[69/378] [desktop-chromium] › e2e/10-realtime-resilience.spec.ts:38:1 › desconexão e reload recuperam pedido pendente sem novo POST
+[70/378] [desktop-chromium] › e2e/10-realtime-resilience.spec.ts:62:1 › reconexão reconcilia mudança persistida sem evento recebido
+[71/378] [desktop-chromium] › e2e/10-realtime-resilience.spec.ts:88:1 › evento da sessão de Ana não revela pedido para Bruno
+[72/378] [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:45:1 › teclado alcança paginação e abre detalhe sem mouse
+[73/378] [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:66:1 › diálogo de login prende foco e devolve ao controle após Esc
+[74/378] [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:81:3 › troca entre login e cadastro devolve foco ao gatilho após 1 transições
+[75/378] [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:81:3 › troca entre login e cadastro devolve foco ao gatilho após 2 transições
+[76/378] [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:111:1 › drawer mobile prende foco e devolve ao gatilho após Esc
+[77/378] [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:124:1 › formulário anuncia erro e foca primeiro campo inválido
+[78/378] [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:135:1 › rotas públicas não têm violações críticas ou sérias de acessibilidade
+[79/378] [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:149:1 › carrinho cheio pagamento perfil carteiras e favoritos passam axe e não transbordam
+[80/378] [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:178:1 › largura equivalente ao zoom 200% mantém todas as telas utilizáveis
+[81/378] [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:204:1 › Mercado fica ativo no menu desktop do detalhe carrinho e pagamento
+[82/378] [desktop-chromium] › e2e/11-a11y-keyboard.spec.ts:220:1 › pedido pendente e recibo confirmado permanecem acessíveis
+[83/378] [desktop-chromium] › e2e/12-loading-and-recovery.spec.ts:17:1 › catálogo reserva exatamente o espaço dos cards em rede lenta
+[84/378] [desktop-chromium] › e2e/12-loading-and-recovery.spec.ts:27:1 › detalhe reserva posição e tamanho da galeria em rede lenta
+[85/378] [desktop-chromium] › e2e/12-loading-and-recovery.spec.ts:36:1 › detalhe reserva as seções inferiores e não desloca um rodapé visível ao carregar
+[86/378] [desktop-chromium] › e2e/12-loading-and-recovery.spec.ts:52:1 › resumo reserva altura e posição durante cálculo lento
+[87/378] [desktop-chromium] › e2e/12-loading-and-recovery.spec.ts:65:1 › falha transitória mostra erro e nova tentativa recupera o catálogo
+[88/378] [desktop-chromium] › e2e/12-loading-and-recovery.spec.ts:77:1 › reduced-motion desativa a animação dos skeletons
+[89/378] [desktop-chromium] › e2e/12-loading-and-recovery.spec.ts:85:1 › validação lenta da sessão mantém feedback de rota privada
+[90/378] [desktop-chromium] › e2e/13-visual.spec.ts:47:1 › Início mantém composição aprovada
+[91/378] [desktop-chromium] › e2e/13-visual.spec.ts:54:1 › Detalhe mantém composição aprovada
+[92/378] [desktop-chromium] › e2e/13-visual.spec.ts:61:1 › Avaliações mantêm composição e legibilidade
+[93/378] [desktop-chromium] › e2e/13-visual.spec.ts:69:1 › Carrinho mantém composição aprovada
+[94/378] [desktop-chromium] › e2e/13-visual.spec.ts:77:1 › Pagamento mantém composição aprovada
+[95/378] [desktop-chromium] › e2e/15-figma-geometry.spec.ts:3:1 › topo da Home segue as medidas dos frames do Figma
+[96/378] [desktop-chromium] › e2e/15-figma-geometry.spec.ts:30:1 › detalhe mobile segue painel e título do Figma
+[97/378] [desktop-chromium] › e2e/15-figma-geometry.spec.ts:41:1 › controles e resumo do carrinho seguem cores e formas medidas no Figma
+[98/378] [desktop-chromium] › e2e/15-figma-geometry.spec.ts:106:1 › autenticação segue painel, marca mobile e botões sociais do Figma
+[99/378] [desktop-chromium] › e2e/15-figma-geometry.spec.ts:140:1 › cadastro confirma senha antes de enviar e respeita viewport
+[100/378] [desktop-chromium] › e2e/15-figma-geometry.spec.ts:158:1 › galeria desktop mantém proporções e espaçamento do detalhe no Figma
+[101/378] [desktop-chromium] › e2e/15-figma-geometry.spec.ts:180:1 › rodapé compartilhado mantém textos e faixas do Figma
+[102/378] [desktop-chromium] › e2e/15-figma-geometry.spec.ts:211:1 › perfil mantém controles de senha, botões e alinhamento da conta
+[103/378] [desktop-chromium] › e2e/15-figma-geometry.spec.ts:239:1 › links do rodapé ficam inteiros dentro da faixa de fundo
+[104/378] [desktop-chromium] › e2e/15-figma-geometry.spec.ts:256:1 › valor alto no carrinho mobile não encosta no controle de quantidade
+[105/378] [desktop-chromium] › e2e/15-figma-geometry.spec.ts:276:1 › Home mobile preserva o desnível de 32px dos cards e botão auth tem raio de 10px
+[106/378] [desktop-chromium] › e2e/16-security.spec.ts:3:1 › texto salvo no perfil não vira HTML ou código ao reaparecer no menu
+[107/378] [desktop-chromium] › e2e/16-security.spec.ts:19:1 › identidade adulterada não exibe dados do dono do token
+[108/378] [desktop-chromium] › e2e/17-images-and-targets.spec.ts:3:1 › hero entrega imagem responsiva AVIF e preload de fonte local
+[109/378] [desktop-chromium] › e2e/17-images-and-targets.spec.ts:23:1 › galeria usa AVIF do tamanho adequado e campo de quantidade alcança 24px
+[110/378] [desktop-chromium] › e2e/17-images-and-targets.spec.ts:44:1 › HTML inicial oferece feedback antes de carregar o JavaScript
+[111/378] [desktop-chromium] › e2e/17-images-and-targets.spec.ts:67:1 › imagens editoriais mantêm o enquadramento e cards não ampliam no hover
+[112/378] [desktop-chromium] › e2e/17-images-and-targets.spec.ts:85:1 › ícones originais carregam sob a política de conteúdo da aplicação
+[113/378] [desktop-chromium] › e2e/18-security-policy.spec.ts:24:1 › política CSP de produção permite catálogo socket e compra sem violações
+[114/378] [desktop-chromium] › e2e/19-final-regressions.spec.ts:12:1 › cenário desconhecido usa padrão sem prender inicialização
+[115/378] [desktop-chromium] › e2e/19-final-regressions.spec.ts:17:1 › falha ao registrar worker mostra erro acessível e permite tentar novamente
+[116/378] [desktop-chromium] › e2e/19-final-regressions.spec.ts:35:1 › logout preserva recuperação por usuário sem mostrar compra de Ana para Bruno
+[117/378] [desktop-chromium] › e2e/20-wallet-intent.spec.ts:5:3 › editar carteira durante wallet-session/connect exige nova revisão e preserva carrinho
+[118/378] [desktop-chromium] › e2e/20-wallet-intent.spec.ts:5:3 › editar carteira durante orders exige nova revisão e preserva carrinho
+[119/378] [desktop-chromium] › e2e/21-mobile-text.spec.ts:76:3 › textos completos e ações acessíveis em 320px
+[120/378] [desktop-chromium] › e2e/21-mobile-text.spec.ts:76:3 › textos completos e ações acessíveis em 360px
+[121/378] [desktop-chromium] › e2e/21-mobile-text.spec.ts:76:3 › textos completos e ações acessíveis em 375px
+[122/378] [desktop-chromium] › e2e/21-mobile-text.spec.ts:76:3 › textos completos e ações acessíveis em 390px
+[123/378] [desktop-chromium] › e2e/21-mobile-text.spec.ts:76:3 › textos completos e ações acessíveis em 414px
+[124/378] [desktop-chromium] › e2e/22-design-tokens.spec.ts:3:1 › gradientes originais aparecem nas superfícies mobile
+[125/378] [desktop-chromium] › e2e/22-design-tokens.spec.ts:23:1 › favorito acompanha a imagem e funciona sem hover no toque
+[126/378] [desktop-chromium] › e2e/23-detail-design.spec.ts:3:1 › nft-002 usa estrelas vetoriais e as cores de avaliação do Figma
+[127/378] [desktop-chromium] › e2e/23-detail-design.spec.ts:20:1 › favorito do detalhe tem contorno próprio e mantém o estado após recarregar
+[128/378] [desktop-chromium] › e2e/23-detail-design.spec.ts:63:1 › galeria permite ampliar a imagem selecionada e restaura o foco
+[129/378] [desktop-chromium] › e2e/23-detail-design.spec.ts:80:1 › abas de detalhe têm sublinhado e não cortam o texto em telas estreitas
+[130/378] [desktop-chromium] › e2e/23-detail-design.spec.ts:98:1 › ações do detalhe cabem nos pontos de quebra entre tablet e desktop
+[131/378] [desktop-chromium] › e2e/23-detail-design.spec.ts:121:1 › cabeçalho usa contorno ativo e botão de entrada do Figma
+[132/378] [desktop-chromium] › e2e/23-detail-design.spec.ts:134:1 › ícones do menu da conta correspondem à função desenhada no Figma
+[133/378] [desktop-chromium] › e2e/24-screen-review.spec.ts:4:1 › Home preserva busca e posições dos ícones mobile do Figma
+[134/378] [desktop-chromium] › e2e/24-screen-review.spec.ts:24:1 › Home desktop usa slider laranja e tipografia do rodapé original
+[135/378] [desktop-chromium] › e2e/24-screen-review.spec.ts:61:1 › login e cadastro preservam formas e tipografia sem reduzir alvos de toque
+[136/378] [desktop-chromium] › e2e/24-screen-review.spec.ts:94:1 › carrinho usa margens mobile e cupom desktop do frame correspondente
+[137/378] [desktop-chromium] › e2e/24-screen-review.spec.ts:117:1 › perfil e carteiras usam indicadores de obrigação e formas originais
+[138/378] [desktop-chromium] › e2e/24-screen-review.spec.ts:140:1 › pagamento reproduz cartões e indicadores de seleção por breakpoint
+[139/378] [desktop-chromium] › e2e/24-screen-review.spec.ts:169:1 › recibo usa cabeçalhos e taxa nas cores e tamanhos do Figma
+[140/378] [desktop-chromium] › e2e/25-dialog-reflow.spec.ts:19:3 › login e cadastro ocupam o viewport inteiro em 640px
+[141/378] [desktop-chromium] › e2e/25-dialog-reflow.spec.ts:19:3 › login e cadastro ocupam o viewport inteiro em 720px
+[142/378] [desktop-chromium] › e2e/25-dialog-reflow.spec.ts:19:3 › login e cadastro ocupam o viewport inteiro em 767px
+[143/378] [desktop-chromium] › e2e/25-dialog-reflow.spec.ts:37:1 › recibo ocupa o viewport de 720px e permite alcançar a ação final
+[144/378] [desktop-chromium] › e2e/26-reconciliation.spec.ts:4:1 › menos remove a última unidade do carrinho e mantém limite no detalhe
+[145/378] [desktop-chromium] › e2e/26-reconciliation.spec.ts:21:1 › desconto do lançamento tem o sinal entre parênteses
+[146/378] [desktop-chromium] › e2e/26-reconciliation.spec.ts:26:1 › recomendações navegam por todos os cards e ampliam no hover
+[147/378] [desktop-chromium] › e2e/26-reconciliation.spec.ts:47:3 › autenticação não cria rolagem dentro do formulário em 1440x768
+[148/378] [desktop-chromium] › e2e/26-reconciliation.spec.ts:47:3 › autenticação não cria rolagem dentro do formulário em 1024x600
+[149/378] [desktop-chromium] › e2e/26-reconciliation.spec.ts:47:3 › autenticação não cria rolagem dentro do formulário em 720x450
+[150/378] [desktop-chromium] › e2e/26-reconciliation.spec.ts:47:3 › autenticação não cria rolagem dentro do formulário em 390x844
+[151/378] [desktop-chromium] › e2e/26-reconciliation.spec.ts:72:1 › resumo do pedido permite revisar itens e taxa no mobile
+[152/378] [desktop-chromium] › e2e/26-reconciliation.spec.ts:85:1 › login avisa quando soma dos carrinhos supera estoque
+[153/378] [desktop-chromium] › e2e/27-detail-completeness.spec.ts:4:1 › coleção do nft-004 avança sozinha, volta ao início e permite pausar
+[154/378] [desktop-chromium] › e2e/27-detail-completeness.spec.ts:26:1 › coleção respeita movimento reduzido e os pontos navegam por todos os itens
+[155/378] [desktop-chromium] › e2e/27-detail-completeness.spec.ts:48:1 › avaliações dos compradores carregam da API e paginam sem repetir comentários
+[156/378] [desktop-chromium] › e2e/27-detail-completeness.spec.ts:73:1 › avaliações mostram carregamento e permitem recuperar uma falha de rede
+[157/378] [desktop-chromium] › e2e/27-detail-completeness.spec.ts:90:1 › carrinho reutiliza avanço automático, pausa no hover e pontinhos
+[158/378] [desktop-chromium] › e2e/27-detail-completeness.spec.ts:111:1 › nft-004 mostra os metadados completos e coerentes com sua rede e coleção
+[159/378] [desktop-chromium] › e2e/27-detail-completeness.spec.ts:128:1 › migração do detalhe mantém o carrinho salvo em uma versão anterior
+[160/378] [desktop-chromium] › e2e/27-detail-completeness.spec.ts:156:1 › avaliações preservam aba e página no refresh e no histórico
+[161/378] [desktop-chromium] › e2e/27-detail-completeness.spec.ts:173:1 › evento de preço não interrompe avaliações em carregamento
+[162/378] [desktop-chromium] › e2e/28-home-completeness.spec.ts:3:1 › busca inclui o criador anunciado na interface
+[163/378] [desktop-chromium] › e2e/28-home-completeness.spec.ts:13:1 › página fora do intervalo recupera última página e URL sem perder filtros
+[164/378] [desktop-chromium] › e2e/28-home-completeness.spec.ts:32:1 › Entrar no cabeçalho preserva filtros e retorna ao catálogo após autenticar
+[165/378] [desktop-chromium] › e2e/28-home-completeness.spec.ts:48:1 › abas do catálogo aceitam setas, Home e End com foco único
+[166/378] [desktop-chromium] › e2e/28-home-completeness.spec.ts:66:1 › cards preservam tipografia desktop e mobile do Figma
+[167/378] [desktop-chromium] › e2e/28-home-completeness.spec.ts:79:1 › página fora do intervalo sem resultados exibe estado vazio recuperável
+[168/378] [desktop-chromium] › e2e/28-home-completeness.spec.ts:92:1 › falha editorial oferece nova tentativa e recupera conteúdo original do Figma
+[169/378] [desktop-chromium] › e2e/28-home-completeness.spec.ts:115:1 › coleções do rodapé usam o filtro disponível no catálogo
+[170/378] [desktop-chromium] › e2e/29-account-completeness.spec.ts:3:1 › autenticação adapta os espaços para manter todas as ações na tela
+[171/378] [desktop-chromium] › e2e/29-account-completeness.spec.ts:44:1 › erros de autenticação continuam acessíveis em uma tela baixa
+[172/378] [desktop-chromium] › e2e/29-account-completeness.spec.ts:67:1 › perfil não confirma alterações que ainda não foram salvas
+[173/378] [desktop-chromium] › e2e/29-account-completeness.spec.ts:79:1 › remover avatar não impede a confirmação de dados do perfil salvos depois
+[174/378] [desktop-chromium] › e2e/29-account-completeness.spec.ts:100:1 › carteiras não misturam confirmação anterior com alterações inválidas
+[175/378] [desktop-chromium] › e2e/29-account-completeness.spec.ts:116:1 › nova edição de senha remove a confirmação da operação anterior
+[176/378] [desktop-chromium] › e2e/29-account-completeness.spec.ts:127:1 › fechar autenticação preserva o contexto público e evita voltar para rotas protegidas
+[177/378] [desktop-chromium] › e2e/30-checkout-completeness.spec.ts:5:1 › nome de usuário permanece no rascunho e no snapshot enviado do pedido
+[178/378] [desktop-chromium] › e2e/30-checkout-completeness.spec.ts:30:1 › atalho de cupom volta ao carrinho e retorna ao pagamento com o rascunho
+[179/378] [desktop-chromium] › e2e/30-checkout-completeness.spec.ts:50:1 › token real aparece no resumo e permanece imutável no recibo
+[180/378] [desktop-chromium] › e2e/31-image-resilience.spec.ts:22:3 › recuperação de falhas de arquivos › falha AVIF recupera galeria e carrossel com o mesmo artwork WebP
+[181/378] [desktop-chromium] › e2e/31-image-resilience.spec.ts:55:3 › recuperação de falhas de arquivos › Home recupera cards e libera AVIF ao trocar o destaque para outra foto
+[182/378] [desktop-chromium] › e2e/31-image-resilience.spec.ts:84:3 › recuperação de falhas de arquivos › falha transitória nos dois formatos tenta novamente o arquivo original
+[183/378] [desktop-chromium] › e2e/31-image-resilience.spec.ts:105:3 › recuperação de falhas de arquivos › indisponibilidade preserva espaço e recupera imagens quando a conexão volta
+[184/378] [desktop-chromium] › e2e/31-image-resilience.spec.ts:127:5 › recuperação de falhas de arquivos › Home recupera foto indisponível ao retornar por visibilitychange
+[185/378] [desktop-chromium] › e2e/31-image-resilience.spec.ts:127:5 › recuperação de falhas de arquivos › Home recupera foto indisponível ao retornar por focus
+[186/378] [desktop-chromium] › e2e/31-image-resilience.spec.ts:156:3 › recuperação de falhas de arquivos › voltar ao destaque que falhou tenta a imagem novamente
+[187/378] [desktop-chromium] › e2e/31-image-resilience.spec.ts:174:3 › recuperação de falhas de arquivos › imagem indisponível mantém a área de visualização do zoom
+[188/378] [desktop-chromium] › e2e/31-image-resilience.spec.ts:190:3 › recuperação de falhas de arquivos › trocar foto na galeria não reaproveita o erro da imagem anterior
+[189/378] [desktop-chromium] › e2e/31-image-resilience.spec.ts:228:1 › Home preserva foto carregada ao alternar offline e online com retorno à aba
+(node:89709) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[190/378] [mobile-chromium] › e2e/00-layout.spec.ts:3:1 › header, navegação, main e footer têm landmarks
+(node:89758) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[191/378] [mobile-chromium] › e2e/00-layout.spec.ts:11:1 › ações editoriais e newsletter informam indisponibilidade
+[192/378] [mobile-chromium] › e2e/00-layout.spec.ts:28:1 › rota inexistente mostra 404 e volta para início
+[193/378] [mobile-chromium] › e2e/00-layout.spec.ts:34:1 › tab bar aparece somente no mobile
+[194/378] [mobile-chromium] › e2e/00-layout.spec.ts:45:1 › catálogo não transborda em 390, 768 e 1440 pixels
+[195/378] [mobile-chromium] › e2e/01-catalog.spec.ts:3:1 › digitação sequencial preserva espaços entre palavras na busca
+[196/378] [mobile-chromium] › e2e/01-catalog.spec.ts:21:1 › substituir consultas durante a digitação não anuncia uma falha
+[197/378] [mobile-chromium] › e2e/01-catalog.spec.ts:37:1 › busca, filtros e ordenação refletem API e URL
+[198/378] [mobile-chromium] › e2e/01-catalog.spec.ts:52:1 › paginação, refresh e histórico preservam parâmetros
+[199/378] [mobile-chromium] › e2e/01-catalog.spec.ts:67:1 › vazio oferece limpar filtros e URL inválida não quebra página
+[200/378] [mobile-chromium] › e2e/01-catalog.spec.ts:81:1 › falha 500 mostra erro e nova tentativa recupera
+[201/378] [mobile-chromium] › e2e/01-catalog.spec.ts:90:1 › rede lenta mostra skeletons com dimensões e reduced motion
+[202/378] [mobile-chromium] › e2e/01-catalog.spec.ts:95:1 › respostas fora de ordem mantêm a busca mais recente
+[203/378] [mobile-chromium] › e2e/02-nft-detail.spec.ts:3:1 › detalhe por acesso direto mostra skeleton e dados da API
+[204/378] [mobile-chromium] › e2e/02-nft-detail.spec.ts:11:1 › NFT inexistente mostra estado 404 do detalhe
+[205/378] [mobile-chromium] › e2e/02-nft-detail.spec.ts:15:1 › edição esgotada é desabilitada e quantidade respeita estoque
+[206/378] [mobile-chromium] › e2e/02-nft-detail.spec.ts:23:1 › compra adiciona ao carrinho e navega após resposta da API
+[207/378] [mobile-chromium] › e2e/02-nft-detail.spec.ts:33:1 › mobile mostra barra fixa de compra
+[208/378] [mobile-chromium] › e2e/03-auth.spec.ts:4:3 › auth › cadastro válido preserva carrinho e permite login da conta criada
+[209/378] [mobile-chromium] › e2e/03-auth.spec.ts:36:3 › auth › cadastro com e-mail existente mostra conflito no campo
+[210/378] [mobile-chromium] › e2e/03-auth.spec.ts:47:3 › auth › login inválido mostra erro acessível
+[211/378] [mobile-chromium] › e2e/03-auth.spec.ts:54:3 › auth › login válido volta para returnTo e persiste após refresh
+[212/378] [mobile-chromium] › e2e/03-auth.spec.ts:63:3 › auth › sessão expirada redireciona e preserva returnTo
+[213/378] [mobile-chromium] › e2e/03-auth.spec.ts:76:3 › auth › logout limpa dados privados e permite entrar como outro usuário
+[214/378] [mobile-chromium] › e2e/03-auth.spec.ts:89:3 › auth › returnTo externo é normalizado para início
+[215/378] [mobile-chromium] › e2e/03-auth.spec.ts:98:1 › carrinho de visitante é preservado ao entrar e não vaza para outro usuário
+[216/378] [mobile-chromium] › e2e/04-favorites.spec.ts:3:1 › favoritar persiste após refresh e aba lista apenas favoritos
+[217/378] [mobile-chromium] › e2e/04-favorites.spec.ts:19:1 › falha reverte visual otimista e avisa
+[218/378] [mobile-chromium] › e2e/04-favorites.spec.ts:37:1 › favorito de Ana não aparece para Bruno e socket troca de sessão
+[219/378] [mobile-chromium] › e2e/04-favorites.spec.ts:56:1 › visitante volta ao detalhe após login para favoritar
+[220/378] [mobile-chromium] › e2e/04-favorites.spec.ts:75:1 › falhas simultâneas revertem cada favorito sem recuperar estado antigo de outro item
+[221/378] [mobile-chromium] › e2e/05-cart.spec.ts:16:1 › adicionar, alterar e remover refletem no resumo da API
+[222/378] [mobile-chromium] › e2e/05-cart.spec.ts:27:1 › conflito de estoque reverte quantidade e apresenta disponibilidade atual
+[223/378] [mobile-chromium] › e2e/05-cart.spec.ts:59:1 › carrinho persiste após refresh
+[224/378] [mobile-chromium] › e2e/05-cart.spec.ts:69:1 › itens de visitante são preservados ao autenticar
+[225/378] [mobile-chromium] › e2e/05-cart.spec.ts:83:1 › cupom aplica desconto da API e remoção restaura total
+[226/378] [mobile-chromium] › e2e/05-cart.spec.ts:93:1 › cupom inválido e expirado mostram erro associado ao campo
+[227/378] [mobile-chromium] › e2e/05-cart.spec.ts:109:1 › preço via socket destaca item e atualiza resumo; atualizar aceita preço novo
+[228/378] [mobile-chromium] › e2e/05-cart.spec.ts:136:1 › resumo mostra skeleton em rede lenta
+[229/378] [mobile-chromium] › e2e/05-cart.spec.ts:146:1 › quantidade atualiza estimativa antes da rede e consulta a cotação uma vez
+[230/378] [mobile-chromium] › e2e/05-cart.spec.ts:185:1 › login aguarda inclusão pendente do visitante antes do merge
+[231/378] [mobile-chromium] › e2e/06-purchase-happy-path.spec.ts:4:1 › do catálogo ao recibo confirmado preserva itens adicionados após o pedido
+[232/378] [mobile-chromium] › e2e/06-purchase-happy-path.spec.ts:45:1 › validação de campos obrigatórios associa mensagem e impede criação
+[233/378] [mobile-chromium] › e2e/06-purchase-happy-path.spec.ts:62:1 › carteira recusada mostra erro e permite tentar novamente
+[234/378] [mobile-chromium] › e2e/06-purchase-happy-path.spec.ts:75:1 › carteira desconectada exige reconexão sem enviar pedido
+[235/378] [mobile-chromium] › e2e/06-purchase-happy-path.spec.ts:94:1 › cotação desatualizada bloqueia confirmação até nova revisão explícita
+[236/378] [mobile-chromium] › e2e/06-purchase-happy-path.spec.ts:111:1 › edição esgotada durante checkout impede confirmação
+[237/378] [mobile-chromium] › e2e/06-purchase-happy-path.spec.ts:121:1 › sessão expirada restaura rascunho após novo login
+[238/378] [mobile-chromium] › e2e/06-purchase-happy-path.spec.ts:138:1 › sem carteira cadastra e retorna ao pagamento pelo returnTo
+[239/378] [mobile-chromium] › e2e/06-purchase-happy-path.spec.ts:159:1 › cotação expirada exige revisão mesmo sem mudança de preço
+[240/378] [mobile-chromium] › e2e/07-payment-failures.spec.ts:10:1 › pagamento recusado mantém carrinho e permite uma nova tentativa
+[241/378] [mobile-chromium] › e2e/07-payment-failures.spec.ts:35:1 › três cliques rápidos não criam pedidos ou chaves duplicadas
+[242/378] [mobile-chromium] › e2e/07-payment-failures.spec.ts:55:1 › timeout e reload recuperam o mesmo pedido pela chave original
+[243/378] [mobile-chromium] › e2e/07-payment-failures.spec.ts:84:1 › recibo só aparece depois da confirmação autoritativa
+[244/378] [mobile-chromium] › e2e/07-payment-failures.spec.ts:107:1 › recibo preserva o snapshot quando o preço do catálogo muda
+[245/378] [mobile-chromium] › e2e/07-payment-failures.spec.ts:132:1 › mudança de preço durante envio rejeita sem compra e libera nova revisão
+[246/378] [mobile-chromium] › e2e/07-payment-failures.spec.ts:170:1 › tentativa salva corrompida bloqueia nova compra com erro compreensível
+[247/378] [mobile-chromium] › e2e/08-account.spec.ts:5:1 › editar nome e e-mail persiste após refresh
+[248/378] [mobile-chromium] › e2e/08-account.spec.ts:20:1 › username em conflito mostra erro associado ao campo
+[249/378] [mobile-chromium] › e2e/08-account.spec.ts:29:1 › avatar rejeita pdf e tamanho excessivo; válido aparece no header e pode ser removido
+[250/378] [mobile-chromium] › e2e/08-account.spec.ts:66:1 › senha atual errada mostra erro; troca válida permite novo login
+[251/378] [mobile-chromium] › e2e/08-account.spec.ts:89:1 › carteira principal valida endereço e persiste; secundária igual espelha alterações
+[252/378] [mobile-chromium] › e2e/08-account.spec.ts:113:1 › perfil e carteiras respeitam viewport e navegação da conta
+[253/378] [mobile-chromium] › e2e/08-account.spec.ts:137:1 › alterações de carteira na fila não atingem o próximo usuário após logout
+[254/378] [mobile-chromium] › e2e/09-realtime-checkout.spec.ts:3:1 › preço muda via socket no detalhe sem nova chamada REST
+[255/378] [mobile-chromium] › e2e/09-realtime-checkout.spec.ts:29:1 › eventos antigos não regridem preço e reconexão reconcilia com REST
+[256/378] [mobile-chromium] › e2e/10-realtime-resilience.spec.ts:5:3 › duplicate-events não regride pedido confirmado
+[257/378] [mobile-chromium] › e2e/10-realtime-resilience.spec.ts:5:3 › stale-events não regride pedido confirmado
+[258/378] [mobile-chromium] › e2e/10-realtime-resilience.spec.ts:38:1 › desconexão e reload recuperam pedido pendente sem novo POST
+[259/378] [mobile-chromium] › e2e/10-realtime-resilience.spec.ts:62:1 › reconexão reconcilia mudança persistida sem evento recebido
+[260/378] [mobile-chromium] › e2e/10-realtime-resilience.spec.ts:88:1 › evento da sessão de Ana não revela pedido para Bruno
+[261/378] [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:45:1 › teclado alcança paginação e abre detalhe sem mouse
+[262/378] [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:66:1 › diálogo de login prende foco e devolve ao controle após Esc
+[263/378] [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:81:3 › troca entre login e cadastro devolve foco ao gatilho após 1 transições
+[264/378] [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:81:3 › troca entre login e cadastro devolve foco ao gatilho após 2 transições
+[265/378] [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:111:1 › drawer mobile prende foco e devolve ao gatilho após Esc
+[266/378] [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:124:1 › formulário anuncia erro e foca primeiro campo inválido
+[267/378] [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:135:1 › rotas públicas não têm violações críticas ou sérias de acessibilidade
+[268/378] [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:149:1 › carrinho cheio pagamento perfil carteiras e favoritos passam axe e não transbordam
+[269/378] [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:178:1 › largura equivalente ao zoom 200% mantém todas as telas utilizáveis
+[270/378] [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:204:1 › Mercado fica ativo no menu desktop do detalhe carrinho e pagamento
+[271/378] [mobile-chromium] › e2e/11-a11y-keyboard.spec.ts:220:1 › pedido pendente e recibo confirmado permanecem acessíveis
+[272/378] [mobile-chromium] › e2e/12-loading-and-recovery.spec.ts:17:1 › catálogo reserva exatamente o espaço dos cards em rede lenta
+[273/378] [mobile-chromium] › e2e/12-loading-and-recovery.spec.ts:27:1 › detalhe reserva posição e tamanho da galeria em rede lenta
+[274/378] [mobile-chromium] › e2e/12-loading-and-recovery.spec.ts:36:1 › detalhe reserva as seções inferiores e não desloca um rodapé visível ao carregar
+[275/378] [mobile-chromium] › e2e/12-loading-and-recovery.spec.ts:52:1 › resumo reserva altura e posição durante cálculo lento
+[276/378] [mobile-chromium] › e2e/12-loading-and-recovery.spec.ts:65:1 › falha transitória mostra erro e nova tentativa recupera o catálogo
+[277/378] [mobile-chromium] › e2e/12-loading-and-recovery.spec.ts:77:1 › reduced-motion desativa a animação dos skeletons
+[278/378] [mobile-chromium] › e2e/12-loading-and-recovery.spec.ts:85:1 › validação lenta da sessão mantém feedback de rota privada
+[279/378] [mobile-chromium] › e2e/13-visual.spec.ts:47:1 › Início mantém composição aprovada
+[280/378] [mobile-chromium] › e2e/13-visual.spec.ts:54:1 › Detalhe mantém composição aprovada
+[281/378] [mobile-chromium] › e2e/13-visual.spec.ts:61:1 › Avaliações mantêm composição e legibilidade
+[282/378] [mobile-chromium] › e2e/13-visual.spec.ts:69:1 › Carrinho mantém composição aprovada
+[283/378] [mobile-chromium] › e2e/13-visual.spec.ts:77:1 › Pagamento mantém composição aprovada
+[284/378] [mobile-chromium] › e2e/15-figma-geometry.spec.ts:3:1 › topo da Home segue as medidas dos frames do Figma
+[285/378] [mobile-chromium] › e2e/15-figma-geometry.spec.ts:30:1 › detalhe mobile segue painel e título do Figma
+[286/378] [mobile-chromium] › e2e/15-figma-geometry.spec.ts:41:1 › controles e resumo do carrinho seguem cores e formas medidas no Figma
+[287/378] [mobile-chromium] › e2e/15-figma-geometry.spec.ts:106:1 › autenticação segue painel, marca mobile e botões sociais do Figma
+[288/378] [mobile-chromium] › e2e/15-figma-geometry.spec.ts:140:1 › cadastro confirma senha antes de enviar e respeita viewport
+[289/378] [mobile-chromium] › e2e/15-figma-geometry.spec.ts:158:1 › galeria desktop mantém proporções e espaçamento do detalhe no Figma
+[290/378] [mobile-chromium] › e2e/15-figma-geometry.spec.ts:180:1 › rodapé compartilhado mantém textos e faixas do Figma
+[291/378] [mobile-chromium] › e2e/15-figma-geometry.spec.ts:211:1 › perfil mantém controles de senha, botões e alinhamento da conta
+[292/378] [mobile-chromium] › e2e/15-figma-geometry.spec.ts:239:1 › links do rodapé ficam inteiros dentro da faixa de fundo
+[293/378] [mobile-chromium] › e2e/15-figma-geometry.spec.ts:256:1 › valor alto no carrinho mobile não encosta no controle de quantidade
+[294/378] [mobile-chromium] › e2e/15-figma-geometry.spec.ts:276:1 › Home mobile preserva o desnível de 32px dos cards e botão auth tem raio de 10px
+[295/378] [mobile-chromium] › e2e/16-security.spec.ts:3:1 › texto salvo no perfil não vira HTML ou código ao reaparecer no menu
+[296/378] [mobile-chromium] › e2e/16-security.spec.ts:19:1 › identidade adulterada não exibe dados do dono do token
+[297/378] [mobile-chromium] › e2e/17-images-and-targets.spec.ts:3:1 › hero entrega imagem responsiva AVIF e preload de fonte local
+[298/378] [mobile-chromium] › e2e/17-images-and-targets.spec.ts:23:1 › galeria usa AVIF do tamanho adequado e campo de quantidade alcança 24px
+[299/378] [mobile-chromium] › e2e/17-images-and-targets.spec.ts:44:1 › HTML inicial oferece feedback antes de carregar o JavaScript
+[300/378] [mobile-chromium] › e2e/17-images-and-targets.spec.ts:67:1 › imagens editoriais mantêm o enquadramento e cards não ampliam no hover
+[301/378] [mobile-chromium] › e2e/17-images-and-targets.spec.ts:85:1 › ícones originais carregam sob a política de conteúdo da aplicação
+[302/378] [mobile-chromium] › e2e/18-security-policy.spec.ts:24:1 › política CSP de produção permite catálogo socket e compra sem violações
+[303/378] [mobile-chromium] › e2e/19-final-regressions.spec.ts:12:1 › cenário desconhecido usa padrão sem prender inicialização
+[304/378] [mobile-chromium] › e2e/19-final-regressions.spec.ts:17:1 › falha ao registrar worker mostra erro acessível e permite tentar novamente
+[305/378] [mobile-chromium] › e2e/19-final-regressions.spec.ts:35:1 › logout preserva recuperação por usuário sem mostrar compra de Ana para Bruno
+[306/378] [mobile-chromium] › e2e/20-wallet-intent.spec.ts:5:3 › editar carteira durante wallet-session/connect exige nova revisão e preserva carrinho
+[307/378] [mobile-chromium] › e2e/20-wallet-intent.spec.ts:5:3 › editar carteira durante orders exige nova revisão e preserva carrinho
+[308/378] [mobile-chromium] › e2e/21-mobile-text.spec.ts:76:3 › textos completos e ações acessíveis em 320px
+[309/378] [mobile-chromium] › e2e/21-mobile-text.spec.ts:76:3 › textos completos e ações acessíveis em 360px
+[310/378] [mobile-chromium] › e2e/21-mobile-text.spec.ts:76:3 › textos completos e ações acessíveis em 375px
+[311/378] [mobile-chromium] › e2e/21-mobile-text.spec.ts:76:3 › textos completos e ações acessíveis em 390px
+[312/378] [mobile-chromium] › e2e/21-mobile-text.spec.ts:76:3 › textos completos e ações acessíveis em 414px
+[313/378] [mobile-chromium] › e2e/22-design-tokens.spec.ts:3:1 › gradientes originais aparecem nas superfícies mobile
+[314/378] [mobile-chromium] › e2e/22-design-tokens.spec.ts:23:1 › favorito acompanha a imagem e funciona sem hover no toque
+[315/378] [mobile-chromium] › e2e/23-detail-design.spec.ts:3:1 › nft-002 usa estrelas vetoriais e as cores de avaliação do Figma
+[316/378] [mobile-chromium] › e2e/23-detail-design.spec.ts:20:1 › favorito do detalhe tem contorno próprio e mantém o estado após recarregar
+[317/378] [mobile-chromium] › e2e/23-detail-design.spec.ts:63:1 › galeria permite ampliar a imagem selecionada e restaura o foco
+[318/378] [mobile-chromium] › e2e/23-detail-design.spec.ts:80:1 › abas de detalhe têm sublinhado e não cortam o texto em telas estreitas
+[319/378] [mobile-chromium] › e2e/23-detail-design.spec.ts:98:1 › ações do detalhe cabem nos pontos de quebra entre tablet e desktop
+[320/378] [mobile-chromium] › e2e/23-detail-design.spec.ts:121:1 › cabeçalho usa contorno ativo e botão de entrada do Figma
+[321/378] [mobile-chromium] › e2e/23-detail-design.spec.ts:134:1 › ícones do menu da conta correspondem à função desenhada no Figma
+[322/378] [mobile-chromium] › e2e/24-screen-review.spec.ts:4:1 › Home preserva busca e posições dos ícones mobile do Figma
+[323/378] [mobile-chromium] › e2e/24-screen-review.spec.ts:24:1 › Home desktop usa slider laranja e tipografia do rodapé original
+[324/378] [mobile-chromium] › e2e/24-screen-review.spec.ts:61:1 › login e cadastro preservam formas e tipografia sem reduzir alvos de toque
+[325/378] [mobile-chromium] › e2e/24-screen-review.spec.ts:94:1 › carrinho usa margens mobile e cupom desktop do frame correspondente
+[326/378] [mobile-chromium] › e2e/24-screen-review.spec.ts:117:1 › perfil e carteiras usam indicadores de obrigação e formas originais
+[327/378] [mobile-chromium] › e2e/24-screen-review.spec.ts:140:1 › pagamento reproduz cartões e indicadores de seleção por breakpoint
+[328/378] [mobile-chromium] › e2e/24-screen-review.spec.ts:169:1 › recibo usa cabeçalhos e taxa nas cores e tamanhos do Figma
+[329/378] [mobile-chromium] › e2e/25-dialog-reflow.spec.ts:19:3 › login e cadastro ocupam o viewport inteiro em 640px
+[330/378] [mobile-chromium] › e2e/25-dialog-reflow.spec.ts:19:3 › login e cadastro ocupam o viewport inteiro em 720px
+[331/378] [mobile-chromium] › e2e/25-dialog-reflow.spec.ts:19:3 › login e cadastro ocupam o viewport inteiro em 767px
+[332/378] [mobile-chromium] › e2e/25-dialog-reflow.spec.ts:37:1 › recibo ocupa o viewport de 720px e permite alcançar a ação final
+[333/378] [mobile-chromium] › e2e/26-reconciliation.spec.ts:4:1 › menos remove a última unidade do carrinho e mantém limite no detalhe
+[334/378] [mobile-chromium] › e2e/26-reconciliation.spec.ts:21:1 › desconto do lançamento tem o sinal entre parênteses
+[335/378] [mobile-chromium] › e2e/26-reconciliation.spec.ts:26:1 › recomendações navegam por todos os cards e ampliam no hover
+[336/378] [mobile-chromium] › e2e/26-reconciliation.spec.ts:47:3 › autenticação não cria rolagem dentro do formulário em 1440x768
+[337/378] [mobile-chromium] › e2e/26-reconciliation.spec.ts:47:3 › autenticação não cria rolagem dentro do formulário em 1024x600
+[338/378] [mobile-chromium] › e2e/26-reconciliation.spec.ts:47:3 › autenticação não cria rolagem dentro do formulário em 720x450
+[339/378] [mobile-chromium] › e2e/26-reconciliation.spec.ts:47:3 › autenticação não cria rolagem dentro do formulário em 390x844
+[340/378] [mobile-chromium] › e2e/26-reconciliation.spec.ts:72:1 › resumo do pedido permite revisar itens e taxa no mobile
+[341/378] [mobile-chromium] › e2e/26-reconciliation.spec.ts:85:1 › login avisa quando soma dos carrinhos supera estoque
+[342/378] [mobile-chromium] › e2e/27-detail-completeness.spec.ts:4:1 › coleção do nft-004 avança sozinha, volta ao início e permite pausar
+[343/378] [mobile-chromium] › e2e/27-detail-completeness.spec.ts:26:1 › coleção respeita movimento reduzido e os pontos navegam por todos os itens
+[344/378] [mobile-chromium] › e2e/27-detail-completeness.spec.ts:48:1 › avaliações dos compradores carregam da API e paginam sem repetir comentários
+[345/378] [mobile-chromium] › e2e/27-detail-completeness.spec.ts:73:1 › avaliações mostram carregamento e permitem recuperar uma falha de rede
+[346/378] [mobile-chromium] › e2e/27-detail-completeness.spec.ts:90:1 › carrinho reutiliza avanço automático, pausa no hover e pontinhos
+[347/378] [mobile-chromium] › e2e/27-detail-completeness.spec.ts:111:1 › nft-004 mostra os metadados completos e coerentes com sua rede e coleção
+[348/378] [mobile-chromium] › e2e/27-detail-completeness.spec.ts:128:1 › migração do detalhe mantém o carrinho salvo em uma versão anterior
+[349/378] [mobile-chromium] › e2e/27-detail-completeness.spec.ts:156:1 › avaliações preservam aba e página no refresh e no histórico
+[350/378] [mobile-chromium] › e2e/27-detail-completeness.spec.ts:173:1 › evento de preço não interrompe avaliações em carregamento
+[351/378] [mobile-chromium] › e2e/28-home-completeness.spec.ts:3:1 › busca inclui o criador anunciado na interface
+[352/378] [mobile-chromium] › e2e/28-home-completeness.spec.ts:13:1 › página fora do intervalo recupera última página e URL sem perder filtros
+[353/378] [mobile-chromium] › e2e/28-home-completeness.spec.ts:32:1 › Entrar no cabeçalho preserva filtros e retorna ao catálogo após autenticar
+[354/378] [mobile-chromium] › e2e/28-home-completeness.spec.ts:48:1 › abas do catálogo aceitam setas, Home e End com foco único
+[355/378] [mobile-chromium] › e2e/28-home-completeness.spec.ts:66:1 › cards preservam tipografia desktop e mobile do Figma
+[356/378] [mobile-chromium] › e2e/28-home-completeness.spec.ts:79:1 › página fora do intervalo sem resultados exibe estado vazio recuperável
+[357/378] [mobile-chromium] › e2e/28-home-completeness.spec.ts:92:1 › falha editorial oferece nova tentativa e recupera conteúdo original do Figma
+[358/378] [mobile-chromium] › e2e/28-home-completeness.spec.ts:115:1 › coleções do rodapé usam o filtro disponível no catálogo
+[359/378] [mobile-chromium] › e2e/29-account-completeness.spec.ts:3:1 › autenticação adapta os espaços para manter todas as ações na tela
+[360/378] [mobile-chromium] › e2e/29-account-completeness.spec.ts:44:1 › erros de autenticação continuam acessíveis em uma tela baixa
+[361/378] [mobile-chromium] › e2e/29-account-completeness.spec.ts:67:1 › perfil não confirma alterações que ainda não foram salvas
+[362/378] [mobile-chromium] › e2e/29-account-completeness.spec.ts:79:1 › remover avatar não impede a confirmação de dados do perfil salvos depois
+[363/378] [mobile-chromium] › e2e/29-account-completeness.spec.ts:100:1 › carteiras não misturam confirmação anterior com alterações inválidas
+[364/378] [mobile-chromium] › e2e/29-account-completeness.spec.ts:116:1 › nova edição de senha remove a confirmação da operação anterior
+[365/378] [mobile-chromium] › e2e/29-account-completeness.spec.ts:127:1 › fechar autenticação preserva o contexto público e evita voltar para rotas protegidas
+[366/378] [mobile-chromium] › e2e/30-checkout-completeness.spec.ts:5:1 › nome de usuário permanece no rascunho e no snapshot enviado do pedido
+[367/378] [mobile-chromium] › e2e/30-checkout-completeness.spec.ts:30:1 › atalho de cupom volta ao carrinho e retorna ao pagamento com o rascunho
+[368/378] [mobile-chromium] › e2e/30-checkout-completeness.spec.ts:50:1 › token real aparece no resumo e permanece imutável no recibo
+[369/378] [mobile-chromium] › e2e/31-image-resilience.spec.ts:22:3 › recuperação de falhas de arquivos › falha AVIF recupera galeria e carrossel com o mesmo artwork WebP
+[370/378] [mobile-chromium] › e2e/31-image-resilience.spec.ts:55:3 › recuperação de falhas de arquivos › Home recupera cards e libera AVIF ao trocar o destaque para outra foto
+[371/378] [mobile-chromium] › e2e/31-image-resilience.spec.ts:84:3 › recuperação de falhas de arquivos › falha transitória nos dois formatos tenta novamente o arquivo original
+[372/378] [mobile-chromium] › e2e/31-image-resilience.spec.ts:105:3 › recuperação de falhas de arquivos › indisponibilidade preserva espaço e recupera imagens quando a conexão volta
+[373/378] [mobile-chromium] › e2e/31-image-resilience.spec.ts:127:5 › recuperação de falhas de arquivos › Home recupera foto indisponível ao retornar por visibilitychange
+[374/378] [mobile-chromium] › e2e/31-image-resilience.spec.ts:127:5 › recuperação de falhas de arquivos › Home recupera foto indisponível ao retornar por focus
+[375/378] [mobile-chromium] › e2e/31-image-resilience.spec.ts:156:3 › recuperação de falhas de arquivos › voltar ao destaque que falhou tenta a imagem novamente
+[376/378] [mobile-chromium] › e2e/31-image-resilience.spec.ts:174:3 › recuperação de falhas de arquivos › imagem indisponível mantém a área de visualização do zoom
+[377/378] [mobile-chromium] › e2e/31-image-resilience.spec.ts:190:3 › recuperação de falhas de arquivos › trocar foto na galeria não reaproveita o erro da imagem anterior
+[378/378] [mobile-chromium] › e2e/31-image-resilience.spec.ts:228:1 › Home preserva foto carregada ao alternar offline e online com retorno à aba
+  37 skipped
+  341 passed (6.8m)
